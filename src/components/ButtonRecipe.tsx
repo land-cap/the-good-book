@@ -1,7 +1,7 @@
 import { cva } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 
-export const buttonStyle = cva({
+export const buttonRecipe = cva({
 	base: {
 		boxSizing: 'border-box',
 		cursor: 'pointer',
@@ -42,4 +42,4 @@ export const buttonStyle = cva({
 	},
 })
 
-export const Button = styled('button', buttonStyle)
+export const Button = styled('button', buttonRecipe)
