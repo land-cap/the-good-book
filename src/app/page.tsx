@@ -11,7 +11,7 @@ const Home = () => (
 			})}>
 			Hi. I am The Good Book.
 		</h1>
-		<Button css={{ textTransform: 'uppercase' }}>I am a button</Button>
+		<Button css={{ color: 'blue.500' }}>I am a button</Button>
 	</main>
 )
 
