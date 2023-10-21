@@ -1,6 +1,8 @@
 import { defineConfig } from '@pandacss/dev'
+import { pandaTheme } from './panda-theme'
 
 export default defineConfig({
+	theme: pandaTheme,
 	jsxFramework: 'react',
 
 	// Whether to use css reset

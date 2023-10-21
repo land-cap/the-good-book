@@ -18,7 +18,7 @@ export const buttonStyle = cva({
 			},
 			secondary: {
 				bg: { base: 'white', _hover: 'gray.50' },
-				color: 'gray.900',
+				color: 'black',
 				borderWidth: '1px',
 				borderColor: 'gray.300',
 				shadow: 'sm',
@@ -34,9 +34,6 @@ export const buttonStyle = cva({
 			md: { px: 2.5, py: 1.5, fontSize: 'sm' },
 			lg: { px: 3, py: 2, fontSize: 'sm' },
 			xl: { px: 3.5, py: 2.5, fontSize: 'sm' },
-		},
-		rounded: {
-			true: { rounded: 'full' },
 		},
 	},
 	defaultVariants: {
