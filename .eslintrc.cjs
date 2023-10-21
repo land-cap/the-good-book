@@ -4,7 +4,7 @@ const config = {
     parserOptions: {
         project: true,
     },
-    plugins: ["@typescript-eslint", "plugin:prettier/recommended"],
+    plugins: ["@typescript-eslint", "prettier"],
     extends: [
         "next/core-web-vitals",
         "plugin:@typescript-eslint/recommended-type-checked",
@@ -31,6 +31,11 @@ const config = {
                 checksVoidReturn: {attributes: false},
             },
         ],
+
+        "react/jsx-curly-brace-presence": ["error", {props: "never", children: "never"}],
+        "prefer-arrow-callback": "error",
+        "arrow-body-style": "error",
+
         "prettier/prettier": [
             "error",
             {},

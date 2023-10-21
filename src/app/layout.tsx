@@ -12,14 +12,10 @@ export const metadata = {
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
-	return (
-		<html lang="en">
-			<body className={dmSans.className}>{children}</body>
-		</html>
-	)
-}
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+	<html lang="en">
+		<body className={dmSans.className}>{children}</body>
+	</html>
+)
+
+export default RootLayout
