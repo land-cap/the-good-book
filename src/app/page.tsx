@@ -1,4 +1,3 @@
-import './index.css'
 import { css } from 'styled-system/css'
 
 const Home = () => (
