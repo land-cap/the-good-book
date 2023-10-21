@@ -30,11 +30,13 @@
     "@typescript-eslint/parser": "^6.3.0",
     "eslint": "^8.47.0",
     "eslint-config-next": "^13.5.4",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
     "prisma": "^5.1.1",
     "typescript": "^5.1.6"
   },
   "ct3aMetadata": {
     "initVersion": "7.22.0"
   },
-  "packageManager": "npm@9.8.1"
+  "packageManager": "pnpm"
 }
