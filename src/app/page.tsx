@@ -1,4 +1,5 @@
 import { css } from 'styled-system/css'
+import { Button } from '~/components'
 
 const Home = () => (
 	<main>
@@ -10,6 +11,7 @@ const Home = () => (
 			})}>
 			Hi. I am The Good Book.
 		</h1>
+		<Button css={{ textTransform: 'uppercase' }}>I am a button</Button>
 	</main>
 )
 
