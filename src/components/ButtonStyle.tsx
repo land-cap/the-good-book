@@ -4,6 +4,7 @@ import { styled } from 'styled-system/jsx'
 export const buttonStyle = cva({
 	base: {
 		boxSizing: 'border-box',
+		cursor: 'pointer',
 		display: 'flex',
 		rounded: 'md',
 		fontWeight: 'black',
@@ -37,6 +38,10 @@ export const buttonStyle = cva({
 		rounded: {
 			true: { rounded: 'full' },
 		},
+	},
+	defaultVariants: {
+		visual: 'secondary',
+		size: 'md',
 	},
 })
 
