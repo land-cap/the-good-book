@@ -29,8 +29,11 @@ export const button = cva({
 			},
 		},
 		size: {
-			sm: { padding: '4', fontSize: '12px' },
-			lg: { padding: '8', fontSize: '24px' },
+			xs: { px: 2, py: 1, fontSize: 'xs' },
+			sm: { px: 2, py: 1, fontSize: 'sm' },
+			md: { px: 2.5, py: 1.5, fontSize: 'sm' },
+			lg: { px: 3, py: 2, fontSize: 'sm' },
+			xl: { px: 3.5, py: 2.5, fontSize: 'sm' },
 		},
 	},
 })
