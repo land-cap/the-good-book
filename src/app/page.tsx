@@ -1,17 +1,11 @@
-import { css } from 'styled-system/css'
 import { Button } from '~/components'
+import { center } from 'styled-system/patterns'
 
 const Home = () => (
-	<main>
-		<h1
-			className={css({
-				fontSize: '2xl',
-				fontWeight: 'black',
-				color: 'red.500',
-			})}>
-			Hi. I am The Good Book.
-		</h1>
-		<Button css={{ color: 'blue.500' }}>I am a button</Button>
+	<main className={center({ height: '100vh' })}>
+		<Button visual="secondary" size="xl">
+			I am a button
+		</Button>
 	</main>
 )
 

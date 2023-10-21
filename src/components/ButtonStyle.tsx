@@ -1,8 +1,7 @@
-import { type ComponentProps } from 'react'
-import { css, cva, cx } from 'styled-system/css'
-import { type SystemStyleObject } from 'styled-system/types'
+import { cva } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 
-export const button = cva({
+export const buttonStyle = cva({
 	base: {
 		boxSizing: 'border-box',
 		display: 'flex',
@@ -35,13 +34,10 @@ export const button = cva({
 			lg: { px: 3, py: 2, fontSize: 'sm' },
 			xl: { px: 3.5, py: 2.5, fontSize: 'sm' },
 		},
+		rounded: {
+			true: { rounded: 'full' },
+		},
 	},
 })
 
-export const Button = ({
-	css: _css,
-	...props
-}: ComponentProps<'button'> & { css?: SystemStyleObject }) => {
-	const className = cx(button({ visual: 'soft', size: 'sm' }), css(_css))
-	return <button className={className} {...props}></button>
-}
+export const Button = styled('button', buttonStyle)
