@@ -29,11 +29,11 @@ export const buttonRecipe = cva({
 			},
 		},
 		size: {
-			xs: { px: 2, py: 1, fontSize: 'xs', lineHeight: '1rem' },
-			sm: { px: 2, py: 1, fontSize: 'sm', lineHeight: '1.25rem' },
-			md: { px: 2.5, py: 1.5, fontSize: 'sm', lineHeight: '1.25rem' },
-			lg: { px: 3, py: 2, fontSize: 'sm', lineHeight: '1.25rem' },
-			xl: { px: 3.5, py: 2.5, fontSize: 'sm', lineHeight: '1.25rem' },
+			xs: { px: 2, py: 1, fontSize: 'xs' },
+			sm: { px: 2, py: 1, textStyle: 'sm' },
+			md: { px: 2.5, py: 1.5, textStyle: 'sm' },
+			lg: { px: 3, py: 2, textStyle: 'sm' },
+			xl: { px: 3.5, py: 2.5, textStyle: 'sm' },
 		},
 	},
 	defaultVariants: {
