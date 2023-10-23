@@ -12,7 +12,7 @@ export const buttonRecipe = cva({
 	variants: {
 		visual: {
 			primary: {
-				bg: { base: 'blue.600', _hover: 'blue.500' },
+				bg: { base: 'primary.600', _hover: 'primary.500' },
 				color: 'white',
 				shadow: 'sm',
 			},
@@ -24,8 +24,8 @@ export const buttonRecipe = cva({
 				shadow: 'sm',
 			},
 			soft: {
-				bg: { base: 'blue.50', _hover: 'blue.100' },
-				color: 'blue.600',
+				bg: { base: 'primary.50', _hover: 'primary.100' },
+				color: 'primary.600',
 			},
 		},
 		size: {
@@ -37,7 +37,7 @@ export const buttonRecipe = cva({
 		},
 	},
 	defaultVariants: {
-		visual: 'secondary',
+		visual: 'soft',
 		size: 'md',
 	},
 })

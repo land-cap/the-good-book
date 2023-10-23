@@ -1,8 +1,35 @@
 import { defineConfig } from '@pandacss/dev'
-import { pandaTheme } from './panda-theme'
 
 export default defineConfig({
-	theme: pandaTheme,
+	theme: {
+		extend: {
+			tokens: {
+				colors: {
+					primary: {
+						50: { value: '{colors.violet.50}' },
+						100: { value: '{colors.violet.100}' },
+						200: { value: '{colors.violet.200}' },
+						300: { value: '{colors.violet.300}' },
+						400: { value: '{colors.violet.400}' },
+						500: { value: '{colors.violet.500}' },
+						600: { value: '{colors.violet.600}' },
+						700: { value: '{colors.violet.700}' },
+						800: { value: '{colors.violet.800}' },
+						900: { value: '{colors.violet.900}' },
+						950: { value: '{colors.violet.950}' },
+					},
+				},
+			},
+			semanticTokens: {
+				colors: {
+					black: { value: '{colors.gray.900}' },
+					danger: { value: '{colors.red}' },
+					success: { value: '{colors.green}' },
+				},
+			},
+		},
+	},
+
 	jsxFramework: 'react',
 
 	// Whether to use css reset
