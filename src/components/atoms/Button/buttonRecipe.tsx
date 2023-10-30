@@ -1,4 +1,4 @@
-import { type RecipeVariantProps, sva } from 'styled-system/css'
+import { type RecipeVariantProps, sva } from '../../../../styled-system/css'
 
 const ACCENT = 'stone'
 const NEUTRAL = 'stone'
@@ -11,7 +11,7 @@ export const buttonRecipe = sva({
 			display: 'inline-flex',
 			alignItems: 'center',
 			gap: '1.5',
-			rounded: 'xs',
+			rounded: '0',
 			fontWeight: 'black',
 		},
 		icon: {

@@ -1,5 +1,5 @@
 import { buttonRecipe, type ButtonVariants } from './buttonRecipe'
-import { cx } from 'styled-system/css'
+import { cx } from '../../../../styled-system/css'
 import { Icon } from '../Icon/Icon'
 
 export type IconButtonProps = {
