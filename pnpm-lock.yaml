@@ -28,6 +28,9 @@ devDependencies:
   '@pandacss/dev':
     specifier: ^0.17.0
     version: 0.17.0(@internationalized/date@3.5.0)(@types/node@18.18.6)(@types/react-dom@18.2.14)(@types/react@18.2.31)(typescript@5.2.2)
+  '@pandacss/preset-panda':
+    specifier: ^0.17.3
+    version: 0.17.3
   '@types/eslint':
     specifier: ^8.44.2
     version: 8.44.6
@@ -1284,6 +1287,12 @@ packages:
       '@pandacss/types': 0.17.0
     dev: true
 
+  /@pandacss/preset-panda@0.17.3:
+    resolution: {integrity: sha512-7eqx28Ob8To7B7a6VUb1i0rQL9Gy2f//6YbkfaB9ZVA2cAzqkR6K7j7XdMgzH0mYUOAi63gJyQPV6xJL9Chgpw==}
+    dependencies:
+      '@pandacss/types': 0.17.3
+    dev: true
+
   /@pandacss/shared@0.17.0:
     resolution: {integrity: sha512-h7bcC/ZbE1ZhXMH4S5QFkmMoV7X8bAl02Z92Nx8HDYa1J1B7ot2z8a4XQePdvWDrtfMYSW4/lhEGVwQcsB4t7w==}
     dev: true
@@ -1331,6 +1340,10 @@ packages:
 
   /@pandacss/types@0.17.0:
     resolution: {integrity: sha512-CAMg0Adnlgldy3FA6mmNcblVvt4G9HLMzTvd+E+l0X4x2z1qfL6uUp7cmrD1NFr2fexnYzM2ldUcAXRZC4G3lw==}
+    dev: true
+
+  /@pandacss/types@0.17.3:
+    resolution: {integrity: sha512-Nr15t+ZFKttJXNTq6uBAkvB3izl3o7BSdnrGihi+LnYZ14wiIf0XaZyolkrR1hkDUtykCba8SLPQJsLc5ccALw==}
     dev: true
 
   /@pkgr/utils@2.4.2:
