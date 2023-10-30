@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
+    "@storybook/manager-api": "^7.5.1",
+    "@storybook/theming": "^7.5.1",
     "@t3-oss/env-nextjs": "^0.7.0",
     "next": "^13.5.4",
     "react": "18.2.0",
