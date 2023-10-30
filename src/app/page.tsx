@@ -1,9 +1,9 @@
-import { Button } from '~/components'
+import { OldButton } from '~/components'
 import { center } from 'styled-system/patterns'
 
 const Home = () => (
 	<main className={center({ height: '100vh' })}>
-		<Button>I am a button</Button>
+		<OldButton visual="primary">I am a button</OldButton>
 	</main>
 )
 
