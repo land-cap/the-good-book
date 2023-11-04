@@ -65,7 +65,7 @@ const createStory = (story: Partial<Story>): Story => ({
 				</>
 			)
 		},
-		...(story.decorators || []),
+		...(story.decorators ?? []),
 	],
 	...story,
 	parameters: {

@@ -1,7 +1,7 @@
 import { type RecipeVariantProps, sva } from '../../../../styled-system/css'
 
-const ACCENT = 'stone'
-const NEUTRAL = 'stone'
+const ACCENT = 'sky'
+const NEUTRAL = 'neutral'
 
 export const buttonRecipe = sva({
 	slots: ['button', 'icon', 'iconLeft', 'iconRight'],
@@ -44,7 +44,7 @@ export const buttonRecipe = sva({
 			secondary: {
 				button: {
 					bg: { base: 'white', _hover: `${NEUTRAL}.50` },
-					color: 'black',
+					color: `${NEUTRAL}.900`,
 					oRingWidth: '1px',
 					oRingColor: `${NEUTRAL}.300`,
 					oRingInset: true,
