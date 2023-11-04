@@ -8,7 +8,7 @@ import {
 export const capdUiPreset = definePreset({
 	globalCss: {
 		':root': {
-			fontFamily: 'DM Sans',
+			fontFamily: 'sans',
 			'--ring-offset-width': '0px',
 		},
 	},
@@ -29,6 +29,10 @@ export const capdUiPreset = definePreset({
 						900: { value: '{colors.green.900}' },
 						950: { value: '{colors.green.950}' },
 					},
+				},
+				fonts: {
+					sans: { value: 'var(--font-sans)' },
+					mono: { value: 'var(--font-mono)' },
 				},
 			},
 			semanticTokens: {

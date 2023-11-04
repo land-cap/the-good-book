@@ -1,8 +1,15 @@
 import '~/index.css'
-import { DM_Sans } from 'next/font/google'
+import { DM_Mono, DM_Sans } from 'next/font/google'
 
 const dmSans = DM_Sans({
 	subsets: ['latin-ext'],
+	variable: '--font-sans',
+})
+
+const dmMono = DM_Mono({
+	subsets: ['latin-ext'],
+	weight: ['300', '400', '500'],
+	variable: '--font-mono',
 })
 
 export const metadata = {
@@ -12,8 +19,8 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
-	<html lang="en">
-		<body className={dmSans.className}>{children}</body>
+	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+		<body>{children}</body>
 	</html>
 )
 
