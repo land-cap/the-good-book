@@ -1,5 +1,5 @@
-import { styled } from '../../../../../styled-system/jsx'
-import { css } from '../../../../../styled-system/css'
+import { styled } from 'styled-system/jsx'
+import { css } from 'styled-system/css'
 import {
 	CONTENT_TYPE,
 	type TQuote,
@@ -11,21 +11,21 @@ export const ChapterTitle = styled('h1', {
 	base: {
 		marginY: '4',
 		fontSize: { base: '3xl', lg: '4xl' },
-		fontWeight: 'black',
+		fontWeight: 'blacker',
 	},
 })
 
 export const SectionTitle = styled('h2', {
 	base: {
 		marginY: '0.5em',
-		fontWeight: 'black',
+		fontWeight: 'bold',
 	},
 })
 
 export const VerseNumber = styled('sup', {
 	base: {
 		fontFamily: 'sans',
-		fontWeight: 'black',
+		fontWeight: 'bold',
 		color: 'neutral.500',
 	},
 })
@@ -57,7 +57,7 @@ export const Verse = ({
 export const Body = ({ verseList }: { verseList: TVerse[] }) => (
 	<p>
 		{verseList.map((verse) => (
-			<Verse verse={verse} />
+			<Verse key={JSON.stringify(verse)} verse={verse} />
 		))}
 	</p>
 )

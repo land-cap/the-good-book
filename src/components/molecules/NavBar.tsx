@@ -16,7 +16,7 @@ const NavBarContainer = styled('nav', {
 })
 
 const Logo = styled('span', {
-	base: { display: { base: 'none', sm: 'block' }, fontWeight: 'black' },
+	base: { display: { base: 'none', sm: 'block' }, fontWeight: 'blacker' },
 })
 
 export const NavBar = () => (
