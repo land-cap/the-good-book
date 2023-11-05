@@ -9,7 +9,7 @@ import {
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		marginY: '8',
+		marginY: '4',
 		fontSize: { base: '3xl', lg: '4xl' },
 		fontWeight: 'black',
 	},
@@ -17,8 +17,7 @@ export const ChapterTitle = styled('h1', {
 
 export const SectionTitle = styled('h2', {
 	base: {
-		marginY: '6',
-		fontSize: { base: 'md', lg: 'xl' },
+		marginY: '0.5em',
 		fontWeight: 'black',
 	},
 })
@@ -55,12 +54,13 @@ export const Verse = ({
 	</>
 )
 
-export const BodyCopy = styled('p', {
-	base: {
-		fontSize: { base: 'md', lg: 'lg' },
-		lineHeight: '2',
-	},
-})
+export const Body = ({ verseList }: { verseList: TVerse[] }) => (
+	<p>
+		{verseList.map((verse) => (
+			<Verse verse={verse} />
+		))}
+	</p>
+)
 
 export const Quote = ({
 	quote: { verseNumber, content },
@@ -85,6 +85,6 @@ export const Quote = ({
 export const contentTypeToComponent = {
 	[CONTENT_TYPE.ChapterTitle]: ChapterTitle,
 	[CONTENT_TYPE.SectionTitle]: SectionTitle,
-	[CONTENT_TYPE.Body]: BodyCopy,
+	[CONTENT_TYPE.Body]: Body,
 	[CONTENT_TYPE.Quote]: Quote,
 }

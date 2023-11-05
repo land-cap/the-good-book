@@ -29,7 +29,7 @@ export type TVerse = {
 	}[]
 }
 
-export type TBodyCopy = { type: CONTENT_TYPE.Body; content: TVerse[] }
+export type TBody = { type: CONTENT_TYPE.Body; content: TVerse[] }
 
 export type TQuote = {
 	type: CONTENT_TYPE.Quote
@@ -37,4 +37,4 @@ export type TQuote = {
 	content: string
 }
 
-export type TChapter = (TChapterTitle | TSectionTitle | TBodyCopy | TQuote)[]
+export type TChapter = (TChapterTitle | TSectionTitle | TBody | TQuote)[]
