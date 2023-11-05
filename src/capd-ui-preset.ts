@@ -9,6 +9,7 @@ export const capdUiPreset = definePreset({
 	globalCss: {
 		':root': {
 			fontFamily: 'sans',
+			fontOpticalSizing: 'auto',
 			'--ring-offset-width': '0px',
 		},
 	},

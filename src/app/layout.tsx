@@ -7,6 +7,7 @@ import { styled } from '../../styled-system/jsx'
 const dmSans = DM_Sans({
 	subsets: ['latin-ext'],
 	variable: '--font-sans',
+	axes: ['opsz'],
 })
 
 const dmMono = DM_Mono({
