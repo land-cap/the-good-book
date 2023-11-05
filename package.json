@@ -11,7 +11,7 @@
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 4001",
     "build-storybook": "storybook build"
   },
   "dependencies": {
