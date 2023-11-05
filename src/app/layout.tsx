@@ -1,5 +1,8 @@
 import '~/index.css'
 import { DM_Mono, DM_Sans } from 'next/font/google'
+import { flex } from '../../styled-system/patterns'
+import { NavBar } from '~/components/molecules/NavBar'
+import { Page } from '~/components/Page'
 
 const dmSans = DM_Sans({
 	subsets: ['latin-ext'],
@@ -18,9 +21,19 @@ export const metadata = {
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
+const appShellStyle = flex({
+	flexFlow: 'column nowrap',
+	height: 'fit-content',
+	minHeight: '100vh',
+	textStyle: 'body',
+})
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
-		<body>{children}</body>
+		<body className={appShellStyle}>
+			<NavBar />
+			<Page>{children}</Page>
+		</body>
 	</html>
 )
 
