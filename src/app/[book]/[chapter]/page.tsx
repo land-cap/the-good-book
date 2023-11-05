@@ -1,10 +1,7 @@
 const Home = ({ params }: { params: { book: string; chapter: string } }) => {
 	const { book, chapter } = params
-	return (
-		<main>
-			{book} {chapter}
-		</main>
-	)
+	console.log({ book, chapter })
+	return <main></main>
 }
 
 export default Home
