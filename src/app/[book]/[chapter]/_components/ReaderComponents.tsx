@@ -74,25 +74,16 @@ export const Quote = ({
 }) => (
 	<q
 		className={css({
-			pos: 'relative',
 			display: 'block',
 			fontFamily: 'mono',
 			fontSize: { base: 'md', lg: 'lg' },
 			lineHeight: '2.5',
 		})}>
 		{verseNumber ? (
-			<p
-				className={css({
-					pos: 'absolute',
-					left: '0',
-					transform: 'translateX(-100%)',
-					fontFamily: 'mono',
-					fontSize: { base: 'md', lg: 'lg' },
-					lineHeight: '2.5',
-				})}>
+			<>
 				<VerseNumber>{verseNumber}</VerseNumber>
 				&nbsp;
-			</p>
+			</>
 		) : null}
 		{content}
 	</q>
