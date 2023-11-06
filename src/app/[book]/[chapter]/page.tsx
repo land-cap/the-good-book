@@ -1,4 +1,3 @@
-import { mockChapterData } from '~/mocks/mockChapterData'
 import {
 	Body,
 	ChapterTitle,
@@ -7,6 +6,7 @@ import {
 } from './_components/ReaderComponents'
 import { CONTENT_TYPE } from '~/models/bible-data.models'
 import { styled } from '../../../../styled-system/jsx'
+import { mockChapterDataJob1 } from '~/mocks/mockChapterDataJob1'
 
 const ReaderContainer = styled('main', {
 	base: {
@@ -19,7 +19,7 @@ const Reader = ({ params }: { params: { book: string; chapter: string } }) => {
 	const { book, chapter } = params
 	console.log({ book, chapter })
 
-	const chapterData = mockChapterData
+	const chapterData = mockChapterDataJob1
 
 	return (
 		<ReaderContainer>

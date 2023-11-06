@@ -1,6 +1,6 @@
 import { type TChapter } from '~/models/bible-data.models'
 
-export const mockChapterData = [
+export const mockChapterDataGen1 = [
 	{
 		type: 'chapterTitle',
 		content: 'Geneza 1',
