@@ -14,8 +14,8 @@ export const metadata = {
 const AppShell = styled('div', {
 	base: {
 		flexFlow: 'column nowrap',
-		height: 'fit-content',
-		minHeight: '100vh',
+		h: 'fit-content',
+		minH: '100vh',
 		textStyle: 'body',
 	},
 })

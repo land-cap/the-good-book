@@ -5,13 +5,13 @@ import { flex } from '../../../styled-system/patterns'
 const NavBarContainer = styled('nav', {
 	base: {
 		zIndex: '10',
-		position: 'sticky',
+		pos: 'sticky',
 		top: '0',
-		marginX: 'auto',
+		mx: 'auto',
 		width: 'full',
-		maxWidth: '2xl',
-		paddingX: '8',
-		background: 'white',
+		maxW: '2xl',
+		px: '8',
+		bg: 'white',
 	},
 })
 
@@ -37,8 +37,8 @@ export const NavBar = () => (
 					gap: '6',
 					justify: 'space-between',
 					align: 'center',
-					paddingY: { base: '4', sm: '0' },
-					height: { sm: '16' },
+					py: { base: '4', sm: '0' },
+					h: { sm: '16' },
 				})}>
 				<Logo>The Good Book</Logo>
 			</div>

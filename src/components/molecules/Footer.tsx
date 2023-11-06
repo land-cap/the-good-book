@@ -7,11 +7,11 @@ const FooterContainer = styled('footer', {
 	base: {
 		display: 'flex',
 		placeContent: 'center',
-		marginX: 'auto',
-		width: 'full',
-		maxWidth: '2xl',
-		paddingX: '8',
-		marginY: { base: '20', sm: '32' },
+		mx: 'auto',
+		w: 'full',
+		maxW: '2xl',
+		px: '8',
+		my: { base: '20', sm: '32' },
 	},
 })
 
@@ -32,8 +32,8 @@ export const Footer = () => (
 			</p>
 			<p className={css({ fontSize: 'xs', color: 'neutral.500' })}>
 				<span className={css({ display: 'inline-flex', alignItems: 'center' })}>
-					Made with <Icon name="favorite" className={css({ marginX: '1' })} />{' '}
-					in Moldova by
+					Made with <Icon name="favorite" className={css({ mx: '1' })} /> in
+					Moldova by
 				</span>{' '}
 				<a
 					href="https://github.com/land-cap"

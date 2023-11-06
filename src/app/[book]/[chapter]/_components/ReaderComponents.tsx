@@ -9,7 +9,7 @@ import {
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		marginY: '4',
+		my: '4',
 		fontSize: { base: '3xl', lg: '4xl' },
 		fontWeight: 'blacker',
 	},
@@ -17,7 +17,7 @@ export const ChapterTitle = styled('h1', {
 
 export const SectionTitle = styled('h2', {
 	base: {
-		marginY: '0.5em',
+		my: '0.5em',
 		fontWeight: 'bold',
 	},
 })
