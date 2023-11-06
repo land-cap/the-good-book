@@ -32,8 +32,8 @@ export const capdUiPreset = definePreset({
 					},
 				},
 				fonts: {
-					sans: { value: 'var(--font-geist-sans)' },
-					mono: { value: 'var(--font-geist-mono)' },
+					sans: { value: 'var(--font-sans)' },
+					mono: { value: 'var(--font-mono)' },
 				},
 				fontWeights: { blacker: { value: '1000' } },
 			},
