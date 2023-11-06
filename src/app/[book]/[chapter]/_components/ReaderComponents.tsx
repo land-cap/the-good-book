@@ -17,9 +17,9 @@ export const ChapterTitle = styled('h1', {
 
 export const SectionTitle = styled('h2', {
 	base: {
-		my: '0.5em',
 		fontWeight: 'bold',
 		fontSize: { base: 'md', lg: 'lg' },
+		lineHeight: '2.5',
 	},
 })
 
@@ -32,7 +32,7 @@ export const VerseNumber = styled('sup', {
 
 export const JesusWords = styled('span', {
 	base: {
-		color: 'red.600',
+		color: { base: 'red.600', _osDark: 'red.400' },
 	},
 })
 
