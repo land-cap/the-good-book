@@ -32,8 +32,12 @@ export const Footer = () => (
 			</p>
 			<p className={css({ fontSize: 'xs', color: 'neutral.500' })}>
 				<span className={css({ display: 'inline-flex', alignItems: 'center' })}>
-					Made with <Icon name="favorite" className={css({ mx: '1' })} /> in
-					Moldova by
+					Made with{' '}
+					<Icon
+						name="favorite"
+						className={css({ mx: '1', color: 'red.500' })}
+					/>{' '}
+					in Moldova by
 				</span>{' '}
 				<a
 					href="https://github.com/land-cap"
