@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button, type ButtonProps } from './Button'
-import { Flex } from '../../../../styled-system/jsx'
-import { visuallyHidden } from '../../../../styled-system/patterns'
+import { Flex } from 'styled-system/jsx'
+import { visuallyHidden } from 'styled-system/patterns'
 
 const CONTROLS = ['visual', 'label', 'rounded'] as const
 
@@ -14,7 +14,9 @@ const ICON_NAME = 'bolt'
 const ButtonSizeRange = ({
 	sizes = new Set(['xs', 'sm', 'md', 'lg', 'xl']),
 	...props
-}: ButtonProps & { sizes?: Set<ButtonProps['size']> }) => (
+}: ButtonProps & {
+	sizes?: Set<ButtonProps['size']>
+}) => (
 	<Flex flexFlow="row" align="center" gap="8">
 		{Array.from(sizes).map((size) => (
 			<Button key={size} {...props} size={size} />

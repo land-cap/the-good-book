@@ -1,4 +1,4 @@
-import { type RecipeVariantProps, sva } from '../../../../styled-system/css'
+import { type RecipeVariantProps, sva } from 'styled-system/css'
 
 const ACCENT = 'sky'
 const NEUTRAL = 'neutral'

@@ -1,6 +1,6 @@
-import { styled } from '../../../styled-system/jsx'
-import { css } from '../../../styled-system/css'
-import { flex } from '../../../styled-system/patterns'
+import { styled } from 'styled-system/jsx'
+import { css } from 'styled-system/css'
+import { flex } from 'styled-system/patterns'
 
 const NavBarContainer = styled('nav', {
 	base: {

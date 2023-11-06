@@ -18,11 +18,9 @@ const Reader = ({
 	const { book, chapter } = params
 	console.log({ book, chapter })
 
-	const chapterData = mockChapterDataJob1
-
 	return (
 		<main>
-			{chapterData.map((dataItem) => {
+			{mockChapterDataJob1.map((dataItem) => {
 				const { type, content } = dataItem
 				if (type === CONTENT_TYPE.ChapterTitle) {
 					return <ChapterTitle key={content}>{content}</ChapterTitle>

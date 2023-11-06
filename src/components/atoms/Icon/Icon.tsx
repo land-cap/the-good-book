@@ -1,4 +1,4 @@
-import { cva, cx, type RecipeVariantProps } from '../../../../styled-system/css'
+import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
 
 export const iconRecipe = cva({
 	base: {

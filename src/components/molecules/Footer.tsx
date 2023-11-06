@@ -1,6 +1,6 @@
-import { styled } from '../../../styled-system/jsx'
-import { flex } from '../../../styled-system/patterns'
-import { css } from '../../../styled-system/css'
+import { styled } from 'styled-system/jsx'
+import { flex } from 'styled-system/patterns'
+import { css } from 'styled-system/css'
 import { Icon } from '~/components/atoms/Icon/Icon'
 
 const FooterContainer = styled('footer', {

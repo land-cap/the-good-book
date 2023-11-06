@@ -1,7 +1,7 @@
 import '~/index.css'
 import { NavBar } from '~/components/molecules/NavBar'
 import { Page } from '~/components/Page'
-import { styled } from '../../styled-system/jsx'
+import { styled } from 'styled-system/jsx'
 import { GeistMono, GeistSans } from 'geist/font'
 import { Footer } from '~/components/molecules/Footer'
 

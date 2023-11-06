@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Flex } from '../../../../styled-system/jsx'
-import { visuallyHidden } from '../../../../styled-system/patterns'
+import { Flex } from 'styled-system/jsx'
+import { visuallyHidden } from 'styled-system/patterns'
 import { IconButton as _IconButton, type IconButtonProps } from './IconButton'
 
 const CONTROLS = ['visual'] as const
@@ -12,7 +12,9 @@ const DEFAULT_ARGS: IconButtonProps = {
 const IconButtonSizeRange = ({
 	sizes = new Set(['xs', 'sm', 'md', 'lg', 'xl']),
 	...props
-}: IconButtonProps & { sizes?: Set<IconButtonProps['size']> }) => (
+}: IconButtonProps & {
+	sizes?: Set<IconButtonProps['size']>
+}) => (
 	<Flex flexFlow="row" align="center" gap="8">
 		{Array.from(sizes).map((size) => (
 			<_IconButton key={size} {...props} size={size} />
@@ -59,7 +61,7 @@ const createStory = (story: Partial<Story>): Story => ({
 				</>
 			)
 		},
-		...(story.decorators || []),
+		...(story.decorators ?? []),
 	],
 	...story,
 	parameters: {

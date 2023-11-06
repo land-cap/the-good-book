@@ -24,7 +24,7 @@
     "paths": {
       "~/*": [
         "./src/*"
-      ],
+      ]
     },
     "plugins": [
       {
@@ -40,7 +40,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts",
-    "./styled-system/**/*"
+    "./styled-system"
   ],
   "exclude": [
     "node_modules"
