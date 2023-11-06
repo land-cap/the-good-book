@@ -79,19 +79,19 @@ export const pandaPreset = definePreset({
 						emphasized: {
 							value: {
 								base: '{colors.neutral.700}',
-								_osDark: '{colors.neutral.200}',
+								_osDark: '{colors.neutral.300}',
 							},
 						},
 						muted: {
 							value: {
 								base: '{colors.neutral.600}',
-								_osDark: '{colors.neutral.300}',
+								_osDark: '{colors.neutral.400}',
 							},
 						},
 						subtle: {
 							value: {
 								base: '{colors.neutral.500}',
-								_osDark: '{colors.neutral.400}',
+								_osDark: '{colors.neutral.500}',
 							},
 						},
 						inverted: {

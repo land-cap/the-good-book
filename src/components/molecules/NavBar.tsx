@@ -29,7 +29,10 @@ const Logo = styled('span', {
 
 export const NavBar = () => (
 	<NavBarContainer>
-		<div className={css({ borderBottom: '1px solid token(colors.border)' })}>
+		<div
+			className={css({
+				borderBottom: '1px solid token(colors.border)',
+			})}>
 			<div
 				className={flex({
 					direction: { base: 'column', sm: 'row' },
