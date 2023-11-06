@@ -6,6 +6,7 @@ import {
 } from './_components/ReaderComponents'
 import { CONTENT_TYPE } from '~/models/bible-data.models'
 import { mockChapterDataGen1 } from '~/mocks/mockChapterDataGen1'
+import { css } from 'styled-system/css'
 
 const Reader = ({
 	params,
@@ -19,7 +20,7 @@ const Reader = ({
 	console.log({ book, chapter })
 
 	return (
-		<main>
+		<main className={css({ color: { _osDark: 'fg.muted' } })}>
 			{mockChapterDataGen1.map((dataItem) => {
 				const { type, content } = dataItem
 				if (type === CONTENT_TYPE.ChapterTitle) {

@@ -1,9 +1,8 @@
 import { defineConfig } from '@pandacss/dev'
-import pandaPreset from '@pandacss/preset-panda'
-import { capdUiPreset } from '~/capd-ui-preset'
+import { pandaPreset } from '~/panda-preset'
 
 export default defineConfig({
-	presets: ['@pandacss/dev/presets', pandaPreset, capdUiPreset],
+	presets: ['@pandacss/dev/presets', pandaPreset, pandaPreset],
 	jsxFramework: 'react',
 	// Whether to use css reset
 	preflight: true,

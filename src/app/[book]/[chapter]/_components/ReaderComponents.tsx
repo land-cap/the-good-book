@@ -26,7 +26,7 @@ export const SectionTitle = styled('h2', {
 export const VerseNumber = styled('sup', {
 	base: {
 		fontFamily: 'mono',
-		color: 'neutral.500',
+		color: 'fg.subtle',
 	},
 })
 

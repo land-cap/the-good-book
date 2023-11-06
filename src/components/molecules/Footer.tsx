@@ -10,7 +10,7 @@ const FooterContainer = styled('footer', {
 		alignItems: 'center',
 		textAlign: 'center',
 		fontSize: 'xs',
-		color: 'neutral.500',
+		color: 'fg.subtle',
 		mx: 'auto',
 		w: 'full',
 		maxW: '2xl',
@@ -30,7 +30,13 @@ export const Footer = () => (
 		<p>
 			<span className={css({ display: 'inline-flex', alignItems: 'center' })}>
 				Made with{' '}
-				<Icon name="favorite" className={css({ mx: '1', color: 'red.500' })} />{' '}
+				<Icon
+					name="favorite"
+					className={css({
+						mx: '1',
+						color: { base: 'red.500', _osDark: 'red.400' },
+					})}
+				/>{' '}
 				in Moldova by
 			</span>{' '}
 			<a

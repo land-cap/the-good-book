@@ -5,10 +5,12 @@ import {
 	type SizeToken,
 } from 'styled-system/tokens'
 
-export const capdUiPreset = definePreset({
+export const pandaPreset = definePreset({
 	globalCss: {
 		':root': {
 			fontFamily: 'sans',
+			color: 'fg',
+			bg: 'bg.surface',
 			fontOpticalSizing: 'auto',
 			'--ring-offset-width': '0px',
 		},
@@ -17,6 +19,8 @@ export const capdUiPreset = definePreset({
 		extend: {
 			tokens: {
 				colors: {
+					black: { value: '{colors.neutral.900}' },
+					white: { value: 'white' },
 					primary: {
 						50: { value: '{colors.green.50}' },
 						100: { value: '{colors.green.100}' },
@@ -39,7 +43,84 @@ export const capdUiPreset = definePreset({
 			},
 			semanticTokens: {
 				colors: {
-					black: { value: '{colors.gray.900}' },
+					bg: {
+						canvas: {
+							value: {
+								base: '{colors.neutral.25}',
+								_osDark: '{colors.neutral.950}',
+							},
+						},
+						surface: {
+							value: {
+								base: '{colors.white}',
+								_osDark: '{colors.neutral.900}',
+							},
+						},
+						subtle: {
+							value: {
+								base: '{colors.neutral.50}',
+								_osDark: '{colors.neutral.800}',
+							},
+						},
+						muted: {
+							value: {
+								base: '{colors.neutral.100}',
+								_osDark: '{colors.neutral.700}',
+							},
+						},
+					},
+					fg: {
+						DEFAULT: {
+							value: {
+								base: '{colors.neutral.900}',
+								_osDark: '{colors.white}',
+							},
+						},
+						emphasized: {
+							value: {
+								base: '{colors.neutral.700}',
+								_osDark: '{colors.neutral.200}',
+							},
+						},
+						muted: {
+							value: {
+								base: '{colors.neutral.600}',
+								_osDark: '{colors.neutral.300}',
+							},
+						},
+						subtle: {
+							value: {
+								base: '{colors.neutral.500}',
+								_osDark: '{colors.neutral.400}',
+							},
+						},
+						inverted: {
+							value: {
+								base: '{colors.white}',
+								_osDark: '{colors.neutral.950}',
+							},
+						},
+					},
+					border: {
+						DEFAULT: {
+							value: {
+								base: '{colors.neutral.200}',
+								_osDark: '{colors.neutral.800}',
+							},
+						},
+						emphasized: {
+							value: {
+								base: '{colors.neutral.300}',
+								_osDark: '{colors.neutral.700}',
+							},
+						},
+						active: {
+							value: {
+								base: '{colors.neutral.400}',
+								_osDark: '{colors.neutral.600}',
+							},
+						},
+					},
 				},
 			},
 		},

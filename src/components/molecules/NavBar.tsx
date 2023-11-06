@@ -11,7 +11,7 @@ const NavBarContainer = styled('nav', {
 		width: 'full',
 		maxW: '2xl',
 		px: '8',
-		bg: 'white',
+		bg: 'bg.surface',
 	},
 })
 
@@ -23,14 +23,13 @@ const Logo = styled('span', {
 			sm: 'block',
 		},
 		fontWeight: 'blacker',
-		color: 'neutral.500',
+		color: 'fg.subtle',
 	},
 })
 
 export const NavBar = () => (
 	<NavBarContainer>
-		<div
-			className={css({ borderBottom: '1px solid token(colors.neutral.200)' })}>
+		<div className={css({ borderBottom: '1px solid token(colors.border)' })}>
 			<div
 				className={flex({
 					direction: { base: 'column', sm: 'row' },
