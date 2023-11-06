@@ -5,7 +5,7 @@ import {
 	SectionTitle,
 } from './_components/ReaderComponents'
 import { CONTENT_TYPE } from '~/models/bible-data.models'
-import { mockChapterDataJob1 } from '~/mocks/mockChapterDataJob1'
+import { mockChapterDataGen1 } from '~/mocks/mockChapterDataGen1'
 
 const Reader = ({
 	params,
@@ -20,7 +20,7 @@ const Reader = ({
 
 	return (
 		<main>
-			{mockChapterDataJob1.map((dataItem) => {
+			{mockChapterDataGen1.map((dataItem) => {
 				const { type, content } = dataItem
 				if (type === CONTENT_TYPE.ChapterTitle) {
 					return <ChapterTitle key={content}>{content}</ChapterTitle>
