@@ -11,11 +11,18 @@ import { mockChapterDataJob1 } from '~/mocks/mockChapterDataJob1'
 const ReaderContainer = styled('main', {
 	base: {
 		fontSize: { base: 'md', lg: 'lg' },
-		lineHeight: '2',
+		lineHeight: '2.5',
 	},
 })
 
-const Reader = ({ params }: { params: { book: string; chapter: string } }) => {
+const Reader = ({
+	params,
+}: {
+	params: {
+		book: string
+		chapter: string
+	}
+}) => {
 	const { book, chapter } = params
 	console.log({ book, chapter })
 

@@ -17,7 +17,11 @@ const NavBarContainer = styled('nav', {
 
 const Logo = styled('span', {
 	base: {
-		display: { base: 'none', sm: 'block' },
+		display: {
+			// TODO: hide below sm after ChapterPicker component is added
+			// base: 'none',
+			sm: 'block',
+		},
 		fontWeight: 'blacker',
 		color: 'neutral.500',
 	},
