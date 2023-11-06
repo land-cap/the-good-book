@@ -9,8 +9,8 @@ import {
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		my: '4',
-		fontSize: { base: '3xl', lg: '4xl' },
+		my: '8',
+		fontSize: '4xl',
 		fontWeight: 'blacker',
 	},
 })
@@ -19,6 +19,7 @@ export const SectionTitle = styled('h2', {
 	base: {
 		my: '0.5em',
 		fontWeight: 'bold',
+		fontSize: { base: 'md', lg: 'lg' },
 	},
 })
 
@@ -55,7 +56,11 @@ export const Verse = ({
 )
 
 export const Body = ({ verseList }: { verseList: TVerse[] }) => (
-	<p>
+	<p
+		className={css({
+			fontSize: { base: 'md', lg: 'lg' },
+			lineHeight: '2.5',
+		})}>
 		{verseList.map((verse) => (
 			<Verse key={JSON.stringify(verse)} verse={verse} />
 		))}
@@ -71,6 +76,8 @@ export const Quote = ({
 		className={css({
 			display: 'block',
 			fontFamily: 'mono',
+			fontSize: { base: 'md', lg: 'lg' },
+			lineHeight: '2.5',
 		})}>
 		{verseNumber ? (
 			<>

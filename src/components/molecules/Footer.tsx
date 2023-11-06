@@ -11,7 +11,7 @@ const FooterContainer = styled('footer', {
 		w: 'full',
 		maxW: '2xl',
 		px: '8',
-		my: { base: '20', sm: '32' },
+		my: '32',
 	},
 })
 

@@ -5,15 +5,7 @@ import {
 	SectionTitle,
 } from './_components/ReaderComponents'
 import { CONTENT_TYPE } from '~/models/bible-data.models'
-import { styled } from '../../../../styled-system/jsx'
 import { mockChapterDataJob1 } from '~/mocks/mockChapterDataJob1'
-
-const ReaderContainer = styled('main', {
-	base: {
-		fontSize: { base: 'md', lg: 'lg' },
-		lineHeight: '2.5',
-	},
-})
 
 const Reader = ({
 	params,
@@ -29,7 +21,7 @@ const Reader = ({
 	const chapterData = mockChapterDataJob1
 
 	return (
-		<ReaderContainer>
+		<main>
 			{chapterData.map((dataItem) => {
 				const { type, content } = dataItem
 				if (type === CONTENT_TYPE.ChapterTitle) {
@@ -45,7 +37,7 @@ const Reader = ({
 					return <Quote key={content} quote={dataItem} />
 				}
 			})}
-		</ReaderContainer>
+		</main>
 	)
 }
 
