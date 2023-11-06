@@ -1,9 +1,9 @@
 import { defineConfig } from '@pandacss/dev'
 import pandaPreset from '@pandacss/preset-panda'
-import { pandaGoodBookPreset } from '~/panda-good-book-preset'
+import { pandaPresetGoodBook } from '~/pandaPresetGoodBook'
 
 export default defineConfig({
-	presets: ['@pandacss/dev/presets', pandaPreset, pandaGoodBookPreset],
+	presets: ['@pandacss/dev/presets', pandaPreset, pandaPresetGoodBook],
 	jsxFramework: 'react',
 	// Whether to use css reset
 	preflight: true,

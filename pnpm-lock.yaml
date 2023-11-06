@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@pandacss/preset-base':
+    specifier: ^0.18.2
+    version: 0.18.2
   '@prisma/client':
     specifier: ^5.1.1
     version: 5.4.2(prisma@5.4.2)
@@ -2613,6 +2616,12 @@ packages:
       '@pandacss/types': 0.17.5
     dev: true
 
+  /@pandacss/preset-base@0.18.2:
+    resolution: {integrity: sha512-sOKxEGvEyEgIAOaqz8spUBl9UuHvZdOJbnWuaeyz1NjHv7pqwx/fIuCyz3+pS3VzwzOYlPgqaz+0pYHC10FBhQ==}
+    dependencies:
+      '@pandacss/types': 0.18.2
+    dev: false
+
   /@pandacss/preset-panda@0.17.5:
     resolution: {integrity: sha512-drceq2bMwUB+IujMJHRQq5ZI2QydG0K2Eo9rkpVXuE46Y8QT3cgjHHAVI1ReVwCEobUyZ5fEIOXYZDCwixwnzw==}
     dependencies:
@@ -2667,6 +2676,10 @@ packages:
   /@pandacss/types@0.17.5:
     resolution: {integrity: sha512-GaySusaNqHeCayieZKlpffhuwiSqm/Zxdnw+PtNhUoNWWiLjHt593qvr1hDSowu+AiChcgRz70ZhcW880wqYNg==}
     dev: true
+
+  /@pandacss/types@0.18.2:
+    resolution: {integrity: sha512-u6rbb0HjjK2qm0Xf/0OETVPxwVD4nUbZYB3dkWLxGkwcZR0062qZYivIr7fYpBDO4WXPZ/f2tUrvfMXWGhDX1A==}
+    dev: false
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}

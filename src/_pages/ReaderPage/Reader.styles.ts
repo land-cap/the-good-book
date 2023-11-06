@@ -15,7 +15,6 @@ const bodyStyles = {
 	lineHeight: { base: '2.25em', md: '2.5em' },
 }
 
-// @ts-ignore
 export const readerStyles = css({
 	...bodyStyles,
 	color: { _osDark: 'fg.muted' },
