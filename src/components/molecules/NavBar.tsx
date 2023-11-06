@@ -15,15 +15,13 @@ const NavBarContainer = styled('nav', {
 	},
 })
 
+// TODO: hide below sm after ChapterPicker component is added
+// @ts-ignore
 const Logo = styled('span', {
 	base: {
-		display: {
-			// TODO: hide below sm after ChapterPicker component is added
-			// base: 'none',
-			sm: 'block',
-		},
 		fontWeight: 'blacker',
 		color: 'fg.subtle',
+		'font-variation-settings': "'opsz' 48",
 	},
 })
 
