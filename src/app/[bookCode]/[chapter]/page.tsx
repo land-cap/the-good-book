@@ -6,20 +6,19 @@ import {
 } from './_components/ReaderComponents'
 import { CONTENT_TYPE, type TChapter } from '~/models/bible-data.models'
 import { css } from 'styled-system/css'
-import { queryChapter } from '~/dbQueries'
+import { getChapter } from '~/db'
 
 const Reader = async ({
 	params,
 }: {
 	params: {
-		book: string
+		bookCode: string
 		chapter: string
 	}
 }) => {
-	const { book, chapter } = params
-	console.log({ book, chapter })
+	const { bookCode, chapter } = params
 
-	const chapterData = await queryChapter(Number(book), Number(chapter))
+	const chapterData = await getChapter(bookCode, Number(chapter))
 	const chapterContent = chapterData?.content as TChapter
 
 	return (
