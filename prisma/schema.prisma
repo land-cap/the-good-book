@@ -3,30 +3,30 @@ generator client {
 }
 
 datasource db {
-  provider    = "postgres"
-  url         = env("DATABASE_URL")
-  directUrl   = env("DIRECT_URL")
+  provider  = "postgres"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model book {
-  id            BigInt         @id(map: "book_duplicate_pkey") @default(autoincrement())
-  code          String         @unique
-  chapter_count BigInt
-  order         BigInt         @unique(map: "book_duplicate_order_key")
-  vdc_book_name vdc_book_name?
+  id            Int             @id(map: "book_duplicate_pkey") @default(autoincrement())
+  code          String          @unique
+  chapter_count Int
+  order         Int             @unique(map: "book_duplicate_order_key")
+  vdc_book_name vdc_book_name[]
 }
 
 model vdc_book_name {
-  id      BigInt @id(map: "vdc-book_pkey") @default(autoincrement())
+  id      Int    @id(map: "vdc-book_pkey") @default(autoincrement())
   name    String @unique(map: "vdc_book_name_key")
-  order   BigInt @unique(map: "vdc-book_order_key")
-  book_id BigInt @unique(map: "vdc_book_book_id_key")
-  book    book   @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  order   Int    @unique(map: "vdc-book_order_key")
+  book_id Int?
+  book    book?  @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model vdc_chapter {
-  id      BigInt  @id(map: "vdc-chapter-new_pkey") @unique(map: "vdc-chapter-new_id_key") @default(autoincrement())
-  chapter BigInt?
-  content Json?   @db.Json
-  book_id BigInt
+  id      Int   @id(map: "vdc-chapter-new_pkey") @unique(map: "vdc-chapter-new_id_key") @default(autoincrement())
+  chapter Int?
+  content Json? @db.Json
+  book_id Int
 }
