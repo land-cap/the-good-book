@@ -19,9 +19,11 @@ const NavBarContainer = styled('nav', {
 // @ts-ignore
 const Logo = styled('span', {
 	base: {
+		fontSize: 'sm',
 		fontWeight: 'blacker',
 		color: 'fg.subtle',
 		'font-variation-settings': "'opsz' 48",
+		lg: { fontSize: 'md' },
 	},
 })
 
