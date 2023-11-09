@@ -40,7 +40,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts",
-    "./styled-system"
+    "node_modules/styled-system"
   ],
   "exclude": [
     "node_modules"

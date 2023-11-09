@@ -5,7 +5,7 @@ import {
 	type SizeToken,
 } from 'styled-system/tokens'
 
-export const pandaPreset = definePreset({
+export const pandaGoodBookPreset = definePreset({
 	globalCss: {
 		':root': {
 			fontFamily: 'sans',
