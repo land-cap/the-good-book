@@ -16,7 +16,14 @@ export const readerStyles = css({
 	...bodyStyles,
 	color: { _osDark: 'fg.muted' },
 
-	'& *:where(.r, .note, .chapter > .label)': { display: 'none' },
+	'& *:where(.note, .chapter > .label)': { display: 'none' },
+
+	'& .r': {
+		my: '4',
+		fontSize: 'xs',
+		fontWeight: 'bold',
+		color: 'fg.subtle',
+	},
 
 	'& [class^="q"]': { mt: '4', fontFamily: 'mono' },
 
@@ -49,7 +56,7 @@ export const readerStyles = css({
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		my: '8',
+		my: '4',
 		fontSize: '2xl',
 		fontWeight: 'blacker',
 		lg: { fontSize: '4xl' },

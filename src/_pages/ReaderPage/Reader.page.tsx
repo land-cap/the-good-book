@@ -1,4 +1,4 @@
-import { readerStyles } from './reader.styles'
+import { ChapterTitle, readerStyles } from './reader.styles'
 import { mockChapterMarkup } from './MockChapterMarkup'
 
 export const ReaderPage = ({
@@ -12,5 +12,10 @@ export const ReaderPage = ({
 	const { bookCode, chapter } = params
 	console.log({ bookCode, chapter })
 
-	return <main className={readerStyles}>{mockChapterMarkup}</main>
+	return (
+		<main className={readerStyles}>
+			<ChapterTitle>Matei 4</ChapterTitle>
+			{mockChapterMarkup}
+		</main>
+	)
 }
