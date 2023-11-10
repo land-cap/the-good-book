@@ -16,9 +16,6 @@ const bodyStyles = {
 	md: {
 		lineHeight: 2.5,
 	},
-	lg: {
-		lineHeight: 2.75,
-	},
 }
 
 export const readerStyles = css({
@@ -47,7 +44,6 @@ export const readerStyles = css({
 		my: '4',
 		fontWeight: 'bold',
 		textStyle: 'xl',
-		lg: { textStyle: '2xl' },
 	},
 
 	'& .verse .label': {
