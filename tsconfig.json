@@ -24,6 +24,9 @@
     "paths": {
       "~/*": [
         "./src/*"
+      ],
+      "styled-system": [
+        "./styled-system"
       ]
     },
     "plugins": [
@@ -39,10 +42,10 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    ".next/types/**/*.ts",
-    "node_modules/styled-system"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "styled-system"
   ]
 }

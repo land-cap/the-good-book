@@ -1,6 +1,15 @@
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 
+export const ChapterTitle = styled('h1', {
+	base: {
+		my: '8',
+		textStyle: '4xl',
+		fontWeight: 'blacker',
+		lg: { fontSize: '4xl' },
+	},
+})
+
 const bodyStyles = {
 	textStyle: 'md',
 	lineHeight: 2.25,
@@ -37,13 +46,13 @@ export const readerStyles = css({
 		display: 'block',
 		my: '4',
 		fontWeight: 'bold',
-		textStyle: 'lg',
+		textStyle: 'xl',
 		lg: { textStyle: '2xl' },
 	},
 
 	'& .verse .label': {
 		fontFamily: 'mono',
-		fontWeight: 'light',
+		// fontWeight: 'light',
 		color: 'fg.subtle',
 
 		'&:after': {
@@ -51,14 +60,5 @@ export const readerStyles = css({
 			...bodyStyles,
 			fontFamily: 'sans',
 		},
-	},
-})
-
-export const ChapterTitle = styled('h1', {
-	base: {
-		my: '4',
-		fontSize: '2xl',
-		fontWeight: 'blacker',
-		lg: { fontSize: '4xl' },
 	},
 })
