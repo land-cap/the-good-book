@@ -39,7 +39,10 @@ export const pandaGoodBookPreset = definePreset({
 					sans: { value: 'var(--font-sans)' },
 					mono: { value: 'var(--font-mono)' },
 				},
-				fontWeights: { blacker: { value: '1000' } },
+				fontWeights: {
+					bold: { value: '800' },
+					blacker: { value: '1000' },
+				},
 			},
 			semanticTokens: {
 				colors: {

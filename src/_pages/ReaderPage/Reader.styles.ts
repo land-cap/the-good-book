@@ -12,10 +12,7 @@ export const ChapterTitle = styled('h1', {
 
 const bodyStyles = {
 	textStyle: 'md',
-	lineHeight: 2.25,
-	md: {
-		lineHeight: 2.5,
-	},
+	lineHeight: { base: '2.25em', md: '2.5em' },
 }
 
 export const readerStyles = css({
@@ -39,7 +36,19 @@ export const readerStyles = css({
 
 	'& .wj': { color: { base: 'red.600', _osDark: 'red.400' } },
 
-	'& .s1 .heading': {
+	'& *:where([class^="ms"], .mr)': {
+		display: 'flex',
+	},
+
+	'& *:where([class^="ms"], .mr) .heading': {
+		textStyle: 'xs',
+		fontWeight: 'blacker',
+		letterSpacing: '0.05em',
+		lineHeight: bodyStyles.lineHeight,
+		color: 'fg.subtle',
+	},
+
+	'& [class^="s"] .heading': {
 		display: 'block',
 		my: '4',
 		fontWeight: 'bold',
@@ -49,7 +58,6 @@ export const readerStyles = css({
 	'& .verse .label': {
 		fontFamily: 'mono',
 		fontWeight: 'bold',
-		color: 'fg',
 
 		'&:after': {
 			content: '" "',

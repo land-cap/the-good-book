@@ -42,7 +42,10 @@ export const Footer = () => (
 			<a
 				href="https://github.com/land-cap"
 				target="_blank"
-				className={css({ fontWeight: 'bold', textDecoration: 'underline' })}>
+				className={css({
+					fontWeight: 'bold',
+					textDecoration: 'underline',
+				})}>
 				land-cap
 			</a>
 		</p>
