@@ -1,7 +1,7 @@
-import { ChapterTitle, readerStyles } from './reader.styles'
-import { mockChapterMarkup } from './MockChapterMarkup'
+import { readerStyles } from './reader.styles'
+import { getChapter } from '~/db'
 
-export const ReaderPage = ({
+export const ReaderPage = async ({
 	params,
 }: {
 	params: {
@@ -10,12 +10,16 @@ export const ReaderPage = ({
 	}
 }) => {
 	const { bookCode, chapter } = params
-	console.log({ bookCode, chapter })
+
+	const chapterData = await getChapter(bookCode, Number(chapter))
+
+	console.log(chapterData)
 
 	return (
 		<main className={readerStyles}>
-			<ChapterTitle>Matei 4</ChapterTitle>
-			{mockChapterMarkup}
+			{chapterData?.content ? (
+				<div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
+			) : null}
 		</main>
 	)
 }

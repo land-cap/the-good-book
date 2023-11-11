@@ -9,6 +9,7 @@
     "lint": "next lint --fix",
     "start": "next start",
     "postinstall": "prisma generate",
+    "db:retro": "prisma retro",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "storybook": "storybook dev -p 4001",
