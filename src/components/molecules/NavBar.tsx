@@ -1,16 +1,14 @@
 import { styled } from 'styled-system/jsx'
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
+import { setPageWidth } from '~/components/Page'
 
 const NavBarContainer = styled('nav', {
 	base: {
+		...setPageWidth,
 		zIndex: '10',
 		pos: 'sticky',
 		top: '0',
-		mx: 'auto',
-		width: 'full',
-		maxW: '2xl',
-		px: '8',
 		bg: 'bg.surface',
 	},
 })
@@ -19,11 +17,10 @@ const NavBarContainer = styled('nav', {
 // @ts-ignore
 const Logo = styled('span', {
 	base: {
-		fontSize: 'sm',
+		textStyle: 'md',
 		fontWeight: 'blacker',
 		color: 'fg.subtle',
-		'font-variation-settings': "'opsz' 48",
-		lg: { fontSize: 'md' },
+		fontVariationSettings: "'opsz' 48",
 	},
 })
 

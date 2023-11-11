@@ -5,7 +5,7 @@ import {
 	type SizeToken,
 } from 'styled-system/tokens'
 
-export const pandaPreset = definePreset({
+export const pandaGoodBookPreset = definePreset({
 	globalCss: {
 		':root': {
 			fontFamily: 'sans',
@@ -39,7 +39,10 @@ export const pandaPreset = definePreset({
 					sans: { value: 'var(--font-sans)' },
 					mono: { value: 'var(--font-mono)' },
 				},
-				fontWeights: { blacker: { value: '1000' } },
+				fontWeights: {
+					bold: { value: '800' },
+					blacker: { value: '1000' },
+				},
 			},
 			semanticTokens: {
 				colors: {
@@ -92,6 +95,12 @@ export const pandaPreset = definePreset({
 							value: {
 								base: '{colors.neutral.500}',
 								_osDark: '{colors.neutral.400}',
+							},
+						},
+						faded: {
+							value: {
+								base: '{colors.neutral.400}',
+								_osDark: '{colors.neutral.500}',
 							},
 						},
 						inverted: {
