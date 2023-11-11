@@ -48,8 +48,8 @@ export const readerStyles = css({
 
 	'& .verse .label': {
 		fontFamily: 'mono',
-		// fontWeight: 'light',
-		color: 'fg.subtle',
+		fontWeight: 'bold',
+		color: 'fg',
 
 		'&:after': {
 			content: '" "',

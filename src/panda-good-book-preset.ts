@@ -94,6 +94,12 @@ export const pandaGoodBookPreset = definePreset({
 								_osDark: '{colors.neutral.400}',
 							},
 						},
+						faded: {
+							value: {
+								base: '{colors.neutral.400}',
+								_osDark: '{colors.neutral.500}',
+							},
+						},
 						inverted: {
 							value: {
 								base: '{colors.white}',

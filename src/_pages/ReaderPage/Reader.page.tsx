@@ -1,4 +1,4 @@
-import { ChapterTitle, readerStyles } from './reader.styles'
+import { ChapterTitle, readerStyles } from './Reader.styles'
 import { getBookName, getChapter } from '~/db'
 import * as cheerio from 'cheerio'
 
