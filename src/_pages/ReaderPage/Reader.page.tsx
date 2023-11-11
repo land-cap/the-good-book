@@ -1,5 +1,15 @@
 import { ChapterTitle, readerStyles } from './reader.styles'
 import { getBookName, getChapter } from '~/db'
+import * as cheerio from 'cheerio'
+
+const getNormalizedChapterContent = (chapterContent: string) => {
+	const $chapterContent = cheerio.load(chapterContent)
+	const verseLabelSelector = $chapterContent('.verse > .label')
+	verseLabelSelector
+		.before((_, html) => `<sup class="label">${html}</sup>`)
+		.remove()
+	return $chapterContent.html()
+}
 
 export const ReaderPage = async ({
 	params,
@@ -23,7 +33,11 @@ export const ReaderPage = async ({
 				</ChapterTitle>
 			) : null}
 			{chapterData?.content ? (
-				<div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
+				<div
+					dangerouslySetInnerHTML={{
+						__html: getNormalizedChapterContent(chapterData.content),
+					}}
+				/>
 			) : null}
 		</main>
 	)
