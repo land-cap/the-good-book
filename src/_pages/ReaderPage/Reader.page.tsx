@@ -1,5 +1,5 @@
-import { readerStyles } from './reader.styles'
-import { getChapter } from '~/db'
+import { ChapterTitle, readerStyles } from './reader.styles'
+import { getBookName, getChapter } from '~/db'
 
 export const ReaderPage = async ({
 	params,
@@ -13,10 +13,15 @@ export const ReaderPage = async ({
 
 	const chapterData = await getChapter(bookCode, Number(chapter))
 
-	console.log(chapterData)
+	const bookName = await getBookName(bookCode)
 
 	return (
 		<main className={readerStyles}>
+			{bookName?.name ? (
+				<ChapterTitle>
+					{bookName.name} {chapter}
+				</ChapterTitle>
+			) : null}
 			{chapterData?.content ? (
 				<div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
 			) : null}
