@@ -36,12 +36,25 @@ export const readerStyles = css({
 
 	'& .wj': { color: { base: 'red.600', _osDark: 'red.400' } },
 
+	'& *:where([class^="ms"], .mr)': {
+		display: 'flex',
+	},
+
 	'& *:where([class^="ms"], .mr) .heading': {
+		display: 'inline',
 		textStyle: 'xs',
 		fontWeight: 'blacker',
 		letterSpacing: '0.05em',
 		lineHeight: bodyStyles.lineHeight,
 		color: 'fg.subtle',
+	},
+
+	'& *:not(*:where([class^="ms"], .mr)) + *:where([class^="ms"], .mr)': {
+		mt: '4',
+	},
+
+	'& *:where([class^="ms"], .mr) + *:not(*:where([class^="ms"], .mr))': {
+		mb: '4',
 	},
 
 	'& [class^="s"] .heading': {
