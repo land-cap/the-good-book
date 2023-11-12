@@ -8,6 +8,15 @@ const getNormalizedChapterContent = (chapterContent: string) => {
 	verseLabelSelector
 		.before((_, html) => `<sup class="label">${html}</sup>`)
 		.remove()
+
+	const mrSelector = $chapterContent('.mr')
+	mrSelector
+		.before(
+			(_, html) =>
+				`<div class="mr"><span class="heading">${html.trim()}</span></div>`,
+		)
+		.remove()
+
 	return $chapterContent.html()
 }
 

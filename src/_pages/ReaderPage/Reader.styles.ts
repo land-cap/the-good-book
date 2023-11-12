@@ -15,6 +15,7 @@ const bodyStyles = {
 	lineHeight: { base: '2.25em', md: '2.5em' },
 }
 
+// @ts-ignore
 export const readerStyles = css({
 	...bodyStyles,
 	color: { _osDark: 'fg.muted' },
@@ -37,7 +38,7 @@ export const readerStyles = css({
 	'& .wj': { color: { base: 'red.600', _osDark: 'red.400' } },
 
 	'& *:where([class^="ms"], .mr)': {
-		display: 'flex',
+		'white-space-collapse': 'preserve-spaces',
 	},
 
 	'& *:where([class^="ms"], .mr) .heading': {
