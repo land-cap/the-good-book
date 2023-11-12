@@ -39,7 +39,7 @@ const config = {
     "arrow-body-style": "error",
 
     "prettier/prettier": [
-      "error",
+      "warn",
       {},
       {
         "usePrettierrc": true
