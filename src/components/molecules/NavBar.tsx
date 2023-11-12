@@ -6,9 +6,9 @@ import { setPageWidth } from '~/components/Page'
 const NavBarContainer = styled('nav', {
 	base: {
 		...setPageWidth,
-		zIndex: '10',
-		pos: 'sticky',
-		top: '0',
+		// zIndex: '10',
+		// pos: 'sticky',
+		// top: '0',
 		bg: 'bg.surface',
 	},
 })
