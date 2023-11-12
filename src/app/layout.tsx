@@ -23,7 +23,7 @@ export const metadata = {
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
-const AppShell = styled('div', {
+const AppShell = styled('body', {
 	base: {
 		flexFlow: 'column nowrap',
 		h: 'fit-content',

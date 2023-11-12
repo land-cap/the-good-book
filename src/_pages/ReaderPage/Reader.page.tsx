@@ -16,8 +16,8 @@ const getNormalizedChapterContent = (chapterContent: string) => {
 				`<div class="mr"><span class="heading">${html.trim()}</span></div>`,
 		)
 		.remove()
-
-	return $chapterContent.html()
+	console.log($chapterContent('.book').html())
+	return $chapterContent('.book').html()!
 }
 
 export const ReaderPage = async ({
@@ -46,6 +46,7 @@ export const ReaderPage = async ({
 					dangerouslySetInnerHTML={{
 						__html: getNormalizedChapterContent(chapterData.content),
 					}}
+					suppressHydrationWarning
 				/>
 			) : null}
 		</main>

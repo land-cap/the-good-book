@@ -37,10 +37,6 @@ export const readerStyles = css({
 
 	'& .wj': { color: { base: 'red.600', _osDark: 'red.400' } },
 
-	'& *:where([class^="ms"], .mr)': {
-		'white-space-collapse': 'preserve-spaces',
-	},
-
 	'& *:where([class^="ms"], .mr) .heading': {
 		textStyle: 'xs',
 		fontWeight: 'blacker',
@@ -57,6 +53,7 @@ export const readerStyles = css({
 	},
 
 	'& .verse .label': {
+		fontFamily: 'sans',
 		fontWeight: 'bold',
 
 		'&:after': {
