@@ -32,12 +32,29 @@ const AppShell = styled('body', {
 	},
 })
 
+const ToolBar = styled('div', {
+		base: {
+		position: "fixed",
+		bottom: "calc(1rem + env(safe-area-inset-bottom))",
+		left: "50%",
+		transform: "translateX(-50%)",
+		h: "48px",
+		w: "50vw",
+		bg: "bg.surface",
+		oRingWidth: '1px',
+		oRingColor: "border.emphasized",
+		oRingInset: true,
+		oShadow: 'lg',
+}
+	})
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
 		<AppShell>
 			<NavBar />
 			<Page>{children}</Page>
 			<Footer />
+			<ToolBar/>
 		</AppShell>
 	</html>
 )
