@@ -19,7 +19,7 @@ export const readerStyles = css({
 	...bodyStyles,
 	color: { _osDark: 'fg.muted' },
 
-	'& *:where(.note, .chapter > .label)': { display: 'none' },
+	'& *:where(.note, .chapter > .label, .cl)': { display: 'none' },
 
 	'& .r': {
 		my: '4',
