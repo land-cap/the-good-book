@@ -17,7 +17,7 @@ const ButtonSizeRange = ({
 }: ButtonProps & {
 	sizes?: Set<ButtonProps['size']>
 }) => (
-	<Flex flexFlow="row" align="center" gap="8">
+	<Flex flexFlow="row wrap" align="center" gap="8">
 		{Array.from(sizes).map((size) => (
 			<Button key={size} {...props} size={size} />
 		))}
