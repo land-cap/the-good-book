@@ -4,6 +4,7 @@ import { Icon } from '../Icon/Icon'
 
 export type IconButtonProps = {
 	iconName: string
+	className?: string
 } & ButtonVariants
 
 export const IconButton = (props: IconButtonProps) => {
@@ -11,7 +12,7 @@ export const IconButton = (props: IconButtonProps) => {
 	const classes = buttonRecipe(variants)
 
 	return (
-		<button className={cx(classes.button)}>
+		<button className={cx(classes.button, props.className)}>
 			<Icon name={iconName} className={cx(classes.icon, 'icon')} />
 		</button>
 	)

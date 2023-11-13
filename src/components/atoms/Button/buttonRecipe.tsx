@@ -10,6 +10,10 @@ export const buttonRecipe = sva({
 			gap: '1.5',
 			rounded: '0',
 			fontWeight: 'black',
+			'&:has(.icon)': {
+				placeContent: 'center',
+				alignItems: 'center',
+			},
 		},
 		icon: {
 			w: '4',
@@ -132,7 +136,7 @@ export const buttonRecipe = sva({
 		{
 			rounded: true,
 			size: 'xl',
-			css: { button: { '&:not(:has(.icon))': { px: '4' } } },
+			css: { button: { '&:has(.icon)': { px: '4' } } },
 		},
 	],
 	defaultVariants: {
