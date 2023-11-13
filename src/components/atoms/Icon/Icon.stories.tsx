@@ -14,7 +14,7 @@ const meta: Meta<typeof Icon> = {
 export default meta
 
 const iconSizeRange = (
-	<Flex flexFlow="row" align="center" gap="8">
+	<Flex flexFlow="row wrap" align="center" gap="8">
 		{Array.from(iconRecipe.variantMap.size).map((size) => (
 			<Box key={size} borderWidth={1} borderColor="stone.200">
 				<Icon
