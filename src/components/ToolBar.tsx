@@ -14,7 +14,7 @@ const ToolBarContainer = styled('div', {
 		whiteSpace: 'nowrap',
 
 		position: 'fixed',
-		bottom: 'calc(token(spacing.4) + env(safe-area-inset-bottom))',
+		bottom: 'calc(token(spacing.3) + env(safe-area-inset-bottom))',
 		left: '50%',
 		transform: 'translateX(-50%)',
 		h: '10',
@@ -22,10 +22,10 @@ const ToolBarContainer = styled('div', {
 		px: '4',
 		bg: 'bg.surface',
 		rounded: 'full',
-		oRingWidth: '2px',
-		oRingColor: 'fg',
+		oRingWidth: '1px',
+		oRingColor: 'border',
 		oRingInset: true,
-		oShadow: 'lg',
+		oShadow: 'md',
 	},
 })
 
