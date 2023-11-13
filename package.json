@@ -49,6 +49,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-storybook": "^0.6.15",
+    "loki": "^0.33.0",
     "prettier": "^3.0.3",
     "prisma": "^5.1.1",
     "storybook": "^7.5.1",
@@ -56,5 +57,20 @@
   },
   "ct3aMetadata": {
     "initVersion": "7.22.0"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
