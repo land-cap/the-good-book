@@ -4,32 +4,32 @@ import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { ToolBar } from '~/components/molecules/ToolBar'
 
 export const ReaderPage = async ({
-                                   params,
-                                 }: {
-  params: {
-    bookCode: string
-    chapter: string
-  }
+	params,
+}: {
+	params: {
+		bookCode: string
+		chapter: string
+	}
 }) => {
-  const { bookCode, chapter } = params
+	const { bookCode, chapter } = params
 
-  const chapterData = await getChapterWithCache(bookCode, Number(chapter))
+	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
-  const bookName = await getBookNameWithCache(bookCode)
+	const bookName = await getBookNameWithCache(bookCode)
 
-  const chapterTitle = `${bookName?.name} ${chapter}`
+	const chapterTitle = `${bookName?.name} ${chapter}`
 
-  return (
-    <main className={readerStyles}>
-      <ChapterTitle>{chapterTitle}</ChapterTitle>
-      {chapterData?.content ? (
-        <div
-          dangerouslySetInnerHTML={{
-            __html: getNormalizedChapterContent(chapterData.content),
-          }}
-        />
-      ) : null}
-      <ToolBar chapter={chapterTitle} />
-    </main>
-  )
+	return (
+		<main className={readerStyles}>
+			<ChapterTitle>{chapterTitle}</ChapterTitle>
+			{chapterData?.content ? (
+				<div
+					dangerouslySetInnerHTML={{
+						__html: getNormalizedChapterContent(chapterData.content),
+					}}
+				/>
+			) : null}
+			<ToolBar chapter={chapterTitle} />
+		</main>
+	)
 }
