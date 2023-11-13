@@ -3,6 +3,7 @@ import { styled } from '../../styled-system/jsx'
 const ToolBarContainer = styled('div', {
 	base: {
 		display: 'flex',
+		hideFrom: 'sm',
 		placeContent: 'center',
 		alignItems: 'center',
 
