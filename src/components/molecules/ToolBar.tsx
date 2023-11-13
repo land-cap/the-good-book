@@ -6,7 +6,8 @@ import { IconButton } from '~/components/atoms/Button/IconButton'
 const chapterButtonStyles = css({
 	shadow: 'md',
 	// @ts-ignore
-	px: { '&:not(:has(.icon))': '5' },
+	px: '5 !',
+	// pr: '4 !',
 	h: '12',
 	fontSize: 'xs',
 	fontWeight: 'blacker',
@@ -14,6 +15,7 @@ const chapterButtonStyles = css({
 	letterSpacing: '0.05em',
 	whiteSpace: 'nowrap',
 	bg: 'bg.surface',
+	roundedStart: 'full !',
 })
 
 const ToolBarContainer = styled('div', {
@@ -32,12 +34,17 @@ const ToolBarContainer = styled('div', {
 
 export const ToolBar = ({ chapter }: { chapter: string }) => (
 	<ToolBarContainer>
-		<Button label={chapter} size="xl" rounded className={chapterButtonStyles} />
+		<Button label={chapter} size="xl" className={chapterButtonStyles} />
 		<IconButton
 			iconName="format_size"
 			size="xl"
-			rounded
-			className={css({ w: '12', h: '12' })}
+			className={css({
+				h: '12',
+				roundedEnd: 'full !',
+				pl: '4 !',
+				pr: '5 !',
+				ml: '-1px',
+			})}
 		/>
 	</ToolBarContainer>
 )

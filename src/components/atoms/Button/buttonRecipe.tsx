@@ -44,10 +44,10 @@ export const buttonRecipe = sva({
 			},
 			secondary: {
 				button: {
-					bg: { base: 'white', _hover: 'neutral.50' },
-					color: 'neutral.900',
+					bg: { base: 'bg.surface', _hover: 'neutral.50' },
+					color: 'fg',
 					oRingWidth: '1px',
-					oRingColor: 'neutral.300',
+					oRingColor: 'border.emphasized',
 					oRingInset: true,
 					oShadow: 'sm',
 				},
