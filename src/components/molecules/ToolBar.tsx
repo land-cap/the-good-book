@@ -1,6 +1,6 @@
-import { styled } from '../../styled-system/jsx'
+import { styled } from '../../../styled-system/jsx'
 import { Button } from '~/components/atoms/Button/Button'
-import { css } from 'styled-system/css'
+import { css } from '../../../styled-system/css'
 import { IconButton } from '~/components/atoms/Button/IconButton'
 
 const chapterButtonStyles = css({
@@ -20,7 +20,6 @@ const ToolBarContainer = styled('div', {
 	base: {
 		display: 'flex',
 		hideFrom: 'sm',
-		gap: '2',
 		placeContent: 'center',
 		alignItems: 'center',
 		position: 'fixed',

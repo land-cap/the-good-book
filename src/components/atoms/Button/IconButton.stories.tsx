@@ -26,7 +26,7 @@ const IconButtonSizeRange = ({
 const IconButton = (props: IconButtonProps) => <></>
 
 const meta: Meta<typeof _IconButton> = {
-	title: 'Icon Button',
+	title: 'IconButton',
 	component: IconButton,
 	tags: ['autodocs'],
 	argTypes: {
