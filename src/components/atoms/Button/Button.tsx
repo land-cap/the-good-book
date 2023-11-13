@@ -6,6 +6,7 @@ export type ButtonProps = {
 	label: string
 	leftIcon?: string
 	rightIcon?: string
+	className?: string
 } & ButtonVariants
 
 export const Button = (props: ButtonProps) => {
@@ -13,7 +14,7 @@ export const Button = (props: ButtonProps) => {
 	const classes = buttonRecipe(variants)
 
 	return (
-		<button className={classes.button}>
+		<button className={cx(classes.button, props.className)}>
 			{leftIcon ? (
 				<Icon name={leftIcon} className={cx(classes.iconLeft, 'iconLeft')} />
 			) : null}
