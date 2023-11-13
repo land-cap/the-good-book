@@ -3,15 +3,14 @@ import { styled } from 'styled-system/jsx'
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		my: '8',
-		textStyle: '4xl',
+		my: { base: '8', lg: '12' },
+		textStyle: { base: '4xl', lg: '5xl' },
 		fontWeight: 'blacker',
-		lg: { fontSize: '4xl' },
 	},
 })
 
 const bodyStyles = {
-	textStyle: 'md',
+	textStyle: { base: 'md', lg: 'lg' },
 	lineHeight: { base: '2.25em', md: '2.5em' },
 }
 
@@ -22,17 +21,17 @@ export const readerStyles = css({
 	'& *:where(.note, .chapter > .label, .cl)': { display: 'none' },
 
 	'& .r': {
-		my: '4',
-		fontSize: 'xs',
+		my: { base: '4', lg: '5' },
+		fontSize: { base: 'xs', lg: 'sm' },
 		fontWeight: 'bold',
 		color: 'fg.subtle',
 	},
 
-	'& [class^="q"]': { mt: '4', fontFamily: 'mono' },
+	'& [class^="q"]': { mt: { base: '4', lg: '5' }, fontFamily: 'mono' },
 
 	'& [class^="q"] + [class^="q"]': { mt: '0' },
 
-	'& [class^="q"] + :not([class^="q"])': { mt: '4' },
+	'& [class^="q"] + :not([class^="q"])': { mt: { base: '4', lg: '5' } },
 
 	'& .wj': { color: { base: 'red.600', _osDark: 'red.400' } },
 
@@ -42,7 +41,7 @@ export const readerStyles = css({
 
 	'& *:where([class^="ms"], .mr) .heading': {
 		display: 'inline',
-		textStyle: 'xs',
+		textStyle: { base: 'xs', lg: 'sm' },
 		fontWeight: 'blacker',
 		letterSpacing: '0.05em',
 		lineHeight: bodyStyles.lineHeight,
@@ -50,18 +49,18 @@ export const readerStyles = css({
 	},
 
 	'& *:not(*:where([class^="ms"], .mr)) + *:where([class^="ms"], .mr)': {
-		mt: '4',
+		mt: { base: '4', lg: '5' },
 	},
 
 	'& *:where([class^="ms"], .mr) + *:not(*:where([class^="ms"], .mr))': {
-		mb: '4',
+		mb: { base: '4', lg: '5' },
 	},
 
 	'& [class^="s"] .heading': {
 		display: 'block',
-		my: '4',
+		my: { base: '4', lg: '5' },
 		fontWeight: 'bold',
-		textStyle: 'xl',
+		textStyle: { base: 'xl', lg: '2xl' },
 	},
 
 	'& .verse .label': {
@@ -71,7 +70,6 @@ export const readerStyles = css({
 		'&:after': {
 			content: '" "',
 			...bodyStyles,
-			fontFamily: 'sans',
 		},
 	},
 })
