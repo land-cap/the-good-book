@@ -4,24 +4,16 @@ import { css } from '../../../styled-system/css'
 import { IconButton } from '~/components/atoms/Button/IconButton'
 
 const chapterButtonStyles = css({
-	shadow: 'md',
-	// @ts-ignore
-	px: '5 !',
-	// pr: '4 !',
-	h: '12',
-	fontSize: 'xs',
-	fontWeight: 'blacker',
-	textTransform: 'uppercase',
-	letterSpacing: '0.05em',
+	oShadow: 'md !',
 	whiteSpace: 'nowrap',
 	bg: 'bg.surface',
-	roundedStart: 'full !',
 })
 
 const ToolBarContainer = styled('div', {
 	base: {
 		display: 'flex',
 		hideFrom: 'sm',
+		gap: '2',
 		placeContent: 'center',
 		alignItems: 'center',
 		position: 'fixed',
@@ -38,13 +30,7 @@ export const ToolBar = ({ chapter }: { chapter: string }) => (
 		<IconButton
 			iconName="format_size"
 			size="xl"
-			className={css({
-				h: '12',
-				roundedEnd: 'full !',
-				pl: '4 !',
-				pr: '5 !',
-				ml: '-1px',
-			})}
+			className={css({ oShadow: 'md !' })}
 		/>
 	</ToolBarContainer>
 )
