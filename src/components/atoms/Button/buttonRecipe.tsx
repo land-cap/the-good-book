@@ -1,8 +1,5 @@
 import { type RecipeVariantProps, sva } from 'styled-system/css'
 
-const ACCENT = 'sky'
-const NEUTRAL = 'neutral'
-
 export const buttonRecipe = sva({
 	slots: ['button', 'icon', 'iconLeft', 'iconRight'],
 	base: {
@@ -36,25 +33,25 @@ export const buttonRecipe = sva({
 		visual: {
 			primary: {
 				button: {
-					bg: { base: `${ACCENT}.600`, _hover: `${ACCENT}.500` },
+					bg: { base: 'neutral.600', _hover: 'neutral.500' },
 					color: 'white',
 					shadow: 'sm',
 				},
 			},
 			secondary: {
 				button: {
-					bg: { base: 'white', _hover: `${NEUTRAL}.50` },
-					color: `${NEUTRAL}.900`,
+					bg: { base: 'white', _hover: 'neutral.50' },
+					color: 'neutral.900',
 					oRingWidth: '1px',
-					oRingColor: `${NEUTRAL}.300`,
+					oRingColor: 'neutral.300',
 					oRingInset: true,
 					oShadow: 'sm',
 				},
 			},
 			soft: {
 				button: {
-					bg: { base: `${ACCENT}.100`, _hover: `${ACCENT}.200` },
-					color: `${ACCENT}.600`,
+					bg: { base: 'neutral.100', _hover: 'neutral.200' },
+					color: 'neutral.600',
 				},
 			},
 		},
