@@ -4,9 +4,8 @@ import { css } from 'styled-system/css'
 
 const chapterButtonStyles = css({
 	shadow: 'md',
-	h: '10',
 	px: '4',
-	textStyle: 'xs',
+	fontSize: 'xs',
 	fontWeight: 'blacker',
 	textTransform: 'uppercase',
 	letterSpacing: '0.05em',
@@ -29,6 +28,6 @@ const ToolBarContainer = styled('div', {
 
 export const ToolBar = ({ chapter }: { chapter: string }) => (
 	<ToolBarContainer>
-		<Button label={chapter} rounded className={chapterButtonStyles} />
+		<Button label={chapter} size="xl" rounded className={chapterButtonStyles} />
 	</ToolBarContainer>
 )

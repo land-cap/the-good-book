@@ -108,27 +108,31 @@ export const buttonRecipe = sva({
 		{
 			rounded: true,
 			size: 'xs',
-			css: { button: { px: '2.5' } },
+			css: {
+				button: {
+					'&:not(:has(.icon))': { px: '2.5' },
+				},
+			},
 		},
 		{
 			rounded: true,
 			size: 'sm',
-			css: { button: { px: '2.5' } },
+			css: { button: { '&:not(:has(.icon))': { px: '2.5' } } },
 		},
 		{
 			rounded: true,
 			size: 'md',
-			css: { button: { px: '3' } },
+			css: { button: { '&:not(:has(.icon))': { px: '3' } } },
 		},
 		{
 			rounded: true,
 			size: 'lg',
-			css: { button: { px: '3.5' } },
+			css: { button: { '&:not(:has(.icon))': { px: '3.5' } } },
 		},
 		{
 			rounded: true,
 			size: 'xl',
-			css: { button: { px: '4' } },
+			css: { button: { '&:not(:has(.icon))': { px: '4' } } },
 		},
 	],
 	defaultVariants: {

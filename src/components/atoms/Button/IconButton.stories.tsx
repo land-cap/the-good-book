@@ -86,3 +86,24 @@ export const Soft: Story = createStory({
 		visual: 'soft',
 	},
 })
+
+export const RoundedPrimary: Story = createStory({
+	args: {
+		visual: 'primary',
+		rounded: true,
+	},
+})
+
+export const RoundedSecondary: Story = createStory({
+	args: {
+		visual: 'secondary',
+		rounded: true,
+	},
+})
+
+export const RoundedSoft: Story = createStory({
+	args: {
+		visual: 'soft',
+		rounded: true,
+	},
+})
