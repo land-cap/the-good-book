@@ -5,7 +5,8 @@ import { IconButton } from '~/components/atoms/Button/IconButton'
 
 const chapterButtonStyles = css({
 	shadow: 'md',
-	px: '5',
+	// @ts-ignore
+	px: { '&:not(:has(.icon))': '5' },
 	h: '12',
 	fontSize: 'xs',
 	fontWeight: 'blacker',
