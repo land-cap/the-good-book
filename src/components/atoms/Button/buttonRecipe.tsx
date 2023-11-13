@@ -17,13 +17,13 @@ export const buttonRecipe = sva({
 			fontSize: 'token(sizes.4)',
 		},
 		iconLeft: {
-			ml: { base: '-0.5' },
+			ml: '-0.5',
 			w: '4',
 			h: '4',
 			fontSize: 'token(sizes.4)',
 		},
 		iconRight: {
-			mr: { base: '-0.5' },
+			mr: '-0.5',
 			w: '4',
 			h: '4',
 			fontSize: 'token(sizes.4)',
@@ -82,7 +82,7 @@ export const buttonRecipe = sva({
 			},
 			lg: {
 				button: {
-					px: { base: '2', '&:has(.icon)': '2' },
+					px: { base: '3', '&:has(.icon)': '2' },
 					py: '2',
 					textStyle: 'sm',
 				},
@@ -92,7 +92,7 @@ export const buttonRecipe = sva({
 			},
 			xl: {
 				button: {
-					px: { base: '3', '&:has(.icon)': '2.5' },
+					px: { base: '3.5', '&:has(.icon)': '2.5' },
 					py: '2.5',
 					gap: '2',
 					textStyle: 'sm',
