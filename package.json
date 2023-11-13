@@ -13,7 +13,8 @@
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "storybook": "storybook dev -p 4001",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_9fc168541ae5c62"
   },
   "dependencies": {
     "@pandacss/preset-base": "^0.18.2",
@@ -56,5 +57,7 @@
   },
   "ct3aMetadata": {
     "initVersion": "7.22.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "the-good-book-t3@0.1.0"
 }

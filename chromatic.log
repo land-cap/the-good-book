@@ -1,0 +1,110 @@
+
+Chromatic CLI v9.0.0
+https://www.chromatic.com/docs/cli
+
+Authenticating with Chromatic
+    → Connecting to https://index.chromatic.com
+Authenticated with Chromatic
+    → Using project token '****************5c62'
+Retrieving git information
+Retrieved git information
+    → Commit '7e0bafc' on branch 'master'; found 1 parent build
+Collecting Storybook metadata
+Collected Storybook metadata
+    → Storybook 7.5.1 for React; using the @storybook/nextjs builder (7.5.1); supported addons found: Links, Essentials, Interactions
+Initializing build
+Initialized build
+    → Build 4 initialized
+Building your Storybook
+    → Running command: pnpm run build-storybook --output-dir /var/folders/80/cp6zywsx387489bpfn3x0b640000gn/T/chromatic--43441-yuF9sECzaY7h
+Storybook built in 12 seconds
+    → View build log at /Users/land_cap/projects/personal/the-good-book-t3/build-storybook.log
+Publish your built Storybook
+    → Validating Storybook files
+Publishing your built Storybook
+    → Retrieving target location
+    → Starting publish
+    → [                    ] 1%
+    → [==                  ] 11%
+    → [===                 ] 15%
+    → [====                ] 19%
+    → [====                ] 20%
+    → [=====               ] 23%
+    → [======              ] 30%
+    → [======              ] 31%
+    → [=======             ] 33%
+    → [=======             ] 34%
+    → [=======             ] 36%
+    → [=======             ] 37%
+    → [========            ] 38%
+    → [========            ] 40%
+    → [========            ] 41%
+    → [=========           ] 43%
+    → [=========           ] 45%
+    → [=========           ] 47%
+    → [==========          ] 48%
+    → [==========          ] 51%
+    → [==========          ] 52%
+    → [===========         ] 57%
+    → [============        ] 59%
+    → [=============       ] 63%
+    → [=============       ] 64%
+    → [=============       ] 67%
+    → [==============      ] 68%
+    → [==============      ] 70%
+    → [==============      ] 71%
+    → [===============     ] 74%
+    → [===============     ] 75%
+    → [===============     ] 77%
+    → [================    ] 78%
+    → [================    ] 79%
+    → [================    ] 80%
+    → [================    ] 81%
+    → [================    ] 82%
+    → [=================   ] 83%
+    → [=================   ] 85%
+    → [=================   ] 86%
+    → [=================   ] 87%
+    → [==================  ] 88%
+    → [==================  ] 89%
+    → [==================  ] 92%
+    → [=================== ] 93%
+    → [=================== ] 94%
+    → [=================== ] 95%
+    → [=================== ] 96%
+    → [=================== ] 97%
+    → [====================] 98%
+    → [====================] 99%
+    → [====================] 100%
+Publish complete in 14 seconds
+    → View your Storybook at https://653d43796fed7cf16a436a44-covsegzhnj.chromatic.com
+Verifying your Storybook
+    → This may take a few minutes
+Started build 4
+    → View build details at https://www.chromatic.com/build?appId=653d43796fed7cf16a436a44&number=4
+Running 16 tests
+    → This may take a few minutes
+ℹ Speed up Continuous Integration
+Your project is linked to GitHub so Chromatic will report results there.
+This means you can pass the --exit-once-uploaded flag to skip waiting for build results.
+Read more here: https://www.chromatic.com/docs/cli#chromatic-options
+    → [=                   ] 1/16  Button › Primary 
+    → [====                ] 3/16  Button › Soft 
+    → [=====               ] 4/16  Button › Rounded Primary 
+    → [========            ] 6/16  Button › Rounded Soft 
+    → [=========           ] 7/16  Button › With Left Icon Primary 
+    → [==========          ] 8/16  Button › With Icon Secondary 
+    → [==============      ] 11/16  Button › With Right Icon Secondary 
+    → [===============     ] 12/16  Button › With Right Icon Soft 
+    → [==================  ] 14/16  Icon Button › Secondary 
+    → [=================== ] 15/16  Icon Button › Soft 
+    → [====================] 16/16  Icon › Icon Sizes 
+✖ Found 15 visual changes: Review the changes at https://www.chromatic.com/build?appId=653d43796fed7cf16a436a44&number=4
+
+ℹ For CI/CD use cases, this command failed with exit code 1
+Pass --exit-zero-on-changes to succeed this command regardless of changes.
+Pass --auto-accept-changes to succeed and automatically accept any changes.
+Build 4 completed
+    → Tested 16 stories across 3 components; captured 16 snapshots in 24 seconds
+
+
