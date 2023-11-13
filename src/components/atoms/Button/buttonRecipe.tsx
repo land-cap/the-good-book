@@ -10,10 +10,6 @@ export const buttonRecipe = sva({
 			gap: '1.5',
 			rounded: '0',
 			fontWeight: 'black',
-			'&:has(.icon)': {
-				placeContent: 'center',
-				alignItems: 'center',
-			},
 		},
 		icon: {
 			w: '4',
@@ -62,7 +58,7 @@ export const buttonRecipe = sva({
 		size: {
 			xs: {
 				button: {
-					px: { base: '2', '&:has(.icon)': '1' },
+					px: '2',
 					py: '1',
 					textStyle: 'xs',
 				},
@@ -72,21 +68,21 @@ export const buttonRecipe = sva({
 			},
 			sm: {
 				button: {
-					px: { base: '2', '&:has(.icon)': '1' },
+					px: '2',
 					py: '1',
 					textStyle: 'sm',
 				},
 			},
 			md: {
 				button: {
-					px: { base: '2.5', '&:has(.icon)': '1.5' },
+					px: '2.5',
 					py: '1.5',
 					textStyle: 'sm',
 				},
 			},
 			lg: {
 				button: {
-					px: { base: '3', '&:has(.icon)': '2' },
+					px: '3',
 					py: '2',
 					textStyle: 'sm',
 				},
@@ -96,7 +92,7 @@ export const buttonRecipe = sva({
 			},
 			xl: {
 				button: {
-					px: { base: '3.5', '&:has(.icon)': '2.5' },
+					px: '3',
 					py: '2.5',
 					gap: '2',
 					textStyle: 'sm',
@@ -107,41 +103,81 @@ export const buttonRecipe = sva({
 			},
 		},
 		rounded: { true: { button: { rounded: 'full' } } },
+		iconOnly: {
+			true: {
+				button: {
+					placeContent: 'center',
+					alignItems: 'center',
+				},
+			},
+		},
 	},
 	compoundVariants: [
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'xs',
 			css: {
 				button: {
-					'&:not(:has(.icon))': { px: '2.5' },
+					px: '2.5',
 				},
 			},
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'sm',
-			css: { button: { '&:not(:has(.icon))': { px: '2.5' } } },
+			css: { button: { px: '2.5' } },
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'md',
-			css: { button: { '&:not(:has(.icon))': { px: '3' } } },
+			css: { button: { px: '3' } },
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'lg',
-			css: { button: { '&:not(:has(.icon))': { px: '3.5' } } },
+			css: { button: { px: '3.5' } },
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'xl',
-			css: { button: { '&:has(.icon)': { px: '4' } } },
+			css: { button: { px: '4' } },
+		},
+		{
+			iconOnly: true,
+			size: 'xs',
+			css: { button: { px: '1' } },
+		},
+		{
+			iconOnly: true,
+			size: 'sm',
+			css: { button: { px: '1' } },
+		},
+		{
+			iconOnly: true,
+			size: 'md',
+			css: { button: { px: '1.5' } },
+		},
+		{
+			iconOnly: true,
+			size: 'lg',
+			css: { button: { px: '2' } },
+		},
+		{
+			iconOnly: true,
+			size: 'xl',
+			css: { button: { px: '2.5' } },
 		},
 	],
 	defaultVariants: {
 		visual: 'secondary',
 		size: 'md',
+		rounded: false,
+		iconOnly: false,
 	},
 })
 export type ButtonVariants = RecipeVariantProps<typeof buttonRecipe>

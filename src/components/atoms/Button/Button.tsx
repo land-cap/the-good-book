@@ -10,11 +10,11 @@ export type ButtonProps = {
 } & ButtonVariants
 
 export const Button = (props: ButtonProps) => {
-	const { label, leftIcon, rightIcon, ...variants } = props
+	const { label, leftIcon, rightIcon, className, ...variants } = props
 	const classes = buttonRecipe(variants)
 
 	return (
-		<button className={cx(classes.button, props.className)}>
+		<button className={cx(classes.button, className)}>
 			{leftIcon ? (
 				<Icon name={leftIcon} className={cx(classes.iconLeft, 'iconLeft')} />
 			) : null}

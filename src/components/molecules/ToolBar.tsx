@@ -4,7 +4,7 @@ import { css } from '../../../styled-system/css'
 import { IconButton } from '~/components/atoms/Button/IconButton'
 
 const chapterButtonStyles = css({
-	oShadow: 'md !',
+	oShadow: 'md',
 	whiteSpace: 'nowrap',
 	bg: 'bg.surface',
 })
@@ -13,7 +13,6 @@ const ToolBarContainer = styled('div', {
 	base: {
 		display: 'flex',
 		hideFrom: 'sm',
-		gap: '2',
 		placeContent: 'center',
 		alignItems: 'center',
 		position: 'fixed',
