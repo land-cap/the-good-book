@@ -3,7 +3,7 @@ import { styled } from 'styled-system/jsx'
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		my: { base: '8', md: '12' },
+		my: { base: '6', md: '10' },
 		textStyle: { base: '3xl', md: '4xl' },
 		fontWeight: 'blacker',
 	},
