@@ -65,7 +65,7 @@ export const readerStyles = css({
 
 	'& .verse .label': {
 		fontFamily: 'sans',
-		fontWeight: 'blacker',
+		fontWeight: 'black',
 
 		'&:after': {
 			content: '" "',
