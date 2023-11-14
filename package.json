@@ -23,8 +23,8 @@
     "@storybook/theming": "^7.5.1",
     "@t3-oss/env-nextjs": "^0.7.0",
     "cheerio": "1.0.0-rc.12",
+    "file-system-cache": "^2.4.4",
     "next": "^13.5.4",
-    "node-cache": "^5.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zod": "^3.22.4"
