@@ -16,6 +16,8 @@ export const ReaderPage = async ({
 
 	const bookName = await getBookName(bookCode)
 
+	const ENVIRONMENT = process.env.ENVIRONMENT
+
 	return (
 		<main className={readerStyles}>
 			{bookName?.name ? (
@@ -23,6 +25,7 @@ export const ReaderPage = async ({
 					{bookName.name} {chapter}
 				</ChapterTitle>
 			) : null}
+			<p>{ENVIRONMENT}</p>
 			{chapterData?.content ? (
 				<div
 					dangerouslySetInnerHTML={{
