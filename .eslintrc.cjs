@@ -45,7 +45,9 @@ const config = {
         "usePrettierrc": true
       }
     ],
-    "@typescript-eslint/ban-ts-comment": "warn"
+    "@typescript-eslint/ban-ts-comment": "warn",
+
+    "no-console": ["error", { allow: ["warn", "error"] }]
   }
 };
 
