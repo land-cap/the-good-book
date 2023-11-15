@@ -68,7 +68,7 @@ export const readerStyles = css({
 		fontWeight: 'black',
 
 		'&:after': {
-			content: '" "',
+			content: '"\\00a0"',
 			...bodyStyles,
 		},
 	},
