@@ -13,7 +13,6 @@ const chapterButtonStyles: SystemStyleObject = css.raw({
 const ToolBarContainer = styled('div', {
 	base: {
 		display: 'flex',
-		hideFrom: 'sm',
 		gap: '2',
 		placeContent: 'center',
 		alignItems: 'center',
@@ -25,21 +24,24 @@ const ToolBarContainer = styled('div', {
 	},
 })
 
+const preferencesIcon = (
+	<IconButton
+		iconName="format_size"
+		visual="primary"
+		size="xl"
+		rounded
+		rootStyles={css.raw({ oShadow: 'md' })}
+	/>
+)
+
 export const ToolBar = ({ chapter }: { chapter: string }) => (
 	<ToolBarContainer>
 		<Button
 			label={chapter}
 			visual="primary"
-			size="xl"
+			size="2xl"
 			rounded
 			rootStyles={chapterButtonStyles}
-		/>
-		<IconButton
-			iconName="format_size"
-			visual="primary"
-			size="xl"
-			rounded
-			rootStyles={css.raw({ oShadow: 'md' })}
 		/>
 	</ToolBarContainer>
 )

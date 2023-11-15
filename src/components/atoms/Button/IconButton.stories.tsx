@@ -10,7 +10,7 @@ const DEFAULT_ARGS: IconButtonProps = {
 }
 
 const IconButtonSizeRange = ({
-	sizes = new Set(['xs', 'sm', 'md', 'lg', 'xl']),
+	sizes = new Set(['sm', 'md', 'lg', 'xl']),
 	...props
 }: IconButtonProps & {
 	sizes?: Set<IconButtonProps['size']>

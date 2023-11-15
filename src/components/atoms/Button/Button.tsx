@@ -14,10 +14,7 @@ export const Button = (props: ButtonProps) => {
 	const { label, leftIcon, rightIcon, rootStyles, ...variants } = props
 	const slotStyles = buttonRecipe.raw(variants)
 
-	console.log(slotStyles)
-
 	const mergedCss = css(slotStyles.button, rootStyles)
-	console.log(mergedCss)
 
 	return (
 		<button className={mergedCss}>

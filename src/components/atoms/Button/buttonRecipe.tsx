@@ -9,7 +9,9 @@ export const buttonRecipe = sva({
 			alignItems: 'center',
 			gap: '1.5',
 			rounded: '0',
+			fontSize: 'sm',
 			fontWeight: 'black',
+			lineHeight: '1',
 		},
 		icon: {
 			w: '4',
@@ -56,46 +58,43 @@ export const buttonRecipe = sva({
 			},
 		},
 		size: {
-			xs: {
+			sm: {
 				button: {
+					h: '6',
 					px: '2',
-					py: '1',
-					textStyle: 'xs',
+					fontSize: 'xs',
 				},
 				icon: { w: '3', h: '3', fontSize: 'token(sizes.3)' },
 				iconLeft: { w: '3', h: '3', fontSize: 'token(sizes.3)' },
 				iconRight: { w: '3', h: '3', fontSize: 'token(sizes.3)' },
 			},
-			sm: {
-				button: {
-					px: '2',
-					py: '1',
-					textStyle: 'sm',
-				},
-			},
 			md: {
 				button: {
-					px: '2.5',
-					py: '1.5',
-					textStyle: 'sm',
+					h: '8',
+					px: '3',
 				},
 			},
 			lg: {
 				button: {
-					px: '3',
-					py: '2',
-					textStyle: 'sm',
+					h: '10',
+					px: '4',
+				},
+			},
+			xl: {
+				button: {
+					h: '12',
+					px: '5',
 				},
 				icon: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 				iconLeft: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 				iconRight: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 			},
-			xl: {
+			'2xl': {
 				button: {
-					px: '3',
-					py: '2.5',
+					h: '14',
+					px: '6',
 					gap: '2',
-					textStyle: 'sm',
+					fontSize: 'md',
 				},
 				icon: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 				iconLeft: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
@@ -116,18 +115,12 @@ export const buttonRecipe = sva({
 		{
 			rounded: true,
 			iconOnly: false,
-			size: 'xs',
+			size: 'sm',
 			css: {
 				button: {
 					px: '2.5',
 				},
 			},
-		},
-		{
-			rounded: true,
-			iconOnly: false,
-			size: 'sm',
-			css: { button: { px: '2.5' } },
 		},
 		{
 			rounded: true,
@@ -139,38 +132,39 @@ export const buttonRecipe = sva({
 			rounded: true,
 			iconOnly: false,
 			size: 'lg',
-			css: { button: { px: '3.5' } },
+			css: { button: { px: '4' } },
 		},
 		{
 			rounded: true,
 			iconOnly: false,
 			size: 'xl',
-			css: { button: { px: '4' } },
+			css: { button: { px: '5' } },
 		},
 		{
-			iconOnly: true,
-			size: 'xs',
-			css: { button: { px: '1' } },
+			rounded: true,
+			iconOnly: false,
+			size: '2xl',
+			css: { button: { px: '6' } },
 		},
 		{
 			iconOnly: true,
 			size: 'sm',
-			css: { button: { px: '1' } },
+			css: { button: { w: '6' } },
 		},
 		{
 			iconOnly: true,
 			size: 'md',
-			css: { button: { px: '1.5' } },
+			css: { button: { w: '8' } },
 		},
 		{
 			iconOnly: true,
 			size: 'lg',
-			css: { button: { px: '2' } },
+			css: { button: { w: '10' } },
 		},
 		{
 			iconOnly: true,
 			size: 'xl',
-			css: { button: { px: '2.5' } },
+			css: { button: { w: '12' } },
 		},
 	],
 	defaultVariants: {
