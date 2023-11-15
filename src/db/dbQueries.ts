@@ -1,11 +1,15 @@
 import { dbClient } from '~/db/dbClient'
-import { withCache } from '~/helpers'
+import { createFileSystemCache, createMemoryCache, withCache } from '~/helpers'
+
+const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
 const getBookName = async (bookCode: string) =>
 	dbClient.vdc_book_name.findFirst({ where: { book: { code: bookCode } } })
 
-const getBookNameWithCache = withCache(getBookName) as typeof getBookName
-export { getBookNameWithCache as getBookName }
+export const getBookNameWithCache = withCache(
+	getBookName,
+	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
+) as typeof getBookName
 
 const getChapter = async (bookCode: string, chapter: number) => {
 	console.log('getChapter called with', { bookCode, chapter })
@@ -15,5 +19,7 @@ const getChapter = async (bookCode: string, chapter: number) => {
 	})
 }
 
-const getChapterWithCache = withCache(getChapter) as typeof getChapter
-export { getChapterWithCache as getChapter }
+export const getChapterWithCache = withCache(
+	getChapter,
+	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
+) as typeof getChapter

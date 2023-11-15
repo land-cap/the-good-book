@@ -1,5 +1,5 @@
 import { ChapterTitle, readerStyles } from './Reader.styles'
-import { getBookName, getChapter } from '~/db'
+import { getBookNameWithCache, getChapterWithCache } from '~/db'
 import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 
 export const ReaderPage = async ({
@@ -12,11 +12,9 @@ export const ReaderPage = async ({
 }) => {
 	const { bookCode, chapter } = params
 
-	const chapterData = await getChapter(bookCode, Number(chapter))
+	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
-	const bookName = await getBookName(bookCode)
-
-	const ENVIRONMENT = process.env.ENVIRONMENT
+	const bookName = await getBookNameWithCache(bookCode)
 
 	return (
 		<main className={readerStyles}>
@@ -25,7 +23,6 @@ export const ReaderPage = async ({
 					{bookName.name} {chapter}
 				</ChapterTitle>
 			) : null}
-			<p>{ENVIRONMENT}</p>
 			{chapterData?.content ? (
 				<div
 					dangerouslySetInnerHTML={{
