@@ -7,7 +7,7 @@ import { css } from 'styled-system/css'
 const chapterButtonStyles: SystemStyleObject = css.raw({
 	oShadow: 'md',
 	whiteSpace: 'nowrap',
-	borderRightRadius: '0',
+	bg: 'black'
 })
 
 const ToolBarContainer = styled('div', {
