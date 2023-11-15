@@ -17,7 +17,8 @@ const ToolBarContainer = styled('div', {
 		placeContent: 'center',
 		alignItems: 'center',
 		position: 'fixed',
-		bottom: 'calc(token(spacing.3) + env(safe-area-inset-bottom))',
+		'--bottom-offset': 'spacing.4',
+		bottom: 'calc(var(--bottom-offset) + env(safe-area-inset-bottom))',
 		left: '50%',
 		transform: 'translateX(-50%)',
 		w: '100dvw',
@@ -28,7 +29,7 @@ const preferencesIcon = (
 	<IconButton
 		iconName="format_size"
 		visual="primary"
-		size="xl"
+		size="2xl"
 		rounded
 		rootStyles={css.raw({ oShadow: 'md' })}
 	/>
@@ -39,7 +40,7 @@ export const ToolBar = ({ chapter }: { chapter: string }) => (
 		<Button
 			label={chapter}
 			visual="primary"
-			size="2xl"
+			size="xl"
 			rounded
 			rootStyles={chapterButtonStyles}
 		/>
