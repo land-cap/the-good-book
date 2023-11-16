@@ -12,7 +12,7 @@ const chapterButtonStyles: SystemStyleObject = css.raw({
 const ToolBarContainer = styled('div', {
 	base: {
 		display: 'flex',
-		gap: '2',
+		gap: '1',
 		placeContent: 'center',
 		alignItems: 'center',
 		position: 'fixed',
@@ -26,7 +26,7 @@ const ToolBarContainer = styled('div', {
 
 const leftIcon = (
 	<IconButton
-		iconName="arrow_left"
+		iconName="arrow_back_ios"
 		visual="primary"
 		size="xl"
 		rounded
@@ -36,7 +36,7 @@ const leftIcon = (
 
 const rightIcon = (
 	<IconButton
-		iconName="arrow_right"
+		iconName="arrow_forward_ios"
 		visual="primary"
 		size="xl"
 		rounded
