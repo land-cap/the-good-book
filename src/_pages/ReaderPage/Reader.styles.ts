@@ -59,8 +59,9 @@ export const readerStyles = css({
 	'& [class^="s"] .heading': {
 		display: 'block',
 		my: { base: '4', md: '5' },
-		fontWeight: 'bold',
 		textStyle: { base: 'xl', md: '2xl' },
+		fontWeight: 'bold',
+		fontVariationSettings: "'opsz' 28",
 	},
 
 	'& .verse .label': {

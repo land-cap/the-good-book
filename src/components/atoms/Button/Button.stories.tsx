@@ -12,7 +12,7 @@ const DEFAULT_ARGS: ButtonProps = {
 const ICON_NAME = 'bolt'
 
 const ButtonSizeRange = ({
-	sizes = new Set(['xs', 'sm', 'md', 'lg', 'xl']),
+	sizes = new Set(['sm', 'md', 'lg', 'xl', '2xl']),
 	...props
 }: ButtonProps & {
 	sizes?: Set<ButtonProps['size']>

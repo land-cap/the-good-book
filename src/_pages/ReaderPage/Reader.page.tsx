@@ -1,6 +1,7 @@
 import { ChapterTitle, readerStyles } from './Reader.styles'
 import { getBookNameWithCache, getChapterWithCache } from '~/db'
 import { getNormalizedChapterContent } from './getNormalizedChapterContent'
+import { ToolBar } from '~/components/molecules/ToolBar'
 
 export const ReaderPage = async ({
 	params,
@@ -16,21 +17,19 @@ export const ReaderPage = async ({
 
 	const bookName = await getBookNameWithCache(bookCode)
 
+	const chapterTitle = `${bookName?.name} ${chapter}`
+
 	return (
 		<main className={readerStyles}>
-			{bookName?.name ? (
-				<ChapterTitle>
-					{bookName.name} {chapter}
-				</ChapterTitle>
-			) : null}
+			<ChapterTitle>{chapterTitle}</ChapterTitle>
 			{chapterData?.content ? (
 				<div
 					dangerouslySetInnerHTML={{
 						__html: getNormalizedChapterContent(chapterData.content),
 					}}
-					suppressHydrationWarning
 				/>
 			) : null}
+			<ToolBar chapter={chapterTitle} />
 		</main>
 	)
 }

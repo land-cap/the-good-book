@@ -6,9 +6,9 @@ import { setPageWidth } from '~/components/Page'
 const NavBarContainer = styled('nav', {
 	base: {
 		...setPageWidth,
-		zIndex: '10',
-		pos: 'sticky',
-		top: '0',
+		// zIndex: '10',
+		// pos: 'sticky',
+		// top: '0',
 		bg: 'bg.surface',
 	},
 })
@@ -26,7 +26,10 @@ const Logo = styled('span', {
 
 export const NavBar = () => (
 	<NavBarContainer>
-		<div className={css({ borderBottom: '1px solid token(colors.border.emphasized)' })}>
+		<div
+			className={css({
+				borderBottom: '1px solid token(colors.border.emphasized)',
+			})}>
 			<div
 				className={flex({
 					direction: { base: 'column', sm: 'row' },

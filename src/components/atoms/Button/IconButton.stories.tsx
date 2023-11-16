@@ -10,7 +10,7 @@ const DEFAULT_ARGS: IconButtonProps = {
 }
 
 const IconButtonSizeRange = ({
-	sizes = new Set(['xs', 'sm', 'md', 'lg', 'xl']),
+	sizes = new Set(['sm', 'md', 'lg', 'xl']),
 	...props
 }: IconButtonProps & {
 	sizes?: Set<IconButtonProps['size']>
@@ -26,7 +26,7 @@ const IconButtonSizeRange = ({
 const IconButton = (props: IconButtonProps) => <></>
 
 const meta: Meta<typeof _IconButton> = {
-	title: 'Icon Button',
+	title: 'IconButton',
 	component: IconButton,
 	tags: ['autodocs'],
 	argTypes: {
@@ -84,5 +84,26 @@ export const Secondary: Story = createStory({
 export const Soft: Story = createStory({
 	args: {
 		visual: 'soft',
+	},
+})
+
+export const RoundedPrimary: Story = createStory({
+	args: {
+		visual: 'primary',
+		rounded: true,
+	},
+})
+
+export const RoundedSecondary: Story = createStory({
+	args: {
+		visual: 'secondary',
+		rounded: true,
+	},
+})
+
+export const RoundedSoft: Story = createStory({
+	args: {
+		visual: 'soft',
+		rounded: true,
 	},
 })

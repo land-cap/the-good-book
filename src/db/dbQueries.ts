@@ -12,7 +12,6 @@ export const getBookNameWithCache = withCache(
 ) as typeof getBookName
 
 const getChapter = async (bookCode: string, chapter: number) => {
-	console.log('getChapter called with', { bookCode, chapter })
 	const book = await dbClient.book.findFirst({ where: { code: bookCode } })
 	return dbClient.vdc_chapter.findFirst({
 		where: { book_id: book?.id, chapter },
