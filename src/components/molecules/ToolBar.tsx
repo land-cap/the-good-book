@@ -24,18 +24,30 @@ const ToolBarContainer = styled('div', {
 	},
 })
 
-const preferencesIcon = (
+const leftIcon = (
 	<IconButton
-		iconName="format_size"
+		iconName="arrow_left"
 		visual="primary"
-		size="2xl"
+		size="xl"
 		rounded
 		rootStyles={css.raw({ oShadow: 'md' })}
 	/>
 )
 
+const rightIcon = (
+	<IconButton
+		iconName="arrow_right"
+		visual="primary"
+		size="xl"
+		rounded
+		rootStyles={css.raw({ oShadow: 'md' })}
+	/>
+)
+
+
 export const ToolBar = ({ chapter }: { chapter: string }) => (
 	<ToolBarContainer>
+		{leftIcon}
 		<Button
 			label={chapter}
 			visual="primary"
@@ -43,5 +55,6 @@ export const ToolBar = ({ chapter }: { chapter: string }) => (
 			rounded
 			rootStyles={chapterButtonStyles}
 		/>
+		{rightIcon}
 	</ToolBarContainer>
 )
