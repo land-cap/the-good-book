@@ -1,8 +1,5 @@
 import { type RecipeVariantProps, sva } from 'styled-system/css'
 
-const ACCENT = 'sky'
-const NEUTRAL = 'neutral'
-
 export const buttonRecipe = sva({
 	slots: ['button', 'icon', 'iconLeft', 'iconRight'],
 	base: {
@@ -12,7 +9,9 @@ export const buttonRecipe = sva({
 			alignItems: 'center',
 			gap: '1.5',
 			rounded: '0',
+			fontSize: 'sm',
 			fontWeight: 'black',
+			lineHeight: '1',
 		},
 		icon: {
 			w: '4',
@@ -20,13 +19,13 @@ export const buttonRecipe = sva({
 			fontSize: 'token(sizes.4)',
 		},
 		iconLeft: {
-			ml: { base: '-0.5' },
+			ml: '-0.5',
 			w: '4',
 			h: '4',
 			fontSize: 'token(sizes.4)',
 		},
 		iconRight: {
-			mr: { base: '-0.5' },
+			mr: '-0.5',
 			w: '4',
 			h: '4',
 			fontSize: 'token(sizes.4)',
@@ -36,69 +35,66 @@ export const buttonRecipe = sva({
 		visual: {
 			primary: {
 				button: {
-					bg: { base: `${ACCENT}.600`, _hover: `${ACCENT}.500` },
+					bg: { base: 'neutral.600', _hover: 'neutral.500' },
 					color: 'white',
 					shadow: 'sm',
 				},
 			},
 			secondary: {
 				button: {
-					bg: { base: 'white', _hover: `${NEUTRAL}.50` },
-					color: `${NEUTRAL}.900`,
+					bg: { base: 'bg.surface', _hover: 'bg.subtle' },
+					color: 'fg',
 					oRingWidth: '1px',
-					oRingColor: `${NEUTRAL}.300`,
+					oRingColor: 'border.emphasized',
 					oRingInset: true,
 					oShadow: 'sm',
 				},
 			},
 			soft: {
 				button: {
-					bg: { base: `${ACCENT}.100`, _hover: `${ACCENT}.200` },
-					color: `${ACCENT}.600`,
+					bg: { base: 'neutral.100', _hover: 'neutral.200' },
+					color: 'neutral.600',
 				},
 			},
 		},
 		size: {
-			xs: {
+			sm: {
 				button: {
-					px: { base: '2', '&:has(.icon)': '1' },
-					py: '1',
-					textStyle: 'xs',
+					h: '6',
+					px: '2',
+					fontSize: 'xs',
 				},
 				icon: { w: '3', h: '3', fontSize: 'token(sizes.3)' },
 				iconLeft: { w: '3', h: '3', fontSize: 'token(sizes.3)' },
 				iconRight: { w: '3', h: '3', fontSize: 'token(sizes.3)' },
 			},
-			sm: {
-				button: {
-					px: { base: '2', '&:has(.icon)': '1' },
-					py: '1',
-					textStyle: 'sm',
-				},
-			},
 			md: {
 				button: {
-					px: { base: '2.5', '&:has(.icon)': '1.5' },
-					py: '1.5',
-					textStyle: 'sm',
+					h: '8',
+					px: '3',
 				},
 			},
 			lg: {
 				button: {
-					px: { base: '2', '&:has(.icon)': '2' },
-					py: '2',
-					textStyle: 'sm',
+					h: '10',
+					px: '4',
+				},
+			},
+			xl: {
+				button: {
+					h: '12',
+					px: '5',
 				},
 				icon: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 				iconLeft: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 				iconRight: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 			},
-			xl: {
+			'2xl': {
 				button: {
-					px: { base: '3', '&:has(.icon)': '2.5' },
-					py: '2.5',
+					h: '14',
+					px: '6',
 					gap: '2',
-					textStyle: 'sm',
+					fontSize: 'md',
 				},
 				icon: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
 				iconLeft: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
@@ -106,37 +102,76 @@ export const buttonRecipe = sva({
 			},
 		},
 		rounded: { true: { button: { rounded: 'full' } } },
+		iconOnly: {
+			true: {
+				button: {
+					placeContent: 'center',
+					alignItems: 'center',
+				},
+			},
+		},
 	},
 	compoundVariants: [
 		{
 			rounded: true,
-			size: 'xs',
-			css: { button: { px: '2.5' } },
-		},
-		{
-			rounded: true,
+			iconOnly: false,
 			size: 'sm',
-			css: { button: { px: '2.5' } },
+			css: {
+				button: {
+					px: '2.5',
+				},
+			},
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'md',
 			css: { button: { px: '3' } },
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'lg',
-			css: { button: { px: '3.5' } },
+			css: { button: { px: '4' } },
 		},
 		{
 			rounded: true,
+			iconOnly: false,
 			size: 'xl',
-			css: { button: { px: '4' } },
+			css: { button: { px: '5' } },
+		},
+		{
+			rounded: true,
+			iconOnly: false,
+			size: '2xl',
+			css: { button: { px: '6' } },
+		},
+		{
+			iconOnly: true,
+			size: 'sm',
+			css: { button: { w: '6' } },
+		},
+		{
+			iconOnly: true,
+			size: 'md',
+			css: { button: { w: '8' } },
+		},
+		{
+			iconOnly: true,
+			size: 'lg',
+			css: { button: { w: '10' } },
+		},
+		{
+			iconOnly: true,
+			size: 'xl',
+			css: { button: { w: '12' } },
 		},
 	],
 	defaultVariants: {
 		visual: 'secondary',
 		size: 'md',
+		rounded: false,
+		iconOnly: false,
 	},
 })
 export type ButtonVariants = RecipeVariantProps<typeof buttonRecipe>

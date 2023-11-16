@@ -1,25 +1,29 @@
 import { buttonRecipe, type ButtonVariants } from './buttonRecipe'
 import { Icon } from '../Icon/Icon'
-import { cx } from 'styled-system/css'
+import { css } from 'styled-system/css'
+import { type SystemStyleObject } from 'styled-system/types'
 
 export type ButtonProps = {
 	label: string
 	leftIcon?: string
 	rightIcon?: string
+	rootStyles?: SystemStyleObject
 } & ButtonVariants
 
 export const Button = (props: ButtonProps) => {
-	const { label, leftIcon, rightIcon, ...variants } = props
-	const classes = buttonRecipe(variants)
+	const { label, leftIcon, rightIcon, rootStyles, ...variants } = props
+	const slotStyles = buttonRecipe.raw(variants)
+
+	const mergedCss = css(slotStyles.button, rootStyles)
 
 	return (
-		<button className={classes.button}>
+		<button className={mergedCss}>
 			{leftIcon ? (
-				<Icon name={leftIcon} className={cx(classes.iconLeft, 'iconLeft')} />
+				<Icon name={leftIcon} className={css(slotStyles.iconLeft)} />
 			) : null}
 			{label}
 			{rightIcon ? (
-				<Icon name={rightIcon} className={cx(classes.iconRight, 'iconRight')} />
+				<Icon name={rightIcon} className={css(slotStyles.iconRight)} />
 			) : null}
 		</button>
 	)
