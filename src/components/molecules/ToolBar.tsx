@@ -26,24 +26,29 @@ const ToolBarContainer = styled('div', {
 
 const leftIcon = (
 	<IconButton
-		iconName="arrow_back_ios"
+		iconName="arrow_left"
 		visual="primary"
 		size="xl"
 		rounded
-		rootStyles={css.raw({ oShadow: 'md' })}
+		styles={{
+			button: css.raw({ oShadow: 'md' }),
+			icon: { fontSize: '2rem', display: 'contents' },
+		}}
 	/>
 )
 
 const rightIcon = (
 	<IconButton
-		iconName="arrow_forward_ios"
+		iconName="arrow_right"
 		visual="primary"
 		size="xl"
 		rounded
-		rootStyles={css.raw({ oShadow: 'md' })}
+		styles={{
+			button: css.raw({ oShadow: 'md' }),
+			icon: { fontSize: '2rem' },
+		}}
 	/>
 )
-
 
 export const ToolBar = ({ chapter }: { chapter: string }) => (
 	<ToolBarContainer>

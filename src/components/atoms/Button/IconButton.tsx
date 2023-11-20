@@ -5,16 +5,19 @@ import { type SystemStyleObject } from 'styled-system/types'
 
 export type IconButtonProps = {
 	iconName: string
-	rootStyles?: SystemStyleObject
+	styles?: {
+		button?: SystemStyleObject
+		icon?: SystemStyleObject
+	}
 } & ButtonVariants
 
 export const IconButton = (props: IconButtonProps) => {
-	const { iconName, rootStyles, ...variants } = props
+	const { iconName, styles, ...variants } = props
 	const slotStyles = buttonRecipe.raw({ ...variants, iconOnly: true })
 
 	return (
-		<button className={css(slotStyles.button, rootStyles)}>
-			<Icon name={iconName} className={css(slotStyles.icon)} />
+		<button className={css(slotStyles.button, styles?.button)}>
+			<Icon name={iconName} className={css(slotStyles.icon, styles?.icon)} />
 		</button>
 	)
 }
