@@ -3,7 +3,7 @@ import { styled } from 'styled-system/jsx'
 
 export const ChapterTitle = styled('h1', {
 	base: {
-		my: { base: '8', md: '12' },
+		my: { base: '12', md: '16' },
 		textStyle: { base: '4xl', md: '5xl' },
 		fontWeight: 'blacker',
 	},
@@ -17,8 +17,6 @@ const bodyStyles = {
 export const readerStyles = css({
 	...bodyStyles,
 	color: { _osDark: 'fg.muted' },
-	// TODO: find a proper fix for unexpected spacing below reader
-	mb: '-4',
 
 	'& *:where(.note, .chapter > .label, .cl)': { display: 'none' },
 

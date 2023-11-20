@@ -1,9 +1,9 @@
 import { styled } from 'styled-system/jsx'
-import { Button, type ButtonProps } from '~/components/atoms/Button/Button'
+import { Button } from '~/components/atoms/Button/Button'
 import { type SystemStyleObject } from 'styled-system/types'
 import { css } from 'styled-system/css'
 
-const chapterButtonStyles: SystemStyleObject = css.raw({
+const chapterPickerButtonStyles: SystemStyleObject = css.raw({
 	whiteSpace: 'nowrap',
 	shadow: '8',
 	bg: { _osDark: 'bg.subtle' },
@@ -25,16 +25,24 @@ const ToolBarContainer = styled('div', {
 })
 
 export const ToolBar = ({ chapter }: { chapter: string }) => {
-	const chapterPickerButtonProps: Partial<ButtonProps> = {
+	const chapterPickerButtonProps = {
+		label: chapter,
 		visual: 'secondary',
-		size: 'xl',
 		rounded: true,
-		rootStyles: chapterButtonStyles,
-	}
+	} as const
 
 	return (
 		<ToolBarContainer>
-			<Button label={chapter} {...chapterPickerButtonProps} />
+			<Button
+				{...chapterPickerButtonProps}
+				size="xl"
+				rootStyles={css.raw({ ...chapterPickerButtonStyles, hideFrom: 'sm' })}
+			/>
+			<Button
+				{...chapterPickerButtonProps}
+				size="2xl"
+				rootStyles={css.raw({ ...chapterPickerButtonStyles, hideBelow: 'sm' })}
+			/>
 		</ToolBarContainer>
 	)
 }
