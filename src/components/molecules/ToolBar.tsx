@@ -1,12 +1,13 @@
 import { styled } from 'styled-system/jsx'
 import { Button } from '~/components/atoms/Button/Button'
-import { IconButton } from '~/components/atoms/Button/IconButton'
 import { type SystemStyleObject } from 'styled-system/types'
 import { css } from 'styled-system/css'
 
 const chapterButtonStyles: SystemStyleObject = css.raw({
-	oShadow: 'md',
 	whiteSpace: 'nowrap',
+	shadow: '8',
+	bg: { _osDark: 'bg.subtle' },
+	color: { _osDark: 'fg.muted' },
 })
 
 const ToolBarContainer = styled('div', {
@@ -24,21 +25,11 @@ const ToolBarContainer = styled('div', {
 	},
 })
 
-const preferencesIcon = (
-	<IconButton
-		iconName="format_size"
-		visual="primary"
-		size="2xl"
-		rounded
-		rootStyles={css.raw({ oShadow: 'md' })}
-	/>
-)
-
 export const ToolBar = ({ chapter }: { chapter: string }) => (
 	<ToolBarContainer>
 		<Button
 			label={chapter}
-			visual="primary"
+			visual="secondary"
 			size="xl"
 			rounded
 			rootStyles={chapterButtonStyles}

@@ -42,7 +42,7 @@ export const readerStyles = css({
 	'& *:where([class^="ms"], .mr) .heading': {
 		display: 'inline',
 		textStyle: { base: 'xs', md: 'sm' },
-		fontWeight: 'blacker',
+		fontWeight: 'black',
 		letterSpacing: '0.05em',
 		lineHeight: bodyStyles.lineHeight,
 		color: 'fg.subtle',
@@ -61,7 +61,6 @@ export const readerStyles = css({
 		my: { base: '4', md: '5' },
 		textStyle: { base: 'xl', md: '2xl' },
 		fontWeight: 'bold',
-		fontVariationSettings: "'opsz' 28",
 	},
 
 	'& .verse .label': {
