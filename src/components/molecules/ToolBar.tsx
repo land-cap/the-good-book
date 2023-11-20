@@ -16,12 +16,11 @@ const ToolBarContainer = styled('div', {
 		gap: '2',
 		placeContent: 'center',
 		alignItems: 'center',
-		position: 'fixed',
-		'--bottom-offset': 'spacing.6',
+		position: 'sticky',
+		'--bottom-offset': { base: 'spacing.4', md: 'spacing.6' },
 		bottom: 'calc(var(--bottom-offset) + env(safe-area-inset-bottom))',
 		left: '50%',
-		transform: 'translateX(-50%)',
-		w: '100dvw',
+		mt: { base: '10', md: '12' },
 	},
 })
 
