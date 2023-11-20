@@ -6,7 +6,7 @@ const FooterContainer = styled('footer', {
 	base: {
 		display: 'flex',
 		flexFlow: 'column nowrap',
-		gap: '8',
+		gap: '4',
 		alignItems: 'center',
 		textAlign: 'center',
 		fontSize: 'xs',
@@ -15,7 +15,7 @@ const FooterContainer = styled('footer', {
 		w: 'full',
 		maxW: '2xl',
 		px: '8',
-		my: { base: '10', md: '12' },
+		my: { base: '12', md: '16' },
 	},
 })
 
