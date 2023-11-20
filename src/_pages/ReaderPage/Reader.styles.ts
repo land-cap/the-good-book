@@ -17,6 +17,8 @@ const bodyStyles = {
 export const readerStyles = css({
 	...bodyStyles,
 	color: { _osDark: 'fg.muted' },
+	// TODO: find a proper fix for unexpected spacing below reader
+	mb: '-4',
 
 	'& *:where(.note, .chapter > .label, .cl)': { display: 'none' },
 
@@ -25,6 +27,10 @@ export const readerStyles = css({
 		fontSize: { base: 'xs', md: 'sm' },
 		fontWeight: 'bold',
 		color: 'fg.subtle',
+	},
+
+	'& .p': {
+		display: 'inline',
 	},
 
 	'& [class^="q"]': { mt: { base: '4', md: '5' }, fontFamily: 'mono' },

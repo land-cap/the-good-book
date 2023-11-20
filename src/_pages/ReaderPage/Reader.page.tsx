@@ -20,10 +20,11 @@ export const ReaderPage = async ({
 	const chapterTitle = `${bookName?.name} ${chapter}`
 
 	return (
-		<main className={readerStyles}>
+		<main>
 			<ChapterTitle>{chapterTitle}</ChapterTitle>
 			{chapterData?.content ? (
 				<div
+					className={readerStyles}
 					dangerouslySetInnerHTML={{
 						__html: getNormalizedChapterContent(chapterData.content),
 					}}
