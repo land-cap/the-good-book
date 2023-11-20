@@ -17,7 +17,7 @@ const ToolBarContainer = styled('div', {
 		placeContent: 'center',
 		alignItems: 'center',
 		position: 'fixed',
-		'--bottom-offset': 'spacing.4',
+		'--bottom-offset': 'spacing.6',
 		bottom: 'calc(var(--bottom-offset) + env(safe-area-inset-bottom))',
 		left: '50%',
 		transform: 'translateX(-50%)',
@@ -30,7 +30,7 @@ export const ToolBar = ({ chapter }: { chapter: string }) => (
 		<Button
 			label={chapter}
 			visual="secondary"
-			size="xl"
+			size="2xl"
 			rounded
 			rootStyles={chapterButtonStyles}
 		/>
