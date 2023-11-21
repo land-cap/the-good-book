@@ -67,6 +67,13 @@ export const readerStyles = css({
 		fontWeight: 'bold',
 	},
 
+	'& .verse': {
+		'&:after': {
+			content: '"\\A"',
+			whiteSpace: 'pre-wrap',
+		},
+	},
+
 	'& .verse .label': {
 		fontFamily: 'sans',
 		fontWeight: 'black',
