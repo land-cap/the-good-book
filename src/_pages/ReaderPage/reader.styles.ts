@@ -70,11 +70,12 @@ export const readerStyles = css({
 	'& .verse .label': {
 		verticalAlign: 'super',
 		fontSize: '0.75em',
-		fontFamily: 'sans',
+		fontFamily: 'mono',
 		color: 'fg.subtle',
 
 		'&:after': {
 			content: '"\\00a0"',
+			fontFamily: 'sans',
 			...bodyStyles,
 		},
 	},
@@ -98,7 +99,6 @@ export const bodyStyles_mode_study = css({
 		top: '-0.25lh',
 		transform: 'translateX(-100%)',
 		fontSize: 'inherit',
-		fontFamily: 'mono',
 
 		'&:after': {
 			all: 'unset',
