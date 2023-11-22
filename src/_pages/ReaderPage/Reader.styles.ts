@@ -67,7 +67,23 @@ export const readerStyles = css({
 		fontWeight: 'bold',
 	},
 
+	'& .verse .label': {
+		verticalAlign: 'super',
+		fontSize: '0.75em',
+		fontFamily: 'sans',
+		color: 'fg.subtle',
+
+		'&:after': {
+			content: '"\\00a0"',
+			...bodyStyles,
+		},
+	},
+})
+
+export const bodyStyles_mode_study = css({
 	'& .verse': {
+		position: 'relative',
+
 		'&:after': {
 			content: '"\\A"',
 			whiteSpace: 'pre-wrap',
@@ -75,12 +91,17 @@ export const readerStyles = css({
 	},
 
 	'& .verse .label': {
-		fontFamily: 'sans',
-		fontWeight: 'black',
+		display: 'flex',
+		position: 'absolute',
+		verticalAlign: 'initial',
+		left: '-4',
+		top: '-0.25lh',
+		transform: 'translateX(-100%)',
+		fontSize: 'inherit',
+		fontFamily: 'mono',
 
 		'&:after': {
-			content: '"\\00a0"',
-			...bodyStyles,
+			all: 'unset',
 		},
 	},
 })

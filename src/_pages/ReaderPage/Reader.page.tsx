@@ -1,7 +1,12 @@
-import { ChapterTitle, readerStyles } from './Reader.styles'
+import {
+	bodyStyles_mode_study,
+	ChapterTitle,
+	readerStyles,
+} from './Reader.styles'
 import { getBookNameWithCache, getChapterWithCache } from '~/db'
 import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { ToolBar } from '~/components/molecules/ToolBar'
+import { cx } from '../../../styled-system/css'
 
 export const ReaderPage = async ({
 	params,
@@ -24,7 +29,7 @@ export const ReaderPage = async ({
 			<ChapterTitle>{chapterTitle}</ChapterTitle>
 			{chapterData?.content ? (
 				<div
-					className={readerStyles}
+					className={cx(readerStyles, bodyStyles_mode_study)}
 					dangerouslySetInnerHTML={{
 						__html: getNormalizedChapterContent(chapterData.content),
 					}}

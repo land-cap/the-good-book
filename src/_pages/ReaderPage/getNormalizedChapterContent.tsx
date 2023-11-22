@@ -2,10 +2,6 @@ import * as cheerio from 'cheerio'
 
 export const getNormalizedChapterContent = (chapterContent: string) => {
 	const $chapterContent = cheerio.load(chapterContent)
-	const verseLabelSelector = $chapterContent('.verse > .label')
-	verseLabelSelector
-		.before((_, html) => `<sup class="label">${html}</sup>`)
-		.remove()
 
 	$chapterContent('.verse:has(.content:only-child)')
 		.filter((_, value) => {
