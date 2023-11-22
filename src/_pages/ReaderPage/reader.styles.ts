@@ -31,6 +31,10 @@ export const readerStyles = css({
 		display: 'inline',
 	},
 
+	'& .verse': {
+		display: 'inline-block',
+	},
+
 	'& [class^="q"]': { mt: { base: '4', md: '5' }, fontFamily: 'mono' },
 
 	'& [class^="q"] + [class^="q"]': { mt: '0' },
@@ -96,9 +100,9 @@ export const bodyStyles_mode_study = css({
 		position: 'absolute',
 		verticalAlign: 'initial',
 		left: { base: '-2', sm: '-4' },
-		top: '-0.25lh',
+		top: '0',
 		transform: 'translateX(-100%)',
-		fontSize: 'inherit',
+		fontSize: { base: '0.75em', sm: 'inherit' },
 
 		'&:after': {
 			all: 'unset',
