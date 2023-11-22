@@ -1,10 +1,9 @@
-// 'use client'
-
 import { ChapterTitle } from './reader.styles'
 import { getBookNameWithCache, getChapterWithCache } from '~/db'
 import { ToolBar } from '~/components/molecules/ToolBar'
 import { ChapterContent } from './components/ChapterContent'
 import { getNormalizedChapterContent } from '~/_pages'
+import { ReaderPageContainer } from '~/_pages/ReaderPage/components/ReaderPageContainer'
 
 export const ReaderPage = async ({
 	params,
@@ -26,11 +25,11 @@ export const ReaderPage = async ({
 		const chapterContentHtml = getNormalizedChapterContent(chapterData.content)
 
 		return (
-			<main>
+			<ReaderPageContainer>
 				<ChapterTitle>{chapterTitle}</ChapterTitle>
 				<ChapterContent chapterContentHtml={chapterContentHtml} />
 				<ToolBar chapter={chapterTitle} />
-			</main>
+			</ReaderPageContainer>
 		)
 	}
 	throw new Error('No chapter data')

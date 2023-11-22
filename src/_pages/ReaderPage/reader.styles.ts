@@ -95,7 +95,7 @@ export const bodyStyles_mode_study = css({
 		display: 'flex',
 		position: 'absolute',
 		verticalAlign: 'initial',
-		left: '-4',
+		left: { base: '-2', sm: '-4' },
 		top: '-0.25lh',
 		transform: 'translateX(-100%)',
 		fontSize: 'inherit',
