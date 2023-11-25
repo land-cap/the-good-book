@@ -96,13 +96,11 @@ export const bodyStyles_mode_study = css({
 	},
 
 	'& .verse .label': {
-		display: 'flex',
 		position: 'absolute',
-		verticalAlign: 'initial',
 		left: { base: '-2', sm: '-4' },
 		top: '0',
 		transform: 'translateX(-100%)',
-		fontSize: { base: '0.75em', sm: 'inherit' },
+		fontSize: { base: '0.625rem', sm: 'inherit' },
 
 		'&:after': {
 			all: 'unset',
