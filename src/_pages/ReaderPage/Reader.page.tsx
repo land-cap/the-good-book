@@ -1,6 +1,5 @@
 import { ChapterTitle } from './reader.styles'
 import { getBookNameWithCache, getChapterWithCache } from '~/db'
-import { ToolBar } from '~/components/molecules/ToolBar'
 import { ChapterContent } from './components/ChapterContent'
 import { getNormalizedChapterContent } from '~/_pages'
 import { ReaderPageContainer } from '~/_pages/ReaderPage/components/ReaderPageContainer'
@@ -28,7 +27,6 @@ export const ReaderPage = async ({
 			<ReaderPageContainer>
 				<ChapterTitle>{chapterTitle}</ChapterTitle>
 				<ChapterContent chapterContentHtml={chapterContentHtml} />
-				<ToolBar chapter={chapterTitle} />
 			</ReaderPageContainer>
 		)
 	}
