@@ -31,10 +31,6 @@ export const readerStyles = css({
 		display: 'inline',
 	},
 
-	'& .verse': {
-		display: 'inline-block',
-	},
-
 	'& [class^="q"]': { mt: { base: '4', md: '5' }, fontFamily: 'mono' },
 
 	'& [class^="q"] + [class^="q"]': { mt: '0' },
@@ -87,6 +83,7 @@ export const readerStyles = css({
 
 export const bodyStyles_mode_study = css({
 	'& .verse': {
+		display: 'inline-block',
 		position: 'relative',
 
 		'&:after': {
