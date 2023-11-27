@@ -5,6 +5,10 @@
 await import("./src/env.mjs");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  experimental: {
+    swcPlugins: [["@swc-jotai/react-refresh", {}]]
+  }
+};
 
 export default config;

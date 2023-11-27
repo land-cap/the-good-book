@@ -5,7 +5,7 @@ import { css } from 'styled-system/css'
 
 const chapterPickerButtonStyles: SystemStyleObject = css.raw({
 	whiteSpace: 'nowrap',
-	shadow: '8',
+	shadow: '16',
 	bg: { _osDark: 'bg.subtle' },
 	color: { _osDark: 'fg.muted' },
 })

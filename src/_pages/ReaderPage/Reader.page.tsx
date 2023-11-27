@@ -1,7 +1,9 @@
-import { ChapterTitle, readerStyles } from './Reader.styles'
+import { ChapterTitle } from './reader.styles'
 import { getBookNameWithCache, getChapterWithCache } from '~/db'
-import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { ToolBar } from '~/components/molecules/ToolBar'
+import { ChapterContent } from './components/ChapterContent'
+import { getNormalizedChapterContent } from '~/_pages'
+import { ReaderPageContainer } from '~/_pages/ReaderPage/components/ReaderPageContainer'
 
 export const ReaderPage = async ({
 	params,
@@ -13,24 +15,22 @@ export const ReaderPage = async ({
 }) => {
 	const { bookCode, chapter } = params
 
-	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
-
 	const bookName = await getBookNameWithCache(bookCode)
 
 	const chapterTitle = `${bookName?.name} ${chapter}`
 
-	return (
-		<main>
-			<ChapterTitle>{chapterTitle}</ChapterTitle>
-			{chapterData?.content ? (
-				<div
-					className={readerStyles}
-					dangerouslySetInnerHTML={{
-						__html: getNormalizedChapterContent(chapterData.content),
-					}}
-				/>
-			) : null}
-			<ToolBar chapter={chapterTitle} />
-		</main>
-	)
+	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
+
+	if (chapterData?.content) {
+		const chapterContentHtml = getNormalizedChapterContent(chapterData.content)
+
+		return (
+			<ReaderPageContainer>
+				<ChapterTitle>{chapterTitle}</ChapterTitle>
+				<ChapterContent chapterContentHtml={chapterContentHtml} />
+				<ToolBar chapter={chapterTitle} />
+			</ReaderPageContainer>
+		)
+	}
+	throw new Error('No chapter data')
 }
