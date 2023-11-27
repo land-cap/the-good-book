@@ -1,5 +1,5 @@
-import { styled } from 'styled-system/jsx'
 import { type SystemStyleObject } from 'styled-system/types'
+import { css } from 'styled-system/css'
 
 export const setPageWidth: SystemStyleObject = {
 	mx: 'auto',
@@ -8,9 +8,7 @@ export const setPageWidth: SystemStyleObject = {
 	px: '8',
 }
 
-export const Page = styled('div', {
-	base: {
-		...setPageWidth,
-		flexGrow: 1,
-	},
+export const pageCss = css({
+	...setPageWidth,
+	flexGrow: 1,
 })

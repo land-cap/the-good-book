@@ -1,6 +1,5 @@
 import '~/index.css'
 import { NavBar } from '~/components/molecules/NavBar'
-import { Page } from '~/components/Page'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { styled } from 'styled-system/jsx'
 import { Footer } from '~/components/molecules/Footer'
@@ -36,7 +35,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
 		<AppShell>
 			<NavBar />
-			<Page>{children}</Page>
+			{children}
 			<Footer />
 		</AppShell>
 	</html>
