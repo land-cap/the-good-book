@@ -1,12 +1,9 @@
 import { css } from 'styled-system/css'
-import { styled } from 'styled-system/jsx'
 
-export const ChapterTitle = styled('h1', {
-	base: {
-		my: { base: '8', md: '12' },
-		textStyle: { base: '4xl', md: '5xl' },
-		fontWeight: 'blacker',
-	},
+export const chapterTitleStyles = css({
+	my: { base: '8', md: '12' },
+	textStyle: { base: '4xl', md: '5xl' },
+	fontWeight: 'blacker',
 })
 
 const bodyStyles = {
