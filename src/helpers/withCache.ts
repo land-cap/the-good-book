@@ -33,12 +33,15 @@ export const createFileSystemCache = <T>(
 }
 
 // TODO: fix return type issue
-export const withCache =
-	<Args extends never[], Result, Fn extends (...args: Args) => Promise<Result>>(
-		fn: Fn,
-		cache: CachePlugin<Result> = createMemoryCache<Result>(),
-	) =>
-	async (...args: Parameters<Fn>): Promise<Result> => {
+export const withCache = <
+	Args extends never[],
+	Result,
+	Fn extends (...args: Args) => Promise<Result>,
+>(
+	fn: Fn,
+	cache: CachePlugin<Result> = createMemoryCache<Result>(),
+) =>
+	(async (...args: Parameters<Fn>): Promise<Result> => {
 		const cachedValue = await cache.get(args.toString())
 		if (cachedValue) {
 			return cachedValue
@@ -46,4 +49,4 @@ export const withCache =
 		const result = await fn(...args)
 		cache.set(args.toString(), result)
 		return result
-	}
+	}) as Fn

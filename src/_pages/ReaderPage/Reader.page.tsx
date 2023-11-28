@@ -1,8 +1,8 @@
-import { ChapterTitle } from './reader.styles'
-import { getBookNameWithCache, getChapterWithCache } from '~/db'
+import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContent } from './components/ChapterContent'
 import { getNormalizedChapterContent } from '~/_pages'
 import { ReaderPageContainer } from '~/_pages/ReaderPage/components/ReaderPageContainer'
+import { ChapterTitle } from '~/_pages/ReaderPage/components/ChapterTitle'
 
 export const ReaderPage = async ({
 	params,
@@ -14,18 +14,18 @@ export const ReaderPage = async ({
 }) => {
 	const { bookCode, chapter } = params
 
-	const bookName = await getBookNameWithCache(bookCode)
-
-	const chapterTitle = `${bookName?.name} ${chapter}`
-
 	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
 	if (chapterData?.content) {
 		const chapterContentHtml = getNormalizedChapterContent(chapterData.content)
 
+		const book = await getBookWithCache(bookCode)
+
 		return (
 			<ReaderPageContainer>
-				<ChapterTitle>{chapterTitle}</ChapterTitle>
+				{book?.name ? (
+					<ChapterTitle bookName={book.name} chapter={chapter} />
+				) : null}
 				<ChapterContent chapterContentHtml={chapterContentHtml} />
 			</ReaderPageContainer>
 		)
