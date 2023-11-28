@@ -1,6 +1,6 @@
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContent } from './components/ChapterContent'
-import { getNormalizedChapterContent } from '~/_pages'
+import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { ReaderPageContainer } from '~/_pages/ReaderPage/components/ReaderPageContainer'
 import { ChapterTitle } from '~/_pages/ReaderPage/components/ChapterTitle'
 

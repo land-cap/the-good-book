@@ -1,5 +1,5 @@
 import '~/index.css'
-import { NavBar } from '~/components/molecules/NavBar'
+import { NavBar } from '~/components'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { styled } from 'styled-system/jsx'
 import { Footer } from '~/components/molecules/Footer'

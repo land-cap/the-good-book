@@ -4,7 +4,7 @@ import { styled } from 'styled-system/jsx'
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 import { setPageWidth } from '~/components/Page'
-import { Button } from '~/components'
+import { Button } from '../atoms'
 import { currChapterAtom } from '~/_pages/ReaderPage/reader.state'
 import { useAtomValue } from 'jotai'
 
@@ -48,7 +48,7 @@ export const NavBar = () => {
 						h: { sm: '16' },
 					})}>
 					<Logo>The Good Book</Logo>
-					<Button label={currChapter} />
+					<Button label={currChapter} visual="soft" />
 				</div>
 			</div>
 		</NavBarContainer>
