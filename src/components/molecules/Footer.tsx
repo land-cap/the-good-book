@@ -1,26 +1,7 @@
-import { styled } from 'styled-system/jsx'
-import { css } from 'styled-system/css'
 import { Icon } from '~/components/atoms/Icon/Icon'
 
-const FooterContainer = styled('footer', {
-	base: {
-		display: 'flex',
-		flexFlow: 'column nowrap',
-		gap: '4',
-		alignItems: 'center',
-		textAlign: 'center',
-		fontSize: 'xs',
-		color: 'fg.subtle',
-		mx: 'auto',
-		w: 'full',
-		maxW: '2xl',
-		px: '8',
-		my: { base: '20', md: '32' },
-	},
-})
-
 export const Footer = () => (
-	<FooterContainer>
+	<footer className="flex flex-col gap-6 items-center text-center text-sm text-fgSubtle mx-auto w-full max-w-2xl px-8 my-20 md:my-32">
 		<p>
 			© Drepturi de autor British and Foreign Bible Society (BFBS) și
 			Societatea Biblică Interconfesională din România (SBIR) 1924,&nbsp;2014
@@ -28,26 +9,16 @@ export const Footer = () => (
 			Interconfessional Bible Society of Romania 1924,&nbsp;2014
 		</p>
 		<p>
-			<span className={css({ display: 'inline-flex', alignItems: 'center' })}>
-				Made with{' '}
-				<Icon
-					name="favorite"
-					className={css({
-						mx: '1',
-						color: { base: 'red.500', _osDark: 'red.400' },
-					})}
-				/>{' '}
-				in Moldova by
+			<span className="inline-flex items-center">
+				Made with <Icon name="favorite" className="mx-1 text-sm" /> in Moldova
+				by
 			</span>{' '}
 			<a
 				href="https://github.com/land-cap"
 				target="_blank"
-				className={css({
-					fontWeight: 'bold',
-					textDecoration: 'underline',
-				})}>
+				className="font-bold underline">
 				land-cap
 			</a>
 		</p>
-	</FooterContainer>
+	</footer>
 )
