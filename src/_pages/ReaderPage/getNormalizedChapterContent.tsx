@@ -1,6 +1,9 @@
 import * as cheerio from 'cheerio'
 
-export const getNormalizedChapterContent = (chapterContent: string) => {
+export const getNormalizedChapterContent = (
+	chapterContent: string,
+	isStudyMode: boolean,
+) => {
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')
@@ -8,6 +11,12 @@ export const getNormalizedChapterContent = (chapterContent: string) => {
 			const text = $chapterContent(value).text()
 			return /^\s*$/g.test(text)
 		})
+		.remove()
+
+	const verseTag = isStudyMode ? 'span' : 'sup'
+	const verseLabelSelector = $chapterContent('.verse > .label')
+	verseLabelSelector
+		.before((_, html) => `<${verseTag} class="label">${html}</${verseTag}>`)
 		.remove()
 
 	const mrSelector = $chapterContent('.mr')

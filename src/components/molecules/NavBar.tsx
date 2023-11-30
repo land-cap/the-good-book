@@ -1,12 +1,8 @@
-'use client'
-
 import { styled } from 'styled-system/jsx'
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 import { setPageWidth } from '~/components/Page'
 import { Button } from '../atoms'
-import { currChapterAtom } from '~/_pages/ReaderPage/reader.state'
-import { useAtomValue } from 'jotai'
 
 const NavBarContainer = styled('nav', {
 	base: {
@@ -29,28 +25,24 @@ const Logo = styled('span', {
 	},
 })
 
-export const NavBar = () => {
-	const currChapter = useAtomValue(currChapterAtom)
-
-	return (
-		<NavBarContainer>
+export const NavBar = () => (
+	<NavBarContainer>
+		<div
+			className={css({
+				borderBottom: '1px solid token(colors.border.emphasized)',
+			})}>
 			<div
-				className={css({
-					borderBottom: '1px solid token(colors.border.emphasized)',
+				className={flex({
+					direction: { base: 'column', sm: 'row' },
+					gap: '6',
+					justify: 'space-between',
+					align: 'center',
+					py: { base: '4', sm: '0' },
+					h: { sm: '16' },
 				})}>
-				<div
-					className={flex({
-						direction: { base: 'column', sm: 'row' },
-						gap: '6',
-						justify: 'space-between',
-						align: 'center',
-						py: { base: '4', sm: '0' },
-						h: { sm: '16' },
-					})}>
-					<Logo>The Good Book</Logo>
-					<Button label={currChapter} visual="soft" />
-				</div>
+				<Logo>The Good Book</Logo>
+				<Button label="Geneza 1" visual="soft" />
 			</div>
-		</NavBarContainer>
-	)
-}
+		</div>
+	</NavBarContainer>
+)
