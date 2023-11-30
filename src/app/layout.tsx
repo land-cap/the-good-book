@@ -1,8 +1,7 @@
-import '~/index.css'
-import { NavBar } from '~/components'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { styled } from 'styled-system/jsx'
 import { Footer } from '~/components/molecules/Footer'
+import '~/index.css'
 
 const dmSans = DM_Sans({
 	subsets: ['latin-ext'],
@@ -24,6 +23,7 @@ export const metadata = {
 
 const AppShell = styled('body', {
 	base: {
+		position: 'relative',
 		flexFlow: 'column nowrap',
 		h: 'fit-content',
 		minH: '100vh',
@@ -34,7 +34,6 @@ const AppShell = styled('body', {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
 		<AppShell>
-			<NavBar />
 			{children}
 			<Footer />
 		</AppShell>

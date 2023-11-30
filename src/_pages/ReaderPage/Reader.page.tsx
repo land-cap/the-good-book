@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContent } from './components/ChapterContent'
 import { ChapterTitle } from './components/ChapterTitle'
@@ -32,6 +34,17 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 					chapter={Number(chapter)}
 					readerMode={readerMode}
 				/>
+				<NavBar bookName={book.name} chapter={chapter} />
+				<Link
+					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}
+					scroll={true}>
+					Previous chapter
+				</Link>
+				<Link
+					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}
+					scroll={true}>
+					Next chapter
+				</Link>
 				<ReaderPageContainer isStudyMode={isStudyMode}>
 					<ChapterTitle bookName={book.name} chapter={chapter} />
 					<ChapterContent
@@ -39,6 +52,12 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 						isStudyMode={isStudyMode}
 					/>
 				</ReaderPageContainer>
+				<Link href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}>
+					Previous chapter
+				</Link>
+				<Link href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}>
+					Next chapter
+				</Link>
 			</>
 		)
 	}

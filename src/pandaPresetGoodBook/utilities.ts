@@ -17,7 +17,7 @@ const oRingWidth = defineUtility({
 	className: 'o_ring_width',
 	values: 'sizes',
 	transform: (value: SizeToken) => ({
-		boxShadow: `var(--ring-inset) 0 0 0 calc(${value} + var(--ring-offset-width)) var(--ring-color), var(--shadow)`,
+		boxShadow: `1px 0 0 0 calc(${value} + var(--ring-offset-width)) var(--ring-color), var(--shadow)`,
 	}),
 })
 
