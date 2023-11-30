@@ -1,11 +1,5 @@
 import { css } from 'styled-system/css'
 
-export const chapterTitleStyles = css({
-	my: { base: '8', md: '12' },
-	textStyle: { base: '4xl', md: '5xl' },
-	fontWeight: 'blacker',
-})
-
 const bodyStyles = {
 	textStyle: { base: 'md', md: 'lg' },
 	lineHeight: { base: '2.25em', md: '2.5em' },
@@ -65,7 +59,6 @@ export const readerStyles = css({
 	},
 
 	'& .verse .label': {
-		verticalAlign: 'super',
 		fontSize: '0.75em',
 		fontFamily: 'mono',
 		color: 'fg.subtle',

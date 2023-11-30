@@ -10,23 +10,32 @@ export const ReaderPage = async ({
 	params: {
 		bookCode: string
 		chapter: string
+		mode: 'study' | 'read'
 	}
 }) => {
-	const { bookCode, chapter } = params
+	const { bookCode, chapter, mode } = params
+
+	const isStudyMode = mode === 'study'
 
 	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
 	if (chapterData?.content) {
-		const chapterContentHtml = getNormalizedChapterContent(chapterData.content)
+		const chapterContentHtml = getNormalizedChapterContent(
+			chapterData.content,
+			isStudyMode,
+		)
 
 		const book = await getBookWithCache(bookCode)
 
 		return (
-			<ReaderPageContainer>
+			<ReaderPageContainer isStudyMode={isStudyMode}>
 				{book?.name ? (
 					<ChapterTitle bookName={book.name} chapter={chapter} />
 				) : null}
-				<ChapterContent chapterContentHtml={chapterContentHtml} />
+				<ChapterContent
+					chapterContentHtml={chapterContentHtml}
+					isStudyMode={isStudyMode}
+				/>
 			</ReaderPageContainer>
 		)
 	}

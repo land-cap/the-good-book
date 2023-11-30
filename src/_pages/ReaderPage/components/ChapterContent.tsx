@@ -1,23 +1,17 @@
-'use client'
-
-import { isStudyModeAtom } from '../reader.state'
-import { useAtom } from 'jotai'
 import { cx } from 'styled-system/css'
 import { bodyStyles_mode_study, readerStyles } from '../reader.styles'
 
 export const ChapterContent = ({
 	chapterContentHtml,
+	isStudyMode,
 }: {
 	chapterContentHtml: string
-}) => {
-	const [isStudyMode] = useAtom(isStudyModeAtom)
-
-	return (
-		<div
-			className={cx(readerStyles, isStudyMode && bodyStyles_mode_study)}
-			dangerouslySetInnerHTML={{
-				__html: chapterContentHtml,
-			}}
-		/>
-	)
-}
+	isStudyMode: boolean
+}) => (
+	<div
+		className={cx(readerStyles, isStudyMode && bodyStyles_mode_study)}
+		dangerouslySetInnerHTML={{
+			__html: chapterContentHtml,
+		}}
+	/>
+)
