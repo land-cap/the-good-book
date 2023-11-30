@@ -6,6 +6,7 @@
 
 @layer base {
     :root {
+
         --colors-neutral-50: #fafafa;
         --colors-neutral-100: #f5f5f5;
         --colors-neutral-200: #e5e5e5;
@@ -17,6 +18,9 @@
         --colors-neutral-800: #262626;
         --colors-neutral-900: #171717;
         --colors-neutral-950: #0a0a0a;
+
+        --colors-white: #ffffff;
+        --colors-black: var(--colors-neutral-900);
 
         --colors-bg-canvas: var(--colors-white);
         --colors-bg-surface: var(--colors-white);

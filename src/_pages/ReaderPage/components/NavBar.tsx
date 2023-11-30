@@ -8,7 +8,7 @@ export const NavBar = ({
 	bookName: string
 	chapter: string
 }) => (
-	<nav className={twMerge(setPageWidthCls, 'z-10 sticky top-0 bg-surface')}>
+	<nav className={twMerge(setPageWidthCls, 'z-10 sticky top-0 bg-bgSurface')}>
 		<div className={twMerge('border-b border-b-borderEmphasized')}>
 			<div
 				className={twMerge(
