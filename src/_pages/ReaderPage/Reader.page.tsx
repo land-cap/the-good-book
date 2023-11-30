@@ -1,18 +1,15 @@
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContent } from './components/ChapterContent'
+import { ChapterTitle } from './components/ChapterTitle'
+import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { getNormalizedChapterContent } from './getNormalizedChapterContent'
-import { ReaderPageContainer } from '~/_pages/ReaderPage/components/ReaderPageContainer'
-import { ChapterTitle } from '~/_pages/ReaderPage/components/ChapterTitle'
+import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
-import {
-	READER_MODE,
-	type ReaderPageParams,
-} from '~/_pages/ReaderPage/ReaderPage.types'
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
-	const { bookCode, chapter, mode } = params
+	const { bookCode, chapter, readerMode } = params
 
-	const isStudyMode = mode === READER_MODE.Study
+	const isStudyMode = readerMode === READER_MODE.Study
 
 	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
@@ -24,13 +21,19 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 		const book = await getBookWithCache(bookCode)
 
+		if (!book) {
+			throw new Error('No book data')
+		}
+
 		return (
 			<>
-				<ReaderStateSetup />
+				<ReaderStateSetup
+					bookName={book.name}
+					chapter={Number(chapter)}
+					readerMode={readerMode}
+				/>
 				<ReaderPageContainer isStudyMode={isStudyMode}>
-					{book?.name ? (
-						<ChapterTitle bookName={book.name} chapter={chapter} />
-					) : null}
+					<ChapterTitle bookName={book.name} chapter={chapter} />
 					<ChapterContent
 						chapterContentHtml={chapterContentHtml}
 						isStudyMode={isStudyMode}

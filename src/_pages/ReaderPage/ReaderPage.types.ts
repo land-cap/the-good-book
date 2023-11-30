@@ -6,5 +6,5 @@ export const enum READER_MODE {
 export type ReaderPageParams = {
 	bookCode: string
 	chapter: string
-	mode: READER_MODE
+	readerMode: READER_MODE
 }

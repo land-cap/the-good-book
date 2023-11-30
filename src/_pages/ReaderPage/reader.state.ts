@@ -1,4 +1,8 @@
 import { atom } from 'jotai'
-import { READER_MODE } from './ReaderPage.types'
+import { type READER_MODE } from './ReaderPage.types'
 
-export const readerMode = atom(READER_MODE.Read)
+export const bookNameAtom = atom<string | null>(null)
+
+export const chapterAtom = atom<number | null>(null)
+
+export const readerModeAtom = atom<READER_MODE | null>(null)
