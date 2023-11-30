@@ -37,7 +37,8 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 				<NavBar bookName={book.name} chapter={chapter} />
 				<Link
 					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}
-					scroll={true}>
+					scroll={true}
+					className="bg-green-400">
 					Previous chapter
 				</Link>
 				<Link

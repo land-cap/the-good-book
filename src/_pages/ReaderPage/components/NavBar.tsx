@@ -60,7 +60,7 @@ export const NavBar = ({
 					h: { sm: '16' },
 				})}>
 				<Logo>The Good Book</Logo>
-				<ChapterPickerTrigger value={`${bookName} ${chapter}`} />
+				{/*<ChapterPickerTrigger value={`${bookName} ${chapter}`} />*/}
 			</div>
 		</div>
 	</NavBarContainer>
