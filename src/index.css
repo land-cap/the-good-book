@@ -4,10 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer reset, base, tokens, recipes, utilities;
-
-@layer reset {
-    q::before, q::before {
-        all: unset;
-    }
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
+    border-color: unset;
+}
+
+[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
+    font-size: 15.7143px;
+}
+
+html, body {
+    min-height: 100vh;
+    touch-action: pan-x pan-y;
+}
+
+html body {
+    font-size: 15.7143px;
+}
+
+.material-icon {
+    font-family: 'Material Symbols Sharp';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
