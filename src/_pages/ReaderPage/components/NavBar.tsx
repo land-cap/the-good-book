@@ -1,8 +1,7 @@
-import { styled } from 'styled-system/jsx'
 import { css } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 import { flex } from 'styled-system/patterns'
 import { setPageWidth } from '~/components/Page'
-import { Button } from '../atoms'
 
 const NavBarContainer = styled('nav', {
 	base: {
@@ -25,7 +24,27 @@ const Logo = styled('span', {
 	},
 })
 
-export const NavBar = () => (
+const ChapterPickerTrigger = styled('input', {
+	base: {
+		display: 'inline-flex',
+		borderWidth: '1',
+		borderStyle: 'solid',
+		borderColor: 'border.emphasized',
+		bg: 'bg.surface',
+		py: '1.5',
+		pl: '3',
+		pr: '10',
+		color: 'fg',
+	},
+})
+
+export const NavBar = ({
+	bookName,
+	chapter,
+}: {
+	bookName: string
+	chapter: string
+}) => (
 	<NavBarContainer>
 		<div
 			className={css({
@@ -41,7 +60,7 @@ export const NavBar = () => (
 					h: { sm: '16' },
 				})}>
 				<Logo>The Good Book</Logo>
-				<Button label="Geneza 1" visual="soft" />
+				<ChapterPickerTrigger value={`${bookName} ${chapter}`} />
 			</div>
 		</div>
 	</NavBarContainer>
