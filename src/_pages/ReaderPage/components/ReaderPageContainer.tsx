@@ -1,6 +1,6 @@
-import { css, cx } from 'styled-system/css'
 import { type ReactNode } from 'react'
-import { pageCss } from '~/components'
+import { css, cx } from 'styled-system/css'
+import { pageCls } from '~/components'
 
 const pageCss_mode_reader = css({ px: { smDown: '10' } })
 
@@ -11,7 +11,7 @@ export const ReaderPageContainer = ({
 	children: ReactNode
 	isStudyMode: boolean
 }) => (
-	<main className={cx(pageCss, isStudyMode && pageCss_mode_reader)}>
+	<main className={cx(pageCls, isStudyMode && pageCss_mode_reader)}>
 		{children}
 	</main>
 )

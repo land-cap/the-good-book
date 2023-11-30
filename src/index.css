@@ -4,6 +4,51 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --colors-neutral-50: #fafafa;
+        --colors-neutral-100: #f5f5f5;
+        --colors-neutral-200: #e5e5e5;
+        --colors-neutral-300: #d4d4d4;
+        --colors-neutral-400: #a3a3a3;
+        --colors-neutral-500: #737373;
+        --colors-neutral-600: #525252;
+        --colors-neutral-700: #404040;
+        --colors-neutral-800: #262626;
+        --colors-neutral-900: #171717;
+        --colors-neutral-950: #0a0a0a;
+
+        --colors-bg-canvas: var(--colors-white);
+        --colors-bg-surface: var(--colors-white);
+        --colors-bg-subtle: var(--colors-neutral-50);
+        --colors-bg-muted: var(--colors-neutral-100);
+        --colors-fg: var(--colors-neutral-900);
+        --colors-fg-emphasized: var(--colors-neutral-700);
+        --colors-fg-muted: var(--colors-neutral-600);
+        --colors-fg-subtle: var(--colors-neutral-500);
+        --colors-fg-faded: var(--colors-neutral-400);
+        --colors-fg-inverted: var(--colors-white);
+        --colors-border: var(--colors-neutral-200);
+        --colors-border-emphasized: var(--colors-neutral-300);
+
+        [data-theme='dark'] {
+            --colors-bg-canvas: var(--colors-neutral-950);
+            --colors-bg-surface: var(--colors-neutral-900);
+            --colors-bg-subtle: var(--colors-neutral-800);
+            --colors-bg-muted: var(--colors-neutral-700);
+            --colors-fg: var(--colors-white);
+            --colors-fg-emphasized: var(--colors-neutral-200);
+            --colors-fg-muted: var(--colors-neutral-300);
+            --colors-fg-subtle: var(--colors-neutral-400);
+            --colors-fg-faded: var(--colors-neutral-500);
+            --colors-fg-inverted: var(--colors-neutral-950);
+            --colors-border: var(--colors-neutral-800);
+            --colors-border-emphasized: var(--colors-neutral-700);
+            --colors-border-active: var(--colors-neutral-600);
+        }
+    }
+}
+
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
