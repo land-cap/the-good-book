@@ -62,13 +62,13 @@ export const withCapsize =
 		line-height: ${lineHeight};
 	}
 	
-	.${capsizeCls}::before {
+	.${capsizeCls}:before {
 	content: "";
   margin-bottom: ${capHeightTrim};
   display: table;
 	}
 	
-	.${capsizeCls}::after {
+	.${capsizeCls}:after {
 	content: "";
   margin-bottom: ${baselineTrim};
   display: table;
@@ -78,7 +78,10 @@ export const withCapsize =
 		//eslint-disable-next-line react/display-name
 		return (props: P) => (
 			<>
-				<style suppressHydrationWarning>{capsizeStyles}</style>
+				<style
+					suppressHydrationWarning
+					dangerouslySetInnerHTML={{ __html: capsizeStyles }}
+				/>
 				<Component {...props} className={`${props?.className} ${capsizeCls}`} />
 			</>
 		)
