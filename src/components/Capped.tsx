@@ -42,9 +42,10 @@ const generateCapsizeCls = (() => {
 })()
 
 export const withCapsize =
-	(fontSize: FontSize) =>
-	<P extends { className: string }>(Component: (props: P) => ReactNode) => {
-		//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+	<P extends { className?: string; fontSize: FontSize }>(
+		Component: (props: P) => ReactNode,
+	) =>
+	({ fontSize, className, ...props }: P) => {
 		const capsizeValues = precomputeValues({
 			capHeight: fontSizeToCapHeight[fontSize].capHeight,
 			leading: 24,
@@ -75,14 +76,15 @@ export const withCapsize =
 	}
 	`
 
-		//eslint-disable-next-line react/display-name
-		return (props: P) => (
-			<>
-				<style
-					suppressHydrationWarning
-					dangerouslySetInnerHTML={{ __html: capsizeStyles }}
-				/>
-				<Component {...props} className={`${props?.className} ${capsizeCls}`} />
-			</>
-		)
+		{
+			return (
+				<>
+					<style
+						suppressHydrationWarning
+						dangerouslySetInnerHTML={{ __html: capsizeStyles }}
+					/>
+					<Component {...props} className={`${className} ${capsizeCls}`} />
+				</>
+			)
+		}
 	}
