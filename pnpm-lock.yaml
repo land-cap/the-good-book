@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@capsizecss/core':
+    specifier: ^3.1.1
+    version: 3.1.1
+  '@capsizecss/metrics':
+    specifier: ^1.2.0
+    version: 1.2.0
   '@pandacss/preset-base':
     specifier: ^0.18.2
     version: 0.18.2
@@ -1664,6 +1670,16 @@ packages:
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
+
+  /@capsizecss/core@3.1.1:
+    resolution: {integrity: sha512-1YxfErFXdxcyDyc8peDwH2hiJF5U8sBY5i5HX0f/tpvabbu40w9r8VHYMOOw9Fox5O/+kf2gAhyfVe+sLnaaBA==}
+    dependencies:
+      csstype: 3.1.2
+    dev: false
+
+  /@capsizecss/metrics@1.2.0:
+    resolution: {integrity: sha512-zUYcqaR0rv4TYXyY97G1vRMMOyz+3EteXqLsM1XO/N8LnThwR1wYSE5cU15CUx3KPAiAEIbUZ13B7+plxYjHUA==}
+    dev: false
 
   /@clack/core@0.3.3:
     resolution: {integrity: sha512-5ZGyb75BUBjlll6eOa1m/IZBxwk91dooBWhPSL67sWcLS0zt9SnswRL0l26TVdBhb0wnWORRxUn//uH6n4z7+A==}

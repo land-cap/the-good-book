@@ -1,4 +1,8 @@
 import { Icon } from '~/components/atoms/Icon/Icon'
+import { withCapsize } from '~/components/Capped'
+
+//@ts-ignore
+const GitHubLink = withCapsize('xl')('a')
 
 export const Footer = () => (
 	<footer className="flex flex-col gap-6 items-center text-center text-sm text-fgSubtle mx-auto w-full max-w-2xl px-8 my-20 md:my-32">
@@ -13,12 +17,12 @@ export const Footer = () => (
 				Made with <Icon name="favorite" className="mx-1 text-sm" /> in Moldova
 				by
 			</span>{' '}
-			<a
+			<GitHubLink
 				href="https://github.com/land-cap"
 				target="_blank"
 				className="font-bold underline">
 				land-cap
-			</a>
+			</GitHubLink>
 		</p>
 	</footer>
 )
