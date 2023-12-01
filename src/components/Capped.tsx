@@ -41,22 +41,27 @@ const generateCapsizeCls = (() => {
 	return () => `capsize-${i++}`
 })()
 
-export const withCapsize =
-	(fontSize: FontSize) =>
-	<P extends { className: string }>(Component: (props: P) => ReactNode) => {
-		//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
-		const capsizeValues = precomputeValues({
-			capHeight: fontSizeToCapHeight[fontSize].capHeight,
-			leading: 24,
-			fontMetrics: dmSansMetrics,
-		})
+export const Capd = <P extends { className: string }>({
+	fontSize,
+	Component,
+	...props
+}: {
+	fontSize: FontSize
+	Component: (props: P) => ReactNode
+} & P) => {
+	//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+	const capsizeValues = precomputeValues({
+		capHeight: fontSizeToCapHeight[fontSize].capHeight,
+		leading: 24,
+		fontMetrics: dmSansMetrics,
+	})
 
-		//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-		const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
+	//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
 
-		const capsizeCls = generateCapsizeCls()
+	const capsizeCls = generateCapsizeCls()
 
-		const capsizeStyles = `
+	const capsizeStyles = `
 	.${capsizeCls} {
 		font-size: ${capsizeValues.fontSize};
 		line-height: ${lineHeight};
@@ -75,11 +80,10 @@ export const withCapsize =
 	}
 	`
 
-		//eslint-disable-next-line react/display-name
-		return (props: P) => (
-			<>
-				<style suppressHydrationWarning>{capsizeStyles}</style>
-				<Component {...props} className={`${props?.className} ${capsizeCls}`} />
-			</>
-		)
-	}
+	return (
+		<>
+			<style suppressHydrationWarning>{capsizeStyles}</style>
+			<Component {...props} className={`${props?.className} ${capsizeCls}`} />
+		</>
+	)
+}
