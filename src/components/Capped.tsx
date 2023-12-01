@@ -36,23 +36,37 @@ export const fontSizeToCapHeight: Record<
 	'9xl': { capHeight: 92, lineGap: 46 },
 }
 
+export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+
+const breakpointToMediaQuery: Record<Breakpoint, string> = {
+	xs: '(min-width: 640px)',
+	sm: '(min-width: 768px)',
+	md: '(min-width: 1024px)',
+	lg: '(min-width: 1280px)',
+	xl: '(min-width: 1536px)',
+}
+
 const generateCapsizeCls = (() => {
 	let i = 0
 	return () => `capsize-${i++}`
 })()
 
 export const withCapsize =
-	<P extends { className?: string; fontSize: FontSize }>(
+	<
+		P extends {
+			className?: string
+			fontSize: FontSize | Record<Breakpoint, FontSize>
+		},
+	>(
 		Component: (props: P) => ReactNode,
 	) =>
 	({ fontSize, className, ...props }: P) => {
 		const capsizeValues = precomputeValues({
-			capHeight: fontSizeToCapHeight[fontSize].capHeight,
+			capHeight: typeof fontSize === 'string' ? fontSizeToCapHeight[fontSize].capHeight,
 			leading: 24,
 			fontMetrics: dmSansMetrics,
 		})
 
-		//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
 
 		const capsizeCls = generateCapsizeCls()
@@ -64,25 +78,22 @@ export const withCapsize =
 	}
 	
 	.${capsizeCls}:before {
-	content: "";
-  margin-bottom: ${capHeightTrim};
-  display: table;
+		content: "";
+		margin-bottom: ${capHeightTrim};
+		display: table;
 	}
 	
 	.${capsizeCls}:after {
-	content: "";
-  margin-bottom: ${baselineTrim};
-  display: table;
+		content: "";
+		margin-bottom: ${baselineTrim};
+		display: table;
 	}
 	`
 
 		{
 			return (
 				<>
-					<style
-						suppressHydrationWarning
-						dangerouslySetInnerHTML={{ __html: capsizeStyles }}
-					/>
+					<style dangerouslySetInnerHTML={{ __html: capsizeStyles }} />
 					<Component {...props} className={`${className} ${capsizeCls}`} />
 				</>
 			)
