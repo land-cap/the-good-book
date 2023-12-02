@@ -1,6 +1,7 @@
 import { precomputeValues } from '@capsizecss/core'
 import dmSansMetrics from '@capsizecss/metrics/dMSans'
 import { type ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 export type FontSize =
 	| 'xs'
@@ -19,7 +20,10 @@ export type FontSize =
 
 export const fontSizeToCapHeight: Record<
 	FontSize,
-	{ capHeight: number; lineGap: number }
+	{
+		capHeight: number
+		lineGap: number
+	}
 > = {
 	xs: { capHeight: 7.5, lineGap: 7.5 },
 	sm: { capHeight: 9, lineGap: 9 },
@@ -36,9 +40,9 @@ export const fontSizeToCapHeight: Record<
 	'9xl': { capHeight: 92, lineGap: 46 },
 }
 
-export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type Breakpoint = 'base' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-const breakpointToMediaQuery: Record<Breakpoint, string> = {
+const breakpointToMediaQuery: Record<Exclude<Breakpoint, 'base'>, string> = {
 	xs: '(min-width: 640px)',
 	sm: '(min-width: 768px)',
 	md: '(min-width: 1024px)',
@@ -60,41 +64,99 @@ export const withCapsize =
 	>(
 		Component: (props: P) => ReactNode,
 	) =>
+	//eslint-disable-next-line react/display-name
 	({ fontSize, className, ...props }: P) => {
-		const capsizeValues = precomputeValues({
-			capHeight: typeof fontSize === 'string' ? fontSizeToCapHeight[fontSize].capHeight,
-			leading: 24,
-			fontMetrics: dmSansMetrics,
-		})
+		if (typeof fontSize === 'object') {
+			const capsizeCls = generateCapsizeCls()
 
-		const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
+			const fontSizeEntries = Object.entries(fontSize) as [
+				Breakpoint,
+				FontSize,
+			][]
+			const responsiveCapsizeStyle = fontSizeEntries.reduce(
+				(responsizeStyle, [breakpoint, fontSize]) => {
+					const capsizeValues = precomputeValues({
+						capHeight: fontSizeToCapHeight[fontSize].capHeight,
+						lineGap: fontSizeToCapHeight[fontSize].lineGap,
+						fontMetrics: dmSansMetrics,
+					})
 
-		const capsizeCls = generateCapsizeCls()
+					const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
 
-		const capsizeStyles = `
-	.${capsizeCls} {
-		font-size: ${capsizeValues.fontSize};
-		line-height: ${lineHeight};
-	}
-	
-	.${capsizeCls}:before {
-		content: "";
-		margin-bottom: ${capHeightTrim};
-		display: table;
-	}
-	
-	.${capsizeCls}:after {
-		content: "";
-		margin-bottom: ${baselineTrim};
-		display: table;
-	}
-	`
+					const breakpointStyle = `			
+						${breakpoint !== 'base' ? `@media ${breakpointToMediaQuery[breakpoint]} {` : ''}
+							.${capsizeCls} {
+								font-size: ${capsizeValues.fontSize};
+								line-height: ${lineHeight};
+							}
+							
+							.${capsizeCls}:before {
+								content: "";
+								margin-bottom: ${capHeightTrim};
+								display: table;
+							}
+							
+							.${capsizeCls}:after {
+								content: "";
+								margin-bottom: ${baselineTrim};
+								display: table;
+							}
+						${breakpoint !== 'base' ? `}` : ''}
+						`
+					return `
+					${responsizeStyle}
+					${breakpointStyle}
+					`
+				},
+				'',
+			)
 
-		{
+			return (
+				<>
+					<style
+						dangerouslySetInnerHTML={{
+							__html: responsiveCapsizeStyle,
+						}}
+					/>
+					{/* @ts-ignore */}
+					<Component {...props} className={twMerge(className, capsizeCls)} />
+				</>
+			)
+		} else {
+			const capsizeValues = precomputeValues({
+				capHeight: fontSizeToCapHeight[fontSize].capHeight,
+				lineGap: fontSizeToCapHeight[fontSize].lineGap,
+				fontMetrics: dmSansMetrics,
+			})
+
+			const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
+
+			const capsizeCls = generateCapsizeCls()
+
+			const capsizeStyles = `
+				.${capsizeCls} {
+					font-size: ${capsizeValues.fontSize};
+					line-height: ${lineHeight};
+				}
+				
+				.${capsizeCls}:before {
+					content: "";
+					margin-bottom: ${capHeightTrim};
+					display: table;
+				}
+				
+				.${capsizeCls}:after {
+					content: "";
+					margin-bottom: ${baselineTrim};
+					display: table;
+				}
+				`
+
 			return (
 				<>
 					<style dangerouslySetInnerHTML={{ __html: capsizeStyles }} />
-					<Component {...props} className={`${className} ${capsizeCls}`} />
+					{/* @ts-ignore */}
+					<Component {...props} className={twMerge(className, capsizeCls)} />
 				</>
 			)
 		}

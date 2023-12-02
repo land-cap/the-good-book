@@ -38,6 +38,9 @@ dependencies:
   jotai:
     specifier: ^2.5.1
     version: 2.5.1(@types/react@18.2.31)(react@18.2.0)
+  minify-css-string:
+    specifier: ^1.0.0
+    version: 1.0.0
   next:
     specifier: ^13.5.4
     version: 13.5.6(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
@@ -10684,6 +10687,10 @@ packages:
   /mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
+    dev: false
+
+  /minify-css-string@1.0.0:
+    resolution: {integrity: sha512-DJaNU2LAYR/bcDxRkmntPHnWNUZnmvkIkaD8qfuE5aLcM1bQODNAGSRxncv+tPglnYEG9xQVSpGFbcObix7j7Q==}
     dev: false
 
   /minimalistic-assert@1.0.1:
