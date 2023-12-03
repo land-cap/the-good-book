@@ -59,7 +59,7 @@ export const withCapsize =
 	<
 		P extends {
 			className?: string
-			fontSize: FontSize | Record<Breakpoint, FontSize>
+			fontSize: FontSize | Partial<Record<Breakpoint, FontSize>>
 		},
 	>(
 		Component: (props: P) => ReactNode,

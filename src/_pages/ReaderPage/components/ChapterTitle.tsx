@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge'
 import { withCapsize } from '~/components/withCapsize'
 
+//@ts-ignore
 const H1 = withCapsize('h1')
 
 export const ChapterTitle = ({
@@ -10,6 +11,7 @@ export const ChapterTitle = ({
 	bookName: string
 	chapter: string
 }) => (
+	//@ts-ignore
 	<H1
 		fontSize={{ base: '4xl', md: '5xl' }}
 		className={twMerge(

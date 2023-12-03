@@ -1,8 +1,6 @@
 import { type ReactNode } from 'react'
-import { css, cx } from 'styled-system/css'
+import { twMerge } from 'tailwind-merge'
 import { pageCls } from '~/components'
-
-const pageCss_mode_reader = css({ px: { smDown: '10' } })
 
 export const ReaderPageContainer = ({
 	children,
@@ -11,7 +9,7 @@ export const ReaderPageContainer = ({
 	children: ReactNode
 	isStudyMode: boolean
 }) => (
-	<main className={cx(pageCls, isStudyMode && pageCss_mode_reader)}>
+	<main className={twMerge(pageCls, isStudyMode && 'px-10 sm:px-0')}>
 		{children}
 	</main>
 )

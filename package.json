@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "panda codegen",
     "build": "next build",
     "dev": "rm -rf .next && next dev -p 4000",
     "lint": "next lint --fix",
@@ -19,7 +18,6 @@
   "dependencies": {
     "@capsizecss/core": "^3.1.1",
     "@capsizecss/metrics": "^1.2.0",
-    "@pandacss/preset-base": "^0.18.2",
     "@prisma/client": "^5.1.1",
     "@storybook/manager-api": "^7.5.1",
     "@storybook/theming": "^7.5.1",
@@ -38,8 +36,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.17.5",
-    "@pandacss/preset-panda": "^0.17.5",
     "@storybook/addon-essentials": "^7.5.1",
     "@storybook/addon-interactions": "^7.5.1",
     "@storybook/addon-links": "^7.5.1",

@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-type IconSize = 16 | 20 | 24 | 40 | 48
+export type IconSize = 16 | 20 | 24 | 40 | 48
 
-const sizeToClass: Record<number, string> = {
+export const sizeToClass: Record<number, string> = {
 	12: 'w-3 h-3 text-[12px]',
 	16: 'w-4 h-4 text-[16px]',
 	20: 'w-5 h-5 text-[20px]',
@@ -11,6 +11,10 @@ const sizeToClass: Record<number, string> = {
 	40: 'w-10 h-10 text-[40px]',
 	48: 'w-12 h-12 text-[48px]',
 }
+
+export const iconSizeList = Object.keys(sizeToClass).map((size) =>
+	Number(size),
+) as IconSize[]
 
 export const Icon = ({
 	name,

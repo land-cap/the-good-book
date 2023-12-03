@@ -1,8 +1,6 @@
 'use client'
 
-import { useAtomValue } from 'jotai'
 import { useHydrateAtoms } from 'jotai/utils'
-import { useEffect } from 'react'
 import { bookNameAtom, chapterAtom, readerModeAtom } from './reader.state'
 import { type READER_MODE } from './ReaderPage.types'
 
@@ -21,12 +19,5 @@ export const ReaderStateSetup = ({
 		[readerModeAtom, readerMode],
 	])
 
-	const _bookName = useAtomValue(bookNameAtom)
-	const _chapter = useAtomValue(chapterAtom)
-	const _readerMode = useAtomValue(readerModeAtom)
-
-	useEffect(() => {
-		console.log({ _bookName, _chapter, _readerMode })
-	}, [_bookName, _chapter, _readerMode])
 	return null
 }
