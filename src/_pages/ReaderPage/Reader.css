@@ -63,7 +63,7 @@
         }
 
         .label {
-            @apply absolute -left-2 sm:-left-4 top-0 -translate-x-full text-[0.625rem] sm:text-[inherit];
+            @apply absolute -left-2 sm:-left-4 top-0 -translate-x-full text-[0.625rem] sm:text-[0.75em];
 
             &:after {
                 @apply [all:unset];

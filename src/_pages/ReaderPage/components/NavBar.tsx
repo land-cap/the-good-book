@@ -1,5 +1,9 @@
 import { twMerge } from 'tailwind-merge'
 import { setPageWidthCls } from '~/components/Page'
+import { withCapsize } from '~/components/withCapsize'
+
+//@ts-ignore
+const Span = withCapsize('span')
 
 export const NavBar = ({
 	bookName,
@@ -13,13 +17,16 @@ export const NavBar = ({
 			<div
 				className={twMerge(
 					'flex sm:flex-row gap-6 justify-between items-center h-16',
-				)}>
-				<span className={twMerge('text-md font-blacker text-fgSubtle')}>
+				)}
+			>
+				{/* @ts-ignore */}
+				<Span fontSize="base" className={twMerge('font-blacker text-fgSubtle')}>
 					The Good Book
-				</span>
-				<span>
+				</Span>
+				{/* @ts-ignore */}
+				<Span fontSize="base">
 					{bookName} {chapter}
-				</span>
+				</Span>
 			</div>
 		</div>
 	</nav>
