@@ -25,19 +25,19 @@ export const fontSizeToCapHeight: Record<
 		lineGap: number
 	}
 > = {
-	xs: { capHeight: 7.5, lineGap: 7.5 },
-	sm: { capHeight: 9, lineGap: 9 },
-	base: { capHeight: 10, lineGap: 10 },
-	lg: { capHeight: 12, lineGap: 12 },
-	xl: { capHeight: 14, lineGap: 14 },
-	'2xl': { capHeight: 18, lineGap: 18 },
-	'3xl': { capHeight: 22, lineGap: 22 },
-	'4xl': { capHeight: 26, lineGap: 26 },
-	'5xl': { capHeight: 32, lineGap: 32 },
-	'6xl': { capHeight: 40, lineGap: 40 },
-	'7xl': { capHeight: 56, lineGap: 28 },
-	'8xl': { capHeight: 68, lineGap: 34 },
-	'9xl': { capHeight: 92, lineGap: 46 },
+	xs: { capHeight: 12, lineGap: 16 },
+	sm: { capHeight: 14, lineGap: 20 },
+	base: { capHeight: 16, lineGap: 24 },
+	lg: { capHeight: 18, lineGap: 28 },
+	xl: { capHeight: 29, lineGap: 28 },
+	'2xl': { capHeight: 24, lineGap: 32 },
+	'3xl': { capHeight: 30, lineGap: 36 },
+	'4xl': { capHeight: 36, lineGap: 40 },
+	'5xl': { capHeight: 48, lineGap: 48 },
+	'6xl': { capHeight: 60, lineGap: 60 },
+	'7xl': { capHeight: 72, lineGap: 72 },
+	'8xl': { capHeight: 96, lineGap: 96 },
+	'9xl': { capHeight: 128, lineGap: 128 },
 }
 
 export type Breakpoint = 'base' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -81,8 +81,8 @@ export const withCapsize =
 			const responsiveCapsizeStyle = fontSizeEntries.reduce(
 				(responsizeStyle, [breakpoint, fontSize]) => {
 					const capsizeValues = precomputeValues({
-						capHeight: fontSizeToCapHeight[fontSize].capHeight,
-						lineGap: fontSizeToCapHeight[fontSize].lineGap,
+						fontSize: fontSizeToCapHeight[fontSize].capHeight,
+						leading: fontSizeToCapHeight[fontSize].lineGap,
 						fontMetrics: dmSansMetrics,
 					})
 
@@ -129,8 +129,8 @@ export const withCapsize =
 			)
 		} else {
 			const capsizeValues = precomputeValues({
-				capHeight: fontSizeToCapHeight[fontSize].capHeight,
-				lineGap: fontSizeToCapHeight[fontSize].lineGap,
+				fontSize: fontSizeToCapHeight[fontSize].capHeight,
+				leading: fontSizeToCapHeight[fontSize].lineGap,
 				fontMetrics: dmSansMetrics,
 			})
 
