@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { setPageWidthCls } from '~/components'
@@ -11,7 +12,7 @@ import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
 
 //@ts-ignore
-const Link$ = withCapsize('div')
+const Link$ = withCapsize(Link)
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 	const { bookCode, chapter, readerMode } = params
@@ -53,7 +54,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 			<div
 				className={twMerge(
 					setPageWidthCls,
-					'flex justify-between my-10 md:my-12 font-bold underline',
+					'flex justify-between my-8 md:my-12 font-bold underline',
 				)}>
 				{/* @ts-ignore */}
 				<Link$

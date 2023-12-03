@@ -42,7 +42,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)'],
-				mono: ['--font-mono'],
+				mono: ['var(--font-mono)'],
 			},
 			fontSize: {
 				xs: ['10px', { lineHeight: '14px' }],

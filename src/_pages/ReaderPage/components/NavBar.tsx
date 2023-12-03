@@ -12,7 +12,7 @@ export const NavBar = ({
 		<div className={twMerge('border-b border-b-borderEmphasized')}>
 			<div
 				className={twMerge(
-					'flex flex-col sm:flex-row gap-6 justify-between items-center py-4 sm:py-0 sm:h-16',
+					'flex sm:flex-row gap-6 justify-between items-center h-16',
 				)}>
 				<span className={twMerge('text-md font-blacker text-fgSubtle')}>
 					The Good Book
