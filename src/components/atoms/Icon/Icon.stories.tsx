@@ -1,7 +1,5 @@
 import type { Meta } from '@storybook/react'
-import { Icon, iconRecipe } from './Icon'
-import { css } from 'styled-system/css'
-import { Box, Flex } from 'styled-system/jsx'
+import { Icon, iconSizeList } from './Icon'
 
 const meta: Meta<typeof Icon> = {
 	title: 'Icon',
@@ -14,18 +12,13 @@ const meta: Meta<typeof Icon> = {
 export default meta
 
 const iconSizeRange = (
-	<Flex flexFlow="row wrap" align="center" gap="8">
-		{Array.from(iconRecipe.variantMap.size).map((size) => (
-			<Box key={size} borderWidth={1} borderColor="stone.200">
-				<Icon
-					key={size}
-					name="bolt"
-					size={size}
-					className={css({ color: 'stone.500' })}
-				/>
-			</Box>
+	<div className="flex flex-row items-center gap-8">
+		{Array.from(iconSizeList).map((size) => (
+			<div key={size} className="border border-neutral-200">
+				<Icon key={size} name="bolt" size={size} className="text-neutral-500" />
+			</div>
 		))}
-	</Flex>
+	</div>
 )
 
 export const IconSizes = {

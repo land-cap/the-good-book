@@ -1,49 +1,39 @@
-import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
+import { useMemo } from 'react'
+import { twMerge } from 'tailwind-merge'
 
-export const iconRecipe = cva({
-	base: {
-		fontFamily: 'Material Symbols Sharp',
-		fontWeight: 'normal',
-		fontStyle: 'normal',
-		lineHeight: '1',
-		letterSpacing: 'normal',
-		textTransform: 'none',
-		display: 'flex',
-		whiteSpace: 'nowrap',
-		wordWrap: 'normal',
-		direction: 'ltr',
-		// @ts-ignore
-		'-webkit-font-feature-settings': "'liga'",
-		'-webkit-font-smoothing': 'antialiased',
-		'font-variation-settings': "'FILL' 1, 'wght' 600",
-	},
-	variants: {
-		size: {
-			3: {
-				w: '3',
-				h: '3',
-				fontSize: 'token(sizes.3)',
-			},
-			4: {
-				w: '4',
-				h: '4',
-				fontSize: 'token(sizes.4)',
-			},
-			5: { w: '5', h: '5', fontSize: 'token(sizes.5)' },
-			6: { w: '6', h: '6', fontSize: 'token(sizes.6)' },
-			10: { w: '10', h: '10', fontSize: 'token(sizes.10)' },
-			12: { w: '12', h: '12', fontSize: 'token(sizes.12)' },
-		},
-	},
-})
+export type IconSize = 16 | 20 | 24 | 40 | 48
 
-export type IconVariants = RecipeVariantProps<typeof iconRecipe>
+export const sizeToClass: Record<number, string> = {
+	12: 'w-3 h-3 text-[12px]',
+	16: 'w-4 h-4 text-[16px]',
+	20: 'w-5 h-5 text-[20px]',
+	24: 'w-6 h-6 text-[24px]',
+	40: 'w-10 h-10 text-[40px]',
+	48: 'w-12 h-12 text-[48px]',
+}
 
-export type IconProps = {
+export const iconSizeList = Object.keys(sizeToClass).map((size) =>
+	Number(size),
+) as IconSize[]
+
+export const Icon = ({
+	name,
+	className,
+	size,
+}: {
 	name: string
 	className?: string
-} & IconVariants
+	size?: IconSize
+}) => {
+	const sizeClass = useMemo(() => size && sizeToClass[size], [size])
 
-export const Icon = ({ name, className, ...variants }: IconProps) => (
-	<span className={cx(iconRecipe(variants), className)}>{name}</span>
-)
+	return (
+		<span
+			className={twMerge('material-icon', sizeClass, className)}
+			style={{
+				fontVariationSettings: `'FILL' 1, 'wght' 600, 'opsz' ${size ?? 20}`,
+			}}>
+			{name}
+		</span>
+	)
+}

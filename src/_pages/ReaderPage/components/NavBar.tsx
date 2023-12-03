@@ -1,42 +1,9 @@
-import { css } from 'styled-system/css'
-import { styled } from 'styled-system/jsx'
-import { flex } from 'styled-system/patterns'
-import { setPageWidth } from '~/components/Page'
+import { twMerge } from 'tailwind-merge'
+import { setPageWidthCls } from '~/components/Page'
+import { withCapsize } from '~/components/withCapsize'
 
-const NavBarContainer = styled('nav', {
-	base: {
-		...setPageWidth,
-		zIndex: '10',
-		pos: 'sticky',
-		top: '0',
-		bg: 'bg.surface',
-	},
-})
-
-// TODO: hide below sm after ChapterPicker component is added
-// @ts-ignore
-const Logo = styled('span', {
-	base: {
-		textStyle: 'md',
-		fontWeight: 'blacker',
-		color: 'fg.subtle',
-		fontVariationSettings: "'opsz' 48",
-	},
-})
-
-const ChapterPickerTrigger = styled('input', {
-	base: {
-		display: 'inline-flex',
-		borderWidth: '1',
-		borderStyle: 'solid',
-		borderColor: 'border.emphasized',
-		bg: 'bg.surface',
-		py: '1.5',
-		pl: '3',
-		pr: '10',
-		color: 'fg',
-	},
-})
+//@ts-ignore
+const Span = withCapsize('span')
 
 export const NavBar = ({
 	bookName,
@@ -45,23 +12,22 @@ export const NavBar = ({
 	bookName: string
 	chapter: string
 }) => (
-	<NavBarContainer>
-		<div
-			className={css({
-				borderBottom: '1px solid token(colors.border.emphasized)',
-			})}>
+	<nav className={twMerge(setPageWidthCls, 'z-10 sticky top-0 bg-bgSurface')}>
+		<div className={twMerge('border-b border-b-borderEmphasized')}>
 			<div
-				className={flex({
-					direction: { base: 'column', sm: 'row' },
-					gap: '6',
-					justify: 'space-between',
-					align: 'center',
-					py: { base: '4', sm: '0' },
-					h: { sm: '16' },
-				})}>
-				<Logo>The Good Book</Logo>
-				<ChapterPickerTrigger value={`${bookName} ${chapter}`} />
+				className={twMerge(
+					'flex sm:flex-row gap-6 justify-between items-center h-16',
+				)}
+			>
+				{/* @ts-ignore */}
+				<Span fontSize="base" className={twMerge('font-blacker text-fgSubtle')}>
+					The Good Book
+				</Span>
+				{/* @ts-ignore */}
+				<Span fontSize="base">
+					{bookName} {chapter}
+				</Span>
 			</div>
 		</div>
-	</NavBarContainer>
+	</nav>
 )

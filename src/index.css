@@ -1,9 +1,91 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
-@layer reset, base, tokens, recipes, utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer reset {
-    q::before, q::before {
-        all: unset;
+@layer base {
+    :root {
+
+        --colors-neutral-50: #fafafa;
+        --colors-neutral-100: #f5f5f5;
+        --colors-neutral-200: #e5e5e5;
+        --colors-neutral-300: #d4d4d4;
+        --colors-neutral-400: #a3a3a3;
+        --colors-neutral-500: #737373;
+        --colors-neutral-600: #525252;
+        --colors-neutral-700: #404040;
+        --colors-neutral-800: #262626;
+        --colors-neutral-900: #171717;
+        --colors-neutral-950: #0a0a0a;
+
+        --colors-white: #ffffff;
+        --colors-black: var(--colors-neutral-900);
+
+        --colors-bg-canvas: var(--colors-white);
+        --colors-bg-surface: var(--colors-white);
+        --colors-bg-subtle: var(--colors-neutral-50);
+        --colors-bg-muted: var(--colors-neutral-100);
+        --colors-fg: var(--colors-neutral-900);
+        --colors-fg-emphasized: var(--colors-neutral-700);
+        --colors-fg-muted: var(--colors-neutral-600);
+        --colors-fg-subtle: var(--colors-neutral-500);
+        --colors-fg-faded: var(--colors-neutral-400);
+        --colors-fg-inverted: var(--colors-white);
+        --colors-border: var(--colors-neutral-200);
+        --colors-border-emphasized: var(--colors-neutral-300);
     }
+
+    [data-theme='dark'] {
+        --colors-bg-canvas: var(--colors-neutral-950);
+        --colors-bg-surface: var(--colors-neutral-900);
+        --colors-bg-subtle: var(--colors-neutral-800);
+        --colors-bg-muted: var(--colors-neutral-700);
+        --colors-fg: var(--colors-white);
+        --colors-fg-emphasized: var(--colors-neutral-200);
+        --colors-fg-muted: var(--colors-neutral-300);
+        --colors-fg-subtle: var(--colors-neutral-400);
+        --colors-fg-faded: var(--colors-neutral-500);
+        --colors-fg-inverted: var(--colors-neutral-950);
+        --colors-border: var(--colors-neutral-800);
+        --colors-border-emphasized: var(--colors-neutral-700);
+        --colors-border-active: var(--colors-neutral-600);
+    }
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
+    border-color: unset;
+}
+
+[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
+    font-size: 15.7143px;
+}
+
+html, body {
+    min-height: 100vh;
+    touch-action: pan-x pan-y;
+}
+
+html body {
+    font-size: 15.7143px;
+}
+
+.material-icon {
+    font-family: 'Material Symbols Sharp';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: flex;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 1, 'wght' 600;
 }
