@@ -59,13 +59,18 @@ export const withCapsize =
 	<
 		P extends {
 			className?: string
-			fontSize: FontSize | Partial<Record<Breakpoint, FontSize>>
 		},
 	>(
 		Component: (props: P) => ReactNode,
 	) =>
 	//eslint-disable-next-line react/display-name
-	({ fontSize, className, ...props }: P) => {
+	({
+		fontSize,
+		className,
+		...props
+	}: P & {
+		fontSize: FontSize | Partial<Record<Breakpoint, FontSize>>
+	}) => {
 		if (typeof fontSize === 'object') {
 			const capsizeCls = generateCapsizeCls()
 

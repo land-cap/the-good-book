@@ -11,7 +11,6 @@ import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
 
-//@ts-ignore
 const Link$ = withCapsize(Link)
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
@@ -56,13 +55,11 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 					setPageWidthCls,
 					'flex justify-between my-8 md:my-12 font-bold underline',
 				)}>
-				{/* @ts-ignore */}
 				<Link$
 					fontSize="base"
 					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}>
 					Previous chapter
 				</Link$>
-				{/* @ts-ignore */}
 				<Link$
 					fontSize="base"
 					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}>
