@@ -33,7 +33,7 @@ const AppShell = styled('body', {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
-		<AppShell>
+		<AppShell className="capsize-debug">
 			{children}
 			<Footer />
 		</AppShell>

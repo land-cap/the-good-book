@@ -91,15 +91,11 @@ export const withCapsize =
 							}
 							
 							.${capsizeCls}:before {
-								content: "";
 								margin-bottom: ${capHeightTrim};
-								display: table;
 							}
 							
 							.${capsizeCls}:after {
-								content: "";
 								margin-bottom: ${baselineTrim};
-								display: table;
 							}
 						${breakpoint !== 'base' ? `}` : ''}
 						`
@@ -119,7 +115,14 @@ export const withCapsize =
 						}}
 					/>
 					{/* @ts-ignore */}
-					<Component {...props} className={twMerge(className, capsizeCls)} />
+					<Component
+						{...props}
+						className={twMerge(
+							className,
+							capsizeCls,
+							"before:content-[''] after:content-[''] before:table after:table",
+						)}
+					/>
 				</>
 			)
 		} else {
@@ -140,15 +143,11 @@ export const withCapsize =
 				}
 				
 				.${capsizeCls}:before {
-					content: "";
 					margin-bottom: ${capHeightTrim};
-					display: table;
 				}
 				
 				.${capsizeCls}:after {
-					content: "";
 					margin-bottom: ${baselineTrim};
-					display: table;
 				}
 				`
 
@@ -156,7 +155,14 @@ export const withCapsize =
 				<>
 					<style dangerouslySetInnerHTML={{ __html: capsizeStyles }} />
 					{/* @ts-ignore */}
-					<Component {...props} className={twMerge(className, capsizeCls)} />
+					<Component
+						{...props}
+						className={twMerge(
+							className,
+							capsizeCls,
+							"before:content-[''] after:content-[''] before:table after:table",
+						)}
+					/>
 				</>
 			)
 		}

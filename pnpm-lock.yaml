@@ -23,6 +23,9 @@ dependencies:
   '@storybook/theming':
     specifier: ^7.5.1
     version: 7.5.1(react-dom@18.2.0)(react@18.2.0)
+  '@stylexjs/stylex':
+    specifier: 0.1.0-beta.1
+    version: 0.1.0-beta.1
   '@t3-oss/env-nextjs':
     specifier: ^0.7.0
     version: 0.7.1(typescript@5.2.2)(zod@3.22.4)
@@ -91,6 +94,9 @@ devDependencies:
   '@storybook/testing-library':
     specifier: ^0.2.2
     version: 0.2.2
+  '@stylexjs/nextjs-plugin':
+    specifier: 0.2.0-beta.27
+    version: 0.2.0-beta.27(@babel/traverse@7.23.2)(@babel/types@7.23.0)(next@13.5.6)
   '@swc-jotai/react-refresh':
     specifier: ^0.1.0
     version: 0.1.0
@@ -4440,6 +4446,49 @@ packages:
       '@types/babel__core': 7.20.3
       '@types/express': 4.17.20
       file-system-cache: 2.3.0
+
+  /@stylexjs/babel-plugin@0.2.0-beta.27(@babel/core@7.23.2)(@babel/traverse@7.23.2)(@babel/types@7.23.0):
+    resolution: {integrity: sha512-bmnpWzUVIuJTqm2cfsUK6I7m9LKkr6ODQkFIio21GuKSNoUl4w2PJ7hwS4cxKdI8+i8NRkZhei8mfebroixs1Q==}
+    peerDependencies:
+      '@babel/core': ^7.19.6
+      '@babel/traverse': ^7.0.0-0
+      '@babel/types': ^7.15.6
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/traverse': 7.23.2
+      '@babel/types': 7.23.0
+      '@stylexjs/shared': 0.2.0-beta.27
+    dev: true
+
+  /@stylexjs/nextjs-plugin@0.2.0-beta.27(@babel/traverse@7.23.2)(@babel/types@7.23.0)(next@13.5.6):
+    resolution: {integrity: sha512-3PfG5sZmfeC2APgLLbWRkx0OK8lFW2jMvlLMf6zOmmykO57uovvlBExVDi4cPUv2ig0UtEKEMT+HtuPb4p0fdw==}
+    peerDependencies:
+      next: '>=12.0.7'
+    dependencies:
+      '@babel/core': 7.23.2
+      '@babel/plugin-syntax-flow': 7.22.5(@babel/core@7.23.2)
+      '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.23.2)
+      '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.23.2)
+      '@stylexjs/babel-plugin': 0.2.0-beta.27(@babel/core@7.23.2)(@babel/traverse@7.23.2)(@babel/types@7.23.0)
+      next: 13.5.6(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/traverse'
+      - '@babel/types'
+      - supports-color
+    dev: true
+
+  /@stylexjs/shared@0.2.0-beta.27:
+    resolution: {integrity: sha512-lNcXMniGY3CXV+Kk2twXIxcNqgNFHO1Y5QLdKYVEDfCqGlC24ZVXTeJKUdycHZFp4b2tOr9MIgmShF6hN3R3LA==}
+    dependencies:
+      postcss-value-parser: 4.2.0
+    dev: true
+
+  /@stylexjs/stylex@0.1.0-beta.1:
+    resolution: {integrity: sha512-3qXFKas/HBRJHQUxSMvjPyhC+RbkjzwQNUGUPSSj5tVni8HXZfhDtxkN8QMjFfQ40uQZNXr/aKfN6nxuMn3Edw==}
+    dependencies:
+      invariant: 2.2.4
+      utility-types: 3.10.0
+    dev: false
 
   /@swc-jotai/react-refresh@0.1.0:
     resolution: {integrity: sha512-CWV4W06GdfQo3cW3CoUM2fp7avH4Z/suR7SvECNJnQbr6Sa9U3p7o10nXjNv2zT6z09bbNUPM55HBw5Nwd24Iw==}
@@ -9338,7 +9387,6 @@ packages:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /ip@2.0.0:
     resolution: {integrity: sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ==}
@@ -13775,6 +13823,11 @@ packages:
   /utila@0.4.0:
     resolution: {integrity: sha512-Z0DbgELS9/L/75wZbro8xAnT50pBVFQZ+hUEueGDU5FN51YSCYM+jdxsfCiHjwNP/4LCDD0i/graKpeBnOXKRA==}
     dev: true
+
+  /utility-types@3.10.0:
+    resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
+    engines: {node: '>= 4'}
+    dev: false
 
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}

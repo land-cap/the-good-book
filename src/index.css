@@ -90,3 +90,6 @@ html body {
     font-variation-settings: 'FILL' 1, 'wght' 600;
 }
 
+.capsize-debug .capsize-5 {
+    border: 1px solid magenta;
+}

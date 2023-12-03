@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge'
-import { withCapsize } from '~/components/Capped'
+import { withCapsize } from '~/components/withCapsize'
 
 const H1 = withCapsize('h1')
 

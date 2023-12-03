@@ -1,5 +1,5 @@
 import { Icon } from '~/components/atoms/Icon/Icon'
-import { withCapsize } from '~/components/Capped'
+import { withCapsize } from '~/components/withCapsize'
 
 const P = withCapsize('p')
 
