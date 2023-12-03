@@ -2,18 +2,18 @@ import * as cheerio from 'cheerio'
 import { XMLParser } from 'fast-xml-parser'
 import { copyToClipBoard } from '~/helpers'
 
-export const getNormalizedChapterContent = (chapterContent: string,isStudyMode: boolean) => {
-	const parser = new XMLParser({
-		ignoreAttributes: false,
-		attributeNamePrefix: '',
-		attributesGroupName: 'attrs',
-		alwaysCreateTextNode: true,
-		unpairedTags: ['hr', 'br'],
-		processEntities: false,
-		htmlEntities: true,
-	})
-	const chapterDataAsJson = parser.parse(chapterContent)
-	copyToClipBoard(JSON.stringify(chapterDataAsJson, null, 2))
+const transformAttributeName = (name: string) => {
+	if (name === 'class') {
+		return 'className'
+	}
+
+	return name
+}
+
+export const getNormalizedChapterContent = (
+	chapterContent: string,
+	isStudyMode: boolean,
+) => {
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')
@@ -37,5 +37,22 @@ export const getNormalizedChapterContent = (chapterContent: string,isStudyMode: 
 		)
 		.remove()
 
-	return $chapterContent('.book').html()!
+	const parser = new XMLParser({
+		preserveOrder: true,
+		ignoreAttributes: false,
+		attributeNamePrefix: '',
+		transformAttributeName,
+		attributesGroupName: 'attrs',
+		alwaysCreateTextNode: false,
+		unpairedTags: ['hr', 'br'],
+		processEntities: false,
+		htmlEntities: true,
+		removeNSPrefix: true,
+	})
+	const chapterDataAsJson = parser.parse($chapterContent('.book').html()!)
+
+	//copyToClipBoard($chapterContent('.book').html()!)
+	copyToClipBoard(JSON.stringify(chapterDataAsJson, null, 2))
+
+	return chapterDataAsJson as unknown as object
 }

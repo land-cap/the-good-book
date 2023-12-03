@@ -1,4 +1,7 @@
+'use client'
+
 import { twMerge } from 'tailwind-merge'
+import { renderChapterFromOM } from '~/_pages/ReaderPage/components/renderChapterFromOM'
 import '../Reader.css'
 
 export const ChapterContent = ({
@@ -8,10 +11,10 @@ export const ChapterContent = ({
 	chapterContentHtml: string
 	isStudyMode: boolean
 }) => (
-	<div
-		className={twMerge('reader', isStudyMode && 'reader--mode-study')}
-		dangerouslySetInnerHTML={{
-			__html: chapterContentHtml,
-		}}
-	/>
+	//console.log(renderChapterFromOM(chapterContentHtml))
+
+	<div className={twMerge('reader', isStudyMode && 'reader--mode-study')}>
+		{/*{JSON.stringify(chapterContentHtml, null, 2)}*/}
+		{renderChapterFromOM(chapterContentHtml)}
+	</div>
 )
