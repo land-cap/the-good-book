@@ -1,9 +1,19 @@
 import * as cheerio from 'cheerio'
+import { XMLParser } from 'fast-xml-parser'
+import { copyToClipBoard } from '~/helpers'
 
-export const getNormalizedChapterContent = (
-	chapterContent: string,
-	isStudyMode: boolean,
-) => {
+export const getNormalizedChapterContent = (chapterContent: string,isStudyMode: boolean) => {
+	const parser = new XMLParser({
+		ignoreAttributes: false,
+		attributeNamePrefix: '',
+		attributesGroupName: 'attrs',
+		alwaysCreateTextNode: true,
+		unpairedTags: ['hr', 'br'],
+		processEntities: false,
+		htmlEntities: true,
+	})
+	const chapterDataAsJson = parser.parse(chapterContent)
+	copyToClipBoard(JSON.stringify(chapterDataAsJson, null, 2))
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')
