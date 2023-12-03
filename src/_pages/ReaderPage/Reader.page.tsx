@@ -54,15 +54,18 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 				className={twMerge(
 					setPageWidthCls,
 					'flex justify-between my-8 md:my-12 font-bold underline',
-				)}>
+				)}
+			>
 				<Link$
 					fontSize="base"
-					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}>
+					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}
+				>
 					Previous chapter
 				</Link$>
 				<Link$
 					fontSize="base"
-					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}>
+					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}
+				>
 					Next chapter
 				</Link$>
 			</div>

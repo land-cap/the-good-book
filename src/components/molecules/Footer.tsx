@@ -22,7 +22,8 @@ export const Footer = () => (
 			<a
 				href="https://github.com/land-cap"
 				target="_blank"
-				className="font-bold underline">
+				className="font-bold underline"
+			>
 				land-cap
 			</a>
 		</P>
