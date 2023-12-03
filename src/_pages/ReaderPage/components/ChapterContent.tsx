@@ -1,5 +1,5 @@
-import { cx } from 'styled-system/css'
-import { bodyStyles_mode_study, readerStyles } from '../reader.styles'
+import { twMerge } from 'tailwind-merge'
+import '../Reader.css'
 
 export const ChapterContent = ({
 	chapterContentHtml,
@@ -9,7 +9,7 @@ export const ChapterContent = ({
 	isStudyMode: boolean
 }) => (
 	<div
-		className={cx(readerStyles, isStudyMode && bodyStyles_mode_study)}
+		className={twMerge('reader', isStudyMode && 'reader--mode-study')}
 		dangerouslySetInnerHTML={{
 			__html: chapterContentHtml,
 		}}

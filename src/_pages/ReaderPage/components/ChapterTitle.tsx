@@ -1,14 +1,19 @@
-import { css } from 'styled-system/css'
+import { twMerge } from 'tailwind-merge'
+import { withCapsize } from '~/components/withCapsize'
 
-export const chapterTitleStyles = css({
-	my: { base: '8', md: '12' },
-	textStyle: { base: '3xl', md: '4xl' },
-	fontWeight: 'blacker',
-})
+//@ts-ignore
+const H1 = withCapsize('h1')
+
 export const ChapterTitle = ({
 	bookName,
 	chapter,
 }: {
 	bookName: string
 	chapter: string
-}) => <h1 className={chapterTitleStyles}>{`${bookName} ${chapter}`}</h1>
+}) => (
+	//@ts-ignore
+	<H1
+		fontSize={{ base: '3xl', md: '4xl' }}
+		className={twMerge('my-8 md:my-12 text-3xl md:text-4xl font-blacker')}
+	>{`${bookName} ${chapter}`}</H1>
+)

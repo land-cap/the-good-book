@@ -46,6 +46,5 @@
   ],
   "exclude": [
     "node_modules",
-    "styled-system"
   ]
 }

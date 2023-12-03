@@ -1,5 +1,4 @@
 import { DM_Mono, DM_Sans } from 'next/font/google'
-import { styled } from 'styled-system/jsx'
 import { Footer } from '~/components/molecules/Footer'
 import '~/index.css'
 
@@ -21,22 +20,14 @@ export const metadata = {
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
-const AppShell = styled('body', {
-	base: {
-		position: 'relative',
-		flexFlow: 'column nowrap',
-		h: 'fit-content',
-		minH: '100vh',
-		textStyle: 'body',
-	},
-})
+const appShellCls = 'relative flex-col h-fit min-h-screen text-base'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
-		<AppShell>
+		<body className={appShellCls}>
 			{children}
 			<Footer />
-		</AppShell>
+		</body>
 	</html>
 )
 
