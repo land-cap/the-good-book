@@ -13,7 +13,7 @@ export const ChapterTitle = ({
 }) => (
 	//@ts-ignore
 	<H1
-		fontSize={{ base: '4xl', md: '5xl' }}
+		fontSize={{ base: '3xl', md: '4xl' }}
 		className={twMerge(
 			'my-8 md:my-12 text-3xl md:text-4xl font-blacker',
 		)}>{`${bookName} ${chapter}`}</H1>

@@ -5,7 +5,7 @@ import { withCapsize } from '~/components/withCapsize'
 const P = withCapsize('p')
 
 export const Footer = () => (
-	<footer className="flex flex-col gap-8 items-center text-center text-xs text-fgSubtle mx-auto w-full max-w-2xl px-8 my-20 md:my-32">
+	<footer className="flex flex-col gap-12 items-center text-center text-xs text-fgSubtle mx-auto w-full max-w-2xl px-8 my-20 md:my-32">
 		{/* @ts-ignore */}
 		<P fontSize="xs">
 			© Drepturi de autor British and Foreign Bible Society (BFBS) și
