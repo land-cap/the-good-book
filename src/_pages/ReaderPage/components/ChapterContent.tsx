@@ -1,14 +1,15 @@
 'use client'
 
 import { twMerge } from 'tailwind-merge'
-import { renderChapterFromOM } from '~/_pages/ReaderPage/components/renderChapterFromOM'
+import { type ChapterOM } from '../chapterContentData/getChapterOMFromHTMLString'
+import { renderChapterFromOM } from '../chapterContentData/renderChapterFromOM'
 import '../Reader.css'
 
 export const ChapterContent = ({
 	chapterContentHtml,
 	isStudyMode,
 }: {
-	chapterContentHtml: string
+	chapterContentHtml: ChapterOM
 	isStudyMode: boolean
 }) => (
 	//console.log(renderChapterFromOM(chapterContentHtml))

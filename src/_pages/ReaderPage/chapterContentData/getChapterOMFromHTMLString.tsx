@@ -1,6 +1,20 @@
 import * as cheerio from 'cheerio'
 import { XMLParser } from 'fast-xml-parser'
-import { copyToClipBoard } from '~/helpers'
+import { type JSX } from 'react/jsx-runtime'
+
+export type IntrinsicEl = keyof JSX.IntrinsicElements
+
+export type ElNode = {
+	[key in IntrinsicEl]: ChapterOMNode[]
+} & {
+	':@': { attrs: { className: string } }
+}
+
+export type TextNode = { '#text': string }
+
+export type ChapterOMNode = ElNode | TextNode
+
+export type ChapterOM = ChapterOMNode[]
 
 const transformAttributeName = (name: string) => {
 	if (name === 'class') {
@@ -10,7 +24,7 @@ const transformAttributeName = (name: string) => {
 	return name
 }
 
-export const getNormalizedChapterContent = (
+export const getChapterOMFromHTMLString = (
 	chapterContent: string,
 	isStudyMode: boolean,
 ) => {
@@ -26,14 +40,14 @@ export const getNormalizedChapterContent = (
 	const verseTag = isStudyMode ? 'span' : 'sup'
 	const verseLabelSelector = $chapterContent('.verse > .label')
 	verseLabelSelector
-		.before((_, html) => `<${verseTag} class="label">${html}</${verseTag}>`)
+		.before((_, html) => `<${verseTag} class='label'>${html}</${verseTag}>`)
 		.remove()
 
 	const mrSelector = $chapterContent('.mr')
 	mrSelector
 		.before(
 			(_, html) =>
-				`<div class="mr"><span class="heading">${html.trim()}</span></div>`,
+				`<div class='mr'><span class='heading'>${html.trim()}</span></div>`,
 		)
 		.remove()
 
@@ -49,10 +63,13 @@ export const getNormalizedChapterContent = (
 		htmlEntities: true,
 		removeNSPrefix: true,
 	})
-	const chapterDataAsJson = parser.parse($chapterContent('.book').html()!)
+
+	const chapterDataAsJson = parser.parse(
+		$chapterContent('.book').html()!,
+	) as unknown as ChapterOM
 
 	//copyToClipBoard($chapterContent('.book').html()!)
-	copyToClipBoard(JSON.stringify(chapterDataAsJson, null, 2))
+	//copyToClipBoard(JSON.stringify(chapterDataAsJson, null, 2))
 
-	return chapterDataAsJson as unknown as object
+	return chapterDataAsJson
 }

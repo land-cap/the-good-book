@@ -6,11 +6,11 @@
     }
 
     .r {
-        @apply my-4 md:my-5 text-xs md:text-sm font-bold text-fgSubtle;
+        @apply my-6 md:my-8 text-xs md:text-sm font-bold text-fgSubtle;
     }
 
     [class^="q"] {
-        @apply mt-4 md:mt-5 font-mono;
+        @apply mt-6 md:mt-8 font-mono;
     }
 
     [class^="q"] + [class^="q"] {
@@ -18,7 +18,7 @@
     }
 
     [class^="q"] + :not([class^="q"]) {
-        @apply mt-4 md:mt-5;
+        @apply mt-6 md:mt-8;
     }
 
     .wj {
@@ -34,15 +34,15 @@
     }
 
     *:not(*:where([class^="ms"], .mr)) + *:where([class^="ms"], .mr) {
-        @apply mt-4 md:mt-5;
+        @apply mt-6 md:mt-8;
     }
 
     *:where([class^="ms"], .mr) + *:not(*:where([class^="ms"], .mr)) {
-        @apply mb-4 md:mb-5;
+        @apply mb-6 md:mb-8;
     }
 
     [class^="s"] .heading {
-        @apply block my-4 md:my-5 text-xl md:text-2xl ;
+        @apply block my-6 md:my-8 text-xl md:text-2xl ;
     }
 
     .verse .label {

@@ -18,26 +18,26 @@ export type FontSize =
 	| '8xl'
 	| '9xl'
 
-export const fontSizeToCapHeight: Record<
+export const fontSizeToDefaultLeading: Record<
 	FontSize,
 	{
 		capHeight: number
-		lineGap: number
+		leading: number
 	}
 > = {
-	xs: { capHeight: 12, lineGap: 16 },
-	sm: { capHeight: 14, lineGap: 20 },
-	base: { capHeight: 16, lineGap: 24 },
-	lg: { capHeight: 18, lineGap: 28 },
-	xl: { capHeight: 29, lineGap: 28 },
-	'2xl': { capHeight: 24, lineGap: 32 },
-	'3xl': { capHeight: 30, lineGap: 36 },
-	'4xl': { capHeight: 36, lineGap: 40 },
-	'5xl': { capHeight: 48, lineGap: 48 },
-	'6xl': { capHeight: 60, lineGap: 60 },
-	'7xl': { capHeight: 72, lineGap: 72 },
-	'8xl': { capHeight: 96, lineGap: 96 },
-	'9xl': { capHeight: 128, lineGap: 128 },
+	xs: { capHeight: 12, leading: 16 },
+	sm: { capHeight: 14, leading: 20 },
+	base: { capHeight: 16, leading: 24 },
+	lg: { capHeight: 18, leading: 28 },
+	xl: { capHeight: 28, leading: 28 },
+	'2xl': { capHeight: 24, leading: 32 },
+	'3xl': { capHeight: 30, leading: 36 },
+	'4xl': { capHeight: 36, leading: 40 },
+	'5xl': { capHeight: 48, leading: 48 },
+	'6xl': { capHeight: 60, leading: 60 },
+	'7xl': { capHeight: 72, leading: 72 },
+	'8xl': { capHeight: 96, leading: 96 },
+	'9xl': { capHeight: 128, leading: 128 },
 }
 
 export type Breakpoint = 'base' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -50,7 +50,7 @@ const breakpointToMediaQuery: Record<Exclude<Breakpoint, 'base'>, string> = {
 	xl: '(min-width: 1536px)',
 }
 
-const generateCapsizeCls = (() => {
+const getCapsizeCls = (() => {
 	let i = 0
 	return () => `cap-${i++}`
 })()
@@ -72,7 +72,7 @@ export const withCapsize =
 		fontSize: FontSize | Partial<Record<Breakpoint, FontSize>>
 	}) => {
 		if (typeof fontSize === 'object') {
-			const capsizeCls = generateCapsizeCls()
+			const capsizeCls = getCapsizeCls()
 
 			const fontSizeEntries = Object.entries(fontSize) as [
 				Breakpoint,
@@ -81,8 +81,8 @@ export const withCapsize =
 			const responsiveCapsizeStyle = fontSizeEntries.reduce(
 				(responsizeStyle, [breakpoint, fontSize]) => {
 					const capsizeValues = precomputeValues({
-						fontSize: fontSizeToCapHeight[fontSize].capHeight,
-						leading: fontSizeToCapHeight[fontSize].lineGap,
+						fontSize: fontSizeToDefaultLeading[fontSize].capHeight,
+						leading: fontSizeToDefaultLeading[fontSize].leading,
 						fontMetrics: dmSansMetrics,
 					})
 
@@ -129,14 +129,14 @@ export const withCapsize =
 			)
 		} else {
 			const capsizeValues = precomputeValues({
-				fontSize: fontSizeToCapHeight[fontSize].capHeight,
-				leading: fontSizeToCapHeight[fontSize].lineGap,
+				fontSize: fontSizeToDefaultLeading[fontSize].capHeight,
+				leading: fontSizeToDefaultLeading[fontSize].leading,
 				fontMetrics: dmSansMetrics,
 			})
 
 			const { lineHeight, capHeightTrim, baselineTrim } = capsizeValues
 
-			const capsizeCls = generateCapsizeCls()
+			const capsizeCls = getCapsizeCls()
 
 			const capsizeStyles = `
 				.${capsizeCls} {

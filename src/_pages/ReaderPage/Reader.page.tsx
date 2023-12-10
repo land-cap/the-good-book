@@ -4,10 +4,10 @@ import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { setPageWidthCls } from '~/components'
 import { withCapsize } from '~/components/withCapsize'
 import { getBookWithCache, getChapterWithCache } from '~/db'
+import { getChapterOMFromHTMLString } from './chapterContentData/getChapterOMFromHTMLString'
 import { ChapterContent } from './components/ChapterContent'
 import { ChapterTitle } from './components/ChapterTitle'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
-import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
 
@@ -24,7 +24,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContentHtml = getNormalizedChapterContent(
+	const chapterContentHtml = getChapterOMFromHTMLString(
 		chapterData.content,
 		isStudyMode,
 	)

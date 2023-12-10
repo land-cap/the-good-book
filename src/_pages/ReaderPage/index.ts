@@ -1,2 +1,2 @@
 export * from './Reader.page'
-export { getNormalizedChapterContent } from '~/_pages/ReaderPage/getNormalizedChapterContent'
+export { getChapterOMFromHTMLString } from '~/_pages/ReaderPage/chapterContentData/getChapterOMFromHTMLString'
