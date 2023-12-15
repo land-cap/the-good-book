@@ -11,11 +11,13 @@ export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 )
 
 export const VerseLabel = ({ children }: { children: ReactNode }) => (
-	<span className="text-[0.75em] font-mono text-fgSubtle">
-		{' '}
+	<sup className="verse-label text-[0.75em] font-mono text-fgSubtle">
+		<span className="font-sans text-base md:text-lg leading-[2.25em] md:leading-[2.5em]">
+			{' '}
+		</span>
 		{children}
 		<span className="font-sans text-base md:text-lg leading-[2.25em] md:leading-[2.5em]">
 			{' '}
 		</span>
-	</span>
+	</sup>
 )

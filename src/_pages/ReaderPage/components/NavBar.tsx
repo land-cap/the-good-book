@@ -15,10 +15,14 @@ export const NavBar = ({
 					'flex sm:flex-row gap-6 justify-between items-center h-16',
 				)}
 			>
-				<span className={twMerge('font-blacker text-fgSubtle')}>
+				<span
+					className={twMerge(
+						'font-blacker text-fgSubtle [font-variation-settings:"opsz"48]',
+					)}
+				>
 					The Good Book
 				</span>
-				<span>
+				<span className="font-bold">
 					{bookName} {chapter}
 				</span>
 			</div>

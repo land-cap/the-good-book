@@ -12,7 +12,13 @@ export const ChapterContent = ({
 	chapterContentHtml: ChapterOM
 	isStudyMode: boolean
 }) => (
-	<div className={twMerge('reader', isStudyMode && 'reader--mode-study')}>
+	<div
+		className={twMerge(
+			'reader',
+			'mt-8 md:mt-12',
+			isStudyMode && 'reader--mode-study',
+		)}
+	>
 		{renderChapterFromOM(chapterContentHtml)}
 	</div>
 )

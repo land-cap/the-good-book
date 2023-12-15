@@ -45,10 +45,10 @@
         @apply block my-6 md:my-8 text-xl md:text-2xl;
     }
 
-    .verse .label {
+    .verse .verse-label {
         @apply text-[0.75em] font-mono text-fgSubtle;
 
-        &:after {
+        &:before, &:after {
             @apply content-['\00a0'] font-sans text-base md:text-lg leading-[2.25em] md:leading-[2.5em];
         }
     }
@@ -62,7 +62,7 @@
             @apply content-['\A'] whitespace-pre-wrap;
         }
 
-        .label {
+        .verse-label {
             @apply absolute -left-2 sm:-left-4 top-0 -translate-x-full text-[0.625rem] sm:text-[0.75em];
 
             &:after {

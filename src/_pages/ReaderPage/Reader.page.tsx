@@ -5,7 +5,6 @@ import { setPageWidthCls } from '~/components'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { getChapterOMFromHTMLString } from './chapterContentData/getChapterOMFromHTMLString'
 import { ChapterContent } from './components/ChapterContent'
-import { ChapterTitle } from './components/ChapterTitle'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
@@ -15,7 +14,12 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	const isStudyMode = readerMode === READER_MODE.Study
 
-	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
+	console.log(bookCode.toUpperCase())
+
+	const chapterData = await getChapterWithCache(
+		bookCode.toUpperCase(),
+		Number(chapter),
+	)
 
 	if (!chapterData?.content) {
 		throw new Error('No chapter data')
@@ -26,7 +30,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		isStudyMode,
 	)
 
-	const book = await getBookWithCache(bookCode)
+	const book = await getBookWithCache(bookCode.toUpperCase())
 
 	if (!book) {
 		throw new Error('No book data')
@@ -41,7 +45,6 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 			/>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
-				<ChapterTitle bookName={book.name} chapter={chapter} />
 				<ChapterContent
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}
