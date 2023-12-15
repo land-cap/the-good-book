@@ -12,10 +12,7 @@ export const ChapterContent = ({
 	chapterContentHtml: ChapterOM
 	isStudyMode: boolean
 }) => (
-	//console.log(renderChapterFromOM(chapterContentHtml))
-
 	<div className={twMerge('reader', isStudyMode && 'reader--mode-study')}>
-		{/*{JSON.stringify(chapterContentHtml, null, 2)}*/}
 		{renderChapterFromOM(chapterContentHtml)}
 	</div>
 )

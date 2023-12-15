@@ -25,7 +25,7 @@ export const fontSizeToDefaultLeading: Record<
 		leading: number
 	}
 > = {
-	xs: { capHeight: 12, leading: 16 },
+	xs: { capHeight: 12, leading: 24 },
 	sm: { capHeight: 14, leading: 20 },
 	base: { capHeight: 16, leading: 24 },
 	lg: { capHeight: 18, leading: 28 },

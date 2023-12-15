@@ -42,7 +42,7 @@
     }
 
     [class^="s"] .heading {
-        @apply block my-6 md:my-8 text-xl md:text-2xl ;
+        @apply block my-6 md:my-8 text-xl md:text-2xl;
     }
 
     .verse .label {

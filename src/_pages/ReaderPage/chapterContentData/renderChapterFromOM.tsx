@@ -1,5 +1,10 @@
-import { type ReactNode } from 'react'
+import { Fragment, type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
+import {
+	LargeSectionTitle,
+	SectionTitle,
+	VerseLabel,
+} from '~/_pages/ReaderPage/components/ReaderComponents'
 import {
 	type ChapterOM,
 	type ElNode,
@@ -19,12 +24,30 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 
 		const { className } = (item as ElNode)[':@'].attrs
 
-		if (/^s\d/g.test(className)) {
+		if (/^(ms\d|mr)$/g.test(className)) {
 			return [
 				...acc,
-				<NodeType key={i} className={twMerge(className)}>
+				<LargeSectionTitle key={i}>
 					{renderChapterFromOM((item as ElNode)[NodeType])}
-				</NodeType>,
+				</LargeSectionTitle>,
+			]
+		}
+
+		if (/^s\d$/g.test(className)) {
+			return [
+				...acc,
+				<SectionTitle key={i}>
+					{renderChapterFromOM((item as ElNode)[NodeType])}
+				</SectionTitle>,
+			]
+		}
+
+		if (/^heading$/g.test(className)) {
+			return [
+				...acc,
+				<Fragment key={i}>
+					{renderChapterFromOM((item as ElNode)[NodeType])}
+				</Fragment>,
 			]
 		}
 
@@ -37,10 +60,23 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 			]
 		}
 
+		if (/^verse-label$/g.test(className)) {
+			return [
+				...acc,
+				<VerseLabel key={i}>
+					{renderChapterFromOM((item as ElNode)[NodeType])}
+				</VerseLabel>,
+			]
+		}
+
+		if (['note', 'cl'].includes(className)) {
+			return acc
+		}
+
 		return [
 			...acc,
-			<NodeType key={i} className={twMerge(className)}>
+			<Fragment key={i}>
 				{renderChapterFromOM((item as ElNode)[NodeType])}
-			</NodeType>,
+			</Fragment>,
 		]
 	}, [] as ReactNode[])
