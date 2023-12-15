@@ -1,7 +1,6 @@
 import * as cheerio from 'cheerio'
 import { XMLParser } from 'fast-xml-parser'
 import { type JSX } from 'react/jsx-runtime'
-import { copyToClipBoard } from '~/helpers'
 
 export type IntrinsicEl = keyof JSX.IntrinsicElements
 
@@ -72,9 +71,6 @@ export const getChapterOMFromHTMLString = (
 	const chapterDataAsJson = parser.parse(
 		$chapterContent('.book').html()!,
 	) as unknown as ChapterOM
-
-	copyToClipBoard($chapterContent('.book').html()!)
-	//copyToClipBoard(JSON.stringify(chapterDataAsJson, null, 2))
 
 	return chapterDataAsJson
 }
