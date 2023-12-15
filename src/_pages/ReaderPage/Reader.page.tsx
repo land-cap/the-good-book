@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { setPageWidthCls } from '~/components'
-import { withCapsize } from '~/components/withCapsize'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { getChapterOMFromHTMLString } from './chapterContentData/getChapterOMFromHTMLString'
 import { ChapterContent } from './components/ChapterContent'
@@ -10,8 +9,6 @@ import { ChapterTitle } from './components/ChapterTitle'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
-
-const Link$ = withCapsize(Link)
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 	const { bookCode, chapter, readerMode } = params
@@ -56,18 +53,12 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 					'flex justify-between my-8 md:my-12 font-bold underline',
 				)}
 			>
-				<Link$
-					fontSize="base"
-					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}
-				>
+				<Link href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}>
 					Previous chapter
-				</Link$>
-				<Link$
-					fontSize="base"
-					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}
-				>
+				</Link>
+				<Link href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}>
 					Next chapter
-				</Link$>
+				</Link>
 			</div>
 		</>
 	)

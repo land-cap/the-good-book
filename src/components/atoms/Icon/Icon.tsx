@@ -32,7 +32,8 @@ export const Icon = ({
 			className={twMerge('material-icon', sizeClass, className)}
 			style={{
 				fontVariationSettings: `'FILL' 1, 'wght' 600, 'opsz' ${size ?? 20}`,
-			}}>
+			}}
+		>
 			{name}
 		</span>
 	)
