@@ -14,8 +14,6 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	const isStudyMode = readerMode === READER_MODE.Study
 
-	console.log(bookCode.toUpperCase())
-
 	const chapterData = await getChapterWithCache(
 		bookCode.toUpperCase(),
 		Number(chapter),
