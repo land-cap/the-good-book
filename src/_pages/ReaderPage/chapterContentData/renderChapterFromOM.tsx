@@ -12,7 +12,10 @@ import {
 	type TextNode,
 } from './getChapterOMFromHTMLString'
 
-export const renderChapterFromOM = (chapterOM: ChapterOM) =>
+export const renderChapterFromOM = (
+	chapterOM: ChapterOM,
+	isStudyMode: boolean,
+) =>
 	chapterOM.reduce((acc, item, i) => {
 		if ((item as TextNode)?.['#text']) {
 			return [...acc, (item as TextNode)['#text']]
@@ -28,7 +31,7 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType])}
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
 				</LargeSectionTitle>,
 			]
 		}
@@ -37,7 +40,7 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<SectionTitle key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType])}
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
 				</SectionTitle>,
 			]
 		}
@@ -46,7 +49,7 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<Fragment key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType])}
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
 				</Fragment>,
 			]
 		}
@@ -55,7 +58,7 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<NodeType key={i} className={twMerge(className)}>
-					{renderChapterFromOM((item as ElNode)[NodeType])}
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
 				</NodeType>,
 			]
 		}
@@ -63,8 +66,8 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 		if (/^verse-label$/g.test(className)) {
 			return [
 				...acc,
-				<VerseLabel key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType])}
+				<VerseLabel key={i} isStudyMode={isStudyMode}>
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
 				</VerseLabel>,
 			]
 		}
@@ -76,7 +79,7 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 		return [
 			...acc,
 			<Fragment key={i}>
-				{renderChapterFromOM((item as ElNode)[NodeType])}
+				{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
 			</Fragment>,
 		]
 	}, [] as ReactNode[])

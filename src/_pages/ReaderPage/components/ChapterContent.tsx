@@ -19,6 +19,6 @@ export const ChapterContent = ({
 			isStudyMode && 'reader--mode-study',
 		)}
 	>
-		{renderChapterFromOM(chapterContentHtml)}
+		{renderChapterFromOM(chapterContentHtml, isStudyMode)}
 	</div>
 )
