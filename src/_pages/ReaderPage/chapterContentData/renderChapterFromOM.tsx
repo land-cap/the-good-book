@@ -51,7 +51,7 @@ export const renderChapterFromOM = (chapterOM: ChapterOM) =>
 			]
 		}
 
-		if (/^(p|verse)/g.test(className)) {
+		if (/^(p|verse v\d*$)/g.test(className)) {
 			return [
 				...acc,
 				<NodeType key={i} className={twMerge(className)}>

@@ -44,14 +44,6 @@
     [class^="s"] .heading {
         @apply block my-6 md:my-8 text-xl md:text-2xl;
     }
-
-    .verse .verse-label {
-        @apply text-[0.75em] font-mono text-fgSubtle;
-
-        &:before, &:after {
-            @apply content-['\00a0'] font-sans text-base md:text-lg leading-[2.25em] md:leading-[2.5em];
-        }
-    }
 }
 
 .reader--mode-study {
