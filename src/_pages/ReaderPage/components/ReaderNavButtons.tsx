@@ -13,10 +13,10 @@ export const ReaderNavButtons = ({
 	readerMode,
 }: ReaderPageParams) => (
 	<div className="flex justify-between my-8 md:my-12">
-		<ChapterNavLink href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}>
+		<ChapterNavLink href={`/${readerMode}/${bookCode}/${Number(chapter) - 1}`}>
 			Previous chapter
 		</ChapterNavLink>
-		<ChapterNavLink href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}>
+		<ChapterNavLink href={`/${readerMode}/${bookCode}/${Number(chapter) + 1}`}>
 			Next chapter
 		</ChapterNavLink>
 	</div>

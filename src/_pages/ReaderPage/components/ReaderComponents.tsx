@@ -2,7 +2,7 @@ import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2 className="my-6 md:my-8 text-xl md:text-2xl">{children}</h2>
+	<h2 className="my-6 md:my-8 font-bold text-xl md:text-2xl">{children}</h2>
 )
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
@@ -27,7 +27,7 @@ export const VerseLabel = ({
 				isStudyMode && 'absolute -left-2 sm:-left-4 top-0 -translate-x-full',
 			)}
 		>
-			&nbsp;
+			{!isStudyMode && '&nbsp;'}
 			<LabelTag
 				className={twMerge(
 					'verse-label text-[0.75em] font-mono text-fgSubtle',
@@ -36,7 +36,7 @@ export const VerseLabel = ({
 			>
 				{children}
 			</LabelTag>
-			&nbsp;
+			{!isStudyMode && '&nbsp;'}
 		</span>
 	)
 }

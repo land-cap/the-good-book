@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { wChildren, wClassName, wName } from '~/component-helpers'
 import { setPageWidthCls } from '~/components/Page'
 
@@ -13,7 +14,7 @@ const NavBarContainer = wChildren(({ children }) => (
 	</div>
 ))
 
-const Logo = wClassName('span')('font-bold')
+const Logo = wClassName(Link)('font-bold')
 
 const CurrChapter = wName('span')
 
@@ -25,7 +26,7 @@ export const NavBar = ({
 	chapter: string
 }) => (
 	<NavBarContainer>
-		<Logo>The Good Book</Logo>
+		<Logo href="/">The Good Book</Logo>
 		<CurrChapter>
 			{bookName} {chapter}
 		</CurrChapter>
