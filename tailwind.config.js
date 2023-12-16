@@ -41,7 +41,6 @@ module.exports = {
 				mono: ['var(--font-mono)'],
 			},
 			fontWeight: {
-				bold: '600',
 				blacker: '1000',
 			},
 			ringWidth: {
