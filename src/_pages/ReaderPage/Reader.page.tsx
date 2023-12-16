@@ -1,16 +1,11 @@
-import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
 import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
-import { setPageWidthCls } from '~/components'
+import { ReaderNavButtons } from '~/_pages/ReaderPage/components/ReaderNavButtons'
 import { getBookWithCache, getChapterWithCache } from '~/db'
-import { styled } from '~/helpers/hoc-helpers/styled'
 import { getChapterOMFromHTMLString } from './chapterContentData/getChapterOMFromHTMLString'
 import { ChapterContent } from './components/ChapterContent'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
-
-const ChapterNavLink = styled(Link)(twMerge('font-bold underline'))
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 	const { bookCode, chapter, readerMode } = params
@@ -50,24 +45,12 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}
 				/>
+				<ReaderNavButtons
+					bookCode={bookCode}
+					chapter={chapter}
+					readerMode={readerMode}
+				/>
 			</ReaderPageContainer>
-			<div
-				className={twMerge(
-					setPageWidthCls,
-					'flex justify-between my-8 md:my-12',
-				)}
-			>
-				<ChapterNavLink
-					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}
-				>
-					Previous chapter
-				</ChapterNavLink>
-				<ChapterNavLink
-					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}
-				>
-					Next chapter
-				</ChapterNavLink>
-			</div>
 		</>
 	)
 }

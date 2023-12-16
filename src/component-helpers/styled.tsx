@@ -1,4 +1,4 @@
-import { type JSX, type ReactNode } from 'react'
+import { forwardRef, type JSX, type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 type TIntrinsicElement = keyof JSX.IntrinsicElements
@@ -25,8 +25,13 @@ export function styled<P extends { className?: string }>(
 export function styled<P extends { className?: string }>(
 	Component: TComponent<P>,
 ) {
-	//eslint-disable-next-line react/display-name
-	return (className: string) => (props: P) => (
-		<Component {...props} className={twMerge(className, props.className)} />
-	)
+	return (className: string) =>
+		//eslint-disable-next-line react/display-name
+		forwardRef((props: P, ref) => (
+			<Component
+				{...props}
+				ref={ref}
+				className={twMerge(className, props.className)}
+			/>
+		))
 }

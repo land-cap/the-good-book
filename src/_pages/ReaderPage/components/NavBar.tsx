@@ -1,5 +1,19 @@
-import { twMerge } from 'tailwind-merge'
+import { named, styled } from '~/component-helpers'
 import { setPageWidthCls } from '~/components/Page'
+
+const NavBarContainer = styled('div')('z-10 sticky top-0 w-full bg-bgSurface')
+
+const PageWidthWrapper = styled('nav')(setPageWidthCls)
+
+const BorderWrapper = styled('div')('border-b border-b-borderEmphasized')
+
+const LayoutContainer = styled('div')(
+	'flex sm:flex-row gap-6 justify-between items-center h-16',
+)
+
+const Logo = styled('span')('font-bold')
+
+const CurrChapter = named('span')
 
 export const NavBar = ({
 	bookName,
@@ -8,24 +22,16 @@ export const NavBar = ({
 	bookName: string
 	chapter: string
 }) => (
-	<nav className={twMerge(setPageWidthCls, 'z-10 sticky top-0 bg-bgSurface')}>
-		<div className={twMerge('border-b border-b-borderEmphasized')}>
-			<div
-				className={twMerge(
-					'flex sm:flex-row gap-6 justify-between items-center h-16',
-				)}
-			>
-				<span
-					className={twMerge(
-						'font-blacker text-fgSubtle [font-variation-settings:"opsz"48]',
-					)}
-				>
-					The Good Book
-				</span>
-				<span className="font-bold">
-					{bookName} {chapter}
-				</span>
-			</div>
-		</div>
-	</nav>
+	<NavBarContainer>
+		<PageWidthWrapper>
+			<BorderWrapper>
+				<LayoutContainer>
+					<Logo>The Good Book</Logo>
+					<CurrChapter>
+						{bookName} {chapter}
+					</CurrChapter>
+				</LayoutContainer>
+			</BorderWrapper>
+		</PageWidthWrapper>
+	</NavBarContainer>
 )
