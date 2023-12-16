@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { type ReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { styled } from '~/component-helpers'
+import { wClassName } from '~/component-helpers'
 
-const ChapterNavLink = styled(Link)(twMerge('font-bold underline'))
+const ChapterNavLink = wClassName(Link)(twMerge('font-bold underline'))
 
 export const ReaderNavButtons = ({
 	bookCode,

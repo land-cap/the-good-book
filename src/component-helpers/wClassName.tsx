@@ -13,16 +13,16 @@ type TStyledComponent<P extends { className?: string }> = (
 	className: string,
 ) => (props: P) => ReactNode
 
-export function styled<E extends TIntrinsicElement>(
+export function wClassName<E extends TIntrinsicElement>(
 	Element: E,
 ): TStyledIntrinsicElement<E>
 
-export function styled<P extends { className?: string }>(
+export function wClassName<P extends { className?: string }>(
 	Component: TComponent<P>,
 ): TStyledComponent<P>
 
 // TODO: improve typing with conditional types and remove overloading
-export function styled<P extends { className?: string }>(
+export function wClassName<P extends { className?: string }>(
 	Component: TComponent<P>,
 ) {
 	return (className: string) =>

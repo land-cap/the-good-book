@@ -1,19 +1,21 @@
-import { named, styled } from '~/component-helpers'
+import { wChildren, wClassName, wName } from '~/component-helpers'
 import { setPageWidthCls } from '~/components/Page'
 
-const NavBarContainer = styled('div')('z-10 sticky top-0 w-full bg-bgSurface')
+const NavBarContainer = wChildren(({ children }) => (
+	<div className="z-10 sticky top-0 w-full bg-bgSurface">
+		<div className={setPageWidthCls}>
+			<div className="border-b border-b-borderEmphasized">
+				<nav className="flex sm:flex-row gap-6 justify-between items-center h-16">
+					{children}
+				</nav>
+			</div>
+		</div>
+	</div>
+))
 
-const PageWidthWrapper = styled('nav')(setPageWidthCls)
+const Logo = wClassName('span')('font-bold')
 
-const BorderWrapper = styled('div')('border-b border-b-borderEmphasized')
-
-const LayoutContainer = styled('div')(
-	'flex sm:flex-row gap-6 justify-between items-center h-16',
-)
-
-const Logo = styled('span')('font-bold')
-
-const CurrChapter = named('span')
+const CurrChapter = wName('span')
 
 export const NavBar = ({
 	bookName,
@@ -23,15 +25,9 @@ export const NavBar = ({
 	chapter: string
 }) => (
 	<NavBarContainer>
-		<PageWidthWrapper>
-			<BorderWrapper>
-				<LayoutContainer>
-					<Logo>The Good Book</Logo>
-					<CurrChapter>
-						{bookName} {chapter}
-					</CurrChapter>
-				</LayoutContainer>
-			</BorderWrapper>
-		</PageWidthWrapper>
+		<Logo>The Good Book</Logo>
+		<CurrChapter>
+			{bookName} {chapter}
+		</CurrChapter>
 	</NavBarContainer>
 )
