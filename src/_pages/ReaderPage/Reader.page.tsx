@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { setPageWidthCls } from '~/components'
@@ -9,7 +10,7 @@ import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 import { ReaderStateSetup } from './ReaderState.setup'
 
-const ChapterNavLink = styled('a')(twMerge('font-bold underline'))
+const ChapterNavLink = styled(Link)(twMerge('font-bold underline'))
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 	const { bookCode, chapter, readerMode } = params
