@@ -3,7 +3,7 @@ import { setPageWidthCls } from '~/components/Page'
 import { withCapsize } from '~/components/withCapsize'
 
 //@ts-ignore
-const Span = withCapsize('span')
+const Span$ = withCapsize('span')
 
 export const NavBar = ({
 	bookName,
@@ -20,13 +20,13 @@ export const NavBar = ({
 				)}
 			>
 				{/* @ts-ignore */}
-				<Span fontSize="base" className={twMerge('font-blacker text-fgSubtle')}>
+				<Span$ fontSize="base" className={twMerge('font-bold')}>
 					The Good Book
-				</Span>
+				</Span$>
 				{/* @ts-ignore */}
-				<Span fontSize="base">
+				<Span$ fontSize="base">
 					{bookName} {chapter}
-				</Span>
+				</Span$>
 			</div>
 		</div>
 	</nav>

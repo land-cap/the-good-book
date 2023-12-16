@@ -4,7 +4,9 @@ import { createFileSystemCache, createMemoryCache, withCache } from '~/helpers'
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
 const getBook = async (bookCode: string) =>
-	dbClient.vdc_book_name.findFirst({ where: { book: { code: bookCode } } })
+	dbClient.vdc_book_name.findFirst({
+		where: { book: { code: bookCode.toUpperCase() } },
+	})
 
 export const getBookWithCache = withCache(
 	getBook,
@@ -12,7 +14,9 @@ export const getBookWithCache = withCache(
 )
 
 const getChapter = async (bookCode: string, chapter: number) => {
-	const book = await dbClient.book.findFirst({ where: { code: bookCode } })
+	const book = await dbClient.book.findFirst({
+		where: { code: bookCode.toUpperCase() },
+	})
 	return dbClient.vdc_chapter.findFirst({
 		where: { book_id: book?.id, chapter },
 	})

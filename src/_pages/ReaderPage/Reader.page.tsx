@@ -5,11 +5,9 @@ import { setPageWidthCls } from '~/components'
 import { withCapsize } from '~/components/withCapsize'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContent } from './components/ChapterContent'
-import { ChapterTitle } from './components/ChapterTitle'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { getNormalizedChapterContent } from './getNormalizedChapterContent'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
-import { ReaderStateSetup } from './ReaderState.setup'
 
 const Link$ = withCapsize(Link)
 
@@ -37,14 +35,8 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	return (
 		<>
-			<ReaderStateSetup
-				bookName={book.name}
-				chapter={Number(chapter)}
-				readerMode={readerMode}
-			/>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
-				<ChapterTitle bookName={book.name} chapter={chapter} />
 				<ChapterContent
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}
@@ -58,13 +50,13 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 			>
 				<Link$
 					fontSize="base"
-					href={`/${bookCode}/${Number(chapter) - 1}/${readerMode}`}
+					href={`/${readerMode}/${bookCode}/${Number(chapter) - 1}`}
 				>
 					Previous chapter
 				</Link$>
 				<Link$
 					fontSize="base"
-					href={`/${bookCode}/${Number(chapter) + 1}/${readerMode}`}
+					href={`/${readerMode}/${bookCode}/${Number(chapter) + 1}`}
 				>
 					Next chapter
 				</Link$>
