@@ -73,7 +73,7 @@ export const renderChapterFromOM = (
 		}
 
 		if (/(note|cl)/g.test(className)) {
-			return acc
+			return [...acc, ' ']
 		}
 
 		return [

@@ -27,7 +27,7 @@ export const VerseLabel = ({
 				isStudyMode && 'absolute -left-2 sm:-left-4 top-0 -translate-x-full',
 			)}
 		>
-			{!isStudyMode && '&nbsp;'}
+			{!isStudyMode && ' '}
 			<LabelTag
 				className={twMerge(
 					'verse-label text-[0.75em] font-mono text-fgSubtle',
@@ -36,7 +36,7 @@ export const VerseLabel = ({
 			>
 				{children}
 			</LabelTag>
-			{!isStudyMode && '&nbsp;'}
+			{!isStudyMode && ' '}
 		</span>
 	)
 }
