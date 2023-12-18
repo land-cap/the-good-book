@@ -25,7 +25,20 @@ const transformAttributeName = (name: string) => {
 	return name
 }
 
-export const getChapterOMFromHTMLString = (chapterContent: string) => {
+const parser = new XMLParser({
+	preserveOrder: true,
+	ignoreAttributes: false,
+	attributeNamePrefix: '',
+	transformAttributeName,
+	attributesGroupName: 'attrs',
+	alwaysCreateTextNode: false,
+	unpairedTags: ['hr', 'br'],
+	processEntities: false,
+	htmlEntities: true,
+	removeNSPrefix: true,
+})
+
+export const getChapterObjectModel = (chapterContent: string) => {
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')
@@ -37,11 +50,28 @@ export const getChapterOMFromHTMLString = (chapterContent: string) => {
 
 	$chapterContent('.chapter > .label').remove()
 
-	const verseSelector = $chapterContent('.verse')
-	verseSelector.removeAttr('class').addClass('verse')
+	$chapterContent('.chapter > [class^=ms]')
+		.removeAttr('class')
+		.addClass('large-section-title')
 
-	const verseLabelSelector = $chapterContent('.verse > .label')
-	verseLabelSelector.removeAttr('class').addClass('verse-label')
+	$chapterContent('.chapter > .mr')
+		.before(
+			(_, html) =>
+				`<h3 class='large-section-reference'>${$chapterContent(
+					html,
+				).text()}</h3>`,
+		)
+		.remove()
+
+	$chapterContent('.chapter > [class^=s]')
+		.removeAttr('class')
+		.addClass('section-title')
+
+	$chapterContent('.chapter > .p').removeAttr('class').addClass('paragraph')
+
+	$chapterContent('.verse').removeAttr('class').addClass('verse')
+
+	$chapterContent('.verse > .label').removeAttr('class').addClass('verse-label')
 
 	const crossReferenceSelector = $chapterContent('.verse > .note')
 	crossReferenceSelector.replaceWith(
@@ -49,26 +79,6 @@ export const getChapterOMFromHTMLString = (chapterContent: string) => {
 			.children('.body')
 			.html()}</span>`,
 	)
-
-	const mrSelector = $chapterContent('.mr')
-	mrSelector
-		.before(
-			(_, html) => `<h3 class='large-section-reference'>${html.trim()}</h3>`,
-		)
-		.remove()
-
-	const parser = new XMLParser({
-		preserveOrder: true,
-		ignoreAttributes: false,
-		attributeNamePrefix: '',
-		transformAttributeName,
-		attributesGroupName: 'attrs',
-		alwaysCreateTextNode: false,
-		unpairedTags: ['hr', 'br'],
-		processEntities: false,
-		htmlEntities: true,
-		removeNSPrefix: true,
-	})
 
 	const chapterDataAsJson = parser.parse(
 		$chapterContent('.book').html()!,

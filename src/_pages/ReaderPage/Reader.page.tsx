@@ -1,7 +1,7 @@
 import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { ReaderNavButtons } from '~/_pages/ReaderPage/components/ReaderNavButtons'
 import { getBookWithCache, getChapterWithCache } from '~/db'
-import { getChapterOMFromHTMLString } from './chapterContentData/getChapterOMFromHTMLString'
+import { getChapterObjectModel } from './chapterContentData/getChapterObjectModel'
 import { ChapterContent } from './components/ChapterContent'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
@@ -21,7 +21,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContentHtml = getChapterOMFromHTMLString(chapterData.content)
+	const chapterContentHtml = getChapterObjectModel(chapterData.content)
 
 	const book = await getBookWithCache(bookCode.toUpperCase())
 

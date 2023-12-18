@@ -1,8 +1,8 @@
 'use client'
 
 import { twMerge } from 'tailwind-merge'
-import { type ChapterOM } from '../chapterContentData/getChapterOMFromHTMLString'
-import { renderChapterFromOM } from '../chapterContentData/renderChapterFromOM'
+import { type ChapterOM } from '../chapterContentData/getChapterObjectModel'
+import { renderChapterContent } from '../chapterContentData/renderChapterContent'
 
 export const ChapterContent = ({
 	chapterContentHtml,
@@ -16,6 +16,6 @@ export const ChapterContent = ({
 			'mt-8 md:mt-12 text-base md:text-lg leading-[1.75em] md:leading-[2em]',
 		)}
 	>
-		{renderChapterFromOM(chapterContentHtml, isStudyMode)}
+		{renderChapterContent(chapterContentHtml, isStudyMode)}
 	</div>
 )
