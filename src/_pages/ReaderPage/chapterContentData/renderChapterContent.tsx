@@ -108,9 +108,16 @@ export const renderChapterContent = (
 		if (nodeClass === 'verse-label') {
 			return [
 				...acc,
-				<VerseLabel key={i} isStudyMode={isStudyMode}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
-				</VerseLabel>,
+				<VerseLabel
+					key={i}
+					isStudyMode={isStudyMode}
+					verseNumber={
+						renderChapterContent(
+							item[NodeType],
+							isStudyMode,
+						)[0] as unknown as number
+					}
+				/>,
 			]
 		}
 

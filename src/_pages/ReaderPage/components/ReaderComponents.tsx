@@ -69,10 +69,10 @@ export const Verse = ({
 )
 
 export const VerseLabel = ({
-	children,
+	verseNumber,
 	isStudyMode,
 }: {
-	children: ReactNode
+	verseNumber: ReactNode
 	isStudyMode: boolean
 }) => {
 	const LabelTag = isStudyMode ? 'span' : 'sup'
@@ -91,7 +91,7 @@ export const VerseLabel = ({
 					isStudyMode && 'text-[0.625rem] sm:text-[0.75em]',
 				)}
 			>
-				{children}
+				{verseNumber}
 			</LabelTag>
 			{!isStudyMode && <>&nbsp;</>}
 		</span>
@@ -119,7 +119,9 @@ export const CrossReference = ({
 )
 
 export const JesusWords = ({ children }: { children: ReactNode }) => (
-	<span className={twMerge('rc-jesus-words text-red-700')}>{children}</span>
+	<span className={twMerge('rc-jesus-words text-red-600 dark:text-red-400')}>
+		{children}
+	</span>
 )
 
 export const Quote = ({ children }: { children: ReactNode }) => (

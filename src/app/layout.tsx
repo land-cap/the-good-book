@@ -2,13 +2,13 @@ import { DM_Mono, DM_Sans } from 'next/font/google'
 import { Footer } from '~/components/molecules/Footer'
 import '~/index.css'
 
-const dmSans = DM_Sans({
+const fontSans = DM_Sans({
 	variable: '--font-sans',
 	subsets: ['latin-ext'],
 	axes: ['opsz'],
 })
 
-const dmMono = DM_Mono({
+const fontMono = DM_Mono({
 	variable: '--font-mono',
 	subsets: ['latin-ext'],
 	weight: ['300', '400', '500'],
@@ -25,7 +25,7 @@ const appShellCls =
 	'relative flex-col h-fit min-h-screen text-base bg-bgSurface font-normal text-fg dark:text-fgMuted'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
-	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
 		<body className={appShellCls}>
 			{children}
 			<Footer />

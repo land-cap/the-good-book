@@ -14,7 +14,8 @@ export const Footer = () => (
 		</div>
 		<p>
 			<span className="inline-flex items-center">
-				Made with <Icon name="favorite" fill className="mx-1 text-sm" /> in
+				Made with{' '}
+				<Icon name="favorite" fill className="mx-1 text-sm text-fgFaded" /> in
 				Moldova by
 			</span>{' '}
 			<a
