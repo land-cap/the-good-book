@@ -1,6 +1,8 @@
 import { Fragment, type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 import {
+	CrossReference,
+	LargeSectionReference,
 	LargeSectionTitle,
 	SectionTitle,
 	VerseLabel,
@@ -27,7 +29,7 @@ export const renderChapterFromOM = (
 
 		const { className } = (item as ElNode)[':@'].attrs
 
-		if (/^(ms\d|mr)$/g.test(className)) {
+		if (/^ms\d$/g.test(className)) {
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
@@ -72,8 +74,38 @@ export const renderChapterFromOM = (
 			]
 		}
 
-		if (/(note|cl)/g.test(className)) {
-			return [...acc, ' ']
+		if (/^large-section-reference$/g.test(className)) {
+			return [
+				...acc,
+				<LargeSectionReference key={i}>
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+				</LargeSectionReference>,
+			]
+		}
+
+		if (/^cross-reference$/g.test(className)) {
+			return [
+				...acc,
+				<CrossReference
+					key={i}
+					isStudyMode={isStudyMode}
+					referenceList={
+						renderChapterFromOM(
+							(item as ElNode)[NodeType],
+							isStudyMode,
+						) as unknown as string
+					}
+				/>,
+			]
+		}
+
+		if (/cl/g.test(className)) {
+			return [
+				...acc,
+				<NodeType key={i} className={twMerge(className)}>
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+				</NodeType>,
+			]
 		}
 
 		return [

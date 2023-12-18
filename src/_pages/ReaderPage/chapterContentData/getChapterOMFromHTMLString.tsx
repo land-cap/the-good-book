@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 import { XMLParser } from 'fast-xml-parser'
 import { type JSX } from 'react/jsx-runtime'
+import { copyToClipBoard } from '~/helpers'
 
 export type IntrinsicEl = keyof JSX.IntrinsicElements
 
@@ -24,10 +25,7 @@ const transformAttributeName = (name: string) => {
 	return name
 }
 
-export const getChapterOMFromHTMLString = (
-	chapterContent: string,
-	isStudyMode: boolean,
-) => {
+export const getChapterOMFromHTMLString = (chapterContent: string) => {
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')
@@ -37,21 +35,22 @@ export const getChapterOMFromHTMLString = (
 		})
 		.remove()
 
-	const verseTag = isStudyMode ? 'span' : 'sup'
 	$chapterContent('.chapter > .label').remove()
 
 	const verseLabelSelector = $chapterContent('.verse > .label')
-	verseLabelSelector
-		.before(
-			(_, html) => `<${verseTag} class='verse-label'>${html}</${verseTag}>`,
-		)
-		.remove()
+	verseLabelSelector.removeAttr('class').addClass('verse-label')
+
+	const crossReferenceSelector = $chapterContent('.verse > .note')
+	crossReferenceSelector.replaceWith(
+		`<span class='cross-reference'>${crossReferenceSelector
+			.children('.body')
+			.html()}</span>`,
+	)
 
 	const mrSelector = $chapterContent('.mr')
 	mrSelector
 		.before(
-			(_, html) =>
-				`<div class='mr'><span class='heading'>${html.trim()}</span></div>`,
+			(_, html) => `<h3 class='large-section-reference'>${html.trim()}</h3>`,
 		)
 		.remove()
 
@@ -71,6 +70,8 @@ export const getChapterOMFromHTMLString = (
 	const chapterDataAsJson = parser.parse(
 		$chapterContent('.book').html()!,
 	) as unknown as ChapterOM
+
+	copyToClipBoard($chapterContent('.book').html()!)
 
 	return chapterDataAsJson
 }

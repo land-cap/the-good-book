@@ -1,9 +1,9 @@
 .reader {
     @apply text-base md:text-lg leading-[2.25em] md:leading-[2.5em];
 
-    *:where(.note, .chapter > .label, .cl) {
-        @apply hidden;
-    }
+    /**:where(.note, .chapter > .label, .cl) {*/
+    /*    @apply hidden;*/
+    /*}*/
 
     .r {
         @apply my-6 md:my-8 text-xs md:text-sm font-bold text-fgSubtle;
