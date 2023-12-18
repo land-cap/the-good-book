@@ -47,7 +47,7 @@ export const VerseLabel = ({
 		<span
 			className={twMerge(
 				'verse-label-container',
-				isStudyMode && 'absolute -left-2 sm:-left-4 top-0 -translate-x-full',
+				isStudyMode && 'absolute -left-2 sm:-left-3 top-0 -translate-x-full',
 			)}
 		>
 			{!isStudyMode && ' '}

@@ -37,6 +37,9 @@ export const getChapterOMFromHTMLString = (chapterContent: string) => {
 
 	$chapterContent('.chapter > .label').remove()
 
+	const verseSelector = $chapterContent('.verse')
+	verseSelector.removeAttr('class').addClass('verse')
+
 	const verseLabelSelector = $chapterContent('.verse > .label')
 	verseLabelSelector.removeAttr('class').addClass('verse-label')
 

@@ -10,31 +10,53 @@ import {
 } from '~/_pages/ReaderPage/components/ReaderComponents'
 import {
 	type ChapterOM,
-	type ElNode,
+	type ChapterOMNode,
 	type IntrinsicEl,
 	type TextNode,
 } from './getChapterOMFromHTMLString'
+
+const classToReaderComponent = new Map([
+	['verse', Verse],
+	['verse-label', VerseLabel],
+])
+
+function isTextNode(node: ChapterOMNode): node is TextNode {
+	return (node as TextNode)['#text'] !== undefined
+}
 
 export const renderChapterFromOM = (
 	chapterOM: ChapterOM,
 	isStudyMode: boolean,
 ) =>
 	chapterOM.reduce((acc, item, i) => {
-		if ((item as TextNode)?.['#text']) {
-			return [...acc, (item as TextNode)['#text']]
+		if (isTextNode(item)) {
+			return [...acc, item['#text']]
 		}
 
 		const NodeType = Object.keys(item).filter(
 			(keys) => keys !== ':@',
 		)[0] as unknown as IntrinsicEl
 
-		const { className } = (item as ElNode)[':@'].attrs
+		const { className } = item[':@'].attrs
+
+		if (classToReaderComponent.has(className)) {
+			const Component = classToReaderComponent.get(className)
+
+			return Component
+				? [
+						...acc,
+						<Component key={i} isStudyMode={isStudyMode}>
+							{renderChapterFromOM(item[NodeType], isStudyMode)}
+						</Component>,
+				  ]
+				: acc
+		}
 
 		if (/^ms\d$/g.test(className)) {
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+					{renderChapterFromOM(item[NodeType], isStudyMode)}
 				</LargeSectionTitle>,
 			]
 		}
@@ -43,7 +65,7 @@ export const renderChapterFromOM = (
 			return [
 				...acc,
 				<SectionTitle key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+					{renderChapterFromOM(item[NodeType], isStudyMode)}
 				</SectionTitle>,
 			]
 		}
@@ -52,7 +74,7 @@ export const renderChapterFromOM = (
 			return [
 				...acc,
 				<Fragment key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+					{renderChapterFromOM(item[NodeType], isStudyMode)}
 				</Fragment>,
 			]
 		}
@@ -61,26 +83,8 @@ export const renderChapterFromOM = (
 			return [
 				...acc,
 				<p key={i} className={twMerge(className)}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+					{renderChapterFromOM(item[NodeType], isStudyMode)}
 				</p>,
-			]
-		}
-
-		if (/^verse v\d*$/g.test(className)) {
-			return [
-				...acc,
-				<Verse key={i} isStudyMode={isStudyMode}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
-				</Verse>,
-			]
-		}
-
-		if (/^verse-label$/g.test(className)) {
-			return [
-				...acc,
-				<VerseLabel key={i} isStudyMode={isStudyMode}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
-				</VerseLabel>,
 			]
 		}
 
@@ -88,7 +92,7 @@ export const renderChapterFromOM = (
 			return [
 				...acc,
 				<LargeSectionReference key={i}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+					{renderChapterFromOM(item[NodeType], isStudyMode)}
 				</LargeSectionReference>,
 			]
 		}
@@ -101,7 +105,7 @@ export const renderChapterFromOM = (
 					isStudyMode={isStudyMode}
 					referenceList={
 						renderChapterFromOM(
-							(item as ElNode)[NodeType],
+							item[NodeType],
 							isStudyMode,
 						) as unknown as string
 					}
@@ -113,7 +117,7 @@ export const renderChapterFromOM = (
 			return [
 				...acc,
 				<NodeType key={i} className={twMerge(className)}>
-					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+					{renderChapterFromOM(item[NodeType], isStudyMode)}
 				</NodeType>,
 			]
 		}
@@ -121,7 +125,7 @@ export const renderChapterFromOM = (
 		return [
 			...acc,
 			<Fragment key={i}>
-				{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+				{renderChapterFromOM(item[NodeType], isStudyMode)}
 			</Fragment>,
 		]
 	}, [] as ReactNode[])
