@@ -1,14 +1,13 @@
-import { DM_Mono, DM_Sans } from 'next/font/google'
+import { Crimson_Pro } from 'next/font/google'
 import { Footer } from '~/components/molecules/Footer'
 import '~/index.css'
 
-const dmSans = DM_Sans({
+const dmSans = Crimson_Pro({
 	variable: '--font-sans',
 	subsets: ['latin-ext'],
-	axes: ['opsz'],
 })
 
-const dmMono = DM_Mono({
+const dmMono = Crimson_Pro({
 	variable: '--font-mono',
 	subsets: ['latin-ext'],
 	weight: ['300', '400', '500'],
