@@ -36,6 +36,7 @@ const parser = new XMLParser({
 	processEntities: false,
 	htmlEntities: true,
 	removeNSPrefix: true,
+	trimValues: false,
 })
 
 export const getChapterObjectModel = (chapterContent: string) => {
@@ -79,6 +80,8 @@ export const getChapterObjectModel = (chapterContent: string) => {
 			.children('.body')
 			.html()}</span>`,
 	)
+
+	$chapterContent('.verse .wj').removeAttr('class').addClass('jesus-words')
 
 	const chapterDataAsJson = parser.parse(
 		$chapterContent('.book').html()!,

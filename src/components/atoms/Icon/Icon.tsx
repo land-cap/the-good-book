@@ -20,10 +20,12 @@ export const Icon = ({
 	name,
 	className,
 	size,
+	fill,
 }: {
 	name: string
 	className?: string
 	size?: IconSize
+	fill?: boolean
 }) => {
 	const sizeClass = useMemo(() => size && sizeToClass[size], [size])
 
@@ -31,7 +33,9 @@ export const Icon = ({
 		<span
 			className={twMerge('material-icon', sizeClass, className)}
 			style={{
-				fontVariationSettings: `'FILL' 1, 'wght' 600, 'opsz' ${size ?? 20}`,
+				fontVariationSettings: `'FILL' ${fill ? 1 : 0}, 'wght' 700, 'opsz' ${
+					size ?? 20
+				}`,
 			}}
 		>
 			{name}

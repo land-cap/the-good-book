@@ -1,6 +1,7 @@
 import { Fragment, type ReactNode } from 'react'
 import {
 	CrossReference,
+	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
 	Paragraph,
@@ -101,6 +102,15 @@ export const renderChapterContent = (
 						) as unknown as string
 					}
 				/>,
+			]
+		}
+
+		if (nodeClass === 'jesus-words') {
+			return [
+				...acc,
+				<JesusWords key={i}>
+					{renderChapterContent(item[NodeType], isStudyMode)}
+				</JesusWords>,
 			]
 		}
 

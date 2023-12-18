@@ -76,11 +76,19 @@ export const CrossReference = ({
 	referenceList: string
 	isStudyMode: boolean
 }) => (
-	<span className="rc-cross-reference inline-flex">
-		<Icon
-			name="article_shortcut"
-			className="p-1 text-fgFaded [font-size:inherit] cursor-pointer"
-		/>
+	<span className="rc-cross-reference">
+		&nbsp;
+		<span className="inline-flex translate-y-[0.1em] -m-1 p-1">
+			<Icon
+				name="article_shortcut"
+				size={16}
+				className="text-fgFaded cursor-pointer"
+			/>
+		</span>
 		<span className="hidden">{referenceList}</span>
 	</span>
+)
+
+export const JesusWords = ({ children }: { children: ReactNode }) => (
+	<span className={twMerge('rc-jesus-words text-red-700')}>{children}</span>
 )
