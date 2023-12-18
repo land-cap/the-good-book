@@ -5,6 +5,7 @@ import {
 	LargeSectionReference,
 	LargeSectionTitle,
 	SectionTitle,
+	Verse,
 	VerseLabel,
 } from '~/_pages/ReaderPage/components/ReaderComponents'
 import {
@@ -56,12 +57,21 @@ export const renderChapterFromOM = (
 			]
 		}
 
-		if (/^(p|verse v\d*$)/g.test(className)) {
+		if (/^(p$)/g.test(className)) {
 			return [
 				...acc,
-				<NodeType key={i} className={twMerge(className)}>
+				<p key={i} className={twMerge(className)}>
 					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
-				</NodeType>,
+				</p>,
+			]
+		}
+
+		if (/^verse v\d*$/g.test(className)) {
+			return [
+				...acc,
+				<Verse key={i} isStudyMode={isStudyMode}>
+					{renderChapterFromOM((item as ElNode)[NodeType], isStudyMode)}
+				</Verse>,
 			]
 		}
 

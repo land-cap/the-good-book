@@ -21,10 +21,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContentHtml = getChapterOMFromHTMLString(
-		chapterData.content,
-		isStudyMode,
-	)
+	const chapterContentHtml = getChapterOMFromHTMLString(chapterData.content)
 
 	const book = await getBookWithCache(bookCode.toUpperCase())
 

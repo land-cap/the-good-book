@@ -22,6 +22,18 @@ export const LargeSectionReference = ({
 	</h3>
 )
 
+export const Verse = ({
+	children,
+	isStudyMode,
+}: {
+	children: ReactNode
+	isStudyMode: boolean
+}) => (
+	<span className={twMerge('verse', isStudyMode && 'block relative')}>
+		{children}
+	</span>
+)
+
 export const VerseLabel = ({
 	children,
 	isStudyMode,
