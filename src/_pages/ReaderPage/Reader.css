@@ -1,5 +1,5 @@
 .reader {
-    @apply text-base md:text-lg leading-[2.25em] md:leading-[2.5em];
+    @apply text-base md:text-lg leading-[1.75em] md:leading-[2em];
 
     /**:where(.note, .chapter > .label, .cl) {*/
     /*    @apply hidden;*/

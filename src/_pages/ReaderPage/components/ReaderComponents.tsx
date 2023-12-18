@@ -61,7 +61,7 @@ export const CrossReference = ({
 	<span className="inline-flex">
 		<Icon
 			name="article_shortcut"
-			className="p-1 text-fgFaded [font-size:inherit]"
+			className="p-1 text-fgFaded [font-size:inherit] cursor-pointer"
 		/>
 		<span className="hidden">{referenceList}</span>
 	</span>
