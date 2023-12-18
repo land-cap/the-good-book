@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 import { Icon } from '~/components'
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2 className="rc-large-section-title text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle">
+	<h2 className="rc-large-section-title text-xs md:text-sm font-bold tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle">
 		{children}
 	</h2>
 )

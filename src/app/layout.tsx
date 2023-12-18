@@ -1,11 +1,10 @@
-import { DM_Mono, DM_Sans } from 'next/font/google'
+import { DM_Mono, Libre_Franklin } from 'next/font/google'
 import { Footer } from '~/components/molecules/Footer'
 import '~/index.css'
 
-const dmSans = DM_Sans({
+const dmSans = Libre_Franklin({
 	subsets: ['latin-ext'],
 	variable: '--font-sans',
-	axes: ['opsz'],
 })
 
 const dmMono = DM_Mono({
