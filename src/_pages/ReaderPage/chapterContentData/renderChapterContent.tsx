@@ -5,10 +5,11 @@ import {
 	LargeSectionReference,
 	LargeSectionTitle,
 	Paragraph,
+	Quote,
 	SectionTitle,
 	Verse,
 	VerseLabel,
-} from '~/_pages/ReaderPage/components/ReaderComponents'
+} from '../components/ReaderComponents'
 import {
 	type ChapterOM,
 	type ChapterOMNode,
@@ -111,6 +112,15 @@ export const renderChapterContent = (
 				<JesusWords key={i}>
 					{renderChapterContent(item[NodeType], isStudyMode)}
 				</JesusWords>,
+			]
+		}
+
+		if (nodeClass === 'quote') {
+			return [
+				...acc,
+				<Quote key={i}>
+					{renderChapterContent(item[NodeType], isStudyMode)}
+				</Quote>,
 			]
 		}
 

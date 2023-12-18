@@ -92,3 +92,9 @@ export const CrossReference = ({
 export const JesusWords = ({ children }: { children: ReactNode }) => (
 	<span className={twMerge('rc-jesus-words text-red-700')}>{children}</span>
 )
+
+export const Quote = ({ children }: { children: ReactNode }) => (
+	<span className={twMerge('rc-quote font-mono [&>.rc-verse]:block')}>
+		{children}
+	</span>
+)
