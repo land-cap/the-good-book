@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export type IconSize = 16 | 20 | 24 | 40 | 48
+export type TIconSize = 16 | 20 | 24 | 40 | 48
+
+export type TIconWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700
 
 export const sizeToClass: Record<number, string> = {
 	12: 'w-3 h-3 text-[12px]',
@@ -14,16 +16,20 @@ export const sizeToClass: Record<number, string> = {
 
 export const iconSizeList = Object.keys(sizeToClass).map((size) =>
 	Number(size),
-) as IconSize[]
+) as TIconSize[]
 
 export const Icon = ({
 	name,
 	className,
 	size,
+	weight,
+	fill,
 }: {
 	name: string
 	className?: string
-	size?: IconSize
+	size?: TIconSize
+	weight?: TIconWeight
+	fill?: boolean
 }) => {
 	const sizeClass = useMemo(() => size && sizeToClass[size], [size])
 
@@ -31,8 +37,11 @@ export const Icon = ({
 		<span
 			className={twMerge('material-icon', sizeClass, className)}
 			style={{
-				fontVariationSettings: `'FILL' 1, 'wght' 600, 'opsz' ${size ?? 20}`,
-			}}>
+				fontVariationSettings: `'FILL' ${fill ? 1 : 0}, 'wght' ${
+					weight ?? '700'
+				}, 'opsz' ${size ?? 20}`,
+			}}
+		>
 			{name}
 		</span>
 	)

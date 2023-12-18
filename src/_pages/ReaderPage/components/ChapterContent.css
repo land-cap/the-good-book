@@ -1,0 +1,9 @@
+.reader {
+    :not(:where(.rc-quote, .rc-paragraph)) + :where(.rc-quote, .rc-paragraph) {
+        @apply mt-6 md:mt-8
+    }
+
+    :where(.rc-quote, .rc-paragraph) + :not(:where(.rc-quote, .rc-paragraph)) {
+        @apply mt-6 md:mt-8
+    }
+}

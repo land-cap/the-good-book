@@ -1,9 +1,22 @@
-import { twMerge } from 'tailwind-merge'
+import Link from 'next/link'
+import { wChildren, wClassName, wName } from '~/component-helpers'
 import { setPageWidthCls } from '~/components/Page'
-import { withCapsize } from '~/components/withCapsize'
 
-//@ts-ignore
-const Span$ = withCapsize('span')
+const NavBarContainer = wChildren(({ children }) => (
+	<div className="z-10 sticky top-0 w-full bg-bgSurface">
+		<div className={setPageWidthCls}>
+			<div className="border-b border-b-borderEmphasized">
+				<nav className="flex sm:flex-row gap-6 justify-between items-center h-16">
+					{children}
+				</nav>
+			</div>
+		</div>
+	</div>
+))
+
+const Logo = wClassName(Link)('font-black')
+
+const CurrChapter = wName('span')
 
 export const NavBar = ({
 	bookName,
@@ -12,22 +25,10 @@ export const NavBar = ({
 	bookName: string
 	chapter: string
 }) => (
-	<nav className={twMerge(setPageWidthCls, 'z-10 sticky top-0 bg-bgSurface')}>
-		<div className={twMerge('border-b border-b-borderEmphasized')}>
-			<div
-				className={twMerge(
-					'flex sm:flex-row gap-6 justify-between items-center h-16',
-				)}
-			>
-				{/* @ts-ignore */}
-				<Span$ fontSize="base" className={twMerge('font-bold')}>
-					The Good Book
-				</Span$>
-				{/* @ts-ignore */}
-				<Span$ fontSize="base">
-					{bookName} {chapter}
-				</Span$>
-			</div>
-		</div>
-	</nav>
+	<NavBarContainer>
+		<Logo href="/">The Good Book</Logo>
+		<CurrChapter>
+			{bookName} {chapter}
+		</CurrChapter>
+	</NavBarContainer>
 )

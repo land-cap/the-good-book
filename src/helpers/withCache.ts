@@ -32,7 +32,6 @@ export const createFileSystemCache = <T>(
 	}
 }
 
-// TODO: fix return type issue
 export const withCache = <
 	Args extends never[],
 	Result,

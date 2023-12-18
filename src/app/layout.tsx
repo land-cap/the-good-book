@@ -3,15 +3,16 @@ import { Footer } from '~/components/molecules/Footer'
 import '~/index.css'
 
 const dmSans = DM_Sans({
-	subsets: ['latin-ext'],
 	variable: '--font-sans',
+	subsets: ['latin-ext'],
 	axes: ['opsz'],
 })
 
 const dmMono = DM_Mono({
+	variable: '--font-mono',
 	subsets: ['latin-ext'],
 	weight: ['300', '400', '500'],
-	variable: '--font-mono',
+	style: ['italic', 'normal'],
 })
 
 export const metadata = {
@@ -20,7 +21,8 @@ export const metadata = {
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
-const appShellCls = 'relative flex-col h-fit min-h-screen text-base'
+const appShellCls =
+	'relative flex-col h-fit min-h-screen text-base bg-bgSurface font-normal text-fg dark:text-fgMuted'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
