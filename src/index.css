@@ -6,6 +6,9 @@
 
 @layer base {
     :root {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
         --font-weight-normal: 400;
         --font-weight-bold: 600;
         --font-weight-black: 700;
@@ -74,20 +77,4 @@
 html, body {
     min-height: 100vh;
     touch-action: pan-x pan-y;
-}
-
-.material-icon {
-    font-family: 'Material Symbols Sharp';
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: flex;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
-    font-variation-settings: 'FILL' 1, 'wght' 600;
 }
