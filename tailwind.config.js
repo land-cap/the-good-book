@@ -37,6 +37,10 @@ module.exports = {
 				borderEmphasized: 'var(--colors-border-emphasized)',
 				borderActive: 'var(--colors-border-active)',
 			},
+			spacing: {
+				'reader-gap': '1.25rem',
+				'reader-gap-md': '1.5rem',
+			},
 			fontFamily: {
 				sans: ['var(--font-sans)'],
 				mono: ['var(--font-mono)'],
