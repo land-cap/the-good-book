@@ -9,15 +9,15 @@ import {
 	Paragraph,
 	Quote,
 	SectionTitle,
-	Verse,
 	VerseLabel,
 } from '../components/ReaderComponents'
+import { Verse } from '../components/ReaderComponents.client'
 import {
 	type ChapterOM,
 	type ChapterOMNode,
 	type IntrinsicEl,
 	type TextNode,
-} from './getChapterObjectModel'
+} from './getChapterDataObject'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined

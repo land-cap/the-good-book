@@ -38,7 +38,7 @@ const parser = new XMLParser({
 	trimValues: false,
 })
 
-export const getChapterObjectModel = (chapterContent: string) => {
+export const getChapterDataObject = (chapterContent: string) => {
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')

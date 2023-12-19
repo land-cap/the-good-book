@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { Icon } from '~/components'
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
@@ -41,7 +40,7 @@ export const LargeSectionCrossReference = ({
 )
 
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2 className="rc-section-title font-bold text-lg md:text-xl">{children}</h2>
+	<h2 className="rc-section-title text-lg font-bold md:text-xl">{children}</h2>
 )
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
@@ -52,18 +51,6 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 
 export const Paragraph = ({ children }: { children: ReactNode }) => (
 	<p className={twMerge('rc-paragraph')}>{children}</p>
-)
-
-export const Verse = ({
-	children,
-	isStudyMode,
-}: {
-	children: ReactNode
-	isStudyMode: boolean
-}) => (
-	<span className={twMerge('rc-verse', isStudyMode && 'block relative')}>
-		{children}
-	</span>
 )
 
 export const VerseLabel = ({
@@ -104,15 +91,9 @@ export const CrossReference = ({
 }) => (
 	<span className="rc-cross-reference">
 		&nbsp;
-		<span className="inline-flex translate-y-[2px] -m-1 p-1">
-			<Icon
-				name="article_shortcut"
-				fill
-				size={16}
-				weight={700}
-				className="text-fgFaded cursor-pointer"
-			/>
-		</span>
+		<sup className="font-sans text-[0.75em] text-fgFaded [font-weight:1000]">
+			&dagger;
+		</sup>
 		<span className="hidden">{referenceList}</span>
 	</span>
 )
