@@ -5,7 +5,7 @@ import { Icon } from '~/components'
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		className={twMerge(
-			'rc-large-section-title text-xs md:text-sm font-bold tracking-[0.1em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'rc-large-section-title text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
 		)}
 	>
 		{children}
@@ -19,10 +19,10 @@ export const LargeSectionReference = ({
 }) => (
 	<h3
 		className={twMerge(
-			'rc-large-section-reference text-xs md:text-sm tracking-[0.1em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'rc-large-section-reference text-xs font-black md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
 		)}
 	>
-		{children}
+		({children})
 	</h3>
 )
 
@@ -33,7 +33,7 @@ export const LargeSectionCrossReference = ({
 }) => (
 	<h4
 		className={twMerge(
-			'rc-large-section-reference text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'rc-large-section-cross-reference text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
 		)}
 	>
 		{children}
@@ -41,9 +41,7 @@ export const LargeSectionCrossReference = ({
 )
 
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2 className="rc-section-title my-6 md:my-8 font-bold [font-size:1.25em]">
-		{children}
-	</h2>
+	<h2 className="rc-section-title font-bold text-lg md:text-xl">{children}</h2>
 )
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
@@ -106,11 +104,12 @@ export const CrossReference = ({
 }) => (
 	<span className="rc-cross-reference">
 		&nbsp;
-		<span className="inline-flex translate-y-[3px] -m-1 p-1">
+		<span className="inline-flex translate-y-[2px] -m-1 p-1">
 			<Icon
 				name="article_shortcut"
-				size={20}
-				weight={400}
+				fill
+				size={16}
+				weight={700}
 				className="text-fgFaded cursor-pointer"
 			/>
 		</span>

@@ -15,7 +15,7 @@ export const ChapterContent = ({
 	<div
 		className={twMerge(
 			'reader',
-			'mt-8 md:mt-12 text-base md:text-lg leading-[2em] md:leading-[2.25em]',
+			'mt-reader-gap md:mt-reader-gap-md text-base md:text-lg leading-[2em] md:leading-[2.25em]',
 		)}
 	>
 		{renderChapterContent(chapterContentHtml, isStudyMode)}
