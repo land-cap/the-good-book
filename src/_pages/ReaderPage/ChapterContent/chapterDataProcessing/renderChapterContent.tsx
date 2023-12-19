@@ -9,15 +9,15 @@ import {
 	Paragraph,
 	Quote,
 	SectionTitle,
-	Verse,
 	VerseLabel,
-} from '../components/ReaderComponents'
+} from '../ReaderComponents'
+import { Verse } from '../ReaderComponents.client'
 import {
 	type ChapterOM,
 	type ChapterOMNode,
 	type IntrinsicEl,
 	type TextNode,
-} from './getChapterObjectModel'
+} from './getChapterDataObject'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
@@ -97,9 +97,12 @@ export const renderChapterContent = (
 		}
 
 		if (nodeClass === 'verse') {
+			const verseId = item[':@'].attrs['data-usfm']!
+			const verseOrder = Number(verseId.split('.')[2])
+
 			return [
 				...acc,
-				<Verse key={i} isStudyMode={isStudyMode}>
+				<Verse key={i} isStudyMode={isStudyMode} verseOrder={verseOrder}>
 					{renderChapterContent(item[NodeType], isStudyMode)}
 				</Verse>,
 			]

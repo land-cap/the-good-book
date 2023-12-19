@@ -1,2 +1,2 @@
 export * from './Reader.page'
-export { getChapterObjectModel } from '~/_pages/ReaderPage/chapterContentData/getChapterObjectModel'
+export { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
