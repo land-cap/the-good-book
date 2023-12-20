@@ -6,8 +6,6 @@
 
 @layer base {
     :root {
-        font-size: 93.75%;
-        
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
