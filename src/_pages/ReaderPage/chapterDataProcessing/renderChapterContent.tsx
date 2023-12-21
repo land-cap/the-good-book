@@ -17,7 +17,8 @@ import {
 	type ChapterOMNode,
 	type IntrinsicEl,
 	type TextNode,
-} from './getChapterDataObject'
+	type VerseId,
+} from './getChapterObjectModel'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
@@ -97,9 +98,11 @@ export const renderChapterContent = (
 		}
 
 		if (nodeClass === 'verse') {
+			const verseId = item[':@'].attrs['data-usfm']!
+
 			return [
 				...acc,
-				<Verse key={i} isStudyMode={isStudyMode}>
+				<Verse key={i} isStudyMode={isStudyMode} verseId={verseId}>
 					{renderChapterContent(item[NodeType], isStudyMode)}
 				</Verse>,
 			]

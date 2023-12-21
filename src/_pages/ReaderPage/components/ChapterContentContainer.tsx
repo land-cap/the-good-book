@@ -1,13 +1,13 @@
 import { twMerge } from 'tailwind-merge'
-import { type ChapterOM } from '~/_pages/ReaderPage/chapterDataProcessing/getChapterDataObject'
+import { type ChapterOM } from '~/_pages/ReaderPage/chapterDataProcessing/getChapterObjectModel'
 import { renderChapterContent } from '~/_pages/ReaderPage/chapterDataProcessing/renderChapterContent'
 import './ChapterContent.css'
 
-export const ChapterContent = ({
-	chapterContentHtml,
+export const ChapterContentContainer = ({
+	chapterObjectModel,
 	isStudyMode,
 }: {
-	chapterContentHtml: ChapterOM
+	chapterObjectModel: ChapterOM
 	isStudyMode: boolean
 }) => (
 	<div
@@ -16,6 +16,6 @@ export const ChapterContent = ({
 			'mt-reader-gap md:mt-reader-gap-md text-base md:text-lg leading-[2em] md:leading-[2.25em]',
 		)}
 	>
-		{renderChapterContent(chapterContentHtml, isStudyMode)}
+		{renderChapterContent(chapterObjectModel, isStudyMode)}
 	</div>
 )

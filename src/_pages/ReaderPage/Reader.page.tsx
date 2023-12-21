@@ -1,12 +1,18 @@
 import { getBookWithCache, getChapterWithCache } from '~/db'
-import { getChapterDataObject } from './chapterDataProcessing/getChapterDataObject'
-import { ChapterContent } from './components/ChapterContent'
+import { getChapterObjectModel } from './chapterDataProcessing/getChapterObjectModel'
+import { ChapterContentContainer } from './components/ChapterContentContainer'
 import { NavBar } from './components/NavBar'
 import { ReaderNavButtons } from './components/ReaderNavButtons'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 
-export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
+export const ReaderPage = async ({
+	params,
+	searchParams,
+}: {
+	params: ReaderPageParams
+	searchParams: { 'verse-start': string; 'verse-end': string }
+}) => {
 	const { bookCode, chapter, readerMode } = params
 
 	const isStudyMode = readerMode === READER_MODE.Study
@@ -20,7 +26,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContentHtml = getChapterDataObject(chapterData.content)
+	const chapterObjectModel = getChapterObjectModel(chapterData.content)
 
 	const book = await getBookWithCache(bookCode.toUpperCase())
 
@@ -32,8 +38,8 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		<>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
-				<ChapterContent
-					chapterContentHtml={chapterContentHtml}
+				<ChapterContentContainer
+					chapterObjectModel={chapterObjectModel}
 					isStudyMode={isStudyMode}
 				/>
 				<ReaderNavButtons
