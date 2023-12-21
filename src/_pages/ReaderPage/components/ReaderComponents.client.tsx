@@ -27,10 +27,20 @@ export const Verse = ({
 		const isIncludedInPassage =
 			verseOrder >= verseStart && verseOrder <= verseEnd
 		setIsFocused(isIncludedInPassage)
-	}, [isFocused, verseEnd, verseOrder, verseStart])
+	}, [verseEnd, verseOrder, verseStart])
 
 	return (
 		<span
+			ref={(el) => {
+				if (el && verseOrder === verseStart) {
+					const topOffset = document.querySelector('#navbar')?.clientHeight ?? 0
+
+					window.scrollTo({
+						top: el.offsetTop - topOffset,
+						behavior: 'smooth',
+					})
+				}
+			}}
 			id={verseId}
 			className={twMerge(
 				'rc-verse',
