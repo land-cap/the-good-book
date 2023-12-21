@@ -1,3 +1,4 @@
+import { renderChapterContent } from '~/_pages/ReaderPage/chapterDataProcessing/renderChapterContent'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { getChapterObjectModel } from './chapterDataProcessing/getChapterObjectModel'
 import { ChapterContentContainer } from './components/ChapterContentContainer'
@@ -8,7 +9,6 @@ import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 
 export const ReaderPage = async ({
 	params,
-	searchParams,
 }: {
 	params: ReaderPageParams
 	searchParams: { 'verse-start': string; 'verse-end': string }
@@ -38,10 +38,9 @@ export const ReaderPage = async ({
 		<>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
-				<ChapterContentContainer
-					chapterObjectModel={chapterObjectModel}
-					isStudyMode={isStudyMode}
-				/>
+				<ChapterContentContainer>
+					{renderChapterContent(chapterObjectModel, isStudyMode)}
+				</ChapterContentContainer>
 				<ReaderNavButtons
 					bookCode={bookCode}
 					chapter={chapter}

@@ -48,7 +48,7 @@ const config = {
 		],
 		'@typescript-eslint/ban-ts-comment': 'warn',
 
-		'no-console': ['error', { allow: ['warn', 'error'] }],
+		'no-console': ['warn', { allow: ['warn', 'error'] }],
 		'import/no-cycle': 'error',
 	},
 }

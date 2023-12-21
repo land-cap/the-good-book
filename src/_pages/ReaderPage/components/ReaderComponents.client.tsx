@@ -31,17 +31,7 @@ export const Verse = ({
 
 	return (
 		<span
-			ref={(el) => {
-				if (el && verseOrder === verseStart) {
-					const topOffset = document.querySelector('#navbar')?.clientHeight ?? 0
-
-					window.scrollTo({
-						top: el.offsetTop - topOffset,
-						behavior: 'smooth',
-					})
-				}
-			}}
-			id={verseId}
+			data-verse-order={verseOrder}
 			className={twMerge(
 				'rc-verse',
 				isStudyMode && 'block relative select-none cursor-pointer',
