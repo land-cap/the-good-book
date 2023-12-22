@@ -13,17 +13,17 @@
         --font-weight-bold: 700;
         --font-weight-black: 900;
 
-        --colors-neutral-50: #fafaf9;
-        --colors-neutral-100: #f5f5f4;
-        --colors-neutral-200: #e7e5e4;
-        --colors-neutral-300: #d6d3d1;
-        --colors-neutral-400: #a8a29e;
-        --colors-neutral-500: #78716c;
-        --colors-neutral-600: #57534e;
-        --colors-neutral-700: #44403c;
-        --colors-neutral-800: #292524;
-        --colors-neutral-900: #1c1917;
-        --colors-neutral-950: #0c0a09;
+        --colors-neutral-50: #fafafa;
+        --colors-neutral-100: #f5f5f5;
+        --colors-neutral-200: #e5e5e5;
+        --colors-neutral-300: #d4d4d4;
+        --colors-neutral-400: #a3a3a3;
+        --colors-neutral-500: #737373;
+        --colors-neutral-600: #525252;
+        --colors-neutral-700: #404040;
+        --colors-neutral-800: #262626;
+        --colors-neutral-900: #171717;
+        --colors-neutral-950: #0a0a0a;
 
         --colors-white: #ffffff;
         --colors-black: var(--colors-neutral-900);
