@@ -1,5 +1,5 @@
 import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
-import { MobileToolBar } from '~/_pages/ReaderPage/components/MobileToolBar'
+import { Toolbar } from '~/_pages/ReaderPage/components/Toolbar'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
@@ -35,7 +35,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 				chapterContentHtml={chapterContentHtml}
 				isStudyMode={isStudyMode}
 			/>
-			<MobileToolBar
+			<Toolbar
 				prevChapterHref={prevChapterHref}
 				nextChapterHref={nextChapterHref}
 				chapter={chapter}
