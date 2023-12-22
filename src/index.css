@@ -32,12 +32,14 @@
         --colors-bg-surface: var(--colors-white);
         --colors-bg-subtle: var(--colors-neutral-50);
         --colors-bg-muted: var(--colors-neutral-100);
+
         --colors-fg: var(--colors-neutral-900);
         --colors-fg-emphasized: var(--colors-neutral-700);
         --colors-fg-muted: var(--colors-neutral-600);
         --colors-fg-subtle: var(--colors-neutral-500);
         --colors-fg-faded: var(--colors-neutral-400);
         --colors-fg-inverted: var(--colors-white);
+
         --colors-border: var(--colors-neutral-200);
         --colors-border-emphasized: var(--colors-neutral-300);
     }
@@ -52,12 +54,14 @@
             --colors-bg-surface: var(--colors-neutral-900);
             --colors-bg-subtle: var(--colors-neutral-800);
             --colors-bg-muted: var(--colors-neutral-700);
+
             --colors-fg: var(--colors-white);
             --colors-fg-emphasized: var(--colors-neutral-200);
             --colors-fg-muted: var(--colors-neutral-300);
             --colors-fg-subtle: var(--colors-neutral-400);
             --colors-fg-faded: var(--colors-neutral-500);
             --colors-fg-inverted: var(--colors-neutral-950);
+
             --colors-border: var(--colors-neutral-800);
             --colors-border-emphasized: var(--colors-neutral-700);
             --colors-border-active: var(--colors-neutral-600);
