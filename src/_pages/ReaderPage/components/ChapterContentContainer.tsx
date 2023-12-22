@@ -17,22 +17,19 @@ export const ChapterContentContainer = ({
 		const passageStartVerse = document.querySelector(
 			`.rc-verse[data-verse-order="${verseStart}"]`,
 		)
-		const topOffset = document.querySelector('#navbar')?.clientHeight
-		if (passageStartVerse && topOffset) {
+		const passageStartVerseQuote =
+			passageStartVerse?.parentElement?.classList?.contains('rc-quote') &&
+			passageStartVerse?.parentElement
+		const navbarHeight = document.querySelector('#navbar')?.clientHeight
+		const passageStartElPoz =
+			(passageStartVerseQuote as HTMLElement)?.offsetTop ??
+			(passageStartVerse as HTMLElement)?.offsetTop
+		if (passageStartVerse && navbarHeight) {
 			window.scrollTo({
-				top: (passageStartVerse as HTMLSpanElement)?.offsetTop - topOffset,
+				top: passageStartElPoz - navbarHeight,
 				behavior: 'instant',
 			})
 		}
-		const currScrollPoz = window.scrollY
-		console.log({
-			//eslint-disable-next-line
-			// @ts-ignore
-			//eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-			startVerseOffset: passageStartVerse?.offsetTop,
-			topOffset,
-			currScrollPoz,
-		})
 	}, [verseStart])
 
 	return (
