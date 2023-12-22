@@ -8,20 +8,26 @@ export const ReaderNavButton = ({
 }: {
 	href: string
 	direction: 'left' | 'right'
-}) => (
-	<Link
-		href={href}
-		className={twMerge(
-			'group place-content-center place-items-center w-12 h-12',
-		)}
-	>
-		<Icon
-			size={48}
-			weight={400}
-			name={direction === 'right' ? 'chevron_right' : 'chevron_left'}
-			className={twMerge(
-				'text-fgFaded group-hover:text-fgSubtle transition duration-quick ease-in-out',
-			)}
-		/>
-	</Link>
-)
+}) => {
+	const iconProps = {
+		name: direction === 'right' ? 'chevron_right' : 'chevron_left',
+		className: twMerge(
+			'text-fgFaded group-hover:text-fgSubtle transition duration-quick ease-in-out',
+		),
+	}
+
+	return (
+		<Link href={href}>
+			<Icon
+				size={40}
+				{...iconProps}
+				className={twMerge(iconProps.className, 'sm:hidden')}
+			/>
+			<Icon
+				size={48}
+				{...iconProps}
+				className={twMerge(iconProps.className, 'hidden sm:block')}
+			/>
+		</Link>
+	)
+}
