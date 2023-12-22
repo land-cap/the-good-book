@@ -1,6 +1,6 @@
 import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
 import { getBookWithCache, getChapterWithCache } from '~/db'
-import { ChapterContent } from './ChapterContent/ChapterContent'
+import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
 import { NavBar } from './components/NavBar'
 import { ReaderNavButtons } from './components/ReaderNavButtons'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
@@ -32,7 +32,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		<>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
-				<ChapterContent
+				<ChapterContentContainer
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}
 				/>
