@@ -26,7 +26,7 @@ export const ReaderNavButton = ({
 			<Icon
 				size={48}
 				{...iconProps}
-				className={twMerge(iconProps.className, 'hidden sm:block')}
+				className={twMerge(iconProps.className, 'hidden sm:flex')}
 			/>
 		</Link>
 	)

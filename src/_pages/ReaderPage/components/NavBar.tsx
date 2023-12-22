@@ -27,7 +27,7 @@ export const NavBar = ({
 }) => (
 	<NavBarContainer>
 		<Logo href="/">The Good Book</Logo>
-		<CurrChapter className="hidden sm:block">
+		<CurrChapter className="hidden font-bold sm:block">
 			{bookName} {chapter}
 		</CurrChapter>
 	</NavBarContainer>
