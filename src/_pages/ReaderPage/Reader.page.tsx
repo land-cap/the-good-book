@@ -1,8 +1,8 @@
 import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
+import { ReaderNavButton } from '~/_pages/ReaderPage/components/ReaderNavButton'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
 import { NavBar } from './components/NavBar'
-import { ReaderNavButtons } from './components/ReaderNavButtons'
 import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 
@@ -32,14 +32,21 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		<>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
+				<div className="invisible sticky top-0 flex h-screen flex-col items-center justify-center [grid-area:margin-left] sm:visible">
+					<ReaderNavButton
+						href={`/${readerMode}/${bookCode}/${Number(chapter) - 1}`}
+						direction="left"
+					/>
+				</div>
+				<div className="invisible sticky top-0 flex h-screen flex-col items-center justify-center [grid-area:margin-right] sm:visible">
+					<ReaderNavButton
+						href={`/${readerMode}/${bookCode}/${Number(chapter) + 1}`}
+						direction="right"
+					/>
+				</div>
 				<ChapterContentContainer
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}
-				/>
-				<ReaderNavButtons
-					bookCode={bookCode}
-					chapter={chapter}
-					readerMode={readerMode}
 				/>
 			</ReaderPageContainer>
 		</>
