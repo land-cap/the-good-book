@@ -1,6 +1,5 @@
 import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
 import { MobileToolBar } from '~/_pages/ReaderPage/components/MobileToolBar'
-import { ReaderNavButton } from '~/_pages/ReaderPage/components/ReaderNavButton'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
 import { NavBar } from './components/NavBar'
@@ -36,12 +35,6 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		<>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
-				<div className="sticky top-0 hidden h-screen flex-col items-center justify-center [grid-area:margin-left] sm:flex">
-					<ReaderNavButton href={prevChapterHref} direction="left" />
-				</div>
-				<div className="sticky top-0 hidden h-screen flex-col items-center justify-center [grid-area:margin-right] sm:flex">
-					<ReaderNavButton href={nextChapterHref} direction="right" />
-				</div>
 				<ChapterContentContainer
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}

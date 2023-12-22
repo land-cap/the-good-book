@@ -3,10 +3,10 @@ import { wChildren, wClassName, wName } from '~/component-helpers'
 import { setPageWidthCls } from '~/components/Page'
 
 const NavBarContainer = wChildren(({ children }) => (
-	<div className="top-0 z-10 w-full bg-bgSurface sm:sticky">
+	<div className="top-0 z-10 w-full bg-bgSurface">
 		<div className={setPageWidthCls}>
 			<div className="border-b border-b-borderEmphasized">
-				<nav className="flex h-14 items-center justify-between gap-6 sm:h-16 sm:flex-row">
+				<nav className="flex h-14 flex-row items-center justify-between gap-6 sm:h-16">
 					{children}
 				</nav>
 			</div>
@@ -27,7 +27,7 @@ export const NavBar = ({
 }) => (
 	<NavBarContainer>
 		<Logo href="/">The Good Book</Logo>
-		<CurrChapter className="hidden font-bold sm:block">
+		<CurrChapter className="hidden font-bold">
 			{bookName} {chapter}
 		</CurrChapter>
 	</NavBarContainer>
