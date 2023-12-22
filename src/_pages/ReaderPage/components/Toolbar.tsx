@@ -11,7 +11,7 @@ export const Toolbar = ({
 	chapter: string
 	bookName: string
 }) => (
-	<div className="sticky bottom-0 col-[fullbleed] mt-reader-gap grid grid-cols-[subgrid] bg-bgCanvas px-8 dark:bg-bgSurface md:mt-reader-gap-md">
+	<div className="sticky bottom-[env(safe-area-inset-bottom)] col-[fullbleed] mt-reader-gap grid grid-cols-[subgrid] bg-bgCanvas px-8 dark:bg-bgSurface md:mt-reader-gap-md">
 		<div className="col-start-[content] border-t border-t-borderEmphasized">
 			<div className="flex h-16 items-center justify-between">
 				<ReaderNavButton href={prevChapterHref} direction="left" />
