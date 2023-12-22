@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
 import { Icon } from '~/components'
 
 export const ReaderNavButton = ({
@@ -9,13 +8,13 @@ export const ReaderNavButton = ({
 	href: string
 	direction: 'left' | 'right'
 }) => (
-	<Link href={href}>
+	<Link
+		href={href}
+		className="flex h-14 w-14 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgMuted hover:text-fgSubtle active:text-fg"
+	>
 		<Icon
 			size={40}
 			name={direction === 'right' ? 'chevron_right' : 'chevron_left'}
-			className={twMerge(
-				'text-fgFaded group-hover:text-fgSubtle transition duration-quick ease-in-out',
-			)}
 		/>
 	</Link>
 )

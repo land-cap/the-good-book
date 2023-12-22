@@ -11,13 +11,13 @@ export const MobileToolBar = ({
 	chapter: string
 	bookName: string
 }) => (
-	<div className="sticky bottom-0 col-[fullbleed] mt-[2.5rem] grid grid-cols-[subgrid] bg-bgSurface px-8">
+	<div className="sticky bottom-0 col-[fullbleed] mt-reader-gap grid grid-cols-[subgrid] bg-bgSurface px-8 md:mt-reader-gap-md">
 		<div className="col-start-[content] border-t border-t-borderEmphasized">
-			<div className="flex h-14 items-center justify-between sm:h-16">
+			<div className="flex h-14 items-center justify-between">
 				<ReaderNavButton href={prevChapterHref} direction="left" />
-				<span className="font-bold">
+				<button className="flex h-full grow place-items-center justify-center px-4 font-bold transition duration-quick ease-in-out hover:bg-bgMuted">
 					{bookName} {chapter}
-				</span>
+				</button>
 				<ReaderNavButton href={nextChapterHref} direction="right" />
 			</div>
 		</div>
