@@ -14,17 +14,27 @@ export const Verse = ({
 }) => {
 	const [isFocused, setIsFocused] = useState(useRef(initialIsFocused).current)
 
+	const parentQuoteElRef = useRef<HTMLSpanElement | null>(null)
+
 	return (
 		<span
+			ref={(el) => {
+				if (el && el?.parentElement?.classList?.contains('rc-quote')) {
+					parentQuoteElRef.current = el.parentElement
+				}
+			}}
 			className={twMerge(
 				'rc-verse',
 				isStudyMode && 'block relative select-none cursor-pointer',
 			)}
-			onClick={() => setIsFocused((prev) => !prev)}
+			onClick={() => {
+				console.log(parentQuoteElRef.current)
+				setIsFocused((prev) => !prev)
+			}}
 		>
 			<span
 				className={twMerge(
-					'border-b-2 border-b-transparent transition duration-quick ease-out',
+					'border-b-2 border-b-transparent transition duration-quick ease-in-out',
 					isFocused && 'border-b-borderEmphasized',
 				)}
 			>
