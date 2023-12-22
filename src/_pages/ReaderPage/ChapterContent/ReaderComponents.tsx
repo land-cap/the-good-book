@@ -3,8 +3,9 @@ import { twMerge } from 'tailwind-merge'
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
+		data-component="LargeSectionTitle"
 		className={twMerge(
-			'rc-large-section-title text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
 		)}
 	>
 		{children}
@@ -17,8 +18,9 @@ export const LargeSectionReference = ({
 	children: ReactNode
 }) => (
 	<h3
+		data-component="LargeSectionReference"
 		className={twMerge(
-			'rc-large-section-reference text-xs font-black md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'text-xs font-black md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
 		)}
 	>
 		({children})
@@ -31,8 +33,9 @@ export const LargeSectionCrossReference = ({
 	children: ReactNode
 }) => (
 	<h4
+		data-component="LargeSectionCrossReference"
 		className={twMerge(
-			'rc-large-section-cross-reference text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
 		)}
 	>
 		{children}
@@ -40,17 +43,22 @@ export const LargeSectionCrossReference = ({
 )
 
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2 className="rc-section-title text-lg font-bold md:text-xl">{children}</h2>
+	<h2 data-component="SectionTitle" className="text-lg font-bold md:text-xl">
+		{children}
+	</h2>
 )
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
-	<h2 className={twMerge('rc-fancy-aside font-mono italic text-fgSubtle')}>
+	<h2
+		data-component="FancyAside"
+		className={twMerge('font-mono italic text-fgSubtle')}
+	>
 		{children}
 	</h2>
 )
 
 export const Paragraph = ({ children }: { children: ReactNode }) => (
-	<p className={twMerge('rc-paragraph')}>{children}</p>
+	<p data-component="Paragraph">{children}</p>
 )
 
 export const VerseLabel = ({
@@ -64,8 +72,9 @@ export const VerseLabel = ({
 
 	return (
 		<span
+			data-component="VerseLabel"
 			className={twMerge(
-				'rc-verse-label select-none',
+				'select-none',
 				isStudyMode && 'absolute -left-2 sm:-left-3 top-0 -translate-x-full',
 			)}
 		>
@@ -89,7 +98,7 @@ export const CrossReference = ({
 	referenceList: string
 	isStudyMode: boolean
 }) => (
-	<span className="rc-cross-reference select-none">
+	<span data-component="CrossReference" className="select-none">
 		&nbsp;
 		<sup className="font-sans text-[0.75em] text-fgFaded [font-weight:1000]">
 			&dagger;
@@ -99,11 +108,16 @@ export const CrossReference = ({
 )
 
 export const JesusWords = ({ children }: { children: ReactNode }) => (
-	<span className={twMerge('rc-jesus-words text-red-600 dark:text-red-400')}>
+	<span
+		data-component="JesusWords"
+		className={twMerge('text-red-600 dark:text-red-400')}
+	>
 		{children}
 	</span>
 )
 
 export const Quote = ({ children }: { children: ReactNode }) => (
-	<span className={twMerge('rc-quote block font-mono')}>{children}</span>
+	<span data-component="Quote" className={twMerge('block font-mono')}>
+		{children}
+	</span>
 )

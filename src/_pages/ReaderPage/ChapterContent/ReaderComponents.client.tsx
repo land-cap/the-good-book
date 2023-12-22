@@ -12,13 +12,10 @@ export const Verse = ({
 	verseOrder: number
 	initialIsFocused?: boolean
 }) => (
-	<span className={twMerge('rc-verse', isStudyMode && 'block relative')}>
-		<span
-			className={twMerge(
-				'border-b-2 border-b-transparent transition duration-quick ease-in-out',
-			)}
-		>
-			{children}
-		</span>
+	<span
+		data-component="Verse"
+		className={twMerge(isStudyMode && 'block relative')}
+	>
+		{children}
 	</span>
 )
