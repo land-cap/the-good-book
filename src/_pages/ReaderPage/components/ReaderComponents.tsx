@@ -105,5 +105,7 @@ export const JesusWords = ({ children }: { children: ReactNode }) => (
 )
 
 export const Quote = ({ children }: { children: ReactNode }) => (
-	<span className={twMerge('rc-quote block font-mono')}>{children}</span>
+	<span className={twMerge('rc-quote block font-mono scroll-mt-[65px]')}>
+		{children}
+	</span>
 )
