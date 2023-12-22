@@ -10,8 +10,8 @@ import {
 	Quote,
 	SectionTitle,
 	VerseLabel,
-} from '../components/ReaderComponents'
-import { Verse } from '../components/ReaderComponents.client'
+} from '../ReaderComponents'
+import { Verse } from '../ReaderComponents.client'
 import {
 	type ChapterOM,
 	type ChapterOMNode,

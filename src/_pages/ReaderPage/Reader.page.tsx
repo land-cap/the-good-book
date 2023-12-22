@@ -1,6 +1,6 @@
+import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
 import { getBookWithCache, getChapterWithCache } from '~/db'
-import { getChapterDataObject } from './chapterDataProcessing/getChapterDataObject'
-import { ChapterContent } from './components/ChapterContent'
+import { ChapterContent } from './ChapterContent/ChapterContent'
 import { NavBar } from './components/NavBar'
 import { ReaderNavButtons } from './components/ReaderNavButtons'
 import { ReaderPageContainer } from './components/ReaderPageContainer'

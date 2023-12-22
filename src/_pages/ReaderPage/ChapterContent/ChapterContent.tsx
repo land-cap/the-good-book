@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
-import { type ChapterOM } from '~/_pages/ReaderPage/chapterDataProcessing/getChapterDataObject'
-import { renderChapterContent } from '~/_pages/ReaderPage/chapterDataProcessing/renderChapterContent'
+import { type ChapterOM } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
+import { renderChapterContent } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/renderChapterContent'
 import './ChapterContent.css'
 
 export const ChapterContent = ({
