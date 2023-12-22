@@ -2,8 +2,6 @@ import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapter
 import { MobileToolBar } from '~/_pages/ReaderPage/components/MobileToolBar'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
-import { NavBar } from './components/NavBar'
-import { ReaderPageContainer } from './components/ReaderPageContainer'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
@@ -33,19 +31,16 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	return (
 		<>
-			<NavBar bookName={book.name} chapter={chapter} />
-			<ReaderPageContainer>
-				<ChapterContentContainer
-					chapterContentHtml={chapterContentHtml}
-					isStudyMode={isStudyMode}
-				/>
-				<MobileToolBar
-					prevChapterHref={prevChapterHref}
-					nextChapterHref={nextChapterHref}
-					chapter={chapter}
-					bookName={book.name}
-				/>
-			</ReaderPageContainer>
+			<ChapterContentContainer
+				chapterContentHtml={chapterContentHtml}
+				isStudyMode={isStudyMode}
+			/>
+			<MobileToolBar
+				prevChapterHref={prevChapterHref}
+				nextChapterHref={nextChapterHref}
+				chapter={chapter}
+				bookName={book.name}
+			/>
 		</>
 	)
 }

@@ -1,4 +1,5 @@
 import { DM_Mono, DM_Sans } from 'next/font/google'
+import { NavBar } from '~/_pages/ReaderPage/components/NavBar'
 import { Footer } from '~/components/molecules/Footer'
 import '~/index.css'
 
@@ -22,11 +23,12 @@ export const metadata = {
 }
 
 const appShellCls =
-	'relative flex-col h-fit min-h-screen text-base bg-bgSurface font-normal text-fg dark:text-fgMuted'
+	'relative h-fit min-h-screen text-base bg-bgSurface font-normal text-fg dark:text-fgMuted grid grid-flow-row grid-cols-[0_1fr_0] sm:grid-cols-[[fullbleed-start_margin-left-start]_1fr_[margin-left-end_content-start]_minmax(auto,min(calc(75%_-_4rem),calc(42rem_-_4rem)))_[content-end_margin-right-start]_1fr_[margin-right-end_fullbleed-end]] gap-x-8'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
 		<body className={appShellCls}>
+			<NavBar />
 			{children}
 			<Footer />
 		</body>
