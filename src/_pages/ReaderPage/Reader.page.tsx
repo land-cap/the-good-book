@@ -29,29 +29,26 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No book data')
 	}
 
+	const prevChapterHref = `/${readerMode}/${bookCode}/${Number(chapter) - 1}`
+	const nextChapterHref = `/${readerMode}/${bookCode}/${Number(chapter) + 1}`
+
 	return (
 		<>
 			<NavBar bookName={book.name} chapter={chapter} />
 			<ReaderPageContainer>
 				<div className="sticky top-0 hidden h-screen flex-col items-center justify-center [grid-area:margin-left] sm:flex">
-					<ReaderNavButton
-						href={`/${readerMode}/${bookCode}/${Number(chapter) - 1}`}
-						direction="left"
-					/>
+					<ReaderNavButton href={prevChapterHref} direction="left" />
 				</div>
 				<div className="sticky top-0 hidden h-screen flex-col items-center justify-center [grid-area:margin-right] sm:flex">
-					<ReaderNavButton
-						href={`/${readerMode}/${bookCode}/${Number(chapter) + 1}`}
-						direction="right"
-					/>
+					<ReaderNavButton href={nextChapterHref} direction="right" />
 				</div>
 				<ChapterContentContainer
 					chapterContentHtml={chapterContentHtml}
 					isStudyMode={isStudyMode}
 				/>
 				<MobileToolBar
-					readerMode={readerMode}
-					bookCode={bookCode}
+					prevChapterHref={prevChapterHref}
+					nextChapterHref={nextChapterHref}
 					chapter={chapter}
 					bookName={book.name}
 				/>
