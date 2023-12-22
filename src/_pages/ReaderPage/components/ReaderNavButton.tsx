@@ -10,7 +10,7 @@ export const ReaderNavButton = ({
 }) => (
 	<Link
 		href={href}
-		className="flex h-14 w-14 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg"
+		className="flex h-16 w-16 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg"
 	>
 		<Icon
 			size={40}

@@ -13,7 +13,7 @@ export const Toolbar = ({
 }) => (
 	<div className="sticky bottom-0 col-[fullbleed] mt-reader-gap grid grid-cols-[subgrid] bg-bgCanvas px-8 dark:bg-bgSurface md:mt-reader-gap-md">
 		<div className="col-start-[content] border-t border-t-borderEmphasized">
-			<div className="flex h-14 items-center justify-between">
+			<div className="flex h-16 items-center justify-between">
 				<ReaderNavButton href={prevChapterHref} direction="left" />
 				<button className="flex h-full grow place-items-center justify-center px-4 font-bold transition duration-quick ease-in-out hover:bg-bgSubtle">
 					{bookName} {chapter}
