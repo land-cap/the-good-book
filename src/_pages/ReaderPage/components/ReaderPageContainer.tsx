@@ -3,5 +3,7 @@ import { twMerge } from 'tailwind-merge'
 import { pageCls } from '~/components'
 
 export const ReaderPageContainer = ({ children }: { children: ReactNode }) => (
-	<main className={twMerge(pageCls)}>{children}</main>
+	<main data-component="ReaderPageContainer" className={twMerge(pageCls)}>
+		{children}
+	</main>
 )
