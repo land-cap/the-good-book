@@ -5,7 +5,7 @@ export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="LargeSectionTitle"
 		className={twMerge(
-			'text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
 		)}
 	>
 		{children}
@@ -20,7 +20,7 @@ export const LargeSectionReference = ({
 	<h3
 		data-component="LargeSectionReference"
 		className={twMerge(
-			'text-xs font-black md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'text-xs font-black md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
 		)}
 	>
 		({children})
@@ -35,7 +35,7 @@ export const LargeSectionCrossReference = ({
 	<h4
 		data-component="LargeSectionCrossReference"
 		className={twMerge(
-			'text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle',
+			'text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
 		)}
 	>
 		{children}
@@ -43,7 +43,10 @@ export const LargeSectionCrossReference = ({
 )
 
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2 data-component="SectionTitle" className="text-lg font-bold md:text-xl">
+	<h2
+		data-component="SectionTitle"
+		className="select-none text-lg font-bold md:text-xl"
+	>
 		{children}
 	</h2>
 )
@@ -51,7 +54,7 @@ export const SectionTitle = ({ children }: { children: ReactNode }) => (
 export const FancyAside = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="FancyAside"
-		className={twMerge('font-mono italic text-fgSubtle')}
+		className={twMerge('font-mono italic text-fgSubtle select-none')}
 	>
 		{children}
 	</h2>
@@ -98,7 +101,7 @@ export const CrossReference = ({
 	referenceList: string
 	isStudyMode: boolean
 }) => (
-	<span data-component="CrossReference" className="select-none">
+	<span data-component="CrossReference" className="cursor-pointer select-none">
 		&nbsp;
 		<sup className="font-sans text-[0.75em] text-fgFaded [font-weight:1000]">
 			&dagger;
