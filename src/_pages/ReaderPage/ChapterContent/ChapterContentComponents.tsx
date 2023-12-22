@@ -5,7 +5,7 @@ export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="LargeSectionTitle"
 		className={twMerge(
-			'text-xs md:text-sm font-black tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
+			'text-xs md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
 		)}
 	>
 		{children}
@@ -20,7 +20,7 @@ export const LargeSectionReference = ({
 	<h3
 		data-component="LargeSectionReference"
 		className={twMerge(
-			'text-xs font-black md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
+			'text-xs md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
 		)}
 	>
 		({children})
@@ -45,7 +45,7 @@ export const LargeSectionCrossReference = ({
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="SectionTitle"
-		className="select-none text-lg font-bold md:text-xl"
+		className="select-none text-[1.25em] text-fgSubtle"
 	>
 		{children}
 	</h2>

@@ -13,7 +13,7 @@ export const ChapterContentContainer = ({
 	<div
 		className={twMerge(
 			styles.chapterContentContainer,
-			'mt-reader-gap md:mt-reader-gap-md text-base md:text-lg leading-[2em] md:leading-[2.25em]',
+			'col-[content] mt-reader-gap md:mt-reader-gap-md text-base md:text-lg leading-[2em] md:leading-[2.25em]',
 		)}
 	>
 		{renderChapterContent(chapterContentHtml, isStudyMode)}

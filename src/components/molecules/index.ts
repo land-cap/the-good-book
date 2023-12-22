@@ -1,2 +1,2 @@
 export * from './Footer'
-export * from '../../_pages/ReaderPage/components/NavBar'
+export * from './NavBar'
