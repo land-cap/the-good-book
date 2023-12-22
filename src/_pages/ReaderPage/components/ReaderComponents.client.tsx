@@ -33,7 +33,7 @@ export const Verse = ({
 		<span
 			data-verse-order={verseOrder}
 			className={twMerge(
-				'rc-verse',
+				'rc-verse scroll-mt-[65px]',
 				isStudyMode && 'block relative select-none cursor-pointer',
 			)}
 			onClick={() => setIsFocused((prev) => !prev)}

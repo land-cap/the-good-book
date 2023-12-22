@@ -19,19 +19,13 @@ export const ChapterContentContainer = ({
 		)
 		const passageStartVerseQuote =
 			passageStartVerse?.parentElement?.classList?.contains('rc-quote') &&
-			passageStartVerse?.parentElement
-		const navbarHeight = document.querySelector('#navbar')?.clientHeight
-		const passageStartElPoz =
-			(passageStartVerseQuote as HTMLElement)?.offsetTop ??
-			(passageStartVerse as HTMLElement)?.offsetTop
-		if (passageStartVerse && navbarHeight) {
-			window.scrollTo({
-				top: passageStartElPoz - navbarHeight,
-				behavior: 'instant',
-			})
+			passageStartVerse.parentElement
+		if (passageStartVerseQuote) {
+			passageStartVerseQuote?.scrollIntoView()
+		} else {
+			passageStartVerse?.scrollIntoView()
 		}
 	}, [verseStart])
-
 	return (
 		<div
 			className={twMerge(
