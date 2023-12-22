@@ -97,9 +97,12 @@ export const renderChapterContent = (
 		}
 
 		if (nodeClass === 'verse') {
+			const verseId = item[':@'].attrs['data-usfm']!
+			const verseOrder = Number(verseId.split('.')[2])
+
 			return [
 				...acc,
-				<Verse key={i} isStudyMode={isStudyMode}>
+				<Verse key={i} isStudyMode={isStudyMode} verseOrder={verseOrder}>
 					{renderChapterContent(item[NodeType], isStudyMode)}
 				</Verse>,
 			]

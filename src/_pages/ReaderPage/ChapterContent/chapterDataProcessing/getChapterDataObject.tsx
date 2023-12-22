@@ -4,10 +4,12 @@ import { type JSX } from 'react/jsx-runtime'
 
 export type IntrinsicEl = keyof JSX.IntrinsicElements
 
+export type VerseId = `${string}.${number}.${number}`
+
 export type ElNode = {
 	[key in IntrinsicEl]: ChapterOMNode[]
 } & {
-	':@': { attrs: { className: string } }
+	':@': { attrs: { className: string; 'data-usfm'?: VerseId } }
 }
 
 export type TextNode = { '#text': string }
