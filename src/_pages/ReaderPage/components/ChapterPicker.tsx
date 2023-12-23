@@ -11,18 +11,18 @@ import {
 export const ChapterPicker = ({
 	bookName,
 	chapter,
+	bookList,
 }: {
 	chapter: string
 	bookName: string
+	bookList: { id: number; name: string; order: number; book_id: number }[]
 }) => {
 	type Item = { label: string; value: string; disabled?: boolean }
 
-	const items: Item[] = [
-		{ label: 'Geneza', value: 'gen' },
-		{ label: 'Exodul', value: 'exo' },
-		{ label: 'Deuteronomul', value: 'deu' },
-		{ label: 'Numneri', value: 'num' },
-	]
+	const items: Item[] = bookList.map(({ name }) => ({
+		label: name,
+		value: name,
+	}))
 
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -44,12 +44,12 @@ export const ChapterPicker = ({
 				<SelectContainer>
 					<ChapterPickerHeader />
 					<div className="col-[content]">
-						<Select.ItemGroup id="book" className="pt-3">
+						<Select.ItemGroup id="book" className="py-4">
 							{items.map((item) => (
 								<Select.Item
 									key={item.value}
 									item={item}
-									className="group flex cursor-pointer content-center justify-between py-3"
+									className="group flex cursor-pointer content-center justify-between py-4"
 								>
 									<Select.ItemText className="after:[&:]:[content:'_'] relative leading-[1] after:absolute after:inset-x-0 after:-bottom-1 after:border-b-2 after:border-b-transparent after:transition after:duration-quick after:ease-in-out group-hover:after:border-b-fg">
 										{item.label}

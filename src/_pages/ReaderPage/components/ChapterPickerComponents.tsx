@@ -26,13 +26,15 @@ export const SelectContainer = ({
 		style={{ top: 7, left: undefined }}
 	>
 		<Select.Content>
-			<div className={twMerge(macroGridCls, 'max-h-full')}>{children}</div>
+			<div className={twMerge(macroGridCls, 'max-h-full overflow-scroll')}>
+				{children}
+			</div>
 		</Select.Content>
 	</Select.Positioner>
 )
 
 const ChapterPickerHeaderContainer = wChildren(({ children }) => (
-	<div className="top-0 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgCanvas dark:bg-bgSurface">
+	<div className="sticky top-0 z-10 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgCanvas dark:bg-bgSurface">
 		<div className="col-start-[content] border-b border-b-borderEmphasized">
 			<nav className="my-reader-gap flex flex-row items-center justify-between gap-6 md:my-reader-gap-md">
 				{children}
