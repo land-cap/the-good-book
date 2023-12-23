@@ -1,1 +1,1 @@
-export * from './iconCls'
+export * from './Icon'
