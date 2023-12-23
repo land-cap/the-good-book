@@ -18,7 +18,7 @@ export const Toolbar = ({
 			<div className="col-start-[content] border-t border-t-borderEmphasized">
 				<div className="flex h-14 items-center justify-between">
 					<ReaderNavButton href={prevChapterHref} direction="left" />
-					<button className="flex h-full grow place-items-center justify-center px-4 text-sm font-bold transition duration-quick ease-in-out hover:bg-bgSubtle sm:text-base">
+					<button className="flex h-full grow place-items-center justify-center px-4 text-sm font-bold text-fgSubtle transition duration-quick ease-in-out hover:bg-bgSubtle active:text-fg sm:text-base">
 						{bookName} {chapter}
 					</button>
 					<ReaderNavButton href={nextChapterHref} direction="right" />
