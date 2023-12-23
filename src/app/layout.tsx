@@ -7,6 +7,18 @@ const fontSans = DM_Sans({
 	variable: '--font-sans',
 	subsets: ['latin-ext'],
 	axes: ['opsz'],
+	fallback: [
+		'-apple-system',
+		'BlinkMacSystemFont',
+		'Segoe UI',
+		'Roboto',
+		'Helvetica',
+		'Arial',
+		'sans-serif',
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+	],
 })
 
 const fontMono = DM_Mono({
@@ -14,6 +26,21 @@ const fontMono = DM_Mono({
 	subsets: ['latin-ext'],
 	weight: ['300', '400', '500'],
 	style: ['italic', 'normal'],
+	fallback: [
+		'ui-monospace',
+		'Menlo',
+		'Monaco',
+		'Cascadia Mono',
+		'Segoe UI Mono',
+		'Roboto Mono',
+		'Oxygen Mono',
+		'Ubuntu Monospace',
+		'Source Code Pro',
+		'Fira Mono',
+		'Droid Sans Mono',
+		'Courier New',
+		'monospace',
+	],
 })
 
 export const metadata = {
