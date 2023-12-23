@@ -1,15 +1,13 @@
 import { pipe } from 'ramda'
-import {
-	type ChapterOMNode,
-	normalizeOriginalChapterHTML,
-} from './normalizeOriginalChapterHTML'
+import { withPerformanceLog } from '~/helpers'
+import { normalizeOriginalChapterHTML } from './normalizeOriginalChapterHTML'
 import { parseChapterHTML } from './parseChapterHTML'
 import { renderChapterContentFromOM } from './renderChapterContentFromOM'
 
 export const renderChapterContent = (isStudyMode: boolean) =>
 	pipe(
-		normalizeOriginalChapterHTML,
-		parseChapterHTML,
-		(chapterOM: ChapterOMNode[]) =>
-			renderChapterContentFromOM(chapterOM, isStudyMode),
+		withPerformanceLog(normalizeOriginalChapterHTML),
+		withPerformanceLog(parseChapterHTML),
+		(chapterOM) =>
+			withPerformanceLog(renderChapterContentFromOM)(chapterOM, isStudyMode),
 	)
