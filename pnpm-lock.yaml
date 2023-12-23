@@ -41,6 +41,9 @@ dependencies:
   jotai:
     specifier: ^2.5.1
     version: 2.5.1(@types/react@18.2.31)(react@18.2.0)
+  lucide-react:
+    specifier: ^0.300.0
+    version: 0.300.0(react@18.2.0)
   minify-css-string:
     specifier: ^1.0.0
     version: 1.0.0
@@ -8324,6 +8327,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /lucide-react@0.300.0(react@18.2.0):
+    resolution: {integrity: sha512-rQxUUCmWAvNLoAsMZ5j04b2+OJv6UuNLYMY7VK0eVlm4aTwUEjEEHc09/DipkNIlhXUSDn2xoyIzVT0uh7dRsg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
