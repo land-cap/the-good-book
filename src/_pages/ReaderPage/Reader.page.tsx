@@ -1,5 +1,6 @@
 import { renderChapterContent } from 'src/_pages/ReaderPage/ChapterContent/renderChapterContent'
 import { getBookWithCache, getChapterWithCache } from '~/db'
+import { withPerformanceLogAsync } from '~/helpers'
 import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
 import { Toolbar } from './components/Toolbar'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
@@ -9,7 +10,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	const isStudyMode = readerMode === READER_MODE.Study
 
-	const chapterData = await getChapterWithCache(
+	const chapterData = await withPerformanceLogAsync(getChapterWithCache)(
 		bookCode.toUpperCase(),
 		Number(chapter),
 	)

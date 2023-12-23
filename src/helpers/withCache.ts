@@ -35,12 +35,33 @@ export const createFileSystemCache = <T>(
 export const withCache = <
 	Args extends never[],
 	Result,
+	Fn extends (...args: Args) => Result,
+>(
+	fn: Fn,
+	cache: CachePlugin<Result> = createMemoryCache<Result>(),
+) => {
+	const fnWithCache = async (...args: Parameters<Fn>): Promise<Result> => {
+		const cachedValue = await cache.get(args.toString())
+		if (cachedValue) {
+			return cachedValue
+		}
+		const result = fn(...args)
+		cache.set(args.toString(), result)
+		return result
+	}
+	Object.defineProperty(fnWithCache, 'name', { value: fn.name })
+	return fnWithCache as Fn
+}
+
+export const withCacheAsync = <
+	Args extends never[],
+	Result,
 	Fn extends (...args: Args) => Promise<Result>,
 >(
 	fn: Fn,
 	cache: CachePlugin<Result> = createMemoryCache<Result>(),
-) =>
-	(async (...args: Parameters<Fn>): Promise<Result> => {
+) => {
+	const fnWithCache = async (...args: Parameters<Fn>): Promise<Result> => {
 		const cachedValue = await cache.get(args.toString())
 		if (cachedValue) {
 			return cachedValue
@@ -48,4 +69,7 @@ export const withCache = <
 		const result = await fn(...args)
 		cache.set(args.toString(), result)
 		return result
-	}) as Fn
+	}
+	Object.defineProperty(fnWithCache, 'name', { value: fn.name })
+	return fnWithCache as Fn
+}
