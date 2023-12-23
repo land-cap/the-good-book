@@ -9,8 +9,9 @@ export const ReaderNavButton = ({
 	direction: 'left' | 'right'
 }) => (
 	<Link
+		prefetch
 		href={href}
-		className="flex h-16 w-16 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg"
+		className="flex h-14 w-14 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg sm:h-16 sm:w-16"
 	>
 		<Icon
 			size={40}
