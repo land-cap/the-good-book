@@ -52,7 +52,7 @@ export const metadata = {
 }
 
 const appShellCls = twMerge(
-	'[grid-auto-rows:min-content] h-fit min-h-screen text-base dark:bg-bgSurface font-normal text-fg dark:text-fgMuted',
+	'[grid-auto-rows:min-content] h-fit min-h-screen text-base bg-bgSurface font-normal text-fg dark:text-fgMuted',
 	macroGridCls,
 )
 

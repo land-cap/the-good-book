@@ -21,7 +21,7 @@ export const SelectContainer = ({
 	<Select.Positioner
 		asChild
 		className={twMerge(
-			'fixed -left-2 h-[calc(100dvh_-_57px)] w-full bg-bgCanvas',
+			'fixed -left-2 h-[calc(100dvh_-_57px)] w-full bg-bgSurface',
 		)}
 		style={{ top: 7, left: undefined }}
 	>
@@ -34,7 +34,7 @@ export const SelectContainer = ({
 )
 
 const ChapterPickerHeaderContainer = wChildren(({ children }) => (
-	<div className="sticky top-0 z-10 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgCanvas dark:bg-bgSurface">
+	<div className="sticky top-0 z-10 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface">
 		<div className="col-start-[content] border-b border-b-borderEmphasized">
 			<nav className="my-reader-gap flex flex-row items-center justify-between gap-6 md:my-reader-gap-md">
 				{children}

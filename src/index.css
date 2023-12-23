@@ -28,8 +28,8 @@
         --colors-white: #ffffff;
         --colors-black: var(--colors-neutral-900);
 
-        --colors-bg-canvas: var(--colors-white);
-        --colors-bg-surface: var(--colors-neutral-50);
+        --colors-bg-canvas: var(--colors-neutral-50);
+        --colors-bg-surface: var(--colors-white);
         --colors-bg-subtle: var(--colors-neutral-100);
         --colors-bg-muted: var(--colors-neutral-200);
 
