@@ -1,18 +1,11 @@
 'use client'
 
 import { Portal, Select } from '@ark-ui/react'
-import { ChevronDownIcon } from 'lucide-react'
 
-const ChapterPickerButton = ({
-	bookName,
-	chapter,
-}: {
-	chapter: string
-	bookName: string
-}) => (
-	<button className="flex h-full grow place-items-center justify-center px-4 text-sm font-bold transition duration-quick ease-in-out hover:bg-bgSubtle sm:text-base">
-		{bookName} {chapter}
-	</button>
+const ChapterPickerTrigger = ({ placeholder }: { placeholder: string }) => (
+	<Select.Trigger className="flex h-full w-full place-items-center justify-center px-4 text-sm font-bold transition duration-quick ease-in-out hover:bg-bgSubtle sm:text-base">
+		<Select.ValueText placeholder={placeholder} />
+	</Select.Trigger>
 )
 
 export const ChapterPicker = ({
@@ -30,17 +23,9 @@ export const ChapterPicker = ({
 		{ label: 'Svelte', value: 'svelte', disabled: true },
 	]
 	return (
-		<Select.Root
-			items={items}
-			className="flex h-full grow place-items-center justify-center"
-		>
-			<Select.Control>
-				<Select.Trigger className="flex h-full grow place-items-center justify-center px-4 text-sm font-bold transition duration-quick ease-in-out hover:bg-bgSubtle sm:text-base">
-					<Select.ValueText placeholder={`${bookName} ${chapter}`} />
-					<Select.Indicator>
-						<ChevronDownIcon />
-					</Select.Indicator>
-				</Select.Trigger>
+		<Select.Root items={items} className="h-full grow">
+			<Select.Control className="h-full w-full">
+				<ChapterPickerTrigger placeholder={`${bookName} ${chapter}`} />
 				<Select.ClearTrigger>Clear</Select.ClearTrigger>
 			</Select.Control>
 			<Portal>
