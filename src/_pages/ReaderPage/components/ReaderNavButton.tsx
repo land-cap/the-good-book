@@ -11,7 +11,7 @@ export const ReaderNavButton = ({
 	<Link
 		prefetch
 		href={href}
-		className="flex h-14 w-14 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg sm:h-16 sm:w-16"
+		className="flex h-14 w-14 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg"
 	>
 		<Icon
 			size={40}
