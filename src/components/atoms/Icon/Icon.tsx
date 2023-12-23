@@ -4,11 +4,11 @@ import { twMerge } from 'tailwind-merge'
 export type TIconSize = 16 | 20 | 24 | 40 | 48
 
 export const sizeToClass: Record<number, string> = {
-	16: 'w-4 h-4 text-[16px] [--icon-opsz:16] [--icon-weight:700] dark:[--icon-weight:550]',
-	20: 'w-5 h-5 text-[20px] [--icon-opsz:20] [--icon-weight:600] dark:[--icon-weight:400]',
-	24: 'w-6 h-6 text-[24px] [--icon-opsz:24] [--icon-weight:400] dark:[--icon-weight:300]',
-	40: 'w-10 h-10 text-[40px] [--icon-opsz:40] [--icon-weight:300] dark:[--icon-weight:225]',
-	48: 'w-12 h-12 text-[48px] [--icon-opsz:48] [--icon-weight:275] dark:[--icon-weight:200]',
+	16: 'w-4 h-4 text-[16px] [--icon-opsz:16] [--icon-weight:700]',
+	20: 'w-5 h-5 text-[20px] [--icon-opsz:20] [--icon-weight:600]',
+	24: 'w-6 h-6 text-[24px] [--icon-opsz:24] [--icon-weight:400]',
+	40: 'w-10 h-10 text-[40px] [--icon-opsz:40] [--icon-weight:300]',
+	48: 'w-12 h-12 text-[48px] [--icon-opsz:48] [--icon-weight:275]',
 }
 
 const fillToCls = new Map<boolean, string>([
@@ -17,7 +17,7 @@ const fillToCls = new Map<boolean, string>([
 ])
 
 const iconBaseCls =
-	"[font-family:'Material_Symbols_Sharp'] [font-weight:normal] [font-style:normal] line-height-[1] letter-spacing-[normal] text-transform-[none] flex items-center [white-space:nowrap] [word-wrap:normal] [direction:ltr] [-webkit-font-feature-settings:'liga'] [-webkit-font-smoothing:antialiased]"
+	"[font-family:'Material_Symbols_Sharp'] [font-weight:normal] [font-style:normal] line-height-[1] letter-spacing-[normal] text-transform-[none] flex items-center [white-space:nowrap] [word-wrap:normal] [direction:ltr] [-webkit-font-feature-settings:'liga'] [-webkit-font-smoothing:antialiased] [--icon-grade:0] dark:[--icon-grade:-25]"
 
 export const iconSizeList = Object.keys(sizeToClass).map((size) =>
 	Number(size),
@@ -42,7 +42,7 @@ export const Icon = ({
 			className={twMerge(
 				iconBaseCls,
 				fillToCls.get(fill),
-				"[font-variation-settings:'FILL'_var(--icon-fill),'wght'_var(--icon-weight),'opsz'_var(--icon-opsz)]",
+				"[font-variation-settings:'FILL'_var(--icon-fill),'wght'_var(--icon-weight),'opsz'_var(--icon-opsz),'GRAD'_var(--icon-grade)]",
 				sizeClass,
 				className,
 			)}
