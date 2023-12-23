@@ -17,7 +17,7 @@ import {
 	type ChapterOMNode,
 	type IntrinsicEl,
 	type TextNode,
-} from './getChapterDataObject'
+} from './normalizeOriginalChapterHTML'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined

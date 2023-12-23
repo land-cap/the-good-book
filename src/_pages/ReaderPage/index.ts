@@ -1,2 +1,2 @@
 export * from './Reader.page'
-export { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
+export { normalizeOriginalChapterHTML } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/normalizeOriginalChapterHTML'

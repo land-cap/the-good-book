@@ -1,5 +1,4 @@
 import * as cheerio from 'cheerio'
-import { XMLParser } from 'fast-xml-parser'
 import { type JSX } from 'react/jsx-runtime'
 
 export type IntrinsicEl = keyof JSX.IntrinsicElements
@@ -18,29 +17,7 @@ export type ChapterOMNode = ElNode | TextNode
 
 export type ChapterOM = ChapterOMNode[]
 
-const transformAttributeName = (name: string) => {
-	if (name === 'class') {
-		return 'className'
-	}
-
-	return name
-}
-
-const parser = new XMLParser({
-	preserveOrder: true,
-	ignoreAttributes: false,
-	attributeNamePrefix: '',
-	transformAttributeName,
-	attributesGroupName: 'attrs',
-	alwaysCreateTextNode: false,
-	unpairedTags: ['hr', 'br'],
-	processEntities: false,
-	htmlEntities: true,
-	removeNSPrefix: true,
-	trimValues: false,
-})
-
-export const getChapterDataObject = (chapterContent: string) => {
+export const normalizeOriginalChapterHTML = (chapterContent: string) => {
 	const $chapterContent = cheerio.load(chapterContent)
 
 	$chapterContent('.verse:has(.content:only-child)')
@@ -106,9 +83,11 @@ export const getChapterDataObject = (chapterContent: string) => {
 
 	$chapterContent('.chapter > .q').removeAttr('class').addClass('quote')
 
-	const chapterDataAsJson = parser.parse(
-		$chapterContent('.book').html()!,
-	) as unknown as ChapterOM
+	const chapterHTML = $chapterContent('.chapter').html()
 
-	return chapterDataAsJson
+	if (!chapterHTML) {
+		throw new Error('No chapter HTML')
+	}
+
+	return chapterHTML
 }
