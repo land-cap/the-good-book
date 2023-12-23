@@ -1,4 +1,6 @@
-import { Icon } from '~/components/atoms/Icon/Icon'
+import { Heart } from 'lucide-react'
+import { twMerge } from 'tailwind-merge'
+import { iconCls } from '~/components'
 
 export const Footer = () => (
 	<footer className="col-[content] mx-auto mb-[calc(5rem_+_3.5rem_+_env(safe-area-inset-bottom,0))] mt-20 flex w-full max-w-2xl flex-col items-center gap-12 px-8 text-center text-xs leading-relaxed text-fgSubtle sm:my-32 sm:mb-[calc(8rem_+_4rem_+_env(safe-area-inset-bottom,0))]">
@@ -15,8 +17,13 @@ export const Footer = () => (
 		<p>
 			<span className="inline-flex items-center">
 				Made with{' '}
-				<Icon name="favorite" fill size={16} className="mx-1 text-fgFaded" /> in
-				Moldova by
+				<Heart
+					size={16}
+					strokeWidth={2}
+					absoluteStrokeWidth
+					className={twMerge(iconCls, 'mx-1 text-fgFaded')}
+				/>{' '}
+				in Moldova by
 			</span>{' '}
 			<a
 				href="https://github.com/land-cap"
