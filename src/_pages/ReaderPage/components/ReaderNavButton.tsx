@@ -1,7 +1,5 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
-import { iconCls } from '~/components'
+import { Icon } from '~/components'
 
 export const ReaderNavButton = ({
 	href,
@@ -13,22 +11,11 @@ export const ReaderNavButton = ({
 	<Link
 		prefetch
 		href={href}
-		className="flex h-14 w-14 place-content-center place-items-center text-fg transition duration-quick ease-in-out hover:bg-bgSubtle active:text-fgSubtle"
+		className="flex h-14 w-14 place-content-center place-items-center text-fgFaded transition duration-quick ease-in-out hover:bg-bgSubtle hover:text-fgSubtle active:text-fg"
 	>
-		{direction === 'left' ? (
-			<ChevronLeft
-				size={40}
-				strokeWidth={2}
-				absoluteStrokeWidth
-				className={twMerge(iconCls)}
-			/>
-		) : (
-			<ChevronRight
-				size={40}
-				strokeWidth={2}
-				absoluteStrokeWidth
-				className={twMerge(iconCls)}
-			/>
-		)}
+		<Icon
+			size={40}
+			name={direction === 'right' ? 'chevron_right' : 'chevron_left'}
+		/>
 	</Link>
 )
