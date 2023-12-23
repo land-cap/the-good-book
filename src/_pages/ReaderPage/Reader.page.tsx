@@ -1,7 +1,6 @@
-import { getChapterDataObject } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing/getChapterDataObject'
-import { Toolbar } from '~/_pages/ReaderPage/components/Toolbar'
 import { getBookWithCache, getChapterWithCache } from '~/db'
-import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
+import { ChapterContentContainer, renderChapterContent } from './chapterContent'
+import { Toolbar } from './components/Toolbar'
 import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
 
 export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
@@ -18,7 +17,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContentHtml = getChapterDataObject(chapterData.content)
+	const chapterContent = renderChapterContent(isStudyMode)(chapterData.content)
 
 	const book = await getBookWithCache(bookCode.toUpperCase())
 
@@ -31,10 +30,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	return (
 		<>
-			<ChapterContentContainer
-				chapterContentHtml={chapterContentHtml}
-				isStudyMode={isStudyMode}
-			/>
+			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 			<Toolbar
 				prevChapterHref={prevChapterHref}
 				nextChapterHref={nextChapterHref}
