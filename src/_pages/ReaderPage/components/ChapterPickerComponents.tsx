@@ -43,6 +43,8 @@ const ChapterPickerHeaderContainer = wChildren(({ children }) => (
 
 export const ChapterPickerHeader = () => (
 	<ChapterPickerHeaderContainer>
-		<div className="font-bold">Book</div>
+		<Select.ItemGroupLabel htmlFor="book" className="font-bold">
+			Book
+		</Select.ItemGroupLabel>
 	</ChapterPickerHeaderContainer>
 )

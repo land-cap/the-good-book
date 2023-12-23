@@ -11,7 +11,7 @@ const NavBarContainer = wChildren(({ children }) => (
 	</div>
 ))
 
-const Logo = wClassName(Link)('font-black text-fgSubtle')
+const Logo = wClassName(Link)('font-bold text-fgSubtle')
 
 export const Header = () => (
 	<NavBarContainer>

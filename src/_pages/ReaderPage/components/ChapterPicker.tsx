@@ -43,14 +43,16 @@ export const ChapterPicker = ({
 				<SelectContainer>
 					<ChapterPickerHeader />
 					<div className="col-[content]">
-						<Select.ItemGroup id="framework">
-							<Select.ItemGroupLabel htmlFor="framework">
-								Frameworks
-							</Select.ItemGroupLabel>
+						<Select.ItemGroup id="book" className="pt-3">
 							{items.map((item) => (
-								<Select.Item key={item.value} item={item}>
-									<Select.ItemText>{item.label}</Select.ItemText>
-									<Select.ItemIndicator>✓</Select.ItemIndicator>
+								<Select.Item
+									key={item.value}
+									item={item}
+									className="flex cursor-pointer content-center justify-between py-3"
+								>
+									<Select.ItemText className="leading-[1]">
+										{item.label}
+									</Select.ItemText>
 								</Select.Item>
 							))}
 						</Select.ItemGroup>
