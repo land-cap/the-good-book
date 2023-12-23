@@ -1,4 +1,5 @@
 import { Select } from '@ark-ui/react'
+import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { wChildren } from '~/component-helpers'
 import { macroGridCls } from '~/components'
@@ -13,11 +14,7 @@ export const ChapterPickerTrigger = ({
 	</Select.Trigger>
 )
 
-export const SelectContainer = ({
-	children,
-}: {
-	children: React.ReactNode
-}) => (
+export const SelectContainer = ({ children }: { children: ReactNode }) => (
 	<Select.Positioner
 		asChild
 		className={twMerge(
@@ -36,7 +33,7 @@ export const SelectContainer = ({
 const ChapterPickerHeaderContainer = wChildren(({ children }) => (
 	<div className="sticky top-0 z-10 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface">
 		<div className="col-start-[content] border-b border-b-borderEmphasized">
-			<nav className="my-reader-gap flex flex-row items-center justify-between gap-6 md:my-reader-gap-md">
+			<nav className="flex h-14 flex-row items-center justify-between gap-6">
 				{children}
 			</nav>
 		</div>
@@ -45,7 +42,10 @@ const ChapterPickerHeaderContainer = wChildren(({ children }) => (
 
 export const ChapterPickerHeader = () => (
 	<ChapterPickerHeaderContainer>
-		<Select.ItemGroupLabel htmlFor="book" className="font-bold">
+		<Select.ItemGroupLabel
+			htmlFor="book"
+			className="text-sm font-bold sm:text-base"
+		>
 			Book
 		</Select.ItemGroupLabel>
 	</ChapterPickerHeaderContainer>
