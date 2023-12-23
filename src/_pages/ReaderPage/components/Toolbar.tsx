@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge'
 import { ReaderNavButton } from '~/_pages/ReaderPage/components/ReaderNavButton'
 import { macroGridCls } from '~/components'
+import { ChapterPicker } from './ChapterPicker'
 
 export const Toolbar = ({
 	nextChapterHref,
@@ -18,9 +19,7 @@ export const Toolbar = ({
 			<div className="col-start-[content] border-t border-t-borderEmphasized">
 				<div className="flex h-14 items-center justify-between">
 					<ReaderNavButton href={prevChapterHref} direction="left" />
-					<button className="flex h-full grow place-items-center justify-center px-4 text-sm font-bold transition duration-quick ease-in-out hover:bg-bgSubtle sm:text-base">
-						{bookName} {chapter}
-					</button>
+					<ChapterPicker bookName={bookName} chapter={chapter} />
 					<ReaderNavButton href={nextChapterHref} direction="right" />
 				</div>
 			</div>
