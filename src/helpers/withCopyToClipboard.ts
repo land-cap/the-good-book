@@ -12,10 +12,15 @@ export const withCopyToClipboard = <
 	Fn extends (...args: Args) => Promise<Result>,
 >(
 	fn: Fn,
-) =>
-	(async (...args: Parameters<Fn>): Promise<Result> => {
+) => {
+	const fnWithCopyToClipboard = async (
+		...args: Parameters<Fn>
+	): Promise<Result> => {
 		const result = await fn(...args)
 		const serializedResult = JSON.stringify(result)
 		copyToClipBoard(serializedResult)
 		return result
-	}) as Fn
+	}
+	Object.defineProperty(fnWithCopyToClipboard, 'name', { value: fn.name })
+	return fnWithCopyToClipboard as Fn
+}

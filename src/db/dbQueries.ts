@@ -1,5 +1,9 @@
 import { dbClient } from '~/db/dbClient'
-import { createFileSystemCache, createMemoryCache, withCache } from '~/helpers'
+import {
+	createFileSystemCache,
+	createMemoryCache,
+	withCacheAsync,
+} from '~/helpers'
 
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
@@ -8,7 +12,7 @@ const getBook = async (bookCode: string) =>
 		where: { book: { code: bookCode.toUpperCase() } },
 	})
 
-export const getBookWithCache = withCache(
+export const getBookWithCache = withCacheAsync(
 	getBook,
 	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
 )
@@ -22,7 +26,7 @@ const getChapter = async (bookCode: string, chapter: number) => {
 	})
 }
 
-export const getChapterWithCache = withCache(
+export const getChapterWithCache = withCacheAsync(
 	getChapter,
 	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
 )
