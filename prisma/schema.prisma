@@ -3,30 +3,28 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgres"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model book {
-  id            Int             @id(map: "book_duplicate_pkey") @default(autoincrement())
+  id            Int             @id @default(autoincrement())
+  order         Int             @unique
   code          String          @unique
   chapter_count Int
-  order         Int             @unique(map: "book_duplicate_order_key")
   vdc_book_name vdc_book_name[]
 }
 
 model vdc_book_name {
-  id      Int    @id(map: "vdc-book_pkey") @default(autoincrement())
-  name    String @unique(map: "vdc_book_name_key")
-  order   Int    @unique(map: "vdc-book_order_key")
-  book_id Int
-  book    book   @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id      Int    @id @default(autoincrement())
+  name    String @unique
+  book_id Int    @unique
+  book    book   @relation(fields: [book_id], references: [id])
 }
 
 model vdc_chapter {
-  id      Int    @id(map: "vdc_chapter_new_pkey") @unique(map: "vdc_chapter_new_id_key") @default(autoincrement())
+  id      Int    @id @unique @default(autoincrement())
   chapter Int
   content String
-  book_id Int
+  book_id Int    @unique
 }
