@@ -1,7 +1,7 @@
 import { Icon } from '~/components/atoms/Icon/Icon'
 
 export const Footer = () => (
-	<footer className="col-[content] mx-auto my-20 flex w-full max-w-2xl flex-col items-center gap-12 px-8 text-center text-xs leading-relaxed text-fgSubtle md:my-32">
+	<footer className="col-[content] mx-auto mb-[calc(5rem_+_3.5rem_+_env(safe-area-inset-bottom,0))] mt-20 flex w-full max-w-2xl flex-col items-center gap-12 px-8 text-center text-xs leading-relaxed text-fgSubtle sm:my-32 sm:mb-[calc(8rem_+_4rem_+_env(safe-area-inset-bottom,0))]">
 		<div className="flex flex-col gap-4">
 			<p>
 				© Drepturi de autor British and Foreign Bible Society (BFBS) și
