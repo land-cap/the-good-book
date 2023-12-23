@@ -23,5 +23,5 @@ const parser = new XMLParser({
 	trimValues: false,
 })
 
-export const parseChapterData = (chapterContent: string) =>
+export const parseChapterHTML = (chapterContent: string) =>
 	parser.parse(chapterContent) as unknown as ChapterOM

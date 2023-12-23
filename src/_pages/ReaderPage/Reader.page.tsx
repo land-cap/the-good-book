@@ -1,4 +1,4 @@
-import { getChapterContentNode } from '~/_pages/ReaderPage/ChapterContent/chapterDataProcessing'
+import { renderChapterContent } from 'src/_pages/ReaderPage/ChapterContent/renderChapterContent'
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContentContainer } from './ChapterContent/ChapterContentContainer'
 import { Toolbar } from './components/Toolbar'
@@ -18,9 +18,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContentNode = getChapterContentNode(isStudyMode)(
-		chapterData.content,
-	)
+	const chapterContent = renderChapterContent(isStudyMode)(chapterData.content)
 
 	const book = await getBookWithCache(bookCode.toUpperCase())
 
@@ -33,7 +31,7 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 
 	return (
 		<>
-			<ChapterContentContainer>{chapterContentNode}</ChapterContentContainer>
+			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 			<Toolbar
 				prevChapterHref={prevChapterHref}
 				nextChapterHref={nextChapterHref}

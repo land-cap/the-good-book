@@ -23,7 +23,7 @@ function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
 }
 
-export const renderChapterContent = (
+export const renderChapterContentFromOM = (
 	chapterOM: ChapterOM,
 	isStudyMode: boolean,
 ) =>
@@ -42,7 +42,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</LargeSectionTitle>,
 			]
 		}
@@ -51,7 +51,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<LargeSectionReference key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</LargeSectionReference>,
 			]
 		}
@@ -60,7 +60,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<LargeSectionCrossReference key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</LargeSectionCrossReference>,
 			]
 		}
@@ -69,7 +69,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<SectionTitle key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</SectionTitle>,
 			]
 		}
@@ -78,7 +78,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<FancyAside key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</FancyAside>,
 			]
 		}
@@ -91,7 +91,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<Paragraph key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</Paragraph>,
 			]
 		}
@@ -103,7 +103,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<Verse key={i} isStudyMode={isStudyMode} verseOrder={verseOrder}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</Verse>,
 			]
 		}
@@ -115,7 +115,7 @@ export const renderChapterContent = (
 					key={i}
 					isStudyMode={isStudyMode}
 					verseNumber={
-						renderChapterContent(
+						renderChapterContentFromOM(
 							item[NodeType],
 							isStudyMode,
 						)[0] as unknown as number
@@ -131,7 +131,7 @@ export const renderChapterContent = (
 					key={i}
 					isStudyMode={isStudyMode}
 					referenceList={
-						renderChapterContent(
+						renderChapterContentFromOM(
 							item[NodeType],
 							isStudyMode,
 						) as unknown as string
@@ -144,7 +144,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<JesusWords key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</JesusWords>,
 			]
 		}
@@ -153,7 +153,7 @@ export const renderChapterContent = (
 			return [
 				...acc,
 				<Quote key={i}>
-					{renderChapterContent(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 				</Quote>,
 			]
 		}
@@ -161,7 +161,7 @@ export const renderChapterContent = (
 		return [
 			...acc,
 			<Fragment key={i}>
-				{renderChapterContent(item[NodeType], isStudyMode)}
+				{renderChapterContentFromOM(item[NodeType], isStudyMode)}
 			</Fragment>,
 		]
 	}, [] as ReactNode[])
