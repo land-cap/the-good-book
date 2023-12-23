@@ -29,7 +29,6 @@
     "fast-xml-parser": "^4.3.2",
     "file-system-cache": "^2.4.4",
     "jotai": "^2.5.1",
-    "lucide-react": "^0.300.0",
     "minify-css-string": "^1.0.0",
     "next": "^14.0.4",
     "node-cache": "^5.1.2",
