@@ -29,7 +29,15 @@ export const ChapterPicker = ({
 				<Select.ClearTrigger>Clear</Select.ClearTrigger>
 			</Select.Control>
 			<Portal>
-				<Select.Positioner>
+				<Select.Positioner
+					asChild
+					className="fixed -left-2 h-[calc(100dvh_-_57px)] w-full bg-bgCanvas"
+					style={{ top: 7, left: undefined }}
+				>
+					{/*<div*/}
+					{/*	className="fixed z-10 h-[calc(100dvh_-_57px)] w-full bg-bgCanvas"*/}
+					{/*	style={undefined}*/}
+					{/*>*/}
 					<Select.Content>
 						<Select.ItemGroup id="framework">
 							<Select.ItemGroupLabel htmlFor="framework">
@@ -43,6 +51,7 @@ export const ChapterPicker = ({
 							))}
 						</Select.ItemGroup>
 					</Select.Content>
+					{/*</div>*/}
 				</Select.Positioner>
 			</Portal>
 		</Select.Root>
