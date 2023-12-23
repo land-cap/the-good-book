@@ -18,9 +18,10 @@ export const ChapterPicker = ({
 	type Item = { label: string; value: string; disabled?: boolean }
 
 	const items: Item[] = [
-		{ label: 'React', value: 'react' },
-		{ label: 'Solid', value: 'solid' },
-		{ label: 'Vue', value: 'vue' },
+		{ label: 'Geneza', value: 'gen' },
+		{ label: 'Exodul', value: 'exo' },
+		{ label: 'Deuteronomul', value: 'deu' },
+		{ label: 'Numneri', value: 'num' },
 	]
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -48,9 +49,9 @@ export const ChapterPicker = ({
 								<Select.Item
 									key={item.value}
 									item={item}
-									className="flex cursor-pointer content-center justify-between py-3"
+									className="group flex cursor-pointer content-center justify-between py-3"
 								>
-									<Select.ItemText className="leading-[1]">
+									<Select.ItemText className="after:[&:]:[content:'_'] relative leading-[1] after:absolute after:inset-x-0 after:-bottom-1 after:border-b-2 after:border-b-transparent after:transition after:duration-quick after:ease-in-out group-hover:after:border-b-fg">
 										{item.label}
 									</Select.ItemText>
 								</Select.Item>
