@@ -15,7 +15,6 @@ export const ReaderNavButton = ({
 	>
 		<Icon
 			size={40}
-			weight={300}
 			name={direction === 'left' ? 'chevron_left' : 'chevron_right'}
 		/>
 	</Link>
