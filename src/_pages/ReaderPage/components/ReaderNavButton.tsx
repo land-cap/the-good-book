@@ -14,8 +14,8 @@ export const ReaderNavButton = ({
 		className="flex h-14 w-14 place-content-center place-items-center text-fg transition duration-quick ease-in-out hover:bg-bgSubtle active:text-fgSubtle"
 	>
 		<Icon
-			size={40}
-			name={direction === 'left' ? 'chevron_left' : 'chevron_right'}
+			size={24}
+			name={direction === 'left' ? 'arrow_back_ios' : 'arrow_forward_ios'}
 		/>
 	</Link>
 )
