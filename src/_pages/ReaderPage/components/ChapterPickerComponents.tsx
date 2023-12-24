@@ -44,7 +44,7 @@ export const ChapterPickerHeader = () => (
 	<ChapterPickerHeaderContainer>
 		<Select.ItemGroupLabel
 			htmlFor="book"
-			className="text-sm font-bold sm:text-base"
+			className="text-sm"
 		>
 			Book
 		</Select.ItemGroupLabel>
