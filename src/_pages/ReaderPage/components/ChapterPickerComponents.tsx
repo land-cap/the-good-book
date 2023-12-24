@@ -31,7 +31,7 @@ export const SelectContainer = ({ children }: { children: ReactNode }) => (
 )
 
 const ChapterPickerHeaderContainer = wChildren(({ children }) => (
-	<div className="sticky top-0 z-10 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface">
+	<div className="sticky top-0 z-0 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface">
 		<div className="col-start-[content] border-b border-b-borderEmphasized">
 			<nav className="flex h-14 flex-row items-center justify-between gap-6">
 				{children}
