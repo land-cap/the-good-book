@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge'
 import { ReaderNavButton } from '~/_pages/ReaderPage/components/ReaderNavButton'
 import { macroGridCls } from '~/components'
 import { getBookList } from '~/db'
-import { ChapterPicker } from './ChapterPicker'
+import { ChapterPicker } from './ChapterPicker/ChapterPicker'
 
 export const Toolbar = async ({
 	nextChapterHref,

@@ -4,14 +4,12 @@ import { Portal, Select } from '@ark-ui/react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { type ReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { macroGridCls } from '~/components'
 import { type getBookList } from '~/db'
-import {
-	ChapterPickerHeader,
-	ChapterPickerTrigger,
-	SelectContainer,
-} from './ChapterPickerComponents'
+import { type ReaderPageParams } from '../../ReaderPage.types'
+import { ChapterPickerContainer } from './ChapterPickerContainer'
+import { ChapterPickerHeader } from './ChapterPickerHeader'
+import { ChapterPickerTrigger } from './ChapterPickerTrigger'
 
 export const ChapterPicker = ({
 	bookName,
@@ -56,7 +54,7 @@ export const ChapterPicker = ({
 				<Select.ClearTrigger>Clear</Select.ClearTrigger>
 			</Select.Control>
 			<Portal>
-				<SelectContainer>
+				<ChapterPickerContainer>
 					<ChapterPickerHeader />
 					<div
 						className={twMerge(
@@ -80,7 +78,7 @@ export const ChapterPicker = ({
 							</Select.ItemGroup>
 						</div>
 					</div>
-				</SelectContainer>
+				</ChapterPickerContainer>
 			</Portal>
 		</Select.Root>
 	)
