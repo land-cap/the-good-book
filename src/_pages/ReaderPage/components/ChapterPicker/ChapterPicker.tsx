@@ -41,6 +41,7 @@ export const ChapterPicker = ({
 
 	return (
 		<Select.Root
+			open={isOpen}
 			items={items}
 			closeOnSelect={false}
 			className="h-full grow"
@@ -53,11 +54,10 @@ export const ChapterPicker = ({
 		>
 			<Select.Control className="h-full w-full">
 				<ChapterPickerTrigger placeholder={`${bookName} ${chapter}`} />
-				<Select.ClearTrigger>Clear</Select.ClearTrigger>
 			</Select.Control>
 			<Portal>
 				<ChapterPickerContainer>
-					<ChapterPickerHeader />
+					<ChapterPickerHeader onClose={() => setIsOpen(false)} />
 					<div
 						className={twMerge(
 							macroGridCls,
