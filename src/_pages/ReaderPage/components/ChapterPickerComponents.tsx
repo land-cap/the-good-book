@@ -22,7 +22,12 @@ export const SelectContainer = ({ children }: { children: ReactNode }) => (
 		style={{ top: 7, left: undefined }}
 	>
 		<Select.Content>
-			<div className={twMerge(macroGridCls, 'max-h-full overflow-scroll')}>
+			<div
+				className={twMerge(
+					macroGridCls,
+					'h-full overflow-hidden [grid-template-rows:auto_1fr]',
+				)}
+			>
 				{children}
 			</div>
 		</Select.Content>
@@ -30,15 +35,11 @@ export const SelectContainer = ({ children }: { children: ReactNode }) => (
 )
 
 export const ChapterPickerHeader = () => (
-	<div className={twMerge('fixed top-0 w-full z-10', macroGridCls)}>
-		<div className="col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface px-8">
-			<div className="col-start-[content] border-b border-b-borderEmphasized">
-				<div className="flex h-14 items-center justify-between">
-					<Select.ItemGroupLabel htmlFor="book" className="font-bold">
-						Book
-					</Select.ItemGroupLabel>
-				</div>
-			</div>
+	<div className="col-start-[content] border-b border-b-borderEmphasized">
+		<div className="flex h-14 items-center justify-between">
+			<Select.ItemGroupLabel htmlFor="book" className="font-bold">
+				Book
+			</Select.ItemGroupLabel>
 		</div>
 	</div>
 )
