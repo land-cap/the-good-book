@@ -8,10 +8,10 @@ export const ChapterPickerListItem = ({
 }) => (
 	<Select.Item
 		item={item}
-		className="group flex cursor-pointer content-center justify-between py-4"
+		className="group col-[fullbleed] grid cursor-pointer grid-cols-[subgrid] transition duration-quick ease-in-out hover:bg-bgSubtle"
 	>
-		<Select.ItemText className="after:[&:]:[content:'_'] relative leading-[1] after:absolute after:inset-x-0 after:-bottom-1 after:border-b-2 after:border-b-transparent after:transition after:duration-quick after:ease-in-out group-hover:after:border-b-current">
-			{item.label}
-		</Select.ItemText>
+		<div className="col-[content] flex content-center justify-between py-4">
+			<Select.ItemText className="leading-[1]">{item.label}</Select.ItemText>
+		</div>
 	</Select.Item>
 )

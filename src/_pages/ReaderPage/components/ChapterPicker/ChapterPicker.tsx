@@ -64,8 +64,11 @@ export const ChapterPicker = ({
 							'col-[fullbleed] h-full overflow-y-scroll',
 						)}
 					>
-						<div className="col-[content]">
-							<Select.ItemGroup id="book" className="py-4">
+						<div className="col-[fullbleed] grid grid-cols-[subgrid]">
+							<Select.ItemGroup
+								id="book"
+								className="col-[fullbleed] grid grid-cols-[subgrid] py-4"
+							>
 								{items.map((item) => (
 									<ChapterPickerListItem key={item.value} item={item} />
 								))}
