@@ -1,6 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
 import {
-	CrossReference,
 	FancyAside,
 	JesusWords,
 	LargeSectionCrossReference,
@@ -125,19 +124,20 @@ export const renderChapterContentFromOM = (
 		}
 
 		if (nodeClass === 'cross-reference') {
-			return [
-				...acc,
-				<CrossReference
-					key={i}
-					isStudyMode={isStudyMode}
-					referenceList={
-						renderChapterContentFromOM(
-							item[NodeType],
-							isStudyMode,
-						) as unknown as string
-					}
-				/>,
-			]
+			return acc
+			//return [
+			//	...acc,
+			//	<CrossReference
+			//		key={i}
+			//		isStudyMode={isStudyMode}
+			//		referenceList={
+			//			renderChapterContentFromOM(
+			//				item[NodeType],
+			//				isStudyMode,
+			//			) as unknown as string
+			//		}
+			//	/>,
+			//]
 		}
 
 		if (nodeClass === 'jesus-words') {
