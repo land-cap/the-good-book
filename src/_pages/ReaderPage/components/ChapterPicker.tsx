@@ -3,7 +3,9 @@
 import { Portal, Select } from '@ark-ui/react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 import { type ReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { macroGridCls } from '~/components'
 import { type getBookList } from '~/db'
 import {
 	ChapterPickerHeader,
@@ -56,20 +58,27 @@ export const ChapterPicker = ({
 			<Portal>
 				<SelectContainer>
 					<ChapterPickerHeader />
-					<div className="z-0 col-[fullbleed] grid grid-cols-[subgrid] overflow-y-scroll">
-						<Select.ItemGroup id="book" className="col-[content] py-4">
-							{items.map((item) => (
-								<Select.Item
-									key={item.value}
-									item={item}
-									className="group flex cursor-pointer content-center justify-between py-4"
-								>
-									<Select.ItemText className="after:[&:]:[content:'_'] relative leading-[1] after:absolute after:inset-x-0 after:-bottom-1 after:border-b-2 after:border-b-transparent after:transition after:duration-quick after:ease-in-out group-hover:after:border-b-current">
-										{item.label}
-									</Select.ItemText>
-								</Select.Item>
-							))}
-						</Select.ItemGroup>
+					<div
+						className={twMerge(
+							macroGridCls,
+							'col-[fullbleed] h-full overflow-y-scroll',
+						)}
+					>
+						<div className="col-[content]">
+							<Select.ItemGroup id="book" className="py-4">
+								{items.map((item) => (
+									<Select.Item
+										key={item.value}
+										item={item}
+										className="group flex cursor-pointer content-center justify-between py-4"
+									>
+										<Select.ItemText className="after:[&:]:[content:'_'] relative leading-[1] after:absolute after:inset-x-0 after:-bottom-1 after:border-b-2 after:border-b-transparent after:transition after:duration-quick after:ease-in-out group-hover:after:border-b-current">
+											{item.label}
+										</Select.ItemText>
+									</Select.Item>
+								))}
+							</Select.ItemGroup>
+						</div>
 					</div>
 				</SelectContainer>
 			</Portal>

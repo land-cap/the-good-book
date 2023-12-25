@@ -25,7 +25,7 @@ export const SelectContainer = ({ children }: { children: ReactNode }) => (
 			<div
 				className={twMerge(
 					macroGridCls,
-					'h-full overflow-hidden [grid-template-rows:auto_1fr]',
+					'h-full overflow-hidden [grid-template-rows:auto_minamx(auto.1fr)]',
 				)}
 			>
 				{children}
