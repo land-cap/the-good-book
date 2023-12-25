@@ -56,8 +56,8 @@ export const ChapterPicker = ({
 			<Portal>
 				<SelectContainer>
 					<ChapterPickerHeader />
-					<div className="col-[content]">
-						<Select.ItemGroup id="book" className="py-4 z-0">
+					<div className="z-0 col-[content] mt-14">
+						<Select.ItemGroup id="book" className="py-4">
 							{items.map((item) => (
 								<Select.Item
 									key={item.value}

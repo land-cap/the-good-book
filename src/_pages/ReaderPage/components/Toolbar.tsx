@@ -19,7 +19,7 @@ export const Toolbar = async ({
 
 	return (
 		<div className={twMerge('fixed bottom-0 w-full', macroGridCls)}>
-			<div className="col-[fullbleed] mt-reader-gap grid select-none grid-cols-[subgrid] bg-bgSurface px-8 pb-[env(safe-area-inset-bottom)] md:mt-reader-gap-md">
+			<div className="col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface px-8 pb-[env(safe-area-inset-bottom,0)]">
 				<div className="col-start-[content] border-t border-t-borderEmphasized">
 					<div className="flex h-14 items-center justify-between">
 						<ReaderNavButton href={prevChapterHref} direction="left" />

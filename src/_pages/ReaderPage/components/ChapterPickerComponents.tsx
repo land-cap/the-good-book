@@ -1,7 +1,6 @@
 import { Select } from '@ark-ui/react'
 import { type ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { wChildren } from '~/component-helpers'
 import { macroGridCls } from '~/components'
 
 export const ChapterPickerTrigger = ({
@@ -18,7 +17,7 @@ export const SelectContainer = ({ children }: { children: ReactNode }) => (
 	<Select.Positioner
 		asChild
 		className={twMerge(
-			'fixed -left-2 h-[calc(100dvh_-_57px)] w-full bg-bgSurface',
+			'fixed -left-2 h-[calc(100dvh_-_57px_-_env(safe-area-inset-bottom,0))] w-full bg-bgSurface',
 		)}
 		style={{ top: 7, left: undefined }}
 	>
@@ -30,23 +29,16 @@ export const SelectContainer = ({ children }: { children: ReactNode }) => (
 	</Select.Positioner>
 )
 
-const ChapterPickerHeaderContainer = wChildren(({ children }) => (
-	<div className="sticky top-0 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface">
-		<div className="col-start-[content] border-b border-b-borderEmphasized">
-			<nav className="flex h-14 flex-row items-center justify-between gap-6">
-				{children}
-			</nav>
+export const ChapterPickerHeader = () => (
+	<div className={twMerge('fixed top-0 w-full z-10', macroGridCls)}>
+		<div className="col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface px-8">
+			<div className="col-start-[content] border-b border-b-borderEmphasized">
+				<div className="flex h-14 items-center justify-between">
+					<Select.ItemGroupLabel htmlFor="book" className="font-bold">
+						Book
+					</Select.ItemGroupLabel>
+				</div>
+			</div>
 		</div>
 	</div>
-))
-
-export const ChapterPickerHeader = () => (
-	<ChapterPickerHeaderContainer>
-		<Select.ItemGroupLabel
-			htmlFor="book"
-			className="font-bold"
-		>
-			Book
-		</Select.ItemGroupLabel>
-	</ChapterPickerHeaderContainer>
 )
