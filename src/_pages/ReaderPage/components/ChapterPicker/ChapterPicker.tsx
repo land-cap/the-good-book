@@ -4,6 +4,8 @@ import { Portal, Select } from '@ark-ui/react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { type TChapterPickerItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPicker.types'
+import { ChapterPickerListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerListItem'
 import { macroGridCls } from '~/components'
 import { type getBookList } from '~/db'
 import { type ReaderPageParams } from '../../ReaderPage.types'
@@ -20,12 +22,12 @@ export const ChapterPicker = ({
 	bookName: string
 	bookList: Awaited<ReturnType<typeof getBookList>>
 }) => {
-	type Item = { label: string; value: string; disabled?: boolean }
-
-	const items: Item[] = bookList.map(({ name, book: { code } }) => ({
-		label: name,
-		value: code,
-	}))
+	const items: TChapterPickerItem[] = bookList.map(
+		({ name, book: { code } }) => ({
+			label: name,
+			value: code,
+		}),
+	)
 
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -65,15 +67,7 @@ export const ChapterPicker = ({
 						<div className="col-[content]">
 							<Select.ItemGroup id="book" className="py-4">
 								{items.map((item) => (
-									<Select.Item
-										key={item.value}
-										item={item}
-										className="group flex cursor-pointer content-center justify-between py-4"
-									>
-										<Select.ItemText className="after:[&:]:[content:'_'] relative leading-[1] after:absolute after:inset-x-0 after:-bottom-1 after:border-b-2 after:border-b-transparent after:transition after:duration-quick after:ease-in-out group-hover:after:border-b-current">
-											{item.label}
-										</Select.ItemText>
-									</Select.Item>
+									<ChapterPickerListItem key={item.value} item={item} />
 								))}
 							</Select.ItemGroup>
 						</div>
