@@ -1,22 +1,30 @@
 import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
-import { subgrid } from 'styled-system/patterns'
+import { flex, subgrid } from 'styled-system/patterns'
 import { wChildren } from '~/component-helpers'
 
 const HeaderContainer = wChildren(({ children }) => (
-	<styled.div
+	<header
 		className={subgrid({
 			column: 'fullbleed',
 			top: 0,
 			bg: 'bg.surface',
 		})}
 	>
-		<div className="col-start-[content] border-b border-b-borderEmphasized">
-			<nav className="flex h-14 flex-row items-center justify-between gap-6">
-				{children}
-			</nav>
-		</div>
-	</styled.div>
+		<styled.nav
+			className={flex({
+				gridColumn: 'content',
+				borderBottom: '1px solid token(colors.border.emphasized)',
+				h: '14',
+				direction: 'row',
+				align: 'center',
+				justify: 'space-between',
+				gap: '6',
+			})}
+		>
+			{children}
+		</styled.nav>
+	</header>
 ))
 
 const LogoLink = styled(Link, {

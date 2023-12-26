@@ -1,5 +1,4 @@
 import { DM_Mono, DM_Sans } from 'next/font/google'
-import { cx } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
 import { Footer } from '~/components/molecules/Footer'
@@ -55,16 +54,14 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
 		<styled.body
-			className={cx(
-				macrogrid({
-					gridAutoRows: 'min-content',
-					fontSize: 'base',
-					color: 'fg',
-					h: 'fit',
-					background: 'bg.surface',
-					_dark: { color: 'fg.muted' },
-				}),
-			)}
+			className={macrogrid({
+				gridAutoRows: 'min-content',
+				fontSize: 'base',
+				color: 'fg',
+				h: 'fit',
+				background: 'bg.surface',
+				_dark: { color: 'fg.muted' },
+			})}
 		>
 			<Header />
 			{children}
