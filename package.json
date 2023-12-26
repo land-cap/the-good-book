@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "panda codegen",
     "build": "next build",
     "dev": "rm -rf .next && next dev -p 4000",
     "lint": "next lint --fix",
@@ -39,6 +40,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.23.0",
+    "@pandacss/preset-panda": "^0.23.0",
     "@storybook/addon-essentials": "^7.5.1",
     "@storybook/addon-interactions": "^7.5.1",
     "@storybook/addon-links": "^7.5.1",
