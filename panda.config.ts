@@ -15,6 +15,8 @@ export default defineConfig({
 	],
 	// Files to exclude
 	exclude: [],
+	//jsxFactory: 'all',
+	//jsxStyleProps: 'all',
 	// The output directory for your css system
 	outdir: 'styled-system',
 })

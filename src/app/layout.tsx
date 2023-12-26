@@ -1,6 +1,7 @@
 import { DM_Mono, DM_Sans } from 'next/font/google'
-import { twMerge } from 'tailwind-merge'
-import { macroGridCls } from '~/components'
+import { cx } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
+import { macrogrid } from 'styled-system/patterns'
 import { Footer } from '~/components/molecules/Footer'
 import { Header } from '~/components/molecules/Header'
 import '~/index.css'
@@ -51,18 +52,24 @@ export const metadata = {
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
-const appShellCls = twMerge(
-	'[grid-auto-rows:min-content] h-fit min-h-screen text-base bg-bgSurface font-normal text-fg dark:text-fgMuted',
-	macroGridCls,
-)
-
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
-		<body className={appShellCls}>
+		<styled.body
+			className={cx(
+				macrogrid({
+					gridAutoRows: 'min-content',
+					fontSize: 'base',
+					color: 'fg',
+					h: 'fit',
+					background: 'bg.surface',
+					_dark: { color: 'fg.muted' },
+				}),
+			)}
+		>
 			<Header />
 			{children}
 			<Footer />
-		</body>
+		</styled.body>
 	</html>
 )
 

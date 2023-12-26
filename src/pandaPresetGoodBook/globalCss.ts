@@ -6,6 +6,5 @@ export const globalCss = defineGlobalStyles({
 		color: 'fg',
 		bg: 'bg.surface',
 		fontOpticalSizing: 'auto',
-		'--ring-offset-width': '0px',
 	},
 })

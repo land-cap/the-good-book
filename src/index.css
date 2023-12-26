@@ -80,7 +80,6 @@
 }
 
 html, body {
-    min-height: 100vh;
     touch-action: pan-x pan-y;
 }
 

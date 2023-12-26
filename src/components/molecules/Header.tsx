@@ -1,20 +1,32 @@
 import Link from 'next/link'
-import { wChildren, wClassName } from '~/component-helpers'
+import { styled } from 'styled-system/jsx'
+import { subgrid } from 'styled-system/patterns'
+import { wChildren } from '~/component-helpers'
 
 const HeaderContainer = wChildren(({ children }) => (
-	<div className="top-0 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgSurface">
+	<styled.div
+		className={subgrid({
+			column: 'fullbleed',
+			top: 0,
+			bg: 'bg.surface',
+		})}
+	>
 		<div className="col-start-[content] border-b border-b-borderEmphasized">
 			<nav className="flex h-14 flex-row items-center justify-between gap-6">
 				{children}
 			</nav>
 		</div>
-	</div>
+	</styled.div>
 ))
 
-const Logo = wClassName(Link)('font-bold')
+const LogoLink = styled(Link, {
+	base: { fontWeight: 'bold' },
+})
 
 export const Header = () => (
 	<HeaderContainer>
-		<Logo href="/">The Good Book</Logo>
+		<LogoLink href="/" prefetch>
+			The Good Book
+		</LogoLink>
 	</HeaderContainer>
 )

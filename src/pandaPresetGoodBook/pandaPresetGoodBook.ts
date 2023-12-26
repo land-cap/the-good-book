@@ -1,7 +1,8 @@
 import { definePreset } from '@pandacss/dev'
 import { globalCss } from './globalCss'
-import { colors, fonts, fontWeights } from './tokens'
+import { patterns } from './patterns'
 import { semanticTokens } from './semanticTokens'
+import { colors, fonts, fontWeights } from './tokens'
 import { utilities } from './utilities'
 
 export const pandaPresetGoodBook = definePreset({
@@ -17,4 +18,5 @@ export const pandaPresetGoodBook = definePreset({
 		},
 	},
 	utilities,
+	patterns,
 })
