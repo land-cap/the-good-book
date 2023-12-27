@@ -1,13 +1,10 @@
 import { DM_Mono, DM_Sans } from 'next/font/google'
-import { twMerge } from 'tailwind-merge'
-import { macroGridCls } from '~/components'
+import { macrogrid } from 'styled-system/patterns'
 import { Footer } from '~/components/molecules/Footer'
 import { Header } from '~/components/molecules/Header'
 import '~/index.css'
 
 const fontSans = DM_Sans({
-	variable: '--font-sans',
-	subsets: ['latin-ext'],
 	axes: ['opsz'],
 	fallback: [
 		'-apple-system',
@@ -21,13 +18,11 @@ const fontSans = DM_Sans({
 		'Segoe UI Emoji',
 		'Segoe UI Symbol',
 	],
+	subsets: ['latin-ext'],
+	variable: '--font-sans',
 })
 
 const fontMono = DM_Mono({
-	variable: '--font-mono',
-	subsets: ['latin-ext'],
-	weight: ['300', '400', '500'],
-	style: ['italic', 'normal'],
 	fallback: [
 		'ui-monospace',
 		'Menlo',
@@ -43,22 +38,30 @@ const fontMono = DM_Mono({
 		'Courier New',
 		'monospace',
 	],
+	style: ['italic', 'normal'],
+	subsets: ['latin-ext'],
+	variable: '--font-mono',
+	weight: ['300', '400', '500'],
 })
 
 export const metadata = {
-	title: 'The Good Book',
 	description: 'Read the Bible without distractions.',
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
+	title: 'The Good Book',
 }
-
-const appShellCls = twMerge(
-	'[grid-auto-rows:min-content] h-fit min-h-screen text-base dark:bg-bgSurface font-normal text-fg dark:text-fgMuted',
-	macroGridCls,
-)
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
-		<body className={appShellCls}>
+		<body
+			className={macrogrid({
+				_osDark: { color: 'fg.muted' },
+				background: 'bg.surface',
+				color: 'fg',
+				fontSize: 'base',
+				gridAutoRows: 'min-content',
+				h: 'fit',
+			})}
+		>
 			<Header />
 			{children}
 			<Footer />

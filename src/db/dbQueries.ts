@@ -12,6 +12,9 @@ const getBook = async (bookCode: string) =>
 		where: { book: { code: bookCode.toUpperCase() } },
 	})
 
+export const getBookList = async () =>
+	dbClient.vdc_book_name.findMany({ include: { book: true } })
+
 export const getBookWithCache = withCacheAsync(
 	getBook,
 	useMemoryCache ? createMemoryCache() : createFileSystemCache(),

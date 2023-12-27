@@ -4,17 +4,18 @@ const config = {
 	parserOptions: {
 		project: true,
 	},
-	plugins: ['@typescript-eslint', 'prettier'],
+	plugins: ['@typescript-eslint', 'prettier', 'sort-keys'],
 	extends: [
 		'next/core-web-vitals',
 		'plugin:@typescript-eslint/recommended-type-checked',
 		'plugin:@typescript-eslint/stylistic-type-checked',
 		'plugin:prettier/recommended',
 		'plugin:storybook/recommended',
-		'plugin:tailwindcss/recommended',
 	],
 	'ignorePatterns': ['/styled-system/*'],
 	rules: {
+		'sort-keys': 'off',
+		'sort-keys/sort-keys-fix': 'error',
 		// These opinionated rules are enabled in stylistic-type-checked above.
 		// Feel free to reconfigure them to your own preference.
 		'@typescript-eslint/array-type': 'off',

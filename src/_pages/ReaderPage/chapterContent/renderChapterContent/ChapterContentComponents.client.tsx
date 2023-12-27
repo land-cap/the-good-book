@@ -1,7 +1,5 @@
-'use client'
-
 import { type ReactNode } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { css, cx } from 'styled-system/css'
 
 export const Verse = ({
 	children,
@@ -14,7 +12,9 @@ export const Verse = ({
 }) => (
 	<span
 		data-component="Verse"
-		className={twMerge(isStudyMode && 'block relative')}
+		className={cx(
+			isStudyMode && css({ display: 'block', position: 'relative' }),
+		)}
 	>
 		{children}
 	</span>

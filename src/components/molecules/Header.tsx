@@ -1,20 +1,43 @@
 import Link from 'next/link'
-import { wChildren, wClassName } from '~/component-helpers'
+import { css } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
+import { flex, subgrid } from 'styled-system/patterns'
+import { wChildren } from '~/component-helpers'
+import { Separator } from '../Separator'
 
-const NavBarContainer = wChildren(({ children }) => (
-	<div className="top-0 z-10 col-[fullbleed] grid select-none grid-cols-[subgrid] bg-bgCanvas dark:bg-bgSurface">
-		<div className="col-start-[content] border-b border-b-borderEmphasized">
-			<nav className="my-reader-gap flex flex-row items-center justify-between gap-6 md:my-reader-gap-md">
-				{children}
-			</nav>
-		</div>
-	</div>
+const HeaderContainer = wChildren(({ children }) => (
+	<header
+		className={subgrid({
+			bg: 'bg.surface',
+			column: 'fullbleed',
+			h: 'fit-content',
+			top: 0,
+		})}
+	>
+		<nav
+			className={flex({
+				align: 'center',
+				direction: 'row',
+				gap: '6',
+				gridColumn: 'content',
+				h: '14',
+				justify: 'space-between',
+			})}
+		>
+			{children}
+		</nav>
+		<Separator className={css({ gridColumn: 'content' })} />
+	</header>
 ))
 
-const Logo = wClassName(Link)('font-black text-fgSubtle')
+const LogoLink = styled(Link, {
+	base: { fontWeight: 'bold' },
+})
 
 export const Header = () => (
-	<NavBarContainer>
-		<Logo href="/">The Good Book</Logo>
-	</NavBarContainer>
+	<HeaderContainer>
+		<LogoLink href="/" prefetch>
+			The Good Book
+		</LogoLink>
+	</HeaderContainer>
 )

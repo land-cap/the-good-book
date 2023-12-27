@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { flex } from 'styled-system/patterns'
 import { Icon } from '~/components'
 
 export const ReaderNavButton = ({
@@ -11,11 +12,21 @@ export const ReaderNavButton = ({
 	<Link
 		prefetch
 		href={href}
-		className="flex h-14 w-14 place-content-center place-items-center text-fgSubtle transition duration-quick ease-in-out hover:bg-bgSubtle active:text-fg"
+		className={flex({
+			_active: { color: 'fg.subtle' },
+			_hover: { bg: 'bg.subtle' },
+			h: '14',
+			placeContent: 'center',
+			placeItems: 'center',
+			transition: 'colors',
+			transitionDuration: 'fast',
+			transitionTimingFunction: 'ease-in-out',
+			w: '14',
+		})}
 	>
 		<Icon
-			size={40}
-			name={direction === 'left' ? 'chevron_left' : 'chevron_right'}
+			size={6}
+			name={direction === 'left' ? 'arrow_back_ios_new' : 'arrow_forward_ios'}
 		/>
 	</Link>
 )

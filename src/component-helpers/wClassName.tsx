@@ -1,5 +1,5 @@
 import { forwardRef, type JSX, type ReactNode } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { cx } from 'styled-system/css'
 
 type TIntrinsicElement = keyof JSX.IntrinsicElements
 
@@ -31,7 +31,7 @@ export function wClassName<P extends { className?: string }>(
 			<Component
 				{...props}
 				ref={ref}
-				className={twMerge(className, props.className)}
+				className={cx(className, props.className)}
 			/>
 		))
 }
