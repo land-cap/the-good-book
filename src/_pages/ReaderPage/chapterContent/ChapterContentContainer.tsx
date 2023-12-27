@@ -1,18 +1,32 @@
-import { type ReactNode } from 'react'
-import { twMerge } from 'tailwind-merge'
-import styles from './ChapterContentContainer.module.css'
+import { styled } from 'styled-system/jsx'
 
-export const ChapterContentContainer = ({
-	children,
-}: {
-	children: ReactNode
-}) => (
-	<div
-		className={twMerge(
-			styles.chapterContentContainer,
-			'col-[content] mt-reader-gap md:mt-reader-gap-md text-base md:text-lg leading-[2em] md:leading-[2.25em]',
-		)}
-	>
-		{children}
-	</div>
-)
+export const ChapterContentContainer = styled('div', {
+	base: {
+		'& :not(:where([data-component="Quote"], [data-component="Paragraph"])) + :where([data-component="Quote"], [data-component="Paragraph"])':
+			{
+				mt: 'reader_gap',
+			},
+		'& :not([data-component="Quote"]) + [data-component="Quote"]': {
+			mt: 'reader_gap',
+		},
+		'& :where([data-component="LargeSectionTitle"], [data-component="LargeSectionReference"], [data-component="LargeSectionCrossReference"]) + [data-component="SectionTitle"]':
+			{
+				mt: 'reader_gap',
+			},
+		'& :where([data-component="Quote"], [data-component="Paragraph"]) + :not(*:where([data-component="Quote"], [data-component="Paragraph"]))':
+			{
+				mt: 'reader_gap',
+			},
+		'& [data-component="Quote"] + :not([data-component="Quote"])': {
+			mt: 'reader_gap',
+		},
+		fontSize: 'base',
+		gridColumn: 'content',
+		lineHeight: '2em',
+		md: {
+			lineHeight: '2.25em',
+			textStyle: 'lg',
+		},
+		mt: 'reader_gap',
+	},
+})

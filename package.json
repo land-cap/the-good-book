@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "panda codegen",
     "build": "next build",
     "dev": "rm -rf .next && next dev -p 4000",
     "lint": "next lint --fix",
@@ -16,13 +17,14 @@
     "chromatic": "npx chromatic --project-token=chpt_9fc168541ae5c62"
   },
   "dependencies": {
+    "@ark-ui/react": "^1.2.1",
     "@capsizecss/core": "^3.1.1",
     "@capsizecss/metrics": "^1.2.0",
+    "@pandacss/studio": "^0.23.0",
     "@prisma/client": "^5.1.1",
     "@storybook/manager-api": "^7.5.1",
     "@storybook/theming": "^7.5.1",
     "@t3-oss/env-nextjs": "^0.7.0",
-    "@tailwindcss/forms": "^0.5.7",
     "cheerio": "1.0.0-rc.12",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "fast-xml-parser": "^4.3.2",
@@ -38,6 +40,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.23.0",
+    "@pandacss/preset-panda": "^0.23.0",
     "@storybook/addon-essentials": "^7.5.1",
     "@storybook/addon-interactions": "^7.5.1",
     "@storybook/addon-links": "^7.5.1",
@@ -59,12 +63,12 @@
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-sort-keys": "^2.3.5",
     "eslint-plugin-storybook": "^0.6.15",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prisma": "^5.1.1",
     "storybook": "^7.5.1",
-    "tailwindcss": "^3.3.5",
     "typescript": "^5.1.6"
   },
   "ct3aMetadata": {
