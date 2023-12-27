@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { flex, subgrid } from 'styled-system/patterns'
 import { wChildren } from '~/component-helpers'
+import { Separator } from '~/components'
+import { css } from '../../../styled-system/css'
 
 const HeaderContainer = wChildren(({ children }) => (
 	<header
@@ -15,7 +17,6 @@ const HeaderContainer = wChildren(({ children }) => (
 		<nav
 			className={flex({
 				align: 'center',
-				borderBottom: '1px solid token(colors.border.emphasized)',
 				direction: 'row',
 				gap: '6',
 				gridColumn: 'content',
@@ -25,6 +26,7 @@ const HeaderContainer = wChildren(({ children }) => (
 		>
 			{children}
 		</nav>
+		<Separator className={css({ gridColumn: 'content' })} />
 	</header>
 ))
 

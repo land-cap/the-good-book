@@ -1,5 +1,6 @@
-import { cx } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
+import { Separator } from '~/components'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const Toolbar = ({
@@ -24,6 +25,7 @@ export const Toolbar = ({
 			}),
 		)}
 	>
+		<Separator className={css({ gridColumn: 'content' })} />
 		<div
 			className={subgrid({
 				column: 'content',
@@ -35,15 +37,14 @@ export const Toolbar = ({
 				className={flex({
 					alignItems: 'center',
 					h: '14',
-					justifyContent: 'space-between',
 				})}
 			>
 				<ReaderNavButton href={prevChapterHref} direction="left" />
 				<button
-					//className="flex h-full grow place-items-center justify-center px-4 font-bold transition duration-quick ease-in-out hover:bg-bgSubtle active:text-fgSubtle"
 					className={center({
 						_active: { color: 'fg.subtle' },
 						_hover: { bg: 'bg.subtle' },
+						flexGrow: 1,
 						fontWeight: 'bold',
 						h: 'full',
 						px: '4',
