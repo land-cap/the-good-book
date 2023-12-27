@@ -1,8 +1,8 @@
 import Link from 'next/link'
+import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { flex, subgrid } from 'styled-system/patterns'
 import { wChildren } from '~/component-helpers'
-import { css } from '../../../styled-system/css'
 import { Separator } from '../Separator'
 
 const HeaderContainer = wChildren(({ children }) => (

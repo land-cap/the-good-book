@@ -3,6 +3,7 @@ import pandaPreset from '@pandacss/preset-panda'
 import { pandaPresetGoodBook } from '~/pandaPresetGoodBook'
 
 export default defineConfig({
+	emitPackage: true,
 	// Files to exclude
 	exclude: [],
 	// Where to look for your css declarations

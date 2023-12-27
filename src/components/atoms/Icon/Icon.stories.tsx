@@ -1,5 +1,6 @@
 import type { Meta } from '@storybook/react'
-import { Icon, iconSizeList } from './Icon'
+import { flex } from 'styled-system/patterns'
+import { Icon, iconRecipe } from './Icon'
 
 const meta: Meta<typeof Icon> = {
 	component: Icon,
@@ -12,16 +13,9 @@ const meta: Meta<typeof Icon> = {
 export default meta
 
 const iconSizeRange = (
-	<div className="flex flex-row items-center gap-8">
-		{Array.from(iconSizeList).map((size) => (
-			<div key={size} className="border border-neutral-200">
-				<Icon
-					key={size}
-					name="square"
-					size={size}
-					className="text-neutral-500"
-				/>
-			</div>
+	<div className={flex({ align: 'center', gap: '8', justify: 'center' })}>
+		{iconRecipe.variantMap.size.map((size) => (
+			<Icon key={size} name="square" size={size} />
 		))}
 	</div>
 )

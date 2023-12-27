@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
-import { twMerge } from 'tailwind-merge'
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
@@ -28,19 +27,17 @@ export const LargeSectionReference = ({
 }) => (
 	<h3
 		data-component="LargeSectionReference"
-		className={twMerge(
-			css({
-				color: 'fg.subtle',
-				letterSpacing: '0.05em',
-				lineHeight: '2.25em',
-				md: {
-					lineHeight: '2.5em',
-					textStyle: 'sm',
-				},
-				textStyle: 'xs',
-				userSelect: 'none',
-			}),
-		)}
+		className={css({
+			color: 'fg.subtle',
+			letterSpacing: '0.05em',
+			lineHeight: '2.25em',
+			md: {
+				lineHeight: '2.5em',
+				textStyle: 'sm',
+			},
+			textStyle: 'xs',
+			userSelect: 'none',
+		})}
 	>
 		({children})
 	</h3>
@@ -53,19 +50,17 @@ export const LargeSectionCrossReference = ({
 }) => (
 	<h4
 		data-component="LargeSectionCrossReference"
-		className={twMerge(
-			css({
-				color: 'fg.subtle',
-				letterSpacing: '0.05em',
-				lineHeight: '2.25em',
-				md: {
-					lineHeight: '2.5em',
-					textStyle: 'sm',
-				},
-				textStyle: 'xs',
-				userSelect: 'none',
-			}),
-		)}
+		className={css({
+			color: 'fg.subtle',
+			letterSpacing: '0.05em',
+			lineHeight: '2.25em',
+			md: {
+				lineHeight: '2.5em',
+				textStyle: 'sm',
+			},
+			textStyle: 'xs',
+			userSelect: 'none',
+		})}
 	>
 		{children}
 	</h4>

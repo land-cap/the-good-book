@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import { flex } from 'styled-system/patterns'
 import { Icon } from '~/components'
-import { flex } from '../../../../styled-system/patterns'
 
 export const ReaderNavButton = ({
 	href,
