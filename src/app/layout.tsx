@@ -54,7 +54,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
 		<body
 			className={macrogrid({
-				_dark: { color: 'fg.muted' },
+				_osDark: { color: 'fg.muted' },
 				background: 'bg.surface',
 				color: 'fg',
 				fontSize: 'base',

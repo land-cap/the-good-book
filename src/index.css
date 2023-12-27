@@ -6,6 +6,10 @@
     q::before, q::before {
         all: unset;
     }
+
+    button {
+        cursor: pointer !important;
+    }
 }
 
 @layer base {

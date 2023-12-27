@@ -7,7 +7,7 @@ export const iconRecipe = cva({
 		// @ts-ignore
 		'-webkit-font-feature-settings': "'liga'",
 		'-webkit-font-smoothing': 'antialiased',
-		_dark: { '--grad': -25 },
+		_osDark: { '--grad': -25 },
 		direction: 'ltr',
 		display: 'inline-flex',
 		'font-variation-settings':
