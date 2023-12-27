@@ -1,10 +1,11 @@
 import { css } from 'styled-system/css'
-import { Icon } from '~/components/atoms/Icon/Icon'
-import { flex } from '../../../styled-system/patterns'
+import { flex } from 'styled-system/patterns'
+import { Icon } from '../atoms'
 
 export const Footer = () => (
 	<footer
-		className={css({
+		className={flex({
+			align: 'center',
 			color: 'fg.subtle',
 			fontSize: 'xs',
 			gridColumn: 'content',
@@ -12,6 +13,7 @@ export const Footer = () => (
 			mb: 'calc(token(spacing.20) + token(spacing.14) + token(spacing.safe_area_bottom))',
 			mt: '20',
 			mx: 'auto',
+			placeContent: 'center',
 			sm: {
 				mb: 'calc(token(spacing.32) + token(spacing.14) + token(spacing.safe_area_bottom))',
 				mt: '32',
@@ -20,19 +22,19 @@ export const Footer = () => (
 			w: 'full',
 		})}
 	>
-		<p className={flex({ placeContent: 'center' })}>
+		<p className={flex({ align: 'center', placeContent: 'center' })}>
 			Designed & developed with&#32;
 			<Icon
 				name="favorite"
 				fill
-				size={16}
-				className="mx-1 inline-flex text-fgFaded"
+				size={4}
+				className={css({ color: 'fg.faded', display: 'inline-flex', mx: '1' })}
 			/>
 			by&nbsp;
 			<a
 				href="https://github.com/land-cap"
 				target="_blank"
-				className="font-bold underline"
+				className={css({ fontWeight: 'bold', textDecoration: 'underline' })}
 			>
 				land-cap
 			</a>

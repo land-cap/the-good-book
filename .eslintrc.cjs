@@ -11,7 +11,6 @@ const config = {
 		'plugin:@typescript-eslint/stylistic-type-checked',
 		'plugin:prettier/recommended',
 		'plugin:storybook/recommended',
-		'plugin:tailwindcss/recommended',
 	],
 	'ignorePatterns': ['/styled-system/*'],
 	rules: {
