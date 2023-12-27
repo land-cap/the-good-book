@@ -6,20 +6,20 @@ import { wChildren } from '~/component-helpers'
 const HeaderContainer = wChildren(({ children }) => (
 	<header
 		className={subgrid({
+			bg: 'bg.surface',
 			column: 'fullbleed',
 			top: 0,
-			bg: 'bg.surface',
 		})}
 	>
 		<styled.nav
 			className={flex({
-				gridColumn: 'content',
-				borderBottom: '1px solid token(colors.border.emphasized)',
-				h: '14',
-				direction: 'row',
 				align: 'center',
-				justify: 'space-between',
+				borderBottom: '1px solid token(colors.border.emphasized)',
+				direction: 'row',
 				gap: '6',
+				gridColumn: 'content',
+				h: '14',
+				justify: 'space-between',
 			})}
 		>
 			{children}

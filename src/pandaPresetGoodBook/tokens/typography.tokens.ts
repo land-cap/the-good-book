@@ -1,11 +1,11 @@
 import { defineTokens } from '@pandacss/dev'
 
 export const fonts = defineTokens.fonts({
-	sans: { value: 'var(--font-sans)' },
 	mono: { value: 'var(--font-mono)' },
+	sans: { value: 'var(--font-sans)' },
 })
 
 export const fontWeights = defineTokens.fontWeights({
-	bold: { value: '700' },
 	blacker: { value: '1000' },
+	bold: { value: '700' },
 })

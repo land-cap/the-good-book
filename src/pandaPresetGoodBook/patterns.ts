@@ -1,5 +1,12 @@
 import { defineConfig, definePattern } from '@pandacss/dev'
 
+export enum GRID_COLUMN {
+	Fullbleed = 'fullbleed',
+	Content = 'content',
+	MarginLeft = 'margin-left',
+	MarginRight = 'margin-right',
+}
+
 const macrogrid = definePattern({
 	transform: () => ({
 		display: 'grid',
@@ -15,13 +22,13 @@ const subgrid = definePattern({
 	properties: {
 		column: {
 			type: 'enum',
-			value: ['fullbleed', 'content', 'margin-left', 'margin-right'],
+			value: Object.values(GRID_COLUMN),
 		},
 	},
-	transform: ({ column }) => ({
+	transform: ({ column }: { column: GRID_COLUMN }) => ({
 		display: 'grid',
-		gridTemplateColumns: 'subgrid',
 		gridColumn: column,
+		gridTemplateColumns: 'subgrid',
 	}),
 })
 

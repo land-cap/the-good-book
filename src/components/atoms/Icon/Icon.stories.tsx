@@ -2,11 +2,11 @@ import type { Meta } from '@storybook/react'
 import { Icon, iconSizeList } from './Icon'
 
 const meta: Meta<typeof Icon> = {
-	title: 'Icon',
 	component: Icon,
 	parameters: {
 		layout: 'centered',
 	},
+	title: 'Icon',
 }
 
 export default meta

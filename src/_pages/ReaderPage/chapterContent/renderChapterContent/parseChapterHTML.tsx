@@ -10,17 +10,17 @@ const transformAttributeName = (name: string) => {
 }
 
 const parser = new XMLParser({
-	preserveOrder: true,
-	ignoreAttributes: false,
-	attributeNamePrefix: '',
-	transformAttributeName,
-	attributesGroupName: 'attrs',
 	alwaysCreateTextNode: false,
-	unpairedTags: ['hr', 'br'],
-	processEntities: false,
+	attributeNamePrefix: '',
+	attributesGroupName: 'attrs',
 	htmlEntities: true,
+	ignoreAttributes: false,
+	preserveOrder: true,
+	processEntities: false,
 	removeNSPrefix: true,
+	transformAttributeName,
 	trimValues: false,
+	unpairedTags: ['hr', 'br'],
 })
 
 export const parseChapterHTML = (chapterContent: string) =>

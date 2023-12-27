@@ -7,16 +7,16 @@ import { utilities } from './utilities'
 
 export const pandaPresetGoodBook = definePreset({
 	globalCss,
+	patterns,
 	theme: {
 		extend: {
+			semanticTokens,
 			tokens: {
 				colors,
-				fonts,
 				fontWeights,
+				fonts,
 			},
-			semanticTokens,
 		},
 	},
 	utilities,
-	patterns,
 })

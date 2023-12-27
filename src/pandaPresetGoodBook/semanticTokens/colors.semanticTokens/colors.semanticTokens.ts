@@ -5,6 +5,6 @@ import { border } from './border.semanticTokens'
 
 export const colors = defineSemanticTokens.colors({
 	bg,
-	fg,
 	border,
+	fg,
 })
