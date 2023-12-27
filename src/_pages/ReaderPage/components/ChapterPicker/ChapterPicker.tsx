@@ -1,7 +1,8 @@
 'use client'
 
 import { Dialog, Portal } from '@ark-ui/react'
-import { ChapterPickerContainer } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerContainer'
+import { ChapterPickerContainer } from './ChapterPickerContainer'
+import { ChapterPickerHeader } from './ChapterPickerHeader'
 import { ChapterPickerTrigger } from './ChapterPickerTrigger'
 
 export const ChapterPicker = () => (
@@ -9,9 +10,7 @@ export const ChapterPicker = () => (
 		<ChapterPickerTrigger>Open Dialog</ChapterPickerTrigger>
 		<Portal>
 			<ChapterPickerContainer>
-				<Dialog.Title>Dialog Title</Dialog.Title>
-				<Dialog.Description>Dialog Description</Dialog.Description>
-				<Dialog.CloseTrigger>Close</Dialog.CloseTrigger>
+				<ChapterPickerHeader />
 			</ChapterPickerContainer>
 		</Portal>
 	</Dialog.Root>
