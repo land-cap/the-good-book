@@ -1,6 +1,7 @@
 import { css, cx } from 'styled-system/css'
-import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
+import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 import { Separator } from '~/components'
+import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const Toolbar = ({
@@ -40,21 +41,7 @@ export const Toolbar = ({
 				})}
 			>
 				<ReaderNavButton href={prevChapterHref} direction="left" />
-				<button
-					className={center({
-						_active: { color: 'fg.subtle' },
-						_hover: { bg: 'bg.subtle' },
-						flexGrow: 1,
-						fontWeight: 'bold',
-						h: 'full',
-						px: '4',
-						transition: 'colors',
-						transitionDuration: 'fast',
-						transitionTimingFunction: 'ease-in-out',
-					})}
-				>
-					{bookName} {chapter}
-				</button>
+				<ChapterPicker />
 				<ReaderNavButton href={nextChapterHref} direction="right" />
 			</div>
 		</div>
