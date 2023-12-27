@@ -4,21 +4,21 @@ export const ChapterContentContainer = styled('div', {
 	base: {
 		'& :not(:where([data-component="Quote"], [data-component="Paragraph"])) + :where([data-component="Quote"], [data-component="Paragraph"])':
 			{
-				mt: 'reader-gap',
+				mt: 'reader_gap',
 			},
 		'& :not([data-component="Quote"]) + [data-component="Quote"]': {
-			mt: 'reader-gap',
+			mt: 'reader_gap',
 		},
 		'& :where([data-component="LargeSectionTitle"], [data-component="LargeSectionReference"], [data-component="LargeSectionCrossReference"]) + [data-component="SectionTitle"]':
 			{
-				mt: 'reader-gap',
+				mt: 'reader_gap',
 			},
 		'& :where([data-component="Quote"], [data-component="Paragraph"]) + :not(*:where([data-component="Quote"], [data-component="Paragraph"]))':
 			{
-				mt: 'reader-gap',
+				mt: 'reader_gap',
 			},
 		'& [data-component="Quote"] + :not([data-component="Quote"])': {
-			mt: 'reader-gap',
+			mt: 'reader_gap',
 		},
 		fontSize: 'base',
 		gridColumn: 'content',
@@ -27,6 +27,6 @@ export const ChapterContentContainer = styled('div', {
 			lineHeight: '2.25em',
 			textStyle: 'lg',
 		},
-		mt: 'reader-gap',
+		mt: 'reader_gap',
 	},
 })
