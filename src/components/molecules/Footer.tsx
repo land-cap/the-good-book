@@ -1,8 +1,26 @@
+import { css } from 'styled-system/css'
 import { Icon } from '~/components/atoms/Icon/Icon'
+import { flex } from '../../../styled-system/patterns'
 
 export const Footer = () => (
-	<footer className="col-[content] mx-auto mb-[calc(5rem_+_3.5rem_+_env(safe-area-inset-bottom,0))] mt-20 w-full text-center text-xs leading-relaxed text-fgSubtle sm:my-32 sm:mb-[calc(8rem_+_4rem_+_env(safe-area-inset-bottom,0))]">
-		<p className="flex place-content-center items-center">
+	<footer
+		className={css({
+			color: 'fg.subtle',
+			fontSize: 'xs',
+			gridColumn: 'content',
+			lineHeight: 'relaxed',
+			mb: 'calc(token(spacing.20) + token(spacing.14) + token(spacing.safe_area_bottom))',
+			mt: '20',
+			mx: 'auto',
+			sm: {
+				mb: 'calc(token(spacing.32) + token(spacing.14) + token(spacing.safe_area_bottom))',
+				mt: '32',
+			},
+			textAlign: 'center',
+			w: 'full',
+		})}
+	>
+		<p className={flex({ placeContent: 'center' })}>
 			Designed & developed with&#32;
 			<Icon
 				name="favorite"

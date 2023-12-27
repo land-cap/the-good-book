@@ -25,6 +25,12 @@ export const fg = defineSemanticTokens.colors({
 			base: '{colors.white}',
 		},
 	},
+	jesus_words: {
+		value: {
+			_osDark: '{colors.red.600}',
+			base: '{colors.red.400}',
+		},
+	},
 	muted: {
 		value: {
 			_osDark: '{colors.neutral.300}',

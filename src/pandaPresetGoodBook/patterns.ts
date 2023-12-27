@@ -8,13 +8,14 @@ export enum GRID_COLUMN {
 }
 
 const macrogrid = definePattern({
-	transform: () => ({
+	transform: (props) => ({
 		display: 'grid',
 		gridAutoFlow: 'row',
 		gridTemplateColumns: {
 			base: `[fullbleed-start margin-left-start] 2rem [margin-left-end content-start] auto [content-end margin-right-start] 2rem [margin-right-end fullbleed-end] 0`,
 			sm: '[fullbleed-start margin-left-start] 1fr [margin-left-end content-start] minmax(auto,min(calc(75% - 4rem),calc(42rem - 4rem))) [content-end margin-right-start] 1fr [margin-right-end fullbleed-end] 0',
 		},
+		...props,
 	}),
 })
 
@@ -25,10 +26,11 @@ const subgrid = definePattern({
 			value: Object.values(GRID_COLUMN),
 		},
 	},
-	transform: ({ column }: { column: GRID_COLUMN }) => ({
+	transform: ({ column, ...props }) => ({
 		display: 'grid',
-		gridColumn: column,
+		gridColumn: column as GRID_COLUMN,
 		gridTemplateColumns: 'subgrid',
+		...props,
 	}),
 })
 

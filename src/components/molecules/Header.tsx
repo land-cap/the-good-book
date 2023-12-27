@@ -8,10 +8,11 @@ const HeaderContainer = wChildren(({ children }) => (
 		className={subgrid({
 			bg: 'bg.surface',
 			column: 'fullbleed',
+			h: 'fit-content',
 			top: 0,
 		})}
 	>
-		<styled.nav
+		<nav
 			className={flex({
 				align: 'center',
 				borderBottom: '1px solid token(colors.border.emphasized)',
@@ -23,7 +24,7 @@ const HeaderContainer = wChildren(({ children }) => (
 			})}
 		>
 			{children}
-		</styled.nav>
+		</nav>
 	</header>
 ))
 

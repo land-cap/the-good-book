@@ -126,7 +126,6 @@ export const renderChapterContentFromOM = (
 		if (nodeClass === 'cross-reference') {
 			return acc
 			//return [
-			//	...acc,
 			//	<CrossReference
 			//		key={i}
 			//		isStudyMode={isStudyMode}

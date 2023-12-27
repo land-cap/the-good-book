@@ -1,12 +1,21 @@
 import { type ReactNode } from 'react'
+import { css, cx } from 'styled-system/css'
 import { twMerge } from 'tailwind-merge'
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="LargeSectionTitle"
-		className={twMerge(
-			'text-xs md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
-		)}
+		className={css({
+			color: 'fg.subtle',
+			letterSpacing: '0.05em',
+			lineHeight: '2.25em',
+			md: {
+				lineHeight: '2.5em',
+				textStyle: 'sm',
+			},
+			textStyle: 'xs',
+			userSelect: 'none',
+		})}
 	>
 		{children}
 	</h2>
@@ -20,7 +29,17 @@ export const LargeSectionReference = ({
 	<h3
 		data-component="LargeSectionReference"
 		className={twMerge(
-			'text-xs md:text-sm tracking-[0.05em] leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
+			css({
+				color: 'fg.subtle',
+				letterSpacing: '0.05em',
+				lineHeight: '2.25em',
+				md: {
+					lineHeight: '2.5em',
+					textStyle: 'sm',
+				},
+				textStyle: 'xs',
+				userSelect: 'none',
+			}),
 		)}
 	>
 		({children})
@@ -35,7 +54,17 @@ export const LargeSectionCrossReference = ({
 	<h4
 		data-component="LargeSectionCrossReference"
 		className={twMerge(
-			'text-xs md:text-sm leading-[2.25em] md:leading-[2.5em] text-fgSubtle select-none',
+			css({
+				color: 'fg.subtle',
+				letterSpacing: '0.05em',
+				lineHeight: '2.25em',
+				md: {
+					lineHeight: '2.5em',
+					textStyle: 'sm',
+				},
+				textStyle: 'xs',
+				userSelect: 'none',
+			}),
 		)}
 	>
 		{children}
@@ -45,19 +74,28 @@ export const LargeSectionCrossReference = ({
 export const SectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="SectionTitle"
-		className="select-none text-[1.25em] text-fgSubtle"
+		className={css({
+			color: 'fg.subtle',
+			fontSize: '1.25em',
+			userSelect: 'none',
+		})}
 	>
 		{children}
 	</h2>
 )
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
-	<h2
+	<p
 		data-component="FancyAside"
-		className={twMerge('font-mono italic text-fgSubtle select-none')}
+		className={css({
+			color: 'fg.subtle',
+			fontFamily: 'mono',
+			fontStyle: 'italic',
+			userSelect: 'none',
+		})}
 	>
 		{children}
-	</h2>
+	</p>
 )
 
 export const Paragraph = ({ children }: { children: ReactNode }) => (
@@ -76,16 +114,27 @@ export const VerseLabel = ({
 	return (
 		<span
 			data-component="VerseLabel"
-			className={twMerge(
-				'select-none',
-				isStudyMode && 'absolute -left-2 sm:-left-3 top-0 -translate-x-full',
+			className={cx(
+				css({ userSelect: 'none' }),
+				isStudyMode &&
+					css({
+						left: '-2',
+						position: 'absolute',
+						sm: { left: '-3' },
+						top: 0,
+						transform: 'translateX(-100%)',
+					}),
 			)}
 		>
 			{!isStudyMode && ' '}
 			<LabelTag
-				className={twMerge(
-					'text-[0.75em] font-mono text-fgSubtle',
-					isStudyMode && 'text-[0.625rem] sm:text-[0.75em]',
+				className={cx(
+					css({ color: 'fg.subtle', fontFamily: 'mono', fontSize: '0.75em' }),
+					isStudyMode &&
+						css({
+							fontSize: '0.625rem',
+							sm: { fontSize: '0.75em' },
+						}),
 				)}
 			>
 				{verseNumber}
@@ -101,26 +150,39 @@ export const CrossReference = ({
 	referenceList: string
 	isStudyMode: boolean
 }) => (
-	<span data-component="CrossReference" className="cursor-pointer select-none">
+	<span
+		data-component="CrossReference"
+		className={css({ cursor: 'pointer', userSelect: 'none' })}
+	>
 		&nbsp;
-		<sup className="font-sans text-[0.75em] text-fgFaded [font-weight:1000]">
+		<sup
+			className={css({
+				color: 'fg.faded',
+				fontFamily: 'sans',
+				fontSize: '0.75em',
+				fontWeight: '1000',
+			})}
+		>
 			&dagger;
 		</sup>
-		<span className="hidden">{referenceList}</span>
+		<div className={css({ display: 'none' })}>{referenceList}</div>
 	</span>
 )
 
 export const JesusWords = ({ children }: { children: ReactNode }) => (
 	<span
 		data-component="JesusWords"
-		className={twMerge('text-red-600 dark:text-red-400')}
+		className={css({ color: 'fg.jesus_words' })}
 	>
 		{children}
 	</span>
 )
 
 export const Quote = ({ children }: { children: ReactNode }) => (
-	<span data-component="Quote" className={twMerge('block font-mono')}>
+	<span
+		data-component="Quote"
+		className={css({ display: 'block', fontFamily: 'mono' })}
+	>
 		{children}
 	</span>
 )
