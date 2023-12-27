@@ -2,6 +2,7 @@
 
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { subgrid } from 'styled-system/patterns'
+import { ChapterPickerListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerListItem'
 import { ChapterPickerContainer } from './ChapterPickerContainer'
 import { ChapterPickerHeader } from './ChapterPickerHeader'
 import { ChapterPickerList } from './ChapterPickerList'
@@ -27,12 +28,12 @@ export const ChapterPicker = () => (
 					<ChapterPickerHeader />
 					<Tabs.Content value="book" className={tabsContentCss}>
 						<ChapterPickerList>
-							<li>Book List Item</li>
+							<ChapterPickerListItem>Book List Item</ChapterPickerListItem>
 						</ChapterPickerList>
 					</Tabs.Content>
 					<Tabs.Content value="chapter" className={tabsContentCss}>
 						<ChapterPickerList>
-							<li>Chapter List Item</li>
+							<ChapterPickerListItem>Chapter List Item</ChapterPickerListItem>
 						</ChapterPickerList>
 					</Tabs.Content>
 				</Tabs.Root>

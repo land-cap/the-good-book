@@ -7,6 +7,7 @@ export const ChapterPickerList = ({ children }: { children: ReactNode }) => (
 			gridColumn: 'fullbleed',
 			h: 'full',
 			overflowY: 'auto',
+			py: '4',
 		})}
 	>
 		{children}
