@@ -24,7 +24,11 @@ export const ChapterPickerChapterListItem = ({
 			w: '16',
 		})}
 	>
-		<Link href={href} className={center({ inset: 0, position: 'absolute' })}>
+		<Link
+			href={href}
+			prefetch
+			className={center({ inset: 0, position: 'absolute' })}
+		>
 			{children}
 		</Link>
 	</li>
