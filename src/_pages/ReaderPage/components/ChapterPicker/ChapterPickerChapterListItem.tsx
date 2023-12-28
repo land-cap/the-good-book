@@ -18,15 +18,15 @@ export const ChapterPickerChapterListItem = forwardRef(
 		<li
 			ref={ref}
 			className={css({
-				_active: { color: 'fg.subtle' },
-				_hover: { bg: 'bg.subtle' },
+				_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+				_canHover: { _hover: { bg: 'bg.subtle' }, transitionDelay: 'fastest' },
 				aspectRatio: '1/1',
 				placeContent: 'center',
 				placeItems: 'center',
 				position: 'relative',
 				transition: 'colors',
 				transitionDuration: 'fast',
-				transitionTimingFunction: 'ease-in-out',
+				transitionTimingFunction: 'ease-out',
 				w: 'full',
 			})}
 		>
