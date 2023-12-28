@@ -1,9 +1,11 @@
 import { css, cx } from 'styled-system/css'
-import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
+import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 import { Separator } from '~/components'
+import { getBookList } from '~/db'
+import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton } from './ReaderNavButton'
 
-export const Toolbar = ({
+export const Toolbar = async ({
 	nextChapterHref,
 	prevChapterHref,
 	chapter,
@@ -13,50 +15,44 @@ export const Toolbar = ({
 	nextChapterHref: string
 	chapter: string
 	bookName: string
-}) => (
-	<div
-		className={cx(
-			macrogrid({
-				bg: 'bg.surface',
-				bottom: 0,
-				gridColumn: 'fullbleed',
-				position: 'fixed',
-				w: 'full',
-			}),
-		)}
-	>
-		<Separator className={css({ gridColumn: 'content' })} />
+}) => {
+	const bookList = await getBookList()
+
+	return (
 		<div
-			className={subgrid({
-				column: 'content',
-				pb: 'safe_area_bottom',
-				userSelect: 'none',
-			})}
+			className={cx(
+				macrogrid({
+					bg: 'bg.surface',
+					bottom: 0,
+					gridColumn: 'fullbleed',
+					position: 'fixed',
+					w: 'full',
+				}),
+			)}
 		>
+			<Separator className={css({ gridColumn: 'content' })} />
 			<div
-				className={flex({
-					alignItems: 'center',
-					h: '14',
+				className={subgrid({
+					column: 'content',
+					pb: 'safe_area_bottom',
+					userSelect: 'none',
 				})}
 			>
-				<ReaderNavButton href={prevChapterHref} direction="left" />
-				<button
-					className={center({
-						_active: { color: 'fg.subtle' },
-						_hover: { bg: 'bg.subtle' },
-						flexGrow: 1,
-						fontWeight: 'bold',
-						h: 'full',
-						px: '4',
-						transition: 'colors',
-						transitionDuration: 'fast',
-						transitionTimingFunction: 'ease-in-out',
+				<div
+					className={flex({
+						alignItems: 'center',
+						h: '14',
 					})}
 				>
-					{bookName} {chapter}
-				</button>
-				<ReaderNavButton href={nextChapterHref} direction="right" />
+					<ReaderNavButton href={prevChapterHref} direction="left" />
+					<ChapterPicker
+						chapter={chapter}
+						bookName={bookName}
+						bookList={bookList}
+					/>
+					<ReaderNavButton href={nextChapterHref} direction="right" />
+				</div>
 			</div>
 		</div>
-	</div>
-)
+	)
+}
