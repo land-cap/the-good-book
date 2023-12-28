@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { subgrid } from 'styled-system/patterns'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
-import type { ReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { getBookList } from '~/db'
 import { ChapterPickerBookList } from './ChapterPickerBookList'
 import { ChapterPickerBookListItem } from './ChapterPickerBookListItem'
@@ -28,11 +28,11 @@ export const ChapterPicker = ({
 	chapter,
 	bookList,
 }: {
-	chapter: string
+	chapter: number
 	bookName: string
 	bookList: Awaited<ReturnType<typeof getBookList>>
 }) => {
-	const { readerMode } = useParams<ReaderPageParams>()
+	const { readerMode } = useParams<TReaderPageParams>()
 
 	const [tab, setTab] = useState<string | null>('book')
 

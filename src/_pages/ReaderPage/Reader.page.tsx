@@ -1,9 +1,9 @@
 import { getBookWithCache, getChapterWithCache } from '~/db'
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
 import { Toolbar } from './components/Toolbar'
-import { READER_MODE, type ReaderPageParams } from './ReaderPage.types'
+import { READER_MODE, type TReaderPageParams } from './ReaderPage.types'
 
-export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
+export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 	const { bookCode, chapter, readerMode } = params
 
 	const isStudyMode = readerMode === READER_MODE.Study
@@ -25,17 +25,14 @@ export const ReaderPage = async ({ params }: { params: ReaderPageParams }) => {
 		throw new Error('No book data')
 	}
 
-	const prevChapterHref = `/${readerMode}/${bookCode}/${Number(chapter) - 1}`
-	const nextChapterHref = `/${readerMode}/${bookCode}/${Number(chapter) + 1}`
-
 	return (
 		<>
 			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 			<Toolbar
-				prevChapterHref={prevChapterHref}
-				nextChapterHref={nextChapterHref}
-				chapter={chapter}
 				bookName={book.name}
+				bookCode={bookCode}
+				chapter={Number(chapter)}
+				readerMode={readerMode}
 			/>
 		</>
 	)
