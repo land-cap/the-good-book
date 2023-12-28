@@ -1,12 +1,15 @@
 import type { ReactNode } from 'react'
 import { subgrid } from 'styled-system/patterns'
 
-export const ChapterPickerListItem = ({
+export const ChapterPickerBookListItem = ({
 	children,
+	onClick,
 }: {
 	children: ReactNode
+	onClick: () => void
 }) => (
 	<li
+		onClick={onClick}
 		className={subgrid({
 			_hover: { bg: 'bg.subtle' },
 			column: 'fullbleed',
