@@ -3,7 +3,7 @@ export const enum READER_MODE {
 	Read = 'read',
 }
 
-export type ReaderPageParams = {
+export type TReaderPageParams = {
 	bookCode: string
 	chapter: string
 	readerMode: READER_MODE
