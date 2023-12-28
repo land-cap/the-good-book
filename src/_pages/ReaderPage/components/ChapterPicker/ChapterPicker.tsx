@@ -2,7 +2,7 @@
 
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid, subgrid } from 'styled-system/patterns'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
@@ -49,6 +49,19 @@ export const ChapterPicker = ({
 		[selectedBook],
 	)
 
+	const chapterListItemRef = useRef<HTMLLIElement>()
+
+	const [chapterListItemHeight, setChapterListItemHeight] = useState<number>(0)
+
+	useEffect(() => {
+		window.addEventListener('resize', () => {
+			chapterListItemRef.current &&
+				setChapterListItemHeight(
+					chapterListItemRef.current?.getBoundingClientRect().height,
+				)
+		})
+	}, [])
+
 	return (
 		<Dialog.Root>
 			<ChapterPickerTrigger>
@@ -83,10 +96,21 @@ export const ChapterPicker = ({
 							</ChapterPickerBookList>
 						</Tabs.Content>
 						<Tabs.Content value="chapter" className={tabsContentCss}>
-							<ChapterPickerChapterList>
+							<ChapterPickerChapterList itemHeight={chapterListItemHeight}>
 								{chapterList?.map((_, i) => (
 									<ChapterPickerChapterListItem
 										key={i}
+										ref={
+											i === 0
+												? (el) => {
+														if (el) {
+															chapterListItemRef.current = el
+															const height = el.getBoundingClientRect().height
+															setChapterListItemHeight(height)
+														}
+												  }
+												: undefined
+										}
 										href={`/${readerMode}/${selectedBook?.book.code.toLowerCase()}/${
 											i + 1
 										}`}
