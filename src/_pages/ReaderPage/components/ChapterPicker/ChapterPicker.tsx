@@ -3,7 +3,7 @@
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { macrogrid, subgrid } from 'styled-system/patterns'
+import { macrogrid } from 'styled-system/patterns'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -72,8 +72,8 @@ export const ChapterPicker = ({
 					<Tabs.Root
 						value={tab}
 						onValueChange={(e) => setTab(e.value)}
-						className={subgrid({
-							column: 'fullbleed',
+						className={macrogrid({
+							gridColumn: 'fullbleed',
 							gridTemplateRows: 'auto minmax(auto,1fr)',
 							h: 'full',
 							overflowY: 'hidden',
