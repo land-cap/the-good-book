@@ -14,14 +14,14 @@ export const ChapterPickerChapterListItem = ({
 		className={css({
 			_active: { color: 'fg.subtle' },
 			_hover: { bg: 'bg.subtle' },
-			h: '16',
+			aspectRatio: '1/1',
 			placeContent: 'center',
 			placeItems: 'center',
 			position: 'relative',
 			transition: 'colors',
 			transitionDuration: 'fast',
 			transitionTimingFunction: 'ease-in-out',
-			w: '16',
+			w: 'full',
 		})}
 	>
 		<Link
