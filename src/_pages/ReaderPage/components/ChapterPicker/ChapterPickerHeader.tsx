@@ -25,19 +25,11 @@ const tabsTriggerCss = css({
 	},
 	_active: { color: 'fg.subtle' },
 	_hover: { bg: 'bg.subtle' },
-	color: 'fg.subtle',
+	color: 'fg.faded',
 	fontWeight: 'bold',
 	h: 'full',
 	px: '4',
 	transition: 'colors',
-	transitionDuration: 'fast',
-	transitionTimingFunction: 'ease-in-out',
-})
-
-const tabsIndicatorCss = css({
-	bg: 'fg',
-	height: '4px',
-	transform: 'translateY(calc(-100% + 1px))',
 	transitionDuration: 'fast',
 	transitionTimingFunction: 'ease-in-out',
 })
@@ -54,7 +46,6 @@ export const ChapterPickerHeader = () => (
 				<Tabs.Trigger className={tabsTriggerCss} value="chapter">
 					Chapter
 				</Tabs.Trigger>
-				<Tabs.Indicator className={tabsIndicatorCss} />
 			</Tabs.List>
 			<ButtonClose />
 		</div>
