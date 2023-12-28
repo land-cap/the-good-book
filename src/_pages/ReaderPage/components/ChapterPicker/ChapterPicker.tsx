@@ -2,8 +2,9 @@
 
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid } from 'styled-system/patterns'
+import { ChapterPicker__ListSectionLabel } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPicker__ListSectionLabel'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -54,12 +55,14 @@ export const ChapterPicker = ({
 	const [chapterListItemHeight, setChapterListItemHeight] = useState<number>(0)
 
 	useEffect(() => {
-		window.addEventListener('resize', () => {
+		const handleWindowResize = () => {
 			chapterListItemRef.current &&
 				setChapterListItemHeight(
 					chapterListItemRef.current?.getBoundingClientRect().height,
 				)
-		})
+		}
+		window.addEventListener('resize', handleWindowResize)
+		return () => window.removeEventListener('resize', handleWindowResize)
 	}, [])
 
 	return (
@@ -82,16 +85,26 @@ export const ChapterPicker = ({
 						<ChapterPickerHeader />
 						<Tabs.Content value="book" className={tabsContentCss}>
 							<ChapterPickerBookList>
+								<ChapterPicker__ListSectionLabel>
+									Vechiul Testament
+								</ChapterPicker__ListSectionLabel>
 								{bookList.map((book) => (
-									<ChapterPickerBookListItem
-										key={book.book.code}
-										onClick={() => {
-											setSelectedBook(book)
-											setTab('chapter')
-										}}
-									>
-										{book.name}
-									</ChapterPickerBookListItem>
+									<Fragment key={book.book.code}>
+										{book.book.code === 'MAT' ? (
+											<ChapterPicker__ListSectionLabel>
+												Noul Testament
+											</ChapterPicker__ListSectionLabel>
+										) : null}
+										<ChapterPickerBookListItem
+											key={book.book.code}
+											onClick={() => {
+												setSelectedBook(book)
+												setTab('chapter')
+											}}
+										>
+											{book.name}
+										</ChapterPickerBookListItem>
+									</Fragment>
 								))}
 							</ChapterPickerBookList>
 						</Tabs.Content>
