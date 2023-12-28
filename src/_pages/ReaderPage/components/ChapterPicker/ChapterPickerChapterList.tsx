@@ -3,18 +3,23 @@ import { subgrid } from 'styled-system/patterns'
 
 export const ChapterPickerChapterList = ({
 	children,
+	itemHeight,
 }: {
 	children: ReactNode
-}) => (
-	<ul
-		className={subgrid({
-			display: 'grid',
-			gridColumn: 'content',
-			gridTemplateColumns: 'repeat(auto-fill, minmax(token(sizes.16), 1fr))',
-			h: 'fit-content',
-			py: '4',
-		})}
-	>
-		{children}
-	</ul>
-)
+	itemHeight: number
+}) => {
+	const paddingX = (itemHeight - 16) / 2
+	return (
+		<ul
+			className={subgrid({
+				display: 'grid',
+				gridColumn: 'content',
+				gridTemplateColumns: 'repeat(auto-fill, minmax(token(sizes.16), 1fr))',
+				h: 'fit-content',
+			})}
+			style={{ paddingBottom: paddingX, paddingTop: paddingX }}
+		>
+			{children}
+		</ul>
+	)
+}
