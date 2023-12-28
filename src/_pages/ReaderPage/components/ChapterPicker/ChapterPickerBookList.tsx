@@ -10,7 +10,7 @@ export const ChapterPickerBookList = ({
 		className={subgrid({
 			gridColumn: 'fullbleed',
 			h: 'fit-content',
-			py: '4',
+			pb: '4',
 		})}
 	>
 		{children}
