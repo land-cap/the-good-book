@@ -3,26 +3,20 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const bg = defineSemanticTokens.colors({
 	canvas: {
 		value: {
-			_osDark: '{colors.neutral.950}',
-			base: '{colors.neutral.25}',
+			_osDark: '{colors.neutral.900}',
+			base: '{colors.white}',
 		},
 	},
 	muted: {
 		value: {
 			_osDark: '{colors.neutral.700}',
-			base: '{colors.neutral.100}',
+			base: '{colors.neutral.200}',
 		},
 	},
 	subtle: {
 		value: {
 			_osDark: '{colors.neutral.800}',
-			base: '{colors.neutral.50}',
-		},
-	},
-	surface: {
-		value: {
-			_osDark: '{colors.neutral.900}',
-			base: '{colors.white}',
+			base: '{colors.neutral.100}',
 		},
 	},
 })

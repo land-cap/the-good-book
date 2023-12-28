@@ -22,7 +22,7 @@ export const Toolbar = async ({
 		<div
 			className={cx(
 				macrogrid({
-					bg: 'bg.surface',
+					bg: 'bg.canvas',
 					bottom: 0,
 					gridColumn: 'fullbleed',
 					position: 'fixed',

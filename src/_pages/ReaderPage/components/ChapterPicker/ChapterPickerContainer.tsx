@@ -17,7 +17,7 @@ export const ChapterPickerContainer = ({
 		>
 			<div
 				className={macrogrid({
-					bg: 'bg.surface',
+					bg: 'bg.canvas',
 					h: 'full',
 				})}
 			>

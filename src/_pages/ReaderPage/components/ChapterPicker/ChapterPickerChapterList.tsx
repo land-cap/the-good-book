@@ -12,7 +12,7 @@ export const ChapterPickerChapterList = ({
 			gridColumn: 'content',
 			gridTemplateColumns: 'repeat(auto-fill, minmax(token(sizes.16), 1fr))',
 			h: 'fit-content',
-			py: '5',
+			py: '4',
 		})}
 	>
 		{children}

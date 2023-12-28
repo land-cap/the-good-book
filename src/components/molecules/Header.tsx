@@ -8,7 +8,7 @@ import { Separator } from '../Separator'
 const HeaderContainer = wChildren(({ children }) => (
 	<header
 		className={subgrid({
-			bg: 'bg.surface',
+			bg: 'bg.canvas',
 			column: 'fullbleed',
 			h: 'fit-content',
 			top: 0,

@@ -55,7 +55,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
 		<body
 			className={macrogrid({
 				_osDark: { color: 'fg.muted' },
-				background: 'bg.surface',
+				background: 'bg.canvas',
 				color: 'fg',
 				fontSize: 'base',
 				gridAutoRows: 'min-content',
