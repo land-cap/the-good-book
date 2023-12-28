@@ -5,7 +5,7 @@ import { center } from 'styled-system/patterns'
 export const ChapterPickerTrigger = ({ children }: { children: ReactNode }) => (
 	<Dialog.Trigger
 		className={center({
-			_active: { color: 'fg.subtle' },
+			_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 			_hover: { bg: 'bg.subtle' },
 			flexGrow: 1,
 			fontWeight: 'bold',

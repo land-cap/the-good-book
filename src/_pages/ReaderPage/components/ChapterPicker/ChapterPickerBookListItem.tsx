@@ -11,11 +11,11 @@ export const ChapterPickerBookListItem = ({
 	<li
 		onClick={onClick}
 		className={subgrid({
-			_hover: { bg: 'bg.subtle' },
+			_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+			_canHover: { _hover: { bg: 'bg.subtle' }, transitionDelay: 'fastest' },
 			column: 'fullbleed',
 			cursor: 'pointer',
 			transition: 'colors',
-			transitionDelay: 'fastest',
 			transitionDuration: 'fastest',
 			transitionTimingFunction: 'ease-out',
 		})}

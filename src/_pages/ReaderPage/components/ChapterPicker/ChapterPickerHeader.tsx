@@ -6,12 +6,12 @@ import { Icon, Separator } from '~/components'
 const ButtonClose = () => (
 	<Dialog.CloseTrigger
 		className={center({
-			_active: { color: 'fg.subtle' },
-			_hover: { bg: 'bg.subtle' },
+			_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+			_canHover: { _hover: { bg: 'bg.subtle' } },
 			h: '14',
 			transition: 'colors',
 			transitionDuration: 'fast',
-			transitionTimingFunction: 'ease-in-out',
+			transitionTimingFunction: 'ease-out',
 			w: '14',
 		})}
 	>
@@ -23,15 +23,15 @@ const tabsTriggerCss = css({
 	'&[data-selected]': {
 		color: 'fg',
 	},
-	_active: { color: 'fg.subtle' },
-	_hover: { bg: 'bg.subtle' },
+	_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+	_canHover: { _hover: { bg: 'bg.subtle' } },
 	color: 'fg.faded',
 	fontWeight: 'bold',
 	h: 'full',
 	px: '4',
 	transition: 'colors',
 	transitionDuration: 'fast',
-	transitionTimingFunction: 'ease-in-out',
+	transitionTimingFunction: 'ease-out',
 })
 
 export const ChapterPickerHeader = () => (

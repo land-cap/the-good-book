@@ -13,14 +13,14 @@ export const ReaderNavButton = ({
 		prefetch
 		href={href}
 		className={flex({
-			_active: { color: 'fg.subtle' },
-			_hover: { bg: 'bg.subtle' },
+			_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+			_canHover: { _hover: { bg: 'bg.subtle' } },
 			h: '14',
 			placeContent: 'center',
 			placeItems: 'center',
 			transition: 'colors',
 			transitionDuration: 'fast',
-			transitionTimingFunction: 'ease-in-out',
+			transitionTimingFunction: 'ease-out',
 			w: '14',
 		})}
 	>
