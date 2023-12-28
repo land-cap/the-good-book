@@ -3,7 +3,7 @@
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import { subgrid } from 'styled-system/patterns'
+import { macrogrid, subgrid } from 'styled-system/patterns'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -14,7 +14,7 @@ import { ChapterPickerContainer } from './ChapterPickerContainer'
 import { ChapterPickerHeader } from './ChapterPickerHeader'
 import { ChapterPickerTrigger } from './ChapterPickerTrigger'
 
-const tabsContentCss = subgrid({
+const tabsContentCss = macrogrid({
 	'&[data-state=closed]': {
 		display: 'none',
 	},
