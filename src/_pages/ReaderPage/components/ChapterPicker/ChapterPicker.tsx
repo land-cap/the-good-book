@@ -29,12 +29,12 @@ const tabsContentCss = macrogrid({
 })
 
 export const ChapterPicker = ({
-	bookName,
-	chapter,
+	currBook,
+	currChapter,
 	bookList,
 }: {
-	chapter: number
-	bookName: string
+	currChapter: number
+	currBook: TBook
 	bookList: TBook[]
 }) => {
 	const { readerMode } = useParams<TReaderPageParams>()
@@ -44,15 +44,14 @@ export const ChapterPicker = ({
 	const [selectedBook, setSelectedBook] =
 		useState<Awaited<ReturnType<typeof getBookList>>[0]>()
 
+	useEffect(() => {
+		setSelectedBook(currBook)
+	}, [currBook])
+
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
 		() => splitWhen((book: TBook) => book.book.code === 'MAT')(bookList),
 		[bookList],
 	)
-
-	useEffect(() => {
-		const currBook = bookList.find((book) => book.name === bookName)
-		setSelectedBook(currBook)
-	}, [bookList, bookName])
 
 	const chapterList = useMemo(
 		() => selectedBook && Array(selectedBook.book.chapter_count).fill(0),
@@ -77,7 +76,7 @@ export const ChapterPicker = ({
 	return (
 		<Dialog.Root>
 			<Trigger_ChapterPicker>
-				{bookName} {chapter}
+				{currBook.name} {currChapter}
 			</Trigger_ChapterPicker>
 			<Portal>
 				<Container_ChapterPicker>
@@ -100,6 +99,7 @@ export const ChapterPicker = ({
 								{oldTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
 										key={book.book.code}
+										isCurrentBook={book.name === currBook.name}
 										onClick={() => {
 											setSelectedBook(book)
 											setTab('chapter')
@@ -115,6 +115,7 @@ export const ChapterPicker = ({
 								</ListSectionLabel_ChapterPicker>
 								{newTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
+										isCurrentBook={book.book.code === currBook.book.code}
 										key={book.book.code}
 										onClick={() => {
 											setSelectedBook(book)
