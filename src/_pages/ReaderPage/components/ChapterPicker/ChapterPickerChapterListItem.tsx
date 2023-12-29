@@ -25,7 +25,7 @@ export const ChapterPickerChapterListItem = forwardRef(
 				placeItems: 'center',
 				position: 'relative',
 				transition: 'colors',
-				transitionDuration: 'fast',
+				transitionDuration: 'fastest',
 				transitionTimingFunction: 'ease-out',
 				w: 'full',
 			})}

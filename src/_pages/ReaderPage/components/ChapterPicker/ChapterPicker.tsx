@@ -4,7 +4,7 @@ import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { macrogrid } from 'styled-system/patterns'
+import { macrogrid, subgrid } from 'styled-system/patterns'
 import { ChapterPicker__ListSectionLabel } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPicker__ListSectionLabel'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
@@ -20,6 +20,7 @@ const tabsContentCss = macrogrid({
 	'&[data-state=closed]': {
 		display: 'none',
 	},
+	fixStickyContainer: true,
 	gridColumn: 'fullbleed',
 	h: 'full',
 	overflowY: 'scroll',
@@ -81,11 +82,11 @@ export const ChapterPicker = ({
 					<Tabs.Root
 						value={tab}
 						onValueChange={(e) => setTab(e.value)}
-						className={macrogrid({
+						className={subgrid({
 							gridColumn: 'fullbleed',
 							gridTemplateRows: 'auto minmax(auto,1fr)',
 							h: 'full',
-							overflowY: 'hidden',
+							overflowY: 'clip',
 						})}
 					>
 						<ChapterPickerHeader />
