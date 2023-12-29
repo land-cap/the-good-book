@@ -2,7 +2,11 @@ import { Dialog } from '@ark-ui/react'
 import { type ReactNode } from 'react'
 import { center } from 'styled-system/patterns'
 
-export const ChapterPickerTrigger = ({ children }: { children: ReactNode }) => (
+export const Trigger_ChapterPicker = ({
+	children,
+}: {
+	children: ReactNode
+}) => (
 	<Dialog.Trigger
 		className={center({
 			_active: { bg: 'bg.subtle', color: 'fg.subtle' },

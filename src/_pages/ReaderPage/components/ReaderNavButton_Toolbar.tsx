@@ -3,7 +3,7 @@ import { flex } from 'styled-system/patterns'
 
 import { Icon } from '~/components'
 
-export const ReaderNavButton = ({
+export const ReaderNavButton_Toolbar = ({
 	href,
 	direction,
 }: {

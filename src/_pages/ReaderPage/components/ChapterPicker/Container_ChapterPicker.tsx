@@ -3,7 +3,7 @@ import { type ReactNode } from 'react'
 import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
-export const ChapterPickerContainer = ({
+export const Container_ChapterPicker = ({
 	children,
 }: {
 	children: ReactNode

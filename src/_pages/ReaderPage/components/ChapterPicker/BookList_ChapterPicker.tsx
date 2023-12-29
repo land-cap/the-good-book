@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 import { subgrid } from 'styled-system/patterns'
 
-export const ChapterPickerBookList = ({
+export const BookList_ChapterPicker = ({
 	children,
 }: {
 	children: ReactNode
