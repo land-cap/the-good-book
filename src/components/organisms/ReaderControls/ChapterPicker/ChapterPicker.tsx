@@ -42,6 +42,10 @@ export const ChapterPicker = ({
 
 	const [isOpen, setIsOpen] = useState(false)
 
+	useEffect(() => {
+		setIsOpen(false)
+	}, [currBook, currChapter])
+
 	const [tab, setTab] = useState<string | null>('book')
 
 	const [selectedBook, setSelectedBook] =
@@ -164,7 +168,6 @@ export const ChapterPicker = ({
 													: undefined
 											}
 											href={`/${readerMode}/${selectedBook.book.code.toLowerCase()}/${chapter}`}
-											onClick={() => setIsOpen(false)}
 											isCurrChapter={isCurrChapter}
 										>
 											{chapter}
