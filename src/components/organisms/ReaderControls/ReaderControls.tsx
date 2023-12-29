@@ -9,7 +9,7 @@ import { type TBook } from '~/db'
 
 import { Separator } from '../../atoms'
 import { ChapterPicker } from './ChapterPicker'
-import { ReaderNavButton_Toolbar } from './ReaderNavButton_Toolbar'
+import { ReaderNavButton_ReaderControls } from './ReaderNavButton_ReaderControls'
 
 export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 	const {
@@ -36,11 +36,11 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 
 	const prevBook = bookList[currBookIndex - 1]
 
-	const prevBookCode = prevBook?.book.code
+	const prevBookCode = prevBook?.book.code.toLowerCase()
 
 	const prevBookChapterCount = prevBook?.book.chapter_count
 
-	const nextBookCode = bookList[currBookIndex + 1]?.book.code
+	const nextBookCode = bookList[currBookIndex + 1]?.book.code.toLowerCase()
 
 	const prevChapterHref =
 		chapter === 1
@@ -78,13 +78,19 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 						h: '14',
 					})}
 				>
-					<ReaderNavButton_Toolbar href={prevChapterHref} direction="left" />
+					<ReaderNavButton_ReaderControls
+						href={prevChapterHref}
+						direction="left"
+					/>
 					<ChapterPicker
 						currChapter={chapter}
 						currBook={currBook}
 						bookList={bookList}
 					/>
-					<ReaderNavButton_Toolbar href={nextChapterHref} direction="right" />
+					<ReaderNavButton_ReaderControls
+						href={nextChapterHref}
+						direction="right"
+					/>
 				</div>
 			</div>
 		</div>

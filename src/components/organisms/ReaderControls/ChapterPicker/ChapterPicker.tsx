@@ -57,7 +57,7 @@ export const ChapterPicker = ({
 	)
 
 	const chapterList = useMemo(
-		() => range(1)(selectedBook.book.chapter_count),
+		() => range(1)(selectedBook.book.chapter_count + 1),
 		[selectedBook],
 	)
 
