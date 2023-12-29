@@ -10,9 +10,9 @@ export const generateStaticParams = async (): Promise<TReaderPageParams[]> => {
 	const bookList = await getBookList()
 
 	return bookList.flatMap((book) => {
-		const bookCode = book.book.code.toLowerCase()
+		const bookCode = book.code
 
-		return range(1)(book.book.chapter_count + 1).map((chapter) => ({
+		return range(1)(book.chapter_count + 1).map((chapter) => ({
 			bookCode,
 			chapter: chapter.toString(),
 			readerMode: READER_MODE.Study,

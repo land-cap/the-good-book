@@ -1,10 +1,19 @@
--- CreateTable
-CREATE TABLE "book" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "order" INTEGER NOT NULL,
-    "code" TEXT NOT NULL,
-    "chapter_count" INTEGER NOT NULL
-);
+/*
+  Warnings:
+
+  - You are about to drop the `vdc_book_name` table. If the table is not empty, all the data it contains will be lost.
+  - You are about to drop the `vdc_chapter` table. If the table is not empty, all the data it contains will be lost.
+
+*/
+-- DropTable
+PRAGMA foreign_keys=off;
+DROP TABLE "vdc_book_name";
+PRAGMA foreign_keys=on;
+
+-- DropTable
+PRAGMA foreign_keys=off;
+DROP TABLE "vdc_chapter";
+PRAGMA foreign_keys=on;
 
 -- CreateTable
 CREATE TABLE "book_name" (
@@ -16,17 +25,11 @@ CREATE TABLE "book_name" (
 
 -- CreateTable
 CREATE TABLE "chapter" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "chapter" INTEGER NOT NULL,
     "content" TEXT NOT NULL,
     "book_id" INTEGER NOT NULL
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "book_order_key" ON "book"("order");
-
--- CreateIndex
-CREATE UNIQUE INDEX "book_code_key" ON "book"("code");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "book_name_name_key" ON "book_name"("name");
@@ -36,3 +39,6 @@ CREATE UNIQUE INDEX "book_name_book_id_key" ON "book_name"("book_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "chapter_id_key" ON "chapter"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "chapter_book_id_key" ON "chapter"("book_id");

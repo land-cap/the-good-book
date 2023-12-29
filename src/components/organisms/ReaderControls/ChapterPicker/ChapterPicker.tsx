@@ -52,12 +52,12 @@ export const ChapterPicker = ({
 	}, [currBook])
 
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
-		() => splitWhen((book: TBook) => book.book.code === 'MAT')(bookList),
+		() => splitWhen((book: TBook) => book.code === 'MAT')(bookList),
 		[bookList],
 	)
 
 	const chapterList = useMemo(
-		() => range(1)(selectedBook.book.chapter_count + 1),
+		() => range(1)(selectedBook.chapter_count + 1),
 		[selectedBook],
 	)
 
@@ -83,7 +83,7 @@ export const ChapterPicker = ({
 			onExitComplete={() => setTab('book')}
 		>
 			<Trigger_ChapterPicker>
-				{currBook.name} {currChapter}
+				{currBook.book_name?.name} {currChapter}
 			</Trigger_ChapterPicker>
 			<Portal>
 				<Container_ChapterPicker>
@@ -107,14 +107,16 @@ export const ChapterPicker = ({
 								</BookListSectionHeader_ChapterPicker>
 								{oldTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
-										key={book.book.code}
-										isCurrBook={book.name === currBook.name}
+										key={book.code}
+										isCurrBook={
+											book.book_name?.name === currBook.book_name?.name
+										}
 										onClick={() => {
 											setSelectedBook(book)
 											setTab('chapter')
 										}}
 									>
-										{book.name}
+										{book.book_name?.name}
 									</BookListItem_ChapterPicker>
 								))}
 							</BookList_ChapterPicker>
@@ -124,14 +126,14 @@ export const ChapterPicker = ({
 								</BookListSectionHeader_ChapterPicker>
 								{newTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
-										isCurrBook={book.book.code === currBook.book.code}
-										key={book.book.code}
+										isCurrBook={book.code === currBook.code}
+										key={book.code}
 										onClick={() => {
 											setSelectedBook(book)
 											setTab('chapter')
 										}}
 									>
-										{book.name}
+										{book.book_name?.name}
 									</BookListItem_ChapterPicker>
 								))}
 							</BookList_ChapterPicker>
@@ -143,7 +145,7 @@ export const ChapterPicker = ({
 								<ChapterListHeader_ChapterPicker
 									chapterListItemHeight={chapterListItemHeight}
 								>
-									{selectedBook.name}
+									{selectedBook.book_name?.name}
 								</ChapterListHeader_ChapterPicker>
 								{chapterList?.map((chapter) => {
 									const isCurrChapter =
@@ -163,7 +165,7 @@ export const ChapterPicker = ({
 													  }
 													: undefined
 											}
-											href={`/${readerMode}/${selectedBook.book.code.toLowerCase()}/${chapter}`}
+											href={`/${readerMode}/${selectedBook.code}/${chapter}`}
 											onClick={() => setIsOpen(false)}
 											isCurrChapter={isCurrChapter}
 										>

@@ -8,12 +8,15 @@ import {
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
 const getBook = async (bookCode: string) =>
-	dbClient.vdc_book_name.findFirst({
-		where: { book: { code: bookCode.toUpperCase() } },
+	dbClient.book.findFirst({
+		include: { book_name: true },
+		where: { code: bookCode },
 	})
 
 export const getBookList = async () =>
-	dbClient.vdc_book_name.findMany({ include: { book: true } })
+	dbClient.book.findMany({
+		include: { book_name: true },
+	})
 
 export const getBookWithCache = withCacheAsync(
 	getBook,
@@ -24,9 +27,9 @@ export type TBook = Awaited<ReturnType<typeof getBookList>>[0]
 
 const getChapter = async (bookCode: string, chapter: number) => {
 	const book = await dbClient.book.findFirst({
-		where: { code: bookCode.toUpperCase() },
+		where: { code: bookCode },
 	})
-	return dbClient.vdc_chapter.findFirst({
+	return dbClient.chapter.findFirst({
 		where: { book_id: book?.id, chapter },
 	})
 }
