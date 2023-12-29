@@ -38,9 +38,9 @@ export const ChapterPicker = ({
 	currBook: TBook
 	bookList: TBook[]
 }) => {
-	const [isOpen, setIsOpen] = useState(false)
-
 	const { readerMode } = useParams<TReaderPageParams>()
+
+	const [isOpen, setIsOpen] = useState(false)
 
 	const [tab, setTab] = useState<string | null>('book')
 
@@ -77,7 +77,11 @@ export const ChapterPicker = ({
 	}, [])
 
 	return (
-		<Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
+		<Dialog.Root
+			open={isOpen}
+			onOpenChange={({ open }) => setIsOpen(open)}
+			onExitComplete={() => setTab('book')}
+		>
 			<Trigger_ChapterPicker>
 				{currBook.name} {currChapter}
 			</Trigger_ChapterPicker>
@@ -94,7 +98,7 @@ export const ChapterPicker = ({
 						})}
 					>
 						<Header_ChapterPicker
-							resetSelectedBook={() => setSelectedBook(currBook)}
+							onTabsTriggerClick={() => setSelectedBook(currBook)}
 						/>
 						<Tabs.Content value="book" className={tabsContentCss}>
 							<BookList_ChapterPicker>
