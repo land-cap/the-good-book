@@ -20,6 +20,8 @@ export const getBookWithCache = withCacheAsync(
 	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
 )
 
+export type TBook = Awaited<ReturnType<typeof getBookList>>[0]
+
 const getChapter = async (bookCode: string, chapter: number) => {
 	const book = await dbClient.book.findFirst({
 		where: { code: bookCode.toUpperCase() },

@@ -2,13 +2,14 @@
 
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
+import { splitWhen } from 'ramda'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { ChapterPicker__ListSectionLabel } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPicker__ListSectionLabel'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import type { getBookList } from '~/db'
+import type { getBookList, TBook } from '~/db'
 import { ChapterPickerBookList } from './ChapterPickerBookList'
 import { ChapterPickerBookListItem } from './ChapterPickerBookListItem'
 import { ChapterPickerContainer } from './ChapterPickerContainer'
@@ -31,7 +32,7 @@ export const ChapterPicker = ({
 }: {
 	chapter: number
 	bookName: string
-	bookList: Awaited<ReturnType<typeof getBookList>>
+	bookList: TBook[]
 }) => {
 	const { readerMode } = useParams<TReaderPageParams>()
 
@@ -39,6 +40,11 @@ export const ChapterPicker = ({
 
 	const [selectedBook, setSelectedBook] =
 		useState<Awaited<ReturnType<typeof getBookList>>[0]>()
+
+	const [oldTestamentBookList, newTestamentBookList] = useMemo(
+		() => splitWhen((book: TBook) => book.book.code === 'MAT')(bookList),
+		[bookList],
+	)
 
 	useEffect(() => {
 		const currBook = bookList.find((book) => book.name === bookName)
@@ -88,23 +94,32 @@ export const ChapterPicker = ({
 								<ChapterPicker__ListSectionLabel>
 									Vechiul Testament
 								</ChapterPicker__ListSectionLabel>
-								{bookList.map((book) => (
-									<Fragment key={book.book.code}>
-										{book.book.code === 'MAT' ? (
-											<ChapterPicker__ListSectionLabel>
-												Noul Testament
-											</ChapterPicker__ListSectionLabel>
-										) : null}
-										<ChapterPickerBookListItem
-											key={book.book.code}
-											onClick={() => {
-												setSelectedBook(book)
-												setTab('chapter')
-											}}
-										>
-											{book.name}
-										</ChapterPickerBookListItem>
-									</Fragment>
+								{oldTestamentBookList.map((book) => (
+									<ChapterPickerBookListItem
+										key={book.book.code}
+										onClick={() => {
+											setSelectedBook(book)
+											setTab('chapter')
+										}}
+									>
+										{book.name}
+									</ChapterPickerBookListItem>
+								))}
+							</ChapterPickerBookList>
+							<ChapterPickerBookList>
+								<ChapterPicker__ListSectionLabel>
+									Noul Testament
+								</ChapterPicker__ListSectionLabel>
+								{newTestamentBookList.map((book) => (
+									<ChapterPickerBookListItem
+										key={book.book.code}
+										onClick={() => {
+											setSelectedBook(book)
+											setTab('chapter')
+										}}
+									>
+										{book.name}
+									</ChapterPickerBookListItem>
 								))}
 							</ChapterPickerBookList>
 						</Tabs.Content>
