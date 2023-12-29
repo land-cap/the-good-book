@@ -1,10 +1,11 @@
 import { type ReactNode } from 'react'
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { subgrid } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
+import { labelCss } from '~/styles/label.css'
 
-export const ListSectionLabel_ChapterPicker = ({
+export const BookListSectionHeader_ChapterPicker = ({
 	children,
 }: {
 	children: ReactNode
@@ -19,14 +20,12 @@ export const ListSectionLabel_ChapterPicker = ({
 	>
 		<div className={css({ gridColumn: 'content' })}>
 			<div
-				className={css({
-					color: 'fg.subtle',
-					fontSize: 'xs',
-					letterSpacing: '0.05em',
-					lineHeight: 'token(spacing.6)',
-					py: '4',
-					textTransform: 'uppercase',
-				})}
+				className={cx(
+					labelCss,
+					css({
+						py: '4',
+					}),
+				)}
 			>
 				{children}
 			</div>

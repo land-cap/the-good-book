@@ -6,9 +6,10 @@ import { splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 
+import { BookListSectionHeader_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/BookListSectionHeader_ChapterPicker'
 import { ChapterList_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterList_ChapterPicker'
+import { ChapterListHeader_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterListHeader_ChapterPicker'
 import { ChapterListItem_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterListItem_ChapterPicker'
-import { ListSectionLabel_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ListSectionLabel_ChapterPicker'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { getBookList, TBook } from '~/db'
 
@@ -42,7 +43,7 @@ export const ChapterPicker = ({
 	const [tab, setTab] = useState<string | null>('book')
 
 	const [selectedBook, setSelectedBook] =
-		useState<Awaited<ReturnType<typeof getBookList>>[0]>()
+		useState<Awaited<ReturnType<typeof getBookList>>[0]>(currBook)
 
 	useEffect(() => {
 		setSelectedBook(currBook)
@@ -54,7 +55,7 @@ export const ChapterPicker = ({
 	)
 
 	const chapterList = useMemo(
-		() => selectedBook && Array(selectedBook.book.chapter_count).fill(0),
+		() => Array(selectedBook.book.chapter_count).fill(0),
 		[selectedBook],
 	)
 
@@ -95,9 +96,9 @@ export const ChapterPicker = ({
 						/>
 						<Tabs.Content value="book" className={tabsContentCss}>
 							<BookList_ChapterPicker>
-								<ListSectionLabel_ChapterPicker>
+								<BookListSectionHeader_ChapterPicker>
 									Vechiul Testament
-								</ListSectionLabel_ChapterPicker>
+								</BookListSectionHeader_ChapterPicker>
 								{oldTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
 										key={book.book.code}
@@ -112,9 +113,9 @@ export const ChapterPicker = ({
 								))}
 							</BookList_ChapterPicker>
 							<BookList_ChapterPicker>
-								<ListSectionLabel_ChapterPicker>
+								<BookListSectionHeader_ChapterPicker>
 									Noul Testament
-								</ListSectionLabel_ChapterPicker>
+								</BookListSectionHeader_ChapterPicker>
 								{newTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
 										isCurrBook={book.book.code === currBook.book.code}
@@ -130,12 +131,19 @@ export const ChapterPicker = ({
 							</BookList_ChapterPicker>
 						</Tabs.Content>
 						<Tabs.Content value="chapter" className={tabsContentCss}>
-							<ChapterList_ChapterPicker itemHeight={chapterListItemHeight}>
+							<ChapterList_ChapterPicker
+								chapterListItemHeight={chapterListItemHeight}
+							>
+								<ChapterListHeader_ChapterPicker
+									chapterListItemHeight={chapterListItemHeight}
+								>
+									{selectedBook.name}
+								</ChapterListHeader_ChapterPicker>
 								{chapterList?.map((_, i) => {
 									const chapter = i + 1
 
 									const isCurrChapter =
-										selectedBook?.id === currBook.id && chapter === currChapter
+										selectedBook.id === currBook.id && chapter === currChapter
 
 									return (
 										<ChapterListItem_ChapterPicker
@@ -152,7 +160,7 @@ export const ChapterPicker = ({
 													: undefined
 											}
 											isCurrChapter={isCurrChapter}
-											href={`/${readerMode}/${selectedBook?.book.code.toLowerCase()}/${chapter}`}
+											href={`/${readerMode}/${selectedBook.book.code.toLowerCase()}/${chapter}`}
 										>
 											{chapter}
 										</ChapterListItem_ChapterPicker>

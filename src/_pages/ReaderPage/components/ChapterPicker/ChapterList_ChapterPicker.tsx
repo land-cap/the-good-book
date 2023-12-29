@@ -3,12 +3,12 @@ import { subgrid } from 'styled-system/patterns'
 
 export const ChapterList_ChapterPicker = ({
 	children,
-	itemHeight,
+	chapterListItemHeight,
 }: {
 	children: ReactNode
-	itemHeight: number
+	chapterListItemHeight: number
 }) => {
-	const paddingX = (itemHeight - 16) / 2
+	const paddingBottom = (chapterListItemHeight - 16) / 2
 	return (
 		<ul
 			className={subgrid({
@@ -17,7 +17,7 @@ export const ChapterList_ChapterPicker = ({
 				gridTemplateColumns: 'repeat(auto-fill, minmax(token(sizes.16), 1fr))',
 				h: 'fit-content',
 			})}
-			style={{ paddingBottom: paddingX, paddingTop: paddingX }}
+			style={{ paddingBottom: paddingBottom }}
 		>
 			{children}
 		</ul>
