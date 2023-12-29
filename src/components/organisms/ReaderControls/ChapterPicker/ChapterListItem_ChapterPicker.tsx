@@ -1,5 +1,10 @@
 import Link from 'next/link'
-import { type ForwardedRef, forwardRef, type ReactNode } from 'react'
+import {
+	type ForwardedRef,
+	forwardRef,
+	type MouseEventHandler,
+	type ReactNode,
+} from 'react'
 import { css, cx } from 'styled-system/css'
 import { center } from 'styled-system/patterns'
 
@@ -7,12 +12,14 @@ const ChapterListItem_ChapterPicker = forwardRef(
 	(
 		{
 			children,
-			isCurrChapter,
 			href,
+			isCurrChapter,
+			onClick,
 		}: {
 			children: ReactNode
-			isCurrChapter: boolean
 			href: string
+			isCurrChapter: boolean
+			onClick: MouseEventHandler<HTMLAnchorElement>
 		},
 		ref: ForwardedRef<HTMLLIElement>,
 	) => (
@@ -37,7 +44,11 @@ const ChapterListItem_ChapterPicker = forwardRef(
 				isCurrChapter && css({ fontWeight: 'bold' }),
 			)}
 		>
-			<Link href={href} className={center({ inset: 0, position: 'absolute' })}>
+			<Link
+				href={href}
+				onClick={onClick}
+				className={center({ inset: 0, position: 'absolute' })}
+			>
 				{children}
 			</Link>
 		</li>
