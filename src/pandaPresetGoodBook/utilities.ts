@@ -1,6 +1,12 @@
 import { defineConfig, defineUtility } from '@pandacss/dev'
 import { type ShadowToken } from 'styled-system/tokens'
 
+const fixStickyContainer = defineUtility({
+	transform: () => ({
+		'-webkit-transform': 'translateZ(0)',
+	}),
+})
+
 const gridColumn = defineUtility({
 	transform: (value: ShadowToken) => ({
 		gridColumn: value,
@@ -17,6 +23,7 @@ const gridTemplateColumns = defineUtility({
 
 export const utilities = defineConfig({
 	utilities: {
+		fixStickyContainer,
 		gridColumn,
 		gridTemplateColumns,
 	},
