@@ -4,11 +4,11 @@ import { subgrid } from 'styled-system/patterns'
 
 export const BookListItem_ChapterPicker = ({
 	children,
-	isCurrentBook,
+	isCurrBook,
 	onClick,
 }: {
 	children: ReactNode
-	isCurrentBook: boolean
+	isCurrBook: boolean
 	onClick: () => void
 }) => (
 	<li
@@ -23,7 +23,7 @@ export const BookListItem_ChapterPicker = ({
 				transitionDuration: 'fastest',
 				transitionTimingFunction: 'ease-out',
 			}),
-			isCurrentBook && css({ fontWeight: 'bold' }),
+			isCurrBook && css({ fontWeight: 'bold' }),
 		)}
 	>
 		<div className={subgrid({ column: 'content', py: '4' })}>{children}</div>

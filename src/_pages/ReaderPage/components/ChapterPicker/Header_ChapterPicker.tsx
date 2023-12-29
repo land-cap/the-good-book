@@ -35,16 +35,28 @@ const tabsTriggerCss = css({
 	transitionTimingFunction: 'ease-out',
 })
 
-export const Header_ChapterPicker = () => (
+export const Header_ChapterPicker = ({
+	resetSelectedBook,
+}: {
+	resetSelectedBook: () => void
+}) => (
 	<div className={css({ gridColumn: 'content' })}>
 		<div
 			className={flex({ align: 'center', h: '14', justify: 'space-between' })}
 		>
 			<Tabs.List className={css({ h: 'full' })}>
-				<Tabs.Trigger className={tabsTriggerCss} value="book">
+				<Tabs.Trigger
+					value="book"
+					onClick={resetSelectedBook}
+					className={tabsTriggerCss}
+				>
 					Book
 				</Tabs.Trigger>
-				<Tabs.Trigger className={tabsTriggerCss} value="chapter">
+				<Tabs.Trigger
+					value="chapter"
+					onClick={resetSelectedBook}
+					className={tabsTriggerCss}
+				>
 					Chapter
 				</Tabs.Trigger>
 			</Tabs.List>

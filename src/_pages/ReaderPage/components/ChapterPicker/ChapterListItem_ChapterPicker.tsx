@@ -1,34 +1,41 @@
 import Link from 'next/link'
 import { type ForwardedRef, forwardRef, type ReactNode } from 'react'
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { center } from 'styled-system/patterns'
 
-//eslint-disable-next-line react/display-name
-export const ChapterListItem_ChapterPicker = forwardRef(
+const ChapterListItem_ChapterPicker = forwardRef(
 	(
 		{
 			children,
+			isCurrChapter,
 			href,
 		}: {
 			children: ReactNode
+			isCurrChapter: boolean
 			href: string
 		},
 		ref: ForwardedRef<HTMLLIElement>,
 	) => (
 		<li
 			ref={ref}
-			className={css({
-				_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-				_canHover: { _hover: { bg: 'bg.subtle' }, transitionDelay: 'fastest' },
-				aspectRatio: '1/1',
-				placeContent: 'center',
-				placeItems: 'center',
-				position: 'relative',
-				transition: 'colors',
-				transitionDuration: 'fastest',
-				transitionTimingFunction: 'ease-out',
-				w: 'full',
-			})}
+			className={cx(
+				css({
+					_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+					_canHover: {
+						_hover: { bg: 'bg.subtle' },
+						transitionDelay: 'fastest',
+					},
+					aspectRatio: '1/1',
+					placeContent: 'center',
+					placeItems: 'center',
+					position: 'relative',
+					transition: 'colors',
+					transitionDuration: 'fastest',
+					transitionTimingFunction: 'ease-out',
+					w: 'full',
+				}),
+				isCurrChapter && css({ fontWeight: 'bold' }),
+			)}
 		>
 			<Link href={href} className={center({ inset: 0, position: 'absolute' })}>
 				{children}
@@ -36,3 +43,7 @@ export const ChapterListItem_ChapterPicker = forwardRef(
 		</li>
 	),
 )
+
+ChapterListItem_ChapterPicker.displayName = 'ChapterListItem_ChapterPicker'
+
+export { ChapterListItem_ChapterPicker }
