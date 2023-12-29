@@ -36,9 +36,9 @@ const tabsTriggerCss = css({
 })
 
 export const Header_ChapterPicker = ({
-	resetSelectedBook,
+	onTabsTriggerClick,
 }: {
-	resetSelectedBook: () => void
+	onTabsTriggerClick: () => void
 }) => (
 	<div className={css({ gridColumn: 'content' })}>
 		<div
@@ -47,14 +47,14 @@ export const Header_ChapterPicker = ({
 			<Tabs.List className={css({ h: 'full' })}>
 				<Tabs.Trigger
 					value="book"
-					onClick={resetSelectedBook}
+					onClick={onTabsTriggerClick}
 					className={tabsTriggerCss}
 				>
 					Book
 				</Tabs.Trigger>
 				<Tabs.Trigger
 					value="chapter"
-					onClick={resetSelectedBook}
+					onClick={onTabsTriggerClick}
 					className={tabsTriggerCss}
 				>
 					Chapter
