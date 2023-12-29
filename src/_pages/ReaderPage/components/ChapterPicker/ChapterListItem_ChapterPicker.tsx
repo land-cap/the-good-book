@@ -4,7 +4,7 @@ import { css } from 'styled-system/css'
 import { center } from 'styled-system/patterns'
 
 //eslint-disable-next-line react/display-name
-export const ChapterPickerChapterListItem = forwardRef(
+export const ChapterListItem_ChapterPicker = forwardRef(
 	(
 		{
 			children,

@@ -35,7 +35,7 @@ const tabsTriggerCss = css({
 	transitionTimingFunction: 'ease-out',
 })
 
-export const ChapterPickerHeader = () => (
+export const Header_ChapterPicker = () => (
 	<div className={css({ gridColumn: 'content' })}>
 		<div
 			className={flex({ align: 'center', h: '14', justify: 'space-between' })}

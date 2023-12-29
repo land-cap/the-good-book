@@ -6,7 +6,7 @@ import { getBookList } from '~/db'
 
 import { type READER_MODE } from '../ReaderPage.types'
 import { ChapterPicker } from './ChapterPicker'
-import { ReaderNavButton } from './ReaderNavButton'
+import { ReaderNavButton_Toolbar } from './ReaderNavButton_Toolbar'
 
 export const Toolbar = async ({
 	bookName,
@@ -69,13 +69,13 @@ export const Toolbar = async ({
 						h: '14',
 					})}
 				>
-					<ReaderNavButton href={prevChapterHref} direction="left" />
+					<ReaderNavButton_Toolbar href={prevChapterHref} direction="left" />
 					<ChapterPicker
 						chapter={chapter}
 						bookName={bookName}
 						bookList={bookList}
 					/>
-					<ReaderNavButton href={nextChapterHref} direction="right" />
+					<ReaderNavButton_Toolbar href={nextChapterHref} direction="right" />
 				</div>
 			</div>
 		</div>

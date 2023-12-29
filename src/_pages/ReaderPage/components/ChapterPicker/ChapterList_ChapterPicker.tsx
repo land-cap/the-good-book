@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 import { subgrid } from 'styled-system/patterns'
 
-export const ChapterPickerChapterList = ({
+export const ChapterList_ChapterPicker = ({
 	children,
 	itemHeight,
 }: {

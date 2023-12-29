@@ -6,17 +6,17 @@ import { splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid, subgrid } from 'styled-system/patterns'
 
-import { ChapterPicker__ListSectionLabel } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPicker__ListSectionLabel'
-import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
-import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
+import { ChapterList_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterList_ChapterPicker'
+import { ChapterListItem_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterListItem_ChapterPicker'
+import { ListSectionLabel_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ListSectionLabel_ChapterPicker'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { getBookList, TBook } from '~/db'
 
-import { ChapterPickerBookList } from './ChapterPickerBookList'
-import { ChapterPickerBookListItem } from './ChapterPickerBookListItem'
-import { ChapterPickerContainer } from './ChapterPickerContainer'
-import { ChapterPickerHeader } from './ChapterPickerHeader'
-import { ChapterPickerTrigger } from './ChapterPickerTrigger'
+import { BookList_ChapterPicker } from './BookList_ChapterPicker'
+import { BookListItem_ChapterPicker } from './BookListItem_ChapterPicker'
+import { Container_ChapterPicker } from './Container_ChapterPicker'
+import { Header_ChapterPicker } from './Header_ChapterPicker'
+import { Trigger_ChapterPicker } from './Trigger_ChapterPicker'
 
 const tabsContentCss = macrogrid({
 	'&[data-state=closed]': {
@@ -76,11 +76,11 @@ export const ChapterPicker = ({
 
 	return (
 		<Dialog.Root>
-			<ChapterPickerTrigger>
+			<Trigger_ChapterPicker>
 				{bookName} {chapter}
-			</ChapterPickerTrigger>
+			</Trigger_ChapterPicker>
 			<Portal>
-				<ChapterPickerContainer>
+				<Container_ChapterPicker>
 					<Tabs.Root
 						value={tab}
 						onValueChange={(e) => setTab(e.value)}
@@ -91,14 +91,14 @@ export const ChapterPicker = ({
 							overflowY: 'clip',
 						})}
 					>
-						<ChapterPickerHeader />
+						<Header_ChapterPicker />
 						<Tabs.Content value="book" className={tabsContentCss}>
-							<ChapterPickerBookList>
-								<ChapterPicker__ListSectionLabel>
+							<BookList_ChapterPicker>
+								<ListSectionLabel_ChapterPicker>
 									Vechiul Testament
-								</ChapterPicker__ListSectionLabel>
+								</ListSectionLabel_ChapterPicker>
 								{oldTestamentBookList.map((book) => (
-									<ChapterPickerBookListItem
+									<BookListItem_ChapterPicker
 										key={book.book.code}
 										onClick={() => {
 											setSelectedBook(book)
@@ -106,15 +106,15 @@ export const ChapterPicker = ({
 										}}
 									>
 										{book.name}
-									</ChapterPickerBookListItem>
+									</BookListItem_ChapterPicker>
 								))}
-							</ChapterPickerBookList>
-							<ChapterPickerBookList>
-								<ChapterPicker__ListSectionLabel>
+							</BookList_ChapterPicker>
+							<BookList_ChapterPicker>
+								<ListSectionLabel_ChapterPicker>
 									Noul Testament
-								</ChapterPicker__ListSectionLabel>
+								</ListSectionLabel_ChapterPicker>
 								{newTestamentBookList.map((book) => (
-									<ChapterPickerBookListItem
+									<BookListItem_ChapterPicker
 										key={book.book.code}
 										onClick={() => {
 											setSelectedBook(book)
@@ -122,14 +122,14 @@ export const ChapterPicker = ({
 										}}
 									>
 										{book.name}
-									</ChapterPickerBookListItem>
+									</BookListItem_ChapterPicker>
 								))}
-							</ChapterPickerBookList>
+							</BookList_ChapterPicker>
 						</Tabs.Content>
 						<Tabs.Content value="chapter" className={tabsContentCss}>
-							<ChapterPickerChapterList itemHeight={chapterListItemHeight}>
+							<ChapterList_ChapterPicker itemHeight={chapterListItemHeight}>
 								{chapterList?.map((_, i) => (
-									<ChapterPickerChapterListItem
+									<ChapterListItem_ChapterPicker
 										key={i}
 										ref={
 											i === 0
@@ -147,12 +147,12 @@ export const ChapterPicker = ({
 										}`}
 									>
 										{i + 1}
-									</ChapterPickerChapterListItem>
+									</ChapterListItem_ChapterPicker>
 								))}
-							</ChapterPickerChapterList>
+							</ChapterList_ChapterPicker>
 						</Tabs.Content>
 					</Tabs.Root>
-				</ChapterPickerContainer>
+				</Container_ChapterPicker>
 			</Portal>
 		</Dialog.Root>
 	)

@@ -4,7 +4,7 @@ import { subgrid } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
 
-export const ChapterPicker__ListSectionLabel = ({
+export const ListSectionLabel_ChapterPicker = ({
 	children,
 }: {
 	children: ReactNode
