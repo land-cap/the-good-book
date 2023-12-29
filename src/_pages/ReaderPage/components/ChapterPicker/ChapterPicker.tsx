@@ -4,7 +4,7 @@ import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { macrogrid, subgrid } from 'styled-system/patterns'
+import { macrogrid } from 'styled-system/patterns'
 
 import { ChapterList_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterList_ChapterPicker'
 import { ChapterListItem_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterListItem_ChapterPicker'
@@ -83,14 +83,16 @@ export const ChapterPicker = ({
 					<Tabs.Root
 						value={tab}
 						onValueChange={(e) => setTab(e.value)}
-						className={subgrid({
+						className={macrogrid({
 							gridColumn: 'fullbleed',
 							gridTemplateRows: 'auto minmax(auto,1fr)',
 							h: 'full',
-							overflowY: 'clip',
+							overflowY: 'hidden',
 						})}
 					>
-						<Header_ChapterPicker />
+						<Header_ChapterPicker
+							resetSelectedBook={() => setSelectedBook(currBook)}
+						/>
 						<Tabs.Content value="book" className={tabsContentCss}>
 							<BookList_ChapterPicker>
 								<ListSectionLabel_ChapterPicker>
@@ -99,7 +101,7 @@ export const ChapterPicker = ({
 								{oldTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
 										key={book.book.code}
-										isCurrentBook={book.name === currBook.name}
+										isCurrBook={book.name === currBook.name}
 										onClick={() => {
 											setSelectedBook(book)
 											setTab('chapter')
@@ -115,7 +117,7 @@ export const ChapterPicker = ({
 								</ListSectionLabel_ChapterPicker>
 								{newTestamentBookList.map((book) => (
 									<BookListItem_ChapterPicker
-										isCurrentBook={book.book.code === currBook.book.code}
+										isCurrBook={book.book.code === currBook.book.code}
 										key={book.book.code}
 										onClick={() => {
 											setSelectedBook(book)
@@ -129,27 +131,33 @@ export const ChapterPicker = ({
 						</Tabs.Content>
 						<Tabs.Content value="chapter" className={tabsContentCss}>
 							<ChapterList_ChapterPicker itemHeight={chapterListItemHeight}>
-								{chapterList?.map((_, i) => (
-									<ChapterListItem_ChapterPicker
-										key={i}
-										ref={
-											i === 0
-												? (el) => {
-														if (el) {
-															chapterListItemRef.current = el
-															const height = el.getBoundingClientRect().height
-															setChapterListItemHeight(height)
-														}
-												  }
-												: undefined
-										}
-										href={`/${readerMode}/${selectedBook?.book.code.toLowerCase()}/${
-											i + 1
-										}`}
-									>
-										{i + 1}
-									</ChapterListItem_ChapterPicker>
-								))}
+								{chapterList?.map((_, i) => {
+									const chapter = i + 1
+
+									const isCurrChapter =
+										selectedBook?.id === currBook.id && chapter === currChapter
+
+									return (
+										<ChapterListItem_ChapterPicker
+											key={i}
+											ref={
+												i === 0
+													? (el) => {
+															if (el) {
+																chapterListItemRef.current = el
+																const height = el.getBoundingClientRect().height
+																setChapterListItemHeight(height)
+															}
+													  }
+													: undefined
+											}
+											isCurrChapter={isCurrChapter}
+											href={`/${readerMode}/${selectedBook?.book.code.toLowerCase()}/${chapter}`}
+										>
+											{chapter}
+										</ChapterListItem_ChapterPicker>
+									)
+								})}
 							</ChapterList_ChapterPicker>
 						</Tabs.Content>
 					</Tabs.Root>
