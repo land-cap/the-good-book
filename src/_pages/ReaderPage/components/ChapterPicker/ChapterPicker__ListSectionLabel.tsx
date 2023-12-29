@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react'
 import { css } from 'styled-system/css'
 import { subgrid } from 'styled-system/patterns'
+
 import { Separator } from '~/components'
 
 export const ChapterPicker__ListSectionLabel = ({

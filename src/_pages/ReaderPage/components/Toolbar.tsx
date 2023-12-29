@@ -1,7 +1,9 @@
 import { css, cx } from 'styled-system/css'
 import { flex, macrogrid, subgrid } from 'styled-system/patterns'
+
 import { Separator } from '~/components'
 import { getBookList } from '~/db'
+
 import { type READER_MODE } from '../ReaderPage.types'
 import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton } from './ReaderNavButton'

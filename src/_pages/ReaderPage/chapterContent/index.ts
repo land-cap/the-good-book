@@ -1,2 +1,2 @@
-export * from './renderChapterContent'
 export * from './ChapterContentContainer'
+export * from './renderChapterContent'
