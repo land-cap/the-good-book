@@ -4,27 +4,27 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./db.sqlite"
 }
 
 model book {
-  id            Int             @id @default(autoincrement())
-  order         Int             @unique
-  code          String          @unique
+  id            Int        @id @default(autoincrement())
+  order         Int        @unique
+  code          String     @unique
   chapter_count Int
-  vdc_book_name vdc_book_name[]
+  book_name     book_name?
 }
 
-model vdc_book_name {
+model book_name {
   id      Int    @id @default(autoincrement())
   name    String @unique
   book_id Int    @unique
   book    book   @relation(fields: [book_id], references: [id])
 }
 
-model vdc_chapter {
-  id      Int    @id @unique @default(autoincrement())
+model chapter {
+  id      String @id @unique
   chapter Int
   content String
-  book_id Int    @unique
+  book_id Int
 }
