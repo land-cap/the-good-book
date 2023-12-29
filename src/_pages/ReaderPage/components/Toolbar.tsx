@@ -9,19 +9,27 @@ import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton_Toolbar } from './ReaderNavButton_Toolbar'
 
 export const Toolbar = async ({
-	bookName,
 	bookCode,
 	chapter,
 	readerMode,
 }: {
-	bookName: string
 	bookCode: string
 	chapter: number
 	readerMode: READER_MODE
 }) => {
 	const bookList = await getBookList()
 
-	const currBookIndex = bookList.findIndex((book) => book.name === bookName)
+	const currBook = bookList.find(
+		(book) => book.book.code === bookCode.toUpperCase(),
+	)
+
+	if (!currBook) {
+		throw new Error('No book data')
+	}
+
+	const currBookIndex = bookList.findIndex(
+		(book) => book.name === currBook.name,
+	)
 
 	const currBookChapterCount = bookList[currBookIndex]?.book.chapter_count
 
@@ -71,8 +79,8 @@ export const Toolbar = async ({
 				>
 					<ReaderNavButton_Toolbar href={prevChapterHref} direction="left" />
 					<ChapterPicker
-						chapter={chapter}
-						bookName={bookName}
+						currChapter={chapter}
+						currBook={currBook}
 						bookList={bookList}
 					/>
 					<ReaderNavButton_Toolbar href={nextChapterHref} direction="right" />
