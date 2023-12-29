@@ -1,23 +1,24 @@
+'use client'
+
+import { useParams } from 'next/navigation'
 import { css, cx } from 'styled-system/css'
 import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 
-import { Separator } from '~/components'
-import { getBookList } from '~/db'
+import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { type TBook } from '~/db'
 
-import { type READER_MODE } from '../ReaderPage.types'
+import { Separator } from '../../atoms'
 import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton_Toolbar } from './ReaderNavButton_Toolbar'
 
-export const Toolbar = async ({
-	bookCode,
-	chapter,
-	readerMode,
-}: {
-	bookCode: string
-	chapter: number
-	readerMode: READER_MODE
-}) => {
-	const bookList = await getBookList()
+export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
+	const {
+		bookCode,
+		chapter: _chapter,
+		readerMode,
+	} = useParams<TReaderPageParams>()
+
+	const chapter = Number(_chapter)
 
 	const currBook = bookList.find(
 		(book) => book.book.code === bookCode.toUpperCase(),

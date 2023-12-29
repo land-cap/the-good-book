@@ -1,7 +1,6 @@
 import { getChapterWithCache } from '~/db'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
-import { Toolbar } from './components/Toolbar'
 import { READER_MODE, type TReaderPageParams } from './ReaderPage.types'
 
 export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
@@ -17,14 +16,5 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 
 	const chapterContent = renderChapterContent(isStudyMode)(chapterData.content)
 
-	return (
-		<>
-			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
-			<Toolbar
-				bookCode={bookCode}
-				chapter={Number(chapter)}
-				readerMode={readerMode}
-			/>
-		</>
-	)
+	return <ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 }

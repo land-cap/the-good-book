@@ -1,8 +1,9 @@
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 
-import { Separator } from '~/components'
 import { labelCss } from '~/styles/label.css'
+
+import { Separator } from '../../../atoms'
 
 export const ChapterListHeader_ChapterPicker = ({
 	children,

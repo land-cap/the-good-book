@@ -1,6 +1,7 @@
 import '~/index.css'
 
 import { DM_Mono, DM_Sans } from 'next/font/google'
+import { type ReactNode } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 
 import { Footer } from '~/components/molecules/Footer'
@@ -52,7 +53,7 @@ export const metadata = {
 	title: 'The Good Book',
 }
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => (
+const RootLayout = ({ children }: { children: ReactNode }) => (
 	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
 		<body
 			className={macrogrid({

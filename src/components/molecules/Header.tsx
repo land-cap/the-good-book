@@ -5,7 +5,7 @@ import { flex, subgrid } from 'styled-system/patterns'
 
 import { wChildren } from '~/component-helpers'
 
-import { Separator } from '../Separator'
+import { Separator } from '../atoms'
 
 const HeaderContainer = wChildren(({ children }) => (
 	<header

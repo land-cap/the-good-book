@@ -2,19 +2,19 @@
 
 import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
-import { splitWhen } from 'ramda'
+import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 
-import { BookListSectionHeader_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/BookListSectionHeader_ChapterPicker'
-import { ChapterList_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterList_ChapterPicker'
-import { ChapterListHeader_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterListHeader_ChapterPicker'
-import { ChapterListItem_ChapterPicker } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterListItem_ChapterPicker'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { getBookList, TBook } from '~/db'
 
 import { BookList_ChapterPicker } from './BookList_ChapterPicker'
 import { BookListItem_ChapterPicker } from './BookListItem_ChapterPicker'
+import { BookListSectionHeader_ChapterPicker } from './BookListSectionHeader_ChapterPicker'
+import { ChapterList_ChapterPicker } from './ChapterList_ChapterPicker'
+import { ChapterListHeader_ChapterPicker } from './ChapterListHeader_ChapterPicker'
+import { ChapterListItem_ChapterPicker } from './ChapterListItem_ChapterPicker'
 import { Container_ChapterPicker } from './Container_ChapterPicker'
 import { Header_ChapterPicker } from './Header_ChapterPicker'
 import { Trigger_ChapterPicker } from './Trigger_ChapterPicker'
@@ -55,7 +55,7 @@ export const ChapterPicker = ({
 	)
 
 	const chapterList = useMemo(
-		() => Array(selectedBook.book.chapter_count).fill(0),
+		() => range(1)(selectedBook.book.chapter_count),
 		[selectedBook],
 	)
 
@@ -139,17 +139,15 @@ export const ChapterPicker = ({
 								>
 									{selectedBook.name}
 								</ChapterListHeader_ChapterPicker>
-								{chapterList?.map((_, i) => {
-									const chapter = i + 1
-
+								{chapterList?.map((chapter) => {
 									const isCurrChapter =
 										selectedBook.id === currBook.id && chapter === currChapter
 
 									return (
 										<ChapterListItem_ChapterPicker
-											key={i}
+											key={chapter}
 											ref={
-												i === 0
+												chapter === 1
 													? (el) => {
 															if (el) {
 																chapterListItemRef.current = el
