@@ -3,7 +3,7 @@ import { defineSemanticTokens } from '@pandacss/dev'
 /**
  * Shadows aligned with Microsoft's Fluent 2 specs.
  */
-export const shadows = defineSemanticTokens.shadows({
+export const semanticShadows = defineSemanticTokens.shadows({
 	16: {
 		value: {
 			_osDark: ['0 0 2px rgba(0,0,0,0.24)', '0 8px 16px rgba(0,0,0,0.28)'],

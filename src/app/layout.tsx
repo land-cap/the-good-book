@@ -1,8 +1,10 @@
+import '~/index.css'
+
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { macrogrid } from 'styled-system/patterns'
+
 import { Footer } from '~/components/molecules/Footer'
 import { Header } from '~/components/molecules/Header'
-import '~/index.css'
 
 const fontSans = DM_Sans({
 	axes: ['opsz'],

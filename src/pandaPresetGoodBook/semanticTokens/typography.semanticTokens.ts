@@ -1,22 +1,22 @@
 import { defineSemanticTokens } from '@pandacss/dev'
 
-export const fontWeights = defineSemanticTokens.fontWeights({
-	normal: {
+export const semanticFontWeights = defineSemanticTokens.fontWeights({
+	black: {
 		value: {
-			_osDark: '300',
-			base: '400',
+			_osDark: '750',
+			base: '800',
 		},
 	},
 	bold: {
 		value: {
-			_osDark: '500',
-			base: '600',
+			_osDark: '650',
+			base: '700',
 		},
 	},
-	black: {
+	regular: {
 		value: {
-			_osDark: '600',
-			base: '700',
+			_osDark: '350',
+			base: '400',
 		},
 	},
 })

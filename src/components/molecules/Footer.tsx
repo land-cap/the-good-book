@@ -1,5 +1,6 @@
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
+
 import { Icon } from '../atoms'
 
 export const Footer = () => (

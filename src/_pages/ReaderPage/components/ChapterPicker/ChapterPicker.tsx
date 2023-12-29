@@ -5,11 +5,13 @@ import { useParams } from 'next/navigation'
 import { splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { macrogrid, subgrid } from 'styled-system/patterns'
+
 import { ChapterPicker__ListSectionLabel } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPicker__ListSectionLabel'
 import { ChapterPickerChapterList } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterList'
 import { ChapterPickerChapterListItem } from '~/_pages/ReaderPage/components/ChapterPicker/ChapterPickerChapterListItem'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { getBookList, TBook } from '~/db'
+
 import { ChapterPickerBookList } from './ChapterPickerBookList'
 import { ChapterPickerBookListItem } from './ChapterPickerBookListItem'
 import { ChapterPickerContainer } from './ChapterPickerContainer'

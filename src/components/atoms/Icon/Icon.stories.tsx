@@ -1,5 +1,6 @@
 import type { Meta } from '@storybook/react'
 import { flex } from 'styled-system/patterns'
+
 import { Icon, iconRecipe } from './Icon'
 
 const meta: Meta<typeof Icon> = {
