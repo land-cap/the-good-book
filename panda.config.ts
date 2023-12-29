@@ -1,5 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 import pandaPreset from '@pandacss/preset-panda'
+
 import { pandaPresetGoodBook } from '~/pandaPresetGoodBook'
 
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
 	include: [
 		'./src/app/**/*.{ts,tsx,js,jsx}',
 		'./src/components/**/*.{ts,tsx,js,jsx}',
+		'./src/styles/**/*.{ts,tsx,js,jsx}',
 		'./src/_pages/**/*.{ts,tsx,js,jsx}',
 	],
 	jsxFramework: 'react',

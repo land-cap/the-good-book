@@ -2,7 +2,7 @@ import { Dialog, Tabs } from '@ark-ui/react'
 import { css } from 'styled-system/css'
 import { center, flex } from 'styled-system/patterns'
 
-import { Icon, Separator } from '~/components'
+import { Icon, Separator } from '../../../atoms'
 
 const ButtonClose = () => (
 	<Dialog.CloseTrigger
