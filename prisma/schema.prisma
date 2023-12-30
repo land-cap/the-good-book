@@ -3,29 +3,31 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider  = "postgres"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model book {
-  id            Int        @id @default(autoincrement())
+  id            Int        @unique
   order         Int        @unique
   code          String     @unique
   chapter_count Int
   book_name     book_name?
+  chapter       chapter[]
 }
 
 model book_name {
-  id      Int    @id @default(autoincrement())
+  id      Int    @id @unique
   name    String @unique
   book_id Int    @unique
-  book    book   @relation(fields: [book_id], references: [id])
+  book    book   @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model chapter {
-  id      String @id @unique
+  id      String @id
   chapter Int
   content String
   book_id Int
+  book    book   @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
