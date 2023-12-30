@@ -26,9 +26,8 @@ export const Footer = () => (
 		<p className={flex({ align: 'center', placeContent: 'center' })}>
 			Designed & developed with&#32;
 			<Icon
-				name="favorite"
-				fill
-				size={4}
+				name="Heart"
+				size={16}
 				className={css({ color: 'fg.faded', display: 'inline-flex', mx: '1' })}
 			/>
 			by&nbsp;

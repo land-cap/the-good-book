@@ -57,7 +57,7 @@ export const ChapterPicker = ({
 	}, [currBook])
 
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
-		() => splitWhen((book: TBook) => book.code === 'MAT')(bookList),
+		() => splitWhen((book: TBook) => book.code === 'mat')(bookList),
 		[bookList],
 	)
 

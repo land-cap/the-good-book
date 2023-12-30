@@ -16,7 +16,7 @@ const ButtonClose = () => (
 			w: '14',
 		})}
 	>
-		<Icon size={6} name="close" />
+		<Icon size={24} name="X" />
 	</Dialog.CloseTrigger>
 )
 
