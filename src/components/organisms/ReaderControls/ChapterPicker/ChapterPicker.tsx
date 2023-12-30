@@ -57,7 +57,7 @@ export const ChapterPicker = ({
 	}, [currBook])
 
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
-		() => splitWhen((book: TBook) => book.code === 'MAT')(bookList),
+		() => splitWhen((book: TBook) => book.code === 'mat')(bookList),
 		[bookList],
 	)
 
@@ -88,7 +88,6 @@ export const ChapterPicker = ({
 			unmountOnExit
 			onExitComplete={() => {
 				setTab('book')
-				Object.defineProperty(window, 'scrollY', { value: 0, writable: true })
 			}}
 		>
 			<Trigger_ChapterPicker>
@@ -122,16 +121,15 @@ export const ChapterPicker = ({
 								<BookListSectionHeader_ChapterPicker>
 									Vechiul Testament
 								</BookListSectionHeader_ChapterPicker>
-								{oldTestamentBookList.map((book) => (
+								{oldTestamentBookList.map((book, bookIndex) => (
 									<BookListItem_ChapterPicker
 										key={book.code}
-										isCurrBook={
-											book.book_name?.name === currBook.book_name?.name
-										}
 										onClick={() => {
 											setSelectedBook(book)
 											setTab('chapter')
 										}}
+										isCurrBook={book.code === currBook.code}
+										isFirstEl={bookIndex === 0}
 									>
 										{book.book_name?.name}
 									</BookListItem_ChapterPicker>
@@ -141,14 +139,15 @@ export const ChapterPicker = ({
 								<BookListSectionHeader_ChapterPicker>
 									Noul Testament
 								</BookListSectionHeader_ChapterPicker>
-								{newTestamentBookList.map((book) => (
+								{newTestamentBookList.map((book, bookIndex) => (
 									<BookListItem_ChapterPicker
-										isCurrBook={book.code === currBook.code}
 										key={book.code}
 										onClick={() => {
 											setSelectedBook(book)
 											setTab('chapter')
 										}}
+										isCurrBook={book.code === currBook.code}
+										isFirstEl={bookIndex === 0}
 									>
 										{book.book_name?.name}
 									</BookListItem_ChapterPicker>

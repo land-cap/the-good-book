@@ -17,6 +17,12 @@ export const ChapterContentContainer = styled('div', {
 			{
 				mt: 'reader_gap',
 			},
+		'& [data-component="FancyAside"] + [data-component="LargeSectionTitle"]': {
+			mt: 'reader_gap',
+		},
+		'& [data-component="LargeSectionTitle"] + [data-component="FancyAside"]': {
+			mt: 'reader_gap',
+		},
 		'& [data-component="Quote"] + :not([data-component="Quote"])': {
 			mt: 'reader_gap',
 		},

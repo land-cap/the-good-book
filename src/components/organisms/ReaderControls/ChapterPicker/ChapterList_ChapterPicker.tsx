@@ -17,8 +17,11 @@ export const ChapterList_ChapterPicker = ({
 			className={subgrid({
 				display: 'grid',
 				gridColumn: 'content',
-				gridTemplateColumns: 'repeat(auto-fill, minmax(token(sizes.16), 1fr))',
+				gridTemplateColumns: 'repeat(5, 1fr)',
 				h: 'fit-content',
+				md: {
+					gridTemplateColumns: 'repeat(10, 1fr)',
+				},
 			})}
 			style={{ paddingBottom: paddingBottom }}
 		>

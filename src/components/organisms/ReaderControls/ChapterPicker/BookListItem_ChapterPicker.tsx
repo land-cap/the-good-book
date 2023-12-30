@@ -4,12 +4,14 @@ import { subgrid } from 'styled-system/patterns'
 
 export const BookListItem_ChapterPicker = ({
 	children,
-	isCurrBook,
 	onClick,
+	isCurrBook,
+	isFirstEl,
 }: {
 	children: ReactNode
-	isCurrBook: boolean
 	onClick: () => void
+	isCurrBook: boolean
+	isFirstEl?: boolean
 }) => (
 	<li
 		onClick={onClick}
@@ -23,7 +25,11 @@ export const BookListItem_ChapterPicker = ({
 				transitionDuration: 'fastest',
 				transitionTimingFunction: 'ease-out',
 			}),
-			isCurrBook && css({ fontWeight: 'bold' }),
+			isCurrBook &&
+				css({
+					fontWeight: 'bold',
+				}),
+			isFirstEl && css({ mt: '4' }),
 		)}
 	>
 		<div className={subgrid({ column: 'content', py: '4' })}>{children}</div>
