@@ -8,7 +8,10 @@ export const ChapterList_ChapterPicker = ({
 	children: ReactNode
 	chapterListItemHeight: number
 }) => {
-	const paddingBottom = (chapterListItemHeight - 16) / 2
+	const paddingBottom = `calc(${
+		(chapterListItemHeight - 16) / 2
+	}px + env(safe-area-inset-bottom,0))`
+
 	return (
 		<ul
 			className={subgrid({
