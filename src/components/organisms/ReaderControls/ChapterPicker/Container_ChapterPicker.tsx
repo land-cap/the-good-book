@@ -1,4 +1,3 @@
-import { Dialog } from '@ark-ui/react'
 import { type ReactNode } from 'react'
 import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
@@ -8,21 +7,14 @@ export const Container_ChapterPicker = ({
 }: {
 	children: ReactNode
 }) => (
-	<Dialog.Positioner className={css({ inset: '0', position: 'fixed' })}>
-		<Dialog.Content
-			className={css({
+	<div className={css({ inset: '0', position: 'fixed', zIndex: '1' })}>
+		<div
+			className={macrogrid({
+				bg: 'bg.canvas',
 				h: 'full',
-				zIndex: '20',
 			})}
 		>
-			<div
-				className={macrogrid({
-					bg: 'bg.canvas',
-					h: 'full',
-				})}
-			>
-				{children}
-			</div>
-		</Dialog.Content>
-	</Dialog.Positioner>
+			{children}
+		</div>
+	</div>
 )
