@@ -4,6 +4,8 @@ import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { css } from 'styled-system/css'
+import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -84,7 +86,10 @@ export const ChapterPicker = ({
 		<Dialog.Root
 			open={isOpen}
 			onOpenChange={({ open }) => setIsOpen(open)}
-			onExitComplete={() => setTab('book')}
+			onExitComplete={() => {
+				setTab('book')
+				Object.defineProperty(window, 'scrollY', { value: 0, writable: true })
+			}}
 		>
 			<Trigger_ChapterPicker>
 				{currBook.name} {currChapter}
@@ -104,7 +109,15 @@ export const ChapterPicker = ({
 						<Header_ChapterPicker
 							onTabsTriggerClick={() => setSelectedBook(currBook)}
 						/>
-						<Tabs.Content value="book" className={tabsContentCss}>
+						<Tabs.Content
+							value="book"
+							className={cx(
+								tabsContentCss,
+								css({
+									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
+								}),
+							)}
+						>
 							<BookList_ChapterPicker>
 								<BookListSectionHeader_ChapterPicker>
 									Vechiul Testament
