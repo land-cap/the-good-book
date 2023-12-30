@@ -4,8 +4,7 @@ import { Dialog, Portal, Tabs } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { css } from 'styled-system/css'
-import { cx } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -183,7 +182,6 @@ export const ChapterPicker = ({
 													: undefined
 											}
 											href={`/${readerMode}/${selectedBook.code}/${chapter}`}
-											onClick={() => setIsOpen(false)}
 											isCurrChapter={isCurrChapter}
 										>
 											{chapter}
