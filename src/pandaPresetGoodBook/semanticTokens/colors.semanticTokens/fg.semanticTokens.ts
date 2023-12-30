@@ -31,6 +31,12 @@ export const fg = defineSemanticTokens.colors({
 			base: '{colors.red.600}',
 		},
 	},
+	moreFaded: {
+		value: {
+			_osDark: '{colors.neutral.600}',
+			base: '{colors.neutral.300}',
+		},
+	},
 	muted: {
 		value: {
 			_osDark: '{colors.neutral.300}',

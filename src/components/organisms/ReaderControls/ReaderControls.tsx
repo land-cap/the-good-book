@@ -50,6 +50,11 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 			? `/${readerMode}/${nextBookCode}/1`
 			: `/${readerMode}/${bookCode}/${chapter + 1}`
 
+	const isFirstChapterInBible = currBookIndex === 0 && chapter === 1
+
+	const isLastChapterInBible =
+		currBookIndex === bookList.length - 1 && chapter === currBookChapterCount
+
 	return (
 		<div
 			className={cx(
@@ -79,6 +84,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 					<ReaderNavButton_ReaderControls
 						href={prevChapterHref}
 						direction="left"
+						isDisabled={isFirstChapterInBible}
 					/>
 					<ChapterPicker
 						currChapter={chapter}
@@ -88,6 +94,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 					<ReaderNavButton_ReaderControls
 						href={nextChapterHref}
 						direction="right"
+						isDisabled={isLastChapterInBible}
 					/>
 				</div>
 			</div>
