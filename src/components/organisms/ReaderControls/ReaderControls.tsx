@@ -20,27 +20,25 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 
 	const chapter = Number(_chapter)
 
-	const currBook = bookList.find(
-		(book) => book.book.code === bookCode.toUpperCase(),
-	)
+	const currBook = bookList.find((book) => book.code === bookCode)
 
 	if (!currBook) {
 		throw new Error('No book data')
 	}
 
 	const currBookIndex = bookList.findIndex(
-		(book) => book.name === currBook.name,
+		(book) => book.book_name?.name === currBook.book_name?.name,
 	)
 
-	const currBookChapterCount = bookList[currBookIndex]?.book.chapter_count
+	const currBookChapterCount = bookList[currBookIndex]?.chapter_count
 
 	const prevBook = bookList[currBookIndex - 1]
 
-	const prevBookCode = prevBook?.book.code.toLowerCase()
+	const prevBookCode = prevBook?.code
 
-	const prevBookChapterCount = prevBook?.book.chapter_count
+	const prevBookChapterCount = prevBook?.chapter_count
 
-	const nextBookCode = bookList[currBookIndex + 1]?.book.code.toLowerCase()
+	const nextBookCode = bookList[currBookIndex + 1]?.code
 
 	const prevChapterHref =
 		chapter === 1
