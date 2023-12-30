@@ -7,6 +7,16 @@ import {
 
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
+export const getBook = async (bookCode: string) =>
+	dbClient.book.findUnique({
+		where: { code: bookCode },
+	})
+
+export const getBookWithCache = withCacheAsync(
+	getBook,
+	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
+)
+
 export const getBookList = async () =>
 	dbClient.book.findMany({
 		include: { book_name: true },
@@ -27,18 +37,16 @@ export const getChapterListWithCache = withCacheAsync(
 )
 
 const getChapter = async (bookCode: string, chapter: number) => {
-	const bookList = await getBookListWithCache()
-
-	const book = bookList.find((book) => book.code === bookCode)
+	const book = await getBookWithCache(bookCode)
 
 	if (!book) throw new Error('Book not found')
 
-	const chapterList = await getChapterListWithCache()
-
-	return chapterList.find(
-		({ book_id, chapter: _chapter }) =>
-			book_id === book.id && _chapter === chapter,
-	)
+	return dbClient.chapter.findFirst({
+		where: {
+			book_id: book.id,
+			chapter,
+		},
+	})
 }
 
 export const getChapterWithCache = withCacheAsync(
