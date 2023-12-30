@@ -1,66 +1,61 @@
-import { Dialog, Tabs } from '@ark-ui/react'
+import { Tabs } from '@ark-ui/react'
 import { css } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 import { center, flex } from 'styled-system/patterns'
 
 import { Icon, Separator } from '../../../atoms'
 
-const ButtonClose = () => (
-	<Dialog.CloseTrigger
-		className={center({
-			_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-			_canHover: { _hover: { bg: 'bg.subtle' } },
-			h: '14',
-			transition: 'colors',
-			transitionDuration: 'fast',
-			transitionTimingFunction: 'ease-out',
-			w: '14',
-		})}
-	>
-		<Icon size={6} name="close" />
-	</Dialog.CloseTrigger>
-)
+const ButtonClose = styled('button', {
+	base: center.raw({
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+		h: '14',
+		transition: 'colors',
+		transitionDuration: 'fast',
+		transitionTimingFunction: 'ease-out',
+		w: '14',
+	}),
+})
 
-const tabsTriggerCss = css({
-	'&[data-selected]': {
-		color: 'fg',
+const TabsTrigger = styled(Tabs.Trigger, {
+	base: {
+		'&[data-selected]': {
+			color: 'fg',
+		},
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+		color: 'fg.faded',
+		fontWeight: 'bold',
+		h: 'full',
+		px: '4',
+		transition: 'colors',
+		transitionDuration: 'fast',
+		transitionTimingFunction: 'ease-out',
 	},
-	_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-	_canHover: { _hover: { bg: 'bg.subtle' } },
-	color: 'fg.faded',
-	fontWeight: 'bold',
-	h: 'full',
-	px: '4',
-	transition: 'colors',
-	transitionDuration: 'fast',
-	transitionTimingFunction: 'ease-out',
 })
 
 export const Header_ChapterPicker = ({
 	onTabsTriggerClick,
+	onCloseButtonClick,
 }: {
 	onTabsTriggerClick: () => void
+	onCloseButtonClick: () => void
 }) => (
 	<div className={css({ gridColumn: 'content' })}>
 		<div
 			className={flex({ align: 'center', h: '14', justify: 'space-between' })}
 		>
 			<Tabs.List className={css({ h: 'full' })}>
-				<Tabs.Trigger
-					value="book"
-					onClick={onTabsTriggerClick}
-					className={tabsTriggerCss}
-				>
+				<TabsTrigger value="book" onClick={onTabsTriggerClick}>
 					Book
-				</Tabs.Trigger>
-				<Tabs.Trigger
-					value="chapter"
-					onClick={onTabsTriggerClick}
-					className={tabsTriggerCss}
-				>
+				</TabsTrigger>
+				<TabsTrigger value="chapter" onClick={onTabsTriggerClick}>
 					Chapter
-				</Tabs.Trigger>
+				</TabsTrigger>
 			</Tabs.List>
-			<ButtonClose />
+			<ButtonClose onClick={onCloseButtonClick}>
+				<Icon size={6} name="close" />
+			</ButtonClose>
 		</div>
 		<Separator />
 	</div>
