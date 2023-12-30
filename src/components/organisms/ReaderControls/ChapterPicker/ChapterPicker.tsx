@@ -85,6 +85,7 @@ export const ChapterPicker = ({
 		<Dialog.Root
 			open={isOpen}
 			onOpenChange={({ open }) => setIsOpen(open)}
+			unmountOnExit
 			onExitComplete={() => {
 				setTab('book')
 				Object.defineProperty(window, 'scrollY', { value: 0, writable: true })
