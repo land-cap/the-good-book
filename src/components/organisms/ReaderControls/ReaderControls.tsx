@@ -62,7 +62,8 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 					bg: 'bg.canvas',
 					bottom: '0',
 					column: 'fullbleed',
-					position: 'sticky',
+					position: 'fixed',
+					w: 'full',
 				}),
 			)}
 		>

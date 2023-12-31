@@ -11,6 +11,8 @@ const HeaderContainer = wChildren(({ children }) => (
 		className={subgrid({
 			bg: 'bg.canvas',
 			column: 'fullbleed',
+			h: 'fit-content',
+			top: 0,
 		})}
 	>
 		<nav
