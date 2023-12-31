@@ -11,7 +11,7 @@ const fixStickyContainer = defineUtility({
 	values: { type: 'boolean' },
 })
 
-const gridColumn = defineUtility({
+const column = defineUtility({
 	transform: (value: ShadowToken) => ({
 		gridColumn: value,
 	}),
@@ -27,8 +27,8 @@ const gridTemplateColumns = defineUtility({
 
 export const utilities = defineConfig({
 	utilities: {
+		column,
 		fixStickyContainer,
-		gridColumn,
 		gridTemplateColumns,
 	},
 }).utilities

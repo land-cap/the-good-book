@@ -42,7 +42,7 @@ export const Header = ({
 	closeButtonProps: object
 }) => (
 	<div className={macrogrid()}>
-		<div className={css({ gridColumn: 'content' })}>
+		<div className={css({ column: 'content' })}>
 			<div className={hstack({ h: '14', justify: 'space-between' })}>
 				<Tabs.List className={css({ h: 'full' })}>
 					<TabsTrigger value="book" onClick={onTabsTriggerClick}>
@@ -57,6 +57,6 @@ export const Header = ({
 				</ButtonClose>
 			</div>
 		</div>
-		<Separator css={{ gridColumn: 'content' }} />
+		<Separator css={{ column: 'content' }} />
 	</div>
 )

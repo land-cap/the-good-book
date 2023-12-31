@@ -62,7 +62,7 @@ export const BookListItemContainer = styled('div', {
 
 export const BookListContainer = styled('ul', {
 	base: macrogrid.raw({
-		gridColumn: 'fullbleed',
+		column: 'fullbleed',
 		h: 'fit-content',
 	}),
 })
@@ -73,8 +73,8 @@ export const BookListItem = styled('li', {
 
 export const ChapterList = styled('ul', {
 	base: subgrid.raw({
+		column: 'content',
 		display: 'grid',
-		gridColumn: 'content',
 		gridTemplateColumns: 'repeat(5, 1fr)',
 		h: 'fit-content',
 		md: {

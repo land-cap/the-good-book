@@ -18,7 +18,7 @@ export const ChapterListHeader = ({
 		<div
 			className={css({
 				bg: 'bg.canvas',
-				gridColumn: '1 / -1',
+				column: '1 / -1',
 				position: 'sticky',
 				top: '0',
 				zIndex: '1',
