@@ -15,6 +15,5 @@ export const globalCss = defineGlobalStyles({
 	},
 	html: {
         bg: 'bg.canvas',
-		minH: 'calc(100% + env(safe-area-inset-top))',
 	},
 })
