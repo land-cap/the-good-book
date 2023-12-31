@@ -1,41 +1,31 @@
 'use client'
 
-import { Tabs } from '@ark-ui/react'
-import * as dialog from '@zag-js/dialog'
+import * as modal from '@zag-js/dialog'
 import { normalizeProps, Portal, useMachine } from '@zag-js/react'
 import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { css, cx } from 'styled-system/css'
-import { flex, macrogrid } from 'styled-system/patterns'
+import { css } from 'styled-system/css'
+import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import {
-	ChapterListItem,
-	ChapterListItemLink,
-} from '~/components/organisms/ReaderControls/ChapterPicker/ChapterListItem_ChapterPicker'
 import type { getBookList, TBook } from '~/db'
 
-import { BookList_ChapterPicker } from './BookList_ChapterPicker'
-import { BookListItem_ChapterPicker } from './BookListItem_ChapterPicker'
-import { BookListSectionHeader_ChapterPicker } from './BookListSectionHeader_ChapterPicker'
-import { ChapterList_ChapterPicker } from './ChapterList_ChapterPicker'
-import { ChapterListHeader_ChapterPicker } from './ChapterListHeader_ChapterPicker'
+import { BookList } from './BookList'
+import { BookListSectionHeader } from './BookListSectionHeader'
+import { ChapterListHeader } from './ChapterListHeader'
 import {
-	Container_ChapterPicker,
-	Positioner_ChapterPicker,
-} from './Container_ChapterPicker'
-import { Header_ChapterPicker } from './Header_ChapterPicker'
-import { Trigger_ChapterPicker } from './Trigger_ChapterPicker'
-
-const tabsContentCss = css({
-	'&[data-state=closed]': {
-		display: 'none',
-	},
-	fixStickyContainer: true,
-	h: 'full',
-	overflowY: 'scroll',
-})
+	BookListContainer,
+	ChapterList,
+	ChapterListItem,
+	ChapterListItemLink,
+	OverlayContainer,
+	OverlayPositioner,
+	TabsContent,
+	TabsRoot,
+} from './ChapterPicker.styles'
+import { Header } from './Header'
+import { ModalTrigger } from './ModalTrigger'
 
 export const ChapterPicker = ({
 	currBook,
@@ -47,7 +37,7 @@ export const ChapterPicker = ({
 	bookList: TBook[]
 }) => {
 	const [state, send] = useMachine(
-		dialog.machine({
+		modal.machine({
 			id: '1',
 			onOpenChange: ({ open }) => {
 				if (open) {
@@ -60,25 +50,25 @@ export const ChapterPicker = ({
 		}),
 	)
 
-	const dialogApi = dialog.connect(state, send, normalizeProps)
+	const modalApi = modal.connect(state, send, normalizeProps)
 
 	const { readerMode } = useParams<TReaderPageParams>()
 
 	useEffect(() => {
-		if (!dialogApi.isOpen) {
+		if (!modalApi.isOpen) {
 		}
-	}, [dialogApi.isOpen])
+	}, [modalApi.isOpen])
 
 	useEffect(() => {
-		if (dialogApi.isOpen) {
+		if (modalApi.isOpen) {
 			document.body.style.overflow = 'clip'
 		} else {
 			document.body.style.overflow = 'auto'
 		}
-	}, [dialogApi.isOpen])
+	}, [modalApi.isOpen])
 
 	useEffect(() => {
-		dialogApi.close()
+		modalApi.close()
 		//	 eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currBook, currChapter])
 
@@ -116,86 +106,66 @@ export const ChapterPicker = ({
 		return () => window.removeEventListener('resize', handleWindowResize)
 	}, [])
 
+	const chapterListPaddingBottom = `calc(${
+		(chapterListItemHeight - 16) / 2
+	}px + env(safe-area-inset-bottom,0))`
+
 	return (
 		<>
-			<Trigger_ChapterPicker {...dialogApi.triggerProps}>
+			<ModalTrigger {...modalApi.triggerProps}>
 				{currBook.book_name?.name} {currChapter}
-			</Trigger_ChapterPicker>
+			</ModalTrigger>
 			<Portal>
-				{dialogApi.isOpen && (
-					<Positioner_ChapterPicker {...dialogApi.positionerProps}>
-						<Container_ChapterPicker {...dialogApi.contentProps}>
-							<Tabs.Root
-								value={tab}
-								onValueChange={(e) => setTab(e.value)}
-								className={flex({
-									direction: 'column',
-									h: 'full',
-									overflowY: 'hidden',
-								})}
-							>
-								<Header_ChapterPicker
+				{modalApi.isOpen && (
+					<OverlayPositioner {...modalApi.positionerProps}>
+						<OverlayContainer {...modalApi.contentProps}>
+							<TabsRoot value={tab} onValueChange={(e) => setTab(e.value)}>
+								<Header
 									onTabsTriggerClick={() => setSelectedBook(currBook)}
-									closeButtonProps={dialogApi.closeTriggerProps}
+									closeButtonProps={modalApi.closeTriggerProps}
 								/>
-								<Tabs.Content
+								<TabsContent
 									value="book"
-									className={cx(
-										tabsContentCss,
-										css({
-											pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
-										}),
-									)}
+									className={css({
+										pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
+									})}
 								>
-									<BookList_ChapterPicker>
-										<BookListSectionHeader_ChapterPicker>
+									<BookListContainer>
+										<BookListSectionHeader>
 											Vechiul Testament
-										</BookListSectionHeader_ChapterPicker>
-										{oldTestamentBookList.map((book, bookIndex) => (
-											<BookListItem_ChapterPicker
-												key={book.code}
-												onClick={() => {
-													setSelectedBook(book)
-													setTab('chapter')
-												}}
-												isCurrBook={book.code === currBook.code}
-												isFirstEl={bookIndex === 0}
-											>
-												{book.book_name?.name}
-											</BookListItem_ChapterPicker>
-										))}
-									</BookList_ChapterPicker>
-									<BookList_ChapterPicker>
-										<BookListSectionHeader_ChapterPicker>
+										</BookListSectionHeader>
+										<BookList
+											bookList={oldTestamentBookList}
+											onListItemClick={() => {
+												setTab('chapter')
+											}}
+											setSelectedBook={setSelectedBook}
+											currBookCode={currBook.code}
+										/>
+									</BookListContainer>
+									<BookListContainer>
+										<BookListSectionHeader>
 											Noul Testament
-										</BookListSectionHeader_ChapterPicker>
-										{newTestamentBookList.map((book, bookIndex) => (
-											<BookListItem_ChapterPicker
-												key={book.code}
-												onClick={() => {
-													setSelectedBook(book)
-													setTab('chapter')
-												}}
-												isCurrBook={book.code === currBook.code}
-												isFirstEl={bookIndex === 0}
-											>
-												{book.book_name?.name}
-											</BookListItem_ChapterPicker>
-										))}
-									</BookList_ChapterPicker>
-								</Tabs.Content>
-								<Tabs.Content
-									value="chapter"
-									className={cx(tabsContentCss, macrogrid())}
-								>
-									<ChapterList_ChapterPicker
-										chapterListItemHeight={chapterListItemHeight}
+										</BookListSectionHeader>
+										<BookList
+											bookList={newTestamentBookList}
+											onListItemClick={() => {
+												setTab('chapter')
+											}}
+											setSelectedBook={setSelectedBook}
+											currBookCode={currBook.code}
+										/>
+									</BookListContainer>
+								</TabsContent>
+								<TabsContent value="chapter" className={macrogrid()}>
+									<ChapterList
+										style={{ paddingBottom: chapterListPaddingBottom }}
 									>
-										<ChapterListHeader_ChapterPicker
+										<ChapterListHeader
 											chapterListItemHeight={chapterListItemHeight}
 										>
 											{selectedBook.book_name?.name}
-										</ChapterListHeader_ChapterPicker>
+										</ChapterListHeader>
 										{chapterList?.map((chapter) => {
 											const isCurrChapter =
 												selectedBook.id === currBook.id &&
@@ -226,11 +196,11 @@ export const ChapterPicker = ({
 												</ChapterListItem>
 											)
 										})}
-									</ChapterList_ChapterPicker>
-								</Tabs.Content>
-							</Tabs.Root>
-						</Container_ChapterPicker>
-					</Positioner_ChapterPicker>
+									</ChapterList>
+								</TabsContent>
+							</TabsRoot>
+						</OverlayContainer>
+					</OverlayPositioner>
 				)}
 			</Portal>
 		</>

@@ -1,7 +1,7 @@
 import { Tabs } from '@ark-ui/react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
-import { center, flex } from 'styled-system/patterns'
+import { center, hstack, macrogrid } from 'styled-system/patterns'
 
 import { Icon, Separator } from '../../../atoms'
 
@@ -34,29 +34,29 @@ const TabsTrigger = styled(Tabs.Trigger, {
 	},
 })
 
-export const Header_ChapterPicker = ({
+export const Header = ({
 	onTabsTriggerClick,
 	closeButtonProps,
 }: {
 	onTabsTriggerClick: () => void
 	closeButtonProps: object
 }) => (
-	<div className={css({ gridColumn: 'content' })}>
-		<div
-			className={flex({ align: 'center', h: '14', justify: 'space-between' })}
-		>
-			<Tabs.List className={css({ h: 'full' })}>
-				<TabsTrigger value="book" onClick={onTabsTriggerClick}>
-					Book
-				</TabsTrigger>
-				<TabsTrigger value="chapter" onClick={onTabsTriggerClick}>
-					Chapter
-				</TabsTrigger>
-			</Tabs.List>
-			<ButtonClose {...closeButtonProps}>
-				<Icon size={6} name="close" />
-			</ButtonClose>
+	<div className={macrogrid()}>
+		<div className={css({ gridColumn: 'content' })}>
+			<div className={hstack({ h: '14', justify: 'space-between' })}>
+				<Tabs.List className={css({ h: 'full' })}>
+					<TabsTrigger value="book" onClick={onTabsTriggerClick}>
+						Book
+					</TabsTrigger>
+					<TabsTrigger value="chapter" onClick={onTabsTriggerClick}>
+						Chapter
+					</TabsTrigger>
+				</Tabs.List>
+				<ButtonClose {...closeButtonProps}>
+					<Icon size={6} name="close" />
+				</ButtonClose>
+			</div>
 		</div>
-		<Separator />
+		<Separator css={{ gridColumn: 'content' }} />
 	</div>
 )
