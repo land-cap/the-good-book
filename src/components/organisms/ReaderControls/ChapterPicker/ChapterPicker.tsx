@@ -9,6 +9,7 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { useCloseModalOnChapterChange } from '~/components/organisms/ReaderControls/ChapterPicker/useCloseModalOnChapterChange'
 import type { getBookList, TBook } from '~/db'
 
 import { BookList } from './BookList'
@@ -36,43 +37,35 @@ export const ChapterPicker = ({
 	currBook: TBook
 	bookList: TBook[]
 }) => {
+	const { readerMode } = useParams<TReaderPageParams>()
+
+	const [tab, setTab] = useState<'book' | 'chapter'>('book')
+
+	const handleModalOpenChange = ({ open }: { open: boolean }) => {
+		if (open) {
+			document.body.style.overflow = 'clip'
+		} else {
+			document.body.style.overflow = 'auto'
+			setTab('book')
+		}
+	}
+
 	const [state, send] = useMachine(
 		modal.machine({
-			id: '1',
-			onOpenChange: ({ open }) => {
-				if (open) {
-					document.body.style.overflow = 'clip'
-				} else {
-					document.body.style.overflow = 'auto'
-					setTab('book')
-				}
-			},
+			id: 'chapter-picker',
+			onOpenChange: handleModalOpenChange,
 		}),
 	)
 
 	const modalApi = modal.connect(state, send, normalizeProps)
 
-	const { readerMode } = useParams<TReaderPageParams>()
-
-	useEffect(() => {
-		if (!modalApi.isOpen) {
-		}
-	}, [modalApi.isOpen])
-
-	useEffect(() => {
-		if (modalApi.isOpen) {
-			document.body.style.overflow = 'clip'
-		} else {
-			document.body.style.overflow = 'auto'
-		}
-	}, [modalApi.isOpen])
-
-	useEffect(() => {
-		modalApi.close()
-		//	 eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currBook, currChapter])
-
-	const [tab, setTab] = useState<string | null>('book')
+	useCloseModalOnChapterChange(
+		currBook,
+		currChapter,
+		modalApi.isOpen,
+		//eslint-disable-next-line @typescript-eslint/unbound-method
+		modalApi.close,
+	)
 
 	const [selectedBook, setSelectedBook] =
 		useState<Awaited<ReturnType<typeof getBookList>>[0]>(currBook)
@@ -119,7 +112,12 @@ export const ChapterPicker = ({
 				{modalApi.isOpen && (
 					<OverlayPositioner {...modalApi.positionerProps}>
 						<OverlayContainer {...modalApi.contentProps}>
-							<TabsRoot value={tab} onValueChange={(e) => setTab(e.value)}>
+							<TabsRoot
+								value={tab}
+								onValueChange={({ value }) =>
+									setTab(value as 'book' | 'chapter')
+								}
+							>
 								<Header
 									onTabsTriggerClick={() => setSelectedBook(currBook)}
 									closeButtonProps={modalApi.closeTriggerProps}
