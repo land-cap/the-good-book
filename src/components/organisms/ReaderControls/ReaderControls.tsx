@@ -60,10 +60,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 			className={cx(
 				macrogrid({
 					bg: 'bg.canvas',
-					bottom: 0,
 					gridColumn: 'fullbleed',
-					position: 'fixed',
-					w: 'full',
 				}),
 			)}
 		>
