@@ -54,6 +54,7 @@ export const ChapterPicker = ({
 		modal.machine({
 			id: 'chapter-picker',
 			onOpenChange: handleModalOpenChange,
+			preventScroll: false,
 		}),
 	)
 
