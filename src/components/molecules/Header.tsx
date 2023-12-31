@@ -38,7 +38,7 @@ const LogoLink = styled(Link, {
 
 export const Header = () => (
 	<HeaderContainer>
-		<LogoLink href="/" prefetch>
+		<LogoLink href="/study/jhn/1" prefetch>
 			The Good Book
 		</LogoLink>
 	</HeaderContainer>
