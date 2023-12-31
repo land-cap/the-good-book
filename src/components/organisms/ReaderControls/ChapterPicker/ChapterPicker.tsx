@@ -7,9 +7,13 @@ import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
-import { macrogrid } from 'styled-system/patterns'
+import { flex, macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import {
+	ChapterListItem,
+	ChapterListItemLink,
+} from '~/components/organisms/ReaderControls/ChapterPicker/ChapterListItem_ChapterPicker'
 import type { getBookList, TBook } from '~/db'
 
 import { BookList_ChapterPicker } from './BookList_ChapterPicker'
@@ -17,7 +21,6 @@ import { BookListItem_ChapterPicker } from './BookListItem_ChapterPicker'
 import { BookListSectionHeader_ChapterPicker } from './BookListSectionHeader_ChapterPicker'
 import { ChapterList_ChapterPicker } from './ChapterList_ChapterPicker'
 import { ChapterListHeader_ChapterPicker } from './ChapterListHeader_ChapterPicker'
-import { ChapterListItem_ChapterPicker } from './ChapterListItem_ChapterPicker'
 import {
 	Container_ChapterPicker,
 	Positioner_ChapterPicker,
@@ -125,7 +128,8 @@ export const ChapterPicker = ({
 							<Tabs.Root
 								value={tab}
 								onValueChange={(e) => setTab(e.value)}
-								className={css({
+								className={flex({
+									direction: 'column',
 									h: 'full',
 									overflowY: 'hidden',
 								})}
@@ -198,7 +202,7 @@ export const ChapterPicker = ({
 												chapter === currChapter
 
 											return (
-												<ChapterListItem_ChapterPicker
+												<ChapterListItem
 													key={chapter}
 													ref={
 														chapter === 1
@@ -212,11 +216,14 @@ export const ChapterPicker = ({
 															  }
 															: undefined
 													}
-													href={`/${readerMode}/${selectedBook.code}/${chapter}`}
 													isCurrChapter={isCurrChapter}
 												>
-													{chapter}
-												</ChapterListItem_ChapterPicker>
+													<ChapterListItemLink
+														href={`/${readerMode}/${selectedBook.code}/${chapter}`}
+													>
+														{chapter}
+													</ChapterListItemLink>
+												</ChapterListItem>
 											)
 										})}
 									</ChapterList_ChapterPicker>
