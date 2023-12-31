@@ -1,5 +1,6 @@
 import '~/index.css'
 
+import { type Viewport } from 'next'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
 import { macrogrid } from 'styled-system/patterns'
@@ -50,7 +51,16 @@ const fontMono = DM_Mono({
 export const metadata = {
 	description: 'Read the Bible without distractions.',
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
+	other: {
+		'apple-mobile-web-app-capable': 'yes',
+		'apple-mobile-web-app-status-bar-style': 'default',
+	},
 	title: 'The Good Book',
+}
+
+export const viewport: Viewport = {
+	initialScale: 1,
+	viewportFit: 'cover',
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (

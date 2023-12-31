@@ -13,4 +13,8 @@ export const globalCss = defineGlobalStyles({
 		fontOpticalSizing: 'auto',
 		fontWeight: 'regular',
 	},
+	html: {
+		minH: 'calc(100% + env(safe-area-inset-top))',
+		p: 'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)',
+	},
 })
