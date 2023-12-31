@@ -16,16 +16,16 @@ const HeaderContainer = wChildren(({ children }) => (
 		<nav
 			className={flex({
 				align: 'center',
+				column: 'content',
 				direction: 'row',
 				gap: '6',
-				gridColumn: 'content',
 				h: '14',
 				justify: 'space-between',
 			})}
 		>
 			{children}
 		</nav>
-		<Separator className={css({ gridColumn: 'content' })} />
+		<Separator className={css({ column: 'content' })} />
 	</header>
 ))
 

@@ -3,7 +3,8 @@ import '~/index.css'
 import { type Viewport } from 'next'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
-import { macrogrid, subgrid } from 'styled-system/patterns'
+import { cx } from 'styled-system/css'
+import { macrogrid } from 'styled-system/patterns'
 
 import { ReaderControls } from '~/components'
 import { Footer } from '~/components/molecules/Footer'
@@ -69,7 +70,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const bookList = await getBookList()
 
 	return (
-		<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
+		<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
 			<body
 				className={macrogrid({
 					_osDark: { color: 'fg.muted' },
@@ -81,7 +82,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
 				})}
 			>
 				<div
-					className={subgrid({
+					className={macrogrid({
 						column: 'fullbleed',
 						h: 'full',
 						overflow: 'scroll',
