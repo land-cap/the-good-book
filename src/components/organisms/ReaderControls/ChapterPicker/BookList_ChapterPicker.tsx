@@ -1,17 +1,9 @@
-import { type ReactNode } from 'react'
-import { subgrid } from 'styled-system/patterns'
+import { styled } from 'styled-system/jsx'
+import { macrogrid } from 'styled-system/patterns'
 
-export const BookList_ChapterPicker = ({
-	children,
-}: {
-	children: ReactNode
-}) => (
-	<ul
-		className={subgrid({
-			gridColumn: 'fullbleed',
-			h: 'fit-content',
-		})}
-	>
-		{children}
-	</ul>
-)
+export const BookList_ChapterPicker = styled('ul', {
+	base: macrogrid.raw({
+		gridColumn: 'fullbleed',
+		h: 'fit-content',
+	}),
+})

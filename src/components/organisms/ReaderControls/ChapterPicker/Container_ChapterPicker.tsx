@@ -1,13 +1,15 @@
 import { styled } from 'styled-system/jsx'
-import { macrogrid } from 'styled-system/patterns'
 
 export const Positioner_ChapterPicker = styled('div', {
-	base: { inset: '0', position: 'fixed', zIndex: '1' },
+	base: {
+		inset: '0',
+		position: 'fixed',
+	},
 })
 
 export const Container_ChapterPicker = styled('div', {
-	base: macrogrid.raw({
+	base: {
 		bg: 'bg.canvas',
 		h: 'full',
-	}),
+	},
 })

@@ -25,12 +25,11 @@ import {
 import { Header_ChapterPicker } from './Header_ChapterPicker'
 import { Trigger_ChapterPicker } from './Trigger_ChapterPicker'
 
-const tabsContentCss = macrogrid({
+const tabsContentCss = css({
 	'&[data-state=closed]': {
 		display: 'none',
 	},
 	fixStickyContainer: true,
-	gridColumn: 'fullbleed',
 	h: 'full',
 	overflowY: 'scroll',
 })
@@ -77,6 +76,7 @@ export const ChapterPicker = ({
 
 	useEffect(() => {
 		dialogApi.close()
+		//	 eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currBook, currChapter])
 
 	const [tab, setTab] = useState<string | null>('book')
@@ -125,9 +125,7 @@ export const ChapterPicker = ({
 							<Tabs.Root
 								value={tab}
 								onValueChange={(e) => setTab(e.value)}
-								className={macrogrid({
-									gridColumn: 'fullbleed',
-									gridTemplateRows: 'auto minmax(auto,1fr)',
+								className={css({
 									h: 'full',
 									overflowY: 'hidden',
 								})}
@@ -182,7 +180,10 @@ export const ChapterPicker = ({
 										))}
 									</BookList_ChapterPicker>
 								</Tabs.Content>
-								<Tabs.Content value="chapter" className={tabsContentCss}>
+								<Tabs.Content
+									value="chapter"
+									className={cx(tabsContentCss, macrogrid())}
+								>
 									<ChapterList_ChapterPicker
 										chapterListItemHeight={chapterListItemHeight}
 									>
