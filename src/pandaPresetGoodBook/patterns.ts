@@ -27,8 +27,8 @@ const subgrid = definePattern({
 		},
 	},
 	transform: ({ column, ...props }) => ({
+		column: column as GRID_COLUMN,
 		display: 'grid',
-		gridColumn: column as GRID_COLUMN,
 		gridTemplateColumns: 'subgrid',
 		...props,
 	}),

@@ -19,7 +19,7 @@ export const BookListSectionHeader = ({
 			top: '0',
 		})}
 	>
-		<div className={css({ gridColumn: 'content' })}>
+		<div className={css({ column: 'content' })}>
 			<div
 				className={cx(
 					labelCss,

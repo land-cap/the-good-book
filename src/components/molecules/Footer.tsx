@@ -8,8 +8,8 @@ export const Footer = () => (
 		className={flex({
 			align: 'center',
 			color: 'fg.subtle',
+			column: 'content',
 			fontSize: 'xs',
-			gridColumn: 'content',
 			lineHeight: 'relaxed',
 			mx: 'auto',
 			my: '20',

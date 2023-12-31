@@ -61,12 +61,12 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 				macrogrid({
 					bg: 'bg.canvas',
 					bottom: '0',
-					gridColumn: 'fullbleed',
+					column: 'fullbleed',
 					position: 'sticky',
 				}),
 			)}
 		>
-			<Separator className={css({ gridColumn: 'content' })} />
+			<Separator className={css({ column: 'content' })} />
 			<div
 				className={subgrid({
 					column: 'content',
