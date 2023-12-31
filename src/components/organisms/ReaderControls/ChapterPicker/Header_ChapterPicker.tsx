@@ -36,10 +36,10 @@ const TabsTrigger = styled(Tabs.Trigger, {
 
 export const Header_ChapterPicker = ({
 	onTabsTriggerClick,
-	onCloseButtonClick,
+	closeButtonProps,
 }: {
 	onTabsTriggerClick: () => void
-	onCloseButtonClick: () => void
+	closeButtonProps: object
 }) => (
 	<div className={css({ gridColumn: 'content' })}>
 		<div
@@ -53,7 +53,7 @@ export const Header_ChapterPicker = ({
 					Chapter
 				</TabsTrigger>
 			</Tabs.List>
-			<ButtonClose onClick={onCloseButtonClick}>
+			<ButtonClose {...closeButtonProps}>
 				<Icon size={6} name="close" />
 			</ButtonClose>
 		</div>

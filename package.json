@@ -23,6 +23,8 @@
     "@storybook/theming": "^7.5.1",
     "@t3-oss/env-nextjs": "^0.7.0",
     "@vercel/postgres": "^0.5.1",
+    "@zag-js/dialog": "^0.31.1",
+    "@zag-js/react": "^0.31.1",
     "cheerio": "1.0.0-rc.12",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
