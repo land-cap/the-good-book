@@ -60,14 +60,14 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 			className={cx(
 				macrogrid({
 					bg: 'bg.canvas',
-					bottom: 0,
-					gridColumn: 'fullbleed',
+					bottom: '0',
+					column: 'fullbleed',
 					position: 'fixed',
 					w: 'full',
 				}),
 			)}
 		>
-			<Separator className={css({ gridColumn: 'content' })} />
+			<Separator className={css({ column: 'content' })} />
 			<div
 				className={subgrid({
 					column: 'content',

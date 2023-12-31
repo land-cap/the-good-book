@@ -26,8 +26,8 @@ export const ChapterContentContainer = styled('div', {
 		'& [data-component="Quote"] + :not([data-component="Quote"])': {
 			mt: 'reader_gap',
 		},
+		column: 'content',
 		fontSize: 'base',
-		gridColumn: 'content',
 		lineHeight: '2em',
 		md: {
 			lineHeight: '2.25em',

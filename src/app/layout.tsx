@@ -1,7 +1,9 @@
 import '~/index.css'
 
+import { type Viewport } from 'next'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
+import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { Footer } from '~/components/molecules/Footer'
@@ -50,11 +52,19 @@ const fontMono = DM_Mono({
 export const metadata = {
 	description: 'Read the Bible without distractions.',
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
+	other: {
+		'apple-mobile-web-app-capable': 'yes',
+	},
 	title: 'The Good Book',
 }
 
+export const viewport: Viewport = {
+	initialScale: 1,
+	viewportFit: 'cover',
+}
+
 const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
+	<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
 		<body
 			className={macrogrid({
 				_osDark: { color: 'fg.muted' },
