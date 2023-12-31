@@ -3,7 +3,7 @@ import '~/index.css'
 import { type Viewport } from 'next'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
-import { macrogrid } from 'styled-system/patterns'
+import { macrogrid, subgrid } from 'styled-system/patterns'
 
 import { ReaderControls } from '~/components'
 import { Footer } from '~/components/molecules/Footer'
@@ -76,18 +76,15 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
 					background: 'bg.canvas',
 					color: 'fg',
 					fontSize: 'base',
-					gridTemplateRows: '1fr min-content',
-					h: '100dvh',
-					overflow: 'hidden',
+					gridAutoRows: 'min-content',
+					h: 'fit',
 				})}
 			>
 				<div
-					className={macrogrid({
-						gridAutoRows: 'min-content',
-						gridColumn: 'fullbleed',
-						gridRow: '1fr',
+					className={subgrid({
+						column: 'fullbleed',
 						h: 'full',
-						overflowY: 'scroll',
+						overflow: 'scroll',
 					})}
 				>
 					<Header />
