@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { flex, subgrid } from 'styled-system/patterns'
@@ -32,14 +31,12 @@ const HeaderContainer = wChildren(({ children }) => (
 	</header>
 ))
 
-const LogoLink = styled(Link, {
+const Logo = styled('span', {
 	base: { fontWeight: 'bold' },
 })
 
 export const Header = () => (
 	<HeaderContainer>
-		<LogoLink href="/study/jhn/1" prefetch>
-			The Good Book
-		</LogoLink>
+		<Logo>The Good Book</Logo>
 	</HeaderContainer>
 )
