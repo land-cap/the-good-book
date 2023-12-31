@@ -1,30 +1,25 @@
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
+import { subgrid } from 'styled-system/patterns'
 
 import { labelCss } from '~/styles/label.css'
 
 import { Separator } from '../../../atoms'
 
-export const ChapterListHeader_ChapterPicker = ({
+export const BookListSectionHeader = ({
 	children,
-	chapterListItemHeight,
 }: {
 	children: ReactNode
-	chapterListItemHeight: number
-}) => {
-	const marginBottom = (chapterListItemHeight - 16) / 2
-
-	return (
-		<div
-			className={css({
-				bg: 'bg.canvas',
-				gridColumn: '1 / -1',
-				position: 'sticky',
-				top: '0',
-				zIndex: '1',
-			})}
-			style={{ marginBottom }}
-		>
+}) => (
+	<div
+		className={subgrid({
+			bg: 'bg.canvas',
+			column: 'fullbleed',
+			position: 'sticky',
+			top: '0',
+		})}
+	>
+		<div className={css({ gridColumn: 'content' })}>
 			<div
 				className={cx(
 					labelCss,
@@ -37,5 +32,5 @@ export const ChapterListHeader_ChapterPicker = ({
 			</div>
 			<Separator />
 		</div>
-	)
-}
+	</div>
+)
