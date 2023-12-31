@@ -57,12 +57,7 @@ export const renderChapterContentFromOM = (
 		}
 
 		if (nodeClass === 'large-section-cross-reference') {
-			return [
-				...acc,
-				<LargeSectionCrossReference key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
-				</LargeSectionCrossReference>,
-			]
+			return acc
 		}
 
 		if (nodeClass === 'section-title') {
