@@ -5,8 +5,10 @@ import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
 
 export const OverlayPositioner = styled('div', {
 	base: {
-		inset: '0',
+		h: 'calc(100% - token(spacing.14) - token(spacing.safe_area_bottom))',
+		insetX: '0',
 		position: 'fixed',
+		top: '0',
 	},
 })
 
@@ -20,7 +22,7 @@ export const OverlayContainer = styled('div', {
 export const TabsRoot = styled(Tabs.Root, {
 	base: flex.raw({
 		direction: 'column',
-		h: 'calc(100% - token(spacing.safe_area_bottom))',
+		h: 'full',
 		overflowY: 'hidden',
 	}),
 })

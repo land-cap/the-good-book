@@ -49,7 +49,9 @@ export const ChapterPicker = ({
 
 	const [state, send] = useMachine(
 		modal.machine({
+			closeOnInteractOutside: false,
 			id: 'chapter-picker',
+			modal: true,
 			preventScroll: false,
 		}),
 	)
@@ -59,7 +61,7 @@ export const ChapterPicker = ({
 	useEffect(() => {
 		if (readerPageContainerEl) {
 			if (modalApi.isOpen) {
-				readerPageContainerEl.style.overflow = 'clip'
+				readerPageContainerEl.style.overflow = 'hidden'
 			} else {
 				readerPageContainerEl.style.overflow = 'auto'
 				setTab('book')
