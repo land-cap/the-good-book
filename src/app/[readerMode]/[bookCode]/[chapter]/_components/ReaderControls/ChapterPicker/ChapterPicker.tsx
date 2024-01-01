@@ -198,8 +198,8 @@ export const ChapterPicker = ({
 							</TabsRoot>
 							<div className={macrogrid()}>
 								<Separator className={css({ column: 'content' })} />
-								<SafeAreaBottom />
 							</div>
+							<SafeAreaBottom />
 						</OverlayContainer>
 					</OverlayPositioner>
 				)}
