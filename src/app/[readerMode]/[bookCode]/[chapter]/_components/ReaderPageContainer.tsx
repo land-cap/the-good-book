@@ -18,6 +18,7 @@ export const ReaderPageContainer = ({ children }: { children: ReactNode }) => {
 				gridRow: '1fr',
 				h: 'full',
 				overflow: 'scroll',
+				overscrollBehavior: 'contain',
 			})}
 		>
 			{children}

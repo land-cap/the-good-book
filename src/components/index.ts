@@ -1,3 +1,2 @@
-export * from './atoms'
-export * from './molecules'
-export * from './organisms'
+export * from './Icon'
+export * from './Separator'

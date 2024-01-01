@@ -1,8 +1,9 @@
 import { type ReactNode } from 'react'
 
-import { Footer, Header } from '~/components'
 import { getBookListWithCache } from '~/db'
 
+import { Footer } from './_components/Footer'
+import { Header } from './_components/Header'
 import { ReaderControls } from './_components/ReaderControls'
 import { ReaderPageContainer } from './_components/ReaderPageContainer'
 
