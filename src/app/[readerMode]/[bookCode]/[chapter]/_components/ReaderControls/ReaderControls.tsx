@@ -72,7 +72,6 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 				className={subgrid({
 					column: 'content',
 					pb: 'safe_area_bottom',
-					userSelect: 'none',
 				})}
 			>
 				<div
