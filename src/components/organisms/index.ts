@@ -1,1 +1,1 @@
-export * from './ReaderControls'
+export * from '../../app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls'
