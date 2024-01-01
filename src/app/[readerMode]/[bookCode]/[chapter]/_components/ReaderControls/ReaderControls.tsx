@@ -5,11 +5,12 @@ import { css, cx } from 'styled-system/css'
 import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { useResetReaderScrollOnParamChange } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/useResetReaderScrollOnParamChange'
 import { type TBook } from '~/db'
 
-import { Separator } from '../../atoms'
+import { Separator } from '../../../../../../components/atoms'
 import { ChapterPicker } from './ChapterPicker'
-import { ReaderNavButton_ReaderControls } from './ReaderNavButton_ReaderControls'
+import { ReaderNavButton } from './ReaderNavButton'
 
 export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 	const {
@@ -25,6 +26,8 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 	if (!currBook) {
 		throw new Error('No book data')
 	}
+
+	useResetReaderScrollOnParamChange(currBook.code, chapter)
 
 	const currBookIndex = bookList.findIndex(
 		(book) => book.book_name?.name === currBook.book_name?.name,
@@ -60,10 +63,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 			className={cx(
 				macrogrid({
 					bg: 'bg.canvas',
-					bottom: '0',
 					column: 'fullbleed',
-					position: 'fixed',
-					w: 'full',
 				}),
 			)}
 		>
@@ -81,7 +81,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 						h: '14',
 					})}
 				>
-					<ReaderNavButton_ReaderControls
+					<ReaderNavButton
 						href={prevChapterHref}
 						direction="left"
 						isDisabled={isFirstChapterInBible}
@@ -91,7 +91,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 						currBook={currBook}
 						bookList={bookList}
 					/>
-					<ReaderNavButton_ReaderControls
+					<ReaderNavButton
 						href={nextChapterHref}
 						direction="right"
 						isDisabled={isLastChapterInBible}

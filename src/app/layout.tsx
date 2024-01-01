@@ -6,9 +6,6 @@ import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
-import { Footer } from '~/components/molecules/Footer'
-import { Header } from '~/components/molecules/Header'
-
 const fontSans = DM_Sans({
 	axes: ['opsz'],
 	fallback: [
@@ -60,7 +57,9 @@ export const metadata = {
 
 export const viewport: Viewport = {
 	initialScale: 1,
+	userScalable: false,
 	viewportFit: 'cover',
+	width: 'device-width',
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
@@ -71,13 +70,12 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 				background: 'bg.canvas',
 				color: 'fg',
 				fontSize: 'base',
-				gridAutoRows: 'min-content',
-				h: 'fit',
+				gridTemplateRows: '1fr min-content',
+				h: '100dvh',
+				overflow: 'clip',
 			})}
 		>
-			<Header />
 			{children}
-			<Footer />
 		</body>
 	</html>
 )

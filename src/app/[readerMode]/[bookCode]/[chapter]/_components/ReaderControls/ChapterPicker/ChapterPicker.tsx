@@ -9,7 +9,7 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { useCloseModalOnChapterChange } from '~/components/organisms/ReaderControls/ChapterPicker/useCloseModalOnChapterChange'
+import { useCloseChapterPickerOnParamChange } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/ChapterPicker/useCloseChapterPickerOnParamChange'
 import type { getBookList, TBook } from '~/db'
 
 import { BookList } from './BookList'
@@ -60,8 +60,8 @@ export const ChapterPicker = ({
 
 	const modalApi = modal.connect(state, send, normalizeProps)
 
-	useCloseModalOnChapterChange(
-		currBook,
+	useCloseChapterPickerOnParamChange(
+		currBook.code,
 		currChapter,
 		modalApi.isOpen,
 		//eslint-disable-next-line @typescript-eslint/unbound-method

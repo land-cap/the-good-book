@@ -3,7 +3,7 @@ import { css, cx } from 'styled-system/css'
 
 import { labelCss } from '~/styles/label.css'
 
-import { Separator } from '../../../atoms'
+import { Separator } from '../../../../../../../components/atoms'
 
 export const ChapterListHeader = ({
 	children,

@@ -3,7 +3,7 @@ import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { center, hstack, macrogrid } from 'styled-system/patterns'
 
-import { Icon, Separator } from '../../../atoms'
+import { Icon, Separator } from '../../../../../../../components/atoms'
 
 const ButtonClose = styled('button', {
 	base: center.raw({
