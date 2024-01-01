@@ -2,6 +2,7 @@
 
 import * as modal from '@zag-js/dialog'
 import { normalizeProps, Portal, useMachine } from '@zag-js/react'
+import { useAtomValue } from 'jotai'
 import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -9,9 +10,9 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { useCloseChapterPickerOnParamChange } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/ChapterPicker/useCloseChapterPickerOnParamChange'
 import type { getBookList, TBook } from '~/db'
 
+import { readerPageContainerElAtom } from '../../../_readerPage.state'
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
 import { ChapterListHeader } from './ChapterListHeader'
@@ -27,6 +28,7 @@ import {
 } from './ChapterPicker.styles'
 import { Header } from './Header'
 import { ModalTrigger } from './ModalTrigger'
+import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 
 export const ChapterPicker = ({
 	currBook,
@@ -41,24 +43,27 @@ export const ChapterPicker = ({
 
 	const [tab, setTab] = useState<'book' | 'chapter'>('book')
 
-	const handleModalOpenChange = ({ open }: { open: boolean }) => {
-		if (open) {
-			document.body.style.overflow = 'clip'
-		} else {
-			document.body.style.overflow = 'auto'
-			setTab('book')
-		}
-	}
+	const readerPageContainerEl = useAtomValue(readerPageContainerElAtom)
 
 	const [state, send] = useMachine(
 		modal.machine({
 			id: 'chapter-picker',
-			onOpenChange: handleModalOpenChange,
 			preventScroll: false,
 		}),
 	)
 
 	const modalApi = modal.connect(state, send, normalizeProps)
+
+	useEffect(() => {
+		if (readerPageContainerEl) {
+			if (modalApi.isOpen) {
+				readerPageContainerEl.style.overflow = 'clip'
+			} else {
+				readerPageContainerEl.style.overflow = 'auto'
+				setTab('book')
+			}
+		}
+	}, [modalApi.isOpen, readerPageContainerEl])
 
 	useCloseChapterPickerOnParamChange(
 		currBook.code,

@@ -6,6 +6,8 @@ import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
+import { RootProviders } from '~/app/_components/RootProviders'
+
 const fontSans = DM_Sans({
 	axes: ['opsz'],
 	fallback: [
@@ -57,6 +59,8 @@ export const metadata = {
 
 export const viewport: Viewport = {
 	initialScale: 1,
+	maximumScale: 1,
+	minimumScale: 1,
 	userScalable: false,
 	viewportFit: 'cover',
 	width: 'device-width',
@@ -64,19 +68,21 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
 	<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
-		<body
-			className={macrogrid({
-				_osDark: { color: 'fg.muted' },
-				background: 'bg.canvas',
-				color: 'fg',
-				fontSize: 'base',
-				gridTemplateRows: '1fr min-content',
-				h: '100dvh',
-				overflow: 'clip',
-			})}
-		>
-			{children}
-		</body>
+		<RootProviders>
+			<body
+				className={macrogrid({
+					_osDark: { color: 'fg.muted' },
+					background: 'bg.canvas',
+					color: 'fg',
+					fontSize: 'base',
+					gridTemplateRows: '1fr min-content',
+					h: '100dvh',
+					overflow: 'clip',
+				})}
+			>
+				{children}
+			</body>
+		</RootProviders>
 	</html>
 )
 

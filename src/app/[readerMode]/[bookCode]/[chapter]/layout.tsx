@@ -1,21 +1,21 @@
 import { type ReactNode } from 'react'
 
 import { Footer, Header } from '~/components'
-import { getBookList } from '~/db'
+import { getBookListWithCache } from '~/db'
 
-import { PageContainer } from './_components/PageContainer'
 import { ReaderControls } from './_components/ReaderControls'
+import { ReaderPageContainer } from './_components/ReaderPageContainer'
 
 const Layout = async ({ children }: { children: ReactNode }) => {
-	const bookList = await getBookList()
+	const bookList = await getBookListWithCache()
 
 	return (
 		<>
-			<PageContainer>
+			<ReaderPageContainer>
 				<Header />
 				{children}
 				<Footer />
-			</PageContainer>
+			</ReaderPageContainer>
 			<ReaderControls bookList={bookList} />
 		</>
 	)

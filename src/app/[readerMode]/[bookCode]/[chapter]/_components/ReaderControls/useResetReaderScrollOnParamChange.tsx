@@ -1,19 +1,18 @@
-import { atom, useAtomValue } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { useCallback } from 'react'
 
+import { readerPageContainerElAtom } from '../../_readerPage.state'
 import { useOnReaderParamChange } from './useOnReaderParamChange'
-
-export const pageContainerElAtom = atom<HTMLDivElement | null>(null)
 
 export const useResetReaderScrollOnParamChange = (
 	currBookCode: string,
 	currChapter: number,
 ) => {
-	const pageContentEl = useAtomValue(pageContainerElAtom)
+	const readerPageContentEl = useAtomValue(readerPageContainerElAtom)
 
 	const handler = useCallback(() => {
-		pageContentEl && pageContentEl.scrollTo(0, 0)
-	}, [pageContentEl])
+		readerPageContentEl && readerPageContentEl.scrollTo(0, 0)
+	}, [readerPageContentEl])
 
 	useOnReaderParamChange(handler, currBookCode, currChapter)
 }
