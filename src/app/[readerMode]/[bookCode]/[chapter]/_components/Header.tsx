@@ -3,8 +3,7 @@ import { styled } from 'styled-system/jsx'
 import { flex, subgrid } from 'styled-system/patterns'
 
 import { wChildren } from '~/component-helpers'
-
-import { Separator } from '../atoms'
+import { Separator } from '~/components'
 
 const HeaderContainer = wChildren(({ children }) => (
 	<header

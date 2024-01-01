@@ -20,7 +20,7 @@ export const OverlayContainer = styled('div', {
 export const TabsRoot = styled(Tabs.Root, {
 	base: flex.raw({
 		direction: 'column',
-		h: 'full',
+		h: 'calc(100% - token(spacing.safe_area_bottom))',
 		overflowY: 'hidden',
 	}),
 })
@@ -34,6 +34,14 @@ export const TabsContent = styled(Tabs.Content, {
 		h: 'full',
 		overflowY: 'scroll',
 	},
+})
+
+export const BookListContainer = styled('ul', {
+	base: macrogrid.raw({
+		column: 'fullbleed',
+		h: 'fit-content',
+		pb: '4',
+	}),
 })
 
 export const BookListItemContainer = styled('div', {
@@ -58,13 +66,6 @@ export const BookListItemContainer = styled('div', {
 			},
 		},
 	},
-})
-
-export const BookListContainer = styled('ul', {
-	base: macrogrid.raw({
-		column: 'fullbleed',
-		h: 'fit-content',
-	}),
 })
 
 export const BookListItem = styled('li', {
