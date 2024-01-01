@@ -5,12 +5,12 @@ import { css, cx } from 'styled-system/css'
 import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { useResetReaderScrollOnParamChange } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/useResetReaderScrollOnParamChange'
+import { Separator } from '~/components'
 import { type TBook } from '~/db'
 
-import { Separator } from '../../../../../../components'
 import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton } from './ReaderNavButton'
+import { useResetReaderScrollOnParamChange } from './useResetReaderScrollOnParamChange'
 
 export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 	const {

@@ -23,13 +23,13 @@ import {
 	ChapterList,
 	ChapterListItem,
 	ChapterListItemLink,
+	ModalTrigger,
 	OverlayContainer,
 	OverlayPositioner,
 	TabsContent,
 	TabsRoot,
 } from './ChapterPicker.styles'
 import { Header } from './Header'
-import { ModalTrigger } from './ModalTrigger'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 
 export const ChapterPicker = ({

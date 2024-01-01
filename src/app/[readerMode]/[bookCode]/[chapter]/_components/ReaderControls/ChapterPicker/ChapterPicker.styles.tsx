@@ -3,6 +3,20 @@ import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
 
+export const ModalTrigger = styled('button', {
+	base: center.raw({
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+		flexGrow: 1,
+		fontWeight: 'bold',
+		h: 'full',
+		px: '4',
+		transition: 'colors',
+		transitionDuration: 'fast',
+		transitionTimingFunction: 'ease-in-out',
+	}),
+})
+
 export const OverlayPositioner = styled('div', {
 	base: {
 		inset: '0',
