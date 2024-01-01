@@ -6,8 +6,11 @@ import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
+import { PageContainer } from '~/app/_components/PageContainer'
+import { ReaderControls } from '~/components'
 import { Footer } from '~/components/molecules/Footer'
 import { Header } from '~/components/molecules/Header'
+import { getBookList } from '~/db'
 
 const fontSans = DM_Sans({
 	axes: ['opsz'],
@@ -63,23 +66,31 @@ export const viewport: Viewport = {
 	viewportFit: 'cover',
 }
 
-const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
-		<body
-			className={macrogrid({
-				_osDark: { color: 'fg.muted' },
-				background: 'bg.canvas',
-				color: 'fg',
-				fontSize: 'base',
-				gridAutoRows: 'min-content',
-				h: 'fit',
-			})}
-		>
-			<Header />
-			{children}
-			<Footer />
-		</body>
-	</html>
-)
+const RootLayout = async ({ children }: { children: ReactNode }) => {
+	const bookList = await getBookList()
+
+	return (
+		<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
+			<body
+				className={macrogrid({
+					_osDark: { color: 'fg.muted' },
+					background: 'bg.canvas',
+					color: 'fg',
+					fontSize: 'base',
+					gridTemplateRows: '1fr min-content',
+					h: '100dvh',
+					overflow: 'clip',
+				})}
+			>
+				<PageContainer>
+					<Header />
+					{children}
+					<Footer />
+				</PageContainer>
+				<ReaderControls bookList={bookList} />
+			</body>
+		</html>
+	)
+}
 
 export default RootLayout

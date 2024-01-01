@@ -3,7 +3,7 @@ import { flex } from 'styled-system/patterns'
 
 import { Icon } from '../../atoms'
 
-export const ReaderNavButton_ReaderControls = ({
+export const ReaderNavButton = ({
 	href,
 	direction,
 	isDisabled,
