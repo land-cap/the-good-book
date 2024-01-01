@@ -13,7 +13,13 @@ export const Verse = ({
 	<span
 		data-component="Verse"
 		className={cx(
-			isStudyMode && css({ display: 'block', position: 'relative' }),
+			isStudyMode &&
+				css({
+					cursor: 'text',
+					display: 'block',
+					position: 'relative',
+					userSelect: 'text',
+				}),
 		)}
 	>
 		{children}

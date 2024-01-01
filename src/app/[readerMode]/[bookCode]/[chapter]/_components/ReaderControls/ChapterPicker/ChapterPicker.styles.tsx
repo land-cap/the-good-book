@@ -83,7 +83,7 @@ export const BookListItemContainer = styled('div', {
 })
 
 export const BookListItem = styled('li', {
-	base: subgrid.raw({ column: 'content', py: '4' }),
+	base: subgrid.raw({ column: 'content', cursor: 'pointer', py: '4' }),
 })
 
 export const ChapterList = styled('ul', {

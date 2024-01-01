@@ -13,7 +13,6 @@ export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 				textStyle: 'sm',
 			},
 			textStyle: 'xs',
-			userSelect: 'none',
 		})}
 	>
 		{children}
@@ -36,7 +35,6 @@ export const LargeSectionReference = ({
 				textStyle: 'sm',
 			},
 			textStyle: 'xs',
-			userSelect: 'none',
 		})}
 	>
 		({children})
@@ -59,7 +57,6 @@ export const LargeSectionCrossReference = ({
 				textStyle: 'sm',
 			},
 			textStyle: 'xs',
-			userSelect: 'none',
 		})}
 	>
 		{children}
@@ -72,7 +69,6 @@ export const SectionTitle = ({ children }: { children: ReactNode }) => (
 		className={css({
 			color: 'fg.subtle',
 			fontSize: '1.25em',
-			userSelect: 'none',
 		})}
 	>
 		{children}
@@ -86,7 +82,6 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 			color: 'fg.subtle',
 			fontFamily: 'mono',
 			fontStyle: 'italic',
-			userSelect: 'none',
 		})}
 	>
 		{children}
@@ -110,7 +105,6 @@ export const VerseLabel = ({
 		<span
 			data-component="VerseLabel"
 			className={cx(
-				css({ userSelect: 'none' }),
 				isStudyMode &&
 					css({
 						left: '-2',
@@ -145,10 +139,7 @@ export const CrossReference = ({
 	referenceList: string
 	isStudyMode: boolean
 }) => (
-	<span
-		data-component="CrossReference"
-		className={css({ cursor: 'pointer', userSelect: 'none' })}
-	>
+	<span data-component="CrossReference" className={css({ cursor: 'pointer' })}>
 		&nbsp;
 		<sup
 			className={css({
