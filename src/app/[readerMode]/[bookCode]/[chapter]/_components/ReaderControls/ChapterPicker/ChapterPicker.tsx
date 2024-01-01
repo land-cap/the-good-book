@@ -10,8 +10,6 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { SafeAreaBottom } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/ChapterPicker/SafeAreaBottom'
-import { Separator } from '~/components'
 import type { getBookList, TBook } from '~/db'
 
 import { readerPageContainerElAtom } from '../../../_readerPage.state'
@@ -96,6 +94,10 @@ export const ChapterPicker = ({
 
 	const [chapterListItemHeight, setChapterListItemHeight] = useState<number>(0)
 
+	const chapterListPaddingBottom = `calc(${
+		(chapterListItemHeight - 16) / 2
+	}px + env(safe-area-inset-bottom,0))`
+
 	useEffect(() => {
 		const handleWindowResize = () => {
 			chapterListItemRef.current &&
@@ -126,7 +128,12 @@ export const ChapterPicker = ({
 									onTabsTriggerClick={() => setSelectedBook(currBook)}
 									closeButtonProps={modalApi.closeTriggerProps}
 								/>
-								<TabsContent value="book">
+								<TabsContent
+									value="book"
+									className={css({
+										pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
+									})}
+								>
 									<BookListContainer>
 										<BookListSectionHeader>
 											Vechiul Testament
@@ -156,7 +163,7 @@ export const ChapterPicker = ({
 								</TabsContent>
 								<TabsContent value="chapter" className={macrogrid()}>
 									<ChapterList
-										style={{ paddingBottom: (chapterListItemHeight - 16) / 2 }}
+										style={{ paddingBottom: chapterListPaddingBottom }}
 									>
 										<ChapterListHeader
 											chapterListItemHeight={chapterListItemHeight}
@@ -196,10 +203,6 @@ export const ChapterPicker = ({
 									</ChapterList>
 								</TabsContent>
 							</TabsRoot>
-							<div className={macrogrid()}>
-								<Separator className={css({ column: 'content' })} />
-							</div>
-							<SafeAreaBottom />
 						</OverlayContainer>
 					</OverlayPositioner>
 				)}
