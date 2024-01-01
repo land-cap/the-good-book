@@ -4,7 +4,7 @@ import { subgrid } from 'styled-system/patterns'
 
 import { labelCss } from '~/styles/label.css'
 
-import { Separator } from '../../../atoms'
+import { Separator } from '../../../../../../../components/atoms'
 
 export const BookListSectionHeader = ({
 	children,

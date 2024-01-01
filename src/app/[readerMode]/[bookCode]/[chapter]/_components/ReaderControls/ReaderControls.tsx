@@ -5,10 +5,10 @@ import { css, cx } from 'styled-system/css'
 import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { useResetReaderScrollOnParamChange } from '~/components/organisms/ReaderControls/useResetReaderScrollOnParamChange'
+import { useResetReaderScrollOnParamChange } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/useResetReaderScrollOnParamChange'
 import { type TBook } from '~/db'
 
-import { Separator } from '../../atoms'
+import { Separator } from '../../../../../../components/atoms'
 import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton } from './ReaderNavButton'
 

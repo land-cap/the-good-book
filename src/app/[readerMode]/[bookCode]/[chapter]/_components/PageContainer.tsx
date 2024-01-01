@@ -4,7 +4,7 @@ import { useSetAtom } from 'jotai'
 import { type ReactNode } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 
-import { pageContainerElAtom } from '~/components/organisms/ReaderControls/useResetReaderScrollOnParamChange'
+import { pageContainerElAtom } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/useResetReaderScrollOnParamChange'
 
 export const PageContainer = ({ children }: { children: ReactNode }) => {
 	const setPageContainerEl = useSetAtom(pageContainerElAtom)

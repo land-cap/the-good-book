@@ -9,7 +9,7 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { useCloseChapterPickerOnParamChange } from '~/components/organisms/ReaderControls/ChapterPicker/useCloseChapterPickerOnParamChange'
+import { useCloseChapterPickerOnParamChange } from '~/app/[readerMode]/[bookCode]/[chapter]/_components/ReaderControls/ChapterPicker/useCloseChapterPickerOnParamChange'
 import type { getBookList, TBook } from '~/db'
 
 import { BookList } from './BookList'

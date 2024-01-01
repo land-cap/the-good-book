@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { flex } from 'styled-system/patterns'
 
-import { Icon } from '../../atoms'
+import { Icon } from '../../../../../../components/atoms'
 
 export const ReaderNavButton = ({
 	href,
