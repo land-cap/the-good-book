@@ -57,7 +57,9 @@ export const metadata = {
 
 export const viewport: Viewport = {
 	initialScale: 1,
+	userScalable: false,
 	viewportFit: 'cover',
+	width: 'device-width',
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (

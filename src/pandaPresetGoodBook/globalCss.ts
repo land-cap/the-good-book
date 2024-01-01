@@ -13,7 +13,8 @@ export const globalCss = defineGlobalStyles({
 		fontOpticalSizing: 'auto',
 		fontWeight: 'regular',
 	},
-	html: {
-        bg: 'bg.canvas',
+	'html, body': {
+		bg: 'bg.canvas',
+		touchAction: 'pan-x pan-y',
 	},
 })
