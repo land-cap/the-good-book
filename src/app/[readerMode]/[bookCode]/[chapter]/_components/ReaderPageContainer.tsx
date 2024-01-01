@@ -13,15 +13,14 @@ export const ReaderPageContainer = ({ children }: { children: ReactNode }) => {
 		<div
 			ref={setReaderPageContainerEl}
 			className={macrogrid({
-				//@ts-ignore
 				// fixes jagged scroll on chrome
-				'-webkit-backface-visibility': 'hidden',
-				_isSafari: { transform: 'translate3d(0,0,0)' },
+				backfaceVisibility: 'hidden',
 				column: 'fullbleed',
 				gridAutoRows: 'min-content',
 				gridRow: '1fr',
 				h: 'full',
 				overflow: 'scroll',
+				transform: 'translate3d(0,0,0)',
 			})}
 		>
 			{children}
