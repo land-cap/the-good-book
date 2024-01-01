@@ -10,6 +10,7 @@ export const pandaPresetGoodBook = definePreset({
 	conditions: {
 		extend: {
 			canHover: '@media (hover: hover)',
+			isSafari: '@media not all and (min-resolution:.001dpcm)',
 		},
 	},
 	globalCss,
