@@ -19,6 +19,7 @@ export const ReaderPageContainer = ({ children }: { children: ReactNode }) => {
 				h: 'full',
 				overflow: 'scroll',
 				overscrollBehavior: 'contain',
+				transform: 'translate3d(0,0,0)',
 			})}
 		>
 			{children}
