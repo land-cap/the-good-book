@@ -10,7 +10,7 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import type { getBookList, TBook } from '~/db'
+import type { TBook } from '~/db'
 
 import { readerPageContainerElAtom } from '../../../_readerPage.state'
 import { BookList } from './BookList'
@@ -73,8 +73,7 @@ export const ChapterPicker = ({
 		modalApi.close,
 	)
 
-	const [selectedBook, setSelectedBook] =
-		useState<Awaited<ReturnType<typeof getBookList>>[0]>(currBook)
+	const [selectedBook, setSelectedBook] = useState<TBook>(currBook)
 
 	useEffect(() => {
 		setSelectedBook(currBook)

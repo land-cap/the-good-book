@@ -10,7 +10,6 @@ import { type TBook } from '~/db'
 
 import { ChapterPicker } from './ChapterPicker'
 import { ReaderNavButton } from './ReaderNavButton'
-import { useResetReaderScrollOnParamChange } from './useResetReaderScrollOnParamChange'
 
 export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 	const {
@@ -26,8 +25,6 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 	if (!currBook) {
 		throw new Error('No book data')
 	}
-
-	useResetReaderScrollOnParamChange(currBook.code, chapter)
 
 	const currBookIndex = bookList.findIndex(
 		(book) => book.book_name?.name === currBook.book_name?.name,
@@ -63,7 +60,10 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 			className={cx(
 				macrogrid({
 					bg: 'bg.canvas',
+					bottom: '0',
 					column: 'fullbleed',
+					position: 'sticky',
+					w: 'full',
 				}),
 			)}
 		>

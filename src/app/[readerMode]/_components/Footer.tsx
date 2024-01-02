@@ -14,9 +14,6 @@ export const Footer = () => (
 			mx: 'auto',
 			my: '20',
 			placeContent: 'center',
-			sm: {
-				my: '32',
-			},
 			textAlign: 'center',
 			w: 'full',
 		})}
