@@ -74,7 +74,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 					_osDark: { color: 'fg.muted' },
 					background: 'bg.canvas',
 					color: 'fg',
-					fontSize: 'base',
+					fontSize: 'regular',
 					gridTemplateRows: 'min-content 1fr min-content',
 					minH: 'screen',
 					overscrollBehavior: 'contain',
