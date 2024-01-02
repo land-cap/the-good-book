@@ -2,9 +2,8 @@ import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { subgrid } from 'styled-system/patterns'
 
+import { Separator } from '~/components'
 import { labelCss } from '~/styles/label.css'
-
-import { Separator } from '../../../../../../../components'
 
 export const BookListSectionHeader = ({
 	children,
