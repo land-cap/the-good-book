@@ -47,6 +47,7 @@ export const TabsContent = styled(Tabs.Content, {
 		fixStickyContainer: true,
 		h: 'full',
 		overflowY: 'scroll',
+		overscrollBehavior: 'contain',
 	},
 })
 

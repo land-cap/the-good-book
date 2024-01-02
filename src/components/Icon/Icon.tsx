@@ -3,18 +3,17 @@ import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
 export const iconRecipe = cva({
 	base: {
 		'--grad': 0,
-		'--wght': 400,
+		'--wght': 300,
 		// @ts-ignore
 		'-webkit-font-feature-settings': "'liga'",
 		'-webkit-font-smoothing': 'antialiased',
-		_osDark: { '--grad': -25 },
 		direction: 'ltr',
 		display: 'inline-flex',
 		'font-variation-settings':
 			"'FILL' var(--fill), 'wght' var(--wght), 'GRAD' var(--grad)",
 		fontFamily: 'Material Symbols Sharp',
 		fontStyle: 'normal',
-		fontWeight: 'normal',
+		fontWeight: 'var(--wght)',
 		letterSpacing: 'normal',
 		lineHeight: '1',
 		textTransform: 'none',

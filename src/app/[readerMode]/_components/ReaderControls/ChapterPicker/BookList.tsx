@@ -18,14 +18,11 @@ export const BookList = ({
 			key={book.code}
 			isCurrBook={book.code === currBookCode}
 			isFirstEl={bookIndex === 0}
+			onClick={() => {
+				onListItemClick()
+				setSelectedBook(book)
+			}}
 		>
-			<BookListItem
-				onClick={() => {
-					onListItemClick()
-					setSelectedBook(book)
-				}}
-			>
-				{book.book_name?.name}
-			</BookListItem>
+			<BookListItem>{book.book_name?.name}</BookListItem>
 		</BookListItemContainer>
 	))
