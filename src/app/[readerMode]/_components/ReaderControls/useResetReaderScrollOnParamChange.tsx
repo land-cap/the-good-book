@@ -1,7 +1,8 @@
 import { useAtomValue } from 'jotai'
 import { useCallback } from 'react'
 
-import { readerPageContainerElAtom } from '../../_readerPage.state'
+import { readerPageContainerElAtom } from '~/app/[readerMode]/_readerPage.state'
+
 import { useOnReaderParamChange } from './useOnReaderParamChange'
 
 export const useResetReaderScrollOnParamChange = (
@@ -11,7 +12,7 @@ export const useResetReaderScrollOnParamChange = (
 	const readerPageContentEl = useAtomValue(readerPageContainerElAtom)
 
 	const handler = useCallback(() => {
-		readerPageContentEl && readerPageContentEl.scrollTo(0, 0)
+		readerPageContentEl?.scrollTo(0, 0)
 	}, [readerPageContentEl])
 
 	useOnReaderParamChange(handler, currBookCode, currChapter)
