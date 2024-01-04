@@ -1,11 +1,11 @@
-import { Tabs } from '@ark-ui/react'
+import { Dialog, Tabs } from '@ark-ui/react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { center, hstack, macrogrid } from 'styled-system/patterns'
 
 import { Icon, Separator } from '~/components'
 
-const ButtonClose = styled('button', {
+const DialogCloseTrigger = styled(Dialog.CloseTrigger, {
 	base: center.raw({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
@@ -19,12 +19,11 @@ const ButtonClose = styled('button', {
 
 const TabsTrigger = styled(Tabs.Trigger, {
 	base: {
-		'&[data-selected]': {
-			color: 'fg',
+		'&:not([data-selected])': {
+			color: 'fg.faded',
 		},
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
-		color: 'fg.faded',
 		fontWeight: 'bold',
 		h: 'full',
 		px: '4',
@@ -36,10 +35,8 @@ const TabsTrigger = styled(Tabs.Trigger, {
 
 export const Header = ({
 	onTabsTriggerClick,
-	closeButtonProps,
 }: {
 	onTabsTriggerClick: () => void
-	closeButtonProps: object
 }) => (
 	<div className={macrogrid()}>
 		<div className={css({ column: 'content' })}>
@@ -52,9 +49,9 @@ export const Header = ({
 						Chapter
 					</TabsTrigger>
 				</Tabs.List>
-				<ButtonClose {...closeButtonProps}>
+				<DialogCloseTrigger>
 					<Icon size={6} name="close" />
-				</ButtonClose>
+				</DialogCloseTrigger>
 			</div>
 		</div>
 		<Separator css={{ column: 'content' }} />

@@ -1,10 +1,9 @@
 'use client'
 
-import * as modal from '@zag-js/dialog'
-import { normalizeProps, Portal, useMachine } from '@zag-js/react'
+import { Dialog, Portal } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
@@ -19,14 +18,19 @@ import {
 	ChapterList,
 	ChapterListItem,
 	ChapterListItemLink,
-	ModalTrigger,
-	OverlayContainer,
-	OverlayPositioner,
+	DialogContainer,
+	DialogPositioner,
+	DialogTrigger,
 	TabsContent,
 	TabsRoot,
 } from './ChapterPicker.styles'
 import { Header } from './Header'
+import { useAnimateModalOnOpenChange } from './useAnimateModalOnOpenChange'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
+import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
+import { useDisableBodyScrollWhileModalOpen } from './useDisableBodyScrollWhileModalOpen'
+
+export type TChapterPickerTab = 'book' | 'chapter'
 
 export const ChapterPicker = ({
 	currBook,
@@ -39,33 +43,18 @@ export const ChapterPicker = ({
 }) => {
 	const { readerMode } = useParams<TReaderPageParams>()
 
-	const [tab, setTab] = useState<'book' | 'chapter'>('book')
+	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
-	const [state, send] = useMachine(
-		modal.machine({
-			id: 'chapter-picker',
-			preventScroll: false,
-		}),
-	)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
-	const modalApi = modal.connect(state, send, normalizeProps)
+	useDisableBodyScrollWhileModalOpen({ isModalOpen, setTab })
 
-	useEffect(() => {
-		if (modalApi.isOpen) {
-			document.body.style.overflow = 'clip'
-		} else {
-			document.body.style.overflow = 'auto'
-			setTab('book')
-		}
-	}, [modalApi.isOpen])
-
-	useCloseChapterPickerOnParamChange(
-		currBook.code,
+	useCloseChapterPickerOnParamChange({
+		closeModal: () => setIsModalOpen(false),
+		currBookCode: currBook.code,
 		currChapter,
-		modalApi.isOpen,
-		//eslint-disable-next-line @typescript-eslint/unbound-method
-		modalApi.close,
-	)
+		isModalOpen,
+	})
 
 	const [selectedBook, setSelectedBook] = useState<TBook>(currBook)
 
@@ -83,123 +72,97 @@ export const ChapterPicker = ({
 		[selectedBook],
 	)
 
-	const chapterListItemRef = useRef<HTMLLIElement>()
+	const { chapterListItemRef, chapterListItemHeight } =
+		useComputeChapterListItemHeight()
 
-	const [chapterListItemHeight, setChapterListItemHeight] = useState<number>(0)
-
-	const chapterListPaddingBottom = `calc(${
-		(chapterListItemHeight - 16) / 2
-	}px + env(safe-area-inset-bottom,0))`
-
-	useEffect(() => {
-		const handleWindowResize = () => {
-			chapterListItemRef.current &&
-				setChapterListItemHeight(
-					chapterListItemRef.current?.getBoundingClientRect().height,
-				)
-		}
-		window.addEventListener('resize', handleWindowResize)
-		return () => window.removeEventListener('resize', handleWindowResize)
-	}, [])
+	const { overlayPositionerSpring } = useAnimateModalOnOpenChange({
+		isModalOpen,
+	})
 
 	return (
-		<>
-			<ModalTrigger {...modalApi.triggerProps}>
+		<Dialog.Root
+			open={isModalOpen}
+			onOpenChange={(event) => setIsModalOpen(event.open)}
+		>
+			<DialogTrigger onClick={() => setIsModalOpen(true)}>
 				{currBook.book_name?.name} {currChapter}
-			</ModalTrigger>
+			</DialogTrigger>
 			<Portal>
-				{modalApi.isOpen && (
-					<OverlayPositioner {...modalApi.positionerProps}>
-						<OverlayContainer {...modalApi.contentProps}>
-							<TabsRoot
-								value={tab}
-								onValueChange={({ value }) =>
-									setTab(value as 'book' | 'chapter')
-								}
+				<DialogPositioner style={overlayPositionerSpring}>
+					<DialogContainer hidden={false}>
+						<TabsRoot
+							value={tab}
+							onValueChange={({ value }) => setTab(value as 'book' | 'chapter')}
+						>
+							<Header onTabsTriggerClick={() => setSelectedBook(currBook)} />
+							<TabsContent
+								value="book"
+								className={css({
+									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
+								})}
 							>
-								<Header
-									onTabsTriggerClick={() => setSelectedBook(currBook)}
-									closeButtonProps={modalApi.closeTriggerProps}
-								/>
-								<TabsContent
-									value="book"
-									className={css({
-										pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
-									})}
+								<BookListContainer>
+									<BookListSectionHeader>
+										Vechiul Testament
+									</BookListSectionHeader>
+									<BookList
+										bookList={oldTestamentBookList}
+										onListItemClick={() => {
+											setTab('chapter')
+										}}
+										setSelectedBook={setSelectedBook}
+										currBookCode={currBook.code}
+									/>
+								</BookListContainer>
+								<BookListContainer>
+									<BookListSectionHeader>Noul Testament</BookListSectionHeader>
+									<BookList
+										bookList={newTestamentBookList}
+										onListItemClick={() => {
+											setTab('chapter')
+										}}
+										setSelectedBook={setSelectedBook}
+										currBookCode={currBook.code}
+									/>
+								</BookListContainer>
+							</TabsContent>
+							<TabsContent value="chapter" className={macrogrid()}>
+								<ChapterList
+									style={{
+										paddingBottom: `calc(${
+											(chapterListItemHeight - 16) / 2
+										}px + env(safe-area-inset-bottom,0))`,
+									}}
 								>
-									<BookListContainer>
-										<BookListSectionHeader>
-											Vechiul Testament
-										</BookListSectionHeader>
-										<BookList
-											bookList={oldTestamentBookList}
-											onListItemClick={() => {
-												setTab('chapter')
-											}}
-											setSelectedBook={setSelectedBook}
-											currBookCode={currBook.code}
-										/>
-									</BookListContainer>
-									<BookListContainer>
-										<BookListSectionHeader>
-											Noul Testament
-										</BookListSectionHeader>
-										<BookList
-											bookList={newTestamentBookList}
-											onListItemClick={() => {
-												setTab('chapter')
-											}}
-											setSelectedBook={setSelectedBook}
-											currBookCode={currBook.code}
-										/>
-									</BookListContainer>
-								</TabsContent>
-								<TabsContent value="chapter" className={macrogrid()}>
-									<ChapterList
-										style={{ paddingBottom: chapterListPaddingBottom }}
+									<ChapterListHeader
+										chapterListItemHeight={chapterListItemHeight}
 									>
-										<ChapterListHeader
-											chapterListItemHeight={chapterListItemHeight}
-										>
-											{selectedBook.book_name?.name}
-										</ChapterListHeader>
-										{chapterList?.map((chapter) => {
-											const isCurrChapter =
-												selectedBook.id === currBook.id &&
-												chapter === currChapter
+										{selectedBook.book_name?.name}
+									</ChapterListHeader>
+									{chapterList?.map((chapter) => {
+										const isCurrChapter =
+											selectedBook.id === currBook.id && chapter === currChapter
 
-											return (
-												<ChapterListItem
-													key={chapter}
-													ref={
-														chapter === 1
-															? (el) => {
-																	if (el) {
-																		chapterListItemRef.current = el
-																		const height =
-																			el.getBoundingClientRect().height
-																		setChapterListItemHeight(height)
-																	}
-															  }
-															: undefined
-													}
-													isCurrChapter={isCurrChapter}
-												>
-													<ChapterListItemLink
-														href={`/${readerMode}/${selectedBook.code}/${chapter}`}
-													>
-														{chapter}
-													</ChapterListItemLink>
-												</ChapterListItem>
-											)
-										})}
-									</ChapterList>
-								</TabsContent>
-							</TabsRoot>
-						</OverlayContainer>
-					</OverlayPositioner>
-				)}
+										const chapterUrl = `/${readerMode}/${selectedBook.code}/${chapter}`
+
+										return (
+											<ChapterListItem
+												key={chapter}
+												ref={chapter === 1 ? chapterListItemRef : null}
+												isCurrChapter={isCurrChapter}
+											>
+												<ChapterListItemLink href={chapterUrl}>
+													{chapter}
+												</ChapterListItemLink>
+											</ChapterListItem>
+										)
+									})}
+								</ChapterList>
+							</TabsContent>
+						</TabsRoot>
+					</DialogContainer>
+				</DialogPositioner>
 			</Portal>
-		</>
+		</Dialog.Root>
 	)
 }
