@@ -1,5 +1,5 @@
 import { Tabs } from '@ark-ui/react'
-import { motion } from 'framer-motion'
+import { animated } from '@react-spring/web'
 import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
@@ -18,13 +18,12 @@ export const ModalTrigger = styled('button', {
 	}),
 })
 
-export const OverlayPositioner = styled(motion.div, {
+export const OverlayPositioner = styled(animated.div, {
 	base: {
 		bottom: 0,
 		h: 'screen',
 		left: 0,
 		position: 'fixed',
-		transform: 'translate3d(0,0,0)',
 		w: 'screen',
 	},
 })

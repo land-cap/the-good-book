@@ -1,8 +1,8 @@
 'use client'
 
+import { useSpring } from '@react-spring/web'
 import * as modal from '@zag-js/dialog'
 import { normalizeProps, Portal, useMachine } from '@zag-js/react'
-import { motion } from 'framer-motion'
 import { useParams } from 'next/navigation'
 import { range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -22,6 +22,7 @@ import {
 	ChapterListItemLink,
 	ModalTrigger,
 	OverlayContainer,
+	OverlayPositioner,
 	TabsContent,
 	TabsRoot,
 } from './ChapterPicker.styles'
@@ -102,32 +103,32 @@ export const ChapterPicker = ({
 		return () => window.removeEventListener('resize', handleWindowResize)
 	}, [])
 
+	const [springs, api] = useSpring(
+		() => ({
+			config: { friction: 50, tension: 600 },
+			from: { y: '100%' },
+		}),
+		[],
+	)
+
 	return (
 		<>
-			<ModalTrigger {...modalApi.triggerProps}>
+			<ModalTrigger
+				{...modalApi.triggerProps}
+				onClick={(event) => {
+					api.start(() => ({
+						config: { friction: 50, tension: 600 },
+						from: { y: '100%' },
+						to: { y: '0' },
+					}))
+					modalApi.triggerProps.onClick?.(event)
+				}}
+			>
 				{currBook.book_name?.name} {currChapter}
 			</ModalTrigger>
 			<Portal>
 				{modalApi.isOpen && (
-					<motion.div
-						{...modalApi.positionerProps}
-						className={css({
-							//@ts-ignore
-							'-webkit-transform': 'translate3d(0,0,0)',
-							bottom: 0,
-							h: 'screen',
-							left: 0,
-							position: 'fixed',
-							transform: 'translate3d(0,0,0)',
-							w: 'screen',
-						})}
-						initial={{ opacity: 1, y: '100%' }}
-						animate={{ opacity: 1, y: '0' }}
-						transition={{
-							duration: 2,
-							type: 'tween',
-						}}
-					>
+					<OverlayPositioner {...modalApi.positionerProps} style={springs}>
 						<OverlayContainer {...modalApi.contentProps}>
 							<TabsRoot
 								value={tab}
@@ -215,7 +216,7 @@ export const ChapterPicker = ({
 								</TabsContent>
 							</TabsRoot>
 						</OverlayContainer>
-					</motion.div>
+					</OverlayPositioner>
 				)}
 			</Portal>
 		</>
