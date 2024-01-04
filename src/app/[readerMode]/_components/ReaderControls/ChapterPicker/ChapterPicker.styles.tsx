@@ -1,9 +1,10 @@
-import { Tabs } from '@ark-ui/react'
+import { Dialog, Tabs } from '@ark-ui/react'
+import { animated } from '@react-spring/web'
 import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
 
-export const ModalTrigger = styled('button', {
+export const DialogTrigger = styled(Dialog.Trigger, {
 	base: center.raw({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
@@ -17,14 +18,19 @@ export const ModalTrigger = styled('button', {
 	}),
 })
 
-export const OverlayPositioner = styled('div', {
+export const DialogPositioner = styled(animated(Dialog.Positioner), {
 	base: {
-		inset: '0',
+		bottom: 0,
+		h: '100dvh',
+		left: 0,
 		position: 'fixed',
+		transform: 'translateZ(0)',
+		w: 'screen',
+		willChange: 'transform',
 	},
 })
 
-export const OverlayContainer = styled('div', {
+export const DialogContainer = styled(Dialog.Content, {
 	base: {
 		bg: 'bg.canvas',
 		h: 'full',
