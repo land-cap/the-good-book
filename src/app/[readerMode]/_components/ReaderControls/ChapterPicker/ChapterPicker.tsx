@@ -1,5 +1,6 @@
 'use client'
 
+import { useSpring } from '@react-spring/web'
 import * as modal from '@zag-js/dialog'
 import { normalizeProps, Portal, useMachine } from '@zag-js/react'
 import { useParams } from 'next/navigation'
@@ -102,14 +103,32 @@ export const ChapterPicker = ({
 		return () => window.removeEventListener('resize', handleWindowResize)
 	}, [])
 
+	const [springs, api] = useSpring(
+		() => ({
+			config: { friction: 50, tension: 600 },
+			from: { y: '100%' },
+		}),
+		[],
+	)
+
 	return (
 		<>
-			<ModalTrigger {...modalApi.triggerProps}>
+			<ModalTrigger
+				{...modalApi.triggerProps}
+				onClick={(event) => {
+					api.start(() => ({
+						config: { friction: 50, tension: 600 },
+						from: { y: '100%' },
+						to: { y: '0' },
+					}))
+					modalApi.triggerProps.onClick?.(event)
+				}}
+			>
 				{currBook.book_name?.name} {currChapter}
 			</ModalTrigger>
 			<Portal>
 				{modalApi.isOpen && (
-					<OverlayPositioner {...modalApi.positionerProps}>
+					<OverlayPositioner {...modalApi.positionerProps} style={springs}>
 						<OverlayContainer {...modalApi.contentProps}>
 							<TabsRoot
 								value={tab}
