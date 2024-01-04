@@ -21,10 +21,12 @@ export const ModalTrigger = styled('button', {
 export const OverlayPositioner = styled(animated.div, {
 	base: {
 		bottom: 0,
-		h: 'screen',
+		h: '100dvh',
 		left: 0,
 		position: 'fixed',
+		transform: 'translateZ(0)',
 		w: 'screen',
+		willChange: 'transform',
 	},
 })
 

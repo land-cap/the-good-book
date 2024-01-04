@@ -19,12 +19,11 @@ const ButtonClose = styled('button', {
 
 const TabsTrigger = styled(Tabs.Trigger, {
 	base: {
-		'&[data-selected]': {
-			color: 'fg',
+		'&:not([data-selected])': {
+			color: 'fg.faded',
 		},
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
-		color: 'fg.faded',
 		fontWeight: 'bold',
 		h: 'full',
 		px: '4',
