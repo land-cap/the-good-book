@@ -28,7 +28,7 @@ import { Header } from './Header'
 import { useAnimateModalOnOpenChange } from './useAnimateModalOnOpenChange'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
-import { useDisableBodyScrollWhileModalOpen } from './useDisableBodyScrollWhileModalOpen'
+import { useDisableBodyScrollWhileModalIsOpen } from './useDisableBodyScrollWhileModalIsOpen'
 
 export type TChapterPickerTab = 'book' | 'chapter'
 
@@ -47,7 +47,7 @@ export const ChapterPicker = ({
 
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
-	useDisableBodyScrollWhileModalOpen({ isModalOpen, setTab })
+	useDisableBodyScrollWhileModalIsOpen({ isModalOpen, setTab })
 
 	useCloseChapterPickerOnParamChange({
 		closeModal: () => setIsModalOpen(false),
@@ -83,6 +83,7 @@ export const ChapterPicker = ({
 		<Dialog.Root
 			open={isModalOpen}
 			onOpenChange={(event) => setIsModalOpen(event.open)}
+			preventScroll
 		>
 			<DialogTrigger onClick={() => setIsModalOpen(true)}>
 				{currBook.book_name?.name} {currChapter}

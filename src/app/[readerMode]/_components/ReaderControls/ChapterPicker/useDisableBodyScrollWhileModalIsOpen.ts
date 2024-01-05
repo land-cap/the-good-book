@@ -2,7 +2,7 @@ import { type Dispatch, type SetStateAction, useEffect } from 'react'
 
 import { type TChapterPickerTab } from './ChapterPicker'
 
-export const useDisableBodyScrollWhileModalOpen = ({
+export const useDisableBodyScrollWhileModalIsOpen = ({
 	isModalOpen,
 	setTab,
 }: {
