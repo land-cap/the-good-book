@@ -52,10 +52,11 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 					_osDark: { color: 'fg.muted' },
 					background: 'bg.canvas',
 					color: 'fg',
-					fontSize: 'regular',
+					fontSize: 'sm',
 					gridTemplateRows: 'min-content 1fr min-content',
 					minH: '100dvh',
 					overscrollBehavior: 'contain',
+					sm: { fontSize: 'md' },
 				})}
 			>
 				{children}
