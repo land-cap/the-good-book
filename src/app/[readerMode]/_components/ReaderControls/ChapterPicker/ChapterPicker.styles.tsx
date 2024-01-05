@@ -67,7 +67,7 @@ export const BookListContainer = styled('ul', {
 export const BookListItemContainer = styled('div', {
 	base: subgrid.raw({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-		_canHover: { _hover: { bg: 'bg.subtle' }, transitionDelay: 'fastest' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
 		column: 'fullbleed',
 		cursor: 'pointer',
 		transition: 'colors',
@@ -109,7 +109,6 @@ export const ChapterListItem = styled('li', {
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: {
 			_hover: { bg: 'bg.subtle' },
-			transitionDelay: 'fastest',
 		},
 		aspectRatio: '1/1',
 		placeContent: 'center',
