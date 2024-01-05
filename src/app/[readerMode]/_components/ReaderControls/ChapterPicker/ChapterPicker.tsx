@@ -56,6 +56,10 @@ export const ChapterPicker = ({
 		isModalOpen,
 	})
 
+	const handleOpenChange = (isOpen: boolean) => {
+		setIsModalOpen(isOpen)
+		!open && document.body.scrollIntoView()
+	}
 	const [selectedBook, setSelectedBook] = useState<TBook>(currBook)
 
 	useEffect(() => {
@@ -82,7 +86,7 @@ export const ChapterPicker = ({
 	return (
 		<Dialog.Root
 			open={isModalOpen}
-			onOpenChange={(event) => setIsModalOpen(event.open)}
+			onOpenChange={({ open }) => handleOpenChange(open)}
 			preventScroll
 		>
 			<DialogTrigger onClick={() => setIsModalOpen(true)}>
