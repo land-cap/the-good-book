@@ -167,7 +167,11 @@ export const JesusWords = ({ children }: { children: ReactNode }) => (
 export const Quote = ({ children }: { children: ReactNode }) => (
 	<span
 		data-component="Quote"
-		className={css({ display: 'block', fontFamily: 'mono' })}
+		className={css({
+			display: 'block',
+			fontFamily: 'sans',
+			fontStyle: 'italic',
+		})}
 	>
 		{children}
 	</span>

@@ -7,6 +7,7 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { RootProviders } from '~/app/_components/RootProviders'
+import { fontFranklin } from '~/fonts/fonts'
 
 const fontSans = DM_Sans({
 	axes: ['opsz'],
@@ -67,7 +68,7 @@ export const viewport: Viewport = {
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
+	<html lang="en" className={cx(fontFranklin.variable, fontMono.variable)}>
 		<RootProviders>
 			<body
 				className={macrogrid({
