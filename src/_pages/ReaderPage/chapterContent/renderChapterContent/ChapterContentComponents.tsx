@@ -80,7 +80,7 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 		data-component="FancyAside"
 		className={css({
 			color: 'fg.subtle',
-			fontFamily: 'mono',
+			fontFamily: 'sans',
 			fontStyle: 'italic',
 		})}
 	>
@@ -118,7 +118,7 @@ export const VerseLabel = ({
 			{!isStudyMode && ' '}
 			<LabelTag
 				className={cx(
-					css({ color: 'fg.subtle', fontFamily: 'mono' }),
+					css({ color: 'fg.subtle', fontFamily: 'sans' }),
 					isStudyMode &&
 						css({
 							fontSize: '0.625rem',
