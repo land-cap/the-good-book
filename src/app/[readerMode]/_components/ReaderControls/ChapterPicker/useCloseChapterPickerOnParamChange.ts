@@ -5,17 +5,17 @@ import { useOnReaderParamChange } from '../useOnReaderParamChange'
 export const useCloseChapterPickerOnParamChange = ({
 	currBookCode,
 	currChapter,
-	isModalOpen,
-	closeModal,
+	isDialogOpen,
+	closeDialog,
 }: {
 	currBookCode: string
 	currChapter: number
-	isModalOpen: boolean
-	closeModal: () => void
+	isDialogOpen: boolean
+	closeDialog: () => void
 }) => {
 	const handler = useCallback(() => {
-		isModalOpen && closeModal()
-	}, [closeModal, isModalOpen])
+		isDialogOpen && closeDialog()
+	}, [closeDialog, isDialogOpen])
 
 	useOnReaderParamChange(handler, currBookCode, currChapter)
 }
