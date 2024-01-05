@@ -1,16 +1,14 @@
 import '~/index.css'
 
 import { type Viewport } from 'next'
-import { DM_Mono, DM_Sans } from 'next/font/google'
+import { Work_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { RootProviders } from '~/app/_components/RootProviders'
-import { fontFranklin } from '~/fonts/fonts'
 
-const fontSans = DM_Sans({
-	axes: ['opsz'],
+const fontSans = Work_Sans({
 	fallback: [
 		'-apple-system',
 		'BlinkMacSystemFont',
@@ -23,30 +21,9 @@ const fontSans = DM_Sans({
 		'Segoe UI Emoji',
 		'Segoe UI Symbol',
 	],
-	subsets: ['latin-ext'],
-	variable: '--font-sans',
-})
-
-const fontMono = DM_Mono({
-	fallback: [
-		'ui-monospace',
-		'Menlo',
-		'Monaco',
-		'Cascadia Mono',
-		'Segoe UI Mono',
-		'Roboto Mono',
-		'Oxygen Mono',
-		'Ubuntu Monospace',
-		'Source Code Pro',
-		'Fira Mono',
-		'Droid Sans Mono',
-		'Courier New',
-		'monospace',
-	],
 	style: ['italic', 'normal'],
 	subsets: ['latin-ext'],
-	variable: '--font-mono',
-	weight: ['300', '400', '500'],
+	variable: '--font-sans',
 })
 
 export const metadata = {
@@ -68,7 +45,7 @@ export const viewport: Viewport = {
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontFranklin.variable, fontMono.variable)}>
+	<html lang="en" className={cx(fontSans.variable)}>
 		<RootProviders>
 			<body
 				className={macrogrid({
@@ -77,7 +54,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 					color: 'fg',
 					fontSize: 'regular',
 					gridTemplateRows: 'min-content 1fr min-content',
-					minH: 'screen',
+					minH: '100dvh',
 					overscrollBehavior: 'contain',
 				})}
 			>

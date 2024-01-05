@@ -118,7 +118,7 @@ export const VerseLabel = ({
 			{!isStudyMode && ' '}
 			<LabelTag
 				className={cx(
-					css({ color: 'fg.subtle', fontFamily: 'sans' }),
+					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
 					isStudyMode &&
 						css({
 							fontSize: '0.625rem',
