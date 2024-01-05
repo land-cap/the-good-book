@@ -7,7 +7,7 @@ export const fonts = defineTokens.fonts({
 
 export const fontWeights = defineTokens.fontWeights({
 	bold: {
-		value: '650',
+		value: '700',
 	},
 	regular: {
 		value: '400',

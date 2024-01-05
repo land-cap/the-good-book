@@ -10,12 +10,15 @@ export const globalCss = defineGlobalStyles({
 		outline: 'none',
 	},
 	':root': {
+		'--font-mono': 'Roboto Mono',
+		'--font-sans': 'Roboto Flex',
 		'-moz-osx-font-smoothing': 'grayscale',
 		'-webkit-font-smoothing': 'antialiased',
 		bg: 'bg.canvas',
 		color: 'fg',
 		fontFamily: 'sans',
 		fontOpticalSizing: 'auto',
+		fontStretch: '62.5',
 		fontWeight: 'regular',
 	},
 	'a *, button *': {

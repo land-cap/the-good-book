@@ -30,7 +30,6 @@ export const ChapterContentContainer = styled('div', {
 		fontSize: 'md',
 		lineHeight: '2em',
 		md: {
-			fontSize: 'lg',
 			lineHeight: '2.25em',
 		},
 		mt: 'reader_gap',

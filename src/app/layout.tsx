@@ -1,52 +1,10 @@
 import '~/index.css'
 
 import { type Viewport } from 'next'
-import { DM_Mono, DM_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
-import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { RootProviders } from '~/app/_components/RootProviders'
-
-const fontSans = DM_Sans({
-	axes: ['opsz'],
-	fallback: [
-		'-apple-system',
-		'BlinkMacSystemFont',
-		'Segoe UI',
-		'Roboto',
-		'Helvetica',
-		'Arial',
-		'sans-serif',
-		'Apple Color Emoji',
-		'Segoe UI Emoji',
-		'Segoe UI Symbol',
-	],
-	subsets: ['latin-ext'],
-	variable: '--font-sans',
-})
-
-const fontMono = DM_Mono({
-	fallback: [
-		'ui-monospace',
-		'Menlo',
-		'Monaco',
-		'Cascadia Mono',
-		'Segoe UI Mono',
-		'Roboto Mono',
-		'Oxygen Mono',
-		'Ubuntu Monospace',
-		'Source Code Pro',
-		'Fira Mono',
-		'Droid Sans Mono',
-		'Courier New',
-		'monospace',
-	],
-	style: ['italic', 'normal'],
-	subsets: ['latin-ext'],
-	variable: '--font-mono',
-	weight: ['300', '400', '500'],
-})
 
 export const metadata = {
 	description: 'Read the Bible without distractions.',
@@ -67,7 +25,7 @@ export const viewport: Viewport = {
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontSans.variable, fontMono.variable)}>
+	<html lang="en">
 		<RootProviders>
 			<body
 				className={macrogrid({
