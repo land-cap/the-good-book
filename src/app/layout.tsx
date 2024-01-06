@@ -1,30 +1,13 @@
 import '~/index.css'
 
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import { type Viewport } from 'next'
-import { Work_Sans } from 'next/font/google'
 import { type ReactNode } from 'react'
-import { cx } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { RootProviders } from '~/app/_components/RootProviders'
-
-const fontSans = Work_Sans({
-	fallback: [
-		'-apple-system',
-		'BlinkMacSystemFont',
-		'Segoe UI',
-		'Roboto',
-		'Helvetica',
-		'Arial',
-		'sans-serif',
-		'Apple Color Emoji',
-		'Segoe UI Emoji',
-		'Segoe UI Symbol',
-	],
-	style: ['italic', 'normal'],
-	subsets: ['latin-ext'],
-	variable: '--font-sans',
-})
 
 export const metadata = {
 	description: 'Read the Bible without distractions.',
@@ -45,7 +28,18 @@ export const viewport: Viewport = {
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontSans.variable)}>
+	<html
+		lang="en"
+		className={cx(
+			//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-argument
+			GeistSans.variable,
+			GeistMono.variable,
+			css({
+				'--font-mono': 'var(--font-geist-mono)',
+				'--font-sans': 'var(--font-geist-sans)',
+			}),
+		)}
+	>
 		<RootProviders>
 			<body
 				className={macrogrid({
