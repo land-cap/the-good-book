@@ -1,29 +1,37 @@
 import '~/index.css'
 
 import { type Viewport } from 'next'
-import { Work_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { RootProviders } from '~/app/_components/RootProviders'
 
-const fontSans = Work_Sans({
-	fallback: [
-		'-apple-system',
-		'BlinkMacSystemFont',
-		'Segoe UI',
-		'Roboto',
-		'Helvetica',
-		'Arial',
-		'sans-serif',
-		'Apple Color Emoji',
-		'Segoe UI Emoji',
-		'Segoe UI Symbol',
+const fontGeist = localFont({
+	src: [
+		{ path: './_fonts/Geist-Regular.woff2', weight: '400' },
+		{
+			path: './_fonts/Geist-Regular.otf',
+			weight: '400',
+		},
+		{ path: './_fonts/Geist-Bold.woff2', weight: '700' },
+		{ path: './_fonts/Geist-Bold.otf', weight: '700' },
 	],
-	style: ['italic', 'normal'],
-	subsets: ['latin-ext'],
 	variable: '--font-sans',
+})
+
+const fontGeistMono = localFont({
+	src: [
+		{ path: './_fonts/GeistMono-Regular.woff2', weight: '400' },
+		{
+			path: './_fonts/GeistMono-Regular.otf',
+			weight: '400',
+		},
+		{ path: './_fonts/GeistMono-Bold.woff2', weight: '700' },
+		{ path: './_fonts/GeistMono-Bold.otf', weight: '700' },
+	],
+	variable: '--font-mono',
 })
 
 export const metadata = {
@@ -45,7 +53,7 @@ export const viewport: Viewport = {
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontSans.variable)}>
+	<html lang="en" className={cx(fontGeist.variable, fontGeistMono.variable)}>
 		<RootProviders>
 			<body
 				className={macrogrid({
