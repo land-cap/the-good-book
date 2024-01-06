@@ -1,5 +1,4 @@
 import { Dialog, Tabs } from '@ark-ui/react'
-import { animated } from '@react-spring/web'
 import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
@@ -18,15 +17,24 @@ export const DialogTrigger = styled(Dialog.Trigger, {
 	}),
 })
 
-export const DialogPositioner = styled(animated(Dialog.Positioner), {
+export const DialogPositioner = styled(Dialog.Positioner, {
 	base: {
 		bottom: 0,
 		h: '100dvh',
 		left: 0,
 		position: 'fixed',
-		transform: 'translateZ(0)',
-		w: 'screen',
+		w: '100dvw',
 		willChange: 'transform',
+	},
+	variants: {
+		isDialogOpen: {
+			false: {
+				transform: 'translate3d(0,100%,0)',
+			},
+			true: {
+				transform: 'translate3d(0,0,0)',
+			},
+		},
 	},
 })
 
@@ -34,6 +42,7 @@ export const DialogContainer = styled(Dialog.Content, {
 	base: {
 		bg: 'bg.canvas',
 		h: 'full',
+		w: '100dvw',
 	},
 })
 

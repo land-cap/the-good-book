@@ -2,18 +2,18 @@ import { type Dispatch, type SetStateAction, useEffect } from 'react'
 
 import { type TChapterPickerTab } from './ChapterPicker'
 
-export const useDisableBodyScrollWhileModalIsOpen = ({
-	isModalOpen,
+export const useDisableBodyScrollWhileDialogIsOpen = ({
+	isDialogOpen,
 	setTab,
 }: {
-	isModalOpen: boolean
+	isDialogOpen: boolean
 	setTab: Dispatch<SetStateAction<TChapterPickerTab>>
 }) =>
 	useEffect(() => {
-		if (isModalOpen) {
+		if (isDialogOpen) {
 			document.body.style.overflow = 'clip'
 		} else {
 			document.body.style.overflow = 'auto'
 			setTab('book')
 		}
-	}, [isModalOpen, setTab])
+	}, [isDialogOpen, setTab])

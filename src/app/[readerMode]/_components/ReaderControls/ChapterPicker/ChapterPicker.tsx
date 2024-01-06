@@ -25,10 +25,9 @@ import {
 	TabsRoot,
 } from './ChapterPicker.styles'
 import { Header } from './Header'
-import { useAnimateModalOnOpenChange } from './useAnimateModalOnOpenChange'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
-import { useDisableBodyScrollWhileModalIsOpen } from './useDisableBodyScrollWhileModalIsOpen'
+import { useDisableBodyScrollWhileDialogIsOpen } from './useDisableBodyScrollWhileDialogIsOpen'
 
 export type TChapterPickerTab = 'book' | 'chapter'
 
@@ -45,21 +44,17 @@ export const ChapterPicker = ({
 
 	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
-	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-	useDisableBodyScrollWhileModalIsOpen({ isModalOpen, setTab })
+	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen, setTab })
 
 	useCloseChapterPickerOnParamChange({
-		closeModal: () => setIsModalOpen(false),
+		closeDialog: () => setIsDialogOpen(false),
 		currBookCode: currBook.code,
 		currChapter,
-		isModalOpen,
+		isDialogOpen,
 	})
 
-	const handleOpenChange = (isOpen: boolean) => {
-		setIsModalOpen(isOpen)
-		!open && document.body.scrollIntoView()
-	}
 	const [selectedBook, setSelectedBook] = useState<TBook>(currBook)
 
 	useEffect(() => {
@@ -79,21 +74,19 @@ export const ChapterPicker = ({
 	const { chapterListItemRef, chapterListItemHeight } =
 		useComputeChapterListItemHeight()
 
-	const { overlayPositionerSpring } = useAnimateModalOnOpenChange({
-		isModalOpen,
-	})
-
 	return (
 		<Dialog.Root
-			open={isModalOpen}
-			onOpenChange={({ open }) => handleOpenChange(open)}
-			preventScroll
+			open={isDialogOpen}
+			onOpenChange={({ open }) => setIsDialogOpen(open)}
+			onExitComplete={() => {
+				!isDialogOpen && document.body.scrollIntoView()
+			}}
 		>
-			<DialogTrigger onClick={() => setIsModalOpen(true)}>
+			<DialogTrigger onClick={() => setIsDialogOpen(true)}>
 				{currBook.book_name?.name} {currChapter}
 			</DialogTrigger>
 			<Portal>
-				<DialogPositioner style={overlayPositionerSpring}>
+				<DialogPositioner isDialogOpen={isDialogOpen}>
 					<DialogContainer hidden={false}>
 						<TabsRoot
 							value={tab}

@@ -80,8 +80,7 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 		data-component="FancyAside"
 		className={css({
 			color: 'fg.subtle',
-			fontFamily: 'sans',
-			fontStyle: 'italic',
+			fontFamily: 'mono',
 		})}
 	>
 		{children}
@@ -169,8 +168,7 @@ export const Quote = ({ children }: { children: ReactNode }) => (
 		data-component="Quote"
 		className={css({
 			display: 'block',
-			fontFamily: 'sans',
-			fontStyle: 'italic',
+			fontFamily: 'mono',
 		})}
 	>
 		{children}
