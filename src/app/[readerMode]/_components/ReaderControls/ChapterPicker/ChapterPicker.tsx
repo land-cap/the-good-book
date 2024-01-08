@@ -86,8 +86,9 @@ export const ChapterPicker = ({
 				{currBook.book_name?.name} {currChapter}
 			</DialogTrigger>
 			<Portal>
-				<DialogPositioner isDialogOpen={isDialogOpen}>
-					<DialogContainer hidden={false}>
+				{/*<DialogBackdrop />*/}
+				<DialogPositioner>
+					<DialogContainer>
 						<TabsRoot
 							value={tab}
 							onValueChange={({ value }) => setTab(value as 'book' | 'chapter')}

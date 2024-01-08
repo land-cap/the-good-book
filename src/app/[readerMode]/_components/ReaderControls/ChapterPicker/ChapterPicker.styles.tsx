@@ -24,17 +24,6 @@ export const DialogPositioner = styled(Dialog.Positioner, {
 		left: 0,
 		position: 'fixed',
 		w: '100dvw',
-		willChange: 'transform',
-	},
-	variants: {
-		isDialogOpen: {
-			false: {
-				transform: 'translate3d(0,100%,0)',
-			},
-			true: {
-				transform: 'translate3d(0,0,0)',
-			},
-		},
 	},
 })
 
@@ -43,6 +32,12 @@ export const DialogContainer = styled(Dialog.Content, {
 		bg: 'bg.canvas',
 		h: 'full',
 		w: '100dvw',
+		'&[data-state=open]': {
+			animation: 'fadeInBottom 0.15s ease-out',
+		},
+		'&[data-state=closed]': {
+			animation: 'fadeOutBottom 0.1s ease-in',
+		},
 	},
 })
 
