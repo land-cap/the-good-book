@@ -51,7 +51,11 @@ export const TabsRoot = styled(Tabs.Root, {
 
 export const TabsContent = styled(Tabs.Content, {
 	base: {
+		'&[data-state=open]': {
+			animation: 'fadeIn 0.25s ease',
+		},
 		'&[data-state=closed]': {
+			animation: 'fadeOut 0.25s ease',
 			display: 'none',
 		},
 		fixStickyContainer: true,

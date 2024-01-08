@@ -3,7 +3,7 @@ import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
 export const iconRecipe = cva({
 	base: {
 		'--grad': 0,
-		'--wght': 300,
+		'--wght': 400,
 		// @ts-ignore
 		'-webkit-font-feature-settings': "'liga'",
 		'-webkit-font-smoothing': 'antialiased',
