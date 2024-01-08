@@ -1,8 +1,8 @@
 import { type ReactNode } from 'react'
-import { css, cx } from 'styled-system/css'
+import { css } from 'styled-system/css'
+import { caption } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
-import { labelCss } from '~/styles/label.css'
 
 export const ChapterListHeader = ({
 	children,
@@ -25,12 +25,9 @@ export const ChapterListHeader = ({
 			style={{ marginBottom }}
 		>
 			<div
-				className={cx(
-					labelCss,
-					css({
-						py: '4',
-					}),
-				)}
+				className={caption({
+					py: '4',
+				})}
 			>
 				{children}
 			</div>
