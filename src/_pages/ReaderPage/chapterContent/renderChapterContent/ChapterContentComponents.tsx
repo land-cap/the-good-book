@@ -1,18 +1,15 @@
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
+import { caption } from 'styled-system/patterns'
 
 export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 	<h2
 		data-component="LargeSectionTitle"
-		className={css({
-			color: 'fg.subtle',
-			letterSpacing: '0.05em',
-			lineHeight: '2.25em',
+		className={caption({
+			lineHeight: 'inherit',
 			md: {
-				lineHeight: '2.5em',
-				textStyle: 'sm',
+				fontSize: 'sm',
 			},
-			textStyle: 'xs',
 		})}
 	>
 		{children}
@@ -26,15 +23,11 @@ export const LargeSectionReference = ({
 }) => (
 	<h3
 		data-component="LargeSectionReference"
-		className={css({
-			color: 'fg.subtle',
-			letterSpacing: '0.05em',
-			lineHeight: '2.25em',
+		className={caption({
+			lineHeight: 'inherit',
 			md: {
-				lineHeight: '2.5em',
-				textStyle: 'sm',
+				fontSize: 'sm',
 			},
-			textStyle: 'xs',
 		})}
 	>
 		({children})
@@ -48,15 +41,11 @@ export const LargeSectionCrossReference = ({
 }) => (
 	<h4
 		data-component="LargeSectionCrossReference"
-		className={css({
-			color: 'fg.subtle',
-			letterSpacing: '0.05em',
-			lineHeight: '2.25em',
+		className={caption({
+			lineHeight: 'inherit',
 			md: {
-				lineHeight: '2.5em',
-				textStyle: 'sm',
+				fontSize: 'sm',
 			},
-			textStyle: 'xs',
 		})}
 	>
 		{children}

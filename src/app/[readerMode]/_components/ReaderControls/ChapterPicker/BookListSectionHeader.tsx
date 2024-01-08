@@ -1,9 +1,8 @@
 import { type ReactNode } from 'react'
-import { css, cx } from 'styled-system/css'
-import { subgrid } from 'styled-system/patterns'
+import { css } from 'styled-system/css'
+import { caption, subgrid } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
-import { labelCss } from '~/styles/label.css'
 
 export const BookListSectionHeader = ({
 	children,
@@ -20,12 +19,9 @@ export const BookListSectionHeader = ({
 	>
 		<div className={css({ column: 'content' })}>
 			<div
-				className={cx(
-					labelCss,
-					css({
-						py: '4',
-					}),
-				)}
+				className={caption({
+					py: '4',
+				})}
 			>
 				{children}
 			</div>
