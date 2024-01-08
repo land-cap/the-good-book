@@ -4,7 +4,7 @@ const config = {
 	parserOptions: {
 		project: true,
 	},
-	plugins: ['@typescript-eslint', 'prettier', 'sort-keys', 'simple-import-sort'],
+	plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort'],
 	extends: [
 		'next/core-web-vitals',
 		'plugin:@typescript-eslint/recommended-type-checked',
@@ -17,8 +17,6 @@ const config = {
 		'sort-imports': 'off',
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
-		'sort-keys': 'off',
-		'sort-keys/sort-keys-fix': 'warn',
 		// These opinionated rules are enabled in stylistic-type-checked above.
 		// Feel free to reconfigure them to your own preference.
 		'@typescript-eslint/array-type': 'off',
@@ -50,7 +48,7 @@ const config = {
 				'usePrettierrc': true,
 			},
 		],
-		
+
 		'@typescript-eslint/ban-ts-comment': 'warn',
 
 		'no-console': ['error', { allow: ['warn', 'error'] }],

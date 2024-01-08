@@ -16,6 +16,32 @@ export const pandaPresetGoodBook = definePreset({
 	patterns,
 	theme: {
 		extend: {
+			keyframes: {
+				fadeIn: {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
+				},
+				fadeOut: {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' },
+				},
+				fadeInBottom: {
+					'0%': { opacity: '0', transform: 'translateY(token(spacing.8))' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				fadeOutBottom: {
+					'0%': { opacity: '1', transform: 'translateY(0)' },
+					'100%': { opacity: '0', transform: 'translateY(token(spacing.8))' },
+				},
+				scaleIn: {
+					'0%': { scale: '0.75' },
+					'100%': { scale: '1' },
+				},
+				scaleOut: {
+					'0%': { scale: '1' },
+					'100%': { scale: '0.75' },
+				},
+			},
 			semanticTokens,
 			tokens,
 		},
