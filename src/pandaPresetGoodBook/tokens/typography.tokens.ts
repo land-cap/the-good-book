@@ -13,3 +13,12 @@ export const fontWeights = defineTokens.fontWeights({
 		value: '400',
 	},
 })
+
+export const fontSizes = defineTokens.fontSizes({
+	xs: {
+		value: '0.8125rem',
+	},
+	'2xs': {
+		value: '0.6875rem',
+	},
+})

@@ -7,9 +7,6 @@ export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
 		data-component="LargeSectionTitle"
 		className={caption({
 			lineHeight: 'inherit',
-			md: {
-				fontSize: 'sm',
-			},
 		})}
 	>
 		{children}
@@ -25,9 +22,6 @@ export const LargeSectionReference = ({
 		data-component="LargeSectionReference"
 		className={caption({
 			lineHeight: 'inherit',
-			md: {
-				fontSize: 'sm',
-			},
 		})}
 	>
 		({children})
@@ -43,9 +37,6 @@ export const LargeSectionCrossReference = ({
 		data-component="LargeSectionCrossReference"
 		className={caption({
 			lineHeight: 'inherit',
-			md: {
-				fontSize: 'sm',
-			},
 		})}
 	>
 		{children}
