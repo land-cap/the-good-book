@@ -76,22 +76,22 @@ export const ChapterPicker = ({
 
 	const params = useParams<TReaderPageParams>()
 
-	const [paramsValueBeforeDialogOpened, setParamsValueBeforeDialogOpened] =
-		useState(useRef(params).current)
-
-	const handleDialogExitComplete = () => {
-		const hasParamsChanged = !equals(paramsValueBeforeDialogOpened, params)
-		hasParamsChanged && Object.defineProperty(window, 'scrollY', { value: 0 })
-	}
+	const paramsValueBeforeDialogOpened = useRef<TReaderPageParams>()
 
 	return (
 		<Dialog.Root
 			open={isDialogOpen}
 			onOpenChange={({ open }) => {
 				setIsDialogOpen(open)
-				setParamsValueBeforeDialogOpened(params)
+				open && (paramsValueBeforeDialogOpened.current = params)
 			}}
-			onExitComplete={handleDialogExitComplete}
+			onExitComplete={() => {
+				const shouldResetScroll = !equals(
+					paramsValueBeforeDialogOpened.current,
+					params,
+				)
+				shouldResetScroll && document.body.scrollIntoView()
+			}}
 		>
 			<DialogTrigger onClick={() => setIsDialogOpen(true)}>
 				{currBook.book_name?.name} {currChapter}

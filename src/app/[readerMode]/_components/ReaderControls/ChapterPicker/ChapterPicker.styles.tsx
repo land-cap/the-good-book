@@ -19,24 +19,24 @@ export const DialogTrigger = styled(Dialog.Trigger, {
 
 export const DialogPositioner = styled(Dialog.Positioner, {
 	base: {
-		bottom: 0,
-		h: '100dvh',
-		left: 0,
 		position: 'fixed',
 		w: '100dvw',
+		h: '100dvh',
+		left: 0,
+		bottom: 0,
 	},
 })
 
 export const DialogContainer = styled(Dialog.Content, {
 	base: {
+		position: 'absolute',
+		inset: 0,
 		bg: 'bg.canvas',
-		h: 'full',
-		w: '100dvw',
 		'&[data-state=open]': {
-			animation: 'fadeInBottom 0.15s ease-out',
+			animation: 'fadeInBottom 0.2s ease-out',
 		},
 		'&[data-state=closed]': {
-			animation: 'fadeOutBottom 0.1s ease-in',
+			animation: 'fadeOutBottom 0.2s ease-in',
 		},
 	},
 })
@@ -58,7 +58,7 @@ export const TabsContent = styled(Tabs.Content, {
 			animation: 'fadeOut 0.25s ease',
 			display: 'none',
 		},
-		fixStickyContainer: true,
+		forceGpu: true,
 		h: 'full',
 		overflowY: 'scroll',
 		overscrollBehavior: 'contain',
