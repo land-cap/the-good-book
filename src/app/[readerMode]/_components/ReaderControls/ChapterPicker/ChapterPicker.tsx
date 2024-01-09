@@ -2,8 +2,8 @@
 
 import { Dialog, Portal } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
-import { range, splitWhen } from 'ramda'
-import { useEffect, useMemo, useState } from 'react'
+import { equals, range, splitWhen } from 'ramda'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
@@ -74,13 +74,24 @@ export const ChapterPicker = ({
 	const { chapterListItemRef, chapterListItemHeight } =
 		useComputeChapterListItemHeight()
 
+	const params = useParams<TReaderPageParams>()
+
+	const [paramsValueBeforeDialogOpened, setParamsValueBeforeDialogOpened] =
+		useState(useRef(params).current)
+
+	const handleDialogExitComplete = () => {
+		const hasParamsChanged = !equals(paramsValueBeforeDialogOpened, params)
+		hasParamsChanged && Object.defineProperty(window, 'scrollY', { value: 0 })
+	}
+
 	return (
 		<Dialog.Root
 			open={isDialogOpen}
-			onOpenChange={({ open }) => setIsDialogOpen(open)}
-			onExitComplete={() => {
-				!isDialogOpen && document.body.scrollIntoView()
+			onOpenChange={({ open }) => {
+				setIsDialogOpen(open)
+				setParamsValueBeforeDialogOpened(params)
 			}}
+			onExitComplete={handleDialogExitComplete}
 		>
 			<DialogTrigger onClick={() => setIsDialogOpen(true)}>
 				{currBook.book_name?.name} {currChapter}
