@@ -2,8 +2,8 @@
 
 import { Dialog, Portal } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
-import { equals, range, splitWhen } from 'ramda'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { range, splitWhen } from 'ramda'
+import { useEffect, useMemo, useState } from 'react'
 import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
@@ -27,7 +27,6 @@ import {
 import { Header } from './Header'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
-import { useDisableBodyScrollWhileDialogIsOpen } from './useDisableBodyScrollWhileDialogIsOpen'
 
 export type TChapterPickerTab = 'book' | 'chapter'
 
@@ -45,8 +44,6 @@ export const ChapterPicker = ({
 	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
-
-	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen, setTab })
 
 	useCloseChapterPickerOnParamChange({
 		closeDialog: () => setIsDialogOpen(false),
@@ -74,30 +71,18 @@ export const ChapterPicker = ({
 	const { chapterListItemRef, chapterListItemHeight } =
 		useComputeChapterListItemHeight()
 
-	const params = useParams<TReaderPageParams>()
-
-	const paramsValueBeforeDialogOpened = useRef<TReaderPageParams>()
-
 	return (
 		<Dialog.Root
 			open={isDialogOpen}
-			onOpenChange={({ open }) => {
-				setIsDialogOpen(open)
-				open && (paramsValueBeforeDialogOpened.current = params)
-			}}
+			lazyMount
 			onExitComplete={() => {
-				const shouldResetScroll = !equals(
-					paramsValueBeforeDialogOpened.current,
-					params,
-				)
-				shouldResetScroll && document.body.scrollIntoView()
+				setTab('book')
 			}}
 		>
-			<DialogTrigger onClick={() => setIsDialogOpen(true)}>
+			<DialogTrigger>
 				{currBook.book_name?.name} {currChapter}
 			</DialogTrigger>
 			<Portal>
-				{/*<DialogBackdrop />*/}
 				<DialogPositioner>
 					<DialogContainer>
 						<TabsRoot
