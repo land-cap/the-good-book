@@ -23,13 +23,14 @@ export const ReaderNavButton = ({
 			},
 			_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 			_canHover: { _hover: { bg: 'bg.subtle' } },
+			w: '14',
 			h: '14',
 			placeContent: 'center',
 			placeItems: 'center',
+			color: 'fg.muted',
 			transition: 'colors',
 			transitionDuration: 'fast',
 			transitionTimingFunction: 'ease-out',
-			w: '14',
 		})}
 	>
 		<Icon
