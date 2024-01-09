@@ -9,6 +9,7 @@ const DialogCloseTrigger = styled(Dialog.CloseTrigger, {
 	base: center.raw({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
+		color: 'fg.muted',
 		h: '14',
 		transition: 'colors',
 		transitionDuration: 'fast',

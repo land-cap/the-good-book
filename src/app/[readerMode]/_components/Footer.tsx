@@ -1,8 +1,6 @@
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 
-import { Icon } from '~/components'
-
 export const Footer = () => (
 	<footer
 		className={flex({
@@ -19,14 +17,7 @@ export const Footer = () => (
 		})}
 	>
 		<p className={flex({ align: 'center', placeContent: 'center' })}>
-			Designed & developed with&#32;
-			<Icon
-				name="favorite"
-				fill
-				size={4}
-				className={css({ color: 'fg.faded', display: 'inline-flex', mx: '1' })}
-			/>
-			by&nbsp;
+			Designed & developed by&nbsp;
 			<a
 				href="https://github.com/land-cap"
 				target="_blank"
