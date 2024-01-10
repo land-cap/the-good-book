@@ -46,7 +46,7 @@ export const ChapterPicker = ({
 
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen, setTab })
+	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen })
 
 	useCloseChapterPickerOnParamChange({
 		closeDialog: () => setIsDialogOpen(false),
@@ -76,12 +76,21 @@ export const ChapterPicker = ({
 
 	const params = useParams<TReaderPageParams>()
 
-	const [paramsValueBeforeDialogOpened, setParamsValueBeforeDialogOpened] =
-		useState(useRef(params).current)
+	const paramsValueBeforeDialogOpened = useRef(params)
 
 	const handleDialogExitComplete = () => {
-		const hasParamsChanged = !equals(paramsValueBeforeDialogOpened, params)
-		hasParamsChanged && Object.defineProperty(window, 'scrollY', { value: 0 })
+		setTab('book')
+	}
+
+	const handleChapterListItemClick = () => {
+		const hasParamsChanged = !equals(
+			paramsValueBeforeDialogOpened.current,
+			params,
+		)
+		console.log({ params, paramsValueBeforeDialogOpened, hasParamsChanged })
+		if (hasParamsChanged) {
+			document.body.scrollTop = 0
+		}
 	}
 
 	return (
@@ -89,7 +98,9 @@ export const ChapterPicker = ({
 			open={isDialogOpen}
 			onOpenChange={({ open }) => {
 				setIsDialogOpen(open)
-				setParamsValueBeforeDialogOpened(params)
+				if (open) {
+					paramsValueBeforeDialogOpened.current = params
+				}
 			}}
 			onExitComplete={handleDialogExitComplete}
 		>
@@ -97,7 +108,6 @@ export const ChapterPicker = ({
 				{currBook.book_name?.name} {currChapter}
 			</DialogTrigger>
 			<Portal>
-				{/*<DialogBackdrop />*/}
 				<DialogPositioner>
 					<DialogContainer>
 						<TabsRoot
@@ -161,7 +171,10 @@ export const ChapterPicker = ({
 												ref={chapter === 1 ? chapterListItemRef : null}
 												isCurrChapter={isCurrChapter}
 											>
-												<ChapterListItemLink href={chapterUrl}>
+												<ChapterListItemLink
+													href={chapterUrl}
+													onClick={handleChapterListItemClick}
+												>
 													{chapter}
 												</ChapterListItemLink>
 											</ChapterListItem>
