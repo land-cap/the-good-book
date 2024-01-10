@@ -79,17 +79,13 @@ export const ChapterPicker = ({
 	const paramsValueBeforeDialogOpened = useRef(params)
 
 	const handleDialogExitComplete = () => {
-		setTab('book')
-	}
-
-	const handleChapterListItemClick = () => {
 		const hasParamsChanged = !equals(
 			paramsValueBeforeDialogOpened.current,
 			params,
 		)
-		console.log({ params, paramsValueBeforeDialogOpened, hasParamsChanged })
+		setTab('book')
 		if (hasParamsChanged) {
-			document.body.scrollTop = 0
+			document.body.scrollIntoView({ behavior: 'instant' })
 		}
 	}
 
@@ -171,10 +167,7 @@ export const ChapterPicker = ({
 												ref={chapter === 1 ? chapterListItemRef : null}
 												isCurrChapter={isCurrChapter}
 											>
-												<ChapterListItemLink
-													href={chapterUrl}
-													onClick={handleChapterListItemClick}
-												>
+												<ChapterListItemLink href={chapterUrl}>
 													{chapter}
 												</ChapterListItemLink>
 											</ChapterListItem>

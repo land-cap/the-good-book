@@ -1,7 +1,7 @@
 import { defineConfig, defineUtility } from '@pandacss/dev'
 import { type ShadowToken } from 'styled-system/tokens'
 
-const fixStickyContainer = defineUtility({
+const forceGpu = defineUtility({
 	transform(value) {
 		if (!value) return {}
 		return {
@@ -28,7 +28,7 @@ const gridTemplateColumns = defineUtility({
 export const utilities = defineConfig({
 	utilities: {
 		column,
-		fixStickyContainer,
+		forceGpu,
 		gridTemplateColumns,
 	},
 }).utilities
