@@ -1,9 +1,9 @@
-import { Dialog, Tabs } from '@ark-ui/react'
+import { Tabs } from '@ark-ui/react'
 import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
 
-export const DialogTrigger = styled(Dialog.Trigger, {
+export const DialogTrigger = styled('button', {
 	base: center.raw({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
@@ -17,7 +17,7 @@ export const DialogTrigger = styled(Dialog.Trigger, {
 	}),
 })
 
-export const DialogPositioner = styled(Dialog.Positioner, {
+export const DialogPositioner = styled('div', {
 	base: {
 		bottom: 0,
 		h: '100dvh',
@@ -27,7 +27,7 @@ export const DialogPositioner = styled(Dialog.Positioner, {
 	},
 })
 
-export const DialogContainer = styled(Dialog.Content, {
+export const DialogContainer = styled('div', {
 	base: {
 		bg: 'bg.canvas',
 		h: 'full',
@@ -38,6 +38,35 @@ export const DialogContainer = styled(Dialog.Content, {
 		'&[data-state=closed]': {
 			animation: 'fadeOutBottom 0.1s ease-in',
 		},
+	},
+})
+
+export const DialogCloseTrigger = styled('button', {
+	base: center.raw({
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+		color: 'fg.muted',
+		h: '14',
+		transition: 'colors',
+		transitionDuration: 'fast',
+		transitionTimingFunction: 'ease-out',
+		w: '14',
+	}),
+})
+
+export const TabsTrigger = styled(Tabs.Trigger, {
+	base: {
+		'&:not([data-selected])': {
+			color: 'fg.faded',
+		},
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+		fontWeight: 'bold',
+		h: 'full',
+		px: '4',
+		transition: 'colors',
+		transitionDuration: 'fast',
+		transitionTimingFunction: 'ease-out',
 	},
 })
 
@@ -58,7 +87,7 @@ export const TabsContent = styled(Tabs.Content, {
 			animation: 'fadeOut 0.25s ease',
 			display: 'none',
 		},
-		fixStickyContainer: true,
+		forceGpu: true,
 		h: 'full',
 		overflowY: 'scroll',
 		overscrollBehavior: 'contain',

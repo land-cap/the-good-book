@@ -1,6 +1,8 @@
 'use client'
 
-import { Dialog, Portal } from '@ark-ui/react'
+import { Tabs } from '@ark-ui/react'
+import * as dialog from '@zag-js/dialog'
+import { normalizeProps, Portal, useMachine } from '@zag-js/react'
 import { useParams } from 'next/navigation'
 import { equals, range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -8,6 +10,7 @@ import { css } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { Icon } from '~/components'
 import type { TBook } from '~/db'
 
 import { BookList } from './BookList'
@@ -18,11 +21,13 @@ import {
 	ChapterList,
 	ChapterListItem,
 	ChapterListItemLink,
+	DialogCloseTrigger,
 	DialogContainer,
 	DialogPositioner,
 	DialogTrigger,
 	TabsContent,
 	TabsRoot,
+	TabsTrigger,
 } from './ChapterPicker.styles'
 import { Header } from './Header'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
@@ -41,6 +46,10 @@ export const ChapterPicker = ({
 	bookList: TBook[]
 }) => {
 	const { readerMode } = useParams<TReaderPageParams>()
+
+	const [state, send] = useMachine(dialog.machine({ id: '1' }))
+
+	const dialogApi = dialog.connect(state, send, normalizeProps)
 
 	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
@@ -85,94 +94,111 @@ export const ChapterPicker = ({
 	}
 
 	return (
-		<Dialog.Root
-			open={isDialogOpen}
-			onOpenChange={({ open }) => {
-				setIsDialogOpen(open)
-				setParamsValueBeforeDialogOpened(params)
-			}}
-			onExitComplete={handleDialogExitComplete}
-		>
-			<DialogTrigger onClick={() => setIsDialogOpen(true)}>
+		<>
+			<DialogTrigger {...dialogApi.triggerProps}>
 				{currBook.book_name?.name} {currChapter}
 			</DialogTrigger>
-			<Portal>
-				{/*<DialogBackdrop />*/}
-				<DialogPositioner>
-					<DialogContainer>
-						<TabsRoot
-							value={tab}
-							onValueChange={({ value }) => setTab(value as 'book' | 'chapter')}
-						>
-							<Header onTabsTriggerClick={() => setSelectedBook(currBook)} />
-							<TabsContent
-								value="book"
-								className={css({
-									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
-								})}
+			{dialogApi.isOpen && (
+				<Portal>
+					<DialogPositioner {...dialogApi.positionerProps}>
+						<DialogContainer {...dialogApi.contentProps}>
+							<TabsRoot
+								value={tab}
+								onValueChange={({ value }) =>
+									setTab(value as 'book' | 'chapter')
+								}
 							>
-								<BookListContainer>
-									<BookListSectionHeader>
-										Vechiul Testament
-									</BookListSectionHeader>
-									<BookList
-										bookList={oldTestamentBookList}
-										onListItemClick={() => {
-											setTab('chapter')
-										}}
-										setSelectedBook={setSelectedBook}
-										currBookCode={currBook.code}
-									/>
-								</BookListContainer>
-								<BookListContainer>
-									<BookListSectionHeader>Noul Testament</BookListSectionHeader>
-									<BookList
-										bookList={newTestamentBookList}
-										onListItemClick={() => {
-											setTab('chapter')
-										}}
-										setSelectedBook={setSelectedBook}
-										currBookCode={currBook.code}
-									/>
-								</BookListContainer>
-							</TabsContent>
-							<TabsContent value="chapter" className={macrogrid()}>
-								<ChapterList
-									style={{
-										paddingBottom: `calc(${
-											(chapterListItemHeight - 16) / 2
-										}px + env(safe-area-inset-bottom,0))`,
-									}}
-								>
-									<ChapterListHeader
-										chapterListItemHeight={chapterListItemHeight}
-									>
-										{selectedBook.book_name?.name}
-									</ChapterListHeader>
-									{chapterList?.map((chapter) => {
-										const isCurrChapter =
-											selectedBook.id === currBook.id && chapter === currChapter
-
-										const chapterUrl = `/${readerMode}/${selectedBook.code}/${chapter}`
-
-										return (
-											<ChapterListItem
-												key={chapter}
-												ref={chapter === 1 ? chapterListItemRef : null}
-												isCurrChapter={isCurrChapter}
-											>
-												<ChapterListItemLink href={chapterUrl}>
-													{chapter}
-												</ChapterListItemLink>
-											</ChapterListItem>
-										)
+								<Header>
+									<Tabs.List className={css({ h: 'full' })}>
+										<TabsTrigger
+											value="book"
+											onClick={() => setSelectedBook(currBook)}
+										>
+											Book
+										</TabsTrigger>
+										<TabsTrigger
+											value="chapter"
+											onClick={() => setSelectedBook(currBook)}
+										>
+											Chapter
+										</TabsTrigger>
+									</Tabs.List>
+									<DialogCloseTrigger {...dialogApi.closeTriggerProps}>
+										<Icon size={6} name="close" />
+									</DialogCloseTrigger>
+								</Header>
+								<TabsContent
+									value="book"
+									className={css({
+										pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
 									})}
-								</ChapterList>
-							</TabsContent>
-						</TabsRoot>
-					</DialogContainer>
-				</DialogPositioner>
-			</Portal>
-		</Dialog.Root>
+								>
+									<BookListContainer>
+										<BookListSectionHeader>
+											Vechiul Testament
+										</BookListSectionHeader>
+										<BookList
+											bookList={oldTestamentBookList}
+											onListItemClick={() => {
+												setTab('chapter')
+											}}
+											setSelectedBook={setSelectedBook}
+											currBookCode={currBook.code}
+										/>
+									</BookListContainer>
+									<BookListContainer>
+										<BookListSectionHeader>
+											Noul Testament
+										</BookListSectionHeader>
+										<BookList
+											bookList={newTestamentBookList}
+											onListItemClick={() => {
+												setTab('chapter')
+											}}
+											setSelectedBook={setSelectedBook}
+											currBookCode={currBook.code}
+										/>
+									</BookListContainer>
+								</TabsContent>
+								<TabsContent value="chapter" className={macrogrid()}>
+									<ChapterList
+										style={{
+											paddingBottom: `calc(${
+												(chapterListItemHeight - 16) / 2
+											}px + env(safe-area-inset-bottom,0))`,
+										}}
+									>
+										<ChapterListHeader
+											chapterListItemHeight={chapterListItemHeight}
+										>
+											{selectedBook.book_name?.name}
+										</ChapterListHeader>
+										{chapterList?.map((chapter) => {
+											const isCurrChapter =
+												selectedBook.id === currBook.id &&
+												chapter === currChapter
+
+											const chapterUrl = `/${readerMode}/${selectedBook.code}/${chapter}`
+
+											return (
+												<ChapterListItem
+													key={chapter}
+													ref={chapter === 1 ? chapterListItemRef : null}
+													isCurrChapter={isCurrChapter}
+												>
+													<ChapterListItemLink href={chapterUrl}>
+														{chapter}
+													</ChapterListItemLink>
+												</ChapterListItem>
+											)
+										})}
+									</ChapterList>
+								</TabsContent>
+							</TabsRoot>
+						</DialogContainer>
+					</DialogPositioner>
+				</Portal>
+			)}
+		</>
 	)
 }
