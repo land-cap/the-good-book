@@ -58,7 +58,7 @@ export const TabsContent = styled(Tabs.Content, {
 			animation: 'fadeOut 0.25s ease',
 			display: 'none',
 		},
-		fixStickyContainer: true,
+		forceGpu: true,
 		h: 'full',
 		overflowY: 'scroll',
 		overscrollBehavior: 'contain',
