@@ -4,10 +4,16 @@ import { Dialog, Portal } from '@ark-ui/react'
 import { useParams } from 'next/navigation'
 import { equals, range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
+import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import {
+	Container_OverlayMenu,
+	Positioner_OverlayMenu,
+	useDisableBodyScrollWhileDialogIsOpen,
+} from '~/components'
 import type { TBook } from '~/db'
 
 import { BookList } from './BookList'
@@ -18,20 +24,16 @@ import {
 	ChapterList,
 	ChapterListItem,
 	ChapterListItemLink,
-	DialogContainer,
-	DialogPositioner,
-	DialogTrigger,
 	TabsContent,
 	TabsRoot,
-} from './ChapterPicker.styles'
+} from './ChapterPickerMenu.styles'
 import { Header } from './Header'
 import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
-import { useDisableBodyScrollWhileDialogIsOpen } from './useDisableBodyScrollWhileDialogIsOpen'
 
 export type TChapterPickerTab = 'book' | 'chapter'
 
-export const ChapterPicker = ({
+export const ChapterPickerMenu = ({
 	currBook,
 	currChapter,
 	bookList,
@@ -100,12 +102,15 @@ export const ChapterPicker = ({
 			}}
 			onExitComplete={handleDialogExitComplete}
 		>
-			<DialogTrigger onClick={() => setIsDialogOpen(true)}>
+			<Dialog.Trigger
+				className={cx(button(), css({ h: 'full', w: 'full' }))}
+				onClick={() => setIsDialogOpen(true)}
+			>
 				{currBook.book_name?.name} {currChapter}
-			</DialogTrigger>
+			</Dialog.Trigger>
 			<Portal>
-				<DialogPositioner>
-					<DialogContainer>
+				<Positioner_OverlayMenu>
+					<Container_OverlayMenu>
 						<TabsRoot
 							value={tab}
 							onValueChange={({ value }) => setTab(value as 'book' | 'chapter')}
@@ -176,8 +181,8 @@ export const ChapterPicker = ({
 								</ChapterList>
 							</TabsContent>
 						</TabsRoot>
-					</DialogContainer>
-				</DialogPositioner>
+					</Container_OverlayMenu>
+				</Positioner_OverlayMenu>
 			</Portal>
 		</Dialog.Root>
 	)

@@ -1,45 +1,7 @@
-import { Dialog, Tabs } from '@ark-ui/react'
+import { Tabs } from '@ark-ui/react'
 import Link from 'next/link'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
-
-export const DialogTrigger = styled(Dialog.Trigger, {
-	base: center.raw({
-		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-		_canHover: { _hover: { bg: 'bg.subtle' } },
-		flexGrow: 1,
-		fontWeight: 'bold',
-		h: 'full',
-		px: '4',
-		transition: 'colors',
-		transitionDuration: 'fast',
-		transitionTimingFunction: 'ease-in-out',
-	}),
-})
-
-export const DialogPositioner = styled(Dialog.Positioner, {
-	base: {
-		bottom: 0,
-		h: '100dvh',
-		left: 0,
-		position: 'fixed',
-		w: '100dvw',
-	},
-})
-
-export const DialogContainer = styled(Dialog.Content, {
-	base: {
-		bg: 'bg.canvas',
-		h: 'full',
-		w: '100dvw',
-		'&[data-state=open]': {
-			animation: 'fadeInBottom 0.15s ease-out',
-		},
-		'&[data-state=closed]': {
-			animation: 'fadeOutBottom 0.1s ease-in',
-		},
-	},
-})
 
 export const TabsRoot = styled(Tabs.Root, {
 	base: flex.raw({

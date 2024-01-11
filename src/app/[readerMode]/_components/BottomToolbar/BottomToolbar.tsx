@@ -8,10 +8,10 @@ import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Separator } from '~/components'
 import { type TBook } from '~/db'
 
-import { ChapterPicker } from './ChapterPicker'
+import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
 
-export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
+export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 	const {
 		bookCode,
 		chapter: _chapter,
@@ -85,7 +85,7 @@ export const ReaderControls = ({ bookList }: { bookList: TBook[] }) => {
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
-					<ChapterPicker
+					<ChapterPickerMenu
 						currChapter={chapter}
 						currBook={currBook}
 						bookList={bookList}
