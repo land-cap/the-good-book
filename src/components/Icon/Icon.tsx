@@ -10,10 +10,10 @@ export const iconRecipe = cva({
 		direction: 'ltr',
 		display: 'inline-flex',
 		'font-variation-settings':
-			"'FILL' var(--fill), 'wght' var(--wght), 'GRAD' var(--grad)",
+			"'FILL' var(--fill,0), 'wght' var(--wght,400), 'GRAD' var(--grad,0)",
 		fontFamily: 'Material Symbols Sharp',
 		fontStyle: 'normal',
-		fontWeight: 'var(--wght)',
+		fontWeight: 'var(--wght, 400)',
 		letterSpacing: 'normal',
 		lineHeight: '1',
 		textTransform: 'none',

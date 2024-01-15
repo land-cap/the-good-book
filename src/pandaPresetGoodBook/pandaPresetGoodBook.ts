@@ -1,5 +1,7 @@
 import { definePreset } from '@pandacss/dev'
 
+import { buttonRecipe } from '~/pandaPresetGoodBook/recipes/buttonRecipe'
+
 import { globalCss } from './globalCss'
 import { patterns } from './patterns'
 import { semanticTokens } from './semanticTokens'
@@ -44,6 +46,9 @@ export const pandaPresetGoodBook = definePreset({
 			},
 			semanticTokens,
 			tokens,
+			recipes: {
+				button: buttonRecipe,
+			},
 		},
 	},
 	utilities,

@@ -1,15 +1,23 @@
+'use client'
+
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
-import { flex, subgrid } from 'styled-system/patterns'
+import { flex, macrogrid } from 'styled-system/patterns'
 
 import { wChildren } from '~/component-helpers'
 import { Separator } from '~/components'
 
-const HeaderContainer = wChildren(({ children }) => (
+const Container = wChildren(({ children }) => (
 	<header
-		className={subgrid({
-			bg: 'bg.canvas',
+		className={macrogrid({
 			column: 'fullbleed',
+			zIndex: '1',
+			position: 'sticky',
+			top: '0',
+			bg: 'bg.canvas',
+			transition: 'colors',
+			transitionDuration: 'fast',
+			transitionTimingFunction: 'ease-out',
 		})}
 	>
 		<nav
@@ -32,8 +40,8 @@ const Logo = styled('span', {
 	base: { fontWeight: 'bold' },
 })
 
-export const Header = () => (
-	<HeaderContainer>
+export const TopToolbar = () => (
+	<Container>
 		<Logo>The Good Book</Logo>
-	</HeaderContainer>
+	</Container>
 )

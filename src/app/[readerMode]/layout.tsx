@@ -2,19 +2,19 @@ import { type ReactNode } from 'react'
 
 import { getBookListWithCache } from '~/db'
 
+import { BottomToolbar } from './_components/BottomToolbar'
 import { Footer } from './_components/Footer'
-import { Header } from './_components/Header'
-import { ReaderControls } from './_components/ReaderControls'
+import { TopToolbar } from './_components/TopToolbar'
 
 const Layout = async ({ children }: { children: ReactNode }) => {
 	const bookList = await getBookListWithCache()
 
 	return (
 		<>
-			<Header />
+			<TopToolbar />
 			{children}
 			<Footer />
-			<ReaderControls bookList={bookList} />
+			<BottomToolbar bookList={bookList} />
 		</>
 	)
 }
