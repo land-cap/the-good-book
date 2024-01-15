@@ -4,7 +4,7 @@ import { Dialog, DialogTrigger } from '@ark-ui/react'
 import { useSetAtom } from 'jotai'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
-import { flex, subgrid } from 'styled-system/patterns'
+import { flex, macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { wChildren } from '~/component-helpers'
@@ -15,7 +15,7 @@ import { isPreferencesMenuOpenAtom } from './TopToolbar.state'
 
 const Container = wChildren(({ children }) => (
 	<header
-		className={subgrid({
+		className={macrogrid({
 			column: 'fullbleed',
 			zIndex: '1',
 			position: 'sticky',

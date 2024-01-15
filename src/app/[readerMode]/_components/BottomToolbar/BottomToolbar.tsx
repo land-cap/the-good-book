@@ -63,7 +63,6 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					bottom: '0',
 					column: 'fullbleed',
 					position: 'sticky',
-					w: 'full',
 				}),
 			)}
 		>
