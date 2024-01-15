@@ -1,6 +1,6 @@
 import { type TBook } from '~/db'
 
-import { BookListItem, BookListItemContainer } from './ChapterPicker.styles'
+import { BookListItem, BookListItemContainer } from './ChapterPickerMenu.styles'
 
 export const BookList = ({
 	bookList,

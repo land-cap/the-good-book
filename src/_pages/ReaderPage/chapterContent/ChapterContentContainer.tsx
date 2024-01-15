@@ -29,7 +29,7 @@ export const ChapterContentContainer = styled('div', {
 		column: 'content',
 		fontSize: 'sm',
 		lineHeight: '2em',
-		md: {
+		sm: {
 			fontSize: 'md',
 			lineHeight: '2.25em',
 		},
