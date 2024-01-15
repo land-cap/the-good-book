@@ -1,23 +1,30 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
+import { useEffect } from 'react'
 
-import { LeadingInput } from '~/app/[readerMode]/_components/TopToolbar/PreferencesMenu/LeadingInput'
-import { PreferencesList } from '~/app/[readerMode]/_components/TopToolbar/PreferencesMenu/PreferencesMenu.styles'
 import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 	useDisableBodyScrollWhileDialogIsOpen,
 } from '~/components'
 
-import { isPreferencesMenuOpenAtom } from '../TopToolbar.state'
+import { isPreferencesMenuOpenAtom, leadingAtom } from '../TopToolbar.state'
 import { Header } from './Header'
+import { PreferencesList } from './PreferencesMenu.styles'
+import { SliderInput } from './SliderInput'
 
 export const PreferencesMenu = () => {
 	const [isDialogOpen, setIsDialogOpen] = useAtom(isPreferencesMenuOpenAtom)
 
 	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen })
+
+	const leading = useAtomValue(leadingAtom)
+
+	useEffect(() => {
+		console.log(leading)
+	}, [leading])
 
 	return (
 		<Portal>
@@ -25,7 +32,11 @@ export const PreferencesMenu = () => {
 				<Container_OverlayMenu>
 					<Header />
 					<PreferencesList>
-						<LeadingInput />
+						<SliderInput
+							inputName="leading"
+							inputLabel="Line height"
+							valueAtom={leadingAtom}
+						/>
 					</PreferencesList>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>
