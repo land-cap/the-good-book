@@ -1,17 +1,11 @@
 'use client'
 
-import { Dialog, DialogTrigger } from '@ark-ui/react'
-import { useSetAtom } from 'jotai'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { flex, macrogrid } from 'styled-system/patterns'
-import { button } from 'styled-system/recipes'
 
 import { wChildren } from '~/component-helpers'
-import { Icon, Separator } from '~/components'
-
-import { PreferencesMenu } from './PreferencesMenu'
-import { isPreferencesMenuOpenAtom } from './TopToolbar.state'
+import { Separator } from '~/components'
 
 const Container = wChildren(({ children }) => (
 	<header
@@ -46,21 +40,8 @@ const Logo = styled('span', {
 	base: { fontWeight: 'bold' },
 })
 
-export const TopToolbar = () => {
-	const setIsPreferencesMenuOpen = useSetAtom(isPreferencesMenuOpenAtom)
-
-	return (
-		<Container>
-			<Logo>The Good Book</Logo>
-			<Dialog.Root>
-				<DialogTrigger
-					className={button({ icon: true })}
-					onClick={() => setIsPreferencesMenuOpen(true)}
-				>
-					<Icon size={6} name="custom_typography" />
-				</DialogTrigger>
-				<PreferencesMenu />
-			</Dialog.Root>
-		</Container>
-	)
-}
+export const TopToolbar = () => (
+	<Container>
+		<Logo>The Good Book</Logo>
+	</Container>
+)

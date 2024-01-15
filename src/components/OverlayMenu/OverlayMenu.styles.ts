@@ -3,11 +3,12 @@ import { styled } from 'styled-system/jsx'
 
 export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
 	base: {
-		bottom: 0,
-		h: '100dvh',
-		left: 0,
+		zIndex: 10,
 		position: 'fixed',
 		w: '100dvw',
+		h: '100dvh',
+		left: 0,
+		bottom: 0,
 	},
 })
 export const Container_OverlayMenu = styled(Dialog.Content, {
