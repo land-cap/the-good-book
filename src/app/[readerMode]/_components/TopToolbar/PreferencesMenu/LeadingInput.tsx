@@ -2,31 +2,25 @@
 
 import { normalizeProps, useMachine } from '@zag-js/react'
 import * as slider from '@zag-js/slider'
-import { type PrimitiveAtom, useAtom } from 'jotai'
+import { useAtom } from 'jotai'
 import { useEffect } from 'react'
-import { css } from 'styled-system/css'
 import { hstack } from 'styled-system/patterns'
+
+import { leadingAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
 
 import { Slider } from './SliderInput.styles'
 
-export const SliderInput = ({
-	inputName,
-	inputLabel,
-	valueAtom,
-}: {
-	inputName: string
-	inputLabel: string
-	valueAtom: PrimitiveAtom<number>
-}) => {
-	const [value, setValue] = useAtom(valueAtom)
+export const LeadingInput = () => {
+	const [value, setValue] = useAtom(leadingAtom)
 
 	const [state, send] = useMachine(
 		slider.machine({
-			id: inputName,
-			name: inputName,
+			id: 'leading',
+			name: 'leading',
 			value: [value],
-			min: 14,
-			max: 22,
+			min: 1,
+			max: 3,
+			step: 0.25,
 		}),
 	)
 
@@ -41,13 +35,8 @@ export const SliderInput = ({
 	return (
 		<Slider.Root {...sliderApi.rootProps}>
 			<div className={hstack({ justify: 'space-between' })}>
-				<label {...sliderApi.labelProps}>{inputLabel}</label>
-				<output
-					{...sliderApi.valueTextProps}
-					className={css({ fontWeight: 'bold' })}
-				>
-					{sliderApi.value.at(0)}
-				</output>
+				<label {...sliderApi.labelProps}>Line gap</label>
+				<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
 			</div>
 			<Slider.Control {...sliderApi.controlProps}>
 				<Slider.Track {...sliderApi.trackProps}>

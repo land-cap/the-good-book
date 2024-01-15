@@ -7,7 +7,6 @@ const Root = styled('div', {
 		gap: '4',
 		position: 'relative',
 		column: 'content',
-		pb: 'calc(22 / 16 * 1rem)',
 		sm: {
 			direction: 'row',
 		},
@@ -17,7 +16,7 @@ const Root = styled('div', {
 const Control = styled('div', { base: { flexGrow: '1' } })
 
 const Track = styled('div', {
-	base: { h: '2', bg: 'neutral.200' },
+	base: { h: '2', bg: 'neutral.200', _osDark: { bg: 'neutral.700' } },
 })
 
 const Range = styled('div', {
@@ -29,9 +28,13 @@ const Thumb = styled('div', {
 		size: '5',
 		position: 'absolute',
 		top: 'calc(-6 / 16 * 1rem)',
-		bg: 'white',
-		border: '2px solid token(colors.fg)',
-		outline: '1px solid token(colors.fg.inverted)',
+		bg: 'bg.canvas',
+		border: '2px solid currentColor',
+		outline: '1.5px solid token(colors.fg.inverted)',
+		_osDark: {
+			borderWidth: '1.5px',
+			outlineWidth: '2px',
+		},
 	}),
 })
 

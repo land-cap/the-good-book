@@ -4,6 +4,7 @@ import { Portal } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { useEffect } from 'react'
 
+import { LeadingInput } from '~/app/[readerMode]/_components/TopToolbar/PreferencesMenu/LeadingInput'
 import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
@@ -11,9 +12,9 @@ import {
 } from '~/components'
 
 import { isPreferencesMenuOpenAtom, leadingAtom } from '../TopToolbar.state'
+import { FontSizeInput } from './FontSizeInput'
 import { Header } from './Header'
 import { PreferencesList } from './PreferencesMenu.styles'
-import { SliderInput } from './SliderInput'
 
 export const PreferencesMenu = () => {
 	const [isDialogOpen, setIsDialogOpen] = useAtom(isPreferencesMenuOpenAtom)
@@ -32,16 +33,8 @@ export const PreferencesMenu = () => {
 				<Container_OverlayMenu>
 					<Header />
 					<PreferencesList>
-						<SliderInput
-							inputName="font-size"
-							inputLabel="Text size"
-							valueAtom={leadingAtom}
-						/>
-						<SliderInput
-							inputName="leading"
-							inputLabel="Line height"
-							valueAtom={leadingAtom}
-						/>
+						<FontSizeInput />
+						<LeadingInput />
 					</PreferencesList>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>

@@ -4,4 +4,4 @@ export const isPreferencesMenuOpenAtom = atom(true)
 
 export const fontSizeAtom = atom(16)
 
-export const leadingAtom = atom(1)
+export const leadingAtom = atom(2)
