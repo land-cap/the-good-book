@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { css } from 'styled-system/css'
-import { caption, subgrid } from 'styled-system/patterns'
+import { caption, macrogrid } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
 
@@ -10,9 +10,8 @@ export const BookListSectionHeader = ({
 	children: ReactNode
 }) => (
 	<div
-		className={subgrid({
+		className={macrogrid({
 			bg: 'bg.canvas',
-			column: 'fullbleed',
 			position: 'sticky',
 			top: '0',
 		})}

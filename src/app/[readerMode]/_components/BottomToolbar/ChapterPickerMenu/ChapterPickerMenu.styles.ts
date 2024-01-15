@@ -1,5 +1,6 @@
 import { Tabs } from '@ark-ui/react'
 import Link from 'next/link'
+import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
 
@@ -28,17 +29,15 @@ export const TabsContent = styled(Tabs.Content, {
 })
 
 export const BookListContainer = styled('ul', {
-	base: macrogrid.raw({
-		column: 'fullbleed',
+	base: css.raw({
 		h: 'fit-content',
 	}),
 })
 
 export const BookListItemContainer = styled('div', {
-	base: subgrid.raw({
+	base: macrogrid.raw({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
-		column: 'fullbleed',
 		cursor: 'pointer',
 		transition: 'colors',
 		transitionDuration: 'fastest',
@@ -59,7 +58,7 @@ export const BookListItemContainer = styled('div', {
 })
 
 export const BookListItem = styled('li', {
-	base: subgrid.raw({ column: 'content', cursor: 'pointer', py: '4' }),
+	base: css.raw({ column: 'content', cursor: 'pointer', py: '4' }),
 })
 
 export const ChapterList = styled('ul', {
