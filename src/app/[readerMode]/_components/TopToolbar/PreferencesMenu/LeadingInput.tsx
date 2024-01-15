@@ -1,22 +1,25 @@
 'use client'
 
-import { Slider } from '@ark-ui/react'
-import { useAtom } from 'jotai'
+import { normalizeProps, useMachine } from '@zag-js/react'
+import * as slider from '@zag-js/slider'
+import { useEffect } from 'react'
 import { css } from 'styled-system/css'
-import { square, stack } from 'styled-system/patterns'
-
-import { leadingAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
+import { hstack, square, stack } from 'styled-system/patterns'
 
 export const LeadingInput = () => {
-	const [leading, setLeading] = useAtom(leadingAtom)
+	const [state, send] = useMachine(
+		slider.machine({ id: '1', value: [16], min: 14, max: 22 }),
+	)
+
+	const sliderApi = slider.connect(state, send, normalizeProps)
+
+	useEffect(() => {
+		console.log(sliderApi.value)
+	}, [sliderApi.value])
 
 	return (
-		<Slider.Root
-			min={14}
-			max={22}
-			value={[14, leading]}
-			onValueChange={({ value }) => setLeading(value[1])}
-			onValueChangeEnd={({ value }) => setLeading(value[1])}
+		<div
+			{...sliderApi.rootProps}
 			className={stack({
 				direction: 'column',
 				gap: '6',
@@ -27,23 +30,41 @@ export const LeadingInput = () => {
 				},
 			})}
 		>
-			<Slider.Label>Line spacing</Slider.Label>
-			<Slider.Control className={css({ flexGrow: '1' })}>
-				<Slider.Track className={css({ h: '1', bg: 'fg.moreFaded' })}>
-					<Slider.Range className={css({ h: '1', bg: 'fg' })} />
-				</Slider.Track>
-				<Slider.Thumb
-					key={1}
-					index={1}
-					className={square({
-						size: '5',
-						position: 'absolute',
-						top: '-2',
-						bg: 'white',
-						border: '2px solid token(colors.fg)',
-					})}
-				/>
-			</Slider.Control>
-		</Slider.Root>
+			<div className={hstack({ justify: 'space-between' })}>
+				<label {...sliderApi.labelProps}>Line spacing</label>
+				<output
+					{...sliderApi.valueTextProps}
+					className={css({ fontWeight: 'bold' })}
+				>
+					{sliderApi.value.at(0)}
+				</output>
+			</div>
+			<div {...sliderApi.controlProps} className={css({ flexGrow: '1' })}>
+				<div
+					{...sliderApi.trackProps}
+					className={css({ h: '2', bg: 'neutral.200' })}
+				>
+					<div
+						{...sliderApi.rangeProps}
+						className={css({ h: '2', bg: 'fg' })}
+					/>
+				</div>
+				{sliderApi.value.map((_, index) => (
+					<div
+						key={index}
+						{...sliderApi.getThumbProps({ index })}
+						className={square({
+							size: '5',
+							position: 'absolute',
+							top: '-0.375rem',
+							bg: 'white',
+							border: '2px solid token(colors.fg)',
+						})}
+					>
+						<input {...sliderApi.getHiddenInputProps({ index })} />
+					</div>
+				))}
+			</div>
+		</div>
 	)
 }
