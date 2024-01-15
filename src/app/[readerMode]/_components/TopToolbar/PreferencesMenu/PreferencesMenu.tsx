@@ -33,6 +33,11 @@ export const PreferencesMenu = () => {
 					<Header />
 					<PreferencesList>
 						<SliderInput
+							inputName="font-size"
+							inputLabel="Text size"
+							valueAtom={leadingAtom}
+						/>
+						<SliderInput
 							inputName="leading"
 							inputLabel="Line height"
 							valueAtom={leadingAtom}
