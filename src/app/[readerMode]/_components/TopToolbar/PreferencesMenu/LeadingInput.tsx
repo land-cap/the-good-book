@@ -46,7 +46,7 @@ export const LeadingInput = () => {
 				>
 					<div
 						{...sliderApi.rangeProps}
-						className={css({ h: '2', bg: 'fg' })}
+						className={css({ h: '2', bg: 'fg.subtle' })}
 					/>
 				</div>
 				{sliderApi.value.map((_, index) => (
@@ -59,11 +59,32 @@ export const LeadingInput = () => {
 							top: '-0.375rem',
 							bg: 'white',
 							border: '2px solid token(colors.fg)',
+							outline: '2px solid token(colors.fg.inverted)',
 						})}
 					>
 						<input {...sliderApi.getHiddenInputProps({ index })} />
 					</div>
 				))}
+				<div {...sliderApi.markerGroupProps}>
+					<span
+						{...sliderApi.getMarkerProps({ value: 14 })}
+						className={css({ mt: '2', color: 'fg.subtle', fontSize: '2xs' })}
+					>
+						14
+					</span>
+					<span
+						{...sliderApi.getMarkerProps({ value: 16 })}
+						className={css({ mt: '2', color: 'fg.subtle', fontSize: '2xs' })}
+					>
+						16
+					</span>
+					<span
+						{...sliderApi.getMarkerProps({ value: 22 })}
+						className={css({ mt: '2', color: 'fg.subtle', fontSize: '2xs' })}
+					>
+						22
+					</span>
+				</div>
 			</div>
 		</div>
 	)
