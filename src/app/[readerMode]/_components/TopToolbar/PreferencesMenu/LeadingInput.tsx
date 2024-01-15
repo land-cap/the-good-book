@@ -1,86 +1,49 @@
-import { RadioGroup } from '@ark-ui/react'
+'use client'
+
+import { Slider } from '@ark-ui/react'
+import { useAtom } from 'jotai'
 import { css } from 'styled-system/css'
-import { styled } from 'styled-system/jsx'
-import { hstack, vstack } from 'styled-system/patterns'
+import { square, stack } from 'styled-system/patterns'
 
-const leadingOptionList = ['Small', 'Medium', 'Large'] as const
+import { leadingAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
 
-type TLeadingOption = (typeof leadingOptionList)[number]
+export const LeadingInput = () => {
+	const [leading, setLeading] = useAtom(leadingAtom)
 
-const OptionListContainer = styled('ul', {
-	base: hstack.raw({ gap: '0' }),
-})
-
-const PreviewLine = styled('div', {
-	base: {
-		w: 'full',
-		h: '2px',
-		bg: 'fg.faded',
-	},
-})
-
-const OptionPreview = styled('div', {
-	base: vstack.raw({
-		justify: 'center',
-		zIndex: '1',
-		h: '10',
-		aspectRatio: '4/3',
-		px: '3',
-		py: '2',
-		fontWeight: 'bold',
-		lineHeight: '1',
-		color: 'fg.subtle',
-		'&[data-state=checked]': {
-			color: 'fg',
-		},
-		transition: 'colors',
-		transitionDuration: 'fast',
-		transitionTimingFunction: 'ease-out',
-	}),
-	variants: {
-		size: {
-			Small: {
-				gap: '3px',
-			},
-			Medium: {
-				gap: '5px',
-			},
-			Large: {
-				gap: '7px',
-			},
-		},
-	},
-})
-
-const TextSizeOption = ({ option }: { option: TLeadingOption }) => (
-	<RadioGroup.Item
-		key={option}
-		value={option}
-		className={css({ w: 'fit-content', h: 'fit-content' })}
-	>
-		<OptionPreview size={option}>
-			<PreviewLine />
-			<PreviewLine />
-			<PreviewLine />
-		</OptionPreview>
-		<RadioGroup.ItemControl />
-	</RadioGroup.Item>
-)
-
-export const LeadingInput = () => (
-	<RadioGroup.Root
-		defaultValue="Medium"
-		className={hstack({
-			justify: 'space-between',
-			column: 'content',
-		})}
-	>
-		<RadioGroup.Label>Line spacing</RadioGroup.Label>
-		<OptionListContainer>
-			<RadioGroup.Indicator className={css({ bg: 'bg.subtle' })} />
-			{leadingOptionList.map((option) => (
-				<TextSizeOption key={option} option={option} />
-			))}
-		</OptionListContainer>
-	</RadioGroup.Root>
-)
+	return (
+		<Slider.Root
+			min={14}
+			max={22}
+			value={[14, leading]}
+			onValueChange={({ value }) => setLeading(value[1])}
+			onValueChangeEnd={({ value }) => setLeading(value[1])}
+			className={stack({
+				direction: 'column',
+				gap: '6',
+				position: 'relative',
+				column: 'content',
+				sm: {
+					direction: 'row',
+				},
+			})}
+		>
+			<Slider.Label>Line spacing</Slider.Label>
+			<Slider.Control className={css({ flexGrow: '1' })}>
+				<Slider.Track className={css({ h: '1', bg: 'fg.moreFaded' })}>
+					<Slider.Range className={css({ h: '1', bg: 'fg' })} />
+				</Slider.Track>
+				<Slider.Thumb
+					key={1}
+					index={1}
+					className={square({
+						size: '5',
+						position: 'absolute',
+						top: '-2',
+						bg: 'white',
+						border: '2px solid token(colors.fg)',
+					})}
+				/>
+			</Slider.Control>
+		</Slider.Root>
+	)
+}
