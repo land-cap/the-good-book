@@ -1,5 +1,5 @@
 import { styled } from 'styled-system/jsx'
-import { square, stack } from 'styled-system/patterns'
+import { hstack, square, stack } from 'styled-system/patterns'
 
 const Root = styled('div', {
 	base: stack.raw({
@@ -9,8 +9,13 @@ const Root = styled('div', {
 		column: 'content',
 		sm: {
 			direction: 'row',
+			gap: '6',
 		},
 	}),
+})
+
+const LabelContainer = styled('div', {
+	base: hstack.raw({ justify: 'space-between', lineHeight: '1' }),
 })
 
 const Control = styled('div', { base: { flexGrow: '1' } })
@@ -20,7 +25,7 @@ const Track = styled('div', {
 })
 
 const Range = styled('div', {
-	base: { h: '2', bg: 'fg.subtle' },
+	base: { h: '2', bg: 'fg.faded' },
 })
 
 const Thumb = styled('div', {
@@ -31,9 +36,16 @@ const Thumb = styled('div', {
 		bg: 'bg.canvas',
 		border: '2px solid currentColor',
 		outline: '1.5px solid token(colors.fg.inverted)',
+		transition: 'colors',
+		transitionDuration: 'faster',
+		transitionTimingFunction: 'ease-out',
 		_osDark: {
 			borderWidth: '1.5px',
 			outlineWidth: '2px',
+		},
+		_focus: {
+			bg: 'bg.muted',
+			borderColor: 'fg.faded',
 		},
 	}),
 })
@@ -47,4 +59,12 @@ const Marker = styled('span', {
 	},
 })
 
-export const Slider = { Root, Control, Track, Range, Thumb, Marker }
+export const Slider = {
+	Root,
+	LabelContainer,
+	Control,
+	Track,
+	Range,
+	Thumb,
+	Marker,
+}

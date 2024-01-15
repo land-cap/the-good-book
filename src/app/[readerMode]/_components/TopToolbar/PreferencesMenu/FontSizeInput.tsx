@@ -5,7 +5,6 @@ import * as slider from '@zag-js/slider'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import { css } from 'styled-system/css'
-import { hstack } from 'styled-system/patterns'
 
 import { fontSizeAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
 
@@ -37,10 +36,10 @@ export const FontSizeInput = () => {
 			{...sliderApi.rootProps}
 			className={css({ pb: 'calc(22 / 16 * 1rem)' })}
 		>
-			<div className={hstack({ justify: 'space-between' })}>
+			<Slider.LabelContainer>
 				<label {...sliderApi.labelProps}>Text size</label>
 				<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
-			</div>
+			</Slider.LabelContainer>
 			<Slider.Control {...sliderApi.controlProps}>
 				<Slider.Track {...sliderApi.trackProps}>
 					<Slider.Range {...sliderApi.rangeProps} />

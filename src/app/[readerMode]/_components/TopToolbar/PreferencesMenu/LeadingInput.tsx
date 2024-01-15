@@ -4,7 +4,6 @@ import { normalizeProps, useMachine } from '@zag-js/react'
 import * as slider from '@zag-js/slider'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
-import { hstack } from 'styled-system/patterns'
 
 import { leadingAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
 
@@ -34,10 +33,10 @@ export const LeadingInput = () => {
 
 	return (
 		<Slider.Root {...sliderApi.rootProps}>
-			<div className={hstack({ justify: 'space-between' })}>
+			<Slider.LabelContainer>
 				<label {...sliderApi.labelProps}>Line gap</label>
 				<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
-			</div>
+			</Slider.LabelContainer>
 			<Slider.Control {...sliderApi.controlProps}>
 				<Slider.Track {...sliderApi.trackProps}>
 					<Slider.Range {...sliderApi.rangeProps} />

@@ -6,5 +6,9 @@ export const PreferencesList = styled('form', {
 		rowGap: '6',
 		column: 'fullbleed',
 		py: '6',
+		sm: {
+			rowGap: '8',
+			py: '8',
+		},
 	}),
 })
