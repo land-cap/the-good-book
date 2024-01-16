@@ -52,7 +52,7 @@ export const TopToolbar = () => {
 	return (
 		<Container>
 			<Logo>The Good Book</Logo>
-			<Dialog.Root>
+			<Dialog.Root preventScroll={false}>
 				<DialogTrigger
 					className={button({ icon: true })}
 					onClick={() => setIsPreferencesMenuOpen(true)}
