@@ -2,24 +2,28 @@
 
 import { normalizeProps, useMachine } from '@zag-js/react'
 import * as slider from '@zag-js/slider'
-import { useAtom } from 'jotai'
-import { useEffect } from 'react'
+import { type PrimitiveAtom, useAtom } from 'jotai'
+import { range } from 'ramda'
+import { useEffect, useMemo } from 'react'
 import { css } from 'styled-system/css'
 
-import { fontSizeAtom } from '../TopToolbar.state'
 import { Slider } from './SliderInput.styles'
 
-export const FontSizeInput = () => {
-	const [value, setValue] = useAtom(fontSizeAtom)
+export type TSliderMachineProps = Parameters<typeof slider.machine>[0]
+
+export const SliderInput = ({
+	valueAtom,
+	label,
+	machineProps,
+}: {
+	valueAtom: PrimitiveAtom<number>
+	label: string
+	machineProps: TSliderMachineProps
+}) => {
+	const [value, setValue] = useAtom(valueAtom)
 
 	const [state, send] = useMachine(
-		slider.machine({
-			id: 'font-size',
-			name: 'font-size',
-			value: [value],
-			min: 14,
-			max: 22,
-		}),
+		slider.machine({ ...machineProps, value: [value] }),
 	)
 
 	const sliderApi = slider.connect(state, send, normalizeProps)
@@ -30,13 +34,21 @@ export const FontSizeInput = () => {
 		}
 	}, [setValue, sliderApi.value])
 
+	const valueRange = useMemo(
+		() =>
+			machineProps.min && machineProps.max
+				? range(machineProps.min + 1)(machineProps.max)
+				: null,
+		[machineProps.max, machineProps.min],
+	)
+
 	return (
 		<Slider.Root
 			{...sliderApi.rootProps}
 			className={css({ pb: 'calc(22 / 16 * 1rem)' })}
 		>
 			<Slider.LabelContainer>
-				<label {...sliderApi.labelProps}>Text size</label>
+				<label {...sliderApi.labelProps}>{label}</label>
 				<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
 			</Slider.LabelContainer>
 			<Slider.Control {...sliderApi.controlProps}>
@@ -49,13 +61,12 @@ export const FontSizeInput = () => {
 					</Slider.Thumb>
 				))}
 				<div {...sliderApi.markerGroupProps}>
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 15 })} />
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 16 })} />
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 17 })} />
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 18 })} />
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 19 })} />
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 20 })} />
-					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 21 })} />
+					{valueRange?.map((value) => (
+						<Slider.TickMarker
+							key={value}
+							{...sliderApi.getMarkerProps({ value })}
+						/>
+					))}
 				</div>
 			</Slider.Control>
 		</Slider.Root>

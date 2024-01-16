@@ -10,14 +10,15 @@ import {
 } from '~/components'
 
 import {
+	fontSizeAtom,
 	hideNonOriginalText,
 	isPreferencesMenuOpenAtom,
 	isVerseBreaksLine,
 } from '../TopToolbar.state'
-import { FontSizeInput } from './FontSizeInput'
 import { Header } from './Header'
 import { LeadingInput } from './LeadingInput'
 import { PreferencesList } from './PreferencesMenu.styles'
+import { SliderInput } from './SliderInput'
 import { SwitchInput } from './SwitchInput'
 
 export const PreferencesMenu = () => {
@@ -31,7 +32,17 @@ export const PreferencesMenu = () => {
 				<Container_OverlayMenu>
 					<Header />
 					<PreferencesList>
-						<FontSizeInput />
+						<SliderInput
+							valueAtom={fontSizeAtom}
+							label="Font size"
+							machineProps={{
+								id: 'font-size',
+								name: 'font-size',
+								min: 14,
+								max: 22,
+								step: 1,
+							}}
+						/>
 						<LeadingInput />
 						<SwitchInput
 							valueAtom={isVerseBreaksLine}
