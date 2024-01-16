@@ -37,8 +37,10 @@ const Thumb = styled(ArkSwitch.Thumb, {
 			borderWidth: '1.5px',
 		},
 		_focus: {
-			bg: 'bg.muted',
-			borderColor: 'fg.faded',
+			outlineOffset: '2px',
+			outlineWidth: '1px',
+			outlineStyle: 'dotted',
+			outlineColor: 'currentColor',
 		},
 		_checked: {
 			transform: 'translateX(var(--switch-thumb-x))',
