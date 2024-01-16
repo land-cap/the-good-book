@@ -30,18 +30,16 @@ const Range = styled('div', {
 
 const Thumb = styled('div', {
 	base: square.raw({
-		size: '5',
+		size: '6',
 		position: 'absolute',
-		top: 'calc(-6 / 16 * 1rem)',
+		top: 'calc(-8 / 16 * 1rem)',
 		bg: 'bg.canvas',
 		border: '2px solid currentColor',
-		outline: '1.5px solid token(colors.fg.inverted)',
 		transition: 'colors',
 		transitionDuration: 'faster',
 		transitionTimingFunction: 'ease-out',
 		_osDark: {
 			borderWidth: '1.5px',
-			outlineWidth: '2px',
 		},
 		_focus: {
 			bg: 'bg.muted',

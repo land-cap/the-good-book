@@ -3,12 +3,12 @@ import { macrogrid } from 'styled-system/patterns'
 
 export const PreferencesList = styled('form', {
 	base: macrogrid.raw({
-		rowGap: '6',
+		rowGap: '8',
 		column: 'fullbleed',
-		py: '6',
+		py: '8',
 		sm: {
-			rowGap: '8',
-			py: '8',
+			rowGap: '10',
+			py: '10',
 		},
 	}),
 })

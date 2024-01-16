@@ -9,8 +9,8 @@ const Root = styled(ArkSwitch.Root, {
 		'--switch-track-diff':
 			'calc(var(--switch-track-width) - var(--switch-track-height))',
 		'--switch-thumb-x': 'var(--switch-track-diff)',
-		'--switch-track-height': 'token(spacing.5)',
-		'--switch-track-width': 'token(spacing.10)',
+		'--switch-track-height': 'token(spacing.6)',
+		'--switch-track-width': 'token(spacing.12)',
 	}),
 })
 
