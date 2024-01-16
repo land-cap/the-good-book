@@ -14,9 +14,9 @@ import {
 	hideNonOriginalText,
 	isPreferencesMenuOpenAtom,
 	isVerseBreaksLine,
+	leadingAtom,
 } from '../TopToolbar.state'
 import { Header } from './Header'
-import { LeadingInput } from './LeadingInput'
 import { PreferencesList } from './PreferencesMenu.styles'
 import { SliderInput } from './SliderInput'
 import { SwitchInput } from './SwitchInput'
@@ -43,7 +43,17 @@ export const PreferencesMenu = () => {
 								step: 1,
 							}}
 						/>
-						<LeadingInput />
+						<SliderInput
+							valueAtom={leadingAtom}
+							label="Line gap"
+							machineProps={{
+								id: 'line-gap',
+								name: 'line-gap',
+								min: 1,
+								max: 3,
+								step: 0.25,
+							}}
+						/>
 						<SwitchInput
 							valueAtom={isVerseBreaksLine}
 							label="Start verse on new line"

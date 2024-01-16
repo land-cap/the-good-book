@@ -3,7 +3,6 @@
 import { normalizeProps, useMachine } from '@zag-js/react'
 import * as slider from '@zag-js/slider'
 import { type PrimitiveAtom, useAtom } from 'jotai'
-import { range } from 'ramda'
 import { useEffect, useMemo } from 'react'
 import { css } from 'styled-system/css'
 
@@ -34,13 +33,21 @@ export const SliderInput = ({
 		}
 	}, [setValue, sliderApi.value])
 
-	const valueRange = useMemo(
-		() =>
-			machineProps.min && machineProps.max
-				? range(machineProps.min + 1)(machineProps.max)
-				: null,
-		[machineProps.max, machineProps.min],
-	)
+	const valueRange = useMemo(() => {
+		const { min, max } = machineProps
+		const step = machineProps.step ?? 1
+
+		if (!min || !max) return null
+
+		const firstMarkValue = min + step
+		const lastMarkValue = max - step
+
+		const getValueRange = (range: number[]): number[] =>
+			range[range.length - 1] === lastMarkValue
+				? range
+				: getValueRange([...range, range[range.length - 1]! + step])
+		return getValueRange([firstMarkValue])
+	}, [machineProps])
 
 	return (
 		<Slider.Root
