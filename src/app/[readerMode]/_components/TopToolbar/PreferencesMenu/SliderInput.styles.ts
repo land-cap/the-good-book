@@ -42,10 +42,8 @@ const Thumb = styled('div', {
 			borderWidth: '1.5px',
 		},
 		_focus: {
-			outlineOffset: '2px',
-			outlineWidth: '1px',
-			outlineStyle: 'dotted',
-			outlineColor: 'currentColor',
+			bg: 'bg.muted',
+			borderColor: 'fg.faded',
 		},
 	}),
 })
