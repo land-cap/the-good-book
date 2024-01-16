@@ -1,7 +1,7 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
 
 import {
 	Container_OverlayMenu,
@@ -10,9 +10,9 @@ import {
 } from '~/components'
 
 import {
+	hideNonOriginalText,
 	isPreferencesMenuOpenAtom,
-	leadingAtom,
-	shouldVerseBreakLine,
+	isVerseBreaksLine,
 } from '../TopToolbar.state'
 import { FontSizeInput } from './FontSizeInput'
 import { Header } from './Header'
@@ -25,8 +25,6 @@ export const PreferencesMenu = () => {
 
 	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen })
 
-	const leading = useAtomValue(leadingAtom)
-
 	return (
 		<Portal>
 			<Positioner_OverlayMenu>
@@ -36,8 +34,12 @@ export const PreferencesMenu = () => {
 						<FontSizeInput />
 						<LeadingInput />
 						<SwitchInput
-							valueAtom={shouldVerseBreakLine}
+							valueAtom={isVerseBreaksLine}
 							label="Start verse on new line"
+						/>
+						<SwitchInput
+							valueAtom={hideNonOriginalText}
+							label="Hide non-original text"
 						/>
 					</PreferencesList>
 				</Container_OverlayMenu>

@@ -17,6 +17,7 @@ const Root = styled(ArkSwitch.Root, {
 const Control = styled(ArkSwitch.Control, {
 	base: hstack.raw({
 		flexShrink: 0,
+		cursor: 'pointer',
 		w: 'var(--switch-track-width)',
 		h: 'var(--switch-track-height)',
 		bg: 'neutral.200',
@@ -28,8 +29,9 @@ const Thumb = styled(ArkSwitch.Thumb, {
 	base: square.raw({
 		size: 'var(--switch-track-height)',
 		position: 'relative',
+		cursor: 'pointer',
 		bg: 'bg.canvas',
-		border: '2px solid currentColor',
+		border: '2px solid token(colors.fg.faded)',
 		transition: 'all',
 		transitionDuration: 'faster',
 		transitionTimingFunction: 'ease-out',
@@ -37,8 +39,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 			borderWidth: '1.5px',
 		},
 		_focus: {
-			bg: 'bg.muted',
-			borderColor: 'fg.faded',
+			borderColor: 'currentColor',
 		},
 		_checked: {
 			transform: 'translateX(var(--switch-thumb-x))',

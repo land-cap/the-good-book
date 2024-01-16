@@ -33,8 +33,9 @@ const Thumb = styled('div', {
 		size: '6',
 		position: 'absolute',
 		top: 'calc(-8 / 16 * 1rem)',
+		cursor: 'pointer',
 		bg: 'bg.canvas',
-		border: '2px solid currentColor',
+		border: '2px solid token(colors.fg.faded)',
 		transition: 'colors',
 		transitionDuration: 'faster',
 		transitionTimingFunction: 'ease-out',
@@ -42,8 +43,7 @@ const Thumb = styled('div', {
 			borderWidth: '1.5px',
 		},
 		_focus: {
-			bg: 'bg.muted',
-			borderColor: 'fg.faded',
+			borderColor: 'currentColor',
 		},
 	}),
 })

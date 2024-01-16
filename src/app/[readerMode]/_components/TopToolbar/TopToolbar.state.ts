@@ -6,4 +6,6 @@ export const fontSizeAtom = atom(16)
 
 export const leadingAtom = atom(2)
 
-export const shouldVerseBreakLine = atom(true)
+export const isVerseBreaksLine = atom(true)
+
+export const hideNonOriginalText = atom(false)
