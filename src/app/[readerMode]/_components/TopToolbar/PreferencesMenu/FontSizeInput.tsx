@@ -6,8 +6,7 @@ import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import { css } from 'styled-system/css'
 
-import { fontSizeAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
-
+import { fontSizeAtom } from '../TopToolbar.state'
 import { Slider } from './SliderInput.styles'
 
 export const FontSizeInput = () => {

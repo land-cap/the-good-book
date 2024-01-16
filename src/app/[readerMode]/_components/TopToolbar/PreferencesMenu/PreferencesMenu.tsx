@@ -2,19 +2,23 @@
 
 import { Portal } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
-import { useEffect } from 'react'
 
-import { LeadingInput } from '~/app/[readerMode]/_components/TopToolbar/PreferencesMenu/LeadingInput'
 import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 	useDisableBodyScrollWhileDialogIsOpen,
 } from '~/components'
 
-import { isPreferencesMenuOpenAtom, leadingAtom } from '../TopToolbar.state'
+import {
+	isPreferencesMenuOpenAtom,
+	leadingAtom,
+	shouldVerseBreakLine,
+} from '../TopToolbar.state'
 import { FontSizeInput } from './FontSizeInput'
 import { Header } from './Header'
+import { LeadingInput } from './LeadingInput'
 import { PreferencesList } from './PreferencesMenu.styles'
+import { SwitchInput } from './SwitchInput'
 
 export const PreferencesMenu = () => {
 	const [isDialogOpen, setIsDialogOpen] = useAtom(isPreferencesMenuOpenAtom)
@@ -22,10 +26,6 @@ export const PreferencesMenu = () => {
 	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen })
 
 	const leading = useAtomValue(leadingAtom)
-
-	useEffect(() => {
-		console.log(leading)
-	}, [leading])
 
 	return (
 		<Portal>
@@ -35,6 +35,10 @@ export const PreferencesMenu = () => {
 					<PreferencesList>
 						<FontSizeInput />
 						<LeadingInput />
+						<SwitchInput
+							valueAtom={shouldVerseBreakLine}
+							label="Start verse on new line"
+						/>
 					</PreferencesList>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>
