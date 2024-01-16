@@ -49,15 +49,13 @@ export const FontSizeInput = () => {
 					</Slider.Thumb>
 				))}
 				<div {...sliderApi.markerGroupProps}>
-					<Slider.Marker {...sliderApi.getMarkerProps({ value: 14 })}>
-						14
-					</Slider.Marker>
-					<Slider.Marker {...sliderApi.getMarkerProps({ value: 16 })}>
-						16
-					</Slider.Marker>
-					<Slider.Marker {...sliderApi.getMarkerProps({ value: 22 })}>
-						22
-					</Slider.Marker>
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 15 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 16 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 17 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 18 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 19 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 20 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 21 })} />
 				</div>
 			</Slider.Control>
 		</Slider.Root>

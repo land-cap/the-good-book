@@ -35,7 +35,7 @@ const Thumb = styled('div', {
 		top: 'calc(-8 / 16 * 1rem)',
 		cursor: 'pointer',
 		bg: 'bg.canvas',
-		border: '2px solid token(colors.fg.faded)',
+		border: '2px solid currentColor',
 		transition: 'colors',
 		transitionDuration: 'faster',
 		transitionTimingFunction: 'ease-out',
@@ -43,12 +43,23 @@ const Thumb = styled('div', {
 			borderWidth: '1.5px',
 		},
 		_focus: {
-			borderColor: 'currentColor',
+			borderColor: 'fg.faded',
 		},
 	}),
 })
 
-const Marker = styled('span', {
+const TickMarker = styled('span', {
+	base: {
+		mt: '-1',
+		h: '2px',
+		w: '2px',
+		color: 'bg.canvas',
+		bg: 'bg.canvas',
+		transform: 'translateY(-50%)',
+	},
+})
+
+const TextMarker = styled('span', {
 	base: {
 		mt: '3',
 		color: 'fg.subtle',
@@ -64,5 +75,6 @@ export const Slider = {
 	Track,
 	Range,
 	Thumb,
-	Marker,
+	TickMarker,
+	TextMarker,
 }

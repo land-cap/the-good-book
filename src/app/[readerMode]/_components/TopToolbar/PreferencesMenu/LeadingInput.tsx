@@ -47,15 +47,13 @@ export const LeadingInput = () => {
 					</Slider.Thumb>
 				))}
 				<div {...sliderApi.markerGroupProps}>
-					<Slider.Marker {...sliderApi.getMarkerProps({ value: 14 })}>
-						14
-					</Slider.Marker>
-					<Slider.Marker {...sliderApi.getMarkerProps({ value: 16 })}>
-						16
-					</Slider.Marker>
-					<Slider.Marker {...sliderApi.getMarkerProps({ value: 22 })}>
-						22
-					</Slider.Marker>
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 1.25 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 1.5 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 1.75 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 2 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 2.25 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 2.5 })} />
+					<Slider.TickMarker {...sliderApi.getMarkerProps({ value: 2.75 })} />
 				</div>
 			</Slider.Control>
 		</Slider.Root>

@@ -31,7 +31,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 		position: 'relative',
 		cursor: 'pointer',
 		bg: 'bg.canvas',
-		border: '2px solid token(colors.fg.faded)',
+		border: '2px solid currentColor',
 		transition: 'all',
 		transitionDuration: 'faster',
 		transitionTimingFunction: 'ease-out',
@@ -39,7 +39,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 			borderWidth: '1.5px',
 		},
 		_focus: {
-			borderColor: 'currentColor',
+			borderColor: 'fg.faded',
 		},
 		_checked: {
 			transform: 'translateX(var(--switch-thumb-x))',
