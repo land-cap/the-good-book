@@ -4,7 +4,6 @@ import { normalizeProps, useMachine } from '@zag-js/react'
 import * as slider from '@zag-js/slider'
 import { type PrimitiveAtom, useAtom } from 'jotai'
 import { useEffect, useMemo } from 'react'
-import { css } from 'styled-system/css'
 
 import { Slider } from './SliderInput.styles'
 
@@ -52,10 +51,7 @@ export const SliderInput = ({
 	}, [machineProps])
 
 	return (
-		<Slider.Root
-			{...sliderApi.rootProps}
-			className={css({ pb: 'calc(22 / 16 * 1rem)' })}
-		>
+		<Slider.Root {...sliderApi.rootProps}>
 			<Slider.LabelContainer>
 				<label {...sliderApi.labelProps}>{label}</label>
 				<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
