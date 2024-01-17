@@ -1,14 +1,18 @@
 'use client'
 
 import { Dialog, DialogTrigger } from '@ark-ui/react'
-import { useSetAtom } from 'jotai'
+import { useAtom } from 'jotai'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { flex, macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { wChildren } from '~/component-helpers'
-import { Icon, Separator } from '~/components'
+import {
+	Icon,
+	Separator,
+	useDisableBodyScrollWhileDialogIsOpen,
+} from '~/components'
 
 import { PreferencesMenu } from './PreferencesMenu'
 import { isPreferencesMenuOpenAtom } from './TopToolbar.state'
@@ -47,12 +51,20 @@ const Logo = styled('span', {
 })
 
 export const TopToolbar = () => {
-	const setIsPreferencesMenuOpen = useSetAtom(isPreferencesMenuOpenAtom)
+	const [isPreferencesMenuOpen, setIsPreferencesMenuOpen] = useAtom(
+		isPreferencesMenuOpenAtom,
+	)
+
+	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen: isPreferencesMenuOpen })
 
 	return (
 		<Container>
 			<Logo>The Good Book</Logo>
-			<Dialog.Root preventScroll={false}>
+			<Dialog.Root
+				preventScroll={false}
+				open={isPreferencesMenuOpen}
+				onOpenChange={({ open }) => setIsPreferencesMenuOpen(open)}
+			>
 				<DialogTrigger
 					className={button({ icon: true })}
 					onClick={() => setIsPreferencesMenuOpen(true)}

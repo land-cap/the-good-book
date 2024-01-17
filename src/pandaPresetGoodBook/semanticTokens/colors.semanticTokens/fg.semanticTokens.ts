@@ -27,8 +27,8 @@ export const fg = defineSemanticTokens.colors({
 	},
 	jesus_words: {
 		value: {
-			_osDark: '{colors.red.400}',
-			base: '{colors.red.600}',
+			_osDark: '{colors.red.300}',
+			base: '{colors.red.700}',
 		},
 	},
 	moreFaded: {
