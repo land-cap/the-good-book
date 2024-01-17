@@ -4,12 +4,11 @@ import { hstack, square, stack } from 'styled-system/patterns'
 const Root = styled('div', {
 	base: stack.raw({
 		direction: 'column',
-		gap: '2',
+		gap: '4',
 		position: 'relative',
 		column: 'content',
 		sm: {
 			direction: 'row',
-			gap: '4',
 		},
 	}),
 })

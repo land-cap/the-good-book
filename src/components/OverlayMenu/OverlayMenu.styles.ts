@@ -17,10 +17,10 @@ export const Container_OverlayMenu = styled(Dialog.Content, {
 		w: '100dvw',
 		h: 'full',
 		bg: 'bg.canvas',
-		'&[data-state=open]': {
+		_open: {
 			animation: 'fadeInBottom 0.15s ease-out',
 		},
-		'&[data-state=closed]': {
+		_closed: {
 			animation: 'fadeOutBottom 0.1s ease-in',
 		},
 	},
