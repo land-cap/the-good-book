@@ -28,12 +28,12 @@ export const pandaPresetGoodBook = definePreset({
 					'100%': { opacity: '0' },
 				},
 				fadeInBottom: {
-					'0%': { opacity: '0', transform: 'translateY(token(spacing.4))' },
+					'0%': { opacity: '0', transform: 'translateY(token(spacing.2))' },
 					'100%': { opacity: '1', transform: 'translateY(0)' },
 				},
 				fadeOutBottom: {
 					'0%': { opacity: '1', transform: 'translateY(0)' },
-					'100%': { opacity: '0', transform: 'translateY(token(spacing.4))' },
+					'100%': { opacity: '0', transform: 'translateY(token(spacing.2))' },
 				},
 				scaleIn: {
 					'0%': { scale: '0.75' },

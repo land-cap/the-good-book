@@ -14,6 +14,7 @@ export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
 
 export const Container_OverlayMenu = styled(Dialog.Content, {
 	base: {
+		forceGpu: true,
 		w: '100dvw',
 		h: 'full',
 		bg: 'bg.canvas',

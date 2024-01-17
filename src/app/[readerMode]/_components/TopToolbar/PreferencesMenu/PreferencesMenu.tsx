@@ -35,7 +35,11 @@ export const PreferencesMenu = () => (
 	<Portal>
 		<Backdrop />
 		<Positioner_OverlayMenu css={{ h: 'calc(100dvh / 3 * 2)' }}>
-			<Container_OverlayMenu css={{ h: 'calc(100dvh / 3 * 2)' }}>
+			<Container_OverlayMenu
+				css={{
+					h: 'calc(100dvh / 3 * 2)',
+				}}
+			>
 				<Header />
 				<PreferencesList>
 					<SliderInput

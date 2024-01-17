@@ -23,7 +23,12 @@ export const SliderInput = ({
 	const [value, setValue] = useAtom(valueAtom)
 
 	const [state, send] = useMachine(
-		slider.machine({ ...machineProps, value: [value] }),
+		slider.machine({
+			...machineProps,
+			value: [value],
+			thumbAlignment: 'contain',
+			thumbSize: { width: 24, height: 24 },
+		}),
 	)
 
 	const sliderApi = slider.connect(state, send, normalizeProps)
