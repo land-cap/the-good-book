@@ -12,7 +12,6 @@ export const globalCss = defineGlobalStyles({
 	':root': {
 		'-moz-osx-font-smoothing': 'grayscale',
 		'-webkit-font-smoothing': 'antialiased',
-		bg: 'bg.canvas',
 		color: 'fg',
 		fontFamily: 'sans',
 		fontOpticalSizing: 'auto',
@@ -25,7 +24,6 @@ export const globalCss = defineGlobalStyles({
 		cursor: 'pointer',
 	},
 	'html, body': {
-		bg: 'bg.canvas',
 		touchAction: 'pan-x pan-y',
 	},
 	'q::before, q::before': {
