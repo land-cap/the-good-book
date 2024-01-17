@@ -12,12 +12,14 @@ export type TSliderMachineProps = Parameters<typeof slider.machine>[0]
 
 export const SliderInput = ({
 	valueAtom,
-	label,
 	machineProps,
+	label,
+	showTickMarks,
 }: {
 	valueAtom: PrimitiveAtom<number>
-	label: string
 	machineProps: TSliderMachineProps
+	label: string
+	showTickMarks?: boolean
 }) => {
 	const [value, setValue] = useAtom(valueAtom)
 
@@ -67,14 +69,16 @@ export const SliderInput = ({
 						<input {...sliderApi.getHiddenInputProps({ index })} />
 					</Slider.Thumb>
 				))}
-				<div {...sliderApi.markerGroupProps}>
-					{valueRange?.map((value) => (
-						<Slider.TickMarker
-							key={value}
-							{...sliderApi.getMarkerProps({ value })}
-						/>
-					))}
-				</div>
+				{showTickMarks ? (
+					<div {...sliderApi.markerGroupProps}>
+						{valueRange?.map((value) => (
+							<Slider.TickMarker
+								key={value}
+								{...sliderApi.getMarkerProps({ value })}
+							/>
+						))}
+					</div>
+				) : null}
 			</Slider.Control>
 		</Slider.Root>
 	)

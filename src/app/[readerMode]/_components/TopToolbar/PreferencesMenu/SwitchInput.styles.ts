@@ -10,7 +10,7 @@ const Root = styled(ArkSwitch.Root, {
 			'calc(var(--switch-track-width) - var(--switch-track-height))',
 		'--switch-thumb-x': 'var(--switch-track-diff)',
 		'--switch-track-height': 'token(spacing.6)',
-		'--switch-track-width': 'token(spacing.12)',
+		'--switch-track-width': 'calc(token(spacing.12) - 2px)',
 	}),
 })
 
@@ -20,7 +20,13 @@ const Control = styled(ArkSwitch.Control, {
 		cursor: 'pointer',
 		w: 'var(--switch-track-width)',
 		h: 'var(--switch-track-height)',
-		bg: 'neutral.200',
+		bg: 'fg.moreFaded',
+		transition: 'all',
+		transitionDuration: 'fast',
+		transitionTimingFunction: 'ease-out',
+		_checked: {
+			bg: 'fg.muted',
+		},
 		_osDark: { bg: 'neutral.700' },
 	}),
 })
@@ -31,15 +37,14 @@ const Thumb = styled(ArkSwitch.Thumb, {
 		position: 'relative',
 		cursor: 'pointer',
 		bg: 'bg.canvas',
-		border: '2px solid currentColor',
+		borderWidth: '2px',
+		borderStyle: 'solid',
+		borderColor: 'fg.muted',
 		transition: 'all',
-		transitionDuration: 'faster',
+		transitionDuration: 'fast',
 		transitionTimingFunction: 'ease-out',
 		_osDark: {
 			borderWidth: '1.5px',
-		},
-		_focus: {
-			borderColor: 'fg.faded',
 		},
 		_checked: {
 			transform: 'translateX(var(--switch-thumb-x))',

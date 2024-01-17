@@ -21,11 +21,11 @@ const LabelContainer = styled('div', {
 const Control = styled('div', { base: { flexGrow: '1' } })
 
 const Track = styled('div', {
-	base: { h: '2', bg: 'neutral.200', _osDark: { bg: 'neutral.700' } },
+	base: { h: '2', bg: 'fg.moreFaded', _osDark: { bg: 'fg.moreFaded' } },
 })
 
 const Range = styled('div', {
-	base: { h: '2', bg: 'fg.faded' },
+	base: { h: '2', bg: 'fg.muted' },
 })
 
 const Thumb = styled('div', {
@@ -35,15 +35,13 @@ const Thumb = styled('div', {
 		top: 'calc(-8 / 16 * 1rem)',
 		cursor: 'pointer',
 		bg: 'bg.canvas',
-		border: '2px solid currentColor',
+		borderWidth: '2px',
+		borderColor: 'fg.muted',
 		transition: 'colors',
 		transitionDuration: 'faster',
 		transitionTimingFunction: 'ease-out',
 		_osDark: {
 			borderWidth: '1.5px',
-		},
-		_focus: {
-			borderColor: 'fg.faded',
 		},
 	}),
 })
