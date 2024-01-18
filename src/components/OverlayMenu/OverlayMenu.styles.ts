@@ -19,10 +19,10 @@ export const Container_OverlayMenu = styled(Dialog.Content, {
 		h: 'full',
 		bg: 'bg.canvas',
 		_open: {
-			animation: 'fadeInBottom 0.15s ease-out',
+			animation: 'fadeInBottom 0.25s ease-out',
 		},
 		_closed: {
-			animation: 'fadeOutBottom 0.1s ease-in',
+			animation: 'fadeOutBottom 0.2s ease-in',
 		},
 	},
 })

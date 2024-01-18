@@ -26,7 +26,7 @@ const Backdrop = styled(Dialog.Backdrop, {
 		inset: 0,
 		opacity: 'var(--opacity)',
 		bg: 'bg.inverted',
-		_open: { animation: 'fadeIn 0.15s ease-out' },
+		_open: { animation: 'fadeIn 0.25s ease-out' },
 		_closed: { animation: 'fadeOut 0.1s ease-in' },
 	},
 })
