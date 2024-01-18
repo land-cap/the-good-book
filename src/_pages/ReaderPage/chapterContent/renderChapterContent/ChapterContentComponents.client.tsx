@@ -1,5 +1,10 @@
+'use client'
+
+import { useAtomValue } from 'jotai'
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
+
+import { showRedLettersAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
 
 export const Verse = ({
 	children,
@@ -25,3 +30,16 @@ export const Verse = ({
 		{children}
 	</span>
 )
+
+export const JesusWords = ({ children }: { children: ReactNode }) => {
+	const showRedLetters = useAtomValue(showRedLettersAtom)
+
+	return (
+		<span
+			data-component="JesusWords"
+			className={cx(showRedLetters && css({ color: 'fg.jesus_words' }))}
+		>
+			{children}
+		</span>
+	)
+}

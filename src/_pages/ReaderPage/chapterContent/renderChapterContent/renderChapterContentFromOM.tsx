@@ -2,8 +2,6 @@ import { Fragment, type ReactNode } from 'react'
 
 import {
 	FancyAside,
-	JesusWords,
-	LargeSectionCrossReference,
 	LargeSectionReference,
 	LargeSectionTitle,
 	Paragraph,
@@ -11,7 +9,7 @@ import {
 	SectionTitle,
 	VerseLabel,
 } from './ChapterContentComponents'
-import { Verse } from './ChapterContentComponents.client'
+import { JesusWords, Verse } from './ChapterContentComponents.client'
 import {
 	type ChapterOM,
 	type ChapterOMNode,

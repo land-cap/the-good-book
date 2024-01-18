@@ -134,15 +134,6 @@ export const CrossReference = ({
 	</span>
 )
 
-export const JesusWords = ({ children }: { children: ReactNode }) => (
-	<span
-		data-component="JesusWords"
-		className={css({ color: 'fg.jesus_words' })}
-	>
-		{children}
-	</span>
-)
-
 export const Quote = ({ children }: { children: ReactNode }) => (
 	<span
 		data-component="Quote"
