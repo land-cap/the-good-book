@@ -1,4 +1,4 @@
-import { atom } from 'jotai/index'
+import { atom } from 'jotai'
 
 export type TReaderFontSize =
 	| 12
@@ -15,14 +15,20 @@ export type TReaderFontSize =
 
 export type TReaderLeading = 1 | 1.25 | 1.5 | 1.75 | 2 | 2.25 | 2.5 | 2.75 | 3
 
-export const isPreferencesMenuOpenAtom = atom(false)
+export const isPreferencesMenuOpenDefaultValue = false
+export const isPreferencesMenuOpenAtom = atom(isPreferencesMenuOpenDefaultValue)
 
-export const fontSizeAtom = atom<TReaderFontSize>(16)
+export const fontSizeDefaultValue = 14
+export const fontSizeAtom = atom<TReaderFontSize>(fontSizeDefaultValue)
 
-export const leadingAtom = atom<TReaderLeading>(2)
+export const leadingDefaultValue = 2
+export const leadingAtom = atom<TReaderLeading>(leadingDefaultValue)
 
-export const isVerseBreaksLineAtom = atom(true)
+export const verseBreaksLineDefaultValue = true
+export const verseBreaksLineAtom = atom(verseBreaksLineDefaultValue)
 
-export const hideNonOriginalTextAtom = atom(false)
+export const hideNonOriginalTextDefaultValue = false
+export const hideNonOriginalTextAtom = atom(hideNonOriginalTextDefaultValue)
 
-export const showRedLettersAtom = atom(true)
+export const showRedLettersDefaultValue = true
+export const showRedLettersAtom = atom(showRedLettersDefaultValue)

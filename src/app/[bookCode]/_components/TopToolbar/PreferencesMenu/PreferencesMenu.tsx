@@ -12,9 +12,9 @@ import {
 import {
 	fontSizeAtom,
 	hideNonOriginalTextAtom,
-	isVerseBreaksLineAtom,
 	leadingAtom,
 	showRedLettersAtom,
+	verseBreaksLineAtom,
 } from '../TopToolbar.state'
 import { Header } from './Header'
 import { PreferencesList } from './PreferencesMenu.styles'
@@ -55,7 +55,7 @@ export const PreferencesMenu = () => (
 						}}
 					/>
 					<SwitchInput
-						valueAtom={isVerseBreaksLineAtom}
+						valueAtom={verseBreaksLineAtom}
 						label="Start verse on new line"
 					/>
 					<SwitchInput

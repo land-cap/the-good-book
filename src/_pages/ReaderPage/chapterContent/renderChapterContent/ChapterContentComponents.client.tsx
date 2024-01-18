@@ -7,8 +7,8 @@ import { caption } from 'styled-system/patterns'
 
 import {
 	hideNonOriginalTextAtom,
-	isVerseBreaksLineAtom,
 	showRedLettersAtom,
+	verseBreaksLineAtom,
 } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
 const makeNonOriginalTextHideable =
@@ -25,13 +25,13 @@ const makeNonOriginalTextHideable =
 	}
 
 export const Verse = ({ children }: { children: ReactNode }) => {
-	const isVerseBreaksLine = useAtomValue(isVerseBreaksLineAtom)
+	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
 
 	return (
 		<span
 			data-component="Verse"
 			className={cx(
-				isVerseBreaksLine &&
+				verseBreaksLine &&
 					css({
 						cursor: 'text',
 						display: 'block',
@@ -118,15 +118,15 @@ export const SectionTitle = makeNonOriginalTextHideable(
 )
 
 export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
-	const isVerseBreaksLine = useAtomValue(isVerseBreaksLineAtom)
+	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
 
-	const LabelTag = isVerseBreaksLine ? 'span' : 'sup'
+	const LabelTag = verseBreaksLine ? 'span' : 'sup'
 
 	return (
 		<span
 			data-component="VerseLabel"
 			className={cx(
-				isVerseBreaksLine &&
+				verseBreaksLine &&
 					css({
 						left: '-2',
 						position: 'absolute',
@@ -136,20 +136,20 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 					}),
 			)}
 		>
-			{!isVerseBreaksLine && ' '}
+			{!verseBreaksLine && ' '}
 			<LabelTag
 				className={cx(
 					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
-					isVerseBreaksLine &&
+					verseBreaksLine &&
 						css({
-							fontSize: '0.625rem',
-							sm: { fontSize: 'xs' },
+							fontSize: '0.625em',
+							sm: { fontSize: '0.75em' },
 						}),
 				)}
 			>
 				{verseNumber}
 			</LabelTag>
-			{!isVerseBreaksLine && <>&nbsp;</>}
+			{!verseBreaksLine && <>&nbsp;</>}
 		</span>
 	)
 }

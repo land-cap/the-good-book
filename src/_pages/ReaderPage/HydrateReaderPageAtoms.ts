@@ -4,21 +4,27 @@ import { useHydrateAtoms } from 'jotai/utils'
 
 import {
 	fontSizeAtom,
+	fontSizeDefaultValue,
 	hideNonOriginalTextAtom,
+	hideNonOriginalTextDefaultValue,
 	isPreferencesMenuOpenAtom,
-	isVerseBreaksLineAtom,
+	isPreferencesMenuOpenDefaultValue,
 	leadingAtom,
+	leadingDefaultValue,
 	showRedLettersAtom,
+	showRedLettersDefaultValue,
+	verseBreaksLineAtom,
+	verseBreaksLineDefaultValue,
 } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
 export const HydrateReaderPageAtoms = () => {
 	useHydrateAtoms([
-		[isPreferencesMenuOpenAtom, true],
-		[fontSizeAtom, 16],
-		[leadingAtom, 2],
-		[isVerseBreaksLineAtom, true],
-		[hideNonOriginalTextAtom, true],
-		[showRedLettersAtom, true],
+		[isPreferencesMenuOpenAtom, isPreferencesMenuOpenDefaultValue],
+		[fontSizeAtom, fontSizeDefaultValue],
+		[leadingAtom, leadingDefaultValue],
+		[verseBreaksLineAtom, verseBreaksLineDefaultValue],
+		[hideNonOriginalTextAtom, hideNonOriginalTextDefaultValue],
+		[showRedLettersAtom, showRedLettersDefaultValue],
 	])
 
 	return null
