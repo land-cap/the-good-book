@@ -14,11 +14,13 @@ export const SliderInput = ({
 	machineProps,
 	label,
 	showTickMarks,
+	showPreview,
 }: {
 	valueAtom: PrimitiveAtom<number>
 	machineProps: TSliderMachineProps
 	label: string
 	showTickMarks?: boolean
+	showPreview?: boolean
 }) => {
 	const [value, setValue] = useAtom(valueAtom)
 
@@ -59,7 +61,9 @@ export const SliderInput = ({
 		<Slider.Root {...sliderApi.rootProps}>
 			<Slider.LabelContainer>
 				<label {...sliderApi.labelProps}>{label}</label>
-				<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
+				{showPreview ? (
+					<output {...sliderApi.valueTextProps}>{sliderApi.value.at(0)}</output>
+				) : null}
 			</Slider.LabelContainer>
 			<Slider.Control {...sliderApi.controlProps}>
 				<Slider.Track {...sliderApi.trackProps}>
