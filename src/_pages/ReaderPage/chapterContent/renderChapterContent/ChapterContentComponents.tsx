@@ -1,59 +1,5 @@
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
-import { caption } from 'styled-system/patterns'
-
-export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2
-		data-component="LargeSectionTitle"
-		className={caption({
-			lineHeight: 'inherit',
-		})}
-	>
-		{children}
-	</h2>
-)
-
-export const LargeSectionReference = ({
-	children,
-}: {
-	children: ReactNode
-}) => (
-	<h3
-		data-component="LargeSectionReference"
-		className={caption({
-			lineHeight: 'inherit',
-		})}
-	>
-		({children})
-	</h3>
-)
-
-export const LargeSectionCrossReference = ({
-	children,
-}: {
-	children: ReactNode
-}) => (
-	<h4
-		data-component="LargeSectionCrossReference"
-		className={caption({
-			lineHeight: 'inherit',
-		})}
-	>
-		{children}
-	</h4>
-)
-
-export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2
-		data-component="SectionTitle"
-		className={css({
-			color: 'fg.subtle',
-			fontSize: '1.25em',
-		})}
-	>
-		{children}
-	</h2>
-)
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
 	<p
