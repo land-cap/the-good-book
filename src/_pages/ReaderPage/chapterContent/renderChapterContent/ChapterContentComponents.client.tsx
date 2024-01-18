@@ -63,7 +63,9 @@ export const LargeSectionTitle = makeNonOriginalTextHideable(
 		<h2
 			data-component="LargeSectionTitle"
 			className={caption({
+				fontSize: '0.75em',
 				lineHeight: 'inherit',
+				sm: { fontSize: '0.75em' },
 			})}
 		>
 			{children}
@@ -76,7 +78,9 @@ export const LargeSectionReference = makeNonOriginalTextHideable(
 		<h3
 			data-component="LargeSectionReference"
 			className={caption({
+				fontSize: '0.75em',
 				lineHeight: 'inherit',
+				sm: { fontSize: '0.75em' },
 			})}
 		>
 			({children})
@@ -89,7 +93,9 @@ export const LargeSectionCrossReference = makeNonOriginalTextHideable(
 		<h4
 			data-component="LargeSectionCrossReference"
 			className={caption({
+				fontSize: '0.75em',
 				lineHeight: 'inherit',
+				sm: { fontSize: '0.75em' },
 			})}
 		>
 			{children}
