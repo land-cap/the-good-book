@@ -2,6 +2,9 @@ import { styled } from 'styled-system/jsx'
 
 export const ChapterContentContainer = styled('div', {
 	base: {
+		'& * + [data-component="Paragraph"]': {
+			mt: 'reader_gap',
+		},
 		'& :not(:where([data-component="Quote"], [data-component="Paragraph"])) + :where([data-component="Quote"], [data-component="Paragraph"])':
 			{
 				mt: 'reader_gap',
