@@ -7,6 +7,7 @@ import { caption } from 'styled-system/patterns'
 
 import {
 	hideNonOriginalTextAtom,
+	isVerseBreaksLineAtom,
 	showRedLettersAtom,
 } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
 
@@ -23,30 +24,26 @@ const makeNonOriginalTextHideable =
 		return <Component {...props} />
 	}
 
-export const Verse = ({
-	children,
-	isStudyMode,
-}: {
-	children: ReactNode
-	isStudyMode: boolean
-	verseOrder: number
-	initialIsFocused?: boolean
-}) => (
-	<span
-		data-component="Verse"
-		className={cx(
-			isStudyMode &&
-				css({
-					cursor: 'text',
-					display: 'block',
-					position: 'relative',
-					userSelect: 'text',
-				}),
-		)}
-	>
-		{children}
-	</span>
-)
+export const Verse = ({ children }: { children: ReactNode }) => {
+	const isVerseBreaksLine = useAtomValue(isVerseBreaksLineAtom)
+
+	return (
+		<span
+			data-component="Verse"
+			className={cx(
+				isVerseBreaksLine &&
+					css({
+						cursor: 'text',
+						display: 'block',
+						position: 'relative',
+						userSelect: 'text',
+					}),
+			)}
+		>
+			{children}
+		</span>
+	)
+}
 
 export const JesusWords = ({ children }: { children: ReactNode }) => {
 	const showRedLetters = useAtomValue(showRedLettersAtom)
@@ -113,3 +110,40 @@ export const SectionTitle = makeNonOriginalTextHideable(
 		</h2>
 	),
 )
+
+export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
+	const isVerseBreaksLine = useAtomValue(isVerseBreaksLineAtom)
+
+	const LabelTag = isVerseBreaksLine ? 'span' : 'sup'
+
+	return (
+		<span
+			data-component="VerseLabel"
+			className={cx(
+				isVerseBreaksLine &&
+					css({
+						left: '-2',
+						position: 'absolute',
+						sm: { left: '-3' },
+						top: 0,
+						transform: 'translateX(-100%)',
+					}),
+			)}
+		>
+			{!isVerseBreaksLine && ' '}
+			<LabelTag
+				className={cx(
+					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
+					isVerseBreaksLine &&
+						css({
+							fontSize: '0.625rem',
+							sm: { fontSize: 'xs' },
+						}),
+				)}
+			>
+				{verseNumber}
+			</LabelTag>
+			{!isVerseBreaksLine && <>&nbsp;</>}
+		</span>
+	)
+}

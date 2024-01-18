@@ -1,17 +1,13 @@
 import { Fragment, type ReactNode } from 'react'
 
-import {
-	FancyAside,
-	Paragraph,
-	Quote,
-	VerseLabel,
-} from './ChapterContentComponents'
+import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
 	SectionTitle,
 	Verse,
+	VerseLabel,
 } from './ChapterContentComponents.client'
 import {
 	type ChapterOM,
@@ -24,10 +20,7 @@ function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
 }
 
-export const renderChapterContentFromOM = (
-	chapterOM: ChapterOM,
-	isStudyMode: boolean,
-) =>
+export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 	chapterOM.reduce((acc, item, i) => {
 		if (isTextNode(item)) {
 			return [...acc, item['#text']]
@@ -43,7 +36,7 @@ export const renderChapterContentFromOM = (
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType])}
 				</LargeSectionTitle>,
 			]
 		}
@@ -52,7 +45,7 @@ export const renderChapterContentFromOM = (
 			return [
 				...acc,
 				<LargeSectionReference key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType])}
 				</LargeSectionReference>,
 			]
 		}
@@ -65,7 +58,7 @@ export const renderChapterContentFromOM = (
 			return [
 				...acc,
 				<SectionTitle key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType])}
 				</SectionTitle>,
 			]
 		}
@@ -74,7 +67,7 @@ export const renderChapterContentFromOM = (
 			return [
 				...acc,
 				<FancyAside key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType])}
 				</FancyAside>,
 			]
 		}
@@ -87,20 +80,15 @@ export const renderChapterContentFromOM = (
 			return [
 				...acc,
 				<Paragraph key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType])}
 				</Paragraph>,
 			]
 		}
 
 		if (nodeClass === 'verse') {
-			const verseId = item[':@'].attrs['data-usfm']!
-			const verseOrder = Number(verseId.split('.')[2])
-
 			return [
 				...acc,
-				<Verse key={i} isStudyMode={isStudyMode} verseOrder={verseOrder}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
-				</Verse>,
+				<Verse key={i}>{renderChapterContentFromOM(item[NodeType])}</Verse>,
 			]
 		}
 
@@ -109,12 +97,8 @@ export const renderChapterContentFromOM = (
 				...acc,
 				<VerseLabel
 					key={i}
-					isStudyMode={isStudyMode}
 					verseNumber={
-						renderChapterContentFromOM(
-							item[NodeType],
-							isStudyMode,
-						)[0] as unknown as number
+						renderChapterContentFromOM(item[NodeType])[0] as unknown as number
 					}
 				/>,
 			]
@@ -140,7 +124,7 @@ export const renderChapterContentFromOM = (
 			return [
 				...acc,
 				<JesusWords key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
+					{renderChapterContentFromOM(item[NodeType])}
 				</JesusWords>,
 			]
 		}
@@ -148,16 +132,12 @@ export const renderChapterContentFromOM = (
 		if (nodeClass === 'quote') {
 			return [
 				...acc,
-				<Quote key={i}>
-					{renderChapterContentFromOM(item[NodeType], isStudyMode)}
-				</Quote>,
+				<Quote key={i}>{renderChapterContentFromOM(item[NodeType])}</Quote>,
 			]
 		}
 
 		return [
 			...acc,
-			<Fragment key={i}>
-				{renderChapterContentFromOM(item[NodeType], isStudyMode)}
-			</Fragment>,
+			<Fragment key={i}>{renderChapterContentFromOM(item[NodeType])}</Fragment>,
 		]
 	}, [] as ReactNode[])

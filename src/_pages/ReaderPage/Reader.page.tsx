@@ -15,7 +15,7 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContent = renderChapterContent(isStudyMode)(chapterData.content)
+	const chapterContent = renderChapterContent(chapterData.content)
 
 	return (
 		<>

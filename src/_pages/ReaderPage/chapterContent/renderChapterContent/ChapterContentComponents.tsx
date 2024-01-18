@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { css, cx } from 'styled-system/css'
+import { css } from 'styled-system/css'
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
 	<p
@@ -17,52 +17,10 @@ export const Paragraph = ({ children }: { children: ReactNode }) => (
 	<p data-component="Paragraph">{children}</p>
 )
 
-export const VerseLabel = ({
-	verseNumber,
-	isStudyMode,
-}: {
-	verseNumber: ReactNode
-	isStudyMode: boolean
-}) => {
-	const LabelTag = isStudyMode ? 'span' : 'sup'
-
-	return (
-		<span
-			data-component="VerseLabel"
-			className={cx(
-				isStudyMode &&
-					css({
-						left: '-2',
-						position: 'absolute',
-						sm: { left: '-3' },
-						top: 0,
-						transform: 'translateX(-100%)',
-					}),
-			)}
-		>
-			{!isStudyMode && ' '}
-			<LabelTag
-				className={cx(
-					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
-					isStudyMode &&
-						css({
-							fontSize: '0.625rem',
-							sm: { fontSize: 'xs' },
-						}),
-				)}
-			>
-				{verseNumber}
-			</LabelTag>
-			{!isStudyMode && <>&nbsp;</>}
-		</span>
-	)
-}
-
 export const CrossReference = ({
 	referenceList,
 }: {
 	referenceList: string
-	isStudyMode: boolean
 }) => (
 	<span data-component="CrossReference" className={css({ cursor: 'pointer' })}>
 		&nbsp;
