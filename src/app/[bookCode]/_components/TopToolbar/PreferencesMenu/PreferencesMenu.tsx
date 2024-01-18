@@ -38,8 +38,8 @@ export const PreferencesMenu = () => (
 						machineProps={{
 							id: 'font-size',
 							name: 'font-size',
-							min: 12,
-							max: 22,
+							min: -2,
+							max: 8,
 							step: 1,
 						}}
 					/>

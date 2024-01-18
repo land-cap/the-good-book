@@ -11,6 +11,13 @@ import {
 
 export const chapterContentContainerRecipe = cva({
 	base: {
+		'--font-size': 'token(fontSizes.sm)',
+		sm: {
+			'--font-size': 'token(fontSizes.md)',
+		},
+		column: 'content',
+		mt: 'reader_gap',
+		lineHeight: '2em',
 		'& * + [data-component="Paragraph"]': {
 			mt: 'reader_gap',
 		},
@@ -38,45 +45,41 @@ export const chapterContentContainerRecipe = cva({
 		'& [data-component="Quote"] + :not([data-component="Quote"])': {
 			mt: 'reader_gap',
 		},
-		column: 'content',
-		mt: 'reader_gap',
-		fontSize: 'sm',
-		lineHeight: '2em',
 	},
 	variants: {
 		fontSize: {
-			12: {
-				fontSize: '12px',
+			[-2]: {
+				fontSize: 'calc(var(--font-size) - 2px)',
 			},
-			13: {
-				fontSize: '13px',
+			[-1]: {
+				fontSize: 'calc(var(--font-size) - 1px)',
 			},
-			14: {
-				fontSize: '14px',
+			[0]: {
+				fontSize: 'var(--font-size)',
 			},
-			15: {
-				fontSize: '15px',
+			[1]: {
+				fontSize: 'calc(var(--font-size) + 1px)',
 			},
-			16: {
-				fontSize: '16px',
+			[2]: {
+				fontSize: 'calc(var(--font-size) + 2px)',
 			},
-			17: {
-				fontSize: '17px',
+			[3]: {
+				fontSize: 'calc(var(--font-size) + 3px)',
 			},
-			18: {
-				fontSize: '18px',
+			[4]: {
+				fontSize: 'calc(var(--font-size) + 4px)',
 			},
-			19: {
-				fontSize: '19px',
+			[5]: {
+				fontSize: 'calc(var(--font-size) + 5px)',
 			},
-			20: {
-				fontSize: '20px',
+			[6]: {
+				fontSize: 'calc(var(--font-size) + 6px)',
 			},
-			21: {
-				fontSize: '21px',
+			[7]: {
+				fontSize: 'calc(var(--font-size) + 7px)',
 			},
-			22: {
-				fontSize: '22px',
+			[8]: {
+				fontSize: 'calc(var(--font-size) + 8px)',
 			},
 		},
 		leading: {
