@@ -1,3 +1,4 @@
+import { HydrateReaderPageAtoms } from '~/_pages/ReaderPage/HydrateReaderPageAtoms'
 import { getChapterWithCache } from '~/db'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
@@ -16,5 +17,10 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 
 	const chapterContent = renderChapterContent(isStudyMode)(chapterData.content)
 
-	return <ChapterContentContainer>{chapterContent}</ChapterContentContainer>
+	return (
+		<>
+			<HydrateReaderPageAtoms />
+			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
+		</>
+	)
 }
