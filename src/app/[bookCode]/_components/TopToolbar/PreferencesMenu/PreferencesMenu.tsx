@@ -1,9 +1,13 @@
 'use client'
 
-import { Dialog, Portal } from '@ark-ui/react'
-import { styled } from 'styled-system/jsx'
+import { Portal } from '@ark-ui/react'
+import type { PrimitiveAtom } from 'jotai/index'
 
-import { Container_OverlayMenu, Positioner_OverlayMenu } from '~/components'
+import {
+	Backdrop,
+	Container_OverlayMenu,
+	Positioner_OverlayMenu,
+} from '~/components'
 
 import {
 	fontSizeAtom,
@@ -17,20 +21,6 @@ import { PreferencesList } from './PreferencesMenu.styles'
 import { SliderInput } from './SliderInput'
 import { SwitchInput } from './SwitchInput'
 
-const Backdrop = styled(Dialog.Backdrop, {
-	base: {
-		forceGpu: true,
-		'--opacity': 'calc(1 / 3)',
-		pos: 'fixed',
-		zIndex: 1,
-		inset: 0,
-		opacity: 'var(--opacity)',
-		bg: 'bg.inverted',
-		_open: { animation: 'fadeIn 0.25s ease-out' },
-		_closed: { animation: 'fadeOut 0.1s ease-in' },
-	},
-})
-
 export const PreferencesMenu = () => (
 	<Portal>
 		<Backdrop />
@@ -43,18 +33,18 @@ export const PreferencesMenu = () => (
 				<Header />
 				<PreferencesList>
 					<SliderInput
-						valueAtom={fontSizeAtom}
+						valueAtom={fontSizeAtom as PrimitiveAtom<number>}
 						label="Font size"
 						machineProps={{
 							id: 'font-size',
 							name: 'font-size',
-							min: 14,
+							min: 12,
 							max: 22,
 							step: 1,
 						}}
 					/>
 					<SliderInput
-						valueAtom={leadingAtom}
+						valueAtom={leadingAtom as PrimitiveAtom<number>}
 						label="Line gap"
 						machineProps={{
 							id: 'line-gap',
