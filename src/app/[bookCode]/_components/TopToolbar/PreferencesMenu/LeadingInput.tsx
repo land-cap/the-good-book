@@ -5,7 +5,7 @@ import * as slider from '@zag-js/slider'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 
-import { leadingAtom } from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
+import { leadingAtom } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
 import { Slider } from './SliderInput.styles'
 

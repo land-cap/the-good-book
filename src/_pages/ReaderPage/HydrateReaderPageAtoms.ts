@@ -9,7 +9,7 @@ import {
 	isVerseBreaksLineAtom,
 	leadingAtom,
 	showRedLettersAtom,
-} from '~/app/[readerMode]/_components/TopToolbar/TopToolbar.state'
+} from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
 export const HydrateReaderPageAtoms = () => {
 	useHydrateAtoms([
