@@ -12,11 +12,7 @@ import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
-	const {
-		bookCode,
-		chapter: _chapter,
-		readerMode,
-	} = useParams<TReaderPageParams>()
+	const { bookCode, chapter: _chapter } = useParams<TReaderPageParams>()
 
 	const chapter = Number(_chapter)
 
@@ -42,13 +38,13 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const prevChapterHref =
 		chapter === 1
-			? `/${readerMode}/${prevBookCode}/${prevBookChapterCount}`
-			: `/${readerMode}/${bookCode}/${chapter - 1}`
+			? `/${prevBookCode}/${prevBookChapterCount}`
+			: `/${bookCode}/${chapter - 1}`
 
 	const nextChapterHref =
 		chapter === currBookChapterCount
-			? `/${readerMode}/${nextBookCode}/1`
-			: `/${readerMode}/${bookCode}/${chapter + 1}`
+			? `/${nextBookCode}/1`
+			: `/${bookCode}/${chapter + 1}`
 
 	const isFirstChapterInBible = currBookIndex === 0 && chapter === 1
 

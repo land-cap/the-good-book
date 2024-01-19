@@ -52,9 +52,15 @@ export const viewport: Viewport = {
 	width: 'device-width',
 }
 
-const RootLayout = ({ children }: { children: ReactNode }) => (
-	<html lang="en" className={cx(fontGeist.variable, fontGeistMono.variable)}>
-		<RootProviders>
+const RootLayout = ({
+	children,
+	topToolbar,
+}: {
+	children: ReactNode
+	topToolbar: ReactNode
+}) => (
+	<RootProviders>
+		<html lang="en" className={cx(fontGeist.variable, fontGeistMono.variable)}>
 			<body
 				className={macrogrid({
 					_osDark: { color: 'fg.muted' },
@@ -67,10 +73,11 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 					sm: { fontSize: 'md' },
 				})}
 			>
+				{topToolbar}
 				{children}
 			</body>
-		</RootProviders>
-	</html>
+		</html>
+	</RootProviders>
 )
 
 export default RootLayout

@@ -15,6 +15,7 @@ export const fontWeights = defineTokens.fontWeights({
 })
 
 export const fontSizes = defineTokens.fontSizes({
+	'2xs': { value: '0.625rem' },
 	caption: {
 		value: '0.6875rem',
 	},

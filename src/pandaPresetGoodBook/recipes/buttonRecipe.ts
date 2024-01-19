@@ -7,7 +7,6 @@ export const buttonRecipe = defineRecipe({
 		...center.raw(),
 		px: '4',
 		fontWeight: 'bold',
-		color: 'fg',
 		transition: 'colors',
 		transitionDuration: 'fast',
 		transitionTimingFunction: 'ease-out',

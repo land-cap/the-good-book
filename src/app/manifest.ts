@@ -2,7 +2,6 @@ import { type MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
-		background_color: 'rgb(255,255,255)',
 		description: 'Read the Bible without distractions.',
 		display: 'standalone',
 		icons: [
@@ -22,7 +21,5 @@ export default function manifest(): MetadataRoute.Manifest {
 		name: 'The Good Book',
 		scope: '/',
 		short_name: 'The Good Book',
-		start_url: '/study/mat/1',
-		theme_color: 'rgb(255,255,255)',
 	}
 }

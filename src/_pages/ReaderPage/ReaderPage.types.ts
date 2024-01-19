@@ -1,10 +1,7 @@
-export const enum READER_MODE {
-	Study = 'study',
-	Read = 'read',
-}
+import { z } from 'zod'
 
 export type TReaderPageParams = {
 	bookCode: string
 	chapter: string
-	readerMode: READER_MODE
 }
+z

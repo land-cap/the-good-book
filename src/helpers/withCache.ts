@@ -62,12 +62,12 @@ export const withCacheAsync = <
 	cache: CachePlugin<Result> = createMemoryCache<Result>(),
 ) => {
 	const fnWithCache = async (...args: Parameters<Fn>): Promise<Result> => {
-		const cachedValue = await cache.get(args.toString())
+		const cachedValue = await cache.get(args.toString() || 'no-args')
 		if (cachedValue) {
 			return cachedValue
 		}
 		const result = await fn(...args)
-		cache.set(args.toString(), result)
+		cache.set(args.toString() || 'no-args', result)
 		return result
 	}
 	Object.defineProperty(fnWithCache, 'name', { value: fn.name })

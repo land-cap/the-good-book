@@ -1,59 +1,5 @@
 import { type ReactNode } from 'react'
-import { css, cx } from 'styled-system/css'
-import { caption } from 'styled-system/patterns'
-
-export const LargeSectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2
-		data-component="LargeSectionTitle"
-		className={caption({
-			lineHeight: 'inherit',
-		})}
-	>
-		{children}
-	</h2>
-)
-
-export const LargeSectionReference = ({
-	children,
-}: {
-	children: ReactNode
-}) => (
-	<h3
-		data-component="LargeSectionReference"
-		className={caption({
-			lineHeight: 'inherit',
-		})}
-	>
-		({children})
-	</h3>
-)
-
-export const LargeSectionCrossReference = ({
-	children,
-}: {
-	children: ReactNode
-}) => (
-	<h4
-		data-component="LargeSectionCrossReference"
-		className={caption({
-			lineHeight: 'inherit',
-		})}
-	>
-		{children}
-	</h4>
-)
-
-export const SectionTitle = ({ children }: { children: ReactNode }) => (
-	<h2
-		data-component="SectionTitle"
-		className={css({
-			color: 'fg.subtle',
-			fontSize: '1.25em',
-		})}
-	>
-		{children}
-	</h2>
-)
+import { css } from 'styled-system/css'
 
 export const FancyAside = ({ children }: { children: ReactNode }) => (
 	<p
@@ -71,52 +17,10 @@ export const Paragraph = ({ children }: { children: ReactNode }) => (
 	<p data-component="Paragraph">{children}</p>
 )
 
-export const VerseLabel = ({
-	verseNumber,
-	isStudyMode,
-}: {
-	verseNumber: ReactNode
-	isStudyMode: boolean
-}) => {
-	const LabelTag = isStudyMode ? 'span' : 'sup'
-
-	return (
-		<span
-			data-component="VerseLabel"
-			className={cx(
-				isStudyMode &&
-					css({
-						left: '-2',
-						position: 'absolute',
-						sm: { left: '-3' },
-						top: 0,
-						transform: 'translateX(-100%)',
-					}),
-			)}
-		>
-			{!isStudyMode && ' '}
-			<LabelTag
-				className={cx(
-					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
-					isStudyMode &&
-						css({
-							fontSize: '0.625rem',
-							sm: { fontSize: 'xs' },
-						}),
-				)}
-			>
-				{verseNumber}
-			</LabelTag>
-			{!isStudyMode && <>&nbsp;</>}
-		</span>
-	)
-}
-
 export const CrossReference = ({
 	referenceList,
 }: {
 	referenceList: string
-	isStudyMode: boolean
 }) => (
 	<span data-component="CrossReference" className={css({ cursor: 'pointer' })}>
 		&nbsp;
@@ -131,15 +35,6 @@ export const CrossReference = ({
 			&dagger;
 		</sup>
 		<div className={css({ display: 'none' })}>{referenceList}</div>
-	</span>
-)
-
-export const JesusWords = ({ children }: { children: ReactNode }) => (
-	<span
-		data-component="JesusWords"
-		className={css({ color: 'fg.jesus_words' })}
-	>
-		{children}
 	</span>
 )
 

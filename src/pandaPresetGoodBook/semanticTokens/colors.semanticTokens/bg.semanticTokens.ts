@@ -21,8 +21,8 @@ export const bg = defineSemanticTokens.colors({
 	},
 	inverted: {
 		value: {
-			_osDark: '{colors.neutral.200}',
-			base: '{colors.white}',
+			_osDark: '{colors.white}',
+			base: '{colors.neutral.900}',
 		},
 	},
 })

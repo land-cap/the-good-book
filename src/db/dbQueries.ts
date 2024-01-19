@@ -29,13 +29,6 @@ export const getBookListWithCache = withCacheAsync(
 
 export type TBook = Awaited<ReturnType<typeof getBookListWithCache>>[0]
 
-const getChapterList = async () => dbClient.chapter.findMany()
-
-export const getChapterListWithCache = withCacheAsync(
-	getChapterList,
-	useMemoryCache ? createMemoryCache() : createFileSystemCache(),
-)
-
 const getChapter = async (bookCode: string, chapter: number) => {
 	const book = await getBookWithCache(bookCode)
 

@@ -14,10 +14,10 @@ export const TabsRoot = styled(Tabs.Root, {
 
 export const TabsContent = styled(Tabs.Content, {
 	base: {
-		'&[data-state=open]': {
+		_open: {
 			animation: 'fadeIn 0.25s ease',
 		},
-		'&[data-state=closed]': {
+		_closed: {
 			animation: 'fadeOut 0.25s ease',
 			display: 'none',
 		},
