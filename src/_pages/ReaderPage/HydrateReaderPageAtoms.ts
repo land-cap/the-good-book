@@ -8,17 +8,16 @@ import { useEffect } from 'react'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetAtom,
+	HIDE_NON_ORIGINAL_TEXT_COOKIE,
 	hideNonOriginalTextAtom,
-	hideNonOriginalTextDefaultValue,
-	isPreferencesMenuOpenAtom,
-	isPreferencesMenuOpenDefaultValue,
+	LEADING_COOKIE,
 	leadingAtom,
-	leadingDefaultValue,
+	SHOW_RED_LETTERS_COOKIE,
 	showRedLettersAtom,
-	showRedLettersDefaultValue,
 	type TFontSizeOffset,
+	type TLeading,
+	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineAtom,
-	verseBreaksLineDefaultValue,
 } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
 const useSetupClientState = <T>(
@@ -30,7 +29,7 @@ const useSetupClientState = <T>(
 
 	useEffect(() => {
 		//eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		document.cookie = `${cookieName}=${value}`
+		document.cookie = `${cookieName}=${JSON.stringify(value)}`
 	}, [cookieName, value])
 
 	useEffect(() => {
@@ -42,22 +41,38 @@ const useSetupClientState = <T>(
 
 export const HydrateReaderPageAtoms = ({
 	savedFontSizeOffset,
+	savedLeading,
+	savedVerseBreaksLine,
+	savedHideNonOriginalText,
+	savedShowRedLetters,
 }: {
 	savedFontSizeOffset: TFontSizeOffset
+	savedLeading: TLeading
+	savedVerseBreaksLine: boolean
+	savedHideNonOriginalText: boolean
+	savedShowRedLetters: boolean
 }) => {
 	useSetupClientState(
 		fontSizeOffsetAtom,
 		savedFontSizeOffset,
 		FONT_SIZE_OFFSET_COOKIE,
 	)
-
-	useHydrateAtoms([
-		[isPreferencesMenuOpenAtom, isPreferencesMenuOpenDefaultValue],
-		[leadingAtom, leadingDefaultValue],
-		[verseBreaksLineAtom, verseBreaksLineDefaultValue],
-		[hideNonOriginalTextAtom, hideNonOriginalTextDefaultValue],
-		[showRedLettersAtom, showRedLettersDefaultValue],
-	])
+	useSetupClientState(leadingAtom, savedLeading, LEADING_COOKIE)
+	useSetupClientState(
+		verseBreaksLineAtom,
+		savedVerseBreaksLine,
+		VERSE_BREAKS_LINE_COOKIE,
+	)
+	useSetupClientState(
+		hideNonOriginalTextAtom,
+		savedHideNonOriginalText,
+		HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	)
+	useSetupClientState(
+		showRedLettersAtom,
+		savedShowRedLetters,
+		SHOW_RED_LETTERS_COOKIE,
+	)
 
 	return null
 }

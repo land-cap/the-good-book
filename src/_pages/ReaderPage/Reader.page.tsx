@@ -2,7 +2,12 @@ import { cookies } from 'next/headers'
 
 import {
 	FONT_SIZE_OFFSET_COOKIE,
+	HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	LEADING_COOKIE,
+	SHOW_RED_LETTERS_COOKIE,
 	type TFontSizeOffset,
+	type TLeading,
+	VERSE_BREAKS_LINE_COOKIE,
 } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 import { getChapterWithCache } from '~/db'
 
@@ -14,9 +19,14 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 	const { bookCode, chapter } = params
 
 	const cookieStore = cookies()
-	const fontSizeOffset = cookieStore.get(FONT_SIZE_OFFSET_COOKIE)
 
-	console.log(FONT_SIZE_OFFSET_COOKIE, fontSizeOffset)
+	const savedFontSizeOffset = cookieStore.get(FONT_SIZE_OFFSET_COOKIE)?.value
+	const savedLeading = cookieStore.get(LEADING_COOKIE)?.value
+	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
+	const savedHideNonOriginalText = cookieStore.get(
+		HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	)?.value
+	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
 
 	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
@@ -29,7 +39,11 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 	return (
 		<>
 			<HydrateReaderPageAtoms
-				savedFontSizeOffset={Number(fontSizeOffset?.value) as TFontSizeOffset}
+				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
+				savedLeading={Number(savedLeading) as TLeading}
+				savedVerseBreaksLine={savedVerseBreaksLine === 'true'}
+				savedHideNonOriginalText={savedHideNonOriginalText === 'true'}
+				savedShowRedLetters={savedShowRedLetters === 'true'}
 			/>
 			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 		</>

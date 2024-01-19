@@ -13,14 +13,18 @@ export const fontSizeOffsetAtom = atom<TFontSizeOffset>(
 	fontSizeOffsetDefaultValue,
 )
 
+export const LEADING_COOKIE = 'leading'
 export const leadingDefaultValue = 2
 export const leadingAtom = atom<TLeading>(leadingDefaultValue)
 
+export const VERSE_BREAKS_LINE_COOKIE = 'verseBreaksLine'
 export const verseBreaksLineDefaultValue = true
 export const verseBreaksLineAtom = atom(verseBreaksLineDefaultValue)
 
+export const HIDE_NON_ORIGINAL_TEXT_COOKIE = 'hideNonOriginalText'
 export const hideNonOriginalTextDefaultValue = false
 export const hideNonOriginalTextAtom = atom(hideNonOriginalTextDefaultValue)
 
+export const SHOW_RED_LETTERS_COOKIE = 'showRedLetters'
 export const showRedLettersDefaultValue = true
 export const showRedLettersAtom = atom(showRedLettersDefaultValue)
