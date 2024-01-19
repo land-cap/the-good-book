@@ -18,7 +18,7 @@ import {
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineAtom,
-} from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
+} from '~/app/@topToolbar/_components/TopToolbar/TopToolbar.state'
 
 const useSetupClientState = <T>(
 	atom: PrimitiveAtom<T>,

@@ -8,7 +8,7 @@ import {
 	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
-} from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
+} from '~/app/@topToolbar/_components/TopToolbar/TopToolbar.state'
 import { getChapterWithCache } from '~/db'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
