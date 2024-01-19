@@ -1,6 +1,20 @@
 import { Dialog } from '@ark-ui/react'
 import { styled } from 'styled-system/jsx'
 
+export const Backdrop = styled(Dialog.Backdrop, {
+	base: {
+		forceGpu: true,
+		'--opacity': 'calc(1 / 3)',
+		pos: 'fixed',
+		zIndex: 1,
+		inset: 0,
+		opacity: 'var(--opacity)',
+		bg: 'bg.inverted',
+		_open: { animation: 'fadeIn 0.25s ease-out' },
+		_closed: { animation: 'fadeOut 0.1s ease-in' },
+	},
+})
+
 export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
 	base: {
 		zIndex: 10,
@@ -11,16 +25,18 @@ export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
 		bottom: 0,
 	},
 })
+
 export const Container_OverlayMenu = styled(Dialog.Content, {
 	base: {
+		forceGpu: true,
 		w: '100dvw',
 		h: 'full',
 		bg: 'bg.canvas',
-		'&[data-state=open]': {
-			animation: 'fadeInBottom 0.15s ease-out',
+		_open: {
+			animation: 'fadeInBottom 0.25s ease-out',
 		},
-		'&[data-state=closed]': {
-			animation: 'fadeOutBottom 0.1s ease-in',
+		_closed: {
+			animation: 'fadeOutBottom 0.2s ease-in',
 		},
 	},
 })

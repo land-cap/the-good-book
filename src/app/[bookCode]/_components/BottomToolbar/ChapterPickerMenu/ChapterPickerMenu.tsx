@@ -42,8 +42,6 @@ export const ChapterPickerMenu = ({
 	currBook: TBook
 	bookList: TBook[]
 }) => {
-	const { readerMode } = useParams<TReaderPageParams>()
-
 	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -93,6 +91,7 @@ export const ChapterPickerMenu = ({
 
 	return (
 		<Dialog.Root
+			preventScroll={false}
 			open={isDialogOpen}
 			onOpenChange={({ open }) => {
 				setIsDialogOpen(open)
@@ -164,7 +163,7 @@ export const ChapterPickerMenu = ({
 										const isCurrChapter =
 											selectedBook.id === currBook.id && chapter === currChapter
 
-										const chapterUrl = `/${readerMode}/${selectedBook.code}/${chapter}`
+										const chapterUrl = `/${selectedBook.code}/${chapter}`
 
 										return (
 											<ChapterListItem

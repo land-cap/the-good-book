@@ -21,10 +21,10 @@ export const pandaPresetGoodBook = definePreset({
 			keyframes: {
 				fadeIn: {
 					'0%': { opacity: '0' },
-					'100%': { opacity: '1' },
+					'100%': { opacity: 'var(--opacity,1)' },
 				},
 				fadeOut: {
-					'0%': { opacity: '1' },
+					'0%': { opacity: 'var(--opacity,1)' },
 					'100%': { opacity: '0' },
 				},
 				fadeInBottom: {

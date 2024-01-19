@@ -1,12 +1,10 @@
 import { getChapterWithCache } from '~/db'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
-import { READER_MODE, type TReaderPageParams } from './ReaderPage.types'
+import { type TReaderPageParams } from './ReaderPage.types'
 
 export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
-	const { bookCode, chapter, readerMode } = params
-
-	const isStudyMode = readerMode === READER_MODE.Study
+	const { bookCode, chapter } = params
 
 	const chapterData = await getChapterWithCache(bookCode, Number(chapter))
 
@@ -14,7 +12,7 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContent = renderChapterContent(isStudyMode)(chapterData.content)
+	const chapterContent = renderChapterContent(chapterData.content)
 
 	return <ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 }
