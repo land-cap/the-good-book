@@ -39,7 +39,7 @@ const useSetupClientState = <T>(
 	useHydrateAtoms([[atom, savedValue]])
 }
 
-export const HydrateReaderPageAtoms = ({
+export const SetUpPreferencesMenuState = ({
 	savedFontSizeOffset,
 	savedLeading,
 	savedVerseBreaksLine,

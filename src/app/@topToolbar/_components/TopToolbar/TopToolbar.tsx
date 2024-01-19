@@ -1,21 +1,22 @@
-'use client'
-
-import { Dialog, DialogTrigger } from '@ark-ui/react'
-import { useAtom } from 'jotai'
+import { cookies } from 'next/headers'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { flex, macrogrid } from 'styled-system/patterns'
-import { button } from 'styled-system/recipes'
 
 import { wChildren } from '~/component-helpers'
-import {
-	Icon,
-	Separator,
-	useDisableBodyScrollWhileDialogIsOpen,
-} from '~/components'
+import { Separator } from '~/components'
 
-import { PreferencesMenu } from './PreferencesMenu'
-import { isPreferencesMenuOpenAtom } from './TopToolbar.state'
+import { PreferencesMenuRoot } from './PreferencesMenu'
+import { SetUpPreferencesMenuState } from './SetUpPreferencesMenuState'
+import {
+	FONT_SIZE_OFFSET_COOKIE,
+	HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	LEADING_COOKIE,
+	SHOW_RED_LETTERS_COOKIE,
+	type TFontSizeOffset,
+	type TLeading,
+	VERSE_BREAKS_LINE_COOKIE,
+} from './TopToolbar.state'
 
 const Container = wChildren(({ children }) => (
 	<header
@@ -51,28 +52,29 @@ const Logo = styled('span', {
 })
 
 export const TopToolbar = () => {
-	const [isPreferencesMenuOpen, setIsPreferencesMenuOpen] = useAtom(
-		isPreferencesMenuOpenAtom,
-	)
+	const cookieStore = cookies()
 
-	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen: isPreferencesMenuOpen })
+	const savedFontSizeOffset = cookieStore.get(FONT_SIZE_OFFSET_COOKIE)?.value
+	const savedLeading = cookieStore.get(LEADING_COOKIE)?.value
+	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
+	const savedHideNonOriginalText = cookieStore.get(
+		HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	)?.value
+	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
 
 	return (
-		<Container>
-			<Logo>The Good Book</Logo>
-			<Dialog.Root
-				preventScroll={false}
-				open={isPreferencesMenuOpen}
-				onOpenChange={({ open }) => setIsPreferencesMenuOpen(open)}
-			>
-				<DialogTrigger
-					className={button({ icon: true })}
-					onClick={() => setIsPreferencesMenuOpen(true)}
-				>
-					<Icon size={6} name="custom_typography" />
-				</DialogTrigger>
-				<PreferencesMenu />
-			</Dialog.Root>
-		</Container>
+		<>
+			<SetUpPreferencesMenuState
+				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
+				savedLeading={Number(savedLeading) as TLeading}
+				savedVerseBreaksLine={savedVerseBreaksLine === 'true'}
+				savedHideNonOriginalText={savedHideNonOriginalText === 'true'}
+				savedShowRedLetters={savedShowRedLetters === 'true'}
+			/>
+			<Container>
+				<Logo>The Good Book</Logo>
+				<PreferencesMenuRoot />
+			</Container>
+		</>
 	)
 }
