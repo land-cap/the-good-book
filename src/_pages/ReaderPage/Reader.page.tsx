@@ -1,6 +1,9 @@
 import { cookies } from 'next/headers'
 
-import { FONT_SIZE_OFFSET_COOKIE } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
+import {
+	FONT_SIZE_OFFSET_COOKIE,
+	type TFontSizeOffset,
+} from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 import { getChapterWithCache } from '~/db'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
@@ -25,7 +28,9 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 
 	return (
 		<>
-			<HydrateReaderPageAtoms />
+			<HydrateReaderPageAtoms
+				savedFontSizeOffset={Number(fontSizeOffset?.value) as TFontSizeOffset}
+			/>
 			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
 		</>
 	)

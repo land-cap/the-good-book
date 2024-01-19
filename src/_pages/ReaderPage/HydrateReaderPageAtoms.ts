@@ -1,10 +1,11 @@
 'use client'
 
+import { useSetAtom } from 'jotai'
 import { useHydrateAtoms } from 'jotai/utils'
+import { useEffect } from 'react'
 
 import {
 	fontSizeOffsetAtom,
-	fontSizeOffsetDefaultValue,
 	hideNonOriginalTextAtom,
 	hideNonOriginalTextDefaultValue,
 	isPreferencesMenuOpenAtom,
@@ -13,14 +14,25 @@ import {
 	leadingDefaultValue,
 	showRedLettersAtom,
 	showRedLettersDefaultValue,
+	type TFontSizeOffset,
 	verseBreaksLineAtom,
 	verseBreaksLineDefaultValue,
 } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
-export const HydrateReaderPageAtoms = () => {
+export const HydrateReaderPageAtoms = ({
+	savedFontSizeOffset,
+}: {
+	savedFontSizeOffset: TFontSizeOffset
+}) => {
+	const setFontSizeOffset = useSetAtom(fontSizeOffsetAtom)
+
+	useEffect(() => {
+		setFontSizeOffset(savedFontSizeOffset)
+	}, [savedFontSizeOffset, setFontSizeOffset])
+
 	useHydrateAtoms([
 		[isPreferencesMenuOpenAtom, isPreferencesMenuOpenDefaultValue],
-		[fontSizeOffsetAtom, fontSizeOffsetDefaultValue],
+		[fontSizeOffsetAtom, savedFontSizeOffset],
 		[leadingAtom, leadingDefaultValue],
 		[verseBreaksLineAtom, verseBreaksLineDefaultValue],
 		[hideNonOriginalTextAtom, hideNonOriginalTextDefaultValue],
