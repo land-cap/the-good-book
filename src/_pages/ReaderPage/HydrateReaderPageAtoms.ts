@@ -3,7 +3,7 @@
 import { useHydrateAtoms } from 'jotai/utils'
 
 import {
-	fontSizeAtom,
+	fontSizeOffsetAtom,
 	fontSizeOffsetDefaultValue,
 	hideNonOriginalTextAtom,
 	hideNonOriginalTextDefaultValue,
@@ -20,7 +20,7 @@ import {
 export const HydrateReaderPageAtoms = () => {
 	useHydrateAtoms([
 		[isPreferencesMenuOpenAtom, isPreferencesMenuOpenDefaultValue],
-		[fontSizeAtom, fontSizeOffsetDefaultValue],
+		[fontSizeOffsetAtom, fontSizeOffsetDefaultValue],
 		[leadingAtom, leadingDefaultValue],
 		[verseBreaksLineAtom, verseBreaksLineDefaultValue],
 		[hideNonOriginalTextAtom, hideNonOriginalTextDefaultValue],

@@ -7,8 +7,11 @@ export type TLeading = 1 | 1.25 | 1.5 | 1.75 | 2 | 2.25 | 2.5 | 2.75 | 3
 export const isPreferencesMenuOpenDefaultValue = false
 export const isPreferencesMenuOpenAtom = atom(isPreferencesMenuOpenDefaultValue)
 
+export const FONT_SIZE_OFFSET_COOKIE = 'fontSizeOffset'
 export const fontSizeOffsetDefaultValue = 0
-export const fontSizeAtom = atom<TFontSizeOffset>(fontSizeOffsetDefaultValue)
+export const fontSizeOffsetAtom = atom<TFontSizeOffset>(
+	fontSizeOffsetDefaultValue,
+)
 
 export const leadingDefaultValue = 2
 export const leadingAtom = atom<TLeading>(leadingDefaultValue)

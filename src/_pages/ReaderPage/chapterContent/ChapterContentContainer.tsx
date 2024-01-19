@@ -5,7 +5,7 @@ import { type ReactNode } from 'react'
 import { cva } from 'styled-system/css'
 
 import {
-	fontSizeAtom,
+	fontSizeOffsetAtom,
 	leadingAtom,
 } from '~/app/[bookCode]/_components/TopToolbar/TopToolbar.state'
 
@@ -119,7 +119,7 @@ export const ChapterContentContainer = ({
 }: {
 	children: ReactNode
 }) => {
-	const fontSize = useAtomValue(fontSizeAtom)
+	const fontSize = useAtomValue(fontSizeOffsetAtom)
 	const leading = useAtomValue(leadingAtom)
 
 	return (
