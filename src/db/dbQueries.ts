@@ -1,4 +1,4 @@
-import { dbClient } from '~/db/dbClient'
+import { getDbClient } from '~/db/dbClient'
 import {
 	createFileSystemCache,
 	createMemoryCache,
@@ -8,7 +8,7 @@ import {
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
 export const getBook = async (bookCode: string) =>
-	dbClient.book.findFirst({
+	getDbClient().book.findFirst({
 		where: { code: bookCode },
 	})
 
@@ -18,7 +18,7 @@ export const getBookWithCache = withCacheAsync(
 )
 
 export const getBookList = async () =>
-	dbClient.book.findMany({
+	getDbClient().book.findMany({
 		include: { book_name: true },
 	})
 
@@ -34,7 +34,7 @@ const getChapter = async (bookCode: string, chapter: number) => {
 
 	if (!book) throw new Error('Book not found')
 
-	return dbClient.chapter.findFirst({
+	return getDbClient().chapter.findFirst({
 		where: {
 			book_id: book.book_id,
 			chapter,
