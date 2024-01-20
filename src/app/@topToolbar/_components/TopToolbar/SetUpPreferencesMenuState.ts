@@ -34,6 +34,7 @@ const useSetupClientState = <T>(
 
 	useEffect(() => {
 		setValue(savedValue)
+		console.log('savedValue', savedValue)
 	}, [savedValue, setValue])
 
 	useHydrateAtoms([[atom, savedValue]])

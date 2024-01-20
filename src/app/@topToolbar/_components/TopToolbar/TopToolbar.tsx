@@ -75,6 +75,8 @@ export const TopToolbar = () => {
 	)?.value
 	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
 
+	console.debug(cookieStore.toString())
+
 	return (
 		<>
 			<SetUpPreferencesMenuState
