@@ -1,10 +1,11 @@
 import { defineRecipe } from '@pandacss/dev'
-import { center } from 'styled-system/patterns'
 
 export const buttonRecipe = defineRecipe({
 	className: 'button',
 	base: {
-		...center.raw(),
+		display: 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 		px: '4',
 		fontWeight: 'bold',
 		transition: 'colors',
