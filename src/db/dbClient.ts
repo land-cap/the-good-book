@@ -1,3 +1,11 @@
 import { PrismaClient } from '@prisma/client'
 
-export const dbClient = new PrismaClient()
+let dbClient: PrismaClient
+
+export const getDbClient = (): PrismaClient => {
+	if (!dbClient) {
+		dbClient = new PrismaClient()
+	}
+
+	return dbClient
+}
