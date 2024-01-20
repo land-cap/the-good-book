@@ -3,13 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgres"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model book {
-  id            Int        @unique
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  book_id       Int        @unique
   order         Int        @unique
   code          String     @unique
   chapter_count Int
@@ -18,16 +18,18 @@ model book {
 }
 
 model book_name {
-  id      Int    @id @unique
-  name    String @unique
-  book_id Int    @unique
-  book    book   @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  book_name_id Int    @unique
+  name         String @unique
+  book_id      Int    @unique
+  book         book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model chapter {
-  id      String @id
-  chapter Int
-  content String
-  book_id Int
-  book    book   @relation(fields: [book_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  chapter_id String @unique
+  chapter    Int
+  content    String
+  book_id    Int
+  book       book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
 }

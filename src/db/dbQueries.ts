@@ -8,7 +8,7 @@ import {
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
 export const getBook = async (bookCode: string) =>
-	dbClient.book.findUnique({
+	dbClient.book.findFirst({
 		where: { code: bookCode },
 	})
 
@@ -36,7 +36,7 @@ const getChapter = async (bookCode: string, chapter: number) => {
 
 	return dbClient.chapter.findFirst({
 		where: {
-			book_id: book.id,
+			book_id: book.book_id,
 			chapter,
 		},
 	})
