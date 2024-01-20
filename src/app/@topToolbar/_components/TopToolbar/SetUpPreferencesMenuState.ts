@@ -1,79 +1,39 @@
 'use client'
 
-import { useAtom } from 'jotai'
-import { type PrimitiveAtom } from 'jotai/index'
 import { useHydrateAtoms } from 'jotai/utils'
-import { useEffect } from 'react'
 
 import {
-	FONT_SIZE_OFFSET_COOKIE,
+	FONT_SIZE_OFFSET_KEY,
 	fontSizeOffsetAtom,
-	HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	HIDE_NON_ORIGINAL_TEXT_KEY,
 	hideNonOriginalTextAtom,
-	LEADING_COOKIE,
+	LEADING_KEY,
 	leadingAtom,
-	SHOW_RED_LETTERS_COOKIE,
+	SHOW_RED_LETTERS_KEY,
 	showRedLettersAtom,
 	type TFontSizeOffset,
 	type TLeading,
-	VERSE_BREAKS_LINE_COOKIE,
+	VERSE_BREAKS_LINE_KEY,
 	verseBreaksLineAtom,
-} from '~/app/@topToolbar/_components/TopToolbar/TopToolbar.state'
+} from './TopToolbar.state'
 
-const useSetupClientState = <T>(
-	atom: PrimitiveAtom<T>,
-	savedValue: T,
-	cookieName: string,
-) => {
-	const [value, setValue] = useAtom(atom)
-
-	useEffect(() => {
-		//eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		document.cookie = `${cookieName}=${JSON.stringify(value)}`
-	}, [cookieName, value])
-
-	useEffect(() => {
-		setValue(savedValue)
-		console.log('savedValue', savedValue)
-	}, [savedValue, setValue])
-
-	useHydrateAtoms([[atom, savedValue]])
-}
-
-export const SetUpPreferencesMenuState = ({
-	savedFontSizeOffset,
-	savedLeading,
-	savedVerseBreaksLine,
-	savedHideNonOriginalText,
-	savedShowRedLetters,
-}: {
-	savedFontSizeOffset: TFontSizeOffset
-	savedLeading: TLeading
-	savedVerseBreaksLine: boolean
-	savedHideNonOriginalText: boolean
-	savedShowRedLetters: boolean
-}) => {
-	useSetupClientState(
-		fontSizeOffsetAtom,
-		savedFontSizeOffset,
-		FONT_SIZE_OFFSET_COOKIE,
-	)
-	useSetupClientState(leadingAtom, savedLeading, LEADING_COOKIE)
-	useSetupClientState(
-		verseBreaksLineAtom,
-		savedVerseBreaksLine,
-		VERSE_BREAKS_LINE_COOKIE,
-	)
-	useSetupClientState(
-		hideNonOriginalTextAtom,
-		savedHideNonOriginalText,
-		HIDE_NON_ORIGINAL_TEXT_COOKIE,
-	)
-	useSetupClientState(
-		showRedLettersAtom,
-		savedShowRedLetters,
-		SHOW_RED_LETTERS_COOKIE,
-	)
+export const SetUpPreferencesMenuState = () => {
+	useHydrateAtoms([
+		[
+			fontSizeOffsetAtom,
+			Number(localStorage.getItem(FONT_SIZE_OFFSET_KEY)!) as TFontSizeOffset,
+		],
+		[leadingAtom, Number(localStorage.getItem(LEADING_KEY)!) as TLeading],
+		[
+			verseBreaksLineAtom,
+			localStorage.getItem(VERSE_BREAKS_LINE_KEY) === 'true',
+		],
+		[
+			hideNonOriginalTextAtom,
+			localStorage.getItem(HIDE_NON_ORIGINAL_TEXT_KEY) === 'true',
+		],
+		[showRedLettersAtom, localStorage.getItem(SHOW_RED_LETTERS_KEY) === 'true'],
+	])
 
 	return null
 }
