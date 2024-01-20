@@ -3,7 +3,7 @@
 import { useAtom } from 'jotai'
 import { type PrimitiveAtom } from 'jotai/index'
 import { useHydrateAtoms } from 'jotai/utils'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import {
 	FONT_SIZE_OFFSET_COOKIE,
@@ -27,24 +27,16 @@ const useSetupClientState = <T>(
 ) => {
 	const [value, setValue] = useAtom(atom)
 
-	const [hasHydrated, setHasHydrated] = useState(false)
-
-	useEffect(() => setHasHydrated(true), [])
+	useEffect(() => {
+		//eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+		document.cookie = `${cookieName}=${JSON.stringify(value)}`
+	}, [cookieName, value])
 
 	useEffect(() => {
-		if (hasHydrated) {
-			localStorage.setItem(cookieName, JSON.stringify(value))
-		}
-	}, [cookieName, hasHydrated, value])
+		setValue(savedValue)
+	}, [savedValue, setValue])
 
-	useEffect(
-		//@ts-ignore
-		() => setValue(localStorage.getItem(cookieName)),
-		[cookieName, setValue],
-	)
-
-	//@ts-ignore
-	useHydrateAtoms([[atom, localStorage.getItem(cookieName)]])
+	useHydrateAtoms([[atom, savedValue]])
 }
 
 export const SetUpPreferencesMenuState = ({
