@@ -3,7 +3,7 @@ import { type MetadataRoute } from 'next'
 export default function manifest(): MetadataRoute.Manifest {
 	return {
 		description: 'Read the Bible without distractions.',
-		display: 'fullscreen',
+		display: 'standalone',
 		icons: [
 			{
 				purpose: 'maskable',

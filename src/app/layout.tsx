@@ -62,7 +62,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 					color: 'fg',
 					fontSize: 'sm',
 					gridTemplateRows: 'min-content 1fr min-content',
-					minH: 'full',
+					minH: '100dvh',
 					overscrollBehavior: 'contain',
 					sm: { fontSize: 'md' },
 				})}
