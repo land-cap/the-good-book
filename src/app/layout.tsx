@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
+import { token } from 'styled-system/tokens'
 
 import { RootProviders } from '~/app/_components/RootProviders'
 
@@ -50,6 +51,16 @@ export const viewport: Viewport = {
 	userScalable: false,
 	viewportFit: 'cover',
 	width: 'device-width',
+	themeColor: [
+		{
+			media: '(prefers-color-scheme: light)',
+			color: token('colors.white'),
+		},
+		{
+			media: '(prefers-color-scheme: dark)',
+			color: token('colors.neutral.900'),
+		},
+	],
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
