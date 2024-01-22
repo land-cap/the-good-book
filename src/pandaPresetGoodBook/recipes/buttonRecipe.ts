@@ -1,11 +1,9 @@
 import { defineRecipe } from '@pandacss/dev'
+import { center } from 'styled-system/patterns'
 
 export const buttonRecipe = defineRecipe({
 	className: 'button',
-	base: {
-		display: 'inline-flex',
-		alignItems: 'center',
-		justifyContent: 'center',
+	base: center.raw({
 		px: '4',
 		fontWeight: 'bold',
 		transition: 'colors',
@@ -13,11 +11,11 @@ export const buttonRecipe = defineRecipe({
 		transitionTimingFunction: 'ease-out',
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
-		'&[aria-disabled=true]': {
+		_disabled: {
 			color: 'fg.moreFaded',
 			pointerEvents: 'none',
 		},
-	},
+	}),
 	variants: {
 		icon: {
 			true: {
