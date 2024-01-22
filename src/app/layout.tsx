@@ -66,9 +66,11 @@ export const viewport: Viewport = {
 const RootLayout = ({
 	children,
 	topToolbar,
+	bottomToolbar,
 }: {
 	children: ReactNode
 	topToolbar: ReactNode
+	bottomToolbar: ReactNode
 }) => (
 	<RootProviders>
 		<html lang="en" className={cx(fontGeist.variable, fontGeistMono.variable)}>
@@ -86,6 +88,7 @@ const RootLayout = ({
 			>
 				{topToolbar}
 				{children}
+				{bottomToolbar}
 			</body>
 		</html>
 	</RootProviders>

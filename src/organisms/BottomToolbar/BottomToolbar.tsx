@@ -1,20 +1,23 @@
-'use client'
-
-import { useParams } from 'next/navigation'
 import { css, cx } from 'styled-system/css'
 import { flex, macrogrid, subgrid } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Separator } from '~/components'
-import { type TBook } from '~/db'
+import { getBookListWithCache } from '~/db'
 
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
 
-export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
-	const { bookCode, chapter: _chapter } = useParams<TReaderPageParams>()
+export const BottomToolbar = async ({
+	params,
+}: {
+	params: TReaderPageParams
+}) => {
+	const { bookCode, chapter: _chapter } = params
 
 	const chapter = Number(_chapter)
+
+	const bookList = await getBookListWithCache()
 
 	const currBook = bookList.find((book) => book.code === bookCode)
 

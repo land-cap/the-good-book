@@ -1,1 +1,1 @@
-export { TopToolbar as default } from '~/organisms/TopToolbar/TopToolbar'
+export { TopToolbar as default } from '~/organisms/TopToolbar'

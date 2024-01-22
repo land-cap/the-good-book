@@ -1,20 +1,12 @@
 import { type ReactNode } from 'react'
 
-import { getBookListWithCache } from '~/db'
-
-import { BottomToolbar } from './_components/BottomToolbar'
 import { Footer } from './_components/Footer'
 
-const Layout = async ({ children }: { children: ReactNode }) => {
-	const bookList = await getBookListWithCache()
-
-	return (
-		<>
-			{children}
-			<Footer />
-			<BottomToolbar bookList={bookList} />
-		</>
-	)
-}
+const Layout = ({ children }: { children: ReactNode }) => (
+	<>
+		{children}
+		<Footer />
+	</>
+)
 
 export default Layout

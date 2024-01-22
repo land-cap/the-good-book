@@ -6,7 +6,7 @@ import { flex, macrogrid } from 'styled-system/patterns'
 import { wChildren } from '~/component-helpers'
 import { Separator } from '~/components'
 
-import { PreferencesMenuRoot } from './PreferencesMenu/PreferencesMenuRoot'
+import { PreferencesMenuRoot } from './PreferencesMenu'
 import { SetUpPreferencesMenuState } from './SetUpPreferencesMenuState'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
