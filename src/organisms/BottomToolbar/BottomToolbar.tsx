@@ -1,10 +1,11 @@
-import { css, cx } from 'styled-system/css'
-import { flex, macrogrid, subgrid } from 'styled-system/patterns'
+import { css } from 'styled-system/css'
+import { flex, subgrid } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Separator } from '~/components'
 import { getBookListWithCache } from '~/db'
 
+import { BottomToolbarContainer } from './BottomToolbarContainer'
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
 
@@ -55,16 +56,7 @@ export const BottomToolbar = async ({
 		currBookIndex === bookList.length - 1 && chapter === currBookChapterCount
 
 	return (
-		<div
-			className={cx(
-				macrogrid({
-					bg: 'bg.canvas',
-					bottom: '0',
-					column: 'fullbleed',
-					position: 'sticky',
-				}),
-			)}
-		>
+		<BottomToolbarContainer>
 			<Separator className={css({ column: 'content' })} />
 			<div
 				className={subgrid({
@@ -95,6 +87,6 @@ export const BottomToolbar = async ({
 					/>
 				</div>
 			</div>
-		</div>
+		</BottomToolbarContainer>
 	)
 }
