@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react'
 
-import { TopToolbar } from '~/app/[bookCode]/_components/TopToolbar'
 import { getBookListWithCache } from '~/db'
 
 import { BottomToolbar } from './_components/BottomToolbar'
@@ -11,7 +10,6 @@ const Layout = async ({ children }: { children: ReactNode }) => {
 
 	return (
 		<>
-			<TopToolbar />
 			{children}
 			<Footer />
 			<BottomToolbar bookList={bookList} />
