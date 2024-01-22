@@ -4,11 +4,10 @@ import { Portal } from '@ark-ui/react'
 import type { PrimitiveAtom } from 'jotai/index'
 
 import {
-	Backdrop,
+	Backdrop_OverlayMenu,
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
-} from '~/components'
-
+} from '../../../OverlayMenu'
 import {
 	fontSizeOffsetAtom,
 	hideNonOriginalTextAtom,
@@ -23,7 +22,7 @@ import { SwitchInput } from './SwitchInput'
 
 export const PreferencesMenu = () => (
 	<Portal>
-		<Backdrop />
+		<Backdrop_OverlayMenu />
 		<Positioner_OverlayMenu css={{ h: 'calc(100dvh / 3 * 2)' }}>
 			<Container_OverlayMenu
 				css={{

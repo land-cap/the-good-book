@@ -1,7 +1,7 @@
 import { Dialog } from '@ark-ui/react'
 import { styled } from 'styled-system/jsx'
 
-export const Backdrop = styled(Dialog.Backdrop, {
+export const Backdrop_OverlayMenu = styled(Dialog.Backdrop, {
 	base: {
 		forceGpu: true,
 		'--opacity': 'calc(1 / 3)',

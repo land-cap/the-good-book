@@ -4,8 +4,8 @@ import { Dialog, DialogTrigger } from '@ark-ui/react'
 import { useAtom } from 'jotai'
 import { button } from 'styled-system/recipes'
 
-import { Icon, useDisableBodyScrollWhileDialogIsOpen } from '~/components'
-
+import { Icon } from '../../../Icon'
+import { useDisableBodyScrollWhileDialogIsOpen } from '../../../OverlayMenu'
 import { isPreferencesMenuOpenAtom } from '../TopToolbar.state'
 import { PreferencesMenu } from './PreferencesMenu'
 
