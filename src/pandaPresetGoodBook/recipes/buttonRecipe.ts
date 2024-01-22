@@ -11,7 +11,7 @@ export const buttonRecipe = defineRecipe({
 		transitionTimingFunction: 'ease-out',
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
-		_disabled: {
+		'&[aria-disabled=true]': {
 			color: 'fg.moreFaded',
 			pointerEvents: 'none',
 		},
