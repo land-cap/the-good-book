@@ -17,13 +17,13 @@ export const TopToolbarContainer = ({ children }: { children: ReactNode }) => {
 				forceGpu: true,
 				zIndex: '1',
 				position: 'sticky',
-				top: isPageScrolled ? '0' : 'calc((token(spacing.14) + 1px) * -1)',
+				top: '0',
 				opacity: isPageScrolled ? '1' : '0',
 				bg: 'bg.canvas',
 				willChange: 'top, opacity',
 				transition: 'all',
-				transitionDuration: 'slow',
-				transitionTimingFunction: 'ease-in-out',
+				transitionDuration: 'normal',
+				transitionTimingFunction: 'ease-in',
 			})}
 		>
 			<nav

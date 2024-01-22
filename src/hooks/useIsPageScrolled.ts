@@ -10,18 +10,20 @@ export const useIsPageScrolled = () => {
 
 	const handleScroll = useCallback(() => {
 		const currentScroll = window.scrollY
-		if (currentScroll <= 0) {
-			setScroll('up')
-			return
-		}
+		const pageHeight = document.querySelector('body')?.clientHeight ?? 0
 
-		if (currentScroll > lastScroll && scroll !== 'down') {
+		console.debug({
+			lastScroll,
+			currentScroll,
+			pageHeight,
+		})
+		if (currentScroll > 0 && currentScroll > lastScroll) {
 			setScroll('down')
-		} else if (currentScroll < lastScroll && scroll === 'down') {
+		} else {
 			setScroll('up')
 		}
 		setLastScroll(currentScroll)
-	}, [lastScroll, scroll])
+	}, [lastScroll])
 
 	useEffect(
 		() => window.addEventListener('scroll', handleScroll),
