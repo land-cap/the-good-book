@@ -3,8 +3,7 @@ import { css } from 'styled-system/css'
 import { hstack, macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
-import { Icon } from '../../../Icon'
-import { Separator } from '../../../Separator'
+import { Icon, Separator } from '~/components'
 
 export const Header = () => (
 	<div className={macrogrid()}>

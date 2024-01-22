@@ -4,8 +4,8 @@ import { styled } from 'styled-system/jsx'
 import { flex, macrogrid } from 'styled-system/patterns'
 
 import { wChildren } from '~/component-helpers'
+import { Separator } from '~/components'
 
-import { Separator } from '../../Separator'
 import { PreferencesMenuRoot } from './PreferencesMenu'
 import { SetUpPreferencesMenuState } from './SetUpPreferencesMenuState'
 import {
