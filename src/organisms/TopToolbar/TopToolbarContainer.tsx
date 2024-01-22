@@ -23,7 +23,7 @@ export const TopToolbarContainer = ({ children }: { children: ReactNode }) => {
 				willChange: 'top, opacity',
 				transition: 'all',
 				transitionDuration: 'normal',
-				transitionTimingFunction: 'ease-in',
+				transitionTimingFunction: 'ease-in-out',
 			})}
 		>
 			<nav

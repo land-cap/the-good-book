@@ -26,7 +26,7 @@ export const BottomToolbarContainer = ({
 					willChange: 'bottom, opacity',
 					transition: 'all',
 					transitionDuration: 'normal',
-					transitionTimingFunction: 'ease-in',
+					transitionTimingFunction: 'ease-in-out',
 					sm: {
 						bottom: '0',
 						opacity: '1',

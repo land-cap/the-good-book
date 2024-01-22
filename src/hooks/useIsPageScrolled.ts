@@ -10,13 +10,7 @@ export const useIsPageScrolled = () => {
 
 	const handleScroll = useCallback(() => {
 		const currentScroll = window.scrollY
-		const pageHeight = document.querySelector('body')?.clientHeight ?? 0
 
-		console.debug({
-			lastScroll,
-			currentScroll,
-			pageHeight,
-		})
 		if (currentScroll > 0 && currentScroll > lastScroll) {
 			setScroll('down')
 		} else {
