@@ -14,17 +14,10 @@ export const TabsRoot = styled(Tabs.Root, {
 
 export const TabsContent = styled(Tabs.Content, {
 	base: {
-		_open: {
-			animation: 'fadeIn 0.25s ease',
-		},
-		_closed: {
-			animation: 'fadeOut 0.25s ease',
-			display: 'none',
-		},
-		forceGpu: true,
 		h: 'full',
 		overflowY: 'scroll',
 		overscrollBehavior: 'contain',
+		_closed: { display: 'none' },
 	},
 })
 

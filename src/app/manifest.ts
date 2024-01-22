@@ -13,7 +13,10 @@ const manifest = (): MetadataRoute.Manifest => ({
 		{
 			purpose: 'any',
 			sizes: '512x512',
-			src: '/icons/app-icon-512.png',
+			src:
+				process.env.ENVIRONMENT === 'staging'
+					? '/icons/app-icon-staging-512.png'
+					: '/icons/app-icon-512.png',
 			type: 'image/png',
 		},
 	],
