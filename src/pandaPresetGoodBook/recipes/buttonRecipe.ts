@@ -1,9 +1,11 @@
 import { defineRecipe } from '@pandacss/dev'
-import { center } from 'styled-system/patterns'
 
 export const buttonRecipe = defineRecipe({
 	className: 'button',
-	base: center.raw({
+	base: {
+		display: 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 		px: '4',
 		fontWeight: 'bold',
 		transition: 'colors',
@@ -15,7 +17,7 @@ export const buttonRecipe = defineRecipe({
 			color: 'fg.moreFaded',
 			pointerEvents: 'none',
 		},
-	}),
+	},
 	variants: {
 		icon: {
 			true: {
