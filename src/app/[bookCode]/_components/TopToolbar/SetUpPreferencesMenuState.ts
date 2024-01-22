@@ -1,9 +1,12 @@
 'use client'
 
+import { usePrevious } from '@mantine/hooks'
 import { useAtom } from 'jotai'
 import { type PrimitiveAtom } from 'jotai/index'
 import { useHydrateAtoms } from 'jotai/utils'
 import { useEffect } from 'react'
+
+import { setCookie } from '~/app/action'
 
 import {
 	FONT_SIZE_OFFSET_COOKIE,
@@ -28,13 +31,16 @@ const useSetupClientState = <T>(
 	const [value, setValue] = useAtom(atom)
 
 	useEffect(() => {
-		//eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		document.cookie = `${cookieName}=${JSON.stringify(value)}`
-	}, [cookieName, value])
-
-	useEffect(() => {
 		setValue(savedValue)
 	}, [savedValue, setValue])
+
+	const prevValue = usePrevious(value)
+
+	useEffect(() => {
+		if (prevValue !== value) {
+			void setCookie(cookieName, JSON.stringify(value))
+		}
+	}, [cookieName, prevValue, value])
 
 	useHydrateAtoms([[atom, savedValue]])
 }
