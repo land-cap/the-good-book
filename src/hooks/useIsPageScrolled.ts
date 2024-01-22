@@ -2,9 +2,9 @@ import { useThrottle } from '@uidotdev/usehooks'
 import { useCallback, useEffect, useState } from 'react'
 
 export const useIsPageScrolled = () => {
-	const [scroll, setScroll] = useState<'up' | 'down' | null>(null)
+	const [scroll, setScroll] = useState<'up' | 'down'>('up')
 
-	const throttledScroll = useThrottle(scroll, 500)
+	const throttledScroll = useThrottle(scroll, 250)
 
 	const [lastScroll, setLastScroll] = useState(0)
 

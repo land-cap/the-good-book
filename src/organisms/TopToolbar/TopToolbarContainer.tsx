@@ -20,8 +20,9 @@ export const TopToolbarContainer = ({ children }: { children: ReactNode }) => {
 				top: isPageScrolled ? '0' : 'calc((token(spacing.14) + 1px) * -1)',
 				opacity: isPageScrolled ? '1' : '0',
 				bg: 'bg.canvas',
+				willChange: 'top, opacity',
 				transition: 'all',
-				transitionDuration: 'normal',
+				transitionDuration: 'slow',
 				transitionTimingFunction: 'ease-in-out',
 			})}
 		>
