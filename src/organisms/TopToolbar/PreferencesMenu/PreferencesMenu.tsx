@@ -28,9 +28,14 @@ export const PreferencesMenu = () => (
 			<Container_OverlayMenu
 				css={{
 					h: 'full',
-					shadow:
-						// upside down fluent 2 shadow
-						'0px 0px 8px 0px rgba(0, 0, 0, 0.20), 0px -32px 64px 0px rgba(0, 0, 0, 0.24)',
+					_osLight: {
+						shadow:
+							// upside down fluent 2 shadow
+							'0px 0px 8px 0px rgba(0, 0, 0, 0.20), 0px -32px 64px 0px rgba(0, 0, 0, 0.24)',
+					},
+					_osDark: {
+						bg: 'bg.subtle',
+					},
 				}}
 			>
 				<Header />
