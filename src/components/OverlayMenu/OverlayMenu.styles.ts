@@ -1,17 +1,44 @@
 import { Dialog } from '@ark-ui/react'
 import { styled } from 'styled-system/jsx'
 
-export const Backdrop = styled(Dialog.Backdrop, {
+export const Backdrop_OverlayMenu = styled(Dialog.Backdrop, {
 	base: {
 		forceGpu: true,
-		'--opacity': 'calc(1 / 3)',
 		pos: 'fixed',
 		zIndex: 1,
 		inset: 0,
 		opacity: 'var(--opacity)',
-		bg: 'bg.inverted',
+		bg: 'bg.canvas',
 		_open: { animation: 'fadeIn 0.25s ease-out' },
 		_closed: { animation: 'fadeOut 0.2s ease-out' },
+	},
+	variants: {
+		opacity: {
+			'0': {
+				'--opacity': '0',
+			},
+			'1/4': {
+				'--opacity': '0.25',
+			},
+			'1/3': {
+				'--opacity': 'calc(1 / 3)',
+			},
+			'1/2': {
+				'--opacity': '0.5',
+			},
+			'2/3': {
+				'--opacity': 'calc(2 / 3)',
+			},
+			'3/4': {
+				'--opacity': '0.75',
+			},
+			'1': {
+				'--opacity': '1',
+			},
+		},
+	},
+	defaultVariants: {
+		opacity: '1/2',
 	},
 })
 
