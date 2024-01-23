@@ -45,14 +45,14 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 			>
 				<body
 					className={macrogrid({
-						_osDark: { color: 'fg.muted' },
-						background: 'bg.canvas',
-						color: 'fg',
-						fontSize: 'sm',
 						gridTemplateRows: 'min-content 1fr min-content',
 						minH: '100dvh',
 						overscrollBehavior: 'contain',
+						fontSize: 'sm',
+						color: 'fg',
+						background: 'bg.canvas',
 						sm: { fontSize: 'md' },
+						_osDark: { color: 'fg.muted' },
 					})}
 				>
 					<TopToolbar />
