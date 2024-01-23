@@ -1,1 +1,1 @@
-export * from './BottomToolbarScrolled'
+export * from './BottomToolbarCompressed'
