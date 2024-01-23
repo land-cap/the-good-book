@@ -6,7 +6,7 @@ import { macrogrid } from 'styled-system/patterns'
 import { RootProviders } from '~/app/_components/RootProviders'
 import { getBookListWithCache } from '~/db'
 import { PageBottomReference } from '~/layouts/RootLayout/PageBottomReference'
-import { BottomToolbar, ShowControlsFAB, TopToolbar } from '~/organisms'
+import { BottomToolbar, TopToolbar } from '~/organisms'
 
 const fontGeist = localFont({
 	src: [
@@ -59,7 +59,6 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					{children}
 					<BottomToolbar bookList={bookList} />
 					<PageBottomReference />
-					<ShowControlsFAB />
 				</body>
 			</html>
 		</RootProviders>
