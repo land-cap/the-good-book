@@ -8,16 +8,18 @@ export const useIsPageScrolled = () => {
 
 	const [lastScroll, setLastScroll] = useState(0)
 
+	const throttledLastScroll = useThrottle(lastScroll, 250)
+
 	const handleScroll = useCallback(() => {
 		const currentScroll = window.scrollY
 
-		if (currentScroll > 0 && currentScroll > lastScroll) {
+		if (currentScroll > 0 && currentScroll > throttledLastScroll) {
 			setScroll('down')
 		} else {
 			setScroll('up')
 		}
 		setLastScroll(currentScroll)
-	}, [lastScroll])
+	}, [throttledLastScroll])
 
 	useEffect(
 		() => window.addEventListener('scroll', handleScroll),
