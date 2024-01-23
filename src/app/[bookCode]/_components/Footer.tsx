@@ -1,21 +1,10 @@
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 
+import { FooterContainer } from '~/app/[bookCode]/_components/FooterContainer'
+
 export const Footer = () => (
-	<footer
-		className={flex({
-			align: 'center',
-			color: 'fg.subtle',
-			column: 'content',
-			fontSize: 'xs',
-			lineHeight: 'relaxed',
-			mx: 'auto',
-			my: '20',
-			placeContent: 'center',
-			textAlign: 'center',
-			w: 'full',
-		})}
-	>
+	<FooterContainer>
 		<p className={flex({ align: 'center', placeContent: 'center' })}>
 			Designed & developed by&nbsp;
 			<a
@@ -26,5 +15,5 @@ export const Footer = () => (
 				land-cap
 			</a>
 		</p>
-	</footer>
+	</FooterContainer>
 )
