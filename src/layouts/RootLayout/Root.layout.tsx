@@ -4,7 +4,9 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { RootProviders } from '~/app/_components/RootProviders'
+import { getBookListWithCache } from '~/db'
 import { PageBottomReference } from '~/layouts/RootLayout/PageBottomReference'
+import { BottomToolbar, TopToolbar } from '~/organisms'
 
 const fontGeist = localFont({
 	src: [
@@ -32,34 +34,33 @@ const fontGeistMono = localFont({
 	variable: '--font-mono',
 })
 
-export const RootLayout = ({
-	children,
-	topToolbar,
-	bottomToolbar,
-}: {
-	children: ReactNode
-	topToolbar: ReactNode
-	bottomToolbar: ReactNode
-}) => (
-	<RootProviders>
-		<html lang="en" className={cx(fontGeist.variable, fontGeistMono.variable)}>
-			<body
-				className={macrogrid({
-					_osDark: { color: 'fg.muted' },
-					background: 'bg.canvas',
-					color: 'fg',
-					fontSize: 'sm',
-					gridTemplateRows: 'min-content 1fr min-content',
-					minH: '100dvh',
-					overscrollBehavior: 'contain',
-					sm: { fontSize: 'md' },
-				})}
+export const RootLayout = async ({ children }: { children: ReactNode }) => {
+	const bookList = await getBookListWithCache()
+
+	return (
+		<RootProviders>
+			<html
+				lang="en"
+				className={cx(fontGeist.variable, fontGeistMono.variable)}
 			>
-				{topToolbar}
-				{children}
-				{bottomToolbar}
-				<PageBottomReference />
-			</body>
-		</html>
-	</RootProviders>
-)
+				<body
+					className={macrogrid({
+						_osDark: { color: 'fg.muted' },
+						background: 'bg.canvas',
+						color: 'fg',
+						fontSize: 'sm',
+						gridTemplateRows: 'min-content 1fr min-content',
+						minH: '100dvh',
+						overscrollBehavior: 'contain',
+						sm: { fontSize: 'md' },
+					})}
+				>
+					<TopToolbar />
+					{children}
+					<BottomToolbar bookList={bookList} />
+					<PageBottomReference />
+				</body>
+			</html>
+		</RootProviders>
+	)
+}
