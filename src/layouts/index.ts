@@ -1,1 +1,1 @@
-export * from './RootLayout/RootLayout'
+export * from './RootLayout/Root.layout'
