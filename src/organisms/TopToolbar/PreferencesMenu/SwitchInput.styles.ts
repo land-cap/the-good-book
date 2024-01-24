@@ -5,12 +5,13 @@ import { hstack, square } from 'styled-system/patterns'
 const Root = styled(ArkSwitch.Root, {
 	base: hstack.raw({
 		justify: 'space-between',
-		column: 'content',
 		'--switch-track-diff':
 			'calc(var(--switch-track-width) - var(--switch-track-height))',
 		'--switch-thumb-x': 'var(--switch-track-diff)',
 		'--switch-track-height': 'token(spacing.6)',
 		'--switch-track-width': 'token(spacing.12)',
+		column: 'content',
+		h: '10',
 	}),
 })
 
@@ -21,9 +22,9 @@ const Control = styled(ArkSwitch.Control, {
 		w: 'var(--switch-track-width)',
 		h: 'var(--switch-track-height)',
 		bg: 'fg.moreFaded',
-		transition: 'all',
-		transitionDuration: 'fast',
-		transitionTimingFunction: 'ease-out',
+		transition: 'colors',
+		transitionDuration: 'normal',
+		transitionTimingFunction: 'ease-in-out',
 		_checked: {
 			bg: 'fg.muted',
 		},
@@ -34,15 +35,15 @@ const Control = styled(ArkSwitch.Control, {
 const Thumb = styled(ArkSwitch.Thumb, {
 	base: square.raw({
 		size: 'var(--switch-track-height)',
-		position: 'relative',
+		position: 'transform',
 		cursor: 'pointer',
 		bg: 'bg.canvas',
 		borderWidth: '2px',
 		borderStyle: 'solid',
 		borderColor: 'fg.muted',
 		transition: 'all',
-		transitionDuration: 'fast',
-		transitionTimingFunction: 'ease-out',
+		transitionDuration: 'normal',
+		transitionTimingFunction: 'ease-in-out',
 		_osDark: {
 			borderWidth: '1.5px',
 		},

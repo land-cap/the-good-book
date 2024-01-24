@@ -1,7 +1,6 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import type { PrimitiveAtom } from 'jotai/index'
 import { macrogrid } from 'styled-system/patterns'
 
 import {
@@ -13,13 +12,11 @@ import { IncrementInput } from '~/organisms/TopToolbar/PreferencesMenu/Increment
 
 import {
 	hideNonOriginalTextAtom,
-	leadingAtom,
 	showRedLettersAtom,
 	verseBreaksLineAtom,
 } from '../TopToolbar.state'
 import { Header } from './Header'
 import { PreferencesList } from './PreferencesMenu.styles'
-import { SliderInput } from './SliderInput'
 import { SwitchInput } from './SwitchInput'
 
 export const PreferencesMenu = () => (
@@ -30,11 +27,10 @@ export const PreferencesMenu = () => (
 				css={{
 					h: 'content',
 					maxH: 'calc(100dvh * 2 / 3)',
-					_osLight: {
-						shadow:
-							// upside down fluent 2 shadow
-							'0px 0px 8px 0px rgba(0, 0, 0, 0.20), 0px -32px 64px 0px rgba(0, 0, 0, 0.24)',
-					},
+					pb: 'safe_area_bottom',
+					shadow:
+						// upside down fluent 2 shadow
+						'0px 0px 8px 0px rgba(0, 0, 0, 0.20), 0px -32px 64px 0px rgba(0, 0, 0, 0.24)',
 					_osDark: {
 						bg: 'bg.subtle',
 					},
@@ -43,17 +39,15 @@ export const PreferencesMenu = () => (
 				<div className={macrogrid()}>
 					<Header />
 					<PreferencesList>
-						<IncrementInput label="Text size" />
-						<SliderInput
-							valueAtom={leadingAtom as PrimitiveAtom<number>}
-							label="Line gap"
-							machineProps={{
-								id: 'line-gap',
-								name: 'line-gap',
-								min: 1,
-								max: 3,
-								step: 0.25,
-							}}
+						<IncrementInput
+							label="Text size"
+							decreaseIcon="text_decrease"
+							increaseIcon="text_increase"
+						/>
+						<IncrementInput
+							label="Line spacing"
+							decreaseIcon="density_small"
+							increaseIcon="density_medium"
 						/>
 						<SwitchInput
 							valueAtom={verseBreaksLineAtom}
