@@ -39,7 +39,7 @@ const config = {
 
 		'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
 		'prefer-arrow-callback': 'error',
-		'arrow-body-style': 'error',
+		'arrow-body-style': 'off',
 
 		'prettier/prettier': [
 			'warn',
