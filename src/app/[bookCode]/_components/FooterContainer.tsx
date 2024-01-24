@@ -24,10 +24,11 @@ export const FooterContainer = ({ children }: { children: ReactNode }) => {
 				fontSize: 'xs',
 				lineHeight: 'relaxed',
 				mx: 'auto',
-				my: '20',
+				my: '14',
 				placeContent: 'center',
 				textAlign: 'center',
 				w: 'full',
+				sm: { my: '20' },
 			})}
 		>
 			{children}
