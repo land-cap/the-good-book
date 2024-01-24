@@ -53,12 +53,13 @@ export const BottomToolbarExtended = ({ bookList }: { bookList: TBook[] }) => {
 			className={subgrid({
 				column: 'content',
 				pb: 'safe_area_bottom',
+				h: 'full',
 			})}
 		>
 			<div
 				className={flex({
 					alignItems: 'center',
-					h: '14',
+					h: 'full',
 				})}
 			>
 				<ReaderNavButton

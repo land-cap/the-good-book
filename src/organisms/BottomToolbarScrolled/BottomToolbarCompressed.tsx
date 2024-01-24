@@ -17,10 +17,11 @@ export const BottomToolbarCompressed = () => {
 			})}
 			onClick={() => setForceShowControls(true)}
 		>
-			<div className={center({ h: '8' })}>
+			<div className={center({ h: 'full', mt: '-0.5' })}>
 				<p
 					className={caption({
 						fontWeight: 'bold',
+						color: 'fg',
 					})}
 				>
 					Faptele Apostolilor 22
