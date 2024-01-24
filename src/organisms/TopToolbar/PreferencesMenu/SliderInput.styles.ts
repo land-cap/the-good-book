@@ -6,7 +6,6 @@ const Root = styled('div', {
 		direction: 'column',
 		gap: '4',
 		position: 'relative',
-		column: 'content',
 		sm: {
 			direction: 'row',
 		},
