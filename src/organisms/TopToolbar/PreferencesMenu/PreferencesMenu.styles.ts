@@ -4,14 +4,14 @@ import { flex } from 'styled-system/patterns'
 export const PreferencesList = styled('form', {
 	base: flex.raw({
 		direction: 'column',
-		gap: '8',
+		gap: '4',
 		column: 'content',
 		overflowY: 'scroll',
 		overscrollBehavior: 'contain',
-		py: '8',
+		py: '4',
 		sm: {
-			gap: '10',
-			py: '10',
+			gap: '6',
+			py: '6',
 		},
 	}),
 })
