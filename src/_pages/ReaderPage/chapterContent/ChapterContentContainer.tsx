@@ -7,7 +7,7 @@ import { cva } from 'styled-system/css'
 import {
 	fontSizeOffsetAtom,
 	leadingAtom,
-} from '~/organisms/TopToolbar/TopToolbar.state'
+} from '~/organisms/TopToolbar/topToolbar.state'
 
 export const chapterContentContainerRecipe = cva({
 	base: {
