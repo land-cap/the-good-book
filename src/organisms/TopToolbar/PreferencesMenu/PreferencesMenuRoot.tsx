@@ -6,7 +6,7 @@ import { button } from 'styled-system/recipes'
 
 import { Icon, useDisableBodyScrollWhileDialogIsOpen } from '~/components'
 
-import { isPreferencesMenuOpenAtom } from '../TopToolbar.state'
+import { isPreferencesMenuOpenAtom } from '../topToolbar.state'
 import { PreferencesMenu } from './PreferencesMenu'
 
 export const PreferencesMenuRoot = () => {

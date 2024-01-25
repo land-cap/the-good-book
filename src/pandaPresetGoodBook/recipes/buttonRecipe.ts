@@ -14,11 +14,23 @@ export const buttonRecipe = defineRecipe({
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
 		'&[aria-disabled=true]': {
-			color: 'fg.moreFaded',
 			pointerEvents: 'none',
 		},
 	},
 	variants: {
+		visual: {
+			ghost: {
+				'&[aria-disabled=true]': {
+					color: 'fg.moreFaded',
+				},
+			},
+			solid: {
+				bg: 'bg.muted',
+				'&[aria-disabled=true]': {
+					color: 'fg.faded',
+				},
+			},
+		},
 		icon: {
 			true: {
 				px: '0',
@@ -26,5 +38,9 @@ export const buttonRecipe = defineRecipe({
 				aspectRatio: 'square',
 			},
 		},
+	},
+	defaultVariants: {
+		visual: 'ghost',
+		icon: false,
 	},
 })
