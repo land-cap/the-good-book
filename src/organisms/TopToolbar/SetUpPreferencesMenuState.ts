@@ -21,7 +21,7 @@ import {
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineAtom,
-} from './TopToolbar.state'
+} from './topToolbar.state'
 
 const useSetupClientState = <T>(
 	atom: PrimitiveAtom<T>,

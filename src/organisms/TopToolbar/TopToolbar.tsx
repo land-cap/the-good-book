@@ -18,7 +18,7 @@ import {
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineDefaultValue,
-} from './TopToolbar.state'
+} from './topToolbar.state'
 
 const Logo = styled('span', {
 	base: { fontWeight: 'bold' },
