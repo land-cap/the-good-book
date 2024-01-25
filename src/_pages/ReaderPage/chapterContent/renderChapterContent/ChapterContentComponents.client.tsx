@@ -9,7 +9,7 @@ import {
 	hideNonOriginalTextAtom,
 	showRedLettersAtom,
 	verseBreaksLineAtom,
-} from '~/organisms/TopToolbar/TopToolbar.state'
+} from '~/organisms/TopToolbar/topToolbar.state'
 
 const makeNonOriginalTextHideable =
 	<P extends NonNullable<unknown>>(Component: (props: P) => ReactNode) =>
