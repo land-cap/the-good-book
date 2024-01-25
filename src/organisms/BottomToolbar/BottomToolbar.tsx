@@ -1,6 +1,7 @@
 'use client'
 
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { flex, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -9,6 +10,34 @@ import type { TBook } from '~/db'
 import { BottomToolbarContainer } from './BottomToolbarContainer'
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
+
+const useNavigateChapterWithArrowKeys = (
+	prevChapterUrl: string,
+	nextChapterUrl: string,
+	isFirstChapterInBible: boolean,
+	isLastChapterInBible: boolean,
+) => {
+	const router = useRouter()
+
+	useEffect(() => {
+		const keyCodeToUrl = {
+			ArrowLeft: prevChapterUrl,
+			ArrowRight: nextChapterUrl,
+		}
+		const handleArrowKeyPress = ({ key }: KeyboardEvent) => {
+			//@ts-ignore
+			const url = keyCodeToUrl?.[key] as unknown as string | undefined
+			url && key === 'ArrowLeft' && !isFirstChapterInBible && router.push(url)
+			url && key === 'ArrowRight' && !isLastChapterInBible && router.push(url)
+		}
+
+		window.addEventListener('keyup', handleArrowKeyPress)
+
+		return () => {
+			window.removeEventListener('keyup', handleArrowKeyPress)
+		}
+	}, [isFirstChapterInBible, nextChapterUrl, prevChapterUrl, router])
+}
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 	const { bookCode, chapter: _chapter } = useParams<TReaderPageParams>()
@@ -49,6 +78,14 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const isLastChapterInBible =
 		currBookIndex === bookList.length - 1 && chapter === currBookChapterCount
+
+	useNavigateChapterWithArrowKeys(
+		prevChapterHref,
+		nextChapterHref,
+		isFirstChapterInBible,
+		isLastChapterInBible,
+	)
+
 	return (
 		<BottomToolbarContainer>
 			<div
