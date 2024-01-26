@@ -1,7 +1,7 @@
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 
-import { FooterContainer } from '~/app/[bookCode]/_components/FooterContainer'
+import { FooterContainer } from '~/layouts/ReaderLayout/Footer/FooterContainer'
 
 export const Footer = () => (
 	<FooterContainer>

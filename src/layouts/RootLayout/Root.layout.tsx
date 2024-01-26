@@ -3,10 +3,11 @@ import type { ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
-import { RootProviders } from '~/app/_components/RootProviders'
 import { getBookListWithCache } from '~/db'
-import { PageBottomReference } from '~/layouts/RootLayout/PageBottomReference'
 import { BottomToolbar, TopToolbar } from '~/organisms'
+
+import { PageBottomReference } from './PageBottomReference'
+import { RootProviders } from './RootProviders'
 
 const fontGeist = localFont({
 	src: [
