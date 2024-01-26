@@ -1,47 +1,22 @@
 'use client'
 
-import { useWindowEvent } from '@mantine/hooks'
-import { useParams, useRouter } from 'next/navigation'
-import { useCallback } from 'react'
+import { useAtom } from 'jotai'
+import { useParams } from 'next/navigation'
+import { useEffect } from 'react'
 import { flex, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { TBook } from '~/db'
+import {
+	isFirstChapterAtom,
+	isLastChapterAtom,
+	nextChapterURLAtom,
+	prevChapterURLAtom,
+} from '~/state'
 
 import { BottomToolbarContainer } from './BottomToolbarContainer'
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
-
-const useNavigateChapterWithArrowKeys = (
-	prevChapterUrl: string,
-	nextChapterUrl: string,
-	isFirstChapterInBible: boolean,
-	isLastChapterInBible: boolean,
-) => {
-	const router = useRouter()
-
-	const handleArrowKeyPress = useCallback(
-		({ key }: KeyboardEvent) => {
-			const keyCodeToUrl = {
-				ArrowLeft: prevChapterUrl,
-				ArrowRight: nextChapterUrl,
-			}
-			//@ts-ignore
-			const url = keyCodeToUrl?.[key] as unknown as string | undefined
-			url && key === 'ArrowLeft' && !isFirstChapterInBible && router.push(url)
-			url && key === 'ArrowRight' && !isLastChapterInBible && router.push(url)
-		},
-		[
-			isFirstChapterInBible,
-			isLastChapterInBible,
-			nextChapterUrl,
-			prevChapterUrl,
-			router,
-		],
-	)
-
-	useWindowEvent('keydown', handleArrowKeyPress)
-}
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 	const { bookCode, chapter: _chapter } = useParams<TReaderPageParams>()
@@ -68,26 +43,54 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const nextBookCode = bookList[currBookIndex + 1]?.code
 
-	const prevChapterHref =
-		chapter === 1
-			? `/${prevBookCode}/${prevBookChapterCount}`
-			: `/${bookCode}/${chapter - 1}`
+	const [prevChapterURL, setPrevChapterURL] = useAtom(prevChapterURLAtom)
 
-	const nextChapterHref =
-		chapter === currBookChapterCount
-			? `/${nextBookCode}/1`
-			: `/${bookCode}/${chapter + 1}`
+	useEffect(
+		() =>
+			setPrevChapterURL(
+				chapter === 1
+					? `/${prevBookCode}/${prevBookChapterCount}`
+					: `/${bookCode}/${chapter - 1}`,
+			),
+		[bookCode, chapter, prevBookChapterCount, prevBookCode, setPrevChapterURL],
+	)
 
-	const isFirstChapterInBible = currBookIndex === 0 && chapter === 1
+	const [nextChapterURL, setNextChapterURL] = useAtom(nextChapterURLAtom)
 
-	const isLastChapterInBible =
-		currBookIndex === bookList.length - 1 && chapter === currBookChapterCount
+	useEffect(
+		() =>
+			setNextChapterURL(
+				chapter === currBookChapterCount
+					? `/${nextBookCode}/1`
+					: `/${bookCode}/${chapter + 1}`,
+			),
+		[bookCode, chapter, currBookChapterCount, nextBookCode, setNextChapterURL],
+	)
 
-	useNavigateChapterWithArrowKeys(
-		prevChapterHref,
-		nextChapterHref,
-		isFirstChapterInBible,
-		isLastChapterInBible,
+	const [isFirstChapterInBible, setIsFirstChapterInBible] =
+		useAtom(isFirstChapterAtom)
+
+	useEffect(
+		() => setIsFirstChapterInBible(currBookIndex === 0 && chapter === 1),
+		[chapter, currBookIndex, setIsFirstChapterInBible],
+	)
+
+	const [isLastChapterInBible, setIsLastChapterInBible] =
+		useAtom(isLastChapterAtom)
+
+	useEffect(
+		() =>
+			setIsLastChapterInBible(
+				currBookIndex === bookList.length - 1 &&
+					chapter === currBookChapterCount,
+			),
+		[
+			bookList.length,
+			chapter,
+			currBookChapterCount,
+			currBookIndex,
+			setIsLastChapterInBible,
+		],
 	)
 
 	return (
@@ -105,7 +108,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					})}
 				>
 					<ReaderNavButton
-						href={prevChapterHref}
+						url={prevChapterURL}
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
@@ -115,7 +118,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 						bookList={bookList}
 					/>
 					<ReaderNavButton
-						href={nextChapterHref}
+						url={nextChapterURL}
 						direction="right"
 						isDisabled={isLastChapterInBible}
 					/>

@@ -4,17 +4,17 @@ import { button } from 'styled-system/recipes'
 import { Icon } from '~/components'
 
 export const ReaderNavButton = ({
-	href,
+	url,
 	direction,
 	isDisabled,
 }: {
-	href: string
+	url: string
 	direction: 'left' | 'right'
 	isDisabled?: boolean
 }) => (
 	<Link
 		prefetch
-		href={href}
+		href={url}
 		aria-disabled={isDisabled}
 		className={button({ icon: true })}
 	>

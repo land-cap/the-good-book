@@ -7,8 +7,8 @@ import { useHydrateAtoms } from 'jotai/utils'
 import { useEffect } from 'react'
 
 import { setCookie } from '~/app/action'
-
 import {
+	type FONT_SIZE_OFFSET,
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetAtom,
 	HIDE_NON_ORIGINAL_TEXT_COOKIE,
@@ -17,11 +17,10 @@ import {
 	leadingAtom,
 	SHOW_RED_LETTERS_COOKIE,
 	showRedLettersAtom,
-	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineAtom,
-} from './topToolbar.state'
+} from '~/state'
 
 const useSetupClientState = <T>(
 	atom: PrimitiveAtom<T>,
@@ -52,7 +51,7 @@ export const SetUpPreferencesMenuState = ({
 	savedHideNonOriginalText,
 	savedShowRedLetters,
 }: {
-	savedFontSizeOffset: TFontSizeOffset
+	savedFontSizeOffset: FONT_SIZE_OFFSET
 	savedLeading: TLeading
 	savedVerseBreaksLine: boolean
 	savedHideNonOriginalText: boolean

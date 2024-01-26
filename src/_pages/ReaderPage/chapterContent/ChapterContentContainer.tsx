@@ -4,10 +4,7 @@ import { useAtomValue } from 'jotai'
 import { type ReactNode } from 'react'
 import { cva } from 'styled-system/css'
 
-import {
-	fontSizeOffsetAtom,
-	leadingAtom,
-} from '~/organisms/TopToolbar/topToolbar.state'
+import { fontSizeOffsetAtom, leadingAtom } from '~/state'
 
 export const chapterContentContainerRecipe = cva({
 	base: {
