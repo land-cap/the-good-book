@@ -11,6 +11,11 @@ export const buttonRecipe = defineRecipe({
 		transition: 'colors',
 		transitionDuration: 'fast',
 		transitionTimingFunction: 'ease-out',
+		'& *': {
+			transition: 'colors',
+			transitionDuration: 'fast',
+			transitionTimingFunction: 'ease-out',
+		},
 		'&[aria-disabled=true]': {
 			pointerEvents: 'none',
 		},
