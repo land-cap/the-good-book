@@ -1,20 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
+import { useWindowEvent } from '@mantine/hooks'
+import { useCallback, useRef, useState } from 'react'
 
 export const useComputeChapterListItemHeight = () => {
 	const chapterListItemRef = useRef<HTMLLIElement>()
 
 	const [chapterListItemHeight, setChapterListItemHeight] = useState<number>(0)
 
-	useEffect(() => {
-		const handleWindowResize = () => {
-			chapterListItemRef.current &&
-				setChapterListItemHeight(
-					chapterListItemRef.current?.getBoundingClientRect().height,
-				)
-		}
-		window.addEventListener('resize', handleWindowResize)
-		return () => window.removeEventListener('resize', handleWindowResize)
+	const handleWindowResize = useCallback(() => {
+		chapterListItemRef.current &&
+			setChapterListItemHeight(
+				chapterListItemRef.current?.getBoundingClientRect().height,
+			)
 	}, [])
+
+	useWindowEvent('resize', handleWindowResize)
 
 	const refCallback = (el: HTMLLIElement) => {
 		if (el) {
