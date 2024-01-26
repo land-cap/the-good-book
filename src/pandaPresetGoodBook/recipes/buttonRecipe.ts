@@ -11,8 +11,6 @@ export const buttonRecipe = defineRecipe({
 		transition: 'colors',
 		transitionDuration: 'fast',
 		transitionTimingFunction: 'ease-out',
-		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-		_canHover: { _hover: { bg: 'bg.subtle' } },
 		'&[aria-disabled=true]': {
 			pointerEvents: 'none',
 		},
@@ -20,12 +18,16 @@ export const buttonRecipe = defineRecipe({
 	variants: {
 		visual: {
 			ghost: {
+				_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+				_canHover: { _hover: { bg: 'bg.subtle' } },
 				'&[aria-disabled=true]': {
 					color: 'fg.moreFaded',
 				},
 			},
 			solid: {
 				bg: 'bg.muted',
+				_active: { bg: 'neutral.300', color: 'fg.subtle' },
+				_canHover: { _hover: { bg: 'neutral.300' } },
 				'&[aria-disabled=true]': {
 					color: 'fg.faded',
 				},
