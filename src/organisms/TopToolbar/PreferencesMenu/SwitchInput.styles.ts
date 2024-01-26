@@ -24,7 +24,7 @@ const Control = styled(ArkSwitch.Control, {
 		bg: 'fg.moreFaded',
 		transition: 'colors',
 		transitionDuration: 'normal',
-		transitionTimingFunction: 'ease-in-out',
+		transitionTimingFunction: 'ease-out',
 		_checked: {
 			bg: 'fg.muted',
 		},
@@ -43,7 +43,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 		borderColor: 'fg.muted',
 		transition: 'all',
 		transitionDuration: 'normal',
-		transitionTimingFunction: 'ease-in-out',
+		transitionTimingFunction: 'ease-out',
 		_osDark: {
 			borderWidth: '1.5px',
 		},
