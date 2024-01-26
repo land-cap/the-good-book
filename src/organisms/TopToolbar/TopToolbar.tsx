@@ -2,10 +2,8 @@ import { cookies } from 'next/headers'
 import { styled } from 'styled-system/jsx'
 
 import { TopToolbarContainer } from '~/organisms/TopToolbar/TopToolbarContainer'
-
-import { PreferencesMenuRoot } from './PreferencesMenu'
-import { SetUpPreferencesMenuState } from './SetUpPreferencesMenuState'
 import {
+	type FONT_SIZE_OFFSET,
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
 	HIDE_NON_ORIGINAL_TEXT_COOKIE,
@@ -14,11 +12,13 @@ import {
 	leadingDefaultValue,
 	SHOW_RED_LETTERS_COOKIE,
 	showRedLettersDefaultValue,
-	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineDefaultValue,
-} from './topToolbar.state'
+} from '~/state'
+
+import { PreferencesMenuRoot } from './PreferencesMenu'
+import { SetUpPreferencesMenuState } from './SetUpPreferencesMenuState'
 
 const Logo = styled('span', {
 	base: { fontWeight: 'bold' },
@@ -46,7 +46,7 @@ export const TopToolbar = () => {
 	return (
 		<>
 			<SetUpPreferencesMenuState
-				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
+				savedFontSizeOffset={Number(savedFontSizeOffset) as FONT_SIZE_OFFSET}
 				savedLeading={Number(savedLeading) as TLeading}
 				savedVerseBreaksLine={getBooleanCookieValue(
 					savedVerseBreaksLine,

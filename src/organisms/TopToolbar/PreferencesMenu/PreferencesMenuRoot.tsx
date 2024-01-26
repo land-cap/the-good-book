@@ -5,8 +5,8 @@ import { useAtom } from 'jotai'
 import { button } from 'styled-system/recipes'
 
 import { Icon, useDisableBodyScrollWhileDialogIsOpen } from '~/components'
+import { isPreferencesMenuOpenAtom } from '~/state'
 
-import { isPreferencesMenuOpenAtom } from '../topToolbar.state'
 import { PreferencesMenu } from './PreferencesMenu'
 
 export const PreferencesMenuRoot = () => {
