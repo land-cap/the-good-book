@@ -8,8 +8,8 @@ import { useRangeInput } from '~/hooks/useRangeInput'
 const buttonCls = cx(
 	button({ icon: true, visual: 'solid' }),
 	css({
+		w: '14',
 		h: '10',
-		aspectRatio: '4/3',
 	}),
 )
 
