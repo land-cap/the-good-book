@@ -3,7 +3,6 @@ import { styled } from 'styled-system/jsx'
 
 import { TopToolbarContainer } from '~/organisms/TopToolbar/TopToolbarContainer'
 import {
-	type FONT_SIZE_OFFSET,
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
 	HIDE_NON_ORIGINAL_TEXT_COOKIE,
@@ -12,6 +11,7 @@ import {
 	leadingDefaultValue,
 	SHOW_RED_LETTERS_COOKIE,
 	showRedLettersDefaultValue,
+	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineDefaultValue,
@@ -46,7 +46,7 @@ export const TopToolbar = () => {
 	return (
 		<>
 			<SetUpPreferencesMenuState
-				savedFontSizeOffset={Number(savedFontSizeOffset) as FONT_SIZE_OFFSET}
+				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
 				savedLeading={Number(savedLeading) as TLeading}
 				savedVerseBreaksLine={getBooleanCookieValue(
 					savedVerseBreaksLine,
