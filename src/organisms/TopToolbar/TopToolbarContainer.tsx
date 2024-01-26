@@ -6,8 +6,8 @@ import { css } from 'styled-system/css'
 import { flex, macrogrid } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
-import { isPageBottomReachedAtom } from '~/global.state'
 import { useIsPageScrolled } from '~/hooks'
+import { isPageBottomReachedAtom } from '~/state'
 
 export const TopToolbarContainer = ({ children }: { children: ReactNode }) => {
 	const isPageScrolled = useIsPageScrolled()

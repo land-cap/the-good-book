@@ -1,3 +1,4 @@
+import { UseReaderHotKeys } from '~/_pages/ReaderPage/UseReaderHotKeys'
 import { getChapterWithCache } from '~/db'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
@@ -14,5 +15,10 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 
 	const chapterContent = renderChapterContent(chapterData.content)
 
-	return <ChapterContentContainer>{chapterContent}</ChapterContentContainer>
+	return (
+		<>
+			<UseReaderHotKeys />
+			<ChapterContentContainer>{chapterContent}</ChapterContentContainer>
+		</>
+	)
 }

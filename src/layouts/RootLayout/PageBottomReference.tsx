@@ -4,7 +4,7 @@ import { useSetAtom } from 'jotai'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-import { isPageBottomReachedAtom } from '~/global.state'
+import { isPageBottomReachedAtom } from '~/state'
 
 export const PageBottomReference = () => {
 	const { ref, inView } = useInView({ threshold: 0 })
