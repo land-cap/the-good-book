@@ -37,6 +37,7 @@ export const IncrementInput = <T,>({
 				<div
 					className={buttonCls}
 					onClick={decrement}
+					role="button"
 					aria-disabled={value === range[0]}
 				>
 					<Icon size={5} weight={500} name={decreaseIcon} />
@@ -44,6 +45,7 @@ export const IncrementInput = <T,>({
 				<div
 					className={buttonCls}
 					onClick={increment}
+					role="button"
 					aria-disabled={value === range[range.length - 1]}
 				>
 					<Icon size={5} weight={500} name={increaseIcon} />
