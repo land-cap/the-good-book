@@ -5,13 +5,13 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useRouter } from 'next/navigation'
 
 import {
-	type FONT_SIZE_OFFSET,
 	fontSizeOffsetAtom,
 	fontSizeOffsetDefaultValue,
 	isFirstChapterAtom,
 	isLastChapterAtom,
 	nextChapterURLAtom,
 	prevChapterURLAtom,
+	type TFontSizeOffset,
 } from '~/state'
 
 export const UseReaderHotKeys = () => {
@@ -20,13 +20,13 @@ export const UseReaderHotKeys = () => {
 	const decreaseFontSize = () =>
 		setFontSizeOffset((prev) => {
 			const newValue = prev - 1
-			return newValue >= -2 ? (newValue as FONT_SIZE_OFFSET) : prev
+			return newValue >= -2 ? (newValue as TFontSizeOffset) : prev
 		})
 
 	const increaseFontSize = () =>
 		setFontSizeOffset((prev) => {
 			const newValue = prev + 1
-			return newValue <= 8 ? (newValue as FONT_SIZE_OFFSET) : prev
+			return newValue < 8 ? (newValue as TFontSizeOffset) : prev
 		})
 
 	const resetFontSize = () => setFontSizeOffset(fontSizeOffsetDefaultValue)
