@@ -39,14 +39,14 @@ export const IncrementInput = <T,>({
 					onClick={decrement}
 					aria-disabled={value === range[0]}
 				>
-					<Icon size={5} name={decreaseIcon} />
+					<Icon size={5} weight={500} name={decreaseIcon} />
 				</div>
 				<div
 					className={buttonCls}
 					onClick={increment}
 					aria-disabled={value === range[range.length - 1]}
 				>
-					<Icon size={5} name={increaseIcon} />
+					<Icon size={5} weight={500} name={increaseIcon} />
 				</div>
 			</div>
 		</div>
