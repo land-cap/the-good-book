@@ -24,7 +24,7 @@ import {
 	verseBreaksLineAtom,
 } from '../topToolbar.state'
 import { Header } from './Header'
-import { PreferencesList } from './PreferencesMenu.styles'
+import { PreferencesList } from './PreferencesList'
 import { SwitchInput } from './SwitchInput'
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
