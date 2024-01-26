@@ -3,7 +3,6 @@ import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
 export const iconRecipe = cva({
 	base: {
 		'--grad': 0,
-		'--wght': 400,
 		// @ts-ignore
 		'-webkit-font-feature-settings': "'liga'",
 		'-webkit-font-smoothing': 'antialiased',
@@ -41,6 +40,18 @@ export const iconRecipe = cva({
 			5: { fontSize: 'token(sizes.5)', h: '5', w: '5' },
 			6: { fontSize: 'token(sizes.6)', h: '6', w: '6' },
 		},
+		weight: {
+			300: { '--wght': 300 },
+			400: { '--wght': 400 },
+			500: { '--wght': 500 },
+			600: { '--wght': 600 },
+			700: { '--wght': 700 },
+		},
+	},
+	defaultVariants: {
+		fill: false,
+		size: 6,
+		weight: 400,
 	},
 })
 
