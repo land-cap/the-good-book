@@ -26,8 +26,8 @@ export const buttonRecipe = defineRecipe({
 			},
 			solid: {
 				bg: 'bg.muted',
-				_active: { bg: 'neutral.300', color: 'fg.subtle' },
-				_canHover: { _hover: { bg: 'neutral.300' } },
+				_active: { bg: 'bg.more_muted', color: 'fg.subtle' },
+				_canHover: { _hover: { bg: 'bg.more_muted' } },
 				'&[aria-disabled=true]': {
 					color: 'fg.faded',
 				},

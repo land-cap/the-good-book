@@ -1,7 +1,8 @@
 'use client'
 
+import { useWindowEvent } from '@mantine/hooks'
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useCallback } from 'react'
 import { flex, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -19,24 +20,27 @@ const useNavigateChapterWithArrowKeys = (
 ) => {
 	const router = useRouter()
 
-	useEffect(() => {
-		const keyCodeToUrl = {
-			ArrowLeft: prevChapterUrl,
-			ArrowRight: nextChapterUrl,
-		}
-		const handleArrowKeyPress = ({ key }: KeyboardEvent) => {
+	const handleArrowKeyPress = useCallback(
+		({ key }: KeyboardEvent) => {
+			const keyCodeToUrl = {
+				ArrowLeft: prevChapterUrl,
+				ArrowRight: nextChapterUrl,
+			}
 			//@ts-ignore
 			const url = keyCodeToUrl?.[key] as unknown as string | undefined
 			url && key === 'ArrowLeft' && !isFirstChapterInBible && router.push(url)
 			url && key === 'ArrowRight' && !isLastChapterInBible && router.push(url)
-		}
+		},
+		[
+			isFirstChapterInBible,
+			isLastChapterInBible,
+			nextChapterUrl,
+			prevChapterUrl,
+			router,
+		],
+	)
 
-		window.addEventListener('keyup', handleArrowKeyPress)
-
-		return () => {
-			window.removeEventListener('keyup', handleArrowKeyPress)
-		}
-	}, [isFirstChapterInBible, nextChapterUrl, prevChapterUrl, router])
+	useWindowEvent('keydown', handleArrowKeyPress)
 }
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {

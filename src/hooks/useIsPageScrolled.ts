@@ -1,5 +1,6 @@
+import { useWindowEvent } from '@mantine/hooks'
 import { useThrottle } from '@uidotdev/usehooks'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 export const useIsPageScrolled = () => {
 	const [scroll, setScroll] = useState<'up' | 'down'>('up')
@@ -21,10 +22,7 @@ export const useIsPageScrolled = () => {
 		setLastScroll(currentScroll)
 	}, [throttledLastScroll])
 
-	useEffect(
-		() => window.addEventListener('scroll', handleScroll),
-		[handleScroll],
-	)
+	useWindowEvent('scroll', handleScroll)
 
 	return throttledScroll === 'up'
 }
