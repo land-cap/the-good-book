@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 
 import { setCookie } from '~/app/action'
 import {
-	type FONT_SIZE_OFFSET,
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetAtom,
 	HIDE_NON_ORIGINAL_TEXT_COOKIE,
@@ -17,6 +16,7 @@ import {
 	leadingAtom,
 	SHOW_RED_LETTERS_COOKIE,
 	showRedLettersAtom,
+	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineAtom,
@@ -51,7 +51,7 @@ export const SetUpPreferencesMenuState = ({
 	savedHideNonOriginalText,
 	savedShowRedLetters,
 }: {
-	savedFontSizeOffset: FONT_SIZE_OFFSET
+	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
 	savedVerseBreaksLine: boolean
 	savedHideNonOriginalText: boolean

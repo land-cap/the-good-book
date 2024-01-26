@@ -11,10 +11,10 @@ export const isLastChapterAtom = atom(false)
 export const isPreferencesMenuOpenDefaultValue = false
 export const isPreferencesMenuOpenAtom = atom(isPreferencesMenuOpenDefaultValue)
 
-export type FONT_SIZE_OFFSET = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export type TFontSizeOffset = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 export const FONT_SIZE_OFFSET_COOKIE = 'fontSizeOffset'
 export const fontSizeOffsetDefaultValue = 0
-export const fontSizeOffsetAtom = atom<FONT_SIZE_OFFSET>(
+export const fontSizeOffsetAtom = atom<TFontSizeOffset>(
 	fontSizeOffsetDefaultValue,
 )
 

@@ -14,11 +14,11 @@ import {
 import { steppedRange } from '~/helpers/steppedRange'
 import { IncrementInput } from '~/organisms/TopToolbar/PreferencesMenu/IncrementInput'
 import {
-	type FONT_SIZE_OFFSET,
 	fontSizeOffsetAtom,
 	hideNonOriginalTextAtom,
 	leadingAtom,
 	showRedLettersAtom,
+	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
 } from '~/state'
@@ -27,14 +27,14 @@ import { Header } from './Header'
 import { PreferencesList } from './PreferencesList'
 import { SwitchInput } from './SwitchInput'
 
-const fontSizeOffsetRange = range(-2)(8) as FONT_SIZE_OFFSET[]
+const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
 const leadingRange = steppedRange(0.25, 1.5, 2.5) as TLeading[]
 
 export const PreferencesMenu = () => {
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)
 	const handleFontSizeOffsetChange = useCallback(
-		(value: FONT_SIZE_OFFSET) => setFontSizeOffset(value),
+		(value: TFontSizeOffset) => setFontSizeOffset(value),
 		[setFontSizeOffset],
 	)
 
