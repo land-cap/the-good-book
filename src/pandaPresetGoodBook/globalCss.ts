@@ -9,6 +9,9 @@ export const globalCss = defineGlobalStyles({
 	':focus-visible': {
 		outline: 'none',
 	},
+	'html, body': {
+		touchAction: 'pan-x pan-y',
+	},
 	':root': {
 		'-moz-osx-font-smoothing': 'grayscale',
 		'-webkit-font-smoothing': 'antialiased',
@@ -17,15 +20,13 @@ export const globalCss = defineGlobalStyles({
 		fontOpticalSizing: 'auto',
 		fontWeight: 'regular',
 	},
-	'a *, button *': {
-		cursor: 'inherit',
-	},
-	'a, button': {
+	'a, button, [role=button]': {
 		cursor: 'pointer',
 	},
-	'html, body': {
-		touchAction: 'pan-x pan-y',
+	'a *, button *, [role=button] *': {
+		cursor: 'inherit',
 	},
+
 	'q::before, q::before': {
 		all: 'unset',
 	},
