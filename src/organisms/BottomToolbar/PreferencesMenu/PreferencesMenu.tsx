@@ -53,9 +53,8 @@ export const PreferencesMenu = () => {
 						h: 'content',
 						maxH: 'calc(100dvh * 2 / 3)',
 						pb: 'safe_area_bottom',
-						shadow:
-							// upside down fluent 2 shadow
-							'0px 0px 8px 0px rgba(0, 0, 0, 0.20), 0px -32px 64px 0px rgba(0, 0, 0, 0.24)',
+						borderTopWidth: '1px',
+						borderColor: 'border.emphasized',
 						_osDark: {
 							bg: 'bg.subtle',
 						},
