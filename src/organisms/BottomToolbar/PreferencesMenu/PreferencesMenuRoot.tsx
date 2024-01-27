@@ -4,6 +4,7 @@ import { Dialog, DialogTrigger } from '@ark-ui/react'
 import { useAtom } from 'jotai'
 import { useSetAtom } from 'jotai/index'
 import { useEffect } from 'react'
+import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
@@ -29,7 +30,10 @@ export const PreferencesMenuRoot = () => {
 			onOpenChange={({ open }) => setIsPreferencesMenuOpen(open)}
 		>
 			<DialogTrigger
-				className={button({ icon: true })}
+				className={cx(
+					button({ icon: true }),
+					css({ borderLeftWidth: '1px', borderLeftColor: 'border.emphasized' }),
+				)}
 				onClick={() => setIsPreferencesMenuOpen(true)}
 			>
 				<Icon size={6} name="custom_typography" />
