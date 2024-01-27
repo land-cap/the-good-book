@@ -7,13 +7,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
+import { useLockedBody } from 'usehooks-ts'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import {
-	Container_OverlayMenu,
-	Positioner_OverlayMenu,
-	useDisableBodyScrollWhileDialogIsOpen,
-} from '~/components'
+import { Container_OverlayMenu, Positioner_OverlayMenu } from '~/components'
 import type { TBook } from '~/db'
 
 import { BookList } from './BookList'
@@ -46,7 +43,7 @@ export const ChapterPickerMenu = ({
 
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen })
+	useLockedBody(isDialogOpen)
 
 	useCloseChapterPickerOnParamChange({
 		closeDialog: () => setIsDialogOpen(false),
