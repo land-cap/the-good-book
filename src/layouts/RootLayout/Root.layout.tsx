@@ -4,11 +4,10 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { getBookListWithCache } from '~/db'
-import { UseLockBodyScroll } from '~/layouts/RootLayout/UseLockBodyScroll'
 import { BottomToolbar, TopToolbar } from '~/organisms'
 
-import { PageBottomReference } from './PageBottomReference'
 import { RootProviders } from './RootProviders'
+import { UseLockBodyScroll } from './UseLockBodyScroll'
 
 const fontGeist = localFont({
 	src: [
@@ -61,7 +60,6 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					<TopToolbar />
 					{children}
 					<BottomToolbar bookList={bookList} />
-					<PageBottomReference />
 				</body>
 			</html>
 		</RootProviders>

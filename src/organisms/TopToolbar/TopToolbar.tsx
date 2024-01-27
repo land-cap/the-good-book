@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers'
 import { styled } from 'styled-system/jsx'
 
-import { TopToolbarContainer } from '~/organisms/TopToolbar/TopToolbarContainer'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
@@ -17,8 +16,8 @@ import {
 	verseBreaksLineDefaultValue,
 } from '~/state'
 
-import { PreferencesMenuRoot } from './PreferencesMenu'
 import { SetUpPreferencesMenuState } from './SetUpPreferencesMenuState'
+import { TopToolbarContainer } from './TopToolbarContainer'
 
 const Logo = styled('span', {
 	base: { fontWeight: 'bold' },
@@ -63,7 +62,6 @@ export const TopToolbar = () => {
 			/>
 			<TopToolbarContainer>
 				<Logo>The Good Book</Logo>
-				<PreferencesMenuRoot />
 			</TopToolbarContainer>
 		</>
 	)
