@@ -1,17 +1,18 @@
 'use client'
 
 import { Dialog, Portal } from '@ark-ui/react'
+import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 import { equals, range, splitWhen } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
-import { useLockedBody } from 'usehooks-ts'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Container_OverlayMenu, Positioner_OverlayMenu } from '~/components'
 import type { TBook } from '~/db'
+import { isScrollLockedAtom } from '~/state'
 
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
@@ -43,7 +44,11 @@ export const ChapterPickerMenu = ({
 
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-	useLockedBody(isDialogOpen)
+	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
+	useEffect(
+		() => setIsBodyScrollLocked(isDialogOpen),
+		[isDialogOpen, setIsBodyScrollLocked],
+	)
 
 	useCloseChapterPickerOnParamChange({
 		closeDialog: () => setIsDialogOpen(false),

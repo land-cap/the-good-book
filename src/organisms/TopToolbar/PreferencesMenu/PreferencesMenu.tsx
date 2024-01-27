@@ -1,7 +1,6 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useLockBodyScroll } from '@uidotdev/usehooks'
 import { useAtom } from 'jotai'
 import { range } from 'ramda'
 import { useCallback } from 'react'
@@ -33,8 +32,6 @@ const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 const leadingRange = steppedRange(0.25, 1.5, 2.5) as TLeading[]
 
 export const PreferencesMenu = () => {
-	useLockBodyScroll()
-
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)
 	const handleFontSizeOffsetChange = useCallback(
 		(value: TFontSizeOffset) => setFontSizeOffset(value),

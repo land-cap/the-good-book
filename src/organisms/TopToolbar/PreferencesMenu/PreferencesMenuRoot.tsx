@@ -2,10 +2,12 @@
 
 import { Dialog, DialogTrigger } from '@ark-ui/react'
 import { useAtom } from 'jotai'
+import { useSetAtom } from 'jotai/index'
+import { useEffect } from 'react'
 import { button } from 'styled-system/recipes'
 
-import { Icon, useDisableBodyScrollWhileDialogIsOpen } from '~/components'
-import { isPreferencesMenuOpenAtom } from '~/state'
+import { Icon } from '~/components'
+import { isPreferencesMenuOpenAtom, isScrollLockedAtom } from '~/state'
 
 import { PreferencesMenu } from './PreferencesMenu'
 
@@ -14,7 +16,11 @@ export const PreferencesMenuRoot = () => {
 		isPreferencesMenuOpenAtom,
 	)
 
-	useDisableBodyScrollWhileDialogIsOpen({ isDialogOpen: isPreferencesMenuOpen })
+	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
+	useEffect(
+		() => setIsBodyScrollLocked(isPreferencesMenuOpen),
+		[isPreferencesMenuOpen, setIsBodyScrollLocked],
+	)
 
 	return (
 		<Dialog.Root
