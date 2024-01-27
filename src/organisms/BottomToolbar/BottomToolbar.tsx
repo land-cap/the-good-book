@@ -3,7 +3,8 @@
 import { useAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 import { useEffect } from 'react'
-import { flex, subgrid } from 'styled-system/patterns'
+import { PreferencesMenuRoot } from 'src/organisms/BottomToolbar/PreferencesMenu'
+import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { TBook } from '~/db'
@@ -102,8 +103,8 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 				})}
 			>
 				<div
-					className={flex({
-						alignItems: 'center',
+					className={hstack({
+						gap: '0',
 						h: '14',
 					})}
 				>
@@ -122,6 +123,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 						direction="right"
 						isDisabled={isLastChapterInBible}
 					/>
+					<PreferencesMenuRoot />
 				</div>
 			</div>
 		</BottomToolbarContainer>
