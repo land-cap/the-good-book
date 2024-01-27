@@ -12,7 +12,7 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
-import { IncrementInput } from '~/organisms/TopToolbar/PreferencesMenu/IncrementInput'
+import { IncrementInput } from '~/organisms/BottomToolbar/PreferencesMenu/IncrementInput'
 import {
 	fontSizeOffsetAtom,
 	hideNonOriginalTextAtom,
