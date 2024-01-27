@@ -3,11 +3,11 @@
 import { useAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 import { useEffect } from 'react'
+import { PreferencesMenuRoot } from 'src/organisms/BottomToolbar/PreferencesMenu'
 import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { TBook } from '~/db'
-import { PreferencesMenuRoot } from '~/organisms/TopToolbar/PreferencesMenu'
 import {
 	isFirstChapterAtom,
 	isLastChapterAtom,
