@@ -1,6 +1,7 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
+import { splitEvery } from 'ramda'
 import { macrogrid } from 'styled-system/patterns'
 
 import {
@@ -9,9 +10,14 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 
+import { CrossReferenceList } from './CrossReferenceList'
 import { Header } from './Header'
 
-export const CrossReferencesMenu = () => {
+export const CrossReferencesMenu = ({ references }: { references: string }) => {
+	const referenceList = splitEvery(2)(references.split(/(\d)\./g)).map(
+		(reference) => reference.join(''),
+	)
+
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -30,6 +36,11 @@ export const CrossReferencesMenu = () => {
 				>
 					<div className={macrogrid()}>
 						<Header />
+						<CrossReferenceList>
+							{referenceList.map((reference) => (
+								<li key={reference}>{reference}</li>
+							))}
+						</CrossReferenceList>
 					</div>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>

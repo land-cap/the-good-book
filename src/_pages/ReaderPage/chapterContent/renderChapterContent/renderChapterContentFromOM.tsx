@@ -1,7 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
 
-import { CrossReferencesMenuRoot } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesModal/CrossReferencesMenuRoot'
-
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
@@ -11,6 +9,7 @@ import {
 	Verse,
 	VerseLabel,
 } from './ChapterContentComponents.client'
+import { CrossReferencesMenuRoot } from './CrossReferencesMenu'
 import {
 	type ChapterOM,
 	type ChapterOMNode,

@@ -9,12 +9,12 @@ import { fontSizeOffsetAtom, leadingAtom, verseBreaksLineAtom } from '~/state'
 export const chapterContentContainerRecipe = cva({
 	base: {
 		'--font-size': 'token(fontSizes.sm)',
-		sm: {
-			'--font-size': 'token(fontSizes.md)',
-		},
 		column: 'content',
 		mt: 'reader_gap',
 		lineHeight: '2em',
+		sm: {
+			'--font-size': 'token(fontSizes.md)',
+		},
 		'& :not(:where([data-component="Quote"], [data-component="Paragraph"])) + :where([data-component="Quote"], [data-component="Paragraph"])':
 			{
 				mt: 'reader_gap',

@@ -36,7 +36,6 @@ export const Verse = ({ children }: { children: ReactNode }) => {
 						cursor: 'text',
 						display: 'block',
 						pos: 'relative',
-						userSelect: 'text',
 					}),
 			)}
 		>

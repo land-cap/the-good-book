@@ -56,7 +56,7 @@ export const CrossReferencesMenuRoot = ({
 			>
 				&dagger;
 			</DialogTrigger>
-			{isClient ? <CrossReferencesMenu /> : null}
+			{isClient ? <CrossReferencesMenu references={references} /> : null}
 		</Dialog.Root>
 	)
 }
