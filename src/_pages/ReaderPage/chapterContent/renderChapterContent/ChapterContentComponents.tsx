@@ -24,17 +24,18 @@ export const CrossReference = ({
 }) => (
 	<span data-component="CrossReference" className={css({ pos: 'relative' })}>
 		&nbsp;
-		<sup
+		<span
 			className={css({
-				color: 'fg.faded',
-				fontFamily: 'sans',
-				fontSize: '0.75em',
-				fontWeight: '1000',
 				cursor: 'pointer',
+				m: '-1',
+				p: '1',
+				fontFamily: 'sans',
+				fontWeight: '1000',
+				color: 'fg.faded',
 			})}
 		>
 			&dagger;
-		</sup>
+		</span>
 		<span
 			className={css({
 				display: 'none',
