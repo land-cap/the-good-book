@@ -9,9 +9,12 @@ import {
 	fontSizeOffsetDefaultValue,
 	isFirstChapterAtom,
 	isLastChapterAtom,
+	leadingAtom,
+	leadingDefaultValue,
 	nextChapterURLAtom,
 	prevChapterURLAtom,
 	type TFontSizeOffset,
+	type TLeading,
 } from '~/state'
 
 export const UseReaderHotKeys = () => {
@@ -31,6 +34,24 @@ export const UseReaderHotKeys = () => {
 
 	const resetFontSize = () => setFontSizeOffset(fontSizeOffsetDefaultValue)
 
+	const setLeading = useSetAtom(leadingAtom)
+
+	const decreaseLeading = () => {
+		console.log('decrease leading')
+		setLeading((prev) => {
+			const newValue = prev - 0.25
+			return newValue >= 1.5 ? (newValue as TLeading) : prev
+		})
+	}
+
+	const increaseLeading = () =>
+		setLeading((prev) => {
+			const newValue = prev + 0.25
+			return newValue < 2.5 ? (newValue as TLeading) : prev
+		})
+
+	const resetLeading = () => setLeading(leadingDefaultValue)
+
 	const router = useRouter()
 
 	const prevChapterURL = useAtomValue(prevChapterURLAtom)
@@ -45,6 +66,9 @@ export const UseReaderHotKeys = () => {
 		['mod+-', decreaseFontSize],
 		['mod+=', increaseFontSize],
 		['mod+0', resetFontSize],
+		['shift+mod+-', decreaseLeading],
+		['shift+mod+=', increaseLeading],
+		['shift+mod+0', resetLeading],
 		['ArrowLeft', goToPrevChapter],
 		['ArrowRight', goToNextChapter],
 	])
