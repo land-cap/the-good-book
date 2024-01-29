@@ -20,8 +20,9 @@ export const CrossReferencePopover = ({
 			portalled
 			onOpenChange={({ open }) => setIsOpen(open)}
 			positioning={{
-				gutter: 0,
 				shift: 0,
+				overflowPadding: 32,
+				fitViewport: true,
 			}}
 		>
 			<Popover.Trigger>
@@ -47,8 +48,9 @@ export const CrossReferencePopover = ({
 					<Popover.Positioner>
 						<Popover.Content
 							className={css({
-								bg: 'bg.canvas',
+								maxW: 'calc(100vw - token(spacing.8) * 2)',
 								p: '4',
+								bg: 'bg.canvas',
 								borderWidth: '1px',
 								borderColor: 'fg',
 							})}
