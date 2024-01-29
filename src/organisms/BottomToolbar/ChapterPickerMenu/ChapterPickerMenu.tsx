@@ -104,7 +104,7 @@ export const ChapterPickerMenu = ({
 			onExitComplete={handleDialogExitComplete}
 		>
 			<Dialog.Trigger
-				className={cx(button(), css({ h: 'full', w: 'full' }))}
+				className={cx(button(), css({ h: 'full', flexGrow: 1 }))}
 				onClick={() => setIsDialogOpen(true)}
 			>
 				{currBook.book_name?.name} {currChapter}
