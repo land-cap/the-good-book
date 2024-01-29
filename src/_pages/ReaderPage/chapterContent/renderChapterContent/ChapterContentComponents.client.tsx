@@ -35,7 +35,7 @@ export const Verse = ({ children }: { children: ReactNode }) => {
 					css({
 						cursor: 'text',
 						display: 'block',
-						position: 'relative',
+						pos: 'relative',
 						userSelect: 'text',
 					}),
 			)}
@@ -129,7 +129,7 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 				verseBreaksLine &&
 					css({
 						left: '-2',
-						position: 'absolute',
+						pos: 'absolute',
 						sm: { left: '-3' },
 						top: 0,
 						transform: 'translateX(-100%)',

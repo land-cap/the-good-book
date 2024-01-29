@@ -22,7 +22,7 @@ export const CrossReference = ({
 }: {
 	referenceList: string
 }) => (
-	<span data-component="CrossReference" className={css({ cursor: 'pointer' })}>
+	<span data-component="CrossReference" className={css({ pos: 'relative' })}>
 		&nbsp;
 		<sup
 			className={css({
@@ -30,11 +30,21 @@ export const CrossReference = ({
 				fontFamily: 'sans',
 				fontSize: '0.75em',
 				fontWeight: '1000',
+				cursor: 'pointer',
 			})}
 		>
 			&dagger;
 		</sup>
-		<div className={css({ display: 'none' })}>{referenceList}</div>
+		<span
+			className={css({
+				display: 'none',
+				pos: 'absolute',
+				left: '0',
+				top: '0',
+			})}
+		>
+			{referenceList}
+		</span>
 	</span>
 )
 

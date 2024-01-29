@@ -1,6 +1,11 @@
 import { Fragment, type ReactNode } from 'react'
 
-import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
+import {
+	CrossReference,
+	FancyAside,
+	Paragraph,
+	Quote,
+} from './ChapterContentComponents'
 import {
 	JesusWords,
 	LargeSectionReference,
@@ -105,19 +110,15 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		}
 
 		if (nodeClass === 'cross-reference') {
-			return acc
-			//return [
-			//	<CrossReference
-			//		key={i}
-			//		isStudyMode={isStudyMode}
-			//		referenceList={
-			//			renderChapterContentFromOM(
-			//				item[NodeType],
-			//				isStudyMode,
-			//			) as unknown as string
-			//		}
-			//	/>,
-			//]
+			return [
+				...acc,
+				<CrossReference
+					key={i}
+					referenceList={
+						renderChapterContentFromOM(item[NodeType])[0] as unknown as string
+					}
+				/>,
+			]
 		}
 
 		if (nodeClass === 'jesus-words') {

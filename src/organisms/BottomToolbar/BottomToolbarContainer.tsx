@@ -13,7 +13,7 @@ export const BottomToolbarContainer = ({
 		className={macrogrid({
 			column: 'fullbleed',
 			forceGpu: true,
-			position: 'sticky',
+			pos: 'sticky',
 			bottom: '0',
 			bg: 'bg.canvas',
 			willChange: 'bottom, opacity',
