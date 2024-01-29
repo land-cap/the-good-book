@@ -1,6 +1,8 @@
 import { type ReactNode } from 'react'
 import { css } from 'styled-system/css'
 
+import { Icon } from '~/components'
+
 export const FancyAside = ({ children }: { children: ReactNode }) => (
 	<p
 		data-component="FancyAside"
@@ -24,17 +26,20 @@ export const CrossReference = ({
 }) => (
 	<span data-component="CrossReference" className={css({ pos: 'relative' })}>
 		&nbsp;
-		<sup
+		<span
 			className={css({
 				color: 'fg.faded',
 				fontFamily: 'sans',
-				fontSize: '0.75em',
 				fontWeight: '1000',
 				cursor: 'pointer',
+				verticalAlign: 'middle',
 			})}
 		>
-			&dagger;
-		</sup>
+			<Icon
+				name="open_in_new"
+				className={css({ fontSize: 'inherit', w: 'unset' })}
+			/>
+		</span>
 		<span
 			className={css({
 				display: 'none',
