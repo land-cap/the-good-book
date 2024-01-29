@@ -126,7 +126,6 @@ export const ChapterContentContainer = ({
 
 	return (
 		<div
-			data-component="ChapterContentContainer"
 			className={chapterContentContainerRecipe({
 				verseBreaksLine,
 				fontSize,
