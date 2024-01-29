@@ -8,9 +8,6 @@ export const isFirstChapterAtom = atom(false)
 
 export const isLastChapterAtom = atom(false)
 
-export const isPreferencesMenuOpenDefaultValue = false
-export const isPreferencesMenuOpenAtom = atom(isPreferencesMenuOpenDefaultValue)
-
 export type TFontSizeOffset = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 export const FONT_SIZE_OFFSET_COOKIE = 'fontSizeOffset'
 export const fontSizeOffsetDefaultValue = 0

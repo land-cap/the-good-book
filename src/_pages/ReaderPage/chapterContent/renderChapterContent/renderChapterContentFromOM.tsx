@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 
-import { CrossReferencePopover } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencePopover'
+import { CrossReferencesMenuRoot } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesModal/CrossReferencesMenuRoot'
 
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
@@ -109,7 +109,7 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		if (nodeClass === 'cross-reference') {
 			return [
 				...acc,
-				<CrossReferencePopover
+				<CrossReferencesMenuRoot
 					key={i}
 					references={
 						renderChapterContentFromOM(item[NodeType])[0] as unknown as string
