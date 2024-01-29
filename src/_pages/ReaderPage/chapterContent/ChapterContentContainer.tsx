@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai'
 import { type ReactNode } from 'react'
 import { cva } from 'styled-system/css'
 
-import { fontSizeOffsetAtom, leadingAtom } from '~/state'
+import { fontSizeOffsetAtom, leadingAtom, verseBreaksLineAtom } from '~/state'
 
 export const chapterContentContainerRecipe = cva({
 	base: {
@@ -15,9 +15,6 @@ export const chapterContentContainerRecipe = cva({
 		column: 'content',
 		mt: 'reader_gap',
 		lineHeight: '2em',
-		'& [data-component="Paragraph"] > *:first-child': {
-			textIndent: '1em',
-		},
 		'& :not(:where([data-component="Quote"], [data-component="Paragraph"])) + :where([data-component="Quote"], [data-component="Paragraph"])':
 			{
 				mt: 'reader_gap',
@@ -44,6 +41,13 @@ export const chapterContentContainerRecipe = cva({
 		},
 	},
 	variants: {
+		verseBreaksLine: {
+			false: {
+				'& [data-component="Paragraph"]': {
+					textIndent: '1em',
+				},
+			},
+		},
 		fontSize: {
 			[-2]: {
 				fontSize: 'calc(var(--font-size) - 2px)',
@@ -118,9 +122,16 @@ export const ChapterContentContainer = ({
 }) => {
 	const fontSize = useAtomValue(fontSizeOffsetAtom)
 	const leading = useAtomValue(leadingAtom)
+	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
 
 	return (
-		<div className={chapterContentContainerRecipe({ fontSize, leading })}>
+		<div
+			className={chapterContentContainerRecipe({
+				verseBreaksLine,
+				fontSize,
+				leading,
+			})}
+		>
 			{children}
 		</div>
 	)
