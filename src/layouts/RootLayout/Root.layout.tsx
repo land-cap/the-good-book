@@ -13,11 +13,13 @@ import {
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
-	HIDE_NON_ORIGINAL_TEXT_COOKIE,
-	hideNonOriginalTextDefaultValue,
 	LEADING_COOKIE,
 	leadingDefaultValue,
+	SHOW_CROSS_REFERENCES_COOKIE,
+	SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	SHOW_RED_LETTERS_COOKIE,
+	showCrossReferencesDefaultValue,
+	showNonOriginalTextDefaultValue,
 	showRedLettersDefaultValue,
 	type TFontSizeOffset,
 	type TLeading,
@@ -70,10 +72,12 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const savedLeading =
 		cookieStore.get(LEADING_COOKIE)?.value ?? leadingDefaultValue
 	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
-	const savedHideNonOriginalText = cookieStore.get(
-		HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	const savedShowNonOriginalText = cookieStore.get(
+		SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	)?.value
 	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
+	const savedShowCrossReferences = cookieStore.get(SHOW_CROSS_REFERENCES_COOKIE)
+		?.value
 
 	return (
 		<RootProviders>
@@ -84,13 +88,17 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					savedVerseBreaksLine,
 					verseBreaksLineDefaultValue,
 				)}
-				savedHideNonOriginalText={getBooleanCookieValue(
-					savedHideNonOriginalText,
-					hideNonOriginalTextDefaultValue,
+				savedShowNonOriginalText={getBooleanCookieValue(
+					savedShowNonOriginalText,
+					showNonOriginalTextDefaultValue,
 				)}
 				savedShowRedLetters={getBooleanCookieValue(
 					savedShowRedLetters,
 					showRedLettersDefaultValue,
+				)}
+				savedShowCrossReferences={getBooleanCookieValue(
+					savedShowCrossReferences,
+					showCrossReferencesDefaultValue,
 				)}
 			/>
 			<UseLockBodyScroll />

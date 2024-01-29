@@ -12,11 +12,11 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
-import { IncrementInput } from '~/organisms/BottomToolbar/PreferencesMenu/IncrementInput'
 import {
 	fontSizeOffsetAtom,
-	hideNonOriginalTextAtom,
 	leadingAtom,
+	showCrossReferencesAtom,
+	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	type TFontSizeOffset,
 	type TLeading,
@@ -24,6 +24,7 @@ import {
 } from '~/state'
 
 import { Header } from './Header'
+import { IncrementInput } from './IncrementInput'
 import { PreferencesList } from './PreferencesList'
 import { SwitchInput } from './SwitchInput'
 
@@ -84,10 +85,17 @@ export const PreferencesMenu = () => {
 								label="Start verse on new line"
 							/>
 							<SwitchInput
-								valueAtom={hideNonOriginalTextAtom}
-								label="Hide non-original text"
+								valueAtom={showNonOriginalTextAtom}
+								label="Show non-original text"
 							/>
-							<SwitchInput valueAtom={showRedLettersAtom} label="Red letters" />
+							<SwitchInput
+								valueAtom={showRedLettersAtom}
+								label="Show red letters"
+							/>
+							<SwitchInput
+								valueAtom={showCrossReferencesAtom}
+								label="Show cross references"
+							/>
 						</PreferencesList>
 					</div>
 				</Container_OverlayMenu>

@@ -27,10 +27,14 @@ export const VERSE_BREAKS_LINE_COOKIE = 'verseBreaksLine'
 export const verseBreaksLineDefaultValue = true
 export const verseBreaksLineAtom = atom(verseBreaksLineDefaultValue)
 
-export const HIDE_NON_ORIGINAL_TEXT_COOKIE = 'hideNonOriginalText'
-export const hideNonOriginalTextDefaultValue = false
-export const hideNonOriginalTextAtom = atom(hideNonOriginalTextDefaultValue)
+export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'showNonOriginalText'
+export const showNonOriginalTextDefaultValue = true
+export const showNonOriginalTextAtom = atom(showNonOriginalTextDefaultValue)
 
 export const SHOW_RED_LETTERS_COOKIE = 'showRedLetters'
 export const showRedLettersDefaultValue = true
 export const showRedLettersAtom = atom(showRedLettersDefaultValue)
+
+export const SHOW_CROSS_REFERENCES_COOKIE = 'showCrossReferences'
+export const showCrossReferencesDefaultValue = true
+export const showCrossReferencesAtom = atom(showCrossReferencesDefaultValue)

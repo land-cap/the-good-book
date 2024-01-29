@@ -10,11 +10,13 @@ import { setCookie } from '~/app/action'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetAtom,
-	HIDE_NON_ORIGINAL_TEXT_COOKIE,
-	hideNonOriginalTextAtom,
 	LEADING_COOKIE,
 	leadingAtom,
+	SHOW_CROSS_REFERENCES_COOKIE,
+	SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	SHOW_RED_LETTERS_COOKIE,
+	showCrossReferencesAtom,
+	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	type TFontSizeOffset,
 	type TLeading,
@@ -48,14 +50,16 @@ export const SetUpPreferencesMenuState = ({
 	savedFontSizeOffset,
 	savedLeading,
 	savedVerseBreaksLine,
-	savedHideNonOriginalText,
+	savedShowNonOriginalText,
 	savedShowRedLetters,
+	savedShowCrossReferences,
 }: {
 	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
 	savedVerseBreaksLine: boolean
-	savedHideNonOriginalText: boolean
+	savedShowNonOriginalText: boolean
 	savedShowRedLetters: boolean
+	savedShowCrossReferences: boolean
 }) => {
 	useSetupClientState(
 		fontSizeOffsetAtom,
@@ -69,14 +73,19 @@ export const SetUpPreferencesMenuState = ({
 		VERSE_BREAKS_LINE_COOKIE,
 	)
 	useSetupClientState(
-		hideNonOriginalTextAtom,
-		savedHideNonOriginalText,
-		HIDE_NON_ORIGINAL_TEXT_COOKIE,
+		showNonOriginalTextAtom,
+		savedShowNonOriginalText,
+		SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	)
 	useSetupClientState(
 		showRedLettersAtom,
 		savedShowRedLetters,
 		SHOW_RED_LETTERS_COOKIE,
+	)
+	useSetupClientState(
+		showCrossReferencesAtom,
+		savedShowCrossReferences,
+		SHOW_CROSS_REFERENCES_COOKIE,
 	)
 
 	return null

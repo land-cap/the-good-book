@@ -6,7 +6,8 @@ import { css, cx } from 'styled-system/css'
 import { caption } from 'styled-system/patterns'
 
 import {
-	hideNonOriginalTextAtom,
+	showCrossReferencesAtom,
+	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	verseBreaksLineAtom,
 } from '~/state'
@@ -15,9 +16,9 @@ const makeNonOriginalTextHideable =
 	<P extends NonNullable<unknown>>(Component: (props: P) => ReactNode) =>
 	//eslint-disable-next-line react/display-name
 	(props: P) => {
-		const hideNonOriginalText = useAtomValue(hideNonOriginalTextAtom)
+		const showNonOriginalText = useAtomValue(showNonOriginalTextAtom)
 
-		if (hideNonOriginalText) {
+		if (!showNonOriginalText) {
 			return null
 		}
 
@@ -152,4 +153,40 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 			{!verseBreaksLine && <>&nbsp;</>}
 		</span>
 	)
+}
+
+export const CrossReference = ({
+	referenceList,
+}: {
+	referenceList: string
+}) => {
+	const showCrossReferences = useAtomValue(showCrossReferencesAtom)
+
+	return showCrossReferences ? (
+		<span data-component="CrossReference" className={css({ pos: 'relative' })}>
+			&nbsp;
+			<span
+				className={css({
+					cursor: 'pointer',
+					m: '-1',
+					p: '1',
+					fontFamily: 'sans',
+					fontWeight: '1000',
+					color: 'fg.faded',
+				})}
+			>
+				&dagger;
+			</span>
+			<span
+				className={css({
+					display: 'none',
+					pos: 'absolute',
+					left: '0',
+					top: '0',
+				})}
+			>
+				{referenceList}
+			</span>
+		</span>
+	) : null
 }

@@ -1,12 +1,8 @@
 import { Fragment, type ReactNode } from 'react'
 
+import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	CrossReference,
-	FancyAside,
-	Paragraph,
-	Quote,
-} from './ChapterContentComponents'
-import {
 	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
