@@ -15,8 +15,8 @@ export const chapterContentContainerRecipe = cva({
 		column: 'content',
 		mt: 'reader_gap',
 		lineHeight: '2em',
-		'& * + [data-component="Paragraph"]': {
-			mt: 'reader_gap',
+		'& [data-component="Paragraph"] > *:first-child': {
+			textIndent: '1em',
 		},
 		'& :not(:where([data-component="Quote"], [data-component="Paragraph"])) + :where([data-component="Quote"], [data-component="Paragraph"])':
 			{
