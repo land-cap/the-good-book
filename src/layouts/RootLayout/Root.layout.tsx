@@ -5,7 +5,6 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { getBookListWithCache } from '~/db'
-import { UseDisableVercelLiveFeedback } from '~/layouts/RootLayout/UseDisableVercelLiveFeedback'
 import {
 	BottomToolbar,
 	SetUpPreferencesMenuState,
@@ -95,7 +94,6 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				)}
 			/>
 			<UseLockBodyScroll />
-			<UseDisableVercelLiveFeedback />
 			<html
 				lang="en"
 				className={cx(fontGeist.variable, fontGeistMono.variable)}
