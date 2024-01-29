@@ -1,9 +1,8 @@
 import { Fragment, type ReactNode } from 'react'
 
-import { CrossReferencePopover } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencePopover'
-
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
+	CrossReference,
 	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
@@ -109,7 +108,7 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		if (nodeClass === 'cross-reference') {
 			return [
 				...acc,
-				<CrossReferencePopover
+				<CrossReference
 					key={i}
 					references={
 						renderChapterContentFromOM(item[NodeType])[0] as unknown as string

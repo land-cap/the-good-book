@@ -1,12 +1,11 @@
 'use client'
 
 import { useAtomValue } from 'jotai'
-import { type ReactNode } from 'react'
+import { type ReactNode, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { caption } from 'styled-system/patterns'
 
 import {
-	showCrossReferencesAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	verseBreaksLineAtom,
@@ -155,17 +154,14 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 	)
 }
 
-export const CrossReference = ({
-	referenceList,
-}: {
-	referenceList: string
-}) => {
-	const showCrossReferences = useAtomValue(showCrossReferencesAtom)
+export const CrossReference = ({ references }: { references: string }) => {
+	const [show, setShow] = useState(false)
 
-	return showCrossReferences ? (
-		<span data-component="CrossReference" className={css({ pos: 'relative' })}>
+	return (
+		<span data-component="CrossReference">
 			&nbsp;
 			<span
+				onClick={() => setShow(true)}
 				className={css({
 					cursor: 'pointer',
 					m: '-1',
@@ -179,14 +175,13 @@ export const CrossReference = ({
 			</span>
 			<span
 				className={css({
-					display: 'none',
-					pos: 'absolute',
-					left: '0',
-					top: '0',
+					display: show ? 'inline-block' : 'none',
+					w: 'full',
+					fontWeight: 'bold',
 				})}
 			>
-				{referenceList}
+				{references}
 			</span>
 		</span>
-	) : null
+	)
 }
