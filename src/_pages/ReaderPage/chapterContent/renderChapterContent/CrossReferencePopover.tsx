@@ -2,14 +2,16 @@
 
 import { Popover, Portal } from '@ark-ui/react'
 import { css } from 'styled-system/css'
+import { useIsClient } from 'usehooks-ts'
 
 export const CrossReferencePopover = ({
 	references,
 }: {
 	references: string
 }) => {
+	const isClient = useIsClient()
 	return (
-		<Popover.Root portalled data-component="CrossReference">
+		<Popover.Root data-component="CrossReference" portalled positioning={{}}>
 			<Popover.Trigger>
 				&nbsp;
 				<span
@@ -25,14 +27,16 @@ export const CrossReferencePopover = ({
 					&dagger;
 				</span>
 			</Popover.Trigger>
-			<Portal>
-				<Popover.Positioner>
-					<Popover.Content>
-						<Popover.Title>Cross References</Popover.Title>
-						<Popover.Description>{references}</Popover.Description>
-					</Popover.Content>
-				</Popover.Positioner>
-			</Portal>
+			{isClient ? (
+				<Portal>
+					<Popover.Positioner>
+						<Popover.Content>
+							<Popover.Title>Cross References</Popover.Title>
+							<Popover.Description>{references}</Popover.Description>
+						</Popover.Content>
+					</Popover.Positioner>
+				</Portal>
+			) : null}
 		</Popover.Root>
 	)
 }
