@@ -38,6 +38,19 @@ export const CrossReferencesMenu = ({
 	references?: string
 	footnote?: ReactNode[]
 }) => {
+	const currVerse = useContext(CurrVerseContext)
+
+	const { bookCode, chapter } = useParams<TReaderPageParams>()
+
+	const [bookName, setBookName] = useState('')
+
+	useEffect(() => {
+		void (async () => {
+			const bookName = await getBookName(bookCode)
+			setBookName(bookName)
+		})()
+	}, [bookCode])
+
 	const referenceList =
 		references &&
 		splitEvery(2)(references.split(/(\d)\./g))
@@ -49,6 +62,9 @@ export const CrossReferencesMenu = ({
 			const match = /\w+\./g.exec(reference)
 			const bookAbbr = match?.[0].replace(/\./g, '')
 			console.log(bookAbbr)
+			if (bookAbbr === 'Cap') return reference.replace('Cap.', bookName)
+			if (/Fapte /g.test(reference))
+				return reference.replace('Fapte', 'Faptele Apostolilor')
 			return bookAbbr
 				? reference
 						//@ts-ignore
@@ -58,18 +74,6 @@ export const CrossReferencesMenu = ({
 				: reference
 		},
 	)
-
-	const currVerse = useContext(CurrVerseContext)
-
-	const { bookCode, chapter } = useParams<TReaderPageParams>()
-
-	const [bookName, setBookName] = useState('')
-	useEffect(() => {
-		void (async () => {
-			const bookName = await getBookName(bookCode)
-			setBookName(bookName)
-		})()
-	}, [bookCode])
 
 	return (
 		<Portal>

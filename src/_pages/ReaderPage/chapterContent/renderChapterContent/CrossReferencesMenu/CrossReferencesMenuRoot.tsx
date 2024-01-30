@@ -1,12 +1,13 @@
 'use client'
 
 import { Dialog, DialogTrigger } from '@ark-ui/react'
+import { useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
 import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { useIsClient } from 'usehooks-ts'
 
-import { isScrollLockedAtom } from '~/state'
+import { isScrollLockedAtom, showCrossReferencesAtom } from '~/state'
 
 import { type ChapterOMNode } from '../normalizeOriginalChapterHTML'
 import { renderChapterContentFromOM } from '../renderChapterContentFromOM'
@@ -17,6 +18,8 @@ export const CrossReferencesMenuRoot = ({
 }: {
 	childrenOM: ChapterOMNode[]
 }) => {
+	const showCrossReferences = useAtomValue(showCrossReferencesAtom)
+
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
@@ -42,6 +45,10 @@ export const CrossReferencesMenuRoot = ({
 				),
 		  )
 		: null
+
+	if (!showCrossReferences) {
+		return null
+	}
 
 	return (
 		<Dialog.Root
