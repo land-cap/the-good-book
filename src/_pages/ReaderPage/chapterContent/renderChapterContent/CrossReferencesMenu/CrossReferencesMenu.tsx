@@ -2,10 +2,11 @@
 
 import { Portal } from '@ark-ui/react'
 import { splitEvery } from 'ramda'
-import { type ReactNode } from 'react'
+import { type ReactNode, useContext } from 'react'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
 
+import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import {
 	Backdrop_OverlayMenu,
 	Container_OverlayMenu,
@@ -36,6 +37,8 @@ export const CrossReferencesMenu = ({
 			.map((reference) => reference.join(''))
 			.filter((reference) => reference !== '')
 
+	const currVerse = useContext(CurrVerseContext)
+
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -53,7 +56,7 @@ export const CrossReferencesMenu = ({
 					}}
 				>
 					<div className={macrogrid()}>
-						<Header />
+						<Header title={`${currVerse}`} />
 						{!!referenceList && (
 							<CrossReferenceList>
 								{referenceList.map((reference) => (

@@ -1,7 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
 
-import { Verse } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
-
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
@@ -17,6 +15,7 @@ import {
 	type IntrinsicEl,
 	type TextNode,
 } from './normalizeOriginalChapterHTML'
+import { Verse } from './Verse'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
@@ -88,9 +87,19 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		}
 
 		if (nodeClass === 'verse') {
+			const verseNumberNode = item[NodeType].find(
+				//@ts-ignore
+				//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+				(node) => node[':@'].attrs.className === 'verse-label',
+			)
+			//@ts-ignore
+			//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			const verseNumber = verseNumberNode?.span?.[0]?.['#text'] as number
 			return [
 				...acc,
-				<Verse key={i}>{renderChapterContentFromOM(item[NodeType])}</Verse>,
+				<Verse key={i} verseNumber={verseNumber}>
+					{renderChapterContentFromOM(item[NodeType])}
+				</Verse>,
 			]
 		}
 
