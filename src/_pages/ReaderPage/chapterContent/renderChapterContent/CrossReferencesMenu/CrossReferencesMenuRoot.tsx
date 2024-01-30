@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { useIsClient } from 'usehooks-ts'
 
-import { CrossReferencesMenu } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesMenu/CrossReferencesMenu'
 import { isScrollLockedAtom } from '~/state'
 
 import { type ChapterOMNode } from '../normalizeOriginalChapterHTML'
 import { renderChapterContentFromOM } from '../renderChapterContentFromOM'
+import { CrossReferencesMenu } from './CrossReferencesMenu'
 
 export const CrossReferencesMenuRoot = ({
 	childrenOM,
@@ -33,7 +33,15 @@ export const CrossReferencesMenuRoot = ({
 	//@ts-ignore
 	const references = isReference ? (childrenOM[0]?.['#text'] as string) : null
 
-	const footnote = !isReference ? renderChapterContentFromOM(childrenOM) : null
+	const footnote = !isReference
+		? renderChapterContentFromOM(
+				childrenOM.filter(
+					//@ts-ignore
+					//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+					(OMItem) => OMItem?.[':@']?.attrs?.className !== 'fr',
+				),
+		  )
+		: null
 
 	return (
 		<Dialog.Root
