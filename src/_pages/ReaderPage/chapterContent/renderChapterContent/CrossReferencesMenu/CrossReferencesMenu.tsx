@@ -61,7 +61,6 @@ export const CrossReferencesMenu = ({
 		(reference) => {
 			const match = /\w+\./g.exec(reference)
 			const bookAbbr = match?.[0].replace(/\./g, '')
-			console.log(bookAbbr)
 			if (bookAbbr === 'Cap') return reference.replace('Cap.', bookName)
 			if (/Fapte /g.test(reference))
 				return reference.replace('Fapte', 'Faptele Apostolilor')

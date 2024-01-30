@@ -81,8 +81,6 @@ export const CrossReferencesMenuRoot = ({
 			>
 				&dagger;
 			</DialogTrigger>
-			<span className={css({ color: 'blue' })}>{references}</span>
-			<span className={css({ color: 'red' })}>{footnote}</span>
 			{isClient ? (
 				<CrossReferencesMenu
 					references={references ?? undefined}
