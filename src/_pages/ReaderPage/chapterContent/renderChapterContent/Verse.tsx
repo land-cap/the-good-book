@@ -17,8 +17,6 @@ export const Verse = ({
 }) => {
 	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
 
-	console.log('verse number', verseNumber)
-
 	return (
 		<CurrVerseContext.Provider value={verseNumber}>
 			<span
