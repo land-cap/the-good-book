@@ -2,6 +2,8 @@
 
 import { Portal } from '@ark-ui/react'
 import { splitEvery } from 'ramda'
+import { type ReactNode } from 'react'
+import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
 
 import {
@@ -13,10 +15,26 @@ import {
 import { CrossReferenceList } from './CrossReferenceList'
 import { Header } from './Header'
 
-export const CrossReferencesMenu = ({ references }: { references: string }) => {
-	const referenceList = splitEvery(2)(references.split(/(\d)\./g)).map(
-		(reference) => reference.join(''),
-	)
+const Footnote = styled('p', {
+	base: {
+		column: 'content',
+		my: '8',
+		lineHeight: '2',
+	},
+})
+
+export const CrossReferencesMenu = ({
+	references,
+	footnote,
+}: {
+	references?: string
+	footnote?: ReactNode[]
+}) => {
+	const referenceList =
+		references &&
+		splitEvery(2)(references.split(/(\d)\./g)).map((reference) =>
+			reference.join(''),
+		)
 
 	return (
 		<Portal>
@@ -36,11 +54,14 @@ export const CrossReferencesMenu = ({ references }: { references: string }) => {
 				>
 					<div className={macrogrid()}>
 						<Header />
-						<CrossReferenceList>
-							{referenceList.map((reference) => (
-								<li key={reference}>{reference}</li>
-							))}
-						</CrossReferenceList>
+						{!!referenceList && (
+							<CrossReferenceList>
+								{referenceList.map((reference) => (
+									<li key={reference}>{reference}</li>
+								))}
+							</CrossReferenceList>
+						)}
+						{!!footnote && <Footnote>{footnote}</Footnote>}
 					</div>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>

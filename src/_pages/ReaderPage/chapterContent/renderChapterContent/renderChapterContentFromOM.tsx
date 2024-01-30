@@ -108,12 +108,7 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		if (nodeClass === 'cross-reference') {
 			return [
 				...acc,
-				<CrossReferencesMenuRoot
-					key={i}
-					references={
-						renderChapterContentFromOM(item[NodeType])[0] as unknown as string
-					}
-				/>,
+				<CrossReferencesMenuRoot key={i} childrenOM={item[NodeType]} />,
 			]
 		}
 

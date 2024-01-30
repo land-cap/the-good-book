@@ -6,14 +6,16 @@ import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { useIsClient } from 'usehooks-ts'
 
+import { CrossReferencesMenu } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesMenu/CrossReferencesMenu'
 import { isScrollLockedAtom } from '~/state'
 
-import { CrossReferencesMenu } from './CrossReferencesMenu'
+import { type ChapterOMNode } from '../normalizeOriginalChapterHTML'
+import { renderChapterContentFromOM } from '../renderChapterContentFromOM'
 
 export const CrossReferencesMenuRoot = ({
-	references,
+	childrenOM,
 }: {
-	references: string
+	childrenOM: ChapterOMNode[]
 }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -24,6 +26,14 @@ export const CrossReferencesMenuRoot = ({
 	)
 
 	const isClient = useIsClient()
+
+	//@ts-ignore
+	const isReference = childrenOM.length === 1 && !!childrenOM[0]?.['#text']
+
+	//@ts-ignore
+	const references = isReference ? (childrenOM[0]?.['#text'] as string) : null
+
+	const footnote = !isReference ? renderChapterContentFromOM(childrenOM) : null
 
 	return (
 		<Dialog.Root
@@ -56,7 +66,14 @@ export const CrossReferencesMenuRoot = ({
 			>
 				&dagger;
 			</DialogTrigger>
-			{isClient ? <CrossReferencesMenu references={references} /> : null}
+			<span className={css({ color: 'blue' })}>{references}</span>
+			<span className={css({ color: 'red' })}>{footnote}</span>
+			{isClient ? (
+				<CrossReferencesMenu
+					references={references ?? undefined}
+					footnote={footnote ?? undefined}
+				/>
+			) : null}
 		</Dialog.Root>
 	)
 }
