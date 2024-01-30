@@ -24,26 +24,6 @@ const makeNonOriginalTextHideable =
 		return <Component {...props} />
 	}
 
-export const Verse = ({ children }: { children: ReactNode }) => {
-	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
-
-	return (
-		<span
-			data-component="Verse"
-			className={cx(
-				verseBreaksLine &&
-					css({
-						cursor: 'text',
-						display: 'block',
-						pos: 'relative',
-					}),
-			)}
-		>
-			{children}
-		</span>
-	)
-}
-
 export const JesusWords = ({ children }: { children: ReactNode }) => {
 	const showRedLetters = useAtomValue(showRedLettersAtom)
 

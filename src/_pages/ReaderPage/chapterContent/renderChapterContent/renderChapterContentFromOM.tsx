@@ -1,12 +1,13 @@
 import { Fragment, type ReactNode } from 'react'
 
+import { Verse } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
+
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
 	SectionTitle,
-	Verse,
 	VerseLabel,
 } from './ChapterContentComponents.client'
 import { CrossReferencesMenuRoot } from './CrossReferencesMenu'

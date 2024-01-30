@@ -32,9 +32,9 @@ export const CrossReferencesMenu = ({
 }) => {
 	const referenceList =
 		references &&
-		splitEvery(2)(references.split(/(\d)\./g)).map((reference) =>
-			reference.join(''),
-		)
+		splitEvery(2)(references.split(/(\d)\./g))
+			.map((reference) => reference.join(''))
+			.filter((reference) => reference !== '')
 
 	return (
 		<Portal>
