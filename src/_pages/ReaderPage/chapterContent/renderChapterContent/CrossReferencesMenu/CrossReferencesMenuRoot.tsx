@@ -3,15 +3,38 @@
 import { Dialog, DialogTrigger } from '@ark-ui/react'
 import { useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
-import { useEffect, useState } from 'react'
+import { Fragment, type ReactNode, useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { useIsClient } from 'usehooks-ts'
 
 import { isScrollLockedAtom, showCrossReferencesAtom } from '~/state'
 
-import { type ChapterOMNode } from '../normalizeOriginalChapterHTML'
-import { renderChapterContentFromOM } from '../renderChapterContentFromOM'
+import {
+	type ChapterOMNode,
+	type IntrinsicEl,
+	type TextNode,
+} from '../normalizeOriginalChapterHTML'
 import { CrossReferencesMenu } from './CrossReferencesMenu'
+
+function isTextNode(node: ChapterOMNode): node is TextNode {
+	return (node as TextNode)['#text'] !== undefined
+}
+
+const buildFootnote = (chapterOM: ChapterOMNode[]) =>
+	chapterOM.reduce((acc, item, i) => {
+		if (isTextNode(item)) {
+			return [...acc, item['#text']]
+		}
+
+		const NodeType = Object.keys(item).filter(
+			(keys) => keys !== ':@',
+		)[0] as unknown as IntrinsicEl
+
+		return [
+			...acc,
+			<Fragment key={i}>{buildFootnote(item[NodeType])}</Fragment>,
+		]
+	}, [] as ReactNode[])
 
 export const CrossReferencesMenuRoot = ({
 	childrenOM,
@@ -37,7 +60,7 @@ export const CrossReferencesMenuRoot = ({
 	const references = isReference ? (childrenOM[0]?.['#text'] as string) : null
 
 	const footnote = !isReference
-		? renderChapterContentFromOM(
+		? buildFootnote(
 				childrenOM.filter(
 					//@ts-ignore
 					//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
