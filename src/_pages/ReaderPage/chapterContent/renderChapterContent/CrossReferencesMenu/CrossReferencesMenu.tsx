@@ -54,16 +54,6 @@ export const CrossReferencesMenu = ({
 		? processReferencesText(currBookName, chapter)(referencesText)
 		: undefined
 
-	//console.log(referenceList)
-
-	const referenceURLList = referenceList?.map((reference) => {
-		const matches = /^(\d )?\w+/g.exec(reference)
-		const bookName = matches?.[0].replace(/^(\d )/g, '')
-		const chapter = reference.replace(/^.* (\d+):(\d+(,\d+)*)/g, '$1')
-		//console.log(chapter, reference)
-		return `${bookName}`
-	})
-
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -91,7 +81,6 @@ export const CrossReferencesMenu = ({
 											className={css({
 												textDecoration: 'underline',
 												textDecorationColor: 'fg.faded',
-												textUnderlineOffset: '0.25em',
 											})}
 										>
 											{reference}

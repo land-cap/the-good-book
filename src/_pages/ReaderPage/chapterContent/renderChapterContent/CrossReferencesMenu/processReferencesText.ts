@@ -1,4 +1,4 @@
-import { map, pipe, splitEvery, trim } from 'ramda'
+import { flatten, map, pipe, splitEvery, trim } from 'ramda'
 
 import { bookAbbrToBookName } from './bookAbbrToBookName'
 
@@ -14,7 +14,7 @@ const replaceVersAbbr = (
 	reference: string,
 	currBookName: string,
 	currChapter: string,
-) => reference.replace('Vers. ', `${currBookName} ${currChapter}`)
+) => reference.replace('Vers. ', `${currBookName} ${currChapter}:`)
 
 const replaceBookAbbr = (reference: string) => {
 	const match = /\S+\./g.exec(reference)
@@ -32,6 +32,16 @@ const replaceBookAbbr = (reference: string) => {
 const replaceAbbrWithoutPeriod = (reference: string) =>
 	reference.replace('Fapte', 'Faptele Apostolilor')
 
+const splitSameBookReferences = (reference: string) => {
+	const referenceList = reference.split('; ')
+	const bookNameRegex = /^(\d )?(\S+ )+/g
+	const firstReference = referenceList[0]
+	const bookNameMatch = firstReference?.match(bookNameRegex)
+	referenceList[0] =
+		firstReference?.replace(bookNameRegex, '') ?? referenceList[0]!
+	return referenceList.map((reference) => `${bookNameMatch?.[0]}${reference}`)
+}
+
 export const processReferencesText = (
 	currBookName: string,
 	currChapter: string,
@@ -43,4 +53,6 @@ export const processReferencesText = (
 		map(replaceBookAbbr),
 		map(replaceAbbrWithoutPeriod),
 		map(trim),
+		map(splitSameBookReferences),
+		(referenceListList: string[][]) => flatten(referenceListList),
 	)

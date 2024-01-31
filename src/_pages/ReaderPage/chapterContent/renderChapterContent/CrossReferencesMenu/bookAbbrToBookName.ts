@@ -1,4 +1,5 @@
 export const bookAbbrToBookName = {
+	Gen: 'Geneza',
 	Ps: 'Psalmul',
 	Is: 'Isaia',
 	Evr: 'Evrei',
