@@ -106,7 +106,7 @@ export const CrossReferencesMenuRoot = ({
 			</DialogTrigger>
 			{isClient ? (
 				<CrossReferencesMenu
-					references={references ?? undefined}
+					referencesText={references ?? undefined}
 					footnote={footnote ?? undefined}
 				/>
 			) : null}

@@ -1,10 +1,9 @@
-export const bookAbbreviations = {
+export const bookAbbrToBookName = {
 	Ps: 'Psalmul',
 	Is: 'Isaia',
 	Evr: 'Evrei',
 	Ier: 'Ieremia',
 	Zah: 'Zaharia',
-	Fapte: 'Faptele Apostolilor',
 	Col: 'Coloseni',
 	Apoc: 'Apocalipsa',
 	Cor: 'Corinteni',
@@ -21,7 +20,7 @@ export const bookAbbreviations = {
 	Dan: 'Daniel',
 	Cron: 'Cronici',
 	Neem: 'Neemia',
-	['Țef']: 'Țefania',
+	['Ţef']: 'Ţefania',
 	Jud: 'Judecători',
 	['Împ']: 'Împăraților',
 	Sam: 'Samuel',

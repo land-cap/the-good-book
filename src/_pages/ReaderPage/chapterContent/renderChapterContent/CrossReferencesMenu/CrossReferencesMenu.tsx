@@ -3,13 +3,12 @@
 import { Portal } from '@ark-ui/react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { splitEvery } from 'ramda'
 import { type ReactNode, useContext, useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
 
-import { bookAbbreviations } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesMenu/bookAbbreviations'
+import { processReferencesText } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesMenu/processReferencesText'
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import {
 	Backdrop_OverlayMenu,
@@ -32,53 +31,38 @@ const Footnote = styled('p', {
 })
 
 export const CrossReferencesMenu = ({
-	references,
+	referencesText,
 	footnote,
 }: {
-	references?: string
+	referencesText?: string
 	footnote?: ReactNode[]
 }) => {
 	const currVerse = useContext(CurrVerseContext)
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
-	const [bookName, setBookName] = useState('')
+	const [currBookName, setCurrBookName] = useState('')
 
 	useEffect(() => {
 		void (async () => {
 			const bookName = await getBookName(bookCode)
-			setBookName(bookName)
+			setCurrBookName(bookName)
 		})()
 	}, [bookCode])
 
-	const referenceList =
-		references &&
-		splitEvery(2)(references.split(/(\d)\./g))
-			.map((reference) => reference.join(''))
-			.filter((reference) => reference !== '')
+	const referenceList = referencesText
+		? processReferencesText(currBookName, chapter)(referencesText)
+		: undefined
 
-	const referenceListWithBookName = (referenceList as string[])?.map(
-		(reference) => {
-			const match = /\w+\./g.exec(reference)
-			const bookAbbr = match?.[0].replace(/\./g, '')
+	//console.log(referenceList)
 
-			if (bookAbbr === 'Cap') {
-				return reference.replace('Cap.', bookName)
-			}
-
-			if (/Fapte /g.test(reference)) {
-				return reference.replace('Fapte', 'Faptele Apostolilor')
-			}
-
-			return bookAbbr
-				? reference
-						//@ts-ignore
-						//eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-						.replace(bookAbbr, bookAbbreviations?.[bookAbbr] || bookAbbr)
-						.replace(/(\w+)\./g, '$1')
-				: reference
-		},
-	)
+	const referenceURLList = referenceList?.map((reference) => {
+		const matches = /^(\d )?\w+/g.exec(reference)
+		const bookName = matches?.[0].replace(/^(\d )/g, '')
+		const chapter = reference.replace(/^.* (\d+):(\d+(,\d+)*)/g, '$1')
+		//console.log(chapter, reference)
+		return `${bookName}`
+	})
 
 	return (
 		<Portal>
@@ -97,10 +81,10 @@ export const CrossReferencesMenu = ({
 					}}
 				>
 					<div className={macrogrid()}>
-						<Header title={`${bookName} ${chapter}:${currVerse}`} />
-						{!!referenceListWithBookName && (
+						<Header title={`${currBookName} ${chapter}:${currVerse}`} />
+						{!!referenceList && (
 							<CrossReferenceList>
-								{referenceListWithBookName.map((reference) => (
+								{referenceList.map((reference) => (
 									<li key={reference}>
 										<Link
 											href="/mat/1"
