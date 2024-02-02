@@ -45,18 +45,8 @@ export const VerseDetailsButton = () => {
 	}
 
 	return (
-		<span>
+		<>
 			&nbsp;
-			<span
-				className={css({
-					cursor: 'pointer',
-					m: '-1',
-					p: '1',
-					fontFamily: 'sans',
-					fontWeight: '1000',
-					color: 'fg.faded',
-				})}
-			></span>
 			<button
 				onClick={() => setDetailsMenuCurrVerse(currVerse)}
 				className={css({
@@ -65,12 +55,17 @@ export const VerseDetailsButton = () => {
 					m: '-1',
 					p: '1',
 					fontFamily: 'sans',
-					fontWeight: '1000',
+					fontWeight: 'bold',
 					color: 'fg.faded',
+					_active: { color: 'fg' },
+					_canHover: { _hover: { color: 'fg' } },
+					transition: 'colors',
+					transitionDuration: 'fast',
+					transitionTimingFunction: 'ease-out',
 				})}
 			>
 				&dagger;
 			</button>
-		</span>
+		</>
 	)
 }
