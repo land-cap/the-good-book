@@ -1,20 +1,19 @@
 'use client'
 
-import { Dialog, DialogTrigger } from '@ark-ui/react'
+import { Dialog } from '@ark-ui/react'
 import { useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
 import { Fragment, type ReactNode, useEffect, useState } from 'react'
-import { css } from 'styled-system/css'
 import { useIsClient } from 'usehooks-ts'
-
-import { isScrollLockedAtom, showCrossReferencesAtom } from '~/state'
 
 import {
 	type ChapterOMNode,
 	type IntrinsicEl,
 	type TextNode,
-} from '../normalizeOriginalChapterHTML'
-import { CrossReferencesMenu } from './CrossReferencesMenu'
+} from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
+import { isScrollLockedAtom, showVerseDetailsAtom } from '~/state'
+
+import { VerseDetailsMenu } from './VerseDetailsMenu'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
@@ -36,12 +35,12 @@ const buildFootnote = (chapterOM: ChapterOMNode[]) =>
 		]
 	}, [] as ReactNode[])
 
-export const CrossReferencesMenuRoot = ({
+export const VerseDetailsMenuRoot = ({
 	childrenOM,
 }: {
 	childrenOM: ChapterOMNode[]
 }) => {
-	const showCrossReferences = useAtomValue(showCrossReferencesAtom)
+	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -69,7 +68,7 @@ export const CrossReferencesMenuRoot = ({
 		  )
 		: null
 
-	if (!showCrossReferences) {
+	if (!showVerseDetails) {
 		return null
 	}
 
@@ -79,33 +78,8 @@ export const CrossReferencesMenuRoot = ({
 			open={isMenuOpen}
 			onOpenChange={({ open }) => setIsMenuOpen(open)}
 		>
-			&nbsp;
-			<span
-				className={css({
-					cursor: 'pointer',
-					m: '-1',
-					p: '1',
-					fontFamily: 'sans',
-					fontWeight: '1000',
-					color: 'fg.faded',
-				})}
-			></span>
-			<DialogTrigger
-				onClick={() => setIsMenuOpen(true)}
-				className={css({
-					cursor: 'pointer',
-					display: 'inline',
-					m: '-1',
-					p: '1',
-					fontFamily: 'sans',
-					fontWeight: '1000',
-					color: 'fg.faded',
-				})}
-			>
-				&dagger;
-			</DialogTrigger>
 			{isClient ? (
-				<CrossReferencesMenu
+				<VerseDetailsMenu
 					referencesText={references ?? undefined}
 					footnote={footnote ?? undefined}
 				/>

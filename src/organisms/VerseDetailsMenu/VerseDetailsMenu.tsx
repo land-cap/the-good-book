@@ -8,7 +8,6 @@ import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
 
-import { processReferencesText } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/CrossReferencesMenu/processReferencesText'
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import {
 	Backdrop_OverlayMenu,
@@ -16,10 +15,11 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 
-import { CurrVerseContext } from '../../renderChapterContent/Verse'
+import { CurrVerseContext } from '../../_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import { CrossReferenceList } from './CrossReferenceList'
 import { getBookName } from './getBookName'
 import { Header } from './Header'
+import { processReferencesText } from './processReferencesText'
 
 const Footnote = styled('p', {
 	base: {
@@ -30,7 +30,7 @@ const Footnote = styled('p', {
 	},
 })
 
-export const CrossReferencesMenu = ({
+export const VerseDetailsMenu = ({
 	referencesText,
 	footnote,
 }: {
@@ -50,9 +50,14 @@ export const CrossReferencesMenu = ({
 		})()
 	}, [bookCode])
 
-	const referenceList = referencesText
-		? processReferencesText(currBookName, chapter)(referencesText)
-		: undefined
+	const [referenceList, setReference] = useState([] as string[])
+
+	useEffect(() => {
+		const references = referencesText
+			? processReferencesText(currBookName, chapter)(referencesText)
+			: undefined
+		references && setReference(references)
+	}, [chapter, currBookName, referencesText])
 
 	return (
 		<Portal>

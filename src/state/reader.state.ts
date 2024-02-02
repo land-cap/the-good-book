@@ -8,6 +8,16 @@ export const isFirstChapterAtom = atom(false)
 
 export const isLastChapterAtom = atom(false)
 
+/**
+ * VERSE DETAILS STATE
+ */
+
+export const verseDetailsMenuCurrVerseAtom = atom<number | null>(null)
+
+/**
+ * PREFERENCES STATE
+ */
+
 export type TFontSizeOffset = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 export const FONT_SIZE_OFFSET_COOKIE = 'fontSizeOffset'
 export const fontSizeOffsetDefaultValue = 0
@@ -32,6 +42,6 @@ export const SHOW_RED_LETTERS_COOKIE = 'showRedLetters'
 export const showRedLettersDefaultValue = true
 export const showRedLettersAtom = atom(showRedLettersDefaultValue)
 
-export const SHOW_CROSS_REFERENCES_COOKIE = 'showCrossReferences'
-export const showCrossReferencesDefaultValue = true
-export const showCrossReferencesAtom = atom(showCrossReferencesDefaultValue)
+export const SHOW_VERSE_DETAILS_COOKIE = 'showVerseDetails'
+export const showVerseDetailsDefaultValue = true
+export const showVerseDetailsAtom = atom(showVerseDetailsDefaultValue)

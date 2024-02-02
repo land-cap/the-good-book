@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 
+import { VerseDetailsButton } from '../../../../organisms/VerseDetailsMenu'
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
@@ -8,7 +9,6 @@ import {
 	SectionTitle,
 	VerseLabel,
 } from './ChapterContentComponents.client'
-import { CrossReferencesMenuRoot } from './CrossReferencesMenu'
 import {
 	type ChapterOM,
 	type ChapterOMNode,
@@ -116,10 +116,7 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		}
 
 		if (nodeClass === 'cross-reference') {
-			return [
-				...acc,
-				<CrossReferencesMenuRoot key={i} childrenOM={item[NodeType]} />,
-			]
+			return [...acc, <VerseDetailsButton key={i} />]
 		}
 
 		if (nodeClass === 'jesus-words') {

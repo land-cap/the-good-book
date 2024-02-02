@@ -15,9 +15,9 @@ import { steppedRange } from '~/helpers/steppedRange'
 import {
 	fontSizeOffsetAtom,
 	leadingAtom,
-	showCrossReferencesAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
+	showVerseDetailsAtom,
 	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
@@ -93,8 +93,8 @@ export const PreferencesMenu = () => {
 								label="Show red letters"
 							/>
 							<SwitchInput
-								valueAtom={showCrossReferencesAtom}
-								label="Show cross references"
+								valueAtom={showVerseDetailsAtom}
+								label="Show references and footnotes"
 							/>
 						</PreferencesList>
 					</div>

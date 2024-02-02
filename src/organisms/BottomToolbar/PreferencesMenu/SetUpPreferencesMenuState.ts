@@ -12,12 +12,12 @@ import {
 	fontSizeOffsetAtom,
 	LEADING_COOKIE,
 	leadingAtom,
-	SHOW_CROSS_REFERENCES_COOKIE,
 	SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	SHOW_RED_LETTERS_COOKIE,
-	showCrossReferencesAtom,
+	SHOW_VERSE_DETAILS_COOKIE,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
+	showVerseDetailsAtom,
 	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
@@ -52,14 +52,14 @@ export const SetUpPreferencesMenuState = ({
 	savedVerseBreaksLine,
 	savedShowNonOriginalText,
 	savedShowRedLetters,
-	savedShowCrossReferences,
+	savedShowVerseDetailsReferences,
 }: {
 	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
 	savedVerseBreaksLine: boolean
 	savedShowNonOriginalText: boolean
 	savedShowRedLetters: boolean
-	savedShowCrossReferences: boolean
+	savedShowVerseDetailsReferences: boolean
 }) => {
 	useSetupClientState(
 		fontSizeOffsetAtom,
@@ -83,9 +83,9 @@ export const SetUpPreferencesMenuState = ({
 		SHOW_RED_LETTERS_COOKIE,
 	)
 	useSetupClientState(
-		showCrossReferencesAtom,
-		savedShowCrossReferences,
-		SHOW_CROSS_REFERENCES_COOKIE,
+		showVerseDetailsAtom,
+		savedShowVerseDetailsReferences,
+		SHOW_VERSE_DETAILS_COOKIE,
 	)
 
 	return null

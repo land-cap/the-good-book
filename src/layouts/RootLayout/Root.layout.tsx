@@ -15,12 +15,12 @@ import {
 	fontSizeOffsetDefaultValue,
 	LEADING_COOKIE,
 	leadingDefaultValue,
-	SHOW_CROSS_REFERENCES_COOKIE,
 	SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	SHOW_RED_LETTERS_COOKIE,
-	showCrossReferencesDefaultValue,
+	SHOW_VERSE_DETAILS_COOKIE,
 	showNonOriginalTextDefaultValue,
 	showRedLettersDefaultValue,
+	showVerseDetailsDefaultValue,
 	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
@@ -76,8 +76,9 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 		SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	)?.value
 	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
-	const savedShowCrossReferences = cookieStore.get(SHOW_CROSS_REFERENCES_COOKIE)
-		?.value
+	const savedShowVerseDetailsReferences = cookieStore.get(
+		SHOW_VERSE_DETAILS_COOKIE,
+	)?.value
 
 	return (
 		<RootProviders>
@@ -96,9 +97,9 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					savedShowRedLetters,
 					showRedLettersDefaultValue,
 				)}
-				savedShowCrossReferences={getBooleanCookieValue(
-					savedShowCrossReferences,
-					showCrossReferencesDefaultValue,
+				savedShowVerseDetailsReferences={getBooleanCookieValue(
+					savedShowVerseDetailsReferences,
+					showVerseDetailsDefaultValue,
 				)}
 			/>
 			<UseLockBodyScroll />
