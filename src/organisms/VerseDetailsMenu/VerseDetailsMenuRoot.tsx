@@ -1,9 +1,9 @@
 'use client'
 
 import { Dialog } from '@ark-ui/react'
-import { useAtomValue } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
-import { Fragment, type ReactNode, useEffect, useState } from 'react'
+import { Fragment, type ReactNode, useEffect } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import {
@@ -11,7 +11,11 @@ import {
 	type IntrinsicEl,
 	type TextNode,
 } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
-import { isScrollLockedAtom, showVerseDetailsAtom } from '~/state'
+import {
+	isScrollLockedAtom,
+	showVerseDetailsAtom,
+	verseDetailsMenuCurrVerseAtom,
+} from '~/state'
 
 import { VerseDetailsMenu } from './VerseDetailsMenu'
 
@@ -42,12 +46,14 @@ export const VerseDetailsMenuRoot = ({
 }) => {
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
-	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [currVerse, setCurrVerse] = useAtom(verseDetailsMenuCurrVerseAtom)
+
+	useEffect(() => console.log(currVerse), [currVerse])
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	useEffect(
-		() => setIsBodyScrollLocked(isMenuOpen),
-		[isMenuOpen, setIsBodyScrollLocked],
+		() => setIsBodyScrollLocked(!!currVerse),
+		[currVerse, setIsBodyScrollLocked],
 	)
 
 	const isClient = useIsClient()
@@ -75,8 +81,8 @@ export const VerseDetailsMenuRoot = ({
 	return (
 		<Dialog.Root
 			preventScroll={false}
-			open={isMenuOpen}
-			onOpenChange={({ open }) => setIsMenuOpen(open)}
+			open={!!currVerse}
+			onOpenChange={({ open }) => !open && setCurrVerse(0)}
 		>
 			{isClient ? (
 				<VerseDetailsMenu

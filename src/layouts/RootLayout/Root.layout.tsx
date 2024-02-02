@@ -10,6 +10,7 @@ import {
 	SetUpPreferencesMenuState,
 	TopToolbar,
 } from '~/organisms'
+import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
@@ -122,6 +123,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					<TopToolbar />
 					{children}
 					<BottomToolbar bookList={bookList} />
+					<VerseDetailsMenuRoot childrenOM={[]} />
 				</body>
 			</html>
 		</RootProviders>

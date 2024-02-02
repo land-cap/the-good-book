@@ -12,7 +12,7 @@ export const isLastChapterAtom = atom(false)
  * VERSE DETAILS STATE
  */
 
-export const verseDetailsMenuCurrVerseAtom = atom<number | null>(null)
+export const verseDetailsMenuCurrVerseAtom = atom<number>(0)
 
 /**
  * PREFERENCES STATE

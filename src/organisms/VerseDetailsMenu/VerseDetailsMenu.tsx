@@ -1,9 +1,10 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
+import { useAtomValue } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { type ReactNode, useContext, useEffect, useState } from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
@@ -14,8 +15,8 @@ import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 } from '~/components'
+import { verseDetailsMenuCurrVerseAtom } from '~/state'
 
-import { CurrVerseContext } from '../../_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import { CrossReferenceList } from './CrossReferenceList'
 import { getBookName } from './getBookName'
 import { Header } from './Header'
@@ -37,8 +38,6 @@ export const VerseDetailsMenu = ({
 	referencesText?: string
 	footnote?: ReactNode[]
 }) => {
-	const currVerse = useContext(CurrVerseContext)
-
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('')
@@ -59,6 +58,14 @@ export const VerseDetailsMenu = ({
 		references && setReference(references)
 	}, [chapter, currBookName, referencesText])
 
+	const currVerse = useAtomValue(verseDetailsMenuCurrVerseAtom)
+
+	const [verseDisplayValue, setVerseDisplayValue] = useState(0)
+
+	useEffect(() => {
+		currVerse && setVerseDisplayValue(currVerse)
+	}, [currVerse])
+
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -76,7 +83,7 @@ export const VerseDetailsMenu = ({
 					}}
 				>
 					<div className={macrogrid()}>
-						<Header title={`${currBookName} ${chapter}:${currVerse}`} />
+						<Header title={`${currBookName} ${chapter}:${verseDisplayValue}`} />
 						{!!referenceList && (
 							<CrossReferenceList>
 								{referenceList.map((reference) => (
