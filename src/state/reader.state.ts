@@ -1,4 +1,6 @@
 import { atom } from 'jotai'
+import { atomFamily } from 'jotai/utils'
+import { type ReactNode } from 'react'
 
 export const prevChapterURLAtom = atom<string>('')
 
@@ -13,6 +15,17 @@ export const isLastChapterAtom = atom(false)
  */
 
 export const verseDetailsMenuCurrVerseAtom = atom<number>(0)
+
+export type TVerseDetails = {
+	id: string
+	verse?: number
+	referenceList?: string[]
+	footnotes?: ReactNode[]
+}
+
+export const verseDetailsAtomFamily = atomFamily((id: string) =>
+	atom<TVerseDetails>({ id }),
+)
 
 /**
  * PREFERENCES STATE

@@ -1,17 +1,32 @@
 'use client'
 
 import { useAtomValue, useSetAtom } from 'jotai'
-import { Fragment, type ReactNode, useContext } from 'react'
+import { useParams } from 'next/navigation'
+import {
+	Fragment,
+	type ReactNode,
+	useContext,
+	useEffect,
+	useId,
+	useMemo,
+	useState,
+} from 'react'
 import { css } from 'styled-system/css'
 
+import type {
+	ChapterOMNode,
+	IntrinsicEl,
+	TextNode,
+} from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
-import { showVerseDetailsAtom, verseDetailsMenuCurrVerseAtom } from '~/state'
-
+import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { getBookName } from '~/organisms/VerseDetailsMenu/getBookName'
+import { processReferencesText } from '~/organisms/VerseDetailsMenu/processReferencesText'
 import {
-	type ChapterOMNode,
-	type IntrinsicEl,
-	type TextNode,
-} from '../../_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
+	showVerseDetailsAtom,
+	verseDetailsAtomFamily,
+	verseDetailsMenuCurrVerseAtom,
+} from '~/state'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
@@ -33,12 +48,77 @@ const buildFootnote = (chapterOM: ChapterOMNode[]) =>
 		]
 	}, [] as ReactNode[])
 
-export const VerseDetailsButton = () => {
+const useIsReference = (childrenOM: ChapterOMNode[]) =>
+	useMemo(
+		//@ts-ignore
+		() => childrenOM.length === 1 && !!childrenOM[0]?.['#text'],
+		[childrenOM],
+	)
+
+export const VerseDetailsButton = ({
+	childrenOM,
+}: {
+	childrenOM: ChapterOMNode[]
+}) => {
+	const id = useId()
+
+	const [verseDetails, setVerseDetails] = useState(verseDetailsAtomFamily(id))
+
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
 	const setDetailsMenuCurrVerse = useSetAtom(verseDetailsMenuCurrVerseAtom)
 
 	const currVerse = useContext(CurrVerseContext)
+
+	const { bookCode, chapter } = useParams<TReaderPageParams>()
+
+	const [currBookName, setCurrBookName] = useState('')
+
+	useEffect(() => {
+		setVerseDetails((prev) => ({ ...prev, verse: currVerse }))
+	}, [currVerse])
+
+	useEffect(() => {
+		void (async () => {
+			const bookName = await getBookName(bookCode)
+			setCurrBookName(bookName)
+		})()
+	}, [bookCode])
+
+	useEffect(() => {
+		console.log('verseDetails', verseDetails)
+	}, [verseDetails])
+
+	useEffect(() => {
+		//@ts-ignore
+		const isReference = childrenOM.length === 1 && !!childrenOM[0]?.['#text']
+		const referencesText = isReference
+			? //@ts-ignore
+			  (childrenOM[0]?.['#text'] as string)
+			: null
+
+		const references = referencesText
+			? processReferencesText(currBookName, chapter)(referencesText)
+			: undefined
+
+		references && setVerseDetails((prev) => ({ ...prev, references }))
+	}, [chapter, childrenOM, currBookName, setVerseDetails])
+
+	useEffect(() => {
+		//@ts-ignore
+		const isReference = childrenOM.length === 1 && !!childrenOM[0]?.['#text']
+		const footnotes = !isReference
+			? buildFootnote(
+					childrenOM.filter(
+						//@ts-ignore
+						//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+						(OMItem) => OMItem?.[':@']?.attrs?.className !== 'fr',
+					),
+			  )
+			: undefined
+
+		footnotes && setVerseDetails((prev) => ({ ...prev, footnotes }))
+	}, [childrenOM, setVerseDetails])
 
 	if (!showVerseDetails) {
 		return null

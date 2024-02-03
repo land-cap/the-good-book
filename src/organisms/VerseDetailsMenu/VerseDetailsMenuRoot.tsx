@@ -48,8 +48,6 @@ export const VerseDetailsMenuRoot = ({
 
 	const [currVerse, setCurrVerse] = useAtom(verseDetailsMenuCurrVerseAtom)
 
-	useEffect(() => console.log(currVerse), [currVerse])
-
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	useEffect(
 		() => setIsBodyScrollLocked(!!currVerse),

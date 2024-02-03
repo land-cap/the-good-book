@@ -116,7 +116,10 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		}
 
 		if (nodeClass === 'cross-reference') {
-			return [...acc, <VerseDetailsButton key={i} />]
+			return [
+				...acc,
+				<VerseDetailsButton key={i} childrenOM={item[NodeType]} />,
+			]
 		}
 
 		if (nodeClass === 'jesus-words') {
