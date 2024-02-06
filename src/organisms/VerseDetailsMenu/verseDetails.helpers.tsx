@@ -46,7 +46,7 @@ export const extractReferenceList = (
 		: undefined
 }
 
-export const extractFootnotes = (childrenOM: ChapterOMNode[]) => {
+export const extractFootnote = (childrenOM: ChapterOMNode[]) => {
 	return !isReference(childrenOM)
 		? buildFootnote(
 				childrenOM.filter(

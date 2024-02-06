@@ -1,6 +1,6 @@
 export * from './VerseDetailsButton'
 export * from './VerseDetailsMenuRoot'
-export { extractFootnotes } from '~/organisms/VerseDetailsMenu/verseDetails.helpers'
+export { extractFootnote } from '~/organisms/VerseDetailsMenu/verseDetails.helpers'
 export { extractReferenceList } from '~/organisms/VerseDetailsMenu/verseDetails.helpers'
 export { isReference } from '~/organisms/VerseDetailsMenu/verseDetails.helpers'
 export { buildFootnote } from '~/organisms/VerseDetailsMenu/verseDetails.helpers'

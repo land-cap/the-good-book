@@ -9,13 +9,13 @@ import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderCha
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import {
+	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
 	verseDetailsAtomFamily,
-	verseDetailsMenuCurrVerseAtom,
 } from '~/state'
 
 import { getBookName } from './getBookName'
-import { extractFootnotes, extractReferenceList } from './verseDetails.helpers'
+import { extractFootnote, extractReferenceList } from './verseDetails.helpers'
 
 const buttonCls = css({
 	cursor: 'pointer',
@@ -43,7 +43,7 @@ export const VerseDetailsButton = ({
 
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
-	const setDetailsMenuCurrVerse = useSetAtom(verseDetailsMenuCurrVerseAtom)
+	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIDAtom)
 
 	const currVerse = useContext(CurrVerseContext)
 
@@ -76,8 +76,8 @@ export const VerseDetailsButton = ({
 	}, [chapter, childrenOM, currBookName, setVerseDetails])
 
 	useEffect(() => {
-		const footnotes = extractFootnotes(childrenOM)
-		footnotes && setVerseDetails((prev) => ({ ...prev, footnotes }))
+		const footnote = extractFootnote(childrenOM)
+		footnote && setVerseDetails((prev) => ({ ...prev, footnote }))
 	}, [childrenOM, setVerseDetails])
 
 	if (!showVerseDetails) {
@@ -87,10 +87,7 @@ export const VerseDetailsButton = ({
 	return (
 		<>
 			&nbsp;
-			<button
-				onClick={() => setDetailsMenuCurrVerse(currVerse)}
-				className={buttonCls}
-			>
+			<button onClick={() => setCurrVerseDetailsId(id)} className={buttonCls}>
 				&dagger;
 			</button>
 		</>

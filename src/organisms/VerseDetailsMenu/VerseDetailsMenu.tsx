@@ -15,7 +15,7 @@ import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 } from '~/components'
-import { verseDetailsMenuCurrVerseAtom } from '~/state'
+import { currVerseDetailsAtom } from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
 import { getBookName } from './getBookName'
@@ -42,13 +42,17 @@ export const VerseDetailsMenu = () => {
 		})()
 	}, [bookCode])
 
-	const currVerse = useAtomValue(verseDetailsMenuCurrVerseAtom)
-
-	const [verseDisplayValue, setVerseDisplayValue] = useState(0)
+	const verseDetails = useAtomValue(currVerseDetailsAtom)
 
 	useEffect(() => {
-		currVerse && setVerseDisplayValue(currVerse)
-	}, [currVerse])
+		console.log('verseDetails', verseDetails)
+	}, [verseDetails])
+
+	if (!verseDetails) {
+		return null
+	}
+
+	const { referenceList, footnote, verse } = verseDetails
 
 	return (
 		<Portal>
@@ -67,7 +71,7 @@ export const VerseDetailsMenu = () => {
 					}}
 				>
 					<div className={macrogrid()}>
-						<Header title={`${currBookName} ${chapter}:${verseDisplayValue}`} />
+						<Header title={`${currBookName} ${chapter}:${verse}`} />
 						{!!referenceList && (
 							<CrossReferenceList>
 								{referenceList.map((reference) => (

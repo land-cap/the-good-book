@@ -7,9 +7,9 @@ import { useEffect } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import {
+	currVerseDetailsIDAtom,
 	isScrollLockedAtom,
 	showVerseDetailsAtom,
-	verseDetailsMenuCurrVerseAtom,
 } from '~/state'
 
 import { VerseDetailsMenu } from './VerseDetailsMenu'
@@ -17,12 +17,14 @@ import { VerseDetailsMenu } from './VerseDetailsMenu'
 export const VerseDetailsMenuRoot = () => {
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
-	const [currVerse, setCurrVerse] = useAtom(verseDetailsMenuCurrVerseAtom)
+	const [currVerseDetailsID, setCurrVerseDetailsID] = useAtom(
+		currVerseDetailsIDAtom,
+	)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	useEffect(
-		() => setIsBodyScrollLocked(!!currVerse),
-		[currVerse, setIsBodyScrollLocked],
+		() => setIsBodyScrollLocked(!!currVerseDetailsID),
+		[currVerseDetailsID, setIsBodyScrollLocked],
 	)
 
 	const isClient = useIsClient()
@@ -34,8 +36,8 @@ export const VerseDetailsMenuRoot = () => {
 	return (
 		<Dialog.Root
 			preventScroll={false}
-			open={!!currVerse}
-			onOpenChange={({ open }) => !open && setCurrVerse(0)}
+			open={!!currVerseDetailsID}
+			onOpenChange={({ open }) => !open && setCurrVerseDetailsID(null)}
 		>
 			{isClient ? <VerseDetailsMenu /> : null}
 		</Dialog.Root>

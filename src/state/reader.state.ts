@@ -14,18 +14,24 @@ export const isLastChapterAtom = atom(false)
  * VERSE DETAILS STATE
  */
 
-export const verseDetailsMenuCurrVerseAtom = atom<number>(0)
+export const currVerseDetailsIDAtom = atom<string | null>(null)
 
 export type TVerseDetails = {
 	id: string
 	verse?: number
 	referenceList?: string[]
-	footnotes?: ReactNode[]
+	footnote?: ReactNode[]
 }
 
-export const verseDetailsAtomFamily = atomFamily((id: string) =>
-	atom<TVerseDetails>({ id }),
+export const verseDetailsAtomFamily = atomFamily(
+	(id: string) => atom<TVerseDetails>({ id }),
+	(aID, bID) => aID === bID,
 )
+
+export const currVerseDetailsAtom = atom((get) => {
+	const id = get(currVerseDetailsIDAtom)
+	return id ? get(verseDetailsAtomFamily(id)) : null
+})
 
 /**
  * PREFERENCES STATE
