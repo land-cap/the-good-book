@@ -123,7 +123,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					<TopToolbar />
 					{children}
 					<BottomToolbar bookList={bookList} />
-					<VerseDetailsMenuRoot childrenOM={[]} />
+					<VerseDetailsMenuRoot />
 				</body>
 			</html>
 		</RootProviders>

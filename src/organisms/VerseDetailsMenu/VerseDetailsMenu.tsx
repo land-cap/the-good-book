@@ -4,7 +4,7 @@ import { Portal } from '@ark-ui/react'
 import { useAtomValue } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { type ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
@@ -20,7 +20,6 @@ import { verseDetailsMenuCurrVerseAtom } from '~/state'
 import { CrossReferenceList } from './CrossReferenceList'
 import { getBookName } from './getBookName'
 import { Header } from './Header'
-import { processReferencesText } from './processReferencesText'
 
 const Footnote = styled('p', {
 	base: {
@@ -31,13 +30,7 @@ const Footnote = styled('p', {
 	},
 })
 
-export const VerseDetailsMenu = ({
-	referencesText,
-	footnote,
-}: {
-	referencesText?: string
-	footnote?: ReactNode[]
-}) => {
+export const VerseDetailsMenu = () => {
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('')
@@ -48,15 +41,6 @@ export const VerseDetailsMenu = ({
 			setCurrBookName(bookName)
 		})()
 	}, [bookCode])
-
-	const [referenceList, setReference] = useState([] as string[])
-
-	useEffect(() => {
-		const references = referencesText
-			? processReferencesText(currBookName, chapter)(referencesText)
-			: undefined
-		references && setReference(references)
-	}, [chapter, currBookName, referencesText])
 
 	const currVerse = useAtomValue(verseDetailsMenuCurrVerseAtom)
 
