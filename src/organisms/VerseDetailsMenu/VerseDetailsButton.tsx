@@ -1,6 +1,6 @@
 'use client'
 
-import { useAtomValue, useSetAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 import { useContext, useEffect, useId, useState } from 'react'
 import { css } from 'styled-system/css'
@@ -39,7 +39,7 @@ export const VerseDetailsButton = ({
 }) => {
 	const id = useId()
 
-	const [verseDetails, setVerseDetails] = useState(verseDetailsAtomFamily(id))
+	const [verseDetails, setVerseDetails] = useAtom(verseDetailsAtomFamily(id))
 
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
