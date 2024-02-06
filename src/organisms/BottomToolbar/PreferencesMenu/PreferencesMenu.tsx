@@ -30,7 +30,7 @@ import { SwitchInput } from './SwitchInput'
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
-const leadingRange = steppedRange(0.25, 1.5, 2.5) as TLeading[]
+const leadingRange = steppedRange(0.25, 1.5, 3) as TLeading[]
 
 export const PreferencesMenu = () => {
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)

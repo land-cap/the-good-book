@@ -44,7 +44,7 @@ export const fontSizeOffsetAtom = atom<TFontSizeOffset>(
 	fontSizeOffsetDefaultValue,
 )
 
-export type TLeading = 1.5 | 1.75 | 2 | 2.25 | 2.5
+export type TLeading = 1.5 | 1.75 | 2 | 2.25 | 2.5 | 2.75 | 3
 export const LEADING_COOKIE = 'leading'
 export const leadingDefaultValue = 2
 export const leadingAtom = atom<TLeading>(leadingDefaultValue)
