@@ -44,10 +44,6 @@ export const VerseDetailsMenu = () => {
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
 
-	useEffect(() => {
-		console.log('verseDetails', verseDetails)
-	}, [verseDetails])
-
 	if (!verseDetails) {
 		return null
 	}
