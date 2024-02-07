@@ -8,6 +8,7 @@ import { css } from 'styled-system/css'
 import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { Icon } from '~/components'
 import {
 	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
@@ -20,11 +21,11 @@ import { extractFootnote, extractReferenceList } from './verseDetails.helpers'
 const buttonCls = css({
 	cursor: 'pointer',
 	display: 'inline',
-	m: '-1',
-	p: '1',
-	fontFamily: 'sans',
-	fontWeight: 'bold',
+	fontSize: '1em',
 	color: 'fg.faded',
+	w: 'content',
+	h: 'content',
+	verticalAlign: 'text-top',
 	_active: { color: 'fg' },
 	_canHover: { _hover: { color: 'fg' } },
 	transition: 'colors',
@@ -83,9 +84,11 @@ export const VerseDetailsButton = ({
 	return (
 		<>
 			&nbsp;
-			<button onClick={() => setCurrVerseDetailsId(id)} className={buttonCls}>
-				&dagger;
-			</button>
+			<Icon
+				name="info"
+				//onClick={() => setCurrVerseDetailsId(id)}
+				className={buttonCls}
+			/>
 		</>
 	)
 }
