@@ -18,11 +18,11 @@ import {
 import { getBookName } from './getBookName'
 import { extractFootnote, extractReferenceList } from './verseDetails.helpers'
 
-const buttonCls = css({
+const iconCls = css({
 	cursor: 'pointer',
 	display: 'inline',
 	fontSize: '1em',
-	color: 'fg.faded',
+	color: 'fg.subtle',
 	w: 'content',
 	h: 'content',
 	verticalAlign: 'text-top',
@@ -84,11 +84,12 @@ export const VerseDetailsButton = ({
 	return (
 		<>
 			&nbsp;
-			<Icon
-				name="info"
-				//onClick={() => setCurrVerseDetailsId(id)}
-				className={buttonCls}
-			/>
+			<button
+				onClick={() => setCurrVerseDetailsId(id)}
+				className={css({ display: 'inline' })}
+			>
+				<Icon name="info" className={iconCls} />
+			</button>
 		</>
 	)
 }
