@@ -15,7 +15,7 @@ import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 } from '~/components'
-import { currVerseDetailsAtom } from '~/state'
+import { currVerseDetailsAtom, type TVerseDetails } from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
 import { getBookName } from './getBookName'
@@ -43,12 +43,11 @@ export const VerseDetailsMenu = () => {
 	}, [bookCode])
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
-
-	if (!verseDetails) {
-		return null
-	}
-
-	const { referenceList, footnote, verse } = verseDetails
+	const [verseDetailsSnapshot, setVerseDetailsSnapshot] =
+		useState<TVerseDetails | null>(null)
+	useEffect(() => {
+		verseDetails && setVerseDetailsSnapshot(verseDetails)
+	}, [verseDetails])
 
 	return (
 		<Portal>
@@ -67,10 +66,12 @@ export const VerseDetailsMenu = () => {
 					}}
 				>
 					<div className={macrogrid()}>
-						<Header title={`${currBookName} ${chapter}:${verse}`} />
-						{!!referenceList && (
+						<Header
+							title={`${currBookName} ${chapter}:${verseDetailsSnapshot?.verse}`}
+						/>
+						{!!verseDetailsSnapshot?.referenceList && (
 							<CrossReferenceList>
-								{referenceList.map((reference) => (
+								{verseDetailsSnapshot?.referenceList.map((reference) => (
 									<li key={reference}>
 										<Link
 											href="/mat/1"
@@ -85,7 +86,9 @@ export const VerseDetailsMenu = () => {
 								))}
 							</CrossReferenceList>
 						)}
-						{!!footnote && <Footnote>{footnote}</Footnote>}
+						{!!verseDetailsSnapshot?.footnote && (
+							<Footnote>{verseDetailsSnapshot?.footnote}</Footnote>
+						)}
 					</div>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>
