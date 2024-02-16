@@ -8,38 +8,37 @@ datasource db {
 }
 
 model book {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  book_id       Int    @unique(map: "book_id_1")
-  chapter_count Int
-  code          String
-  order         Int
-
-  @@index([code], map: "code_1")
-}
-
-model book_abbreviation {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  book_id      Int    @unique(map: "book_id_1")
-  book_name_id Int    @unique(map: "book_name_id_1")
-  value        String
+  id                String             @id @default(auto()) @map("_id") @db.ObjectId
+  book_id           Int                @unique
+  order             Int                @unique
+  code              String             @unique
+  chapter_count     Int
+  book_name         book_name?         @relation("bookName")
+  chapter           chapter[]
+  book_abbreviation book_abbreviation? @relation("bookAbbreviation")
 }
 
 model book_name {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
-  book_id      Int
-  book_name_id Int    @unique(map: "book_name_id_1")
-  value        String
+  book_name_id Int    @unique
+  name         String @unique
+  book_id      Int    @unique
+  book         book   @relation("bookName", fields: [book_id], references: [book_id])
+}
 
-  @@index([book_id], map: "book_id_1")
+model book_abbreviation {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  value        String @unique
+  book_name_id Int    @unique
+  book_id      Int    @unique
+  book         book   @relation("bookAbbreviation", fields: [book_id], references: [book_id])
 }
 
 model chapter {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
-  book_id    Int
+  chapter_id String @unique
   chapter    Int
-  chapter_id String @unique(map: "chapter_id_1")
   content    String
-
-  @@index([book_id], map: "book_id_1")
-  @@index([chapter], map: "chapter_1")
+  book_id    Int
+  book       book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
 }
