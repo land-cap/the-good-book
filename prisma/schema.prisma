@@ -8,28 +8,38 @@ datasource db {
 }
 
 model book {
-  id            String     @id @default(auto()) @map("_id") @db.ObjectId
-  book_id       Int        @unique
-  order         Int        @unique
-  code          String     @unique
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  book_id       Int    @unique(map: "book_id_1")
   chapter_count Int
-  book_name     book_name?
-  chapter       chapter[]
+  code          String
+  order         Int
+
+  @@index([code], map: "code_1")
+}
+
+model book_abbreviation {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  book_id      Int    @unique(map: "book_id_1")
+  book_name_id Int    @unique(map: "book_name_id_1")
+  value        String
 }
 
 model book_name {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
-  book_name_id Int    @unique
-  name         String @unique
-  book_id      Int    @unique
-  book         book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
+  book_id      Int
+  book_name_id Int    @unique(map: "book_name_id_1")
+  name         String
+
+  @@index([book_id], map: "book_id_1")
 }
 
 model chapter {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
-  chapter_id String @unique
-  chapter    Int
-  content    String
   book_id    Int
-  book       book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
+  chapter    Int
+  chapter_id String @unique(map: "chapter_id_1")
+  content    String
+
+  @@index([book_id], map: "book_id_1")
+  @@index([chapter], map: "chapter_1")
 }
