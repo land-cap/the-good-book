@@ -15,7 +15,6 @@ import {
 	verseDetailsAtomFamily,
 } from '~/state'
 
-import { getBookName } from './getBookName'
 import { extractFootnote, extractReferenceList } from './verseDetails.helpers'
 
 const iconCls = css({
@@ -50,18 +49,11 @@ export const VerseDetailsButton = ({
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
-	const [currBookName, setCurrBookName] = useState('')
+	const [currBookName, setCurrBookName] = useState('Geneza')
 
 	useEffect(() => {
 		setVerseDetails((prev) => ({ ...prev, verse: currVerse }))
 	}, [currVerse, setVerseDetails])
-
-	useEffect(() => {
-		void (async () => {
-			const bookName = await getBookName(bookCode)
-			setCurrBookName(bookName)
-		})()
-	}, [bookCode])
 
 	useEffect(() => {
 		const referenceList = extractReferenceList(

@@ -6,6 +6,7 @@ import { useSetAtom } from 'jotai/index'
 import { useEffect } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
+import type { TBook } from '~/db'
 import {
 	currVerseDetailsIDAtom,
 	isScrollLockedAtom,
@@ -14,7 +15,7 @@ import {
 
 import { VerseDetailsMenu } from './VerseDetailsMenu'
 
-export const VerseDetailsMenuRoot = () => {
+export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
 	const [currVerseDetailsID, setCurrVerseDetailsID] = useAtom(
@@ -39,7 +40,7 @@ export const VerseDetailsMenuRoot = () => {
 			open={!!currVerseDetailsID}
 			onOpenChange={({ open }) => !open && setCurrVerseDetailsID(null)}
 		>
-			{isClient ? <VerseDetailsMenu /> : null}
+			{isClient ? <VerseDetailsMenu bookList={bookList} /> : null}
 		</Dialog.Root>
 	)
 }

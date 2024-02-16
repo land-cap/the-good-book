@@ -15,10 +15,10 @@ import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 } from '~/components'
+import { type TBook } from '~/db'
 import { currVerseDetailsAtom, type TVerseDetails } from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
-import { getBookName } from './getBookName'
 import { Header } from './Header'
 
 const Footnote = styled('p', {
@@ -30,21 +30,22 @@ const Footnote = styled('p', {
 	},
 })
 
-export const VerseDetailsMenu = () => {
+export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('')
 
 	useEffect(() => {
-		void (async () => {
-			const bookName = await getBookName(bookCode)
-			setCurrBookName(bookName)
-		})()
-	}, [bookCode])
+		const book = bookList.find((book) => book.code === bookCode)
+		const bookName = book?.book_name?.name
+		bookName && setCurrBookName(bookName)
+	}, [bookCode, bookList])
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
+
 	const [verseDetailsSnapshot, setVerseDetailsSnapshot] =
 		useState<TVerseDetails | null>(null)
+
 	useEffect(() => {
 		verseDetails && setVerseDetailsSnapshot(verseDetails)
 	}, [verseDetails])
