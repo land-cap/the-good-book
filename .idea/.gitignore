@@ -3,3 +3,8 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/aws.xml
+/sonarlint/
+/codestream.xml
+/jsLibraryMappings.xml
+/GitLink.xml

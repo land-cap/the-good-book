@@ -37,7 +37,7 @@ const getChapter = async (bookCode: string, chapter: number) => {
 	return getDbClient().chapter.findFirst({
 		where: {
 			book_id: book.book_id,
-			chapter,
+			chapter: chapter,
 		},
 	})
 }
