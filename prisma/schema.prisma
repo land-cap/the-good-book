@@ -13,7 +13,7 @@ model book {
   order         Int        @unique
   code          String     @unique
   chapter_count Int
-  book_name     book_name?
+  book_name     book_name? @relation("bookName")
   chapter       chapter[]
 }
 
@@ -22,7 +22,7 @@ model book_name {
   book_name_id Int    @unique
   name         String @unique
   book_id      Int    @unique
-  book         book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
+  book         book @relation("bookName", fields: [book_id], references: [book_id])
 }
 
 model chapter {
