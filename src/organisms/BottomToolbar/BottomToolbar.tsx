@@ -32,7 +32,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 	}
 
 	const currBookIndex = bookList.findIndex(
-		(book) => book.book_name?.name === currBook.book_name?.name,
+		(book) => book.book_name?.value === currBook.book_name?.value,
 	)
 
 	const currBookChapterCount = bookList[currBookIndex]?.chapter_count

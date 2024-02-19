@@ -21,17 +21,16 @@ model book {
 model book_name {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   book_name_id Int    @unique
-  name         String @unique
+  value        String @unique
   book_id      Int    @unique
   book         book   @relation("bookName", fields: [book_id], references: [book_id])
 }
 
 model book_abbreviation {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  value        String @unique
-  book_name_id Int    @unique
-  book_id      Int    @unique
-  book         book   @relation("bookAbbreviation", fields: [book_id], references: [book_id])
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  value   String @unique
+  book_id Int    @unique
+  book    book   @relation("bookAbbreviation", fields: [book_id], references: [book_id])
 }
 
 model chapter {

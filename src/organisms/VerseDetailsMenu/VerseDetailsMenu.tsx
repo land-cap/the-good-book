@@ -37,7 +37,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	useEffect(() => {
 		const book = bookList.find((book) => book.code === bookCode)
-		const bookName = book?.book_name?.name
+		const bookName = book?.book_name?.value
 		bookName && setCurrBookName(bookName)
 	}, [bookCode, bookList])
 

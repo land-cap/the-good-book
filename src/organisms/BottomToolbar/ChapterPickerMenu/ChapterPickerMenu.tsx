@@ -107,7 +107,7 @@ export const ChapterPickerMenu = ({
 				className={cx(button(), css({ h: 'full', flexGrow: 1 }))}
 				onClick={() => setIsDialogOpen(true)}
 			>
-				{currBook.book_name?.name} {currChapter}
+				{currBook.book_name?.value} {currChapter}
 			</Dialog.Trigger>
 			<Portal>
 				<Positioner_OverlayMenu>
@@ -159,7 +159,7 @@ export const ChapterPickerMenu = ({
 									<ChapterListHeader
 										chapterListItemHeight={chapterListItemHeight}
 									>
-										{selectedBook.book_name?.name}
+										{selectedBook.book_name?.value}
 									</ChapterListHeader>
 									{chapterList?.map((chapter) => {
 										const isCurrChapter =
