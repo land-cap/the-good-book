@@ -8,17 +8,21 @@ datasource db {
 }
 
 model book {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  book_id       Int    @unique
-  chapter_count Int
-  code          String @unique
-  order         Int    @unique
+  id                String             @id @default(auto()) @map("_id") @db.ObjectId
+  book_id           Int                @unique
+  chapter_count     Int
+  code              String             @unique
+  order             Int                @unique
+  book_name         book_name?         @relation("bookName")
+  book_abbreviation book_abbreviation? @relation("bookAbbreviation")
+  chapter           chapter[]
 }
 
 model book_abbreviation {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   book_id Int    @unique
   value   String @unique
+  book    book   @relation("bookAbbreviation", fields: [book_id], references: [book_id])
 }
 
 model book_name {
@@ -26,6 +30,7 @@ model book_name {
   book_id      Int    @unique
   book_name_id Int    @unique
   value        String @unique
+  book         book   @relation("bookName", fields: [book_id], references: [book_id])
 }
 
 model chapter {
@@ -34,4 +39,5 @@ model chapter {
   chapter    Int
   chapter_id String @unique
   content    String
+  book       book   @relation(fields: [book_id], references: [book_id])
 }
