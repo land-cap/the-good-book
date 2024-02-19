@@ -2,7 +2,7 @@
 
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
-import { useContext, useEffect, useId, useState } from 'react'
+import { useContext, useEffect, useId } from 'react'
 import { css } from 'styled-system/css'
 
 import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
@@ -49,20 +49,14 @@ export const VerseDetailsButton = ({
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
-	const [currBookName, setCurrBookName] = useState('Geneza')
-
 	useEffect(() => {
 		setVerseDetails((prev) => ({ ...prev, verse: currVerse }))
 	}, [currVerse, setVerseDetails])
 
 	useEffect(() => {
-		const referenceList = extractReferenceList(
-			childrenOM,
-			currBookName,
-			chapter,
-		)
+		const referenceList = extractReferenceList(childrenOM, bookCode, chapter)
 		referenceList && setVerseDetails((prev) => ({ ...prev, referenceList }))
-	}, [chapter, childrenOM, currBookName, setVerseDetails])
+	}, [chapter, childrenOM, bookCode, setVerseDetails])
 
 	useEffect(() => {
 		const footnote = extractFootnote(childrenOM)
