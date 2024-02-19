@@ -42,10 +42,10 @@ const splitSameBookReferences = (reference: string) => {
 	return referenceList.map((reference) => `${bookNameMatch?.[0]}${reference}`)
 }
 
-const transformReference = (currBookCode: string, currChapter: string) =>
+const transformReference = (currBookName: string, currChapter: string) =>
 	pipe(
-		(reference: string) => replaceCapAbbr(reference, currBookCode),
-		(reference) => replaceVersAbbr(reference, currBookCode, currChapter),
+		(reference: string) => replaceCapAbbr(reference, currBookName),
+		(reference) => replaceVersAbbr(reference, currBookName, currChapter),
 		replaceBookAbbr,
 		replaceAbbrWithoutPeriod,
 		trim,
@@ -53,13 +53,13 @@ const transformReference = (currBookCode: string, currChapter: string) =>
 	)
 
 export const processReferencesText = (
-	currBookCode: string,
+	currBookName: string,
 	currChapter: string,
 ) =>
 	pipe(
 		referencesTextToList,
 		map((reference) =>
-			transformReference(currBookCode, currChapter)(reference),
+			transformReference(currBookName, currChapter)(reference),
 		),
 		(referenceListList: string[][]) => flatten(referenceListList),
 	)

@@ -34,7 +34,7 @@ const isReference = (childrenOM: ChapterOMNode[]) =>
 
 export const extractReferenceList = (
 	childrenOM: ChapterOMNode[],
-	currBookCode: string,
+	currBookName: string,
 	chapter: string,
 ) => {
 	const referencesText = isReference(childrenOM)
@@ -42,7 +42,7 @@ export const extractReferenceList = (
 		  (childrenOM[0]?.['#text'] as string)
 		: null
 	return referencesText
-		? processReferencesText(currBookCode, chapter)(referencesText)
+		? processReferencesText(currBookName, chapter)(referencesText)
 		: undefined
 }
 

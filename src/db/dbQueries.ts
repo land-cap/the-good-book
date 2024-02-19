@@ -19,7 +19,7 @@ export const getBookWithCache = withCacheAsync(
 
 export const getBookList = async () =>
 	getDbClient().book.findMany({
-		include: { book_name: true, book_abbreviation: true },
+		include: { book_name: true },
 		orderBy: { order: 'asc' },
 	})
 
