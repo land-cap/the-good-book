@@ -8,36 +8,30 @@ datasource db {
 }
 
 model book {
-  id                String             @id @default(auto()) @map("_id") @db.ObjectId
-  book_id           Int                @unique
-  order             Int                @unique
-  code              String             @unique
-  chapter_count     Int
-  book_name         book_name?         @relation("bookName")
-  chapter           chapter[]
-  book_abbreviation book_abbreviation? @relation("bookAbbreviation")
-}
-
-model book_name {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  book_name_id Int    @unique
-  value        String @unique
-  book_id      Int    @unique
-  book         book   @relation("bookName", fields: [book_id], references: [book_id])
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  book_id       Int    @unique
+  chapter_count Int
+  code          String @unique
+  order         Int    @unique
 }
 
 model book_abbreviation {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
-  value   String @unique
   book_id Int    @unique
-  book    book   @relation("bookAbbreviation", fields: [book_id], references: [book_id])
+  value   String @unique
+}
+
+model book_name {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  book_id      Int    @unique
+  book_name_id Int    @unique
+  value        String @unique
 }
 
 model chapter {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
-  chapter_id String @unique
-  chapter    Int
-  content    String
   book_id    Int
-  book       book   @relation(fields: [book_id], references: [book_id], onDelete: NoAction, onUpdate: NoAction)
+  chapter    Int
+  chapter_id String @unique
+  content    String
 }
