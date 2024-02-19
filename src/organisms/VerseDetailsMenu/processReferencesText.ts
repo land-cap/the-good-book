@@ -1,7 +1,5 @@
 import { flatten, map, pipe, splitEvery, trim } from 'ramda'
 
-import { bookAbbrToBookName } from './bookAbbrToBookName'
-
 const referencesTextToList = (referencesText: string) =>
 	splitEvery(2)(referencesText.split(/(\d)\./g))
 		.map((reference) => reference.join(''))
@@ -16,16 +14,18 @@ const replaceVersAbbr = (
 	currChapter: string,
 ) => reference.replace('Vers. ', `${currBookName} ${currChapter}:`)
 
-const replaceBookAbbr = (reference: string) => {
-	const match = /\S+\./g.exec(reference)
+const replaceBookAbbr = (
+	reference: string,
+	bookAbbrToName: Record<string, string>,
+) => {
+	const match = /(\d )?\S+\./g.exec(reference)
 	const bookAbbr = match?.[0].replace(/\./g, '')
+	const bookName = bookAbbr && bookAbbrToName[bookAbbr]
+	if (bookAbbr && !bookName)
+		throw new Error(`Book name not found for abbreviation: ${bookAbbr}`)
 
-	return bookAbbr
-		? reference
-				//@ts-ignore
-				//eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-				.replace(bookAbbr, bookAbbrToBookName?.[bookAbbr] || bookAbbr)
-				.replace(/\./g, '')
+	return bookAbbr && bookName
+		? reference.replace(bookAbbr, bookName).replace(/\./g, '')
 		: reference
 }
 
@@ -42,11 +42,15 @@ const splitSameBookReferences = (reference: string) => {
 	return referenceList.map((reference) => `${bookNameMatch?.[0]}${reference}`)
 }
 
-const transformReference = (currBookName: string, currChapter: string) =>
+const transformReference = (
+	currBookName: string,
+	currChapter: string,
+	bookAbbrToName: Record<string, string>,
+) =>
 	pipe(
 		(reference: string) => replaceCapAbbr(reference, currBookName),
 		(reference) => replaceVersAbbr(reference, currBookName, currChapter),
-		replaceBookAbbr,
+		(reference) => replaceBookAbbr(reference, bookAbbrToName),
 		replaceAbbrWithoutPeriod,
 		trim,
 		splitSameBookReferences,
@@ -55,11 +59,12 @@ const transformReference = (currBookName: string, currChapter: string) =>
 export const processReferencesText = (
 	currBookName: string,
 	currChapter: string,
+	bookAbbrToName: Record<string, string>,
 ) =>
 	pipe(
 		referencesTextToList,
 		map((reference) =>
-			transformReference(currBookName, currChapter)(reference),
+			transformReference(currBookName, currChapter, bookAbbrToName)(reference),
 		),
 		(referenceListList: string[][]) => flatten(referenceListList),
 	)

@@ -9,7 +9,7 @@ import {
 
 const useMemoryCache = process.env.USE_MEMORY_CACHE === 'true'
 
-export const getBookName = withCacheAsync(
+export const getBookNameByCode = withCacheAsync(
 	async (bookCode: string): Promise<string> => {
 		const bookList = await getBookListWithCache()
 		const book = bookList.find((book) => book.code === bookCode)

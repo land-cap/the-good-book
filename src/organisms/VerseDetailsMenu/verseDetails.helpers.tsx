@@ -36,13 +36,19 @@ export const extractReferenceList = (
 	childrenOM: ChapterOMNode[],
 	currBookName: string,
 	chapter: string,
+	bookAbbrToName: Record<string, string>,
 ) => {
+	console.log({ currBookName, chapter, bookAbbrToName })
 	const referencesText = isReference(childrenOM)
 		? //@ts-ignore
 		  (childrenOM[0]?.['#text'] as string)
 		: null
 	return referencesText
-		? processReferencesText(currBookName, chapter)(referencesText)
+		? processReferencesText(
+				currBookName,
+				chapter,
+				bookAbbrToName,
+		  )(referencesText)
 		: undefined
 }
 

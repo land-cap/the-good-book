@@ -9,7 +9,8 @@ import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderCha
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
-import { getBookName } from '~/organisms/VerseDetailsMenu/getBookName'
+import { getBookAbbrToName } from '~/organisms/VerseDetailsMenu/getBookAbbrToName'
+import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
 import {
 	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
@@ -48,29 +49,43 @@ export const VerseDetailsButton = ({
 
 	const currVerse = useContext(CurrVerseContext)
 
-	const { bookCode, chapter } = useParams<TReaderPageParams>()
-
-	const [currBookName, setCurrBookName] = useState('Geneza')
-
-	useEffect(() => {
-		void (async () => {
-			const bookName = await getBookName(bookCode)
-			setCurrBookName(bookName)
-		})()
-	}, [bookCode])
-
 	useEffect(() => {
 		setVerseDetails((prev) => ({ ...prev, verse: currVerse }))
 	}, [currVerse, setVerseDetails])
 
+	const { bookCode, chapter } = useParams<TReaderPageParams>()
+
+	const [currBookName, setCurrBookName] = useState('')
+
 	useEffect(() => {
-		const referenceList = extractReferenceList(
-			childrenOM,
-			currBookName,
-			chapter,
-		)
-		referenceList && setVerseDetails((prev) => ({ ...prev, referenceList }))
-	}, [chapter, childrenOM, currBookName, setVerseDetails])
+		void (async () => {
+			const bookName = await getBookNameByCode(bookCode)
+			setCurrBookName(bookName)
+		})()
+	}, [bookCode])
+
+	const [bookAbbrToName, setBookAbbrToName] = useState<Record<string, string>>(
+		{},
+	)
+
+	useEffect(() => {
+		void (async () => {
+			const bookAbbrToName = await getBookAbbrToName()
+			setBookAbbrToName(bookAbbrToName)
+		})()
+	}, [bookCode])
+
+	useEffect(() => {
+		if (Object.keys(bookAbbrToName).length && currBookName && chapter) {
+			const referenceList = extractReferenceList(
+				childrenOM,
+				currBookName,
+				chapter,
+				bookAbbrToName,
+			)
+			referenceList && setVerseDetails((prev) => ({ ...prev, referenceList }))
+		}
+	}, [bookAbbrToName, chapter, childrenOM, currBookName, setVerseDetails])
 
 	useEffect(() => {
 		const footnote = extractFootnote(childrenOM)
