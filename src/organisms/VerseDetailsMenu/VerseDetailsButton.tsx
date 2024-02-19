@@ -2,16 +2,13 @@
 
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
-import { useContext, useEffect, useId, useState } from 'react'
+import { useContext, useEffect, useId } from 'react'
 import { css } from 'styled-system/css'
 
 import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
-import { getBookAbbrToName } from '~/organisms/VerseDetailsMenu/getBookAbbrToName'
-import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
-import { getBookNameToCode } from '~/organisms/VerseDetailsMenu/getBookNameToCode'
 import {
 	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
@@ -37,8 +34,14 @@ const iconCls = css({
 
 export const VerseDetailsButton = ({
 	childrenOM,
+	bookName,
+	bookAbbrToName,
+	bookNameToCode,
 }: {
 	childrenOM: ChapterOMNode[]
+	bookName: string
+	bookAbbrToName: Record<string, string>
+	bookNameToCode: Record<string, string>
 }) => {
 	const id = useId()
 
@@ -54,49 +57,18 @@ export const VerseDetailsButton = ({
 		setVerseDetails((prev) => ({ ...prev, verse: currVerse }))
 	}, [currVerse, setVerseDetails])
 
-	const { bookCode, chapter } = useParams<TReaderPageParams>()
-
-	const [currBookName, setCurrBookName] = useState('')
-
-	useEffect(() => {
-		void (async () => {
-			const bookName = await getBookNameByCode(bookCode)
-			setCurrBookName(bookName)
-		})()
-	}, [bookCode])
-
-	const [bookAbbrToName, setBookAbbrToName] = useState<Record<string, string>>(
-		{},
-	)
-
-	useEffect(() => {
-		void (async () => {
-			const bookAbbrToName = await getBookAbbrToName()
-			setBookAbbrToName(bookAbbrToName)
-		})()
-	}, [])
-
-	const [bookNameToCode, setBookNameToCode] = useState<Record<string, string>>(
-		{},
-	)
-
-	useEffect(() => {
-		void (async () => {
-			const bookNameToCode = await getBookNameToCode()
-			setBookNameToCode(bookNameToCode)
-		})()
-	}, [])
+	const { chapter } = useParams<TReaderPageParams>()
 
 	useEffect(() => {
 		if (
 			Object.keys(bookAbbrToName).length &&
 			Object.keys(bookNameToCode).length &&
-			currBookName &&
+			bookName &&
 			chapter
 		) {
 			const referenceList = extractReferenceList(
 				childrenOM,
-				currBookName,
+				bookName,
 				chapter,
 				bookAbbrToName,
 				bookNameToCode,
@@ -108,7 +80,7 @@ export const VerseDetailsButton = ({
 		bookNameToCode,
 		chapter,
 		childrenOM,
-		currBookName,
+		bookName,
 		setVerseDetails,
 	])
 

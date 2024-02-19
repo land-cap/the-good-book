@@ -22,7 +22,12 @@ function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
 }
 
-export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
+export const renderChapterContentFromOM = (
+	chapterOM: ChapterOM,
+	bookName: string,
+	bookAbbrToName: Record<string, string>,
+	bookNameToCode: Record<string, string>,
+) =>
 	chapterOM.reduce((acc, item, i) => {
 		if (isTextNode(item)) {
 			return [...acc, item['#text']]
@@ -38,7 +43,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</LargeSectionTitle>,
 			]
 		}
@@ -47,7 +57,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<LargeSectionReference key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</LargeSectionReference>,
 			]
 		}
@@ -60,7 +75,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<SectionTitle key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</SectionTitle>,
 			]
 		}
@@ -69,7 +89,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<FancyAside key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</FancyAside>,
 			]
 		}
@@ -82,7 +107,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<Paragraph key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</Paragraph>,
 			]
 		}
@@ -92,7 +122,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<Verse key={i} verseNumber={verseNumber}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</Verse>,
 			]
 		}
@@ -103,7 +138,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 				<VerseLabel
 					key={i}
 					verseNumber={
-						renderChapterContentFromOM(item[NodeType])[0] as unknown as number
+						renderChapterContentFromOM(
+							item[NodeType],
+							bookName,
+							bookAbbrToName,
+							bookNameToCode,
+						)[0] as unknown as number
 					}
 				/>,
 			]
@@ -112,7 +152,13 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		if (nodeClass === 'cross-reference') {
 			return [
 				...acc,
-				<VerseDetailsButton key={i} childrenOM={item[NodeType]} />,
+				<VerseDetailsButton
+					key={i}
+					childrenOM={item[NodeType]}
+					bookName={bookName}
+					bookAbbrToName={bookAbbrToName}
+					bookNameToCode={bookNameToCode}
+				/>,
 			]
 		}
 
@@ -120,7 +166,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<JesusWords key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</JesusWords>,
 			]
 		}
@@ -128,12 +179,26 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		if (nodeClass === 'quote') {
 			return [
 				...acc,
-				<Quote key={i}>{renderChapterContentFromOM(item[NodeType])}</Quote>,
+				<Quote key={i}>
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
+				</Quote>,
 			]
 		}
 
 		return [
 			...acc,
-			<Fragment key={i}>{renderChapterContentFromOM(item[NodeType])}</Fragment>,
+			<Fragment key={i}>
+				{renderChapterContentFromOM(
+					item[NodeType],
+					bookName,
+					bookAbbrToName,
+					bookNameToCode,
+				)}
+			</Fragment>,
 		]
 	}, [] as ReactNode[])
