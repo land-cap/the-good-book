@@ -21,8 +21,10 @@ const replaceBookAbbr = (
 	const match = /(\d )?\S+\./g.exec(reference)
 	const bookAbbr = match?.[0].replace(/\./g, '')
 	const bookName = bookAbbr && bookAbbrToName[bookAbbr]
-	if (bookAbbr && !bookName)
+	if (bookAbbr && !bookName) {
+		console.log({ bookAbbr, bookName, bookAbbrToName })
 		throw new Error(`Book name not found for abbreviation: ${bookAbbr}`)
+	}
 
 	return bookAbbr && bookName
 		? reference.replace(bookAbbr, bookName).replace(/\./g, '')
@@ -30,7 +32,7 @@ const replaceBookAbbr = (
 }
 
 const replaceAbbrWithoutPeriod = (reference: string) =>
-	reference.replace('Fapte', 'Faptele Apostolilor')
+	reference.replace('Fapte', 'Faptele Apostolilor').replace('Exod', 'Exodul')
 
 const splitSameBookReferences = (reference: string) => {
 	const referenceList = reference.split('; ')

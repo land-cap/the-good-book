@@ -38,7 +38,6 @@ export const extractReferenceList = (
 	chapter: string,
 	bookAbbrToName: Record<string, string>,
 ) => {
-	console.log({ currBookName, chapter, bookAbbrToName })
 	const referencesText = isReference(childrenOM)
 		? //@ts-ignore
 		  (childrenOM[0]?.['#text'] as string)
