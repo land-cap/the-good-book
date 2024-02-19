@@ -9,6 +9,7 @@ import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderCha
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
+import { getBookName } from '~/organisms/VerseDetailsMenu/getBookName'
 import {
 	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
@@ -50,6 +51,13 @@ export const VerseDetailsButton = ({
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('Geneza')
+
+	useEffect(() => {
+		void (async () => {
+			const bookName = await getBookName(bookCode)
+			setCurrBookName(bookName)
+		})()
+	}, [bookCode])
 
 	useEffect(() => {
 		setVerseDetails((prev) => ({ ...prev, verse: currVerse }))
