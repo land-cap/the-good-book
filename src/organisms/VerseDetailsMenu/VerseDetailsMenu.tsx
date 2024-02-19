@@ -16,7 +16,6 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { type TBook } from '~/db'
-import { useOnReaderParamChange } from '~/organisms/BottomToolbar/useOnReaderParamChange'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,
@@ -62,8 +61,6 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 		[setCurrVerseDetailsID],
 	)
 
-	useOnReaderParamChange(closeMenu, bookCode, Number(chapter))
-
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -89,11 +86,12 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 								{verseDetailsSnapshot?.referenceList.map(({ label, url }) => (
 									<li key={label}>
 										<Link
-											href={url}
 											className={css({
 												textDecoration: 'underline',
 												textDecorationColor: 'fg.faded',
 											})}
+											href={url}
+											onClick={closeMenu}
 										>
 											{label}
 										</Link>

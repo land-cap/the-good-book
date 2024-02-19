@@ -1,3 +1,17 @@
+const transformReference = (
+	currBookName: string,
+	currChapter: string,
+	bookAbbrToName: Record<string, string>,
+) =>
+	pipe(
+		(reference: string) => replaceCapAbbr(reference, currBookName),
+		(reference) => replaceVersAbbr(reference, currBookName, currChapter),
+		(reference) => replaceBookAbbr(reference, bookAbbrToName),
+		replaceAbbrWithoutPeriod,
+		trim,
+		splitSameBookReferences,
+	)
+
 import { flatten, map, pipe, splitEvery, trim } from 'ramda'
 
 import { type TCrossReference } from '~/state'
@@ -24,7 +38,6 @@ const replaceBookAbbr = (
 	const bookAbbr = match?.[0].replace(/\./g, '')
 	const bookName = bookAbbr && bookAbbrToName[bookAbbr]
 	if (bookAbbr && !bookName) {
-		console.log({ bookAbbr, bookName, bookAbbrToName })
 		throw new Error(`Book name not found for abbreviation: ${bookAbbr}`)
 	}
 
@@ -34,7 +47,7 @@ const replaceBookAbbr = (
 }
 
 const replaceAbbrWithoutPeriod = (reference: string) =>
-	reference.replace('Fapte', 'Faptele Apostolilor').replace('Exod', 'Exodul')
+	reference.replace('Fapte', 'Faptele Apostolilor')
 
 const splitSameBookReferences = (reference: string) => {
 	const referenceList = reference.split('; ')
@@ -50,26 +63,14 @@ const addUrlToReference = (
 	reference: string,
 	bookNameToCode: Record<string, string>,
 ): TCrossReference => {
-	const match = reference.match(/^(\d )?(\D+ ){1,2}/g)
-	const bookName = match?.[0]?.trim()
+	const bookNameMatch = reference.match(/^(\d )?(\D+ ){1,2}/g)
+	const bookName = bookNameMatch?.[0]?.trim()
 	const bookCode = bookName && bookNameToCode[bookName]
-	console.log({ reference, bookName, bookCode })
-	return { label: reference, url: `/${bookCode}/1` }
+	const referenceWithoutBookName = bookName && reference.replace(bookName, '')
+	const chapter = referenceWithoutBookName?.trim()?.split(':')[0]
+	//console.log({ reference, bookName, bookCode, chapter })
+	return { label: reference, url: `/${bookCode}/${chapter}` }
 }
-
-const transformReference = (
-	currBookName: string,
-	currChapter: string,
-	bookAbbrToName: Record<string, string>,
-) =>
-	pipe(
-		(reference: string) => replaceCapAbbr(reference, currBookName),
-		(reference) => replaceVersAbbr(reference, currBookName, currChapter),
-		(reference) => replaceBookAbbr(reference, bookAbbrToName),
-		replaceAbbrWithoutPeriod,
-		trim,
-		splitSameBookReferences,
-	)
 
 export const processReferencesText = (
 	currBookName: string,
