@@ -37,6 +37,7 @@ export const extractReferenceList = (
 	currBookName: string,
 	chapter: string,
 	bookAbbrToName: Record<string, string>,
+	bookNameToCode: Record<string, string>,
 ) => {
 	const referencesText = isReference(childrenOM)
 		? //@ts-ignore
@@ -47,6 +48,7 @@ export const extractReferenceList = (
 				currBookName,
 				chapter,
 				bookAbbrToName,
+				bookNameToCode,
 		  )(referencesText)
 		: undefined
 }

@@ -11,6 +11,7 @@ import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
 import { getBookAbbrToName } from '~/organisms/VerseDetailsMenu/getBookAbbrToName'
 import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
+import { getBookNameToCode } from '~/organisms/VerseDetailsMenu/getBookNameToCode'
 import {
 	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
@@ -73,19 +74,43 @@ export const VerseDetailsButton = ({
 			const bookAbbrToName = await getBookAbbrToName()
 			setBookAbbrToName(bookAbbrToName)
 		})()
-	}, [bookCode])
+	}, [])
+
+	const [bookNameToCode, setBookNameToCode] = useState<Record<string, string>>(
+		{},
+	)
 
 	useEffect(() => {
-		if (Object.keys(bookAbbrToName).length && currBookName && chapter) {
+		void (async () => {
+			const bookNameToCode = await getBookNameToCode()
+			setBookNameToCode(bookNameToCode)
+		})()
+	}, [])
+
+	useEffect(() => {
+		if (
+			Object.keys(bookAbbrToName).length &&
+			Object.keys(bookNameToCode).length &&
+			currBookName &&
+			chapter
+		) {
 			const referenceList = extractReferenceList(
 				childrenOM,
 				currBookName,
 				chapter,
 				bookAbbrToName,
+				bookNameToCode,
 			)
 			referenceList && setVerseDetails((prev) => ({ ...prev, referenceList }))
 		}
-	}, [bookAbbrToName, chapter, childrenOM, currBookName, setVerseDetails])
+	}, [
+		bookAbbrToName,
+		bookNameToCode,
+		chapter,
+		childrenOM,
+		currBookName,
+		setVerseDetails,
+	])
 
 	useEffect(() => {
 		const footnote = extractFootnote(childrenOM)
