@@ -16,10 +16,15 @@ export const isLastChapterAtom = atom(false)
 
 export const currVerseDetailsIDAtom = atom<string | null>(null)
 
+export type TCrossReference = {
+	label: string
+	url: string
+}
+
 export type TVerseDetails = {
 	id: string
 	verse?: number
-	referenceList?: string[]
+	referenceList?: TCrossReference[]
 	footnote?: ReactNode[]
 }
 

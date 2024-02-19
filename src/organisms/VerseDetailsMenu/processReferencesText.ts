@@ -1,5 +1,7 @@
 import { flatten, map, pipe, splitEvery, trim } from 'ramda'
 
+import { type TCrossReference } from '~/state'
+
 const referencesTextToList = (referencesText: string) =>
 	splitEvery(2)(referencesText.split(/(\d)\./g))
 		.map((reference) => reference.join(''))
@@ -47,19 +49,18 @@ const splitSameBookReferences = (reference: string) => {
 const addUrlToReference = (
 	reference: string,
 	bookNameToCode: Record<string, string>,
-) => {
+): TCrossReference => {
 	const match = reference.match(/^(\d )?(\D+ ){1,2}/g)
 	const bookName = match?.[0]?.trim()
 	const bookCode = bookName && bookNameToCode[bookName]
 	console.log({ reference, bookName, bookCode })
-	return reference
+	return { label: reference, url: `/${bookCode}/1` }
 }
 
 const transformReference = (
 	currBookName: string,
 	currChapter: string,
 	bookAbbrToName: Record<string, string>,
-	bookNameToCode: Record<string, string>,
 ) =>
 	pipe(
 		(reference: string) => replaceCapAbbr(reference, currBookName),
@@ -67,7 +68,6 @@ const transformReference = (
 		(reference) => replaceBookAbbr(reference, bookAbbrToName),
 		replaceAbbrWithoutPeriod,
 		trim,
-		(reference) => addUrlToReference(reference, bookNameToCode),
 		splitSameBookReferences,
 	)
 
@@ -80,12 +80,8 @@ export const processReferencesText = (
 	pipe(
 		referencesTextToList,
 		map((reference) =>
-			transformReference(
-				currBookName,
-				currChapter,
-				bookAbbrToName,
-				bookNameToCode,
-			)(reference),
+			transformReference(currBookName, currChapter, bookAbbrToName)(reference),
 		),
 		(referenceListList: string[][]) => flatten(referenceListList),
+		map((reference) => addUrlToReference(reference, bookNameToCode)),
 	)

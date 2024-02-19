@@ -72,16 +72,16 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						/>
 						{!!verseDetailsSnapshot?.referenceList && (
 							<CrossReferenceList>
-								{verseDetailsSnapshot?.referenceList.map((reference) => (
-									<li key={reference}>
+								{verseDetailsSnapshot?.referenceList.map(({ label, url }) => (
+									<li key={label}>
 										<Link
-											href="/mat/1"
+											href={url}
 											className={css({
 												textDecoration: 'underline',
 												textDecorationColor: 'fg.faded',
 											})}
 										>
-											{reference}
+											{label}
 										</Link>
 									</li>
 								))}
