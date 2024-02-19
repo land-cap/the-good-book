@@ -1,10 +1,10 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useAtomValue } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
@@ -16,7 +16,12 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { type TBook } from '~/db'
-import { currVerseDetailsAtom, type TVerseDetails } from '~/state'
+import { useOnReaderParamChange } from '~/organisms/BottomToolbar/useOnReaderParamChange'
+import {
+	currVerseDetailsAtom,
+	currVerseDetailsIDAtom,
+	type TVerseDetails,
+} from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
 import { Header } from './Header'
@@ -49,6 +54,15 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 	useEffect(() => {
 		verseDetails && setVerseDetailsSnapshot(verseDetails)
 	}, [verseDetails])
+
+	const setCurrVerseDetailsID = useSetAtom(currVerseDetailsIDAtom)
+
+	const closeMenu = useCallback(
+		() => setCurrVerseDetailsID(null),
+		[setCurrVerseDetailsID],
+	)
+
+	useOnReaderParamChange(closeMenu, bookCode, Number(chapter))
 
 	return (
 		<Portal>
