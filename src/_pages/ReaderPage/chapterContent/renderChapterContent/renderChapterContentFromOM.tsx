@@ -1,6 +1,7 @@
 import { Fragment, type ReactNode } from 'react'
 
-import { VerseDetailsButton } from '../../../../organisms/VerseDetailsMenu'
+import { VerseDetailsButton } from '~/organisms/VerseDetailsMenu'
+
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
@@ -31,7 +32,7 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			(keys) => keys !== ':@',
 		)[0] as unknown as IntrinsicEl
 
-		const { className: nodeClass } = item[':@'].attrs
+		const { className: nodeClass, 'data-usfm': verseId } = item[':@'].attrs
 
 		if (nodeClass === 'large-section-title') {
 			return [
@@ -87,14 +88,7 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		}
 
 		if (nodeClass === 'verse') {
-			const verseNumberNode = item[NodeType].find(
-				//@ts-ignore
-				//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				(node) => node[':@'].attrs.className === 'verse-label',
-			)
-			//@ts-ignore
-			//eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-			const verseNumber = verseNumberNode?.span?.[0]?.['#text'] as number
+			const verseNumber = Number(verseId?.split('.')[2])
 			return [
 				...acc,
 				<Verse key={i} verseNumber={verseNumber}>
