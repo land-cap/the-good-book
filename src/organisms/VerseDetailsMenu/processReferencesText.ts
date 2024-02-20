@@ -68,7 +68,11 @@ const addUrlToReference = (
 	const bookCode = bookName && bookNameToCode[bookName]
 	const referenceWithoutBookName = bookName && reference.replace(bookName, '')
 	const chapter = referenceWithoutBookName?.trim()?.split(':')[0]
-	return { label: reference, url: `/${bookCode}/${chapter}` }
+	const verseRange = referenceWithoutBookName?.trim()?.split(':')[1]
+	return {
+		label: reference,
+		url: `/${bookCode}/${chapter}?verse-range=${verseRange}`,
+	}
 }
 
 export const processReferencesText = (
