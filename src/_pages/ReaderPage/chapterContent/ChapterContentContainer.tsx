@@ -1,10 +1,12 @@
 'use client'
 
 import { useAtomValue } from 'jotai'
-import { type ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
 import { cva } from 'styled-system/css'
 
 import { fontSizeOffsetAtom, leadingAtom, verseBreaksLineAtom } from '~/state'
+
+import { useVerseRangeList } from './renderChapterContent'
 
 export const chapterContentContainerRecipe = cva({
 	base: {
@@ -123,6 +125,25 @@ export const ChapterContentContainer = ({
 	const fontSize = useAtomValue(fontSizeOffsetAtom)
 	const leading = useAtomValue(leadingAtom)
 	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
+
+	const verseRangeList = useVerseRangeList()
+
+	const firstHighlightedVerse = verseRangeList?.[0]
+
+	useEffect(() => {
+		if (firstHighlightedVerse) {
+			const verse = document.querySelector(
+				`[data-verse-number="${firstHighlightedVerse}"]`,
+			)
+			const topOffset = verse?.getBoundingClientRect().top
+			if (topOffset) {
+				window.scrollTo({
+					top: topOffset,
+					behavior: 'smooth',
+				})
+			}
+		}
+	}, [firstHighlightedVerse])
 
 	return (
 		<div
