@@ -112,13 +112,14 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 						sm: { left: '-3' },
 						top: 0,
 						transform: 'translateX(-100%)',
+						color: 'fg.subtle',
 					}),
 			)}
 		>
 			{!verseBreaksLine && ' '}
 			<LabelTag
 				className={cx(
-					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
+					css({ fontFamily: 'sans', fontStyle: 'normal' }),
 					verseBreaksLine &&
 						css({
 							fontSize: '0.625em',

@@ -30,10 +30,11 @@ export const Verse = ({
 		: null
 
 	const isHighlighted =
-		verseStart &&
-		verseEnd &&
-		verseNumber >= verseStart &&
-		verseNumber <= verseEnd
+		(verseStart &&
+			verseEnd &&
+			verseNumber >= verseStart &&
+			verseNumber <= verseEnd) ??
+		(verseStart && !verseEnd && verseNumber === verseStart)
 
 	return (
 		<CurrVerseContext.Provider value={verseNumber}>
@@ -49,7 +50,20 @@ export const Verse = ({
 				)}
 			>
 				{isHighlighted ? (
-					<styled.mark css={{ bg: 'bg.highlight', color: 'inherit' }}>
+					<styled.mark
+						css={{
+							bg: 'transparent',
+							color: 'inherit',
+							textDecoration: 'underline',
+							textDecorationColor: 'fg.moreFaded',
+							textUnderlineOffset: '0.25em',
+							textDecorationThickness: '1px',
+							'& [data-component="VerseLabel"]': {
+								fontWeight: 'bold',
+								color: 'fg',
+							},
+						}}
+					>
 						{children}
 					</styled.mark>
 				) : (
