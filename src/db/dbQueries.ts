@@ -1,3 +1,5 @@
+'use server'
+
 import { getDbClient } from '~/db/dbClient'
 import {
 	createFileSystemCache,

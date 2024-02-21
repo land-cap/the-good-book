@@ -9,7 +9,7 @@ import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { TBook } from '~/db'
-import { ReturnFromReferenceFAB } from '~/organisms/BottomToolbar/ReturnFromReference'
+import { ReturnFromReferenceFAB } from '~/organisms/BottomToolbar/ReturnFromReferenceFAB'
 import {
 	isFirstChapterAtom,
 	isLastChapterAtom,

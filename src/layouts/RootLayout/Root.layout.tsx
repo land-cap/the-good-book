@@ -1,10 +1,11 @@
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
-import { type ReactNode } from 'react'
+import { type ReactNode, Suspense } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { getBookListWithCache } from '~/db'
+import { NavigationEvents } from '~/layouts/RootLayout/NavigationEvents'
 import {
 	BottomToolbar,
 	SetUpPreferencesMenuState,
@@ -104,6 +105,9 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				)}
 			/>
 			<UseLockBodyScroll />
+			<Suspense fallback={null}>
+				<NavigationEvents />
+			</Suspense>
 			<html
 				lang="en"
 				className={cx(fontGeist.variable, fontGeistMono.variable)}

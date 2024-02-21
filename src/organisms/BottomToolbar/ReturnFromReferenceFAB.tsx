@@ -1,7 +1,10 @@
+import { useLogger } from '@mantine/hooks'
+import { useAtomValue } from 'jotai'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
+import { prevHistoryEntryAtom } from '~/state'
 
 const buttonCls = cx(
 	button({ visual: 'solid', size: 'small', weight: 'regular' }),
@@ -27,10 +30,17 @@ const iconCls = css({
 })
 
 export const ReturnFromReferenceFAB = () => {
+	const prevHistoryEntry = useAtomValue(prevHistoryEntryAtom)
+
+	useLogger('ReturnFromReferenceFAB', [prevHistoryEntry])
+
+	if (!prevHistoryEntry) return null
+
 	return (
-		<button className={buttonCls}>
+		<a className={buttonCls}>
 			<Icon name="undo" size={5} className={iconCls} />
-			Gen. 12
-		</button>
+			{prevHistoryEntry.book?.book_abbreviation?.value}.{' '}
+			{prevHistoryEntry.chapter}
+		</a>
 	)
 }
