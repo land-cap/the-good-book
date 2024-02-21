@@ -20,7 +20,7 @@ const buttonCls = cx(
 
 const iconCls = css({
 	'--wght': '325',
-	ml: '-0.5',
+	ml: '-1',
 	_active: { color: 'fg' },
 	_canHover: { _hover: { color: 'fg' } },
 	transition: 'colors',
@@ -34,12 +34,14 @@ export const ReturnFromReferenceFAB = () => {
 	if (!referenceOriginChapter) return null
 
 	const referenceOriginChapterUrl = `/${referenceOriginChapter.book?.code}/${referenceOriginChapter.chapter}`
+	const bookName = referenceOriginChapter.book?.book_name?.value
+	const bookAbbr = referenceOriginChapter.book?.book_abbreviation?.value
 
 	return (
 		<a className={buttonCls} href={referenceOriginChapterUrl}>
 			<Icon name="undo" size={5} className={iconCls} />
-			{referenceOriginChapter.book?.book_abbreviation?.value}.{' '}
-			{referenceOriginChapter.chapter}
+			{bookAbbr}
+			{bookAbbr !== bookName ? '.' : null} {referenceOriginChapter.chapter}
 		</a>
 	)
 }

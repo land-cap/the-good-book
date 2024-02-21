@@ -5,7 +5,7 @@ const computeVerseRange = (verseRangeStr: string) => {
 	const generateRange = (rangeStr: string) => {
 		const start = Number(rangeStr.split('-')?.[0])
 		const end = Number(rangeStr.split('-')?.[1])
-		return range(start)(end)
+		return range(start)(end + 1)
 	}
 
 	//eslint-disable-next-line @typescript-eslint/no-unsafe-return
