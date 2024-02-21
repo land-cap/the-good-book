@@ -6,7 +6,6 @@ export const buttonRecipe = defineRecipe({
 		display: 'inline-flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		px: '4',
 		fontWeight: 'bold',
 		lineHeight: '1',
 		transition: 'colors',
@@ -39,16 +38,36 @@ export const buttonRecipe = defineRecipe({
 				},
 			},
 		},
+		size: {
+			small: {
+				h: '8',
+				px: '3',
+				fontSize: 'sm',
+			},
+			large: {
+				h: '14',
+				px: '4',
+			},
+		},
 		icon: {
 			true: {
 				px: '0',
-				h: '14',
 				aspectRatio: 'square',
+			},
+		},
+		weight: {
+			regular: {
+				fontWeight: 'regular',
+			},
+			bold: {
+				fontWeight: 'bold',
 			},
 		},
 	},
 	defaultVariants: {
 		visual: 'ghost',
+		size: 'large',
 		icon: false,
+		weight: 'bold',
 	},
 })

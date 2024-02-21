@@ -9,6 +9,7 @@ import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { TBook } from '~/db'
+import { ReturnFromReferenceFAB } from '~/organisms/BottomToolbar/ReturnFromReference'
 import {
 	isFirstChapterAtom,
 	isLastChapterAtom,
@@ -100,9 +101,11 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 			<div
 				className={subgrid({
 					column: 'content',
+					pos: 'relative',
 					pb: 'safe_area_bottom',
 				})}
 			>
+				<ReturnFromReferenceFAB />
 				<div
 					className={hstack({
 						gap: '0',
