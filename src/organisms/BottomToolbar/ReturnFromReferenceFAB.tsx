@@ -4,7 +4,7 @@ import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { prevHistoryEntryAtom } from '~/state'
+import { referenceOriginChapterAtom } from '~/state'
 
 const buttonCls = cx(
 	button({ visual: 'solid', size: 'small', weight: 'regular' }),
@@ -30,7 +30,7 @@ const iconCls = css({
 })
 
 export const ReturnFromReferenceFAB = () => {
-	const prevHistoryEntry = useAtomValue(prevHistoryEntryAtom)
+	const prevHistoryEntry = useAtomValue(referenceOriginChapterAtom)
 
 	useLogger('ReturnFromReferenceFAB', [prevHistoryEntry])
 

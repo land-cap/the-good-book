@@ -2,6 +2,8 @@ import { atom } from 'jotai'
 import { atomFamily } from 'jotai/utils'
 import { type ReactNode } from 'react'
 
+import { type TBook } from '~/db'
+
 export const prevChapterURLAtom = atom<string>('')
 
 export const nextChapterURLAtom = atom<string>('')
@@ -37,6 +39,15 @@ export const currVerseDetailsAtom = atom((get) => {
 	const id = get(currVerseDetailsIDAtom)
 	return id ? get(verseDetailsAtomFamily(id)) : null
 })
+
+export type THistoryEntry = {
+	book: TBook
+	chapter: number
+}
+
+export const referenceOriginChapterAtom = atom<THistoryEntry | undefined>(
+	undefined,
+)
 
 /**
  * PREFERENCES STATE

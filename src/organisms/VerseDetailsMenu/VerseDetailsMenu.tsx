@@ -4,7 +4,7 @@ import { Portal } from '@ark-ui/react'
 import { useAtomValue, useSetAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { macrogrid } from 'styled-system/patterns'
@@ -15,10 +15,11 @@ import {
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
 } from '~/components'
-import { type TBook } from '~/db'
+import { getBookWithCache, type TBook } from '~/db'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,
+	referenceOriginChapterAtom,
 	type TVerseDetails,
 } from '~/state'
 
@@ -56,10 +57,20 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const setCurrVerseDetailsID = useSetAtom(currVerseDetailsIDAtom)
 
-	const closeMenu = useCallback(
-		() => setCurrVerseDetailsID(null),
-		[setCurrVerseDetailsID],
-	)
+	const closeMenu = () => setCurrVerseDetailsID(null)
+
+	const setReferenceOriginChapter = useSetAtom(referenceOriginChapterAtom)
+
+	const handleReferenceLinkClick = async () => {
+		closeMenu()
+		const currBook = await getBookWithCache(bookCode)
+		if (currBook) {
+			setReferenceOriginChapter({
+				book: currBook,
+				chapter: Number(chapter),
+			})
+		}
+	}
 
 	return (
 		<Portal>
@@ -91,7 +102,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 												textDecorationColor: 'fg.faded',
 											})}
 											href={url}
-											onClick={closeMenu}
+											onClick={handleReferenceLinkClick}
 										>
 											{label}
 										</Link>
