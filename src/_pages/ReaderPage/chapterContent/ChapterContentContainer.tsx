@@ -137,10 +137,14 @@ export const ChapterContentContainer = ({
 			)
 			const topOffset = verse?.getBoundingClientRect().top
 			if (topOffset) {
-				window.scrollTo({
-					top: topOffset,
-					behavior: 'smooth',
-				})
+				setTimeout(
+					() =>
+						window.scrollTo({
+							top: topOffset,
+							behavior: 'instant',
+						}),
+					0,
+				)
 			}
 		}
 	}, [firstHighlightedVerse])
