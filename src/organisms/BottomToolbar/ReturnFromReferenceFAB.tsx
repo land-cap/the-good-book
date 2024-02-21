@@ -1,4 +1,3 @@
-import { useLogger } from '@mantine/hooks'
 import { useAtomValue } from 'jotai'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
@@ -30,17 +29,17 @@ const iconCls = css({
 })
 
 export const ReturnFromReferenceFAB = () => {
-	const prevHistoryEntry = useAtomValue(referenceOriginChapterAtom)
+	const referenceOriginChapter = useAtomValue(referenceOriginChapterAtom)
 
-	useLogger('ReturnFromReferenceFAB', [prevHistoryEntry])
+	if (!referenceOriginChapter) return null
 
-	if (!prevHistoryEntry) return null
+	const referenceOriginChapterUrl = `/${referenceOriginChapter.book?.code}/${referenceOriginChapter.chapter}`
 
 	return (
-		<a className={buttonCls}>
+		<a className={buttonCls} href={referenceOriginChapterUrl}>
 			<Icon name="undo" size={5} className={iconCls} />
-			{prevHistoryEntry.book?.book_abbreviation?.value}.{' '}
-			{prevHistoryEntry.chapter}
+			{referenceOriginChapter.book?.book_abbreviation?.value}.{' '}
+			{referenceOriginChapter.chapter}
 		</a>
 	)
 }
