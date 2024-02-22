@@ -12,24 +12,25 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
-import { IncrementInput } from '~/organisms/BottomToolbar/PreferencesMenu/IncrementInput'
 import {
 	fontSizeOffsetAtom,
-	hideNonOriginalTextAtom,
 	leadingAtom,
+	showNonOriginalTextAtom,
 	showRedLettersAtom,
+	showVerseDetailsAtom,
 	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
 } from '~/state'
 
 import { Header } from './Header'
+import { IncrementInput } from './IncrementInput'
 import { PreferencesList } from './PreferencesList'
 import { SwitchInput } from './SwitchInput'
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
-const leadingRange = steppedRange(0.25, 1.5, 2.5) as TLeading[]
+const leadingRange = steppedRange(0.25, 1.5, 3) as TLeading[]
 
 export const PreferencesMenu = () => {
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)
@@ -84,10 +85,17 @@ export const PreferencesMenu = () => {
 								label="Start verse on new line"
 							/>
 							<SwitchInput
-								valueAtom={hideNonOriginalTextAtom}
-								label="Hide non-original text"
+								valueAtom={showNonOriginalTextAtom}
+								label="Show non-original text"
 							/>
-							<SwitchInput valueAtom={showRedLettersAtom} label="Red letters" />
+							<SwitchInput
+								valueAtom={showRedLettersAtom}
+								label="Show red letters"
+							/>
+							<SwitchInput
+								valueAtom={showVerseDetailsAtom}
+								label="Show references and footnotes"
+							/>
 						</PreferencesList>
 					</div>
 				</Container_OverlayMenu>

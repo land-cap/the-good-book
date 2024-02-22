@@ -23,6 +23,6 @@ export const BookList = ({
 				setSelectedBook(book)
 			}}
 		>
-			<BookListItem>{book.book_name?.name}</BookListItem>
+			<BookListItem>{book.book_name?.value}</BookListItem>
 		</BookListItemContainer>
 	))

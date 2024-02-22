@@ -26,7 +26,6 @@ import {
 	TabsRoot,
 } from './ChapterPickerMenu.styles'
 import { Header } from './Header'
-import { useCloseChapterPickerOnParamChange } from './useCloseChapterPickerOnParamChange'
 import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
 
 export type TChapterPickerTab = 'book' | 'chapter'
@@ -49,13 +48,6 @@ export const ChapterPickerMenu = ({
 		() => setIsBodyScrollLocked(isDialogOpen),
 		[isDialogOpen, setIsBodyScrollLocked],
 	)
-
-	useCloseChapterPickerOnParamChange({
-		closeDialog: () => setIsDialogOpen(false),
-		currBookCode: currBook.code,
-		currChapter,
-		isDialogOpen,
-	})
 
 	const [selectedBook, setSelectedBook] = useState<TBook>(currBook)
 
@@ -107,7 +99,7 @@ export const ChapterPickerMenu = ({
 				className={cx(button(), css({ h: 'full', flexGrow: 1 }))}
 				onClick={() => setIsDialogOpen(true)}
 			>
-				{currBook.book_name?.name} {currChapter}
+				{currBook.book_name?.value} {currChapter}
 			</Dialog.Trigger>
 			<Portal>
 				<Positioner_OverlayMenu>
@@ -159,7 +151,7 @@ export const ChapterPickerMenu = ({
 									<ChapterListHeader
 										chapterListItemHeight={chapterListItemHeight}
 									>
-										{selectedBook.book_name?.name}
+										{selectedBook.book_name?.value}
 									</ChapterListHeader>
 									{chapterList?.map((chapter) => {
 										const isCurrChapter =
@@ -172,6 +164,7 @@ export const ChapterPickerMenu = ({
 												key={chapter}
 												ref={chapter === 1 ? chapterListItemRef : null}
 												isCurrChapter={isCurrChapter}
+												onClick={() => setIsDialogOpen(false)}
 											>
 												<ChapterListItemLink href={chapterUrl}>
 													{chapter}

@@ -1,5 +1,8 @@
 import { UseReaderHotKeys } from '~/_pages/ReaderPage/UseReaderHotKeys'
 import { getChapterWithCache } from '~/db'
+import { getBookAbbrToName } from '~/organisms/VerseDetailsMenu/getBookAbbrToName'
+import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
+import { getBookNameToCode } from '~/organisms/VerseDetailsMenu/getBookNameToCode'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
 import { type TReaderPageParams } from './ReaderPage.types'
@@ -13,7 +16,15 @@ export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 		throw new Error('No chapter data')
 	}
 
-	const chapterContent = renderChapterContent(chapterData.content)
+	const bookName = await getBookNameByCode(bookCode)
+	const bookAbbrToName = await getBookAbbrToName()
+	const bookNameToCode = await getBookNameToCode()
+
+	const chapterContent = renderChapterContent(
+		bookName,
+		bookAbbrToName,
+		bookNameToCode,
+	)(chapterData.content)
 
 	return (
 		<>

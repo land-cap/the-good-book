@@ -1,12 +1,13 @@
 import { Fragment, type ReactNode } from 'react'
 
+import { VerseDetailsButton } from '~/organisms/VerseDetailsMenu'
+
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
 import {
 	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
 	SectionTitle,
-	Verse,
 	VerseLabel,
 } from './ChapterContentComponents.client'
 import {
@@ -15,12 +16,18 @@ import {
 	type IntrinsicEl,
 	type TextNode,
 } from './normalizeOriginalChapterHTML'
+import { Verse } from './Verse'
 
 function isTextNode(node: ChapterOMNode): node is TextNode {
 	return (node as TextNode)['#text'] !== undefined
 }
 
-export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
+export const renderChapterContentFromOM = (
+	chapterOM: ChapterOM,
+	bookName: string,
+	bookAbbrToName: Record<string, string>,
+	bookNameToCode: Record<string, string>,
+) =>
 	chapterOM.reduce((acc, item, i) => {
 		if (isTextNode(item)) {
 			return [...acc, item['#text']]
@@ -30,13 +37,18 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			(keys) => keys !== ':@',
 		)[0] as unknown as IntrinsicEl
 
-		const { className: nodeClass } = item[':@'].attrs
+		const { className: nodeClass, 'data-usfm': verseId } = item[':@'].attrs
 
 		if (nodeClass === 'large-section-title') {
 			return [
 				...acc,
 				<LargeSectionTitle key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</LargeSectionTitle>,
 			]
 		}
@@ -45,7 +57,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<LargeSectionReference key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</LargeSectionReference>,
 			]
 		}
@@ -58,7 +75,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<SectionTitle key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</SectionTitle>,
 			]
 		}
@@ -67,7 +89,12 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<FancyAside key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</FancyAside>,
 			]
 		}
@@ -80,15 +107,28 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 			return [
 				...acc,
 				<Paragraph key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</Paragraph>,
 			]
 		}
 
 		if (nodeClass === 'verse') {
+			const verseNumber = Number(verseId?.split('.')[2])
 			return [
 				...acc,
-				<Verse key={i}>{renderChapterContentFromOM(item[NodeType])}</Verse>,
+				<Verse key={i} verseNumber={verseNumber}>
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
+				</Verse>,
 			]
 		}
 
@@ -98,33 +138,40 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 				<VerseLabel
 					key={i}
 					verseNumber={
-						renderChapterContentFromOM(item[NodeType])[0] as unknown as number
+						renderChapterContentFromOM(
+							item[NodeType],
+							bookName,
+							bookAbbrToName,
+							bookNameToCode,
+						)[0] as unknown as number
 					}
 				/>,
 			]
 		}
 
 		if (nodeClass === 'cross-reference') {
-			return acc
-			//return [
-			//	<CrossReference
-			//		key={i}
-			//		isStudyMode={isStudyMode}
-			//		referenceList={
-			//			renderChapterContentFromOM(
-			//				item[NodeType],
-			//				isStudyMode,
-			//			) as unknown as string
-			//		}
-			//	/>,
-			//]
+			return [
+				...acc,
+				<VerseDetailsButton
+					key={i}
+					childrenOM={item[NodeType]}
+					bookName={bookName}
+					bookAbbrToName={bookAbbrToName}
+					bookNameToCode={bookNameToCode}
+				/>,
+			]
 		}
 
 		if (nodeClass === 'jesus-words') {
 			return [
 				...acc,
 				<JesusWords key={i}>
-					{renderChapterContentFromOM(item[NodeType])}
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
 				</JesusWords>,
 			]
 		}
@@ -132,12 +179,26 @@ export const renderChapterContentFromOM = (chapterOM: ChapterOM) =>
 		if (nodeClass === 'quote') {
 			return [
 				...acc,
-				<Quote key={i}>{renderChapterContentFromOM(item[NodeType])}</Quote>,
+				<Quote key={i}>
+					{renderChapterContentFromOM(
+						item[NodeType],
+						bookName,
+						bookAbbrToName,
+						bookNameToCode,
+					)}
+				</Quote>,
 			]
 		}
 
 		return [
 			...acc,
-			<Fragment key={i}>{renderChapterContentFromOM(item[NodeType])}</Fragment>,
+			<Fragment key={i}>
+				{renderChapterContentFromOM(
+					item[NodeType],
+					bookName,
+					bookAbbrToName,
+					bookNameToCode,
+				)}
+			</Fragment>,
 		]
 	}, [] as ReactNode[])

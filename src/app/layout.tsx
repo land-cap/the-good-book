@@ -21,26 +21,14 @@ export const viewport = (): Viewport => ({
 	userScalable: false,
 	viewportFit: 'cover',
 	width: 'device-width',
-	themeColor:
-		process.env.ENVIRONMENT === 'dev'
-			? [
-					{
-						media: '(prefers-color-scheme: light)',
-						color: token('colors.amber.300'),
-					},
-					{
-						media: '(prefers-color-scheme: dark)',
-						color: token('colors.amber.700'),
-					},
-			  ]
-			: [
-					{
-						media: '(prefers-color-scheme: light)',
-						color: token('colors.white'),
-					},
-					{
-						media: '(prefers-color-scheme: dark)',
-						color: token('colors.neutral.900'),
-					},
-			  ],
+	themeColor: [
+		{
+			media: '(prefers-color-scheme: light)',
+			color: token('colors.white'),
+		},
+		{
+			media: '(prefers-color-scheme: dark)',
+			color: token('colors.neutral.900'),
+		},
+	],
 })
