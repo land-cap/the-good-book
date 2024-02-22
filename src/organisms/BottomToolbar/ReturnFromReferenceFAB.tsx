@@ -1,4 +1,4 @@
-import { useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
 import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
@@ -9,7 +9,6 @@ import { referenceOriginChapterAtom } from '~/state'
 const buttonCls = cx(
 	button({ visual: 'solid', size: 'small', weight: 'regular' }),
 	css({
-		display: 'inline-flex',
 		gap: '1.5',
 		alignItems: 'center',
 		pos: 'absolute',
@@ -30,19 +29,23 @@ const iconCls = css({
 })
 
 export const ReturnFromReferenceFAB = () => {
-	const referenceOriginChapter = useAtomValue(referenceOriginChapterAtom)
+	const [origin, setOrigin] = useAtom(referenceOriginChapterAtom)
 
-	if (!referenceOriginChapter) return null
+	if (!origin) return null
 
-	const referenceOriginChapterUrl = `/${referenceOriginChapter.book?.code}/${referenceOriginChapter.chapter}`
-	const bookName = referenceOriginChapter.book?.book_name?.value
-	const bookAbbr = referenceOriginChapter.book?.book_abbreviation?.value
+	const referenceOriginChapterUrl = `/${origin.book?.code}/${origin.chapter}`
+	const bookName = origin.book?.book_name?.value
+	const bookAbbr = origin.book?.book_abbreviation?.value
 
 	return (
-		<Link className={buttonCls} href={referenceOriginChapterUrl}>
+		<Link
+			className={buttonCls}
+			href={referenceOriginChapterUrl}
+			onClick={() => setOrigin(undefined)}
+		>
 			<Icon name="undo" size={5} className={iconCls} />
 			{bookAbbr}
-			{bookAbbr !== bookName ? '.' : null} {referenceOriginChapter.chapter}
+			{bookAbbr !== bookName ? '.' : null} {origin.chapter}
 		</Link>
 	)
 }

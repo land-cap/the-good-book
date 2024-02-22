@@ -95,10 +95,9 @@ export const VerseDetailsButton = ({
 
 	return (
 		<>
-			&nbsp;
 			<button
 				onClick={() => setCurrVerseDetailsId(id)}
-				className={css({ display: 'inline' })}
+				className={css({ display: 'inline', verticalAlign: 'text-bottom' })}
 			>
 				<Icon name="info" className={iconCls} />
 			</button>
