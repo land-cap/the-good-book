@@ -1,4 +1,5 @@
 import { useAtomValue } from 'jotai'
+import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
@@ -38,10 +39,10 @@ export const ReturnFromReferenceFAB = () => {
 	const bookAbbr = referenceOriginChapter.book?.book_abbreviation?.value
 
 	return (
-		<a className={buttonCls} href={referenceOriginChapterUrl}>
+		<Link className={buttonCls} href={referenceOriginChapterUrl}>
 			<Icon name="undo" size={5} className={iconCls} />
 			{bookAbbr}
 			{bookAbbr !== bookName ? '.' : null} {referenceOriginChapter.chapter}
-		</a>
+		</Link>
 	)
 }
