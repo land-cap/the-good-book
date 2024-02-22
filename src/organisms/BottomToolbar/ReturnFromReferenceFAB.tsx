@@ -1,8 +1,10 @@
 import { useAtom } from 'jotai'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
+import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
 import { referenceOriginChapterAtom } from '~/state'
 
@@ -31,7 +33,12 @@ const iconCls = css({
 export const ReturnFromReferenceFAB = () => {
 	const [origin, setOrigin] = useAtom(referenceOriginChapterAtom)
 
-	if (!origin) return null
+	const { bookCode, chapter } = useParams<TReaderPageParams>()
+
+	const hasNavigatedToReference =
+		bookCode !== origin?.book?.code || Number(chapter) !== origin?.chapter
+
+	if (!origin || !hasNavigatedToReference) return null
 
 	const referenceOriginChapterUrl = `/${origin.book?.code}/${origin.chapter}`
 	const bookName = origin.book?.book_name?.value
