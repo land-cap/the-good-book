@@ -27,6 +27,7 @@ const iconCls = css({
 	w: 'content',
 	h: 'content',
 	verticalAlign: 'text-bottom',
+	textDecoration: 'none',
 	_active: { color: 'fg' },
 	_canHover: { _hover: { color: 'fg' } },
 	transition: 'colors',
@@ -99,7 +100,7 @@ export const VerseDetailsButton = ({
 		<>
 			<button
 				onClick={() => setCurrVerseDetailsId(id)}
-				className={css({ display: 'inline' })}
+				className={css({ display: 'inline', textDecoration: 'none' })}
 			>
 				<Icon name="info" className={iconCls} />
 			</button>
