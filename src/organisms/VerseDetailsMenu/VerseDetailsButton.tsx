@@ -18,16 +18,15 @@ import {
 import { extractFootnote, extractReferenceList } from './verseDetails.helpers'
 
 const iconCls = css({
+	display: 'inline',
 	pos: 'relative',
 	bottom: '0.5em',
 	cursor: 'pointer',
-	display: 'inline',
 	fontSize: '1em',
 	color: 'fg.faded',
 	w: 'content',
 	h: 'content',
 	verticalAlign: 'text-bottom',
-	textDecoration: 'none',
 	_active: { color: 'fg' },
 	_canHover: { _hover: { color: 'fg' } },
 	transition: 'colors',
@@ -100,7 +99,7 @@ export const VerseDetailsButton = ({
 		<>
 			<button
 				onClick={() => setCurrVerseDetailsId(id)}
-				className={css({ display: 'inline', textDecoration: 'none' })}
+				className={css({ display: 'inline-block' })}
 			>
 				<Icon name="info" className={iconCls} />
 			</button>
