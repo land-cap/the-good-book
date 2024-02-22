@@ -19,7 +19,7 @@ import { getBookWithCache, type TBook } from '~/db'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,
-	referenceOriginChapterAtom,
+	referenceOriginAtom,
 	type TVerseDetails,
 } from '~/state'
 
@@ -59,13 +59,13 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const closeMenu = () => setCurrVerseDetailsID(null)
 
-	const setReferenceOriginChapter = useSetAtom(referenceOriginChapterAtom)
+	const setReferenceOrigin = useSetAtom(referenceOriginAtom)
 
 	const handleReferenceLinkClick = async () => {
 		closeMenu()
 		const currBook = await getBookWithCache(bookCode)
 		if (currBook) {
-			setReferenceOriginChapter({
+			setReferenceOrigin({
 				book: currBook,
 				chapter: Number(chapter),
 			})

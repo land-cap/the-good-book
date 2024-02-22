@@ -45,9 +45,7 @@ export type THistoryEntry = {
 	chapter: number
 }
 
-export const referenceOriginChapterAtom = atom<THistoryEntry | undefined>(
-	undefined,
-)
+export const referenceOriginAtom = atom<THistoryEntry | undefined>(undefined)
 
 /**
  * PREFERENCES STATE
