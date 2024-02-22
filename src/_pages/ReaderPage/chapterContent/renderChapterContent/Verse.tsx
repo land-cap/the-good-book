@@ -45,8 +45,8 @@ export const Verse = ({
 							color: 'inherit',
 							textDecoration: 'underline',
 							textDecorationColor: 'fg.moreFaded',
-							textUnderlineOffset: '0.25em',
 							textDecorationThickness: '1px',
+							textUnderlineOffset: '0.25em',
 							'& [data-component="VerseLabel"]': {
 								fontWeight: 'bold',
 								color: 'fg',
