@@ -12,7 +12,7 @@ export const BookListSectionHeader = ({
 	<div
 		className={macrogrid({
 			bg: 'bg.canvas',
-			position: 'sticky',
+			pos: 'sticky',
 			top: '0',
 		})}
 	>

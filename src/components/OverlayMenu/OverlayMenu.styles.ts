@@ -45,7 +45,7 @@ export const Backdrop_OverlayMenu = styled(Dialog.Backdrop, {
 export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
 	base: {
 		zIndex: 10,
-		position: 'fixed',
+		pos: 'fixed',
 		w: '100dvw',
 		h: '100dvh',
 		left: 0,

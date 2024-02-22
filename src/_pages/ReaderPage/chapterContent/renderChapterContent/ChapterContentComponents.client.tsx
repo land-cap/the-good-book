@@ -6,7 +6,7 @@ import { css, cx } from 'styled-system/css'
 import { caption } from 'styled-system/patterns'
 
 import {
-	hideNonOriginalTextAtom,
+	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	verseBreaksLineAtom,
 } from '~/state'
@@ -15,35 +15,14 @@ const makeNonOriginalTextHideable =
 	<P extends NonNullable<unknown>>(Component: (props: P) => ReactNode) =>
 	//eslint-disable-next-line react/display-name
 	(props: P) => {
-		const hideNonOriginalText = useAtomValue(hideNonOriginalTextAtom)
+		const showNonOriginalText = useAtomValue(showNonOriginalTextAtom)
 
-		if (hideNonOriginalText) {
+		if (!showNonOriginalText) {
 			return null
 		}
 
 		return <Component {...props} />
 	}
-
-export const Verse = ({ children }: { children: ReactNode }) => {
-	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
-
-	return (
-		<span
-			data-component="Verse"
-			className={cx(
-				verseBreaksLine &&
-					css({
-						cursor: 'text',
-						display: 'block',
-						position: 'relative',
-						userSelect: 'text',
-					}),
-			)}
-		>
-			{children}
-		</span>
-	)
-}
 
 export const JesusWords = ({ children }: { children: ReactNode }) => {
 	const showRedLetters = useAtomValue(showRedLettersAtom)
@@ -129,17 +108,18 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 				verseBreaksLine &&
 					css({
 						left: '-2',
-						position: 'absolute',
+						pos: 'absolute',
 						sm: { left: '-3' },
 						top: 0,
 						transform: 'translateX(-100%)',
+						color: 'fg.subtle',
 					}),
 			)}
 		>
 			{!verseBreaksLine && ' '}
 			<LabelTag
 				className={cx(
-					css({ color: 'fg.subtle', fontFamily: 'sans', fontStyle: 'normal' }),
+					css({ fontFamily: 'sans', fontStyle: 'normal' }),
 					verseBreaksLine &&
 						css({
 							fontSize: '0.625em',
@@ -153,3 +133,31 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 		</span>
 	)
 }
+
+export const CrossReference = ({ references }: { references: string }) => (
+	<span data-component="CrossReference" className={css({ pos: 'relative' })}>
+		&nbsp;
+		<span
+			className={css({
+				cursor: 'pointer',
+				m: '-1',
+				p: '1',
+				fontFamily: 'sans',
+				fontWeight: '1000',
+				color: 'fg.faded',
+			})}
+		>
+			&dagger;
+		</span>
+		<span
+			className={css({
+				display: 'none',
+				pos: 'absolute',
+				left: '0',
+				top: '0',
+			})}
+		>
+			{references}
+		</span>
+	</span>
+)

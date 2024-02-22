@@ -10,15 +10,18 @@ import {
 	SetUpPreferencesMenuState,
 	TopToolbar,
 } from '~/organisms'
+import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
-	HIDE_NON_ORIGINAL_TEXT_COOKIE,
-	hideNonOriginalTextDefaultValue,
 	LEADING_COOKIE,
 	leadingDefaultValue,
+	SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	SHOW_RED_LETTERS_COOKIE,
+	SHOW_VERSE_DETAILS_COOKIE,
+	showNonOriginalTextDefaultValue,
 	showRedLettersDefaultValue,
+	showVerseDetailsDefaultValue,
 	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
@@ -70,10 +73,13 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const savedLeading =
 		cookieStore.get(LEADING_COOKIE)?.value ?? leadingDefaultValue
 	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
-	const savedHideNonOriginalText = cookieStore.get(
-		HIDE_NON_ORIGINAL_TEXT_COOKIE,
+	const savedShowNonOriginalText = cookieStore.get(
+		SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	)?.value
 	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
+	const savedShowVerseDetailsReferences = cookieStore.get(
+		SHOW_VERSE_DETAILS_COOKIE,
+	)?.value
 
 	return (
 		<RootProviders>
@@ -84,13 +90,17 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					savedVerseBreaksLine,
 					verseBreaksLineDefaultValue,
 				)}
-				savedHideNonOriginalText={getBooleanCookieValue(
-					savedHideNonOriginalText,
-					hideNonOriginalTextDefaultValue,
+				savedShowNonOriginalText={getBooleanCookieValue(
+					savedShowNonOriginalText,
+					showNonOriginalTextDefaultValue,
 				)}
 				savedShowRedLetters={getBooleanCookieValue(
 					savedShowRedLetters,
 					showRedLettersDefaultValue,
+				)}
+				savedShowVerseDetailsReferences={getBooleanCookieValue(
+					savedShowVerseDetailsReferences,
+					showVerseDetailsDefaultValue,
 				)}
 			/>
 			<UseLockBodyScroll />
@@ -113,6 +123,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					<TopToolbar />
 					{children}
 					<BottomToolbar bookList={bookList} />
+					<VerseDetailsMenuRoot bookList={bookList} />
 				</body>
 			</html>
 		</RootProviders>

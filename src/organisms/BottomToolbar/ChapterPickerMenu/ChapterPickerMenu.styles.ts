@@ -75,7 +75,7 @@ export const ChapterListItem = styled('li', {
 		aspectRatio: '1/1',
 		placeContent: 'center',
 		placeItems: 'center',
-		position: 'relative',
+		pos: 'relative',
 		transition: 'colors',
 		transitionDuration: 'fastest',
 		transitionTimingFunction: 'ease-out',
@@ -91,5 +91,5 @@ export const ChapterListItem = styled('li', {
 })
 
 export const ChapterListItemLink = styled(Link, {
-	base: center.raw({ inset: 0, position: 'absolute' }),
+	base: center.raw({ inset: 0, pos: 'absolute' }),
 })

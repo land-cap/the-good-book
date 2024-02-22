@@ -73,10 +73,12 @@ export const normalizeOriginalChapterHTML = (chapterContent: string) => {
 	$chapterContent('.verse > .label').removeAttr('class').addClass('verse-label')
 
 	const crossReferenceSelector = $chapterContent('.verse > .note')
-	crossReferenceSelector.replaceWith(
-		`<span class='cross-reference'>${crossReferenceSelector
-			.children('.body')
-			.html()}</span>`,
+	crossReferenceSelector.map((_, value) =>
+		$chapterContent(value).replaceWith(
+			`<span class='cross-reference'>${$chapterContent(value)
+				.children('.body')
+				.html()}</span>`,
+		),
 	)
 
 	$chapterContent('.verse .wj').removeAttr('class').addClass('jesus-words')

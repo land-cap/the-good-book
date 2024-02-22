@@ -5,7 +5,7 @@ const Root = styled('div', {
 	base: stack.raw({
 		direction: 'column',
 		gap: '4',
-		position: 'relative',
+		pos: 'relative',
 		sm: {
 			direction: 'row',
 		},
@@ -29,7 +29,7 @@ const Range = styled('div', {
 const Thumb = styled('div', {
 	base: square.raw({
 		size: '6',
-		position: 'absolute',
+		pos: 'absolute',
 		top: 'calc(-8 / 16 * 1rem)',
 		cursor: 'pointer',
 		bg: 'bg.canvas',

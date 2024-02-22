@@ -9,6 +9,7 @@ import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import type { TBook } from '~/db'
+import { ReturnFromReferenceFAB } from '~/organisms/BottomToolbar/ReturnFromReferenceFAB'
 import {
 	isFirstChapterAtom,
 	isLastChapterAtom,
@@ -32,7 +33,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 	}
 
 	const currBookIndex = bookList.findIndex(
-		(book) => book.book_name?.name === currBook.book_name?.name,
+		(book) => book.book_name?.value === currBook.book_name?.value,
 	)
 
 	const currBookChapterCount = bookList[currBookIndex]?.chapter_count
@@ -100,9 +101,11 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 			<div
 				className={subgrid({
 					column: 'content',
+					pos: 'relative',
 					pb: 'safe_area_bottom',
 				})}
 			>
+				<ReturnFromReferenceFAB />
 				<div
 					className={hstack({
 						gap: '0',

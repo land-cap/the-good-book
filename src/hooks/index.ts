@@ -1,1 +1,1 @@
-export * from './useIsPageScrolled'
+export * from './useRangeInput'

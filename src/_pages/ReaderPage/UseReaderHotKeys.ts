@@ -37,7 +37,6 @@ export const UseReaderHotKeys = () => {
 	const setLeading = useSetAtom(leadingAtom)
 
 	const decreaseLeading = () => {
-		console.log('decrease leading')
 		setLeading((prev) => {
 			const newValue = prev - 0.25
 			return newValue >= 1.5 ? (newValue as TLeading) : prev
