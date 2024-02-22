@@ -2,6 +2,7 @@ import { useAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { css, cx } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -45,14 +46,16 @@ export const ReturnFromReferenceFAB = () => {
 	const bookAbbr = origin.book?.book_abbreviation?.value
 
 	return (
-		<Link
-			className={buttonCls}
-			href={referenceOriginChapterUrl}
-			onClick={() => setOrigin(undefined)}
-		>
-			<Icon name="undo" size={5} className={iconCls} />
-			{bookAbbr}
-			{bookAbbr !== bookName ? '.' : null} {origin.chapter}
-		</Link>
+		<styled.div css={{ animation: 'fadeInBottom 0.25s ease-out' }}>
+			<Link
+				className={buttonCls}
+				href={referenceOriginChapterUrl}
+				onClick={() => setOrigin(undefined)}
+			>
+				<Icon name="undo" size={5} className={iconCls} />
+				{bookAbbr}
+				{bookAbbr !== bookName ? '.' : null} {origin.chapter}
+			</Link>
+		</styled.div>
 	)
 }
