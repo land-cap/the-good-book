@@ -18,7 +18,7 @@ export const ChapterListHeader = ({
 			className={css({
 				bg: 'bg.canvas',
 				column: '1 / -1',
-				position: 'sticky',
+				pos: 'sticky',
 				top: '0',
 				zIndex: '1',
 			})}

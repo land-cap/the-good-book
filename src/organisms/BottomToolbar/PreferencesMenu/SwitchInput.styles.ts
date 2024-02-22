@@ -35,7 +35,7 @@ const Control = styled(ArkSwitch.Control, {
 const Thumb = styled(ArkSwitch.Thumb, {
 	base: square.raw({
 		size: 'var(--switch-track-height)',
-		position: 'transform',
+		pos: 'transform',
 		cursor: 'pointer',
 		bg: 'bg.canvas',
 		borderWidth: '2px',

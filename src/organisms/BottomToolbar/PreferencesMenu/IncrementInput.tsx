@@ -3,7 +3,7 @@ import { hstack } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { useRangeInput } from '~/hooks/useRangeInput'
+import { useRangeInput } from '~/hooks'
 
 const buttonCls = cx(
 	button({ icon: true, visual: 'solid' }),
