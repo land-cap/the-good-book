@@ -19,7 +19,7 @@ import { type TCrossReference } from '~/state'
 const referencesTextToList = (referencesText: string) =>
 	splitEvery(2)(referencesText.split(/(\d)\./g))
 		.map((reference) => reference.join(''))
-		.filter((reference) => reference !== '')
+		.filter((reference) => reference.trim() !== '')
 
 const replaceCapAbbr = (reference: string, currBookName: string) =>
 	reference.replace('Cap.', currBookName)
