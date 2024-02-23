@@ -52,7 +52,7 @@ export const referenceOriginAtom = atom<THistoryEntry | undefined>(undefined)
  */
 
 export type TFontSizeOffset = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-export const FONT_SIZE_OFFSET_COOKIE = 'fontSizeOffset'
+export const FONT_SIZE_OFFSET_COOKIE = 'font-size-offset'
 export const fontSizeOffsetDefaultValue = 0
 export const fontSizeOffsetAtom = atom<TFontSizeOffset>(
 	fontSizeOffsetDefaultValue,
@@ -63,18 +63,22 @@ export const LEADING_COOKIE = 'leading'
 export const leadingDefaultValue = 2
 export const leadingAtom = atom<TLeading>(leadingDefaultValue)
 
-export const VERSE_BREAKS_LINE_COOKIE = 'verseBreaksLine'
+export const VERSE_BREAKS_LINE_COOKIE = 'verse-breaks-line'
 export const verseBreaksLineDefaultValue = true
 export const verseBreaksLineAtom = atom(verseBreaksLineDefaultValue)
 
-export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'showNonOriginalText'
+export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'show-non-original-text'
 export const showNonOriginalTextDefaultValue = true
 export const showNonOriginalTextAtom = atom(showNonOriginalTextDefaultValue)
 
-export const SHOW_RED_LETTERS_COOKIE = 'showRedLetters'
+export const SHOW_RED_LETTERS_COOKIE = 'show-red-letters'
 export const showRedLettersDefaultValue = true
 export const showRedLettersAtom = atom(showRedLettersDefaultValue)
 
-export const SHOW_VERSE_DETAILS_COOKIE = 'showVerseDetails'
+export const SHOW_VERSE_DETAILS_COOKIE = 'show-verse-details'
 export const showVerseDetailsDefaultValue = true
 export const showVerseDetailsAtom = atom(showVerseDetailsDefaultValue)
+
+export const JUSTIFY_TEXT_COOKIE = 'justify-text'
+export const justifyTextDefaultValue = true
+export const justifyTextAtom = atom(justifyTextDefaultValue)

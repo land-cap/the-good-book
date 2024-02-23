@@ -14,6 +14,8 @@ import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetDefaultValue,
+	JUSTIFY_TEXT_COOKIE,
+	justifyTextDefaultValue,
 	LEADING_COOKIE,
 	leadingDefaultValue,
 	SHOW_NON_ORIGINAL_TEXT_COOKIE,
@@ -80,6 +82,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const savedShowVerseDetailsReferences = cookieStore.get(
 		SHOW_VERSE_DETAILS_COOKIE,
 	)?.value
+	const savedJustifyText = cookieStore.get(JUSTIFY_TEXT_COOKIE)?.value
 
 	return (
 		<RootProviders>
@@ -101,6 +104,10 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				savedShowVerseDetailsReferences={getBooleanCookieValue(
 					savedShowVerseDetailsReferences,
 					showVerseDetailsDefaultValue,
+				)}
+				savedJustifyText={getBooleanCookieValue(
+					savedJustifyText,
+					justifyTextDefaultValue,
 				)}
 			/>
 			<UseLockBodyScroll />
