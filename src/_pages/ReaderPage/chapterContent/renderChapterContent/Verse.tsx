@@ -46,7 +46,8 @@ export const Verse = ({
 							textDecoration: 'underline',
 							textDecorationColor: 'fg.moreFaded',
 							textDecorationThickness: '1px',
-							textUnderlineOffset: '0.25em',
+							textUnderlineOffset: 'token(spacing.1)',
+							animation: 'flashBackground 1s ease-in-out',
 							'& [data-component="VerseLabel"]': {
 								fontWeight: 'bold',
 								color: 'fg',
