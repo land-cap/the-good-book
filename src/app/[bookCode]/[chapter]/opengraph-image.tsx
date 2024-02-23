@@ -21,19 +21,21 @@ const containerStyles: CSSProperties = {
 	flexFlow: 'column nowrap',
 	alignItems: 'flex-start',
 	justifyContent: 'space-between',
-	padding: 64,
+	padding: 96,
 }
 
 const titleStyles: CSSProperties = {
+	marginTop: '-0.24em',
+	marginLeft: '-0.1em',
 	fontSize: 128,
 	fontWeight: 600,
 	lineHeight: 1,
 }
 
 const subTitleStyles: CSSProperties = {
+	marginBottom: '-0.3em',
 	fontSize: 48,
 	fontWeight: 600,
-	lineHeight: 1,
 }
 
 export default async function Image({
