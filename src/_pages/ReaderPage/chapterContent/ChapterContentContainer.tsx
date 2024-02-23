@@ -4,7 +4,12 @@ import { useAtomValue } from 'jotai'
 import { type ReactNode, useEffect } from 'react'
 import { cva } from 'styled-system/css'
 
-import { fontSizeOffsetAtom, leadingAtom, verseBreaksLineAtom } from '~/state'
+import {
+	fontSizeOffsetAtom,
+	justifyTextAtom,
+	leadingAtom,
+	verseBreaksLineAtom,
+} from '~/state'
 
 import { useVerseRangeList } from './renderChapterContent'
 
@@ -48,6 +53,11 @@ export const chapterContentContainerRecipe = cva({
 				'& [data-component="Paragraph"]': {
 					textIndent: '1em',
 				},
+			},
+		},
+		justifyText: {
+			true: {
+				textAlign: 'justify',
 			},
 		},
 		fontSize: {
@@ -122,9 +132,10 @@ export const ChapterContentContainer = ({
 }: {
 	children: ReactNode
 }) => {
+	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
+	const justifyText = useAtomValue(justifyTextAtom)
 	const fontSize = useAtomValue(fontSizeOffsetAtom)
 	const leading = useAtomValue(leadingAtom)
-	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
 
 	const verseRangeList = useVerseRangeList()
 
@@ -153,6 +164,7 @@ export const ChapterContentContainer = ({
 		<div
 			className={chapterContentContainerRecipe({
 				verseBreaksLine,
+				justifyText,
 				fontSize,
 				leading,
 			})}

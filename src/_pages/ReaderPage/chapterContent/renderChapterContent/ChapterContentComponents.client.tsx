@@ -105,7 +105,7 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 		<span
 			data-component="VerseLabel"
 			className={cx(
-				css({ color: 'fg.subtle' }),
+				css({ color: 'fg.subtle', textDecoration: 'none' }),
 				verseBreaksLine &&
 					css({
 						left: '-2',

@@ -14,6 +14,7 @@ import {
 import { steppedRange } from '~/helpers/steppedRange'
 import {
 	fontSizeOffsetAtom,
+	justifyTextAtom,
 	leadingAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
@@ -96,6 +97,7 @@ export const PreferencesMenu = () => {
 								valueAtom={showVerseDetailsAtom}
 								label="Show references and footnotes"
 							/>
+							<SwitchInput valueAtom={justifyTextAtom} label="Justify text" />
 						</PreferencesList>
 					</div>
 				</Container_OverlayMenu>

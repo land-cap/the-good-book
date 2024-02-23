@@ -10,6 +10,8 @@ import { setCookie } from '~/app/action'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
 	fontSizeOffsetAtom,
+	JUSTIFY_TEXT_COOKIE,
+	justifyTextAtom,
 	LEADING_COOKIE,
 	leadingAtom,
 	SHOW_NON_ORIGINAL_TEXT_COOKIE,
@@ -53,6 +55,7 @@ export const SetUpPreferencesMenuState = ({
 	savedShowNonOriginalText,
 	savedShowRedLetters,
 	savedShowVerseDetailsReferences,
+	savedJustifyText,
 }: {
 	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
@@ -60,6 +63,7 @@ export const SetUpPreferencesMenuState = ({
 	savedShowNonOriginalText: boolean
 	savedShowRedLetters: boolean
 	savedShowVerseDetailsReferences: boolean
+	savedJustifyText: boolean
 }) => {
 	useSetupClientState(
 		fontSizeOffsetAtom,
@@ -87,6 +91,7 @@ export const SetUpPreferencesMenuState = ({
 		savedShowVerseDetailsReferences,
 		SHOW_VERSE_DETAILS_COOKIE,
 	)
+	useSetupClientState(justifyTextAtom, savedJustifyText, JUSTIFY_TEXT_COOKIE)
 
 	return null
 }
