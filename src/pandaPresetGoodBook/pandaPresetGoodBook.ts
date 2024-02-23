@@ -43,6 +43,10 @@ export const pandaPresetGoodBook = definePreset({
 					'0%': { scale: '1' },
 					'100%': { scale: '0.75' },
 				},
+				flashBackground: {
+					'0%': { backgroundColor: 'token(colors.bg.highlight)' },
+					'100%': { backgroundColor: 'transparent' },
+				},
 			},
 			semanticTokens,
 			tokens,
