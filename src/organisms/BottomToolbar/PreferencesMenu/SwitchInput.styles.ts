@@ -28,7 +28,7 @@ const Control = styled(ArkSwitch.Control, {
 		_checked: {
 			bg: 'fg.muted',
 		},
-		_osDark: { bg: 'neutral.700' },
+		_osDark: { bg: 'bg.muted' },
 	}),
 })
 
