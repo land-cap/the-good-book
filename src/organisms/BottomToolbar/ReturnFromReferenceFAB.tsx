@@ -86,8 +86,16 @@ export const ReturnFromReferenceFAB = () => {
 			onClick={() => setOrigin(undefined)}
 		>
 			<Icon name="undo" size={5} className={iconCls} />
+			{/*<styled.span*/}
+			{/*	css={{*/}
+			{/*		textAlign: 'center',*/}
+			{/*		display: 'table-cell',*/}
+			{/*		verticalAlign: 'middle',*/}
+			{/*	}}*/}
+			{/*>*/}
 			{bookAbbr}
 			{bookAbbr !== bookName ? '.' : null} {staggeredOrigin.current?.chapter}
+			{/*</styled.span>*/}
 		</Link>
 	)
 }
