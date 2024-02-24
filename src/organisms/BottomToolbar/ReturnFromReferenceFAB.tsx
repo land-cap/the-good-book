@@ -11,6 +11,8 @@ import { referenceOriginAtom } from '~/state'
 
 const iconCls = css({
 	'--wght': '325',
+	display: 'inline',
+	verticalAlign: 'text-bottom',
 	ml: '-1',
 	_active: { color: 'fg' },
 	_canHover: { _hover: { color: 'fg' } },
@@ -42,7 +44,7 @@ export const ReturnFromReferenceFAB = () => {
 	const buttonCls = cx(
 		button({ visual: 'solid', size: 'small', weight: 'regular' }),
 		css({
-			gap: '1.5',
+			display: 'block',
 			alignItems: 'center',
 			pos: 'absolute',
 			top: '-4',

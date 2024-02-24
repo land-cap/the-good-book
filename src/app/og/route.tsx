@@ -5,7 +5,7 @@ import { type CSSProperties } from 'react'
 export const runtime = 'edge'
 
 const containerStyles: CSSProperties = {
-	background: '#fef08a',
+	background: 'white',
 	width: '100%',
 	height: '100%',
 	display: 'flex',
