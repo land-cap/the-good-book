@@ -1,3 +1,7 @@
+import { flatten, map, pipe, splitEvery, trim } from 'ramda'
+
+import { type TCrossReference } from '~/state'
+
 const transformReference = (
 	currBookName: string,
 	currChapter: string,
@@ -5,16 +9,12 @@ const transformReference = (
 ) =>
 	pipe(
 		(reference: string) => replaceCapAbbr(reference, currBookName),
+		replaceAbbrWithoutPeriod,
 		(reference) => replaceVersAbbr(reference, currBookName, currChapter),
 		(reference) => replaceBookAbbr(reference, bookAbbrToName),
-		replaceAbbrWithoutPeriod,
 		trim,
 		splitSameBookReferences,
 	)
-
-import { flatten, map, pipe, splitEvery, trim } from 'ramda'
-
-import { type TCrossReference } from '~/state'
 
 const referencesTextToList = (referencesText: string) =>
 	splitEvery(2)(referencesText.split(/(\d)\./g))
@@ -47,7 +47,9 @@ const replaceBookAbbr = (
 }
 
 const replaceAbbrWithoutPeriod = (reference: string) =>
-	reference.replace('Fapte', 'Faptele Apostolilor')
+	reference
+		.replace('Fapte ', 'Faptele Apostolilor ')
+		.replace('Exod ', 'Exodul ')
 
 const splitSameBookReferences = (reference: string) => {
 	const referenceList = reference.split('; ')

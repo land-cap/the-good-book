@@ -33,7 +33,7 @@ export const bg = defineSemanticTokens.colors({
 	},
 	highlight: {
 		value: {
-			base: '{colors.yellow.200}',
+			base: '{colors.yellow.100}',
 			_osDark: '{colors.yellow.900}',
 		},
 	},
