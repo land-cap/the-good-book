@@ -33,14 +33,9 @@ export async function GET(request: NextRequest) {
 	const { searchParams } = new URL(request.url)
 	const bookName = searchParams.get('book-name')
 	const chapter = searchParams.get('chapter')
-	const verseRange = searchParams.get('verse-range')
-
-	const fontSansLightData = await fetch(
-		new URL('../../../assets/fonts/Geist-UltraLight.otf', import.meta.url),
-	).then((res) => res.arrayBuffer())
 
 	const fontSansBoldData = await fetch(
-		new URL('../../../assets/fonts/Geist-Black.otf', import.meta.url),
+		new URL('../../../assets/fonts/Geist-UltraBlack.otf', import.meta.url),
 	).then((res) => res.arrayBuffer())
 
 	return new ImageResponse(
@@ -80,11 +75,6 @@ export async function GET(request: NextRequest) {
 			width: 1200,
 			height: 630,
 			fonts: [
-				{
-					name: 'sans-light',
-					data: fontSansLightData,
-					style: 'normal',
-				},
 				{
 					name: 'sans-bold',
 					data: fontSansBoldData,
