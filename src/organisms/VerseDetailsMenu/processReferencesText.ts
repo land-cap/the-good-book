@@ -1,3 +1,7 @@
+import { flatten, map, pipe, splitEvery, trim } from 'ramda'
+
+import { type TCrossReference } from '~/state'
+
 const transformReference = (
 	currBookName: string,
 	currChapter: string,
@@ -5,20 +9,16 @@ const transformReference = (
 ) =>
 	pipe(
 		(reference: string) => replaceCapAbbr(reference, currBookName),
+		replaceAbbrWithoutPeriod,
 		(reference) => replaceVersAbbr(reference, currBookName, currChapter),
 		(reference) => replaceBookAbbr(reference, bookAbbrToName),
-		replaceAbbrWithoutPeriod,
 		trim,
 		splitSameBookReferences,
 	)
 
-import { flatten, map, pipe, splitEvery, trim } from 'ramda'
-
-import { type TCrossReference } from '~/state'
-
 const referencesTextToList = (referencesText: string) =>
 	splitEvery(2)(referencesText.split(/(\d)\./g))
-		.map((reference) => reference.join(''))
+		.map((reference) => reference.join('').replaceAll('(subtitluri).', ''))
 		.filter((reference) => reference.trim() !== '')
 
 const replaceCapAbbr = (reference: string, currBookName: string) =>
@@ -47,7 +47,9 @@ const replaceBookAbbr = (
 }
 
 const replaceAbbrWithoutPeriod = (reference: string) =>
-	reference.replace('Fapte', 'Faptele Apostolilor')
+	reference
+		.replace('Fapte ', 'Faptele Apostolilor ')
+		.replace('Exod ', 'Exodul ')
 
 const splitSameBookReferences = (reference: string) => {
 	const referenceList = reference.split('; ')
@@ -67,11 +69,13 @@ const addUrlToReference = (
 	const bookName = bookNameMatch?.[0]?.trim()
 	const bookCode = bookName && bookNameToCode[bookName]
 	const referenceWithoutBookName = bookName && reference.replace(bookName, '')
-	const chapter = referenceWithoutBookName?.trim()?.split(':')[0]
-	const verseRange = referenceWithoutBookName?.trim()?.split(':')[1]
+	const chapterStr = referenceWithoutBookName?.trim()?.split(':')[0]
+	const isChapterRange = chapterStr?.includes('—')
+	const chapter = isChapterRange ? chapterStr?.split('—')[0] : chapterStr
+	const verseRangeStr = referenceWithoutBookName?.trim()?.split(':')[1]
 	return {
 		label: reference,
-		url: `/${bookCode}/${chapter}?verse-range=${verseRange}`,
+		url: `/${bookCode}/${chapter}?verse-range=${verseRangeStr}`,
 	}
 }
 
