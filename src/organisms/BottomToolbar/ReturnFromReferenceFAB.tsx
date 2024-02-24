@@ -13,8 +13,6 @@ import { referenceOriginAtom } from '~/state'
 const iconCls = css({
 	'--wght': '325',
 	ml: '-1',
-	_active: { color: 'fg' },
-	_canHover: { _hover: { color: 'fg' } },
 	transition: 'colors',
 	transitionDuration: 'fast',
 	transitionTimingFunction: 'ease-out',
@@ -86,16 +84,8 @@ export const ReturnFromReferenceFAB = () => {
 			onClick={() => setOrigin(undefined)}
 		>
 			<Icon name="undo" size={5} className={iconCls} />
-			{/*<styled.span*/}
-			{/*	css={{*/}
-			{/*		textAlign: 'center',*/}
-			{/*		display: 'table-cell',*/}
-			{/*		verticalAlign: 'middle',*/}
-			{/*	}}*/}
-			{/*>*/}
 			{bookAbbr}
 			{bookAbbr !== bookName ? '.' : null} {staggeredOrigin.current?.chapter}
-			{/*</styled.span>*/}
 		</Link>
 	)
 }
