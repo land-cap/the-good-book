@@ -4,7 +4,7 @@ import { type CSSProperties } from 'react'
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
 
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 
 export const size = {
 	width: 1200,
@@ -45,6 +45,10 @@ export default async function Image({
 }) {
 	const bookName = await getBookNameByCode(bookCode)
 
+	const sansBoldFont = await fetch(
+		new URL('../../../../assets/fonts/Geist-Bold.otf', import.meta.url),
+	).then((res) => res.arrayBuffer())
+
 	return new ImageResponse(
 		(
 			<div style={containerStyles}>
@@ -56,6 +60,14 @@ export default async function Image({
 		),
 		{
 			...size,
+			fonts: [
+				{
+					name: 'Typewriter',
+					data: sansBoldFont,
+					style: 'normal',
+					weight: 600,
+				},
+			],
 		},
 	)
 }
