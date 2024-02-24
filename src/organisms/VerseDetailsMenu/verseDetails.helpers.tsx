@@ -43,6 +43,7 @@ export const extractReferenceList = (
 		? //@ts-ignore
 		  (childrenOM[0]?.['#text'] as string)
 		: null
+	console.log(referencesText)
 	return referencesText
 		? processReferencesText(
 				currBookName,

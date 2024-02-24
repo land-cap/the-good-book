@@ -18,7 +18,7 @@ import { type TCrossReference } from '~/state'
 
 const referencesTextToList = (referencesText: string) =>
 	splitEvery(2)(referencesText.split(/(\d)\./g))
-		.map((reference) => reference.join(''))
+		.map((reference) => reference.join('').replaceAll('(subtitluri).', ''))
 		.filter((reference) => reference.trim() !== '')
 
 const replaceCapAbbr = (reference: string, currBookName: string) =>
@@ -67,11 +67,13 @@ const addUrlToReference = (
 	const bookName = bookNameMatch?.[0]?.trim()
 	const bookCode = bookName && bookNameToCode[bookName]
 	const referenceWithoutBookName = bookName && reference.replace(bookName, '')
-	const chapter = referenceWithoutBookName?.trim()?.split(':')[0]
-	const verseRange = referenceWithoutBookName?.trim()?.split(':')[1]
+	const chapterStr = referenceWithoutBookName?.trim()?.split(':')[0]
+	const isChapterRange = chapterStr?.includes('—')
+	const chapter = isChapterRange ? chapterStr?.split('—')[0] : chapterStr
+	const verseRangeStr = referenceWithoutBookName?.trim()?.split(':')[1]
 	return {
 		label: reference,
-		url: `/${bookCode}/${chapter}?verse-range=${verseRange}`,
+		url: `/${bookCode}/${chapter}?verse-range=${verseRangeStr}`,
 	}
 }
 
