@@ -83,9 +83,6 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						pb: 'safe_area_bottom',
 						borderTopWidth: '1px',
 						borderColor: 'border.emphasized',
-						_osDark: {
-							bg: 'bg.subtle',
-						},
 					}}
 				>
 					<div className={macrogrid()}>

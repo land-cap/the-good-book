@@ -10,19 +10,19 @@ export const bg = defineSemanticTokens.colors({
 	subtle: {
 		value: {
 			base: '{colors.neutral.100}',
-			_osDark: '{colors.neutral.800}',
+			_osDark: '{colors.neutral.700}',
 		},
 	},
 	muted: {
 		value: {
 			base: '{colors.neutral.200}',
-			_osDark: '{colors.neutral.700}',
+			_osDark: '{colors.neutral.600}',
 		},
 	},
 	more_muted: {
 		value: {
 			base: '{colors.neutral.300}',
-			_osDark: '{colors.neutral.600}',
+			_osDark: '{colors.neutral.500}',
 		},
 	},
 	inverted: {
