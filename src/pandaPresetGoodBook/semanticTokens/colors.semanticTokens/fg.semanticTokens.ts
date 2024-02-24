@@ -3,14 +3,8 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const fg = defineSemanticTokens.colors({
 	DEFAULT: {
 		value: {
-			_osDark: '{colors.white}',
+			_osDark: '{colors.neutral.300}',
 			base: '{colors.neutral.900}',
-		},
-	},
-	emphasized: {
-		value: {
-			_osDark: '{colors.neutral.200}',
-			base: '{colors.neutral.700}',
 		},
 	},
 	faded: {

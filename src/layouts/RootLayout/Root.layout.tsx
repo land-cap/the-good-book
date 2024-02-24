@@ -124,7 +124,6 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 						color: 'fg',
 						background: 'bg.canvas',
 						sm: { fontSize: 'md' },
-						_osDark: { color: 'fg.muted' },
 					})}
 				>
 					<TopToolbar />
