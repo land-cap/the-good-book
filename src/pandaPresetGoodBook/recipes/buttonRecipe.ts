@@ -7,7 +7,7 @@ export const buttonRecipe = defineRecipe({
 		alignItems: 'center',
 		justifyContent: 'center',
 		fontWeight: 'bold',
-		lineHeight: '1',
+		lineHeight: 'normal',
 		transition: 'colors',
 		transitionDuration: 'fast',
 		transitionTimingFunction: 'ease-out',
