@@ -108,6 +108,7 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 				css({ color: 'fg.subtle', textDecoration: 'none' }),
 				verseBreaksLine &&
 					css({
+						display: 'inline-block',
 						left: '-2',
 						pos: 'absolute',
 						sm: { left: '-3' },
@@ -133,31 +134,3 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 		</span>
 	)
 }
-
-export const CrossReference = ({ references }: { references: string }) => (
-	<span data-component="CrossReference" className={css({ pos: 'relative' })}>
-		&nbsp;
-		<span
-			className={css({
-				cursor: 'pointer',
-				m: '-1',
-				p: '1',
-				fontFamily: 'sans',
-				fontWeight: '1000',
-				color: 'fg.faded',
-			})}
-		>
-			&dagger;
-		</span>
-		<span
-			className={css({
-				display: 'none',
-				pos: 'absolute',
-				left: '0',
-				top: '0',
-			})}
-		>
-			{references}
-		</span>
-	</span>
-)

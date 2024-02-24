@@ -12,7 +12,7 @@ const containerStyles: CSSProperties = {
 	flexFlow: 'column nowrap',
 	alignItems: 'flex-start',
 	justifyContent: 'space-between',
-	padding: 80,
+	padding: 96,
 }
 
 const titleStyles: CSSProperties = {

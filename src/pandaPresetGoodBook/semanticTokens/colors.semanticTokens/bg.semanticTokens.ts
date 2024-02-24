@@ -4,7 +4,7 @@ export const bg = defineSemanticTokens.colors({
 	canvas: {
 		value: {
 			base: '{colors.white}',
-			_osDark: '{colors.neutral.900}',
+			_osDark: '{colors.neutral.800}',
 		},
 	},
 	subtle: {
@@ -33,8 +33,8 @@ export const bg = defineSemanticTokens.colors({
 	},
 	highlight: {
 		value: {
-			base: '{colors.yellow.100}',
-			_osDark: '{colors.yellow.900}',
+			base: '{colors.yellow.200}',
+			_osDark: '{colors.yellow.800}',
 		},
 	},
 })
