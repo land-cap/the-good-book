@@ -101,7 +101,7 @@ export const VerseDetailsButton = ({
 				onClick={() => setCurrVerseDetailsId(id)}
 				className={css({ display: 'inline-block' })}
 			>
-				<Icon name="info" className={iconCls} />
+				<Icon name="chat_info" className={iconCls} />
 			</button>
 		</>
 	)
