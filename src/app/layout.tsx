@@ -28,7 +28,7 @@ export const viewport = (): Viewport => ({
 		},
 		{
 			media: '(prefers-color-scheme: dark)',
-			color: token('colors.neutral.900'),
+			color: token('colors.neutral.800'),
 		},
 	],
 })

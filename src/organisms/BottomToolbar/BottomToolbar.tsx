@@ -3,8 +3,6 @@
 import { useAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 import { useEffect } from 'react'
-import { PreferencesMenuRoot } from 'src/organisms/BottomToolbar/PreferencesMenu'
-import { css } from 'styled-system/css'
 import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -128,17 +126,6 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 						direction="right"
 						isDisabled={isLastChapterInBible}
 					/>
-					<div
-						className={css({
-							h: '10',
-							w: '1px',
-							bg: 'border.emphasized',
-							_osDark: {
-								bg: 'border.active',
-							},
-						})}
-					/>
-					<PreferencesMenuRoot />
 				</div>
 			</div>
 		</BottomToolbarContainer>
