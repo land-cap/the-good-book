@@ -1,7 +1,8 @@
+import { usePrevious } from '@mantine/hooks'
 import { useAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
@@ -11,8 +12,6 @@ import { referenceOriginAtom } from '~/state'
 
 const iconCls = css({
 	'--wght': '325',
-	display: 'inline',
-	verticalAlign: 'text-bottom',
 	ml: '-1',
 	_active: { color: 'fg' },
 	_canHover: { _hover: { color: 'fg' } },
@@ -27,15 +26,38 @@ export const ReturnFromReferenceFAB = () => {
 	const staggeredOrigin = useRef(origin)
 
 	useEffect(() => {
-		staggeredOrigin.current = origin
+		if (origin) {
+			staggeredOrigin.current = origin
+		}
 	}, [origin])
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
-	const hasNavigatedToReference =
-		bookCode !== origin?.book?.code || Number(chapter) !== origin?.chapter
+	const [hasNavigatedToReference, setHasNavigatedToReference] = useState(false)
 
-	const show = origin && hasNavigatedToReference
+	useEffect(() => {
+		const hasNavigatedToReference =
+			bookCode !== origin?.book?.code || Number(chapter) !== origin?.chapter
+		setHasNavigatedToReference(hasNavigatedToReference)
+	}, [bookCode, chapter, origin?.book?.code, origin?.chapter])
+
+	const [hasLeftReference, setHasLeftReference] = useState(false)
+
+	const prevBookCode = usePrevious(bookCode)
+	const prevChapter = usePrevious(chapter)
+
+	useEffect(() => {
+		if (
+			hasNavigatedToReference &&
+			(prevBookCode !== bookCode || prevChapter !== chapter)
+		) {
+			setHasLeftReference(true)
+		}
+	}, [bookCode, chapter, hasNavigatedToReference, prevBookCode, prevChapter])
+
+	useEffect(() => setHasLeftReference(false), [origin])
+
+	const show = origin && hasNavigatedToReference && !hasLeftReference
 
 	const referenceOriginChapterUrl = `/${staggeredOrigin.current?.book?.code}/${staggeredOrigin.current?.chapter}`
 	const bookName = staggeredOrigin.current?.book?.book_name?.value
@@ -44,7 +66,7 @@ export const ReturnFromReferenceFAB = () => {
 	const buttonCls = cx(
 		button({ visual: 'solid', size: 'small', weight: 'regular' }),
 		css({
-			display: 'block',
+			gap: '1.5',
 			alignItems: 'center',
 			pos: 'absolute',
 			top: '-4',
