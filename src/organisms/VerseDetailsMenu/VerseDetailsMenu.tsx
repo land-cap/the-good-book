@@ -5,9 +5,8 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
-import { macrogrid } from 'styled-system/patterns'
+import { flex, macrogrid } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import {
@@ -25,6 +24,14 @@ import {
 
 import { CrossReferenceList } from './CrossReferenceList'
 import { Header } from './Header'
+
+const ReferenceLink = styled(Link, {
+	base: {
+		textDecoration: 'underline',
+		textDecorationThickness: '1px',
+		textUnderlineOffset: 'token(spacing.1)',
+	},
+})
 
 const Footnote = styled('p', {
 	base: {
@@ -78,35 +85,42 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 			<Positioner_OverlayMenu css={{ h: 'content' }}>
 				<Container_OverlayMenu
 					css={{
-						h: 'content',
-						maxH: 'calc(100dvh * 2 / 3)',
-						pb: 'safe_area_bottom',
 						borderTopWidth: '1px',
 						borderColor: 'border.emphasized',
 					}}
 				>
-					<div className={macrogrid()}>
+					<div
+						className={flex({
+							direction: 'column',
+							h: 'fit-content',
+							maxH: 'calc(100dvh * 2 / 3)',
+						})}
+					>
 						<Header
 							title={`${currBookName} ${chapter}:${verseDetailsSnapshot?.verse}`}
 						/>
 						{!!verseDetailsSnapshot?.referenceList && (
-							<CrossReferenceList>
-								{verseDetailsSnapshot?.referenceList.map(({ label, url }) => (
-									<li key={label}>
-										<Link
-											className={css({
-												textDecoration: 'underline',
-												textDecorationThickness: '1px',
-												textUnderlineOffset: 'token(spacing.1)',
-											})}
-											href={url}
-											onClick={handleReferenceLinkClick}
-										>
-											{label}
-										</Link>
-									</li>
-								))}
-							</CrossReferenceList>
+							<styled.div
+								css={macrogrid.raw({
+									overflowY: 'scroll',
+									overscrollBehavior: 'contain',
+									h: 'full',
+									pb: 'safe_area_bottom',
+								})}
+							>
+								<CrossReferenceList>
+									{verseDetailsSnapshot?.referenceList.map(({ label, url }) => (
+										<li key={label}>
+											<ReferenceLink
+												href={url}
+												onClick={handleReferenceLinkClick}
+											>
+												{label}
+											</ReferenceLink>
+										</li>
+									))}
+								</CrossReferenceList>
+							</styled.div>
 						)}
 						{!!verseDetailsSnapshot?.footnote && (
 							<Footnote>{verseDetailsSnapshot?.footnote}</Footnote>
