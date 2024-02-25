@@ -40,11 +40,17 @@ export const buttonRecipe = defineRecipe({
 		},
 		border: {
 			true: {
-				bg: 'bg.canvas',
 				borderWidth: '1px',
 				borderColor: 'border.emphasized',
 				_active: { borderColor: 'border.active' },
 				_canHover: { _hover: { borderColor: 'border.active' } },
+			},
+		},
+		faded: {
+			true: {
+				color: 'fg.faded',
+				_active: { color: 'fg.subtle' },
+				_canHover: { _hover: { color: 'fg.subtle' } },
 			},
 		},
 		size: {
@@ -73,6 +79,17 @@ export const buttonRecipe = defineRecipe({
 			},
 		},
 	},
+	compoundVariants: [
+		{
+			visual: ['ghost', 'solid'],
+			border: true,
+			css: {
+				bg: 'bg.canvas',
+				_hover: { bg: 'bg.canvas' },
+				_canHover: { _hover: { bg: 'bg.canvas' } },
+			},
+		},
+	],
 	defaultVariants: {
 		visual: 'ghost',
 		size: 'large',

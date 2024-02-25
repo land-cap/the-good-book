@@ -52,6 +52,9 @@ export const chapterContentContainerRecipe = cva({
 			false: {
 				'& [data-component="Paragraph"] + [data-component="Paragraph"]': {
 					textIndent: '1em',
+					sm: {
+						textIndent: '1.5em',
+					},
 				},
 			},
 		},
