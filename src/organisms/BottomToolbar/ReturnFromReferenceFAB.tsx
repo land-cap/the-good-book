@@ -61,7 +61,7 @@ export const ReturnFromReferenceFAB = () => {
 	const bookName = staggeredOrigin.current?.book?.book_name?.value
 
 	const buttonCls = cx(
-		button({ visual: 'solid', size: 'small', weight: 'regular' }),
+		button({ size: 'small', border: true, weight: 'regular' }),
 		css({
 			gap: '1.5',
 			alignItems: 'center',

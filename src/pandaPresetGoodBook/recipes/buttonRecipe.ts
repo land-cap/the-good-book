@@ -38,6 +38,15 @@ export const buttonRecipe = defineRecipe({
 				},
 			},
 		},
+		border: {
+			true: {
+				bg: 'bg.canvas',
+				borderWidth: '1px',
+				borderColor: 'border.emphasized',
+				_active: { borderColor: 'border.active' },
+				_canHover: { _hover: { borderColor: 'border.active' } },
+			},
+		},
 		size: {
 			small: {
 				h: '8',
@@ -67,7 +76,6 @@ export const buttonRecipe = defineRecipe({
 	defaultVariants: {
 		visual: 'ghost',
 		size: 'large',
-		icon: false,
 		weight: 'bold',
 	},
 })
