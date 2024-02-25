@@ -23,6 +23,7 @@ export const buttonRecipe = defineRecipe({
 	variants: {
 		visual: {
 			ghost: {
+				bg: 'bg.canvas',
 				_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 				_canHover: { _hover: { bg: 'bg.subtle' } },
 				'&[aria-disabled=true]': {
@@ -79,17 +80,7 @@ export const buttonRecipe = defineRecipe({
 			},
 		},
 	},
-	compoundVariants: [
-		{
-			visual: ['ghost', 'solid'],
-			border: true,
-			css: {
-				bg: 'bg.canvas',
-				_hover: { bg: 'bg.canvas' },
-				_canHover: { _hover: { bg: 'bg.canvas' } },
-			},
-		},
-	],
+
 	defaultVariants: {
 		visual: 'ghost',
 		size: 'large',
