@@ -10,7 +10,7 @@ export const Backdrop_OverlayMenu = styled(Dialog.Backdrop, {
 		opacity: 'var(--opacity)',
 		bg: 'bg.canvas',
 		_open: { animation: 'fadeIn 0.3s ease-out' },
-		_closed: { animation: 'fadeOut 0.1s ease-in' },
+		_closed: { animation: 'fadeOut 0.15s ease-in' },
 	},
 	variants: {
 		opacity: {
@@ -63,7 +63,7 @@ export const Container_OverlayMenu = styled(Dialog.Content, {
 			animation: 'fadeInBottom 0.3s ease-out',
 		},
 		_closed: {
-			animation: 'fadeOutBottom 0.1s ease-in',
+			animation: 'fadeOutBottom 0.15s ease-in',
 		},
 	},
 })
