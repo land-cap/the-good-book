@@ -50,7 +50,7 @@ export const chapterContentContainerRecipe = cva({
 	variants: {
 		verseBreaksLine: {
 			false: {
-				'& [data-component="Paragraph"]': {
+				'& [data-component="Paragraph"] + [data-component="Paragraph"]': {
 					textIndent: '1em',
 				},
 			},
