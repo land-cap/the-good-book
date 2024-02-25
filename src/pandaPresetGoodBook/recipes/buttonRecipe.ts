@@ -43,15 +43,15 @@ export const buttonRecipe = defineRecipe({
 			true: {
 				borderWidth: '1px',
 				borderColor: 'border.emphasized',
-				_active: { borderColor: 'border.active' },
-				_canHover: { _hover: { borderColor: 'border.active' } },
+				_active: { borderColor: 'fg' },
+				_canHover: { _hover: { borderColor: 'fg' } },
 			},
 		},
-		faded: {
+		subtle: {
 			true: {
-				color: 'fg.faded',
-				_active: { color: 'fg.subtle' },
-				_canHover: { _hover: { color: 'fg.subtle' } },
+				color: 'fg.subtle',
+				_active: { color: 'fg' },
+				_canHover: { _hover: { color: 'fg' } },
 			},
 		},
 		size: {
