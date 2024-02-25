@@ -6,8 +6,6 @@ export const CrossReferenceList = styled('ul', {
 		direction: 'column',
 		gap: '4',
 		column: 'content',
-		overflowY: 'scroll',
-		overscrollBehavior: 'contain',
 		my: '8',
 	}),
 })
