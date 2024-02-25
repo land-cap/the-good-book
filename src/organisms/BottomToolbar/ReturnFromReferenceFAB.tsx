@@ -59,7 +59,6 @@ export const ReturnFromReferenceFAB = () => {
 
 	const referenceOriginChapterUrl = `/${staggeredOrigin.current?.book?.code}/${staggeredOrigin.current?.chapter}`
 	const bookName = staggeredOrigin.current?.book?.book_name?.value
-	const bookAbbr = staggeredOrigin.current?.book?.book_abbreviation?.value
 
 	const buttonCls = cx(
 		button({ visual: 'solid', size: 'small', weight: 'regular' }),
@@ -84,8 +83,7 @@ export const ReturnFromReferenceFAB = () => {
 			onClick={() => setOrigin(undefined)}
 		>
 			<Icon name="undo" size={5} className={iconCls} />
-			{bookAbbr}
-			{bookAbbr !== bookName ? '.' : null} {staggeredOrigin.current?.chapter}
+			{bookName} {staggeredOrigin.current?.chapter}
 		</Link>
 	)
 }
