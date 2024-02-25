@@ -96,7 +96,8 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 										<Link
 											className={css({
 												textDecoration: 'underline',
-												textDecorationColor: 'fg.faded',
+												textDecorationThickness: '1px',
+												textUnderlineOffset: 'token(spacing.1)',
 											})}
 											href={url}
 											onClick={handleReferenceLinkClick}
