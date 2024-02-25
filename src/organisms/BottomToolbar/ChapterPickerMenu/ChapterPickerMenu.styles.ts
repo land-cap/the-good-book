@@ -33,7 +33,7 @@ export const BookListItemContainer = styled('div', {
 		_canHover: { _hover: { bg: 'bg.subtle' } },
 		cursor: 'pointer',
 		transition: 'colors',
-		transitionDuration: 'fastest',
+		transitionDuration: 'normal',
 		transitionTimingFunction: 'ease-out',
 	}),
 	variants: {
@@ -77,7 +77,7 @@ export const ChapterListItem = styled('li', {
 		placeItems: 'center',
 		pos: 'relative',
 		transition: 'colors',
-		transitionDuration: 'fastest',
+		transitionDuration: 'normal',
 		transitionTimingFunction: 'ease-out',
 		w: 'full',
 	},
