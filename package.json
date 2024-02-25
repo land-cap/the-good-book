@@ -30,6 +30,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "fast-xml-parser": "^4.3.2",
     "file-system-cache": "^2.4.4",
+    "framer-motion": "^11.0.6",
     "geist": "^1.2.0",
     "jotai": "^2.5.1",
     "next": "^14.1.0",

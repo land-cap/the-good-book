@@ -1,4 +1,5 @@
 import { usePrevious } from '@mantine/hooks'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -65,25 +66,47 @@ export const ReturnFromReferenceFAB = () => {
 		css({
 			gap: '1.5',
 			alignItems: 'center',
-			pos: 'absolute',
-			top: '-4',
-			right: '0',
-			transform: show ? 'translateY(-100%)' : 'translateY(0)',
-			opacity: show ? '1' : '0',
-			transition: 'all',
-			transitionDuration: show ? 'normal' : 'fast',
-			transitionTimingFunction: show ? 'ease-out' : 'ease-in',
 		}),
 	)
 
 	return (
-		<Link
-			className={buttonCls}
-			href={referenceOriginChapterUrl}
-			onClick={() => setOrigin(undefined)}
-		>
-			<Icon name="undo" size={5} className={iconCls} />
-			{bookName} {staggeredOrigin.current?.chapter}
-		</Link>
+		<AnimatePresence>
+			{!!show && (
+				<motion.div
+					initial={{
+						opacity: 0,
+						transform: 'translateY(0)',
+					}}
+					animate={{
+						opacity: 1,
+						transform: 'translateY(-100%)',
+						transition: { ease: 'easeOut', duration: 0.3 },
+					}}
+					exit={{
+						opacity: 0,
+						transform: 'translateY(0)',
+						transition: { ease: 'easeIn', duration: 0.15 },
+					}}
+					transition={{
+						ease: 'easeInOut',
+						duration: 0.25,
+					}}
+					className={css({
+						pos: 'absolute',
+						top: '-4',
+						right: '0',
+					})}
+				>
+					<Link
+						className={buttonCls}
+						href={referenceOriginChapterUrl}
+						onClick={() => setOrigin(undefined)}
+					>
+						<Icon name="undo" size={5} className={iconCls} />
+						{bookName} {staggeredOrigin.current?.chapter}
+					</Link>
+				</motion.div>
+			)}
+		</AnimatePresence>
 	)
 }
