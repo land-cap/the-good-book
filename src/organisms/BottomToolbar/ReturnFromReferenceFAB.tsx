@@ -85,11 +85,7 @@ export const ReturnFromReferenceFAB = () => {
 					exit={{
 						opacity: 0,
 						transform: 'translateY(0)',
-						transition: { ease: 'easeIn', duration: 0.1 },
-					}}
-					transition={{
-						ease: 'easeInOut',
-						duration: 0.25,
+						transition: { ease: 'easeIn', duration: 0.15 },
 					}}
 					className={css({
 						pos: 'absolute',
