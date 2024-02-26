@@ -1,6 +1,5 @@
-import { usePrevious } from '@mantine/hooks'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -9,7 +8,7 @@ import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
-import { referenceOriginAtom } from '~/state'
+import { referenceOriginAtom, selectedReferenceAtom } from '~/state'
 
 const iconCls = css({
 	'--wght': '325',
@@ -32,33 +31,47 @@ export const ReturnFromReferenceFAB = () => {
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
+	const selectedReference = useAtomValue(selectedReferenceAtom)
+
 	const [hasNavigatedToReference, setHasNavigatedToReference] = useState(false)
 
 	useEffect(() => {
 		const hasNavigatedToReference =
-			bookCode !== origin?.book?.code || Number(chapter) !== origin?.chapter
-		setHasNavigatedToReference(hasNavigatedToReference)
-	}, [bookCode, chapter, origin?.book?.code, origin?.chapter])
+			bookCode === selectedReference?.bookCode &&
+			Number(chapter) === selectedReference?.chapter
+		if (hasNavigatedToReference) {
+			setHasNavigatedToReference(true)
+		}
+	}, [
+		bookCode,
+		chapter,
+		selectedReference?.bookCode,
+		selectedReference?.chapter,
+	])
 
 	const [hasLeftReference, setHasLeftReference] = useState(false)
-
-	const prevBookCode = usePrevious(bookCode)
-	const prevChapter = usePrevious(chapter)
 
 	useEffect(() => {
 		if (
 			hasNavigatedToReference &&
-			(prevBookCode !== bookCode || prevChapter !== chapter)
+			(bookCode !== selectedReference?.bookCode ||
+				Number(chapter) !== selectedReference?.chapter)
 		) {
 			setHasLeftReference(true)
 		}
-	}, [bookCode, chapter, hasNavigatedToReference, prevBookCode, prevChapter])
+	}, [
+		bookCode,
+		chapter,
+		hasNavigatedToReference,
+		selectedReference?.bookCode,
+		selectedReference?.chapter,
+	])
 
 	useEffect(() => setHasLeftReference(false), [origin])
 
-	const show = origin && hasNavigatedToReference && !hasLeftReference
+	const show = hasNavigatedToReference && !hasLeftReference
 
-	const referenceOriginChapterUrl = `/${staggeredOrigin.current?.book?.code}/${staggeredOrigin.current?.chapter}`
+	const referenceOriginUrl = `/${staggeredOrigin.current?.book?.code}/${staggeredOrigin.current?.chapter}`
 	const bookName = staggeredOrigin.current?.book?.book_name?.value
 
 	const buttonCls = cx(
@@ -71,7 +84,7 @@ export const ReturnFromReferenceFAB = () => {
 
 	return (
 		<AnimatePresence>
-			{!!show && (
+			{show && (
 				<motion.div
 					initial={{
 						opacity: 0,
@@ -84,7 +97,6 @@ export const ReturnFromReferenceFAB = () => {
 					}}
 					exit={{
 						opacity: 0,
-						transform: 'translateY(0)',
 						transition: { ease: 'easeIn', duration: 0.15 },
 					}}
 					className={css({
@@ -95,7 +107,7 @@ export const ReturnFromReferenceFAB = () => {
 				>
 					<Link
 						className={buttonCls}
-						href={referenceOriginChapterUrl}
+						href={referenceOriginUrl}
 						onClick={() => setOrigin(undefined)}
 					>
 						<Icon name="undo" size={5} className={iconCls} />

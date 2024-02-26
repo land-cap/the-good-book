@@ -49,7 +49,7 @@ export type THistoryEntry = {
 
 export const referenceOriginAtom = atom<THistoryEntry | undefined>(undefined)
 
-export const displayedReferenceAtom = atom<TCrossReference | undefined>(
+export const selectedReferenceAtom = atom<TCrossReference | undefined>(
 	undefined,
 )
 

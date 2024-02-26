@@ -18,8 +18,8 @@ import { getBookWithCache, type TBook } from '~/db'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,
-	displayedReferenceAtom,
 	referenceOriginAtom,
+	selectedReferenceAtom,
 	type TCrossReference,
 	type TVerseDetails,
 } from '~/state'
@@ -70,12 +70,12 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const setReferenceOrigin = useSetAtom(referenceOriginAtom)
 
-	const setDisplayedReference = useSetAtom(displayedReferenceAtom)
+	const setSelectedReference = useSetAtom(selectedReferenceAtom)
 
 	const handleReferenceLinkClick = async (reference: TCrossReference) => {
 		closeMenu()
 		const currBook = await getBookWithCache(bookCode)
-		setDisplayedReference(reference)
+		setSelectedReference(reference)
 		if (currBook) {
 			setReferenceOrigin({
 				book: currBook,
@@ -128,7 +128,9 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 							</styled.div>
 						)}
 						{!!verseDetailsSnapshot?.footnote && (
-							<Footnote>{verseDetailsSnapshot?.footnote}</Footnote>
+							<div className={macrogrid()}>
+								<Footnote>{verseDetailsSnapshot?.footnote}</Footnote>
+							</div>
 						)}
 					</div>
 				</Container_OverlayMenu>
