@@ -89,7 +89,7 @@ export const SectionTitle = makeNonOriginalTextHideable(
 			className={css({
 				color: 'fg.subtle',
 				fontSize: '1.25em',
-				textAlign: "left",
+				textAlign: 'left',
 			})}
 		>
 			{children}
@@ -125,7 +125,7 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 			{!verseBreaksLine && ' '}
 			<LabelTag
 				className={cx(
-					css({ fontFamily: 'sans', fontStyle: 'normal' }),
+					css({ fontFamily: 'mono', fontStyle: 'normal' }),
 					verseBreaksLine &&
 						css({
 							fontSize: '0.625em',
