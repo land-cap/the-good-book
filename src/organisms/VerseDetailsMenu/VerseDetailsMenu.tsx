@@ -57,11 +57,11 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
 
-	const [verseDetailsSnapshot, setVerseDetailsSnapshot] =
+	const [staggeredVerseDetails, setStaggeredVerseDetails] =
 		useState<TVerseDetails | null>(null)
 
 	useEffect(() => {
-		verseDetails && setVerseDetailsSnapshot(verseDetails)
+		verseDetails && setStaggeredVerseDetails(verseDetails)
 	}, [verseDetails])
 
 	const setCurrVerseDetailsID = useSetAtom(currVerseDetailsIDAtom)
@@ -80,6 +80,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 			setReferenceOrigin({
 				book: currBook,
 				chapter: Number(chapter),
+				verse: staggeredVerseDetails?.verse,
 			})
 		}
 	}
@@ -102,9 +103,9 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						})}
 					>
 						<Header
-							title={`${currBookName} ${chapter}:${verseDetailsSnapshot?.verse}`}
+							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 						/>
-						{!!verseDetailsSnapshot?.referenceList && (
+						{!!staggeredVerseDetails?.referenceList && (
 							<styled.div
 								css={macrogrid.raw({
 									overflowY: 'scroll',
@@ -114,7 +115,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 								})}
 							>
 								<CrossReferenceList>
-									{verseDetailsSnapshot?.referenceList.map((reference) => (
+									{staggeredVerseDetails?.referenceList.map((reference) => (
 										<li key={reference.label}>
 											<ReferenceLink
 												href={reference.url}
@@ -127,9 +128,9 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 								</CrossReferenceList>
 							</styled.div>
 						)}
-						{!!verseDetailsSnapshot?.footnote && (
+						{!!staggeredVerseDetails?.footnote && (
 							<div className={macrogrid()}>
-								<Footnote>{verseDetailsSnapshot?.footnote}</Footnote>
+								<Footnote>{staggeredVerseDetails?.footnote}</Footnote>
 							</div>
 						)}
 					</div>

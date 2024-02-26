@@ -45,6 +45,7 @@ export const currVerseDetailsAtom = atom((get) => {
 export type THistoryEntry = {
 	book: TBook
 	chapter: number
+	verse?: number
 }
 
 export const referenceOriginAtom = atom<THistoryEntry | undefined>(undefined)

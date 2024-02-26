@@ -71,8 +71,13 @@ export const ReturnFromReferenceFAB = () => {
 
 	const show = hasNavigatedToReference && !hasLeftReference
 
-	const referenceOriginUrl = `/${staggeredOrigin.current?.book?.code}/${staggeredOrigin.current?.chapter}`
-	const bookName = staggeredOrigin.current?.book?.book_name?.value
+	const originBookCode = staggeredOrigin.current?.book?.code
+	const originBookName = staggeredOrigin.current?.book?.book_name?.value
+	const originChapter = staggeredOrigin.current?.chapter
+	const originVerse = staggeredOrigin.current?.verse
+	const referenceOriginUrl = `/${originBookCode}/${originChapter}${
+		originVerse ? `?verse-range=${originVerse}` : ''
+	}`
 
 	const buttonCls = cx(
 		button({ size: 'small', border: true, weight: 'regular', subtle: true }),
@@ -111,7 +116,8 @@ export const ReturnFromReferenceFAB = () => {
 						onClick={() => setOrigin(undefined)}
 					>
 						<Icon name="undo" size={5} className={iconCls} />
-						{bookName} {staggeredOrigin.current?.chapter}
+						{originBookName} {originChapter}
+						{originVerse ? `:${originVerse}` : ''}
 					</Link>
 				</motion.div>
 			)}
