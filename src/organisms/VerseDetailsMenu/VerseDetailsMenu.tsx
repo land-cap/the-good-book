@@ -18,7 +18,9 @@ import { getBookWithCache, type TBook } from '~/db'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,
+	displayedReferenceAtom,
 	referenceOriginAtom,
+	type TCrossReference,
 	type TVerseDetails,
 } from '~/state'
 
@@ -68,9 +70,12 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const setReferenceOrigin = useSetAtom(referenceOriginAtom)
 
-	const handleReferenceLinkClick = async () => {
+	const setDisplayedReference = useSetAtom(displayedReferenceAtom)
+
+	const handleReferenceLinkClick = async (reference: TCrossReference) => {
 		closeMenu()
 		const currBook = await getBookWithCache(bookCode)
+		setDisplayedReference(reference)
 		if (currBook) {
 			setReferenceOrigin({
 				book: currBook,
@@ -109,13 +114,13 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 								})}
 							>
 								<CrossReferenceList>
-									{verseDetailsSnapshot?.referenceList.map(({ label, url }) => (
-										<li key={label}>
+									{verseDetailsSnapshot?.referenceList.map((reference) => (
+										<li key={reference.label}>
 											<ReferenceLink
-												href={url}
-												onClick={handleReferenceLinkClick}
+												href={reference.url}
+												onClick={() => handleReferenceLinkClick(reference)}
 											>
-												{label}
+												{reference.label}
 											</ReferenceLink>
 										</li>
 									))}

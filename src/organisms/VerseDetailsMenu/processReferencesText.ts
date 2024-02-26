@@ -61,7 +61,7 @@ const splitSameBookReferences = (reference: string) => {
 	return referenceList.map((reference) => `${bookNameMatch?.[0]}${reference}`)
 }
 
-const addUrlToReference = (
+const addDetailsToReference = (
 	reference: string,
 	bookNameToCode: Record<string, string>,
 ): TCrossReference => {
@@ -76,6 +76,8 @@ const addUrlToReference = (
 	return {
 		label: reference,
 		url: `/${bookCode}/${chapter}?verse-range=${verseRangeStr}`,
+		bookCode: bookCode!,
+		chapter: Number(chapter),
 	}
 }
 
@@ -91,5 +93,5 @@ export const processReferencesText = (
 			transformReference(currBookName, currChapter, bookAbbrToName)(reference),
 		),
 		(referenceListList: string[][]) => flatten(referenceListList),
-		map((reference) => addUrlToReference(reference, bookNameToCode)),
+		map((reference) => addDetailsToReference(reference, bookNameToCode)),
 	)
