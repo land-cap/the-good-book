@@ -40,6 +40,9 @@ export const BookListItemContainer = styled('div', {
 		isCurrBook: {
 			true: {
 				fontWeight: 'bold',
+				bg: 'bg.subtle',
+				_active: { bg: 'bg.muted', color: 'fg.muted' },
+				_canHover: { _hover: { bg: 'bg.muted' } },
 			},
 		},
 		isFirstEl: {
@@ -60,6 +63,7 @@ export const ChapterList = styled('ul', {
 		display: 'grid',
 		gridTemplateColumns: 'repeat(5, 1fr)',
 		h: 'fit-content',
+		fontFamily: 'mono',
 		md: {
 			gridTemplateColumns: 'repeat(10, 1fr)',
 		},
@@ -85,6 +89,9 @@ export const ChapterListItem = styled('li', {
 		isCurrChapter: {
 			true: {
 				fontWeight: 'bold',
+				bg: 'bg.subtle',
+				_active: { bg: 'bg.muted', color: 'fg.muted' },
+				_canHover: { _hover: { bg: 'bg.muted' } },
 			},
 		},
 	},
