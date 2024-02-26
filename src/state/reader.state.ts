@@ -21,6 +21,8 @@ export const currVerseDetailsIDAtom = atom<string | null>(null)
 export type TCrossReference = {
 	label: string
 	url: string
+	bookCode: string
+	chapter: number
 }
 
 export type TVerseDetails = {
@@ -46,6 +48,10 @@ export type THistoryEntry = {
 }
 
 export const referenceOriginAtom = atom<THistoryEntry | undefined>(undefined)
+
+export const displayedReferenceAtom = atom<TCrossReference | undefined>(
+	undefined,
+)
 
 /**
  * PREFERENCES STATE
