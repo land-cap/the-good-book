@@ -89,6 +89,7 @@ export const SectionTitle = makeNonOriginalTextHideable(
 			className={css({
 				color: 'fg.subtle',
 				fontSize: '1.25em',
+				textAlign: "left",
 			})}
 		>
 			{children}
