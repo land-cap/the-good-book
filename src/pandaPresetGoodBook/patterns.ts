@@ -49,10 +49,26 @@ const caption = definePattern({
 	}),
 })
 
+const underlined = definePattern({
+	properties: {
+		subtle: {
+			type: 'boolean',
+		},
+	},
+	transform: ({ subtle, ...props }) => ({
+		textDecoration: 'underline',
+		textDecorationThickness: '1px',
+		textUnderlineOffset: 'token(spacing.1)',
+		textDecorationColor: subtle ? 'fg.moreFaded' : 'fg',
+		...props,
+	}),
+})
+
 export const patterns = defineConfig({
 	patterns: {
 		caption,
 		macrogrid,
 		subgrid,
+		underlined,
 	},
 }).patterns

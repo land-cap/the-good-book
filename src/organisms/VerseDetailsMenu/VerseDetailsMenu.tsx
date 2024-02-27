@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { styled } from 'styled-system/jsx'
-import { flex, macrogrid } from 'styled-system/patterns'
+import { flex, macrogrid, underlined } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import {
@@ -28,11 +28,7 @@ import { CrossReferenceList } from './CrossReferenceList'
 import { Header } from './Header'
 
 const ReferenceLink = styled(Link, {
-	base: {
-		textDecoration: 'underline',
-		textDecorationThickness: '1px',
-		textUnderlineOffset: 'token(spacing.1)',
-	},
+	base: underlined.raw(),
 })
 
 const Footnote = styled('p', {
