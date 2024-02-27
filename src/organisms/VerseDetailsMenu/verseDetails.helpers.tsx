@@ -5,6 +5,7 @@ import type {
 	IntrinsicEl,
 	TextNode,
 } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
+import type { TBook } from '~/db'
 
 import { processReferencesText } from './processReferencesText'
 
@@ -38,6 +39,7 @@ export const extractReferenceList = (
 	chapter: string,
 	bookAbbrToName: Record<string, string>,
 	bookNameToCode: Record<string, string>,
+	singleChapterBookList: TBook[],
 ) => {
 	const referencesText = isReference(childrenOM)
 		? //@ts-ignore
@@ -50,6 +52,7 @@ export const extractReferenceList = (
 				chapter,
 				bookAbbrToName,
 				bookNameToCode,
+				singleChapterBookList,
 		  )(referencesText)
 		: undefined
 }

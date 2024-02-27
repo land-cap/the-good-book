@@ -1,5 +1,6 @@
 import { flatten, map, pipe, splitEvery, trim } from 'ramda'
 
+import { type TBook } from '~/db'
 import { type TCrossReference } from '~/state'
 
 const transformReference = (
@@ -64,7 +65,21 @@ const splitSameBookReferences = (reference: string) => {
 const addDetailsToReference = (
 	reference: string,
 	bookNameToCode: Record<string, string>,
+	singleChapterBookList: TBook[],
 ): TCrossReference => {
+	const getUrl = (
+		bookCode: string,
+		chapter: string,
+		verseRangeStr: string,
+		isSingleChapterBook: boolean,
+	) => {
+		if (isSingleChapterBook) {
+			// chapter is actually verse in this case
+			return `/${bookCode}/1/?verse-range=${chapter}`
+		}
+		return `/${bookCode}/${chapter}?verse-range=${verseRangeStr}`
+	}
+
 	const bookNameMatch = reference.match(/^(\d )?(\D+ ){1,2}/g)
 	const bookName = bookNameMatch?.[0]?.trim()
 	const bookCode = bookName && bookNameToCode[bookName]
@@ -73,9 +88,14 @@ const addDetailsToReference = (
 	const isChapterRange = chapterStr?.includes('—')
 	const chapter = isChapterRange ? chapterStr?.split('—')[0] : chapterStr
 	const verseRangeStr = referenceWithoutBookName?.trim()?.split(':')[1]
+
+	const isSingleChapterBook = singleChapterBookList?.some(
+		({ code }) => code === bookCode,
+	)
+
 	return {
 		label: reference,
-		url: `/${bookCode}/${chapter}?verse-range=${verseRangeStr}`,
+		url: getUrl(bookCode!, chapter!, verseRangeStr!, isSingleChapterBook),
 		bookCode: bookCode!,
 		chapter: Number(chapter),
 	}
@@ -86,6 +106,7 @@ export const processReferencesText = (
 	currChapter: string,
 	bookAbbrToName: Record<string, string>,
 	bookNameToCode: Record<string, string>,
+	singleChapterBookList: TBook[],
 ) =>
 	pipe(
 		referencesTextToList,
@@ -93,5 +114,7 @@ export const processReferencesText = (
 			transformReference(currBookName, currChapter, bookAbbrToName)(reference),
 		),
 		(referenceListList: string[][]) => flatten(referenceListList),
-		map((reference) => addDetailsToReference(reference, bookNameToCode)),
+		map((reference) =>
+			addDetailsToReference(reference, bookNameToCode, singleChapterBookList),
+		),
 	)

@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 
+import type { TBook } from '~/db'
 import { VerseDetailsButton } from '~/organisms/VerseDetailsMenu'
 
 import { FancyAside, Paragraph, Quote } from './ChapterContentComponents'
@@ -27,6 +28,7 @@ export const renderChapterContentFromOM = (
 	bookName: string,
 	bookAbbrToName: Record<string, string>,
 	bookNameToCode: Record<string, string>,
+	singleChapterBookList: TBook[],
 ) =>
 	chapterOM.reduce((acc, item, i) => {
 		if (isTextNode(item)) {
@@ -48,6 +50,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</LargeSectionTitle>,
 			]
@@ -62,6 +65,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</LargeSectionReference>,
 			]
@@ -80,6 +84,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</SectionTitle>,
 			]
@@ -94,6 +99,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</FancyAside>,
 			]
@@ -112,6 +118,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</Paragraph>,
 			]
@@ -127,6 +134,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</Verse>,
 			]
@@ -143,6 +151,7 @@ export const renderChapterContentFromOM = (
 							bookName,
 							bookAbbrToName,
 							bookNameToCode,
+							singleChapterBookList,
 						)[0] as unknown as number
 					}
 				/>,
@@ -158,6 +167,7 @@ export const renderChapterContentFromOM = (
 					bookName={bookName}
 					bookAbbrToName={bookAbbrToName}
 					bookNameToCode={bookNameToCode}
+					singleChapterBookList={singleChapterBookList}
 				/>,
 			]
 		}
@@ -171,6 +181,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</JesusWords>,
 			]
@@ -185,6 +196,7 @@ export const renderChapterContentFromOM = (
 						bookName,
 						bookAbbrToName,
 						bookNameToCode,
+						singleChapterBookList,
 					)}
 				</Quote>,
 			]
@@ -198,6 +210,7 @@ export const renderChapterContentFromOM = (
 					bookName,
 					bookAbbrToName,
 					bookNameToCode,
+					singleChapterBookList,
 				)}
 			</Fragment>,
 		]

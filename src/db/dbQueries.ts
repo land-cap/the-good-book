@@ -33,6 +33,11 @@ export const getBookListWithCache = withCacheAsync(
 
 export type TBook = Awaited<ReturnType<typeof getBookListWithCache>>[0]
 
+export const getSingleChapterBookList = async () => {
+	const bookList = await getBookListWithCache()
+	return bookList.filter((book) => book.chapter_count === 1)
+}
+
 const getChapter = async (bookCode: string, chapter: number) => {
 	const book = await getBookWithCache(bookCode)
 
