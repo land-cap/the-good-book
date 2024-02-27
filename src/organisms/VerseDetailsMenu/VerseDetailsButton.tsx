@@ -9,6 +9,7 @@ import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderCha
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
+import { type TBook } from '~/db'
 import {
 	currVerseDetailsIDAtom,
 	showVerseDetailsAtom,
@@ -39,11 +40,13 @@ export const VerseDetailsButton = ({
 	bookName,
 	bookAbbrToName,
 	bookNameToCode,
+	singleChapterBookList,
 }: {
 	childrenOM: ChapterOMNode[]
 	bookName: string
 	bookAbbrToName: Record<string, string>
 	bookNameToCode: Record<string, string>
+	singleChapterBookList: TBook[]
 }) => {
 	const id = useId()
 
@@ -74,6 +77,7 @@ export const VerseDetailsButton = ({
 				chapter,
 				bookAbbrToName,
 				bookNameToCode,
+				singleChapterBookList,
 			)
 			referenceList && setVerseDetails((prev) => ({ ...prev, referenceList }))
 		}
@@ -84,6 +88,7 @@ export const VerseDetailsButton = ({
 		childrenOM,
 		bookName,
 		setVerseDetails,
+		singleChapterBookList,
 	])
 
 	useEffect(() => {
