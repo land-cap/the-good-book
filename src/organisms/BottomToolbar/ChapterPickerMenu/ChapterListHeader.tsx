@@ -1,5 +1,4 @@
 import { type ReactNode } from 'react'
-import { css } from 'styled-system/css'
 import { caption } from 'styled-system/patterns'
 
 import { Separator } from '~/components'
@@ -15,12 +14,12 @@ export const ChapterListHeader = ({
 
 	return (
 		<div
-			className={css({
-				bg: 'bg.canvas',
+			className={caption({
 				column: '1 / -1',
+				zIndex: '1',
 				pos: 'sticky',
 				top: '0',
-				zIndex: '1',
+				bg: 'bg.canvas',
 			})}
 			style={{ marginBottom }}
 		>
