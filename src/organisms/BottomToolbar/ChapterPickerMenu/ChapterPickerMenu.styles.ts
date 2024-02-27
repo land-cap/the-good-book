@@ -2,7 +2,13 @@ import { Tabs } from '@ark-ui/react'
 import Link from 'next/link'
 import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
-import { center, flex, macrogrid, subgrid } from 'styled-system/patterns'
+import {
+	center,
+	flex,
+	macrogrid,
+	subgrid,
+	underlined,
+} from 'styled-system/patterns'
 
 export const TabsRoot = styled(Tabs.Root, {
 	base: flex.raw({
@@ -38,12 +44,9 @@ export const BookListItemContainer = styled('div', {
 	}),
 	variants: {
 		isCurrBook: {
-			true: {
+			true: underlined.raw({
 				fontWeight: 'bold',
-				bg: 'bg.subtle',
-				_active: { bg: 'bg.muted', color: 'fg.muted' },
-				_canHover: { _hover: { bg: 'bg.muted' } },
-			},
+			}),
 		},
 		isFirstEl: {
 			true: {
@@ -87,12 +90,9 @@ export const ChapterListItem = styled('li', {
 	},
 	variants: {
 		isCurrChapter: {
-			true: {
+			true: underlined.raw({
 				fontWeight: 'bold',
-				bg: 'bg.subtle',
-				_active: { bg: 'bg.muted', color: 'fg.muted' },
-				_canHover: { _hover: { bg: 'bg.muted' } },
-			},
+			}),
 		},
 	},
 })

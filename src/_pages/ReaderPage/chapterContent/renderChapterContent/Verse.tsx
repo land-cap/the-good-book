@@ -4,6 +4,7 @@ import { useAtomValue } from 'jotai/index'
 import { createContext, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
+import { underlined } from 'styled-system/patterns'
 
 import { verseBreaksLineAtom } from '~/state'
 
@@ -40,19 +41,16 @@ export const Verse = ({
 			>
 				{isHighlighted ? (
 					<styled.mark
-						css={{
+						css={underlined.raw({
+							subtle: true,
 							bg: 'transparent',
 							color: 'inherit',
-							textDecoration: 'underline',
-							textDecorationColor: 'fg.moreFaded',
-							textDecorationThickness: '1px',
-							textUnderlineOffset: 'token(spacing.1)',
 							animation: 'flashBackground 1s ease-in-out',
 							'& [data-component="VerseLabel"]': {
 								fontWeight: 'bold',
 								color: 'fg',
 							},
-						}}
+						})}
 					>
 						{children}
 					</styled.mark>
