@@ -120,6 +120,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 						gridTemplateRows: 'min-content 1fr min-content',
 						minH: '100dvh',
 						overscrollBehavior: 'contain',
+						pb: '14',
 						fontSize: 'sm',
 						color: 'fg',
 						background: 'bg.canvas',
