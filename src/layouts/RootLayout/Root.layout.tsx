@@ -53,8 +53,8 @@ const fontGeistMono = localFont({
 			path: './fonts/GeistMono-Regular.otf',
 			weight: '400',
 		},
-		{ path: './fonts/GeistMono-Bold.woff2', weight: '700' },
-		{ path: './fonts/GeistMono-Bold.otf', weight: '700' },
+		{ path: './fonts/GeistMono-UltraBlack.woff2', weight: '700' },
+		{ path: './fonts/GeistMono-UltraBlack.otf', weight: '700' },
 	],
 	variable: '--font-mono',
 })

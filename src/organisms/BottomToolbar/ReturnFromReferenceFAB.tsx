@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAtom, useAtomValue } from 'jotai'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
@@ -30,6 +30,10 @@ export const ReturnFromReferenceFAB = () => {
 	}, [origin])
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
+
+	const searchParams = useSearchParams()
+
+	const verseRange = searchParams.get('verse-range')
 
 	const selectedReference = useAtomValue(selectedReferenceAtom)
 
