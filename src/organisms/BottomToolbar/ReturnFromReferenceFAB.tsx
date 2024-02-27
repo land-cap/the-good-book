@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAtom, useAtomValue } from 'jotai'
 import Link from 'next/link'
-import { useParams, useSearchParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
@@ -30,10 +30,6 @@ export const ReturnFromReferenceFAB = () => {
 	}, [origin])
 
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
-
-	const searchParams = useSearchParams()
-
-	const verseRange = searchParams.get('verse-range')
 
 	const selectedReference = useAtomValue(selectedReferenceAtom)
 
@@ -71,9 +67,16 @@ export const ReturnFromReferenceFAB = () => {
 		selectedReference?.chapter,
 	])
 
-	useEffect(() => setHasLeftReference(false), [origin])
+	const [hasBeenClicked, setHasBeenClicked] = useState(false)
 
-	const show = hasNavigatedToReference && !hasLeftReference
+	useEffect(() => {
+		if (origin) {
+			setHasLeftReference(false)
+			setHasBeenClicked(false)
+		}
+	}, [origin])
+
+	const show = hasNavigatedToReference && !hasLeftReference && !hasBeenClicked
 
 	const originBookCode = staggeredOrigin.current?.book?.code
 	const originBookName = staggeredOrigin.current?.book?.book_name?.value
@@ -117,7 +120,10 @@ export const ReturnFromReferenceFAB = () => {
 					<Link
 						className={buttonCls}
 						href={referenceOriginUrl}
-						onClick={() => setOrigin(undefined)}
+						onClick={() => {
+							setHasBeenClicked(true)
+							setOrigin(undefined)
+						}}
 					>
 						<Icon name="undo" size={5} className={iconCls} />
 						{originBookName} {originChapter}
