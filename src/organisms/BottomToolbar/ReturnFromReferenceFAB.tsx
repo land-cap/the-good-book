@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAtom, useAtomValue } from 'jotai'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+import { useParams, useRouter } from 'next/navigation'
+import { type MouseEvent, useEffect, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
@@ -17,6 +17,14 @@ const iconCls = css({
 	transitionDuration: 'fast',
 	transitionTimingFunction: 'ease-out',
 })
+
+const buttonCls = cx(
+	button({ size: 'small', visual: 'solid', weight: 'regular', muted: true }),
+	css({
+		gap: '1.5',
+		alignItems: 'center',
+	}),
+)
 
 export const ReturnFromReferenceFAB = () => {
 	const [origin, setOrigin] = useAtom(referenceOriginAtom)
@@ -86,13 +94,14 @@ export const ReturnFromReferenceFAB = () => {
 		originVerse ? `?verse-range=${originVerse}` : ''
 	}`
 
-	const buttonCls = cx(
-		button({ size: 'small', visual: 'solid', weight: 'regular', muted: true }),
-		css({
-			gap: '1.5',
-			alignItems: 'center',
-		}),
-	)
+	const router = useRouter()
+
+	const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+		e.preventDefault()
+		router.back()
+		setHasBeenClicked(true)
+		setOrigin(undefined)
+	}
 
 	return (
 		<AnimatePresence>
@@ -120,10 +129,7 @@ export const ReturnFromReferenceFAB = () => {
 					<Link
 						className={buttonCls}
 						href={referenceOriginUrl}
-						onClick={() => {
-							setHasBeenClicked(true)
-							setOrigin(undefined)
-						}}
+						onClick={handleClick}
 					>
 						<Icon name="undo" size={5} className={iconCls} />
 						{originBookName} {originChapter}
