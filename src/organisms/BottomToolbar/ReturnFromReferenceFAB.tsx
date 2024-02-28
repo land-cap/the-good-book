@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { type MouseEvent, useEffect, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
+import { hstack } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
@@ -13,9 +14,6 @@ import { referenceOriginAtom, selectedReferenceAtom } from '~/state'
 const iconCls = css({
 	'--wght': '325',
 	ml: '-1',
-	transition: 'colors',
-	transitionDuration: 'fast',
-	transitionTimingFunction: 'ease-out',
 })
 
 const buttonCls = cx(
@@ -120,7 +118,8 @@ export const ReturnFromReferenceFAB = () => {
 						opacity: 0,
 						transition: { ease: 'easeIn', duration: 0.15 },
 					}}
-					className={css({
+					className={hstack({
+						gap: '0',
 						pos: 'absolute',
 						top: '-4',
 						right: '0',
@@ -135,6 +134,31 @@ export const ReturnFromReferenceFAB = () => {
 						{originBookName} {originChapter}
 						{originVerse ? `:${originVerse}` : ''}
 					</Link>
+					<div
+						className={css({
+							h: '8',
+							w: '1px',
+							bg: 'border.emphasized',
+							_osDark: {
+								bg: 'border.active',
+							},
+						})}
+					/>
+					<button
+						className={button({
+							size: 'small',
+							visual: 'solid',
+							icon: true,
+							weight: 'regular',
+							muted: true,
+						})}
+						onClick={() => {
+							setHasBeenClicked(true)
+							setOrigin(undefined)
+						}}
+					>
+						<Icon name="close" size={5} className={css({ '--wght': '325' })} />
+					</button>
 				</motion.div>
 			)}
 		</AnimatePresence>

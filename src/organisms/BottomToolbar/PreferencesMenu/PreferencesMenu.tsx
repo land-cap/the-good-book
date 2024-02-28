@@ -25,7 +25,7 @@ import {
 } from '~/state'
 
 import { Header } from './Header'
-import { IncrementInput } from './IncrementInput'
+import { IncrementField } from './IncrementField'
 import { PreferencesList } from './PreferencesList'
 import { SwitchField } from './SwitchField'
 
@@ -62,7 +62,7 @@ export const PreferencesMenu = () => {
 					<div className={macrogrid()}>
 						<Header />
 						<PreferencesList>
-							<IncrementInput
+							<IncrementField
 								label="Text size"
 								range={fontSizeOffsetRange}
 								value={fontSizeOffset}
@@ -70,7 +70,7 @@ export const PreferencesMenu = () => {
 								decreaseIcon="text_decrease"
 								increaseIcon="text_increase"
 							/>
-							<IncrementInput
+							<IncrementField
 								label="Line spacing"
 								range={leadingRange}
 								value={leading}

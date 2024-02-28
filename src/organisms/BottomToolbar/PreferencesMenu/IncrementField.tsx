@@ -13,7 +13,7 @@ const buttonCls = cx(
 	}),
 )
 
-export const IncrementInput = <T,>({
+export const IncrementField = <T,>({
 	label,
 	range,
 	value,
@@ -33,7 +33,7 @@ export const IncrementInput = <T,>({
 	return (
 		<div className={hstack({ justify: 'space-between', h: '10' })}>
 			<label>{label}</label>
-			<div className={hstack({ gap: '0', bg: 'bg.muted' })}>
+			<div className={hstack({ gap: '0' })}>
 				<div
 					className={buttonCls}
 					onClick={decrement}
