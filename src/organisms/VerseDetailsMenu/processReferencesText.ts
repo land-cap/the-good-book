@@ -94,10 +94,12 @@ const addDetailsToReference = (
 	)
 
 	return {
-		label: reference,
+		label: isSingleChapterBook
+			? reference.replace(chapter!, `1:${chapter}`)
+			: reference,
 		url: getUrl(bookCode!, chapter!, verseRangeStr!, isSingleChapterBook),
 		bookCode: bookCode!,
-		chapter: Number(chapter),
+		chapter: isSingleChapterBook ? 1 : Number(chapter),
 	}
 }
 
