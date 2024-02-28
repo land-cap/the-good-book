@@ -76,6 +76,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const savedLeading =
 		cookieStore.get(LEADING_COOKIE)?.value ?? leadingDefaultValue
 	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
+	const savedJustifyText = cookieStore.get(JUSTIFY_TEXT_COOKIE)?.value
 	const savedShowNonOriginalText = cookieStore.get(
 		SHOW_NON_ORIGINAL_TEXT_COOKIE,
 	)?.value
@@ -83,7 +84,6 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const savedShowVerseDetailsReferences = cookieStore.get(
 		SHOW_VERSE_DETAILS_COOKIE,
 	)?.value
-	const savedJustifyText = cookieStore.get(JUSTIFY_TEXT_COOKIE)?.value
 
 	return (
 		<RootProviders>
@@ -93,6 +93,10 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				savedVerseBreaksLine={getBooleanCookieValue(
 					savedVerseBreaksLine,
 					verseBreaksLineDefaultValue,
+				)}
+				savedJustifyText={getBooleanCookieValue(
+					savedJustifyText,
+					justifyTextDefaultValue,
 				)}
 				savedShowNonOriginalText={getBooleanCookieValue(
 					savedShowNonOriginalText,
@@ -105,10 +109,6 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				savedShowVerseDetailsReferences={getBooleanCookieValue(
 					savedShowVerseDetailsReferences,
 					showVerseDetailsDefaultValue,
-				)}
-				savedJustifyText={getBooleanCookieValue(
-					savedJustifyText,
-					justifyTextDefaultValue,
 				)}
 			/>
 			<UseLockBodyScroll />

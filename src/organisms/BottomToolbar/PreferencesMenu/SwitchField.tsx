@@ -4,7 +4,7 @@ import { type PrimitiveAtom, useAtom } from 'jotai'
 
 import { Switch } from './SwitchInput.styles'
 
-export const SwitchInput = ({
+export const SwitchField = ({
 	valueAtom,
 	label,
 }: {
