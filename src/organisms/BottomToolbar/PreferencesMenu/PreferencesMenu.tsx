@@ -27,7 +27,7 @@ import {
 import { Header } from './Header'
 import { IncrementInput } from './IncrementInput'
 import { PreferencesList } from './PreferencesList'
-import { SwitchInput } from './SwitchInput'
+import { SwitchField } from './SwitchField'
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
@@ -78,23 +78,23 @@ export const PreferencesMenu = () => {
 								decreaseIcon="density_small"
 								increaseIcon="density_medium"
 							/>
-							<SwitchInput
+							<SwitchField
 								valueAtom={verseBreaksLineAtom}
 								label="Start verse on new line"
 							/>
-							<SwitchInput
+							<SwitchField valueAtom={justifyTextAtom} label="Justify text" />
+							<SwitchField
 								valueAtom={showNonOriginalTextAtom}
 								label="Show non-original text"
 							/>
-							<SwitchInput
+							<SwitchField
 								valueAtom={showRedLettersAtom}
 								label="Show red letters"
 							/>
-							<SwitchInput
+							<SwitchField
 								valueAtom={showVerseDetailsAtom}
 								label="Show references and footnotes"
 							/>
-							<SwitchInput valueAtom={justifyTextAtom} label="Justify text" />
 						</PreferencesList>
 					</div>
 				</Container_OverlayMenu>

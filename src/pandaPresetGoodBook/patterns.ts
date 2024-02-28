@@ -64,11 +64,20 @@ const underlined = definePattern({
 	}),
 })
 
+const smallText = definePattern({
+	transform: (props) => ({
+		color: 'fg.subtle',
+		fontSize: 'sm',
+		...props,
+	}),
+})
+
 export const patterns = defineConfig({
 	patterns: {
 		caption,
+		smallText,
+		underlined,
 		macrogrid,
 		subgrid,
-		underlined,
 	},
 }).patterns
