@@ -118,7 +118,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 										</ReferenceLink>
 									</li>
 								))}
-								<SafeAreaBottom css={{ column: 'content' }} />
+								<SafeAreaBottom css={{ mt: '-4', column: 'content' }} />
 							</CrossReferenceList>
 						)}
 						{!!staggeredVerseDetails?.footnote && (
