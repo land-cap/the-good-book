@@ -87,7 +87,7 @@ export const ReturnFromReferenceFAB = () => {
 	}`
 
 	const buttonCls = cx(
-		button({ size: 'small', visual: 'solid', weight: 'regular', subtle: true }),
+		button({ size: 'small', visual: 'solid', weight: 'regular', muted: true }),
 		css({
 			gap: '1.5',
 			alignItems: 'center',

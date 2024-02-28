@@ -47,9 +47,9 @@ export const buttonRecipe = defineRecipe({
 				_canHover: { _hover: { borderColor: 'fg' } },
 			},
 		},
-		subtle: {
+		muted: {
 			true: {
-				color: 'fg.subtle',
+				color: 'fg.muted',
 				_active: { color: 'fg' },
 				_canHover: { _hover: { color: 'fg' } },
 			},
