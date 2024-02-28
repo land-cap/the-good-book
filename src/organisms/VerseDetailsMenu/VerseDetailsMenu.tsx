@@ -5,6 +5,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { flex, macrogrid, underlined } from 'styled-system/patterns'
 
@@ -15,6 +16,7 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
+import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,
@@ -102,31 +104,27 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
-							<styled.div
-								css={macrogrid.raw({
-									overflowY: 'scroll',
-									overscrollBehavior: 'contain',
-									h: 'full',
-									pb: 'safe_area_bottom',
-								})}
-							>
-								<CrossReferenceList>
-									{staggeredVerseDetails?.referenceList.map((reference) => (
-										<li key={reference.label}>
-											<ReferenceLink
-												href={reference.url}
-												onClick={() => handleReferenceLinkClick(reference)}
-											>
-												{reference.label}
-											</ReferenceLink>
-										</li>
-									))}
-								</CrossReferenceList>
-							</styled.div>
+							<CrossReferenceList>
+								{staggeredVerseDetails?.referenceList.map((reference) => (
+									<li
+										className={css({ column: 'content' })}
+										key={reference.label}
+									>
+										<ReferenceLink
+											href={reference.url}
+											onClick={() => handleReferenceLinkClick(reference)}
+										>
+											{reference.label}
+										</ReferenceLink>
+									</li>
+								))}
+								<SafeAreaBottom css={{ column: 'content' }} />
+							</CrossReferenceList>
 						)}
 						{!!staggeredVerseDetails?.footnote && (
 							<div className={macrogrid()}>
 								<Footnote>{staggeredVerseDetails?.footnote}</Footnote>
+								<SafeAreaBottom css={{ column: 'content' }} />
 							</div>
 						)}
 					</div>
