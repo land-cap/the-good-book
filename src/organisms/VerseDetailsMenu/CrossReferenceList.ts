@@ -1,11 +1,12 @@
 import { styled } from 'styled-system/jsx'
-import { flex } from 'styled-system/patterns'
+import { macrogrid } from 'styled-system/patterns'
 
 export const CrossReferenceList = styled('ul', {
-	base: flex.raw({
-		direction: 'column',
-		gap: '4',
-		column: 'content',
-		my: '8',
+	base: macrogrid.raw({
+		rowGap: '4',
+		py: '8',
+		overflow: 'auto',
+		overscrollBehavior: 'contain',
+		h: 'fit-content',
 	}),
 })
