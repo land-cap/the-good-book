@@ -130,7 +130,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				>
 					<TopToolbar />
 					{children}
-					<SafeAreaBottom />
+					<SafeAreaBottom css={{ column: 'content' }} />
 					<BottomToolbar bookList={bookList} />
 					<VerseDetailsMenuRoot bookList={bookList} />
 				</body>
