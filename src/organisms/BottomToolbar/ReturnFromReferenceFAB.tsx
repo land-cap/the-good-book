@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAtom, useAtomValue } from 'jotai'
 import Link from 'next/link'
-import { useParams, useRouter } from 'next/navigation'
-import { type MouseEvent, useEffect, useRef, useState } from 'react'
+import { useParams } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { hstack } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
@@ -92,11 +92,7 @@ export const ReturnFromReferenceFAB = () => {
 		originVerse ? `?verse-range=${originVerse}` : ''
 	}`
 
-	const router = useRouter()
-
-	const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-		e.preventDefault()
-		router.back()
+	const handleClick = () => {
 		setHasBeenClicked(true)
 		setOrigin(undefined)
 	}
@@ -128,7 +124,6 @@ export const ReturnFromReferenceFAB = () => {
 					<Link
 						className={buttonCls}
 						href={referenceOriginUrl}
-						scroll={false}
 						onClick={handleClick}
 					>
 						<Icon name="undo" size={5} className={iconCls} />
