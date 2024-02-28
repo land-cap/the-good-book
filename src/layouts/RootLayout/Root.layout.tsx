@@ -10,6 +10,7 @@ import {
 	SetUpPreferencesMenuState,
 	TopToolbar,
 } from '~/organisms'
+import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
 	FONT_SIZE_OFFSET_COOKIE,
@@ -129,6 +130,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				>
 					<TopToolbar />
 					{children}
+					<SafeAreaBottom />
 					<BottomToolbar bookList={bookList} />
 					<VerseDetailsMenuRoot bookList={bookList} />
 				</body>
