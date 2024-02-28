@@ -128,6 +128,7 @@ export const ReturnFromReferenceFAB = () => {
 					<Link
 						className={buttonCls}
 						href={referenceOriginUrl}
+						scroll={false}
 						onClick={handleClick}
 					>
 						<Icon name="undo" size={5} className={iconCls} />

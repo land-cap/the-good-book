@@ -1,3 +1,4 @@
+import { Roboto_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
@@ -60,6 +61,14 @@ const fontGeistMono = localFont({
 	variable: '--font-mono',
 })
 
+const fontFlexSerif = Roboto_Serif({
+	style: ['normal', 'italic'],
+	display: 'swap',
+	variable: '--font-serif',
+	subsets: ['latin', 'latin-ext'],
+	axes: ['opsz'],
+})
+
 const getBooleanCookieValue = (
 	cookieValue: string | undefined,
 	fallback: boolean,
@@ -114,7 +123,11 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 			<UseLockBodyScroll />
 			<html
 				lang="en"
-				className={cx(fontGeist.variable, fontGeistMono.variable)}
+				className={cx(
+					fontGeist.variable,
+					fontGeistMono.variable,
+					fontFlexSerif.variable,
+				)}
 			>
 				<body
 					className={macrogrid({
