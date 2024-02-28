@@ -23,7 +23,7 @@ export const Quote = ({ children }: { children: ReactNode }) => (
 		className={css({
 			display: 'block',
 			fontFamily: 'mono',
-			textAlign: "left",
+			textAlign: 'left',
 		})}
 	>
 		{children}
