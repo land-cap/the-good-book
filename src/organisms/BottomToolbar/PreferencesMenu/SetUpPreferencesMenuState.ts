@@ -52,18 +52,18 @@ export const SetUpPreferencesMenuState = ({
 	savedFontSizeOffset,
 	savedLeading,
 	savedVerseBreaksLine,
+	savedJustifyText,
 	savedShowNonOriginalText,
 	savedShowRedLetters,
 	savedShowVerseDetailsReferences,
-	savedJustifyText,
 }: {
 	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
 	savedVerseBreaksLine: boolean
+	savedJustifyText: boolean
 	savedShowNonOriginalText: boolean
 	savedShowRedLetters: boolean
 	savedShowVerseDetailsReferences: boolean
-	savedJustifyText: boolean
 }) => {
 	useSetupClientState(
 		fontSizeOffsetAtom,
@@ -76,6 +76,7 @@ export const SetUpPreferencesMenuState = ({
 		savedVerseBreaksLine,
 		VERSE_BREAKS_LINE_COOKIE,
 	)
+	useSetupClientState(justifyTextAtom, savedJustifyText, JUSTIFY_TEXT_COOKIE)
 	useSetupClientState(
 		showNonOriginalTextAtom,
 		savedShowNonOriginalText,
@@ -91,7 +92,6 @@ export const SetUpPreferencesMenuState = ({
 		savedShowVerseDetailsReferences,
 		SHOW_VERSE_DETAILS_COOKIE,
 	)
-	useSetupClientState(justifyTextAtom, savedJustifyText, JUSTIFY_TEXT_COOKIE)
 
 	return null
 }

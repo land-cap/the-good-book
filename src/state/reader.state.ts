@@ -74,6 +74,10 @@ export const VERSE_BREAKS_LINE_COOKIE = 'verse-breaks-line'
 export const verseBreaksLineDefaultValue = true
 export const verseBreaksLineAtom = atom(verseBreaksLineDefaultValue)
 
+export const JUSTIFY_TEXT_COOKIE = 'justify-text'
+export const justifyTextDefaultValue = true
+export const justifyTextAtom = atom(justifyTextDefaultValue)
+
 export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'show-non-original-text'
 export const showNonOriginalTextDefaultValue = true
 export const showNonOriginalTextAtom = atom(showNonOriginalTextDefaultValue)
@@ -85,7 +89,3 @@ export const showRedLettersAtom = atom(showRedLettersDefaultValue)
 export const SHOW_VERSE_DETAILS_COOKIE = 'show-verse-details'
 export const showVerseDetailsDefaultValue = true
 export const showVerseDetailsAtom = atom(showVerseDetailsDefaultValue)
-
-export const JUSTIFY_TEXT_COOKIE = 'justify-text'
-export const justifyTextDefaultValue = true
-export const justifyTextAtom = atom(justifyTextDefaultValue)
