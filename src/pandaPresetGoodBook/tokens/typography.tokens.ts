@@ -4,6 +4,7 @@ export const fonts = defineTokens.fonts({
 	sans: { value: 'var(--font-sans)' },
 	mono: { value: 'var(--font-mono)' },
 	serif: { value: 'var(--font-serif)' },
+	soft: { value: 'var(--font-soft)' },
 })
 
 export const fontWeights = defineTokens.fontWeights({

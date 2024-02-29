@@ -14,7 +14,7 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 )
 
 export const Paragraph = ({ children }: { children: ReactNode }) => (
-	<p data-component="Paragraph" className={css({ fontFamily: 'serif' })}>
+	<p data-component="Paragraph" className={css({ fontFamily: 'soft' })}>
 		{children}
 	</p>
 )
