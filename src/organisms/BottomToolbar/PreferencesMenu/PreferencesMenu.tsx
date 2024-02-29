@@ -1,7 +1,7 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { range } from 'ramda'
 import { useCallback } from 'react'
 import { macrogrid } from 'styled-system/patterns'
@@ -46,6 +46,16 @@ export const PreferencesMenu = () => {
 		[setLeading],
 	)
 
+	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
+
+	const setJustifyText = useSetAtom(justifyTextAtom)
+
+	//useEffect(() => {
+	//	if (verseBreaksLine) {
+	//		setJustifyText(false)
+	//	}
+	//}, [verseBreaksLine, setJustifyText])
+
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -85,7 +95,7 @@ export const PreferencesMenu = () => {
 							<SwitchField
 								valueAtom={justifyTextAtom}
 								label="Justify text"
-								message="Only available when verse starts on new line."
+								disabled={verseBreaksLine}
 							/>
 							<SwitchField
 								valueAtom={showNonOriginalTextAtom}
