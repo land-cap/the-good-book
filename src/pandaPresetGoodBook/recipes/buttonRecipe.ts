@@ -20,6 +20,7 @@ export const buttonRecipe = defineRecipe({
 			pointerEvents: 'none',
 		},
 	},
+
 	variants: {
 		visual: {
 			ghost: {
@@ -51,14 +52,13 @@ export const buttonRecipe = defineRecipe({
 			true: {
 				color: 'fg.muted',
 				_active: { color: 'fg' },
-				_canHover: { _hover: { color: 'fg' } },
 			},
 		},
 		size: {
 			small: {
 				h: '8',
 				px: '3',
-				fontSize: 'sm',
+				fontSize: 'xs',
 			},
 			large: {
 				h: '14',
@@ -80,6 +80,16 @@ export const buttonRecipe = defineRecipe({
 			},
 		},
 	},
+
+	compoundVariants: [
+		{
+			visual: 'solid',
+			muted: true,
+			css: {
+				_active: { color: 'fg' },
+			},
+		},
+	],
 
 	defaultVariants: {
 		visual: 'ghost',
