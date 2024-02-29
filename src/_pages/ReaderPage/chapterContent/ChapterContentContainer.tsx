@@ -102,9 +102,6 @@ export const chapterContentContainerRecipe = cva({
 			},
 		},
 		leading: {
-			1: {
-				lineHeight: '1em',
-			},
 			1.25: {
 				lineHeight: '1.25em',
 			},
