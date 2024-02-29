@@ -8,7 +8,9 @@ import { useEffect } from 'react'
 
 import { setCookie } from '~/app/action'
 import {
+	FONT_COOKIE,
 	FONT_SIZE_OFFSET_COOKIE,
+	fontAtom,
 	fontSizeOffsetAtom,
 	JUSTIFY_TEXT_COOKIE,
 	justifyTextAtom,
@@ -20,6 +22,7 @@ import {
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	showVerseDetailsAtom,
+	type TFont,
 	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
@@ -51,6 +54,7 @@ const useSetupClientState = <T>(
 export const SetUpPreferencesMenuState = ({
 	savedFontSizeOffset,
 	savedLeading,
+	savedFont,
 	savedVerseBreaksLine,
 	savedJustifyText,
 	savedShowNonOriginalText,
@@ -59,6 +63,7 @@ export const SetUpPreferencesMenuState = ({
 }: {
 	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
+	savedFont: TFont
 	savedVerseBreaksLine: boolean
 	savedJustifyText: boolean
 	savedShowNonOriginalText: boolean
@@ -71,6 +76,7 @@ export const SetUpPreferencesMenuState = ({
 		FONT_SIZE_OFFSET_COOKIE,
 	)
 	useSetupClientState(leadingAtom, savedLeading, LEADING_COOKIE)
+	useSetupClientState(fontAtom, savedFont, FONT_COOKIE)
 	useSetupClientState(
 		verseBreaksLineAtom,
 		savedVerseBreaksLine,
