@@ -82,7 +82,11 @@ export const PreferencesMenu = () => {
 								valueAtom={verseBreaksLineAtom}
 								label="Start verse on new line"
 							/>
-							<SwitchField valueAtom={justifyTextAtom} label="Justify text" />
+							<SwitchField
+								valueAtom={justifyTextAtom}
+								label="Justify text"
+								message="Only available when verse starts on new line."
+							/>
 							<SwitchField
 								valueAtom={showNonOriginalTextAtom}
 								label="Show non-original text"

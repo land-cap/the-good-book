@@ -5,11 +5,11 @@ import * as slider from '@zag-js/slider'
 import { type PrimitiveAtom, useAtom } from 'jotai'
 import { useEffect, useMemo } from 'react'
 
-import { Slider } from './SliderInput.styles'
+import { Slider } from './SliderField.styles'
 
 export type TSliderMachineProps = Parameters<typeof slider.machine>[0]
 
-export const SliderInput = ({
+export const SliderField = ({
 	valueAtom,
 	machineProps,
 	label,

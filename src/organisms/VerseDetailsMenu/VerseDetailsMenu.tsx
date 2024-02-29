@@ -104,22 +104,30 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
-							<CrossReferenceList>
-								{staggeredVerseDetails?.referenceList.map((reference) => (
-									<li
-										className={css({ column: 'content' })}
-										key={reference.label}
-									>
-										<ReferenceLink
-											href={reference.url}
-											onClick={() => handleReferenceLinkClick(reference)}
+							<styled.div
+								css={{
+									overflow: 'auto',
+									overscrollBehavior: 'contain',
+									h: 'fit-content',
+								}}
+							>
+								<CrossReferenceList>
+									{staggeredVerseDetails?.referenceList.map((reference) => (
+										<li
+											className={css({ column: 'content' })}
+											key={reference.label}
 										>
-											{reference.label}
-										</ReferenceLink>
-									</li>
-								))}
-								<SafeAreaBottom css={{ mt: '-4', column: 'content' }} />
-							</CrossReferenceList>
+											<ReferenceLink
+												href={reference.url}
+												onClick={() => handleReferenceLinkClick(reference)}
+											>
+												{reference.label}
+											</ReferenceLink>
+										</li>
+									))}
+								</CrossReferenceList>
+								<SafeAreaBottom />
+							</styled.div>
 						)}
 						{!!staggeredVerseDetails?.footnote && (
 							<div className={macrogrid()}>
