@@ -34,7 +34,7 @@ const Control = styled(ArkSwitch.Control, {
 		disabled: {
 			true: {
 				cursor: 'revert',
-				bg: 'bg.muted',
+				bg: 'fg.moreFaded',
 				_checked: {
 					bg: 'fg.faded',
 				},
@@ -66,7 +66,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 		disabled: {
 			true: {
 				cursor: 'revert',
-				borderColor: 'bg.muted',
+				borderColor: 'fg.moreFaded',
 				_checked: {
 					borderColor: 'fg.faded',
 				},
@@ -76,6 +76,11 @@ const Thumb = styled(ArkSwitch.Thumb, {
 })
 
 const Label = styled(ArkSwitch.Label, {
+	base: {
+		transition: 'colors',
+		transitionDuration: 'normal',
+		transitionTimingFunction: 'ease-out',
+	},
 	variants: {
 		disabled: {
 			true: {
