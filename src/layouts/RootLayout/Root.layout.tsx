@@ -1,4 +1,4 @@
-import { Roboto_Serif } from 'next/font/google'
+import { Nunito, Roboto_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
@@ -61,12 +61,20 @@ const fontGeistMono = localFont({
 	variable: '--font-mono',
 })
 
-const fontFlexSerif = Roboto_Serif({
+const fontRobotoSerif = Roboto_Serif({
+	weight: ['400'],
 	style: ['normal', 'italic'],
 	display: 'swap',
 	variable: '--font-serif',
 	subsets: ['latin', 'latin-ext'],
-	axes: ['opsz'],
+})
+
+const fontNunito = Nunito({
+	weight: ['400'],
+	style: ['normal', 'italic'],
+	display: 'swap',
+	variable: '--font-soft',
+	subsets: ['latin', 'latin-ext'],
 })
 
 const getBooleanCookieValue = (
@@ -126,7 +134,8 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				className={cx(
 					fontGeist.variable,
 					fontGeistMono.variable,
-					fontFlexSerif.variable,
+					fontRobotoSerif.variable,
+					fontNunito.variable,
 				)}
 			>
 				<body
