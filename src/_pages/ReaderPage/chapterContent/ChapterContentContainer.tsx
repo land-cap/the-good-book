@@ -53,6 +53,7 @@ export const chapterContentContainerRecipe = cva({
 			mt: 'reader_gap',
 		},
 	},
+
 	variants: {
 		verseBreaksLine: {
 			false: {
@@ -128,6 +129,7 @@ export const chapterContentContainerRecipe = cva({
 			},
 		},
 	},
+
 	compoundVariants: [
 		{
 			verseBreaksLine: true,
