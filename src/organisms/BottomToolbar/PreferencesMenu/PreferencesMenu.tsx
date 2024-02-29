@@ -31,7 +31,7 @@ import { SwitchField } from './SwitchField'
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
-const leadingRange = steppedRange(0.25, 1.5, 3) as TLeading[]
+const leadingRange = steppedRange(0.25, 1.25, 3) as TLeading[]
 
 export const PreferencesMenu = () => {
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)

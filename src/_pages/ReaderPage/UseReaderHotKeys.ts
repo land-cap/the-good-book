@@ -39,14 +39,14 @@ export const UseReaderHotKeys = () => {
 	const decreaseLeading = () => {
 		setLeading((prev) => {
 			const newValue = prev - 0.25
-			return newValue >= 1.5 ? (newValue as TLeading) : prev
+			return newValue >= 1.25 ? (newValue as TLeading) : prev
 		})
 	}
 
 	const increaseLeading = () =>
 		setLeading((prev) => {
 			const newValue = prev + 0.25
-			return newValue < 2.5 ? (newValue as TLeading) : prev
+			return newValue <= 3 ? (newValue as TLeading) : prev
 		})
 
 	const resetLeading = () => setLeading(leadingDefaultValue)
