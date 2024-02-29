@@ -6,8 +6,8 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
-import { styled } from 'styled-system/jsx'
-import { flex, macrogrid, underlined } from 'styled-system/patterns'
+import { Flex, styled } from 'styled-system/jsx'
+import { macrogrid, underlined } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import {
@@ -93,23 +93,15 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						borderColor: 'border.emphasized',
 					}}
 				>
-					<div
-						className={flex({
-							direction: 'column',
-							h: 'fit-content',
-							maxH: 'calc(100dvh * 2 / 3)',
-						})}
-					>
+					<Flex direction="column" h="fit-content" maxH="calc(100dvh * 2 / 3)">
 						<Header
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
 							<styled.div
-								css={{
-									overflow: 'auto',
-									overscrollBehavior: 'contain',
-									h: 'fit-content',
-								}}
+								overflow="auto"
+								overscrollBehavior="contain"
+								h="fit-content"
 							>
 								<CrossReferenceList>
 									{staggeredVerseDetails?.referenceList.map((reference) => (
@@ -135,7 +127,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 								<SafeAreaBottom css={{ column: 'content' }} />
 							</div>
 						)}
-					</div>
+					</Flex>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>
 		</Portal>

@@ -1,12 +1,13 @@
 import { Dialog } from '@ark-ui/react'
 import { css } from 'styled-system/css'
-import { hstack, macrogrid } from 'styled-system/patterns'
+import { Macrogrid } from 'styled-system/jsx'
+import { hstack } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon, Separator } from '~/components'
 
 export const Header = ({ title }: { title: string }) => (
-	<div className={macrogrid()}>
+	<Macrogrid>
 		<div
 			className={hstack({
 				column: 'content',
@@ -20,5 +21,5 @@ export const Header = ({ title }: { title: string }) => (
 			</Dialog.CloseTrigger>
 		</div>
 		<Separator css={{ column: 'content' }} />
-	</div>
+	</Macrogrid>
 )
