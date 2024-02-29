@@ -1,7 +1,7 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { range } from 'ramda'
 import { useCallback } from 'react'
 import { macrogrid } from 'styled-system/patterns'
@@ -47,14 +47,6 @@ export const PreferencesMenu = () => {
 	)
 
 	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
-
-	const setJustifyText = useSetAtom(justifyTextAtom)
-
-	//useEffect(() => {
-	//	if (verseBreaksLine) {
-	//		setJustifyText(false)
-	//	}
-	//}, [verseBreaksLine, setJustifyText])
 
 	return (
 		<Portal>
