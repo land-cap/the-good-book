@@ -70,6 +70,11 @@ export const LEADING_COOKIE = 'leading'
 export const leadingDefaultValue = 2
 export const leadingAtom = atom<TLeading>(leadingDefaultValue)
 
+export type TFont = 'sans' | 'serif' | 'soft' | 'dyslexic'
+export const FONT_COOKIE = 'font'
+export const fontDefaultValue = 'sans'
+export const fontAtom = atom<TFont>(fontDefaultValue)
+
 export const VERSE_BREAKS_LINE_COOKIE = 'verse-breaks-line'
 export const verseBreaksLineDefaultValue = true
 export const verseBreaksLineAtom = atom(verseBreaksLineDefaultValue)
