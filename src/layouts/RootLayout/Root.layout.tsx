@@ -14,7 +14,9 @@ import {
 import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
+	FONT_COOKIE,
 	FONT_SIZE_OFFSET_COOKIE,
+	fontDefaultValue,
 	fontSizeOffsetDefaultValue,
 	JUSTIFY_TEXT_COOKIE,
 	justifyTextDefaultValue,
@@ -26,6 +28,7 @@ import {
 	showNonOriginalTextDefaultValue,
 	showRedLettersDefaultValue,
 	showVerseDetailsDefaultValue,
+	type TFont,
 	type TFontSizeOffset,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
@@ -99,6 +102,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 		fontSizeOffsetDefaultValue
 	const savedLeading =
 		cookieStore.get(LEADING_COOKIE)?.value ?? leadingDefaultValue
+	const savedFont = cookieStore.get(FONT_COOKIE)?.value ?? fontDefaultValue
 	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
 	const savedJustifyText = cookieStore.get(JUSTIFY_TEXT_COOKIE)?.value
 	const savedShowNonOriginalText = cookieStore.get(
@@ -114,6 +118,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 			<SetUpPreferencesMenuState
 				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
 				savedLeading={Number(savedLeading) as TLeading}
+				savedFont={savedLeading as TFont}
 				savedVerseBreaksLine={getBooleanCookieValue(
 					savedVerseBreaksLine,
 					verseBreaksLineDefaultValue,
