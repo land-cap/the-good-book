@@ -6,8 +6,6 @@ export const PreferencesList = styled('form', {
 		direction: 'column',
 		gap: '4',
 		column: 'content',
-		overflowY: 'scroll',
-		overscrollBehavior: 'contain',
 		py: '8',
 	}),
 })
