@@ -30,6 +30,17 @@ const Control = styled(ArkSwitch.Control, {
 		},
 		_osDark: { bg: 'bg.muted' },
 	}),
+	variants: {
+		disabled: {
+			true: {
+				cursor: 'revert',
+				bg: 'bg.muted',
+				_checked: {
+					bg: 'fg.faded',
+				},
+			},
+		},
+	},
 })
 
 const Thumb = styled(ArkSwitch.Thumb, {
@@ -51,9 +62,28 @@ const Thumb = styled(ArkSwitch.Thumb, {
 			transform: 'translateX(var(--switch-thumb-x))',
 		},
 	}),
+	variants: {
+		disabled: {
+			true: {
+				cursor: 'revert',
+				borderColor: 'bg.muted',
+				_checked: {
+					borderColor: 'fg.faded',
+				},
+			},
+		},
+	},
 })
 
-const Label = styled(ArkSwitch.Label, { base: {} })
+const Label = styled(ArkSwitch.Label, {
+	variants: {
+		disabled: {
+			true: {
+				color: 'fg.faded',
+			},
+		},
+	},
+})
 
 const Message = styled('p', {
 	base: {
