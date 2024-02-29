@@ -55,9 +55,17 @@ const Thumb = styled(ArkSwitch.Thumb, {
 
 const Label = styled(ArkSwitch.Label, { base: {} })
 
+const Message = styled('p', {
+	base: {
+		fontSize: 'xs',
+		color: 'fg.subtle',
+	},
+})
+
 export const Switch = {
 	Root,
 	Control,
 	Thumb,
 	Label,
+	Message,
 }

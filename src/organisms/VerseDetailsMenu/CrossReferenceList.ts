@@ -5,8 +5,6 @@ export const CrossReferenceList = styled('ul', {
 	base: macrogrid.raw({
 		rowGap: '4',
 		py: '8',
-		overflow: 'auto',
-		overscrollBehavior: 'contain',
 		h: 'fit-content',
 	}),
 })
