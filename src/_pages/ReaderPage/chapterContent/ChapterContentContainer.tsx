@@ -19,6 +19,12 @@ export const chapterContentContainerRecipe = cva({
 		column: 'content',
 		mt: 'reader_gap',
 		lineHeight: '2em',
+		cursor: 'initial',
+		userSelect: 'initial',
+		'& *': {
+			cursor: 'initial',
+			userSelect: 'initial',
+		},
 		sm: {
 			'--font-size': 'token(fontSizes.md)',
 		},
