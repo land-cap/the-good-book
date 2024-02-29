@@ -4,7 +4,7 @@ import { Portal } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { range } from 'ramda'
 import { useCallback } from 'react'
-import { macrogrid } from 'styled-system/patterns'
+import { Flex, Macrogrid } from 'styled-system/jsx'
 
 import {
 	Backdrop_OverlayMenu,
@@ -12,6 +12,7 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
+import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import {
 	fontSizeOffsetAtom,
 	justifyTextAtom,
@@ -61,48 +62,55 @@ export const PreferencesMenu = () => {
 						borderColor: 'border.emphasized',
 					}}
 				>
-					<div className={macrogrid()}>
+					<Flex direction="column" h="fit-content" maxH="calc(100dvh * 2 / 3)">
 						<Header />
-						<PreferencesList>
-							<IncrementField
-								label="Text size"
-								range={fontSizeOffsetRange}
-								value={fontSizeOffset}
-								onChange={handleFontSizeOffsetChange}
-								decreaseIcon="text_decrease"
-								increaseIcon="text_increase"
-							/>
-							<IncrementField
-								label="Line spacing"
-								range={leadingRange}
-								value={leading}
-								onChange={handleLeadingChange}
-								decreaseIcon="density_small"
-								increaseIcon="density_medium"
-							/>
-							<SwitchField
-								valueAtom={verseBreaksLineAtom}
-								label="Start verse on new line"
-							/>
-							<SwitchField
-								valueAtom={justifyTextAtom}
-								label="Justify text"
-								disabled={verseBreaksLine}
-							/>
-							<SwitchField
-								valueAtom={showNonOriginalTextAtom}
-								label="Show non-original text"
-							/>
-							<SwitchField
-								valueAtom={showRedLettersAtom}
-								label="Show red letters"
-							/>
-							<SwitchField
-								valueAtom={showVerseDetailsAtom}
-								label="Show references and footnotes"
-							/>
-						</PreferencesList>
-					</div>
+						<Macrogrid
+							overflow="auto"
+							overscrollBehavior="contain"
+							h="fit-content"
+						>
+							<PreferencesList>
+								<IncrementField
+									label="Text size"
+									range={fontSizeOffsetRange}
+									value={fontSizeOffset}
+									onChange={handleFontSizeOffsetChange}
+									decreaseIcon="text_decrease"
+									increaseIcon="text_increase"
+								/>
+								<IncrementField
+									label="Line spacing"
+									range={leadingRange}
+									value={leading}
+									onChange={handleLeadingChange}
+									decreaseIcon="density_small"
+									increaseIcon="density_medium"
+								/>
+								<SwitchField
+									valueAtom={verseBreaksLineAtom}
+									label="Start verse on new line"
+								/>
+								<SwitchField
+									valueAtom={justifyTextAtom}
+									label="Justify text"
+									disabled={verseBreaksLine}
+								/>
+								<SwitchField
+									valueAtom={showNonOriginalTextAtom}
+									label="Show non-original text"
+								/>
+								<SwitchField
+									valueAtom={showRedLettersAtom}
+									label="Show red letters"
+								/>
+								<SwitchField
+									valueAtom={showVerseDetailsAtom}
+									label="Show references and footnotes"
+								/>
+							</PreferencesList>
+							<SafeAreaBottom column="content" />
+						</Macrogrid>
+					</Flex>
 				</Container_OverlayMenu>
 			</Positioner_OverlayMenu>
 		</Portal>
