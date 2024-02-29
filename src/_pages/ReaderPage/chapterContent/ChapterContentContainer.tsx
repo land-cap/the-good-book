@@ -125,6 +125,15 @@ export const chapterContentContainerRecipe = cva({
 			},
 		},
 	},
+	compoundVariants: [
+		{
+			verseBreaksLine: true,
+			justifyText: true,
+			css: {
+				textAlign: 'revert',
+			},
+		},
+	],
 })
 
 export const ChapterContentContainer = ({
