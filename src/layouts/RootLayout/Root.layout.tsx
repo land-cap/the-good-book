@@ -1,4 +1,4 @@
-import { Nunito, Roboto_Serif } from 'next/font/google'
+import { Lexend, Nunito, Roboto_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
@@ -77,6 +77,13 @@ const fontNunito = Nunito({
 	subsets: ['latin', 'latin-ext'],
 })
 
+const fontLexend = Lexend({
+	weight: ['400'],
+	display: 'swap',
+	variable: '--font-dyslexic',
+	subsets: ['latin', 'latin-ext'],
+})
+
 const getBooleanCookieValue = (
 	cookieValue: string | undefined,
 	fallback: boolean,
@@ -136,6 +143,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					fontGeistMono.variable,
 					fontRobotoSerif.variable,
 					fontNunito.variable,
+					fontLexend.variable,
 				)}
 			>
 				<body
