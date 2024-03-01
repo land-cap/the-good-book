@@ -25,7 +25,14 @@ const Label = styled(ArkSelect.Label, {
 	},
 })
 
-const Control = styled(ArkSelect.Control, { base: { w: '1/3' } })
+const Control = styled(ArkSelect.Control, {
+	base: {
+		w: '1/2',
+		sm: {
+			w: '1/3',
+		},
+	},
+})
 
 const Trigger = (props: SelectTriggerProps) => (
 	<ArkSelect.Trigger
@@ -37,6 +44,7 @@ const Trigger = (props: SelectTriggerProps) => (
 				justifyContent: 'space-between',
 				alignItems: 'center',
 				w: 'full',
+				fontWeight: 'regular',
 			}),
 		)}
 	/>
@@ -45,10 +53,16 @@ const Trigger = (props: SelectTriggerProps) => (
 const Content = styled(ArkSelect.Content, {
 	base: {
 		zIndex: '10',
-		border: '1px solid gainsboro',
-		background: 'white',
-		padding: '12px',
+		w: 'full',
+		py: '4',
+		bg: 'bg.canvas',
+		borderWidth: '1px',
+		borderColor: 'border.emphasized',
 	},
+})
+
+const Item = styled(ArkSelect.Item, {
+	base: hstack.raw({ gap: '2', justify: 'space-between', py: '2', px: '4' }),
 })
 
 export const Select = {
@@ -57,4 +71,5 @@ export const Select = {
 	Control,
 	Trigger,
 	Content,
+	Item,
 }

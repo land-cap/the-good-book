@@ -17,7 +17,7 @@ const iconCls = css({
 })
 
 const buttonCls = cx(
-	button({ size: 'small', visual: 'solid', weight: 'regular', muted: true }),
+	button({ size: 'sm', visual: 'solid', weight: 'regular', muted: true }),
 	css({
 		gap: '1.5',
 		alignItems: 'center',
@@ -134,7 +134,7 @@ export const ReturnFromReferenceFAB = () => {
 						className={css({
 							h: '8',
 							w: '1px',
-							bg: 'border.emphasized',
+							bg: 'border',
 							_osDark: {
 								bg: 'border.active',
 							},
@@ -142,7 +142,7 @@ export const ReturnFromReferenceFAB = () => {
 					/>
 					<button
 						className={button({
-							size: 'small',
+							size: 'sm',
 							visual: 'solid',
 							icon: true,
 							weight: 'regular',

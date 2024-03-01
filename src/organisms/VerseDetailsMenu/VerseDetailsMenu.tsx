@@ -90,7 +90,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 				<Container_OverlayMenu
 					css={{
 						borderTopWidth: '1px',
-						borderColor: 'border.emphasized',
+						borderColor: 'border',
 					}}
 				>
 					<Flex direction="column" h="fit-content" maxH="calc(100dvh * 2 / 3)">

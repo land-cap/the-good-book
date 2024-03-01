@@ -35,23 +35,23 @@ export const SelectField = ({
 					<ArkSelect.ValueText placeholder={placeholder} />
 					<ArkSelect.Indicator asChild>
 						<Icon
-							name="expand_more"
+							name="arrow_drop_down"
 							size={6}
 							className={css({
-								mr: '-1.5',
+								mr: '-2',
 							})}
 						/>
 					</ArkSelect.Indicator>
 				</Select.Trigger>
 			</Select.Control>
 			<Portal>
-				<ArkSelect.Positioner>
+				<ArkSelect.Positioner className={css({ w: 'var(--reference-width)' })}>
 					<Select.Content>
 						{itemList.map((item) => (
-							<ArkSelect.Item key={item.value} item={item}>
+							<Select.Item key={item.value} item={item}>
 								<ArkSelect.ItemText>{item.label}</ArkSelect.ItemText>
 								<ArkSelect.ItemIndicator>✓</ArkSelect.ItemIndicator>
-							</ArkSelect.Item>
+							</Select.Item>
 						))}
 					</Select.Content>
 				</ArkSelect.Positioner>
