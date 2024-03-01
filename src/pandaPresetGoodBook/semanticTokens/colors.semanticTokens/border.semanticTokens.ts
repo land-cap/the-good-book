@@ -3,19 +3,18 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const border = defineSemanticTokens.colors({
 	DEFAULT: {
 		value: {
-			base: '{colors.neutral.200}',
-			_osDark: '{colors.neutral.700}',
-		},
-	},
-	emphasized: {
-		value: {
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.600}',
 		},
 	},
-	active: {
+	emphasized: {
 		value: {
-			base: '{colors.neutral.400}',
+			base: '{colors.fg}',
+		},
+	},
+	onBgMuted: {
+		value: {
+			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.500}',
 		},
 	},
