@@ -13,17 +13,13 @@ import {
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
 import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
-import { type TSelectOption } from '~/organisms/BottomToolbar/PreferencesMenu/SelectField'
 import {
-	fontAtom,
-	fontDefaultValue,
 	fontSizeOffsetAtom,
 	justifyTextAtom,
 	leadingAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	showVerseDetailsAtom,
-	type TFont,
 	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
@@ -39,13 +35,6 @@ const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
 const leadingRange = steppedRange(0.25, 1.25, 3) as TLeading[]
 
-const fontOptionList: TSelectOption[] = [
-	{ value: 'sans', label: 'Sans-serif' },
-	{ value: 'serif', label: 'Serif' },
-	{ value: 'soft', label: 'Soft' },
-	{ value: 'dyslexic', label: 'Dyslexic' },
-]
-
 export const PreferencesMenu = () => {
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)
 	const handleFontSizeOffsetChange = useCallback(
@@ -58,8 +47,6 @@ export const PreferencesMenu = () => {
 		(value: TLeading) => setLeading(value),
 		[setLeading],
 	)
-
-	const [font, setFont] = useAtom(fontAtom)
 
 	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
 
@@ -100,18 +87,7 @@ export const PreferencesMenu = () => {
 									decreaseIcon="density_small"
 									increaseIcon="density_medium"
 								/>
-								<SelectField
-									label="Font"
-									itemList={fontOptionList}
-									value={[font]}
-									onValueChange={(value) => {
-										setFont(
-											value.length && value[0]
-												? (value[0] as TFont)
-												: fontDefaultValue,
-										)
-									}}
-								/>
+								<SelectField />
 								<SwitchField
 									valueAtom={verseBreaksLineAtom}
 									label="Start verse on new line"

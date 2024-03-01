@@ -3,9 +3,11 @@
 import { useAtomValue } from 'jotai'
 import { type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 import { caption } from 'styled-system/patterns'
 
 import {
+	fontAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	verseBreaksLineAtom,
@@ -96,6 +98,35 @@ export const SectionTitle = makeNonOriginalTextHideable(
 		</h2>
 	),
 )
+
+const StyledParagraph = styled('p', {
+	variants: {
+		font: {
+			sans: {
+				fontFamily: 'sans',
+			},
+			serif: {
+				fontFamily: 'serif',
+			},
+			soft: {
+				fontFamily: 'soft',
+			},
+			dyslexic: {
+				fontFamily: 'dyslexic',
+			},
+		},
+	},
+})
+
+export const Paragraph = ({ children }: { children: ReactNode }) => {
+	const font = useAtomValue(fontAtom)
+
+	return (
+		<StyledParagraph data-component="Paragraph" font={font}>
+			{children}
+		</StyledParagraph>
+	)
+}
 
 export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 	const verseBreaksLine = useAtomValue(verseBreaksLineAtom)
