@@ -37,6 +37,7 @@ const Control = styled(ArkSwitch.Control, {
 				bg: 'fg.moreFaded',
 				_checked: {
 					bg: 'fg.faded',
+					_osDark: { bg: 'fg.subtle' },
 				},
 			},
 		},
@@ -69,6 +70,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 				borderColor: 'fg.moreFaded',
 				_checked: {
 					borderColor: 'fg.faded',
+					_osDark: { borderColor: 'fg.subtle' },
 				},
 			},
 		},
