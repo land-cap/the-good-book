@@ -1,5 +1,3 @@
-'use client'
-
 import { Portal, Select as ArkSelect } from '@ark-ui/react'
 import { css } from 'styled-system/css'
 
@@ -28,6 +26,7 @@ export const SelectField = ({
 			items={itemList}
 			value={value}
 			onValueChange={(e) => onValueChange(e.value)}
+			positioning={{ offset: { mainAxis: 0 } }}
 		>
 			<Select.Label>{label}</Select.Label>
 			<Select.Control>
@@ -49,8 +48,17 @@ export const SelectField = ({
 					<Select.Content>
 						{itemList.map((item) => (
 							<Select.Item key={item.value} item={item}>
-								<ArkSelect.ItemText>{item.label}</ArkSelect.ItemText>
-								<ArkSelect.ItemIndicator>✓</ArkSelect.ItemIndicator>
+								<Select.ItemText>{item.label}</Select.ItemText>
+								<Select.ItemIndicator>
+									<Icon
+										name="check"
+										size={5}
+										weight={500}
+										className={css({
+											mr: '-2',
+										})}
+									/>
+								</Select.ItemIndicator>
 							</Select.Item>
 						))}
 					</Select.Content>

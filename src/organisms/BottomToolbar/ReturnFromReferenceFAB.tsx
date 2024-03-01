@@ -134,10 +134,7 @@ export const ReturnFromReferenceFAB = () => {
 						className={css({
 							h: '8',
 							w: '1px',
-							bg: 'border',
-							_osDark: {
-								bg: 'border.active',
-							},
+							bg: 'border.onBgMuted',
 						})}
 					/>
 					<button
