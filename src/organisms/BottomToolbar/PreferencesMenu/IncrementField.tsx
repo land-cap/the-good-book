@@ -46,10 +46,7 @@ export const IncrementField = <T,>({
 					className={css({
 						h: '10',
 						w: '1px',
-						bg: 'border.emphasized',
-						_osDark: {
-							bg: 'border.active',
-						},
+						bg: 'border.onBgMuted',
 					})}
 				/>
 				<div

@@ -118,7 +118,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 			<SetUpPreferencesMenuState
 				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
 				savedLeading={Number(savedLeading) as TLeading}
-				savedFont={savedLeading as TFont}
+				savedFont={savedFont as TFont}
 				savedVerseBreaksLine={getBooleanCookieValue(
 					savedVerseBreaksLine,
 					verseBreaksLineDefaultValue,

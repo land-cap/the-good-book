@@ -73,7 +73,7 @@ export const PreferencesMenu = () => {
 						maxH: 'calc(100dvh * 2 / 3)',
 						pb: 'safe_area_bottom',
 						borderTopWidth: '1px',
-						borderColor: 'border.emphasized',
+						borderColor: 'border',
 					}}
 				>
 					<Flex direction="column" h="fit-content" maxH="calc(100dvh * 2 / 3)">

@@ -44,7 +44,10 @@ const useSetupClientState = <T>(
 
 	useEffect(() => {
 		if (prevValue !== value) {
-			void setCookie(cookieName, JSON.stringify(value))
+			void setCookie(
+				cookieName,
+				typeof value === 'string' ? value : JSON.stringify(value),
+			)
 		}
 	}, [cookieName, prevValue, value])
 
