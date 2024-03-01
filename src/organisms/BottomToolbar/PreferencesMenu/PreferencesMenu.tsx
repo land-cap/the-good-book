@@ -13,20 +13,15 @@ import {
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
 import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
-import {
-	SelectField,
-	type TSelectOption,
-} from '~/organisms/BottomToolbar/PreferencesMenu/SelectField'
+import { type TSelectOption } from '~/organisms/BottomToolbar/PreferencesMenu/SelectField'
 import {
 	fontAtom,
-	fontDefaultValue,
 	fontSizeOffsetAtom,
 	justifyTextAtom,
 	leadingAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	showVerseDetailsAtom,
-	type TFont,
 	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
@@ -102,18 +97,18 @@ export const PreferencesMenu = () => {
 									decreaseIcon="density_small"
 									increaseIcon="density_medium"
 								/>
-								<SelectField
-									label="Font"
-									itemList={fontOptionList}
-									value={[font]}
-									onValueChange={(value) => {
-										setFont(
-											value.length && value[0]
-												? (value[0] as TFont)
-												: fontDefaultValue,
-										)
-									}}
-								/>
+								{/*<SelectField*/}
+								{/*	label="Font"*/}
+								{/*	itemList={fontOptionList}*/}
+								{/*	value={[font]}*/}
+								{/*	onValueChange={(value) => {*/}
+								{/*		setFont(*/}
+								{/*			value.length && value[0]*/}
+								{/*				? (value[0] as TFont)*/}
+								{/*				: fontDefaultValue,*/}
+								{/*		)*/}
+								{/*	}}*/}
+								{/*/>*/}
 								<SwitchField
 									valueAtom={verseBreaksLineAtom}
 									label="Start verse on new line"

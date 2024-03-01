@@ -66,7 +66,6 @@ export const ChapterList = styled('ul', {
 		display: 'grid',
 		gridTemplateColumns: 'repeat(5, 1fr)',
 		h: 'fit-content',
-		fontFamily: 'mono',
 		md: {
 			gridTemplateColumns: 'repeat(10, 1fr)',
 		},
