@@ -47,6 +47,25 @@ const Trigger = (props: SelectTriggerProps) => (
 	/>
 )
 
+const ValueText = styled(ArkSelect.ValueText, {
+	variants: {
+		font: {
+			sans: {
+				fontFamily: 'sans',
+			},
+			serif: {
+				fontFamily: 'serif',
+			},
+			soft: {
+				fontFamily: 'soft',
+			},
+			dyslexic: {
+				fontFamily: 'dyslexic',
+			},
+		},
+	},
+})
+
 const Content = styled(ArkSelect.Content, {
 	base: {
 		zIndex: '10',
@@ -77,6 +96,22 @@ const ItemText = styled(ArkSelect.ItemText, {
 	base: {
 		cursor: 'pointer',
 	},
+	variants: {
+		font: {
+			sans: {
+				fontFamily: 'sans',
+			},
+			serif: {
+				fontFamily: 'serif',
+			},
+			soft: {
+				fontFamily: 'soft',
+			},
+			dyslexic: {
+				fontFamily: 'dyslexic',
+			},
+		},
+	},
 })
 
 const ItemIndicator = styled(ArkSelect.ItemIndicator, { base: { h: '5' } })
@@ -86,6 +121,7 @@ export const Select = {
 	Label,
 	Control,
 	Trigger,
+	ValueText,
 	Content,
 	Item,
 	ItemText,

@@ -13,12 +13,6 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 	</p>
 )
 
-export const Paragraph = ({ children }: { children: ReactNode }) => (
-	<p data-component="Paragraph" className={css({ fontFamily: 'serif' })}>
-		{children}
-	</p>
-)
-
 export const Quote = ({ children }: { children: ReactNode }) => (
 	<span
 		data-component="Quote"
