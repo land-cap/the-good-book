@@ -16,12 +16,14 @@ import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/Safe
 import { type TSelectOption } from '~/organisms/BottomToolbar/PreferencesMenu/SelectField'
 import {
 	fontAtom,
+	fontDefaultValue,
 	fontSizeOffsetAtom,
 	justifyTextAtom,
 	leadingAtom,
 	showNonOriginalTextAtom,
 	showRedLettersAtom,
 	showVerseDetailsAtom,
+	type TFont,
 	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
@@ -30,6 +32,7 @@ import {
 import { Header } from './Header'
 import { IncrementField } from './IncrementField'
 import { PreferencesList } from './PreferencesList'
+import { SelectField } from './SelectField'
 import { SwitchField } from './SwitchField'
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
@@ -97,18 +100,18 @@ export const PreferencesMenu = () => {
 									decreaseIcon="density_small"
 									increaseIcon="density_medium"
 								/>
-								{/*<SelectField*/}
-								{/*	label="Font"*/}
-								{/*	itemList={fontOptionList}*/}
-								{/*	value={[font]}*/}
-								{/*	onValueChange={(value) => {*/}
-								{/*		setFont(*/}
-								{/*			value.length && value[0]*/}
-								{/*				? (value[0] as TFont)*/}
-								{/*				: fontDefaultValue,*/}
-								{/*		)*/}
-								{/*	}}*/}
-								{/*/>*/}
+								<SelectField
+									label="Font"
+									itemList={fontOptionList}
+									value={[font]}
+									onValueChange={(value) => {
+										setFont(
+											value.length && value[0]
+												? (value[0] as TFont)
+												: fontDefaultValue,
+										)
+									}}
+								/>
 								<SwitchField
 									valueAtom={verseBreaksLineAtom}
 									label="Start verse on new line"

@@ -55,12 +55,16 @@ export const buttonRecipe = defineRecipe({
 			},
 		},
 		size: {
-			small: {
+			sm: {
 				h: '8',
 				px: '3',
 				fontSize: 'xs',
 			},
-			large: {
+			md: {
+				h: '10',
+				px: '4',
+			},
+			lg: {
 				h: '14',
 				px: '4',
 			},
@@ -93,7 +97,7 @@ export const buttonRecipe = defineRecipe({
 
 	defaultVariants: {
 		visual: 'ghost',
-		size: 'large',
+		size: 'lg',
 		weight: 'bold',
 	},
 })
