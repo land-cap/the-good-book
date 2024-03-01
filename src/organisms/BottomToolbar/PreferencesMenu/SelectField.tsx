@@ -1,6 +1,7 @@
 'use client'
 
 import { Portal, Select as ArkSelect } from '@ark-ui/react'
+import { css } from 'styled-system/css'
 
 import { Icon } from '~/components'
 
@@ -29,29 +30,30 @@ export const SelectField = ({
 			onValueChange={(e) => onValueChange(e.value)}
 		>
 			<Select.Label>{label}</Select.Label>
-			<ArkSelect.Control>
-				<ArkSelect.Trigger>
+			<Select.Control>
+				<Select.Trigger>
 					<ArkSelect.ValueText placeholder={placeholder} />
-					<ArkSelect.Indicator>
-						<Icon name="expand_more" />
+					<ArkSelect.Indicator asChild>
+						<Icon
+							name="expand_more"
+							size={6}
+							className={css({
+								mr: '-1.5',
+							})}
+						/>
 					</ArkSelect.Indicator>
-				</ArkSelect.Trigger>
-			</ArkSelect.Control>
+				</Select.Trigger>
+			</Select.Control>
 			<Portal>
 				<ArkSelect.Positioner>
-					<ArkSelect.Content>
-						<ArkSelect.ItemGroup id="framework">
-							<ArkSelect.ItemGroupLabel htmlFor="framework">
-								Frameworks
-							</ArkSelect.ItemGroupLabel>
-							{itemList.map((item) => (
-								<ArkSelect.Item key={item.value} item={item}>
-									<ArkSelect.ItemText>{item.label}</ArkSelect.ItemText>
-									<ArkSelect.ItemIndicator>✓</ArkSelect.ItemIndicator>
-								</ArkSelect.Item>
-							))}
-						</ArkSelect.ItemGroup>
-					</ArkSelect.Content>
+					<Select.Content>
+						{itemList.map((item) => (
+							<ArkSelect.Item key={item.value} item={item}>
+								<ArkSelect.ItemText>{item.label}</ArkSelect.ItemText>
+								<ArkSelect.ItemIndicator>✓</ArkSelect.ItemIndicator>
+							</ArkSelect.Item>
+						))}
+					</Select.Content>
 				</ArkSelect.Positioner>
 			</Portal>
 		</Select.Root>
