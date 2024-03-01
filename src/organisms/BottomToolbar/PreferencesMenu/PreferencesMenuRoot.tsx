@@ -22,6 +22,7 @@ export const PreferencesMenuRoot = () => {
 
 	return (
 		<Dialog.Root
+			modal={false}
 			preventScroll={false}
 			open={isMenuOpen}
 			onOpenChange={({ open }) => setIsMenuOpen(open)}
