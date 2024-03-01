@@ -31,20 +31,24 @@ const Control = styled(ArkSelect.Control, {
 	},
 })
 
-const Trigger = (props: SelectTriggerProps) => (
-	<ArkSelect.Trigger
-		{...props}
-		className={cx(
-			button({ border: true, size: 'md' }),
-			css({
-				gap: '1.5',
-				justifyContent: 'space-between',
-				alignItems: 'center',
-				w: 'full',
-				fontWeight: 'regular',
-			}),
-		)}
-	/>
+const Trigger = ({ children, ...props }: SelectTriggerProps) => (
+	<ArkSelect.Trigger {...props} asChild>
+		<div
+			className={cx(
+				button({ border: true, size: 'md' }),
+				css({
+					gap: '1.5',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					w: 'full',
+					fontWeight: 'regular',
+				}),
+			)}
+			role="button"
+		>
+			{children}
+		</div>
+	</ArkSelect.Trigger>
 )
 
 const ValueText = styled(ArkSelect.ValueText, {
@@ -74,6 +78,12 @@ const Content = styled(ArkSelect.Content, {
 		borderWidth: '1px',
 		borderColor: 'border',
 		borderTopWidth: '0',
+		_open: {
+			animation: 'fadeIn 0.15s ease-out',
+		},
+		_closed: {
+			animation: 'fadeOut 0.15s ease-in',
+		},
 	},
 })
 
