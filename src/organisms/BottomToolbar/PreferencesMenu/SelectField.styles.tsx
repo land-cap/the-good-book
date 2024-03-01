@@ -27,10 +27,7 @@ const Label = styled(ArkSelect.Label, {
 
 const Control = styled(ArkSelect.Control, {
 	base: {
-		w: '1/2',
-		sm: {
-			w: '1/3',
-		},
+		w: '40',
 	},
 })
 
@@ -54,16 +51,35 @@ const Content = styled(ArkSelect.Content, {
 	base: {
 		zIndex: '10',
 		w: 'full',
-		py: '4',
 		bg: 'bg.canvas',
 		borderWidth: '1px',
-		borderColor: 'border.emphasized',
+		borderColor: 'border',
+		borderTopWidth: '0',
 	},
 })
 
 const Item = styled(ArkSelect.Item, {
-	base: hstack.raw({ gap: '2', justify: 'space-between', py: '2', px: '4' }),
+	base: hstack.raw({
+		cursor: 'pointer',
+		gap: '2',
+		justify: 'space-between',
+		h: '10',
+		px: '4',
+		transition: 'colors',
+		transitionDuration: 'normal',
+		transitionTimingFunction: 'ease-out',
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+	}),
 })
+
+const ItemText = styled(ArkSelect.ItemText, {
+	base: {
+		cursor: 'pointer',
+	},
+})
+
+const ItemIndicator = styled(ArkSelect.ItemIndicator, { base: { h: '5' } })
 
 export const Select = {
 	Root,
@@ -72,4 +88,6 @@ export const Select = {
 	Trigger,
 	Content,
 	Item,
+	ItemText,
+	ItemIndicator,
 }

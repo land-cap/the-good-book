@@ -35,12 +35,12 @@ export const BookListContainer = styled('ul', {
 
 export const BookListItemContainer = styled('div', {
 	base: macrogrid.raw({
-		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-		_canHover: { _hover: { bg: 'bg.subtle' } },
 		cursor: 'pointer',
 		transition: 'colors',
 		transitionDuration: 'normal',
 		transitionTimingFunction: 'ease-out',
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
 	}),
 	variants: {
 		isCurrBook: {
