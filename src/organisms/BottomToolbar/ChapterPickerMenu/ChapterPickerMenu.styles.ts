@@ -33,7 +33,7 @@ export const BookListContainer = styled('ul', {
 	}),
 })
 
-export const BookListItemContainer = styled('div', {
+export const BookListItemContainer = styled('li', {
 	base: macrogrid.raw({
 		cursor: 'pointer',
 		transition: 'colors',
@@ -56,7 +56,7 @@ export const BookListItemContainer = styled('div', {
 	},
 })
 
-export const BookListItem = styled('li', {
+export const BookListItem = styled('div', {
 	base: css.raw({ column: 'content', cursor: 'pointer', py: '4' }),
 })
 
