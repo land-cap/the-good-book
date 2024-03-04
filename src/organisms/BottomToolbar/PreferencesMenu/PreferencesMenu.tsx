@@ -14,6 +14,7 @@ import {
 } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
 import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
+import { FontField } from '~/organisms/BottomToolbar/PreferencesMenu/FontField'
 import {
 	fontSizeOffsetAtom,
 	justifyTextAtom,
@@ -31,7 +32,7 @@ import { IncrementField } from './IncrementField'
 import { PreferencesList } from './PreferencesList'
 import { SwitchField } from './SwitchField'
 
-const AdjustmenList = styled('ul', {
+const AdjustmentList = styled('ul', {
 	base: hstack.raw({
 		direction: 'row',
 		gap: '2',
@@ -40,7 +41,7 @@ const AdjustmenList = styled('ul', {
 	}),
 })
 
-const AdjustmentListItem = styled('li', { base: { flexGrow: '1' } })
+const AdjustmentListItem = styled('li')
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
@@ -81,8 +82,8 @@ export const PreferencesMenu = () => {
 							overscrollBehavior="contain"
 							h="fit-content"
 						>
-							<AdjustmenList>
-								<AdjustmentListItem>
+							<AdjustmentList>
+								<AdjustmentListItem flexGrow="1">
 									<IncrementField
 										range={fontSizeOffsetRange}
 										value={fontSizeOffset}
@@ -91,7 +92,7 @@ export const PreferencesMenu = () => {
 										increaseIcon="text_increase"
 									/>
 								</AdjustmentListItem>
-								<AdjustmentListItem>
+								<AdjustmentListItem flexGrow="1">
 									<IncrementField
 										range={leadingRange}
 										value={leading}
@@ -100,7 +101,10 @@ export const PreferencesMenu = () => {
 										increaseIcon="density_medium"
 									/>
 								</AdjustmentListItem>
-							</AdjustmenList>
+								<AdjustmentListItem flexGrow="1">
+									<FontField />
+								</AdjustmentListItem>
+							</AdjustmentList>
 							<PreferencesList>
 								<SwitchField
 									valueAtom={verseBreaksLineAtom}
