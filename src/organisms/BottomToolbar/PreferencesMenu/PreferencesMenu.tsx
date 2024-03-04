@@ -4,7 +4,8 @@ import { Portal } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { range } from 'ramda'
 import { useCallback } from 'react'
-import { Flex, Macrogrid } from 'styled-system/jsx'
+import { Flex, Macrogrid, styled } from 'styled-system/jsx'
+import { hstack } from 'styled-system/patterns'
 
 import {
 	Backdrop_OverlayMenu,
@@ -28,8 +29,18 @@ import {
 import { Header } from './Header'
 import { IncrementField } from './IncrementField'
 import { PreferencesList } from './PreferencesList'
-import { SelectField } from './SelectField'
 import { SwitchField } from './SwitchField'
+
+const AdjustmenList = styled('ul', {
+	base: hstack.raw({
+		direction: 'row',
+		gap: '2',
+		column: 'content',
+		mt: '8',
+	}),
+})
+
+const AdjustmentListItem = styled('li', { base: { flexGrow: '1' } })
 
 const fontSizeOffsetRange = range(-2)(8) as TFontSizeOffset[]
 
@@ -70,24 +81,27 @@ export const PreferencesMenu = () => {
 							overscrollBehavior="contain"
 							h="fit-content"
 						>
+							<AdjustmenList>
+								<AdjustmentListItem>
+									<IncrementField
+										range={fontSizeOffsetRange}
+										value={fontSizeOffset}
+										onChange={handleFontSizeOffsetChange}
+										decreaseIcon="text_decrease"
+										increaseIcon="text_increase"
+									/>
+								</AdjustmentListItem>
+								<AdjustmentListItem>
+									<IncrementField
+										range={leadingRange}
+										value={leading}
+										onChange={handleLeadingChange}
+										decreaseIcon="density_small"
+										increaseIcon="density_medium"
+									/>
+								</AdjustmentListItem>
+							</AdjustmenList>
 							<PreferencesList>
-								<IncrementField
-									label="Text size"
-									range={fontSizeOffsetRange}
-									value={fontSizeOffset}
-									onChange={handleFontSizeOffsetChange}
-									decreaseIcon="text_decrease"
-									increaseIcon="text_increase"
-								/>
-								<IncrementField
-									label="Line spacing"
-									range={leadingRange}
-									value={leading}
-									onChange={handleLeadingChange}
-									decreaseIcon="density_small"
-									increaseIcon="density_medium"
-								/>
-								<SelectField />
 								<SwitchField
 									valueAtom={verseBreaksLineAtom}
 									label="Start verse on new line"
