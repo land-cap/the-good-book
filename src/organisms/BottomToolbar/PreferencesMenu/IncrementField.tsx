@@ -9,6 +9,7 @@ const buttonCls = cx(
 	button({ icon: true, visual: 'solid', size: 'md' }),
 	css({
 		flexGrow: 1,
+		aspectRatio: '4/3',
 	}),
 )
 
