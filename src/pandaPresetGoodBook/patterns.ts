@@ -56,7 +56,7 @@ const underlined = definePattern({
 		},
 	},
 	transform: ({ subtle, ...props }) => ({
-		textDecoration: 'underline',
+		textDecorationLine: 'underline',
 		textDecorationThickness: '1px',
 		textUnderlineOffset: 'token(spacing.1)',
 		textDecorationColor: subtle ? 'fg.moreFaded' : 'fg',
