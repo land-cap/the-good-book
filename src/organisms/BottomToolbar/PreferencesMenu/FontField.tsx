@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai'
 import { css, cx } from 'styled-system/css'
+import { styled } from 'styled-system/jsx'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
@@ -14,21 +15,30 @@ const fontOptionList = [
 	{ value: 'dyslexic', label: 'Dyslexic' },
 ] satisfies { value: TFont; label: string }[]
 
-const buttonCls = (isSelected: boolean) =>
-	cx(
-		button({
-			icon: true,
-			visual: 'solid',
-			weight: isSelected ? 'bold' : 'regular',
-		}),
-		css({
-			flexGrow: 1,
-			h: '10',
-		}),
-	)
+const FontPreview = styled('div', {
+	variants: {
+		font: {
+			sans: {
+				fontFamily: 'sans',
+			},
+			serif: {
+				fontFamily: 'serif',
+			},
+			soft: {
+				fontFamily: 'soft',
+			},
+			dyslexic: {
+				fontFamily: 'dyslexic',
+			},
+		},
+	},
+})
 
 export const FontField = () => {
 	const [font, setFont] = useAtom(fontAtom)
+
+	const currFontLabel = fontOptionList.find((option) => option.value === font)
+		?.label
 
 	return (
 		<div
@@ -44,7 +54,7 @@ export const FontField = () => {
 			)}
 			role="button"
 		>
-			{fontOptionList.find((option) => option.value === font)?.label}
+			<FontPreview font={font}>{currFontLabel}</FontPreview>
 			<Icon
 				name="navigate_next"
 				size={6}

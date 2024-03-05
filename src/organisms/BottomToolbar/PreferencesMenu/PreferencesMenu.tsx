@@ -5,7 +5,7 @@ import { useAtom, useAtomValue } from 'jotai'
 import { range } from 'ramda'
 import { useCallback } from 'react'
 import { Flex, Macrogrid, styled } from 'styled-system/jsx'
-import { hstack } from 'styled-system/patterns'
+import { flex } from 'styled-system/patterns'
 
 import {
 	Backdrop_OverlayMenu,
@@ -33,8 +33,9 @@ import { PreferencesList } from './PreferencesList'
 import { SwitchField } from './SwitchField'
 
 const AdjustmentList = styled('ul', {
-	base: hstack.raw({
+	base: flex.raw({
 		direction: 'row',
+		flexWrap: 'wrap',
 		gap: '2',
 		column: 'content',
 		mt: '8',
@@ -101,7 +102,7 @@ export const PreferencesMenu = () => {
 										increaseIcon="density_medium"
 									/>
 								</AdjustmentListItem>
-								<AdjustmentListItem flexGrow="1">
+								<AdjustmentListItem flexGrow="1" w={{ mdDown: 'full' }}>
 									<FontField />
 								</AdjustmentListItem>
 							</AdjustmentList>
