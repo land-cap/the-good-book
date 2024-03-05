@@ -11,7 +11,6 @@ const Root = styled(ArkSwitch.Root, {
 		'--switch-track-height': 'token(spacing.6)',
 		'--switch-track-width': 'token(spacing.12)',
 		column: 'content',
-		h: '10',
 	}),
 })
 
