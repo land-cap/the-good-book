@@ -49,6 +49,18 @@ const caption = definePattern({
 	}),
 })
 
+const pressable = definePattern({
+	transform: (props) => ({
+		cursor: 'pointer',
+		transition: 'colors',
+		transitionDuration: 'normal',
+		transitionTimingFunction: 'ease-out',
+		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
+		_canHover: { _hover: { bg: 'bg.subtle' } },
+		...props,
+	}),
+})
+
 const underlined = definePattern({
 	properties: {
 		subtle: {
@@ -79,5 +91,6 @@ export const patterns = defineConfig({
 		underlined,
 		macrogrid,
 		subgrid,
+		pressable,
 	},
 }).patterns

@@ -6,6 +6,7 @@ import {
 	center,
 	flex,
 	macrogrid,
+	pressable,
 	subgrid,
 	underlined,
 } from 'styled-system/patterns'
@@ -34,14 +35,7 @@ export const BookListContainer = styled('ul', {
 })
 
 export const BookListItemContainer = styled('li', {
-	base: macrogrid.raw({
-		cursor: 'pointer',
-		transition: 'colors',
-		transitionDuration: 'normal',
-		transitionTimingFunction: 'ease-out',
-		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-		_canHover: { _hover: { bg: 'bg.subtle' } },
-	}),
+	base: { ...macrogrid.raw(), ...pressable.raw() },
 	variants: {
 		isCurrBook: {
 			true: underlined.raw({
@@ -57,7 +51,7 @@ export const BookListItemContainer = styled('li', {
 })
 
 export const BookListItem = styled('div', {
-	base: css.raw({ column: 'content', cursor: 'pointer', py: '4' }),
+	base: { column: 'content', cursor: 'pointer', py: '4' },
 })
 
 export const ChapterList = styled('ul', {
@@ -73,20 +67,13 @@ export const ChapterList = styled('ul', {
 })
 
 export const ChapterListItem = styled('li', {
-	base: {
-		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
-		_canHover: {
-			_hover: { bg: 'bg.subtle' },
-		},
+	base: pressable.raw({
 		aspectRatio: '1/1',
 		placeContent: 'center',
 		placeItems: 'center',
 		pos: 'relative',
-		transition: 'colors',
-		transitionDuration: 'normal',
-		transitionTimingFunction: 'ease-out',
 		w: 'full',
-	},
+	}),
 	variants: {
 		isCurrChapter: {
 			true: underlined.raw({
