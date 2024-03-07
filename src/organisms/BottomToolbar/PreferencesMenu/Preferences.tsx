@@ -4,8 +4,8 @@ import { useCallback } from 'react'
 import { styled } from 'styled-system/jsx'
 import { flex } from 'styled-system/patterns'
 
+import { SafeAreaBottom } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
-import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import {
 	fontSizeOffsetAtom,
 	justifyTextAtom,
@@ -57,7 +57,7 @@ export const Preferences = () => {
 	return (
 		<>
 			<AdjustmentList>
-				<AdjustmentListItem flexGrow="1">
+				<AdjustmentListItem flex="1 1 0">
 					<IncrementField
 						range={fontSizeOffsetRange}
 						value={fontSizeOffset}
@@ -66,7 +66,7 @@ export const Preferences = () => {
 						increaseIcon="text_increase"
 					/>
 				</AdjustmentListItem>
-				<AdjustmentListItem flexGrow="1">
+				<AdjustmentListItem flex="1 1 0">
 					<IncrementField
 						range={leadingRange}
 						value={leading}
@@ -75,7 +75,7 @@ export const Preferences = () => {
 						increaseIcon="density_medium"
 					/>
 				</AdjustmentListItem>
-				<AdjustmentListItem flexGrow="1" w={{ mdDown: 'full' }}>
+				<AdjustmentListItem w="full">
 					<FontField />
 				</AdjustmentListItem>
 			</AdjustmentList>
