@@ -12,16 +12,3 @@ export const FancyAside = ({ children }: { children: ReactNode }) => (
 		{children}
 	</p>
 )
-
-export const Quote = ({ children }: { children: ReactNode }) => (
-	<span
-		data-component="Quote"
-		className={css({
-			display: 'block',
-			fontFamily: 'mono',
-			textAlign: 'left',
-		})}
-	>
-		{children}
-	</span>
-)
