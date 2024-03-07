@@ -14,9 +14,9 @@ import {
 	Backdrop_OverlayMenu,
 	Container_OverlayMenu,
 	Positioner_OverlayMenu,
+	SafeAreaBottom,
 } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
-import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIDAtom,

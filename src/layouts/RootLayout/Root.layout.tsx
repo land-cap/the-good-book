@@ -5,13 +5,13 @@ import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
+import { SafeAreaBottom } from '~/components'
 import { getBookListWithCache } from '~/db'
 import {
 	BottomToolbar,
 	SetUpPreferencesMenuState,
 	TopToolbar,
 } from '~/organisms'
-import { SafeAreaBottom } from '~/organisms/BottomToolbar/ChapterPickerMenu/SafeAreaBottom'
 import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
 	FONT_COOKIE,

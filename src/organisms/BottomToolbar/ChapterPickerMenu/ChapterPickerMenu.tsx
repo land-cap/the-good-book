@@ -10,8 +10,11 @@ import { macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { Container_OverlayMenu, Positioner_OverlayMenu } from '~/components'
-import { BleedList } from '~/components/BleedList/BleedList'
+import {
+	BleedList,
+	Container_OverlayMenu,
+	Positioner_OverlayMenu,
+} from '~/components'
 import type { TBook } from '~/db'
 import { isScrollLockedAtom } from '~/state'
 

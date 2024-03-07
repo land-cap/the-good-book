@@ -1,14 +1,14 @@
-import { useAtom, useSetAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { css, cx } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
+import { square } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
+import { FontPreview } from '~/organisms/BottomToolbar/PreferencesMenu/FontPreview'
 import { fontAtom, type TFont } from '~/state'
 
 import { showFontOptionsAtom } from './preferencesMenu.state'
-
-export type TSelectOption = { value: string; label: string }
 
 const fontOptionList = [
 	{ value: 'sans', label: 'Sans-serif' },
@@ -17,27 +17,8 @@ const fontOptionList = [
 	{ value: 'dyslexic', label: 'Dyslexic' },
 ] satisfies { value: TFont; label: string }[]
 
-const FontPreview = styled('div', {
-	variants: {
-		font: {
-			sans: {
-				fontFamily: 'sans',
-			},
-			serif: {
-				fontFamily: 'serif',
-			},
-			soft: {
-				fontFamily: 'soft',
-			},
-			dyslexic: {
-				fontFamily: 'dyslexic',
-			},
-		},
-	},
-})
-
 export const FontField = () => {
-	const [font, setFont] = useAtom(fontAtom)
+	const font = useAtomValue(fontAtom)
 
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
 
@@ -54,6 +35,7 @@ export const FontField = () => {
 					justifyContent: 'space-between',
 					alignItems: 'center',
 					fontWeight: 'regular',
+					pr: '0',
 				}),
 			)}
 			onClick={(e) => {
@@ -62,13 +44,9 @@ export const FontField = () => {
 			}}
 		>
 			<FontPreview font={font}>{currFontLabel}</FontPreview>
-			<Icon
-				name="navigate_next"
-				size={6}
-				className={css({
-					mx: '-2.5',
-				})}
-			/>
+			<styled.center className={square({ size: '10' })}>
+				<Icon name="navigate_next" size={6} />
+			</styled.center>
 		</button>
 	)
 }
