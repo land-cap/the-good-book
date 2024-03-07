@@ -68,6 +68,9 @@ export const chapterContentContainerRecipe = cva({
 			},
 		},
 		fontSize: {
+			[-3]: {
+				fontSize: 'calc(var(--font-size) - 3px)',
+			},
 			[-2]: {
 				fontSize: 'calc(var(--font-size) - 2px)',
 			},
