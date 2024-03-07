@@ -1,6 +1,5 @@
+import { BleedList } from '~/components/BleedList/BleedList'
 import { type TBook } from '~/db'
-
-import { BookListItem, BookListItemContainer } from './ChapterPickerMenu.styles'
 
 export const BookList = ({
 	bookList,
@@ -13,16 +12,16 @@ export const BookList = ({
 	setSelectedBook: (book: TBook) => void
 	currBookCode: string
 }) =>
-	bookList.map((book, bookIndex) => (
-		<BookListItemContainer
+	bookList.map((book, index) => (
+		<BleedList.ItemWrapper
 			key={book.code}
 			isCurrBook={book.code === currBookCode}
-			isFirstEl={bookIndex === 0}
 			onClick={() => {
 				onListItemClick()
 				setSelectedBook(book)
 			}}
+			mt={index === 0 ? '4' : undefined}
 		>
-			<BookListItem>{book.book_name?.value}</BookListItem>
-		</BookListItemContainer>
+			<BleedList.Item>{book.book_name?.value}</BleedList.Item>
+		</BleedList.ItemWrapper>
 	))
