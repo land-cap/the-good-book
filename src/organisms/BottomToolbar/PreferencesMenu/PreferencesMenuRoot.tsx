@@ -10,9 +10,12 @@ import { Icon } from '~/components'
 import { isScrollLockedAtom } from '~/state'
 
 import { PreferencesMenu } from './PreferencesMenu'
+import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const PreferencesMenuRoot = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	useEffect(
@@ -27,6 +30,7 @@ export const PreferencesMenuRoot = () => {
 			preventScroll={false}
 			open={isMenuOpen}
 			onOpenChange={({ open }) => setIsMenuOpen(open)}
+			onExitComplete={() => setShowFontOptions(false)}
 		>
 			<DialogTrigger
 				className={cx(button({ icon: true }))}
