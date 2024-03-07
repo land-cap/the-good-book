@@ -58,7 +58,7 @@ export const selectedReferenceAtom = atom<TCrossReference | undefined>(
  * PREFERENCES STATE
  */
 
-export type TFontSizeOffset = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export type TFontSizeOffset = -3 | -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 export const FONT_SIZE_OFFSET_COOKIE = 'font-size-offset'
 export const fontSizeOffsetDefaultValue = 0
 export const fontSizeOffsetAtom = atom<TFontSizeOffset>(
