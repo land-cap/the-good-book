@@ -30,14 +30,13 @@ export const IncrementField = <T,>({
 
 	return (
 		<div className={hstack({ gap: '0' })}>
-			<div
+			<button
 				className={buttonCls}
 				onClick={decrement}
-				role="button"
-				aria-disabled={value === range[0]}
+				disabled={value === range[0]}
 			>
 				<Icon size={5} weight={500} name={decreaseIcon} />
-			</div>
+			</button>
 			<div
 				className={css({
 					h: '10',
@@ -45,14 +44,13 @@ export const IncrementField = <T,>({
 					bg: 'border.onBgMuted',
 				})}
 			/>
-			<div
+			<button
 				className={buttonCls}
 				onClick={increment}
-				role="button"
-				aria-disabled={value === range[range.length - 1]}
+				disabled={value === range[range.length - 1]}
 			>
 				<Icon size={5} weight={500} name={increaseIcon} />
-			</div>
+			</button>
 		</div>
 	)
 }
