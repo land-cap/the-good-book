@@ -57,6 +57,7 @@ const pressable = definePattern({
 		transitionTimingFunction: 'ease-out',
 		_active: { bg: 'bg.subtle', color: 'fg.subtle' },
 		_canHover: { _hover: { bg: 'bg.subtle' } },
+		'& *': { cursor: 'pointer' },
 		...props,
 	}),
 })

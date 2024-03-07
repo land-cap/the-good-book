@@ -15,7 +15,7 @@ export const BookList = ({
 	bookList.map((book, index) => (
 		<BleedList.ItemWrapper
 			key={book.code}
-			isCurrBook={book.code === currBookCode}
+			selected={book.code === currBookCode}
 			onClick={() => {
 				onListItemClick()
 				setSelectedBook(book)

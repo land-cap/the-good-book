@@ -11,7 +11,7 @@ export const Container = styled('ul', {
 export const ItemWrapper = styled('li', {
 	base: { ...macrogrid.raw(), ...pressable.raw() },
 	variants: {
-		isCurrBook: {
+		selected: {
 			true: underlined.raw({
 				fontWeight: 'bold',
 			}),
