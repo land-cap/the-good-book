@@ -1,10 +1,12 @@
-import { useAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import { css, cx } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
 import { fontAtom, type TFont } from '~/state'
+
+import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export type TSelectOption = { value: string; label: string }
 
@@ -37,11 +39,13 @@ const FontPreview = styled('div', {
 export const FontField = () => {
 	const [font, setFont] = useAtom(fontAtom)
 
+	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+
 	const currFontLabel = fontOptionList.find((option) => option.value === font)
 		?.label
 
 	return (
-		<div
+		<button
 			className={cx(
 				button({ size: 'md', border: true }),
 				css({
@@ -52,7 +56,10 @@ export const FontField = () => {
 					fontWeight: 'regular',
 				}),
 			)}
-			role="button"
+			onClick={(e) => {
+				e.stopPropagation()
+				setShowFontOptions(true)
+			}}
 		>
 			<FontPreview font={font}>{currFontLabel}</FontPreview>
 			<Icon
@@ -62,6 +69,6 @@ export const FontField = () => {
 					mx: '-2.5',
 				})}
 			/>
-		</div>
+		</button>
 	)
 }

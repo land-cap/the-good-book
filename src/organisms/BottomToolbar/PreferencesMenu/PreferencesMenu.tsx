@@ -1,6 +1,7 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
+import { useAtom } from 'jotai'
 import { Flex, Macrogrid } from 'styled-system/jsx'
 
 import {
@@ -9,10 +10,14 @@ import {
 	Positioner_OverlayMenu,
 } from '~/components'
 
+import { FontOptions } from './FontOptions'
 import { Header } from './Header'
 import { Preferences } from './Preferences'
+import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const PreferencesMenu = () => {
+	const [showFontOptions, setShowFontOptions] = useAtom(showFontOptionsAtom)
+
 	return (
 		<Portal>
 			<Backdrop_OverlayMenu opacity="1/2" />
@@ -21,7 +26,6 @@ export const PreferencesMenu = () => {
 					css={{
 						h: 'content',
 						maxH: 'calc(100dvh * 2 / 3)',
-						pb: 'safe_area_bottom',
 						borderTopWidth: '1px',
 						borderColor: 'border',
 					}}
@@ -33,7 +37,7 @@ export const PreferencesMenu = () => {
 							overscrollBehavior="contain"
 							h="fit-content"
 						>
-							<Preferences />
+							{showFontOptions ? <FontOptions /> : <Preferences />}
 						</Macrogrid>
 					</Flex>
 				</Container_OverlayMenu>
