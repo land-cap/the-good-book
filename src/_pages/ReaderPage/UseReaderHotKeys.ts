@@ -23,7 +23,7 @@ export const UseReaderHotKeys = () => {
 	const decreaseFontSize = () =>
 		setFontSizeOffset((prev) => {
 			const newValue = prev - 1
-			return newValue >= -2 ? (newValue as TFontSizeOffset) : prev
+			return newValue >= -3 ? (newValue as TFontSizeOffset) : prev
 		})
 
 	const increaseFontSize = () =>
