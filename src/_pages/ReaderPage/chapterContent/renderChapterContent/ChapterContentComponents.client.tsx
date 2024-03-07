@@ -170,3 +170,26 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 		</span>
 	)
 }
+
+export const Quote = ({ children }: { children: ReactNode }) => {
+	const font = useAtomValue(fontAtom)
+
+	const fontFamily =
+		font === 'serif' || font === 'soft' || font === 'dyslexic' ? font : 'mono'
+
+	const fontStyle = font === 'serif' || font === 'soft' ? 'italic' : undefined
+
+	return (
+		<span
+			data-component="Quote"
+			className={css({
+				display: 'block',
+				fontFamily,
+				fontStyle,
+				textAlign: 'left',
+			})}
+		>
+			{children}
+		</span>
+	)
+}
