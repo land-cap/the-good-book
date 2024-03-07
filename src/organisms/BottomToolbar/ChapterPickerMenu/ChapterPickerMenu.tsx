@@ -11,6 +11,7 @@ import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Container_OverlayMenu, Positioner_OverlayMenu } from '~/components'
+import { BleedList } from '~/components/BleedList/BleedList'
 import type { TBook } from '~/db'
 import { isScrollLockedAtom } from '~/state'
 
@@ -18,7 +19,6 @@ import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
 import { ChapterListHeader } from './ChapterListHeader'
 import {
-	BookListContainer,
 	ChapterList,
 	ChapterListItem,
 	ChapterListItemLink,
@@ -115,7 +115,7 @@ export const ChapterPickerMenu = ({
 									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
 								})}
 							>
-								<BookListContainer>
+								<BleedList.Container>
 									<BookListSectionHeader>
 										Vechiul Testament
 									</BookListSectionHeader>
@@ -127,8 +127,8 @@ export const ChapterPickerMenu = ({
 										setSelectedBook={setSelectedBook}
 										currBookCode={currBook.code}
 									/>
-								</BookListContainer>
-								<BookListContainer>
+								</BleedList.Container>
+								<BleedList.Container>
 									<BookListSectionHeader>Noul Testament</BookListSectionHeader>
 									<BookList
 										bookList={newTestamentBookList}
@@ -138,7 +138,7 @@ export const ChapterPickerMenu = ({
 										setSelectedBook={setSelectedBook}
 										currBookCode={currBook.code}
 									/>
-								</BookListContainer>
+								</BleedList.Container>
 							</TabsContent>
 							<TabsContent value="chapter" className={macrogrid()}>
 								<ChapterList
