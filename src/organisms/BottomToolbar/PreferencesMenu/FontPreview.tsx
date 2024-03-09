@@ -6,14 +6,14 @@ export const FontPreview = styled('span', {
 			sans: {
 				fontFamily: 'sans',
 			},
-			serif: {
-				fontFamily: 'serif',
-			},
-			soft: {
-				fontFamily: 'soft',
-			},
 			dyslexic: {
 				fontFamily: 'dyslexic',
+			},
+			condensed: {
+				fontFamily: 'condensed',
+			},
+			old_style: {
+				fontFamily: 'old_style',
 			},
 		},
 	},

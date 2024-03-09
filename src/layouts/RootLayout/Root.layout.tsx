@@ -1,4 +1,4 @@
-import { Lexend, Nunito, Roboto_Serif } from 'next/font/google'
+import { Crimson_Text, Fira_Sans_Condensed, Lexend } from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
@@ -38,7 +38,7 @@ import {
 import { RootProviders } from './RootProviders'
 import { UseLockBodyScroll } from './UseLockBodyScroll'
 
-const fontGeist = localFont({
+const fontSans = localFont({
 	src: [
 		{ path: './fonts/Geist-Regular.woff2', weight: '400' },
 		{
@@ -51,7 +51,7 @@ const fontGeist = localFont({
 	variable: '--font-sans',
 })
 
-const fontGeistMono = localFont({
+const fontMono = localFont({
 	src: [
 		{ path: './fonts/GeistMono-Regular.woff2', weight: '400' },
 		{
@@ -64,26 +64,25 @@ const fontGeistMono = localFont({
 	variable: '--font-mono',
 })
 
-const fontRobotoSerif = Roboto_Serif({
-	weight: ['400'],
-	style: ['normal', 'italic'],
-	display: 'swap',
-	variable: '--font-serif',
-	subsets: ['latin', 'latin-ext'],
-})
-
-const fontNunito = Nunito({
-	weight: ['400'],
-	style: ['normal', 'italic'],
-	display: 'swap',
-	variable: '--font-soft',
-	subsets: ['latin', 'latin-ext'],
-})
-
-const fontLexend = Lexend({
+const fontDyslexic = Lexend({
 	weight: ['400'],
 	display: 'swap',
 	variable: '--font-dyslexic',
+	subsets: ['latin', 'latin-ext'],
+})
+
+const fontCondensed = Fira_Sans_Condensed({
+	weight: ['400'],
+	style: ['normal'],
+	display: 'swap',
+	variable: '--font-condensed',
+	subsets: ['latin', 'latin-ext'],
+})
+
+const fontOldStyle = Crimson_Text({
+	weight: ['400'],
+	display: 'swap',
+	variable: '--font-old-style',
 	subsets: ['latin', 'latin-ext'],
 })
 
@@ -144,11 +143,11 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 			<html
 				lang="en"
 				className={cx(
-					fontGeist.variable,
-					fontGeistMono.variable,
-					fontRobotoSerif.variable,
-					fontNunito.variable,
-					fontLexend.variable,
+					fontSans.variable,
+					fontMono.variable,
+					fontCondensed.variable,
+					fontDyslexic.variable,
+					fontOldStyle.variable,
 				)}
 			>
 				<body
