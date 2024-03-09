@@ -5,17 +5,11 @@ import { square } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { FontPreview } from '~/organisms/BottomToolbar/PreferencesMenu/FontPreview'
-import { fontAtom, type TFont } from '~/state'
+import { fontAtom } from '~/state'
 
+import { fontOptionList } from './FontOptions'
+import { FontPreview } from './FontPreview'
 import { showFontOptionsAtom } from './preferencesMenu.state'
-
-const fontOptionList = [
-	{ value: 'sans', label: 'Sans-serif' },
-	{ value: 'serif', label: 'Serif' },
-	{ value: 'soft', label: 'Soft' },
-	{ value: 'dyslexic', label: 'Dyslexic' },
-] satisfies { value: TFont; label: string }[]
 
 export const FontField = () => {
 	const font = useAtomValue(fontAtom)

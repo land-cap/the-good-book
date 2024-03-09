@@ -3,9 +3,9 @@ import { defineTokens } from '@pandacss/dev'
 export const fonts = defineTokens.fonts({
 	sans: { value: 'var(--font-sans)' },
 	mono: { value: 'var(--font-mono)' },
-	serif: { value: 'var(--font-serif)' },
-	soft: { value: 'var(--font-soft)' },
 	dyslexic: { value: 'var(--font-dyslexic)' },
+	condensed: { value: 'var(--font-condensed)' },
+	old_style: { value: 'var(--font-old-style)' },
 })
 
 export const fontWeights = defineTokens.fontWeights({
