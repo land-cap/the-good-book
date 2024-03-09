@@ -1,7 +1,7 @@
 'use client'
 
 import { Portal } from '@ark-ui/react'
-import { useAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { Flex, Macrogrid } from 'styled-system/jsx'
 
 import {
@@ -16,7 +16,7 @@ import { Preferences } from './Preferences'
 import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const PreferencesMenu = () => {
-	const [showFontOptions, setShowFontOptions] = useAtom(showFontOptionsAtom)
+	const showFontOptions = useAtomValue(showFontOptionsAtom)
 
 	return (
 		<Portal>

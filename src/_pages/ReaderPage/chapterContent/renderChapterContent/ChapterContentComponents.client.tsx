@@ -105,14 +105,14 @@ const StyledParagraph = styled('p', {
 			sans: {
 				fontFamily: 'sans',
 			},
-			serif: {
-				fontFamily: 'serif',
-			},
-			soft: {
-				fontFamily: 'soft',
-			},
 			dyslexic: {
 				fontFamily: 'dyslexic',
+			},
+			condensed: {
+				fontFamily: 'condensed',
+			},
+			old_style: {
+				fontFamily: 'old_style',
 			},
 		},
 	},
@@ -174,10 +174,7 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 export const Quote = ({ children }: { children: ReactNode }) => {
 	const font = useAtomValue(fontAtom)
 
-	const fontFamily =
-		font === 'serif' || font === 'soft' || font === 'dyslexic' ? font : 'mono'
-
-	const fontStyle = font === 'serif' || font === 'soft' ? 'italic' : undefined
+	const fontFamily = font !== 'sans' ? font : 'mono'
 
 	return (
 		<span
@@ -185,7 +182,6 @@ export const Quote = ({ children }: { children: ReactNode }) => {
 			className={css({
 				display: 'block',
 				fontFamily,
-				fontStyle,
 				textAlign: 'left',
 			})}
 		>

@@ -70,7 +70,7 @@ export const LEADING_COOKIE = 'leading'
 export const leadingDefaultValue = 2
 export const leadingAtom = atom<TLeading>(leadingDefaultValue)
 
-export type TFont = 'sans' | 'serif' | 'soft' | 'dyslexic'
+export type TFont = 'sans' | 'dyslexic' | 'condensed' | 'old_style'
 export const FONT_COOKIE = 'font'
 export const fontDefaultValue = 'sans'
 export const fontAtom = atom<TFont>(fontDefaultValue)

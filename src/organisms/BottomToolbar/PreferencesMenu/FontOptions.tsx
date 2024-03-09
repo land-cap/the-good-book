@@ -6,11 +6,11 @@ import { fontAtom, type TFont } from '~/state'
 import { FontPreview } from './FontPreview'
 import { showFontOptionsAtom } from './preferencesMenu.state'
 
-const fontOptionList = [
+export const fontOptionList = [
 	{ value: 'sans', label: 'Sans-serif' },
-	{ value: 'serif', label: 'Serif' },
-	{ value: 'soft', label: 'Soft' },
 	{ value: 'dyslexic', label: 'Dyslexic' },
+	{ value: 'condensed', label: 'Condensed' },
+	{ value: 'old_style', label: 'Old-style' },
 ] satisfies { value: TFont; label: string }[]
 
 export const FontOptions = () => {
