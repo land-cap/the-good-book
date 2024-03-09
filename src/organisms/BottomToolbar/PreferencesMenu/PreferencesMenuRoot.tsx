@@ -1,19 +1,20 @@
 'use client'
 
 import { Dialog, DialogTrigger } from '@ark-ui/react'
+import { useAtom } from 'jotai'
 import { useSetAtom } from 'jotai/index'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { isScrollLockedAtom } from '~/state'
+import { isPreferencesMenuOpenAtom, isScrollLockedAtom } from '~/state'
 
 import { PreferencesMenu } from './PreferencesMenu'
 import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const PreferencesMenuRoot = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [isMenuOpen, setIsMenuOpen] = useAtom(isPreferencesMenuOpenAtom)
 
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
 
