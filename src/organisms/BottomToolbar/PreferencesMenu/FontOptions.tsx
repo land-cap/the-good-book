@@ -8,6 +8,7 @@ import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const fontOptionList = [
 	{ value: 'sans', label: 'Sans-serif' },
+	{ value: 'clean', label: 'Clean' },
 	{ value: 'dyslexic', label: 'Dyslexic' },
 	{ value: 'condensed', label: 'Condensed' },
 	{ value: 'old_style', label: 'Old-style' },
