@@ -60,6 +60,9 @@ export const chapterContentContainerRecipe = cva({
 			sans: {
 				fontFamily: 'sans',
 			},
+			clean: {
+				fontFamily: 'clean',
+			},
 			dyslexic: {
 				fontFamily: 'dyslexic',
 			},

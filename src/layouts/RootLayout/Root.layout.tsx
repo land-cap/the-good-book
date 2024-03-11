@@ -1,4 +1,9 @@
-import { Lexend, Roboto_Condensed, Source_Serif_4 } from 'next/font/google'
+import {
+	Inter,
+	Lexend,
+	Roboto_Condensed,
+	Source_Serif_4,
+} from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
@@ -62,6 +67,14 @@ const fontMono = localFont({
 		{ path: './fonts/GeistMono-UltraBlack.otf', weight: '700' },
 	],
 	variable: '--font-mono',
+})
+
+const fontClean = Inter({
+	weight: ['400'],
+	style: ['normal'],
+	display: 'swap',
+	variable: '--font-clean',
+	subsets: ['latin', 'latin-ext'],
 })
 
 const fontDyslexic = Lexend({
@@ -148,6 +161,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					fontCondensed.variable,
 					fontDyslexic.variable,
 					fontOldStyle.variable,
+					fontClean.variable,
 				)}
 			>
 				<body

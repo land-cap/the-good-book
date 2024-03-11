@@ -6,6 +6,9 @@ export const FontPreview = styled('span', {
 			sans: {
 				fontFamily: 'sans',
 			},
+			clean: {
+				fontFamily: 'clean',
+			},
 			dyslexic: {
 				fontFamily: 'dyslexic',
 			},
