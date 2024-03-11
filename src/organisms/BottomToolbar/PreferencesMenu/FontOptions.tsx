@@ -28,6 +28,7 @@ export const FontOptions = () => {
 						setFont(value)
 					}}
 					selected={font === value}
+					fontWeight="regular"
 				>
 					<BleedList.Item>
 						<FontPreview font={value}>{label}</FontPreview>
