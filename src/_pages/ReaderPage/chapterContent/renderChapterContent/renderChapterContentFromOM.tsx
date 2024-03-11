@@ -3,8 +3,8 @@ import { Fragment, type ReactNode } from 'react'
 import type { TBook } from '~/db'
 import { VerseDetailsButton } from '~/organisms/VerseDetailsMenu'
 
-import { FancyAside } from './ChapterContentComponents'
 import {
+	FancyAside,
 	JesusWords,
 	LargeSectionReference,
 	LargeSectionTitle,
@@ -12,7 +12,7 @@ import {
 	Quote,
 	SectionTitle,
 	VerseLabel,
-} from './ChapterContentComponents.client'
+} from './ChapterContentComponents'
 import {
 	type ChapterOM,
 	type ChapterOMNode,

@@ -5,6 +5,7 @@ import { type ReactNode, useEffect } from 'react'
 import { cva } from 'styled-system/css'
 
 import {
+	fontAtom,
 	fontSizeOffsetAtom,
 	justifyTextAtom,
 	leadingAtom,
@@ -55,6 +56,20 @@ export const chapterContentContainerRecipe = cva({
 	},
 
 	variants: {
+		font: {
+			sans: {
+				fontFamily: 'sans',
+			},
+			dyslexic: {
+				fontFamily: 'dyslexic',
+			},
+			condensed: {
+				fontFamily: 'condensed',
+			},
+			old_style: {
+				fontFamily: 'old_style',
+			},
+		},
 		verseBreaksLine: {
 			false: {
 				'& [data-component="Paragraph"] + [data-component="Paragraph"]': {
@@ -158,6 +173,8 @@ export const ChapterContentContainer = ({
 
 	const firstHighlightedVerse = verseRangeList?.[0]
 
+	const font = useAtomValue(fontAtom)
+
 	useEffect(() => {
 		if (firstHighlightedVerse) {
 			const verse = document.querySelector(
@@ -180,6 +197,7 @@ export const ChapterContentContainer = ({
 	return (
 		<div
 			className={chapterContentContainerRecipe({
+				font,
 				verseBreaksLine,
 				justifyText,
 				fontSize,
