@@ -1,23 +1,25 @@
 import { motion } from 'framer-motion'
 import { type ReactNode } from 'react'
 import useMeasure from 'react-use-measure'
+import { css } from 'styled-system/css'
 import { Macrogrid } from 'styled-system/jsx'
 
 export const PreferencesMenuContentContainer = ({
-	animateHeight,
 	children,
 }: {
-	animateHeight: boolean
 	children: ReactNode
 }) => {
 	const [ref, { height }] = useMeasure()
 
 	return (
 		<motion.div
-			transition={{ duration: 0.3, ease: 'easeOut' }}
-			animate={{ height: animateHeight ? height : undefined }}
+			layout
+			animate={{ height }}
+			transition={{ duration: 0.5, ease: 'easeInOut' }}
+			className={css({ forceGpu: true, willChange: 'height' })}
 		>
 			<Macrogrid
+				direction="column"
 				ref={ref}
 				overflow="auto"
 				overscrollBehavior="contain"

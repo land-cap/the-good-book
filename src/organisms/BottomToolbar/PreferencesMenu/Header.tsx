@@ -25,7 +25,10 @@ export const Header = () => {
 				{showFontOptions && (
 					<button
 						className={button({ icon: true })}
-						onClick={() => setShowFontOptions(false)}
+						onClick={(e) => {
+							e.stopPropagation()
+							setShowFontOptions(false)
+						}}
 					>
 						<Icon size={6} name="arrow_back" />
 					</button>

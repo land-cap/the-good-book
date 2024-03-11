@@ -22,7 +22,8 @@ export const FontOptions = () => {
 			{fontOptionList.map(({ value, label }) => (
 				<BleedList.ItemWrapper
 					key={value}
-					onClick={() => {
+					onClick={(e) => {
+						e.stopPropagation()
 						setShowFontOptions(false)
 						setFont(value)
 					}}
