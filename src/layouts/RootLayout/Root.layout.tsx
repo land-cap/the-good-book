@@ -1,4 +1,4 @@
-import { Crimson_Text, Fira_Sans_Condensed, Lexend } from 'next/font/google'
+import { Lexend, Roboto_Condensed, Source_Serif_4 } from 'next/font/google'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
@@ -71,7 +71,7 @@ const fontDyslexic = Lexend({
 	subsets: ['latin', 'latin-ext'],
 })
 
-const fontCondensed = Fira_Sans_Condensed({
+const fontCondensed = Roboto_Condensed({
 	weight: ['400'],
 	style: ['normal'],
 	display: 'swap',
@@ -79,7 +79,7 @@ const fontCondensed = Fira_Sans_Condensed({
 	subsets: ['latin', 'latin-ext'],
 })
 
-const fontOldStyle = Crimson_Text({
+const fontOldStyle = Source_Serif_4({
 	weight: ['400'],
 	display: 'swap',
 	variable: '--font-old-style',
