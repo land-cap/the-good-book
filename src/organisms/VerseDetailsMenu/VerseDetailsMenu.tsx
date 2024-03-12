@@ -80,15 +80,10 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	return (
 		<Portal>
-			<Menu.Backdrop opacity="1/2" />
-			<Menu.Positioner css={{ h: 'content' }}>
-				<Menu.Container
-					css={{
-						borderTopWidth: '1px',
-						borderColor: 'border',
-					}}
-				>
-					<Flex direction="column" h="fit-content" maxH="calc(100dvh * 2 / 3)">
+			<Menu.Backdrop />
+			<Menu.Positioner>
+				<Menu.Content>
+					<Flex direction="column" h="inherit" maxH="inherit">
 						<Header
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 						/>
@@ -123,7 +118,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 							</div>
 						)}
 					</Flex>
-				</Menu.Container>
+				</Menu.Content>
 			</Menu.Positioner>
 		</Portal>
 	)

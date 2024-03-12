@@ -10,7 +10,7 @@ import { macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { BleedList, Menu } from '~/components'
+import { BleedList, FullscreenMenu } from '~/components'
 import type { TBook } from '~/db'
 import { isScrollLockedAtom } from '~/state'
 
@@ -101,8 +101,8 @@ export const ChapterPickerMenu = ({
 				{currBook.book_name?.value} {currChapter}
 			</Dialog.Trigger>
 			<Portal>
-				<Menu.Positioner>
-					<Menu.Container>
+				<FullscreenMenu.Positioner>
+					<FullscreenMenu.Content>
 						<TabsRoot
 							value={tab}
 							onValueChange={({ value }) => setTab(value as 'book' | 'chapter')}
@@ -174,8 +174,8 @@ export const ChapterPickerMenu = ({
 								</ChapterList>
 							</TabsContent>
 						</TabsRoot>
-					</Menu.Container>
-				</Menu.Positioner>
+					</FullscreenMenu.Content>
+				</FullscreenMenu.Positioner>
 			</Portal>
 		</Dialog.Root>
 	)
