@@ -62,8 +62,8 @@ export const Preferences = () => {
 						range={fontSizeOffsetRange}
 						value={fontSizeOffset}
 						onChange={handleFontSizeOffsetChange}
-						decreaseIcon="text_decrease"
-						increaseIcon="text_increase"
+						decreaseIcon="&#xeadd;"
+						increaseIcon="&#xeae2;"
 					/>
 				</AdjustmentListItem>
 				<AdjustmentListItem flex="1 1 0">
@@ -71,8 +71,8 @@ export const Preferences = () => {
 						range={leadingRange}
 						value={leading}
 						onChange={handleLeadingChange}
-						decreaseIcon="density_small"
-						increaseIcon="density_medium"
+						decreaseIcon="&#xeba8;"
+						increaseIcon="&#xeb9e;"
 					/>
 				</AdjustmentListItem>
 				<AdjustmentListItem w="full">
