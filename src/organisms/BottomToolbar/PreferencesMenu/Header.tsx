@@ -30,14 +30,14 @@ export const Header = () => {
 							setShowFontOptions(false)
 						}}
 					>
-						<Icon size={6} name="arrow_back" />
+						<Icon size={6} code="&#xe5c4;" />
 					</button>
 				)}
 				<h2 className={css({ fontWeight: 'bold' })}>
 					{showFontOptions ? 'Font' : 'Preferences'}
 				</h2>
 				<Dialog.CloseTrigger className={button({ icon: true })}>
-					<Icon size={6} name="close" />
+					<Icon size={6} code="&#xe5cd;" />
 				</Dialog.CloseTrigger>
 			</div>
 			<Separator css={{ column: 'content' }} />

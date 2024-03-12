@@ -72,7 +72,7 @@ const underlined = definePattern({
 		textDecorationLine: 'underline',
 		textDecorationThickness: '1px',
 		textUnderlineOffset: 'token(spacing.1)',
-		textDecorationColor: subtle ? 'fg.moreFaded' : 'fg',
+		textDecorationColor: subtle ? 'fg.moreFaded' : 'currentColor',
 		...props,
 	}),
 })

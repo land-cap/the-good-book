@@ -39,7 +39,7 @@ export const FontField = () => {
 		>
 			<FontPreview font={font}>{currFontLabel}</FontPreview>
 			<styled.center className={square({ size: '10' })}>
-				<Icon name="navigate_next" size={6} />
+				<Icon code="&#xe409;" size={6} />
 			</styled.center>
 		</button>
 	)

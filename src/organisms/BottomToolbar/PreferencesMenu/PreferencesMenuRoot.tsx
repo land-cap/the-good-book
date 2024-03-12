@@ -37,7 +37,7 @@ export const PreferencesMenuRoot = () => {
 				className={cx(button({ icon: true }))}
 				onClick={() => setIsMenuOpen(true)}
 			>
-				<Icon size={6} name="custom_typography" />
+				<Icon size={6} code="&#xe732;" />
 			</DialogTrigger>
 			<PreferencesMenu />
 		</Dialog.Root>

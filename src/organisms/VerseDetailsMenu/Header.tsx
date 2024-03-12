@@ -17,7 +17,7 @@ export const Header = ({ title }: { title: string }) => (
 		>
 			<h2 className={css({ fontWeight: 'bold' })}>{title}</h2>
 			<Dialog.CloseTrigger className={button({ icon: true })}>
-				<Icon size={6} name="close" />
+				<Icon size={6} code="&#xe5cd;" />
 			</Dialog.CloseTrigger>
 		</div>
 		<Separator css={{ column: 'content' }} />
