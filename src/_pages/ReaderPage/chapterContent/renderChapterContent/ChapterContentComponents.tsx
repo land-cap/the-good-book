@@ -119,7 +119,7 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 				}),
 				verseBreaksLine &&
 					css({
-						left: '-2',
+						left: '-1.5',
 						pos: 'absolute',
 						sm: { left: '-3' },
 						top: 0,
