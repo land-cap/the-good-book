@@ -10,12 +10,7 @@ import { Flex, styled } from 'styled-system/jsx'
 import { macrogrid, underlined } from 'styled-system/patterns'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import {
-	Backdrop_OverlayMenu,
-	Container_OverlayMenu,
-	Positioner_OverlayMenu,
-	SafeAreaBottom,
-} from '~/components'
+import { Menu, SafeAreaBottom } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
 import {
 	currVerseDetailsAtom,
@@ -85,9 +80,9 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	return (
 		<Portal>
-			<Backdrop_OverlayMenu opacity="1/2" />
-			<Positioner_OverlayMenu css={{ h: 'content' }}>
-				<Container_OverlayMenu
+			<Menu.Backdrop opacity="1/2" />
+			<Menu.Positioner css={{ h: 'content' }}>
+				<Menu.Container
 					css={{
 						borderTopWidth: '1px',
 						borderColor: 'border',
@@ -128,8 +123,8 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 							</div>
 						)}
 					</Flex>
-				</Container_OverlayMenu>
-			</Positioner_OverlayMenu>
+				</Menu.Container>
+			</Menu.Positioner>
 		</Portal>
 	)
 }

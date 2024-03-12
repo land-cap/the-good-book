@@ -4,11 +4,7 @@ import { Portal } from '@ark-ui/react'
 import { useAtomValue } from 'jotai'
 import { Flex, Macrogrid } from 'styled-system/jsx'
 
-import {
-	Backdrop_OverlayMenu,
-	Container_OverlayMenu,
-	Positioner_OverlayMenu,
-} from '~/components'
+import { Menu } from '~/components'
 
 import { FontOptions } from './FontOptions'
 import { Header } from './Header'
@@ -20,9 +16,9 @@ export const PreferencesMenu = () => {
 
 	return (
 		<Portal>
-			<Backdrop_OverlayMenu opacity="1/2" />
-			<Positioner_OverlayMenu css={{ h: 'content' }}>
-				<Container_OverlayMenu
+			<Menu.Backdrop opacity="1/2" />
+			<Menu.Positioner css={{ h: 'content' }}>
+				<Menu.Container
 					css={{
 						h: 'content',
 						maxH: 'calc(100dvh * 2 / 3)',
@@ -41,8 +37,8 @@ export const PreferencesMenu = () => {
 							{showFontOptions ? <FontOptions /> : <Preferences />}
 						</Macrogrid>
 					</Flex>
-				</Container_OverlayMenu>
-			</Positioner_OverlayMenu>
+				</Menu.Container>
+			</Menu.Positioner>
 		</Portal>
 	)
 }
