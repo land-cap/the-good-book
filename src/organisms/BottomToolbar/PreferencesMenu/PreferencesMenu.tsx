@@ -16,17 +16,10 @@ export const PreferencesMenu = () => {
 
 	return (
 		<Portal>
-			<Menu.Backdrop opacity="1/2" />
-			<Menu.Positioner css={{ h: 'content' }}>
-				<Menu.Container
-					css={{
-						h: 'content',
-						maxH: 'calc(100dvh * 2 / 3)',
-						borderTopWidth: '1px',
-						borderColor: 'border',
-					}}
-				>
-					<Flex direction="column" h="fit-content" maxH="calc(100dvh * 2 / 3)">
+			<Menu.Backdrop />
+			<Menu.Positioner>
+				<Menu.Content>
+					<Flex direction="column">
 						<Header />
 						<Macrogrid
 							direction="column"
@@ -37,7 +30,7 @@ export const PreferencesMenu = () => {
 							{showFontOptions ? <FontOptions /> : <Preferences />}
 						</Macrogrid>
 					</Flex>
-				</Menu.Container>
+				</Menu.Content>
 			</Menu.Positioner>
 		</Portal>
 	)

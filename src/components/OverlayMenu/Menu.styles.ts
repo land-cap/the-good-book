@@ -1,7 +1,8 @@
 import { Dialog } from '@ark-ui/react'
+import { cva } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 
-const Backdrop = styled(Dialog.Backdrop, {
+const backdropRecipe = cva({
 	base: {
 		forceGpu: true,
 		pos: 'fixed',
@@ -13,36 +14,15 @@ const Backdrop = styled(Dialog.Backdrop, {
 		_closed: { animation: 'fadeOut 0.15s ease-in' },
 	},
 	variants: {
-		opacity: {
-			'0': {
-				'--opacity': '0',
-			},
-			'1/4': {
-				'--opacity': '0.25',
-			},
-			'1/3': {
-				'--opacity': 'calc(1 / 3)',
-			},
-			'1/2': {
+		fullscreen: {
+			false: {
 				'--opacity': '0.5',
-			},
-			'2/3': {
-				'--opacity': 'calc(2 / 3)',
-			},
-			'3/4': {
-				'--opacity': '0.75',
-			},
-			'1': {
-				'--opacity': '1',
 			},
 		},
 	},
-	defaultVariants: {
-		opacity: '1/2',
-	},
 })
 
-const Positioner = styled(Dialog.Positioner, {
+const positionerRecipe = cva({
 	base: {
 		zIndex: 10,
 		pos: 'fixed',
@@ -51,9 +31,16 @@ const Positioner = styled(Dialog.Positioner, {
 		left: 0,
 		bottom: 0,
 	},
+	variants: {
+		fullscreen: {
+			false: {
+				h: 'content',
+			},
+		},
+	},
 })
 
-const Container = styled(Dialog.Content, {
+const contentRecipe = cva({
 	base: {
 		forceGpu: true,
 		w: '100dvw',
@@ -66,10 +53,30 @@ const Container = styled(Dialog.Content, {
 			animation: 'fadeOutBottom 0.15s ease-in',
 		},
 	},
+	variants: {
+		fullscreen: {
+			false: {
+				h: 'fit-content',
+				maxH: 'calc(100dvh * 2 / 3)',
+				borderTopWidth: '1px',
+				borderColor: 'border',
+			},
+		},
+	},
 })
 
-export const Menu = {
-	Backdrop,
-	Positioner,
-	Container,
-}
+const getMenu = ({ fullscreen }: { fullscreen: boolean }) => ({
+	Backdrop: styled(Dialog.Backdrop, backdropRecipe, {
+		defaultProps: { fullscreen },
+	}),
+	Positioner: styled(Dialog.Positioner, positionerRecipe, {
+		defaultProps: { fullscreen },
+	}),
+	Content: styled(Dialog.Content, contentRecipe, {
+		defaultProps: { fullscreen },
+	}),
+})
+
+export const Menu = getMenu({ fullscreen: false })
+
+export const FullscreenMenu = getMenu({ fullscreen: true })
