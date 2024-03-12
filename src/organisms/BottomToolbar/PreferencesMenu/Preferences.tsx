@@ -31,7 +31,8 @@ const AdjustmentList = styled('ul', {
 	base: flex.raw({
 		direction: 'row',
 		flexWrap: 'wrap',
-		gap: '2',
+		columnGap: '2',
+		rowGap: '8',
 		column: 'content',
 		mt: '8',
 	}),
