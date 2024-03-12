@@ -70,7 +70,7 @@ const fontMono = localFont({
 })
 
 const fontClean = Inter({
-	weight: ['400'],
+	weight: ['400', '700'],
 	style: ['normal'],
 	display: 'swap',
 	variable: '--font-clean',
@@ -78,14 +78,14 @@ const fontClean = Inter({
 })
 
 const fontDyslexic = Lexend({
-	weight: ['400'],
+	weight: ['400', '700'],
 	display: 'swap',
 	variable: '--font-dyslexic',
 	subsets: ['latin', 'latin-ext'],
 })
 
 const fontCondensed = Roboto_Condensed({
-	weight: ['400'],
+	weight: ['400', '700'],
 	style: ['normal'],
 	display: 'swap',
 	variable: '--font-condensed',
@@ -93,7 +93,7 @@ const fontCondensed = Roboto_Condensed({
 })
 
 const fontOldStyle = Source_Serif_4({
-	weight: ['400'],
+	weight: ['400', '700'],
 	display: 'swap',
 	variable: '--font-old-style',
 	subsets: ['latin', 'latin-ext'],

@@ -72,6 +72,9 @@ export const chapterContentContainerRecipe = cva({
 			old_style: {
 				fontFamily: 'old_style',
 			},
+			mono: {
+				fontFamily: 'mono',
+			},
 		},
 		verseBreaksLine: {
 			false: {

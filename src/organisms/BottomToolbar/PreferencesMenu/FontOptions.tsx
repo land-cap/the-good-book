@@ -12,6 +12,7 @@ export const fontOptionList = [
 	{ value: 'dyslexic', label: 'Dyslexic' },
 	{ value: 'condensed', label: 'Condensed' },
 	{ value: 'old_style', label: 'Old-style' },
+	{ value: 'mono', label: 'Mono-spaced' },
 ] satisfies { value: TFont; label: string }[]
 
 export const FontOptions = () => {

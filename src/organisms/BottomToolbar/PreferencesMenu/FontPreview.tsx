@@ -18,6 +18,9 @@ export const FontPreview = styled('span', {
 			old_style: {
 				fontFamily: 'old_style',
 			},
+			mono: {
+				fontFamily: 'mono',
+			},
 		},
 	},
 })
