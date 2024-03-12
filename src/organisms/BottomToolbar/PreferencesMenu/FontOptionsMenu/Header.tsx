@@ -17,7 +17,7 @@ export const Header = () => {
 					h: '14',
 				})}
 			>
-				<h2 className={css({ fontWeight: 'bold' })}>Preferences</h2>
+				<h2 className={css({ fontWeight: 'bold' })}>Font</h2>
 				<Dialog.CloseTrigger className={button({ icon: true })}>
 					<Icon size={6} code="&#xe5cd;" />
 				</Dialog.CloseTrigger>

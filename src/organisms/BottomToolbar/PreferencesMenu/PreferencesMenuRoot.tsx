@@ -8,17 +8,15 @@ import { cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { isPreferencesMenuOpenAtom, isScrollLockedAtom } from '~/state'
+import { isScrollLockedAtom, showPreferencesMenu } from '~/state'
 
 import { PreferencesMenu } from './PreferencesMenu'
-import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const PreferencesMenuRoot = () => {
-	const [isMenuOpen, setIsMenuOpen] = useAtom(isPreferencesMenuOpenAtom)
-
-	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const [isMenuOpen, setIsMenuOpen] = useAtom(showPreferencesMenu)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
+
 	useEffect(
 		() => setIsBodyScrollLocked(isMenuOpen),
 		[isMenuOpen, setIsBodyScrollLocked],
@@ -26,12 +24,12 @@ export const PreferencesMenuRoot = () => {
 
 	return (
 		<Dialog.Root
+			id="preferences-menu"
 			modal
 			trapFocus
 			preventScroll={false}
 			open={isMenuOpen}
 			onOpenChange={({ open }) => setIsMenuOpen(open)}
-			onExitComplete={() => setShowFontOptions(false)}
 		>
 			<DialogTrigger
 				className={cx(button({ icon: true }))}

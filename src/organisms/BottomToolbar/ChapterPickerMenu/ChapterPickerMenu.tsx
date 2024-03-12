@@ -84,6 +84,7 @@ export const ChapterPickerMenu = ({
 
 	return (
 		<Dialog.Root
+			id="chapter-picker-menu"
 			preventScroll={false}
 			open={isDialogOpen}
 			onOpenChange={({ open }) => {

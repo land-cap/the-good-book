@@ -5,10 +5,10 @@ import { Flex, Macrogrid } from 'styled-system/jsx'
 
 import { Menu } from '~/components'
 
+import { FontOptions } from './FontOptions'
 import { Header } from './Header'
-import { Preferences } from './Preferences'
 
-export const PreferencesMenu = () => (
+export const FontOptionsMenu = () => (
 	<Portal>
 		<Menu.Backdrop />
 		<Menu.Positioner>
@@ -21,7 +21,7 @@ export const PreferencesMenu = () => (
 						overscrollBehavior="contain"
 						h="fit-content"
 					>
-						<Preferences />
+						<FontOptions />
 					</Macrogrid>
 				</Flex>
 			</Menu.Content>
