@@ -5,14 +5,17 @@ import { square } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { fontAtom } from '~/state'
+import { FontOptionsMenuRoot } from '~/organisms/BottomToolbar/PreferencesMenu/FontOptionsMenu/FontOptionsMenuRoot'
+import { fontAtom, showPreferencesMenu } from '~/state'
 
-import { fontOptionList } from './FontOptions'
+import { fontOptionList } from './FontOptionsMenu/FontOptions'
 import { FontPreview } from './FontPreview'
 import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const FontField = () => {
 	const font = useAtomValue(fontAtom)
+
+	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
 
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
 
@@ -24,6 +27,7 @@ export const FontField = () => {
 			<styled.label color="fg.subtle" fontSize="sm" lineHeight="1">
 				Font
 			</styled.label>
+			<FontOptionsMenuRoot />
 			<button
 				className={cx(
 					button({ size: 'md', border: true }),
@@ -38,7 +42,8 @@ export const FontField = () => {
 				)}
 				onClick={(e) => {
 					e.stopPropagation()
-					setShowFontOptions(true)
+					setShowPreferencesMenu(false)
+					setTimeout(() => setShowFontOptions(true), 150)
 				}}
 			>
 				<FontPreview font={font}>{currFontLabel}</FontPreview>
