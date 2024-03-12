@@ -3,8 +3,8 @@ import { useAtom, useSetAtom } from 'jotai'
 import { BleedList, SafeAreaBottom } from '~/components'
 import { fontAtom, type TFont } from '~/state'
 
-import { FontPreview } from './FontPreview'
-import { showFontOptionsAtom } from './preferencesMenu.state'
+import { FontPreview } from '../FontPreview'
+import { showFontOptionsAtom } from '../preferencesMenu.state'
 
 export const fontOptionList = [
 	{ value: 'sans', label: 'Sans-serif' },
