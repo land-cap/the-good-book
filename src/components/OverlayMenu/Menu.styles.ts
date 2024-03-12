@@ -1,7 +1,7 @@
 import { Dialog } from '@ark-ui/react'
 import { styled } from 'styled-system/jsx'
 
-export const Backdrop_OverlayMenu = styled(Dialog.Backdrop, {
+const Backdrop = styled(Dialog.Backdrop, {
 	base: {
 		forceGpu: true,
 		pos: 'fixed',
@@ -42,7 +42,7 @@ export const Backdrop_OverlayMenu = styled(Dialog.Backdrop, {
 	},
 })
 
-export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
+const Positioner = styled(Dialog.Positioner, {
 	base: {
 		zIndex: 10,
 		pos: 'fixed',
@@ -53,7 +53,7 @@ export const Positioner_OverlayMenu = styled(Dialog.Positioner, {
 	},
 })
 
-export const Container_OverlayMenu = styled(Dialog.Content, {
+const Container = styled(Dialog.Content, {
 	base: {
 		forceGpu: true,
 		w: '100dvw',
@@ -67,3 +67,9 @@ export const Container_OverlayMenu = styled(Dialog.Content, {
 		},
 	},
 })
+
+export const Menu = {
+	Backdrop,
+	Positioner,
+	Container,
+}
