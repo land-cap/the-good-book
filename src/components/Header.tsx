@@ -1,12 +1,19 @@
-import { Dialog } from '@ark-ui/react'
+import { type ReactNode } from 'react'
 import { css } from 'styled-system/css'
 import { Macrogrid } from 'styled-system/jsx'
 import { hstack } from 'styled-system/patterns'
-import { button } from 'styled-system/recipes'
 
-import { Icon, Separator } from '~/components'
+import { Separator } from './Separator'
 
-export const Header = () => {
+export const Header = ({
+	leftButton = null,
+	title,
+	rightButton = null,
+}: {
+	leftButton?: ReactNode
+	title: string
+	rightButton?: ReactNode
+}) => {
 	return (
 		<Macrogrid>
 			<div
@@ -17,10 +24,9 @@ export const Header = () => {
 					h: '14',
 				})}
 			>
-				<h2 className={css({ fontWeight: 'bold' })}>Preferences</h2>
-				<Dialog.CloseTrigger className={button({ icon: true })}>
-					<Icon size={6} code="&#xe5cd;" />
-				</Dialog.CloseTrigger>
+				{leftButton}
+				<h2 className={css({ fontWeight: 'bold' })}>{title}</h2>
+				{rightButton}
 			</div>
 			<Separator css={{ column: 'content' }} />
 		</Macrogrid>

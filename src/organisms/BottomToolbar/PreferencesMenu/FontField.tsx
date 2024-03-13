@@ -14,9 +14,7 @@ import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const FontField = () => {
 	const font = useAtomValue(fontAtom)
-
 	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
-
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
 
 	const currFontLabel = fontOptionList.find((option) => option.value === font)

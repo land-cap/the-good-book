@@ -1,11 +1,11 @@
 'use client'
 
-import { Portal } from '@ark-ui/react'
+import { Dialog, Portal } from '@ark-ui/react'
 import { Flex, Macrogrid } from 'styled-system/jsx'
+import { button } from 'styled-system/recipes'
 
-import { Menu } from '~/components'
+import { Header, Icon, Menu } from '~/components'
 
-import { Header } from './Header'
 import { Preferences } from './Preferences'
 
 export const PreferencesMenu = () => (
@@ -14,7 +14,14 @@ export const PreferencesMenu = () => (
 		<Menu.Positioner>
 			<Menu.Content>
 				<Flex direction="column">
-					<Header />
+					<Header
+						title="Preferences"
+						rightButton={
+							<Dialog.CloseTrigger className={button({ icon: true })}>
+								<Icon size={6} code="&#xe5cd;" />
+							</Dialog.CloseTrigger>
+						}
+					/>
 					<Macrogrid
 						direction="column"
 						overflow="auto"
