@@ -1,6 +1,6 @@
 'use client'
 
-import { Portal } from '@ark-ui/react'
+import { Dialog, Portal } from '@ark-ui/react'
 import { useAtomValue, useSetAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -8,9 +8,10 @@ import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 import { Flex, styled } from 'styled-system/jsx'
 import { macrogrid, underlined } from 'styled-system/patterns'
+import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
-import { Menu, SafeAreaBottom } from '~/components'
+import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
 import {
 	currVerseDetailsAtom,
@@ -22,7 +23,6 @@ import {
 } from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
-import { Header } from './Header'
 
 const ReferenceLink = styled(Link, {
 	base: underlined.raw(),
@@ -86,6 +86,11 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 					<Flex direction="column" h="inherit" maxH="inherit">
 						<Header
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
+							rightButton={
+								<Dialog.CloseTrigger className={button({ icon: true })}>
+									<Icon size={6} code="&#xe5cd;" />
+								</Dialog.CloseTrigger>
+							}
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
 							<styled.div
