@@ -1,6 +1,6 @@
 export * from './BleedList'
 export * from './Header'
 export * from './Icon'
-export * from './OverlayMenu'
+export * from './Menu'
 export * from './SafeAreaBottom'
 export * from './Separator'

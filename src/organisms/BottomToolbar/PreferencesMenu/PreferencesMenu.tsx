@@ -10,7 +10,6 @@ import { Preferences } from './Preferences'
 
 export const PreferencesMenu = () => (
 	<Portal>
-		<Menu.Backdrop />
 		<Menu.Positioner>
 			<Menu.Content>
 				<Flex direction="column">
