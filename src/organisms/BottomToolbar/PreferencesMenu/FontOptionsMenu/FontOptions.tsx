@@ -1,7 +1,7 @@
 import { useAtom, useSetAtom } from 'jotai'
 
 import { BleedList, SafeAreaBottom } from '~/components'
-import { fontAtom, type TFont } from '~/state'
+import { fontAtom, showPreferencesMenu, type TFont } from '~/state'
 
 import { FontPreview } from '../FontPreview'
 import { showFontOptionsAtom } from '../preferencesMenu.state'
@@ -17,6 +17,7 @@ export const fontOptionList = [
 
 export const FontOptions = () => {
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
 	const [font, setFont] = useAtom(fontAtom)
 
 	return (
@@ -27,6 +28,7 @@ export const FontOptions = () => {
 					onClick={(e) => {
 						e.stopPropagation()
 						setShowFontOptions(false)
+						setTimeout(() => setShowPreferencesMenu(true), 150)
 						setFont(value)
 					}}
 					selected={font === value}
