@@ -6,7 +6,7 @@ import { Flex, Macrogrid } from 'styled-system/jsx'
 import { button } from 'styled-system/recipes'
 
 import { Header, Icon, Menu } from '~/components'
-import { showPreferencesMenu } from '~/state'
+import { showBackdropAtom, showPreferencesMenu } from '~/state'
 
 import { showFontOptionsAtom } from '../preferencesMenu.state'
 import { FontOptions } from './FontOptions'
@@ -14,6 +14,7 @@ import { FontOptions } from './FontOptions'
 export const FontOptionsMenu = () => {
 	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const setShowBackdrop = useSetAtom(showBackdropAtom)
 
 	return (
 		<Portal>
@@ -23,7 +24,10 @@ export const FontOptionsMenu = () => {
 						<Header
 							title="Fonts"
 							rightButton={
-								<Dialog.CloseTrigger className={button({ icon: true })}>
+								<Dialog.CloseTrigger
+									className={button({ icon: true })}
+									onClick={() => setShowBackdrop(false)}
+								>
 									<Icon size={6} code="&#xe5cd;" />
 								</Dialog.CloseTrigger>
 							}
