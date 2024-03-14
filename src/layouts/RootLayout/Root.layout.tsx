@@ -166,6 +166,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				)}
 			>
 				<body
+					data-theme="sepia"
 					className={macrogrid({
 						gridTemplateRows: 'min-content 1fr min-content',
 						minH: '100dvh',

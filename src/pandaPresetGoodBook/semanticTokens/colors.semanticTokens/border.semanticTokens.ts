@@ -5,6 +5,10 @@ export const border = defineSemanticTokens.colors({
 		value: {
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.600}',
+			_themeSepia: {
+				base: '{colors.sepia.300}',
+				_osDark: '{colors.sepia.700}',
+			},
 		},
 	},
 	emphasized: {
@@ -16,6 +20,10 @@ export const border = defineSemanticTokens.colors({
 		value: {
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.500}',
+			_themeSepia: {
+				base: '{colors.sepia.300}',
+				_osDark: '{colors.sepia.600}',
+			},
 		},
 	},
 })
