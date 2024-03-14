@@ -15,6 +15,10 @@ export const fg = defineSemanticTokens.colors({
 		value: {
 			base: '{colors.neutral.600}',
 			_osDark: '{colors.neutral.300}',
+			_themeSepia: {
+				base: '{colors.sepia.600}',
+				_osDark: '{colors.sepia.300}',
+			},
 		},
 	},
 	subtle: {
@@ -32,7 +36,7 @@ export const fg = defineSemanticTokens.colors({
 			base: '{colors.neutral.400}',
 			_osDark: '{colors.neutral.500}',
 			_themeSepia: {
-				base: '{colors.sepia.400}',
+				base: '{colors.sepia.500}',
 				_osDark: '{colors.sepia.500}',
 			},
 		},

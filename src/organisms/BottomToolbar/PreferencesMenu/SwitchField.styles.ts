@@ -33,10 +33,9 @@ const Control = styled(ArkSwitch.Control, {
 		disabled: {
 			true: {
 				cursor: 'revert',
-				bg: 'fg.moreFaded',
+				bg: 'bg.muted',
 				_checked: {
-					bg: 'fg.faded',
-					_osDark: { bg: 'fg.subtle' },
+					bg: 'bg.muted',
 				},
 			},
 		},
@@ -66,11 +65,7 @@ const Thumb = styled(ArkSwitch.Thumb, {
 		disabled: {
 			true: {
 				cursor: 'revert',
-				borderColor: 'fg.moreFaded',
-				_checked: {
-					borderColor: 'fg.faded',
-					_osDark: { borderColor: 'fg.subtle' },
-				},
+				borderColor: 'bg.muted',
 			},
 		},
 	},

@@ -24,11 +24,11 @@ export const viewport = (): Viewport => ({
 	themeColor: [
 		{
 			media: '(prefers-color-scheme: light)',
-			color: token('colors.white'),
+			color: token('colors.sepia.100'),
 		},
 		{
 			media: '(prefers-color-scheme: dark)',
-			color: token('colors.neutral.800'),
+			color: token('colors.sepia.900'),
 		},
 	],
 })
