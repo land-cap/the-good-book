@@ -12,12 +12,13 @@ import { macrogrid } from 'styled-system/patterns'
 
 import { SafeAreaBottom } from '~/components'
 import { getBookListWithCache } from '~/db'
+import { GlobalBackdrop } from '~/layouts/RootLayout/GlobalBackdrop'
 import {
 	BottomToolbar,
 	SetUpPreferencesMenuState,
 	TopToolbar,
+	VerseDetailsMenuRoot,
 } from '~/organisms'
-import { VerseDetailsMenuRoot } from '~/organisms/VerseDetailsMenu'
 import {
 	FONT_COOKIE,
 	FONT_SIZE_OFFSET_COOKIE,
@@ -179,6 +180,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					<TopToolbar />
 					{children}
 					<SafeAreaBottom css={{ column: 'content' }} />
+					<GlobalBackdrop />
 					<BottomToolbar bookList={bookList} />
 					<VerseDetailsMenuRoot bookList={bookList} />
 				</body>
