@@ -8,14 +8,22 @@ import { cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { isScrollLockedAtom, showPreferencesMenu } from '~/state'
+import {
+	isScrollLockedAtom,
+	showBackdropAtom,
+	showPreferencesMenu,
+} from '~/state'
 
 import { PreferencesMenu } from './PreferencesMenu'
 
 export const PreferencesMenuRoot = () => {
 	const [isMenuOpen, setIsMenuOpen] = useAtom(showPreferencesMenu)
-
+	const setShowBackdrop = useSetAtom(showBackdropAtom)
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
+
+	useEffect(() => {
+		isMenuOpen && setShowBackdrop(true)
+	}, [isMenuOpen, setShowBackdrop])
 
 	useEffect(
 		() => setIsBodyScrollLocked(isMenuOpen),
@@ -30,6 +38,7 @@ export const PreferencesMenuRoot = () => {
 			preventScroll={false}
 			open={isMenuOpen}
 			onOpenChange={({ open }) => setIsMenuOpen(open)}
+			onPointerDownOutside={() => setShowBackdrop(false)}
 		>
 			<DialogTrigger
 				className={cx(button({ icon: true }))}

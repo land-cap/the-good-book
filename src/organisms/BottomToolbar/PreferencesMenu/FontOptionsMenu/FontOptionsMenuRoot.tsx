@@ -5,14 +5,14 @@ import { useAtom } from 'jotai'
 import { useSetAtom } from 'jotai/index'
 import { useEffect } from 'react'
 
-import { isScrollLockedAtom } from '~/state'
+import { isScrollLockedAtom, showBackdropAtom } from '~/state'
 
 import { showFontOptionsAtom } from '../preferencesMenu.state'
 import { FontOptionsMenu } from './FontOptionsMenu'
 
 export const FontOptionsMenuRoot = () => {
 	const [isMenuOpen, setIsMenuOpen] = useAtom(showFontOptionsAtom)
-
+	const setShowBackdrop = useSetAtom(showBackdropAtom)
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 
 	useEffect(
@@ -29,6 +29,7 @@ export const FontOptionsMenuRoot = () => {
 			open={isMenuOpen}
 			onOpenChange={({ open }) => setIsMenuOpen(open)}
 			onExitComplete={() => setIsMenuOpen(false)}
+			onPointerDownOutside={() => setShowBackdrop(false)}
 		>
 			<FontOptionsMenu />
 		</Dialog.Root>
