@@ -17,7 +17,6 @@ export const FontOptionsMenu = () => {
 
 	return (
 		<Portal>
-			<Menu.Backdrop />
 			<Menu.Positioner>
 				<Menu.Content>
 					<Flex direction="column">

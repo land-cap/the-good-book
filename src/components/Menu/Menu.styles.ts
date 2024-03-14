@@ -1,8 +1,6 @@
-import { Dialog } from '@ark-ui/react'
 import { cva } from 'styled-system/css'
-import { styled } from 'styled-system/jsx'
 
-const backdropRecipe = cva({
+export const backdropRecipe = cva({
 	base: {
 		forceGpu: true,
 		pos: 'fixed',
@@ -22,7 +20,7 @@ const backdropRecipe = cva({
 	},
 })
 
-const positionerRecipe = cva({
+export const positionerRecipe = cva({
 	base: {
 		zIndex: 10,
 		pos: 'fixed',
@@ -40,7 +38,7 @@ const positionerRecipe = cva({
 	},
 })
 
-const contentRecipe = cva({
+export const contentRecipe = cva({
 	base: {
 		forceGpu: true,
 		w: '100dvw',
@@ -64,19 +62,3 @@ const contentRecipe = cva({
 		},
 	},
 })
-
-const getMenu = ({ fullscreen }: { fullscreen: boolean }) => ({
-	Backdrop: styled(Dialog.Backdrop, backdropRecipe, {
-		defaultProps: { fullscreen },
-	}),
-	Positioner: styled(Dialog.Positioner, positionerRecipe, {
-		defaultProps: { fullscreen },
-	}),
-	Content: styled(Dialog.Content, contentRecipe, {
-		defaultProps: { fullscreen },
-	}),
-})
-
-export const Menu = getMenu({ fullscreen: false })
-
-export const FullscreenMenu = getMenu({ fullscreen: true })
