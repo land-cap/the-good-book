@@ -3,44 +3,44 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const fg = defineSemanticTokens.colors({
 	DEFAULT: {
 		value: {
-			base: '#5f483a',
+			base: '{colors.neutral.900}',
 			_osDark: '{colors.neutral.300}',
 		},
 	},
 	muted: {
 		value: {
-			base: '#815E46',
+			base: '{colors.neutral.600}',
 			_osDark: '{colors.neutral.300}',
 		},
 	},
 	subtle: {
 		value: {
-			base: '#AD7F58',
+			base: '{colors.neutral.500}',
 			_osDark: '{colors.neutral.400}',
 		},
 	},
 	faded: {
 		value: {
-			base: '#CEA37E',
+			base: '{colors.neutral.400}',
 			_osDark: '{colors.neutral.500}',
 		},
 	},
 	moreFaded: {
 		value: {
-			base: '#DCBC9F',
+			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.600}',
+		},
+	},
+	inverted: {
+		value: {
+			base: '{colors.white}',
+			_osDark: '{colors.neutral.900}',
 		},
 	},
 	jesus_words: {
 		value: {
 			base: '{colors.red.700}',
 			_osDark: '{colors.red.400}',
-		},
-	},
-	inverted: {
-		value: {
-			base: '{colors.white}',
-			_osDark: '{colors.neutral.950}',
 		},
 	},
 })

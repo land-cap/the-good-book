@@ -3,31 +3,31 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const bg = defineSemanticTokens.colors({
 	canvas: {
 		value: {
-			base: '#F6EEE7',
+			base: '{colors.white}',
 			_osDark: '{colors.neutral.800}',
 		},
 	},
 	subtle: {
 		value: {
-			base: '#F0E4D9',
+			base: '{colors.neutral.100}',
 			_osDark: '{colors.neutral.700}',
 		},
 	},
 	muted: {
 		value: {
-			base: '#EBDACA',
+			base: '{colors.neutral.200}',
 			_osDark: '{colors.neutral.600}',
 		},
 	},
 	more_muted: {
 		value: {
-			base: '#E4CDB7',
+			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.500}',
 		},
 	},
 	inverted: {
 		value: {
-			base: '#5f483a',
+			base: '{colors.neutral.900}',
 			_osDark: '{colors.white}',
 		},
 	},

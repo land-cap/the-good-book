@@ -3,7 +3,7 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const border = defineSemanticTokens.colors({
 	DEFAULT: {
 		value: {
-			base: '#E4CDB7',
+			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.600}',
 		},
 	},
@@ -14,7 +14,7 @@ export const border = defineSemanticTokens.colors({
 	},
 	onBgMuted: {
 		value: {
-			base: '#E4CDB7',
+			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.500}',
 		},
 	},
