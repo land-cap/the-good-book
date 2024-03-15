@@ -1,12 +1,6 @@
 'use client'
 
-import { usePrevious } from '@mantine/hooks'
-import { useAtom } from 'jotai'
-import { type PrimitiveAtom } from 'jotai/index'
-import { useHydrateAtoms } from 'jotai/utils'
-import { useEffect } from 'react'
-
-import { setCookie } from '~/app/action'
+import { useSetupClientState } from '~/hooks'
 import {
 	FONT_COOKIE,
 	FONT_SIZE_OFFSET_COOKIE,
@@ -24,37 +18,16 @@ import {
 	showVerseDetailsAtom,
 	type TFont,
 	type TFontSizeOffset,
+	type THEME,
+	THEME_COOKIE,
+	themeAtom,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineAtom,
 } from '~/state'
 
-const useSetupClientState = <T>(
-	atom: PrimitiveAtom<T>,
-	savedValue: T,
-	cookieName: string,
-) => {
-	const [value, setValue] = useAtom(atom)
-
-	useEffect(() => {
-		setValue(savedValue)
-	}, [savedValue, setValue])
-
-	const prevValue = usePrevious(value)
-
-	useEffect(() => {
-		if (prevValue !== value) {
-			void setCookie(
-				cookieName,
-				typeof value === 'string' ? value : JSON.stringify(value),
-			)
-		}
-	}, [cookieName, prevValue, value])
-
-	useHydrateAtoms([[atom, savedValue]])
-}
-
-export const SetUpPreferencesMenuState = ({
+export const SetUpPersistedState = ({
+	savedTheme,
 	savedFontSizeOffset,
 	savedLeading,
 	savedFont,
@@ -64,6 +37,7 @@ export const SetUpPreferencesMenuState = ({
 	savedShowRedLetters,
 	savedShowVerseDetailsReferences,
 }: {
+	savedTheme: THEME
 	savedFontSizeOffset: TFontSizeOffset
 	savedLeading: TLeading
 	savedFont: TFont
@@ -73,6 +47,7 @@ export const SetUpPreferencesMenuState = ({
 	savedShowRedLetters: boolean
 	savedShowVerseDetailsReferences: boolean
 }) => {
+	useSetupClientState(themeAtom, savedTheme, THEME_COOKIE)
 	useSetupClientState(
 		fontSizeOffsetAtom,
 		savedFontSizeOffset,

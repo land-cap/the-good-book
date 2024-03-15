@@ -1,2 +1,2 @@
 export { BottomToolbar } from './BottomToolbar'
-export { SetUpPreferencesMenuState } from './PreferencesMenu'
+export { SetUpPersistedState } from './PreferencesMenu'

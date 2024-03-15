@@ -1,10 +1,3 @@
-import {
-	Inter,
-	Lexend,
-	Roboto_Condensed,
-	Source_Serif_4,
-} from 'next/font/google'
-import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { type ReactNode } from 'react'
 import { cx } from 'styled-system/css'
@@ -12,10 +5,17 @@ import { macrogrid } from 'styled-system/patterns'
 
 import { SafeAreaBottom } from '~/components'
 import { getBookListWithCache } from '~/db'
-import { GlobalBackdrop } from '~/layouts/RootLayout/GlobalBackdrop'
+import {
+	fontClean,
+	fontCondensed,
+	fontDyslexic,
+	fontMono,
+	fontOldStyle,
+	fontSans,
+} from '~/layouts/RootLayout/fonts'
 import {
 	BottomToolbar,
-	SetUpPreferencesMenuState,
+	SetUpPersistedState,
 	TopToolbar,
 	VerseDetailsMenuRoot,
 } from '~/organisms'
@@ -36,69 +36,17 @@ import {
 	showVerseDetailsDefaultValue,
 	type TFont,
 	type TFontSizeOffset,
+	type THEME,
+	THEME_COOKIE,
+	themeDefaultValue,
 	type TLeading,
 	VERSE_BREAKS_LINE_COOKIE,
 	verseBreaksLineDefaultValue,
 } from '~/state'
 
+import { GlobalBackdrop } from './GlobalBackdrop'
 import { RootProviders } from './RootProviders'
 import { UseLockBodyScroll } from './UseLockBodyScroll'
-
-const fontSans = localFont({
-	src: [
-		{ path: './fonts/Geist-Regular.woff2', weight: '400' },
-		{
-			path: './fonts/Geist-Regular.otf',
-			weight: '400',
-		},
-		{ path: './fonts/Geist-Bold.woff2', weight: '700' },
-		{ path: './fonts/Geist-Bold.otf', weight: '700' },
-	],
-	variable: '--font-sans',
-})
-
-const fontMono = localFont({
-	src: [
-		{ path: './fonts/GeistMono-Regular.woff2', weight: '400' },
-		{
-			path: './fonts/GeistMono-Regular.otf',
-			weight: '400',
-		},
-		{ path: './fonts/GeistMono-UltraBlack.woff2', weight: '700' },
-		{ path: './fonts/GeistMono-UltraBlack.otf', weight: '700' },
-	],
-	variable: '--font-mono',
-})
-
-const fontClean = Inter({
-	weight: ['400', '700'],
-	style: ['normal'],
-	display: 'swap',
-	variable: '--font-clean',
-	subsets: ['latin', 'latin-ext'],
-})
-
-const fontDyslexic = Lexend({
-	weight: ['400', '700'],
-	display: 'swap',
-	variable: '--font-dyslexic',
-	subsets: ['latin', 'latin-ext'],
-})
-
-const fontCondensed = Roboto_Condensed({
-	weight: ['400', '700'],
-	style: ['normal'],
-	display: 'swap',
-	variable: '--font-condensed',
-	subsets: ['latin', 'latin-ext'],
-})
-
-const fontOldStyle = Source_Serif_4({
-	weight: ['400', '700'],
-	display: 'swap',
-	variable: '--font-old-style',
-	subsets: ['latin', 'latin-ext'],
-})
 
 const getBooleanCookieValue = (
 	cookieValue: string | undefined,
@@ -110,6 +58,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 
 	const cookieStore = cookies()
 
+	const savedTheme = cookieStore.get(THEME_COOKIE)?.value ?? themeDefaultValue
 	const savedFontSizeOffset =
 		cookieStore.get(FONT_SIZE_OFFSET_COOKIE)?.value ??
 		fontSizeOffsetDefaultValue
@@ -128,7 +77,8 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 
 	return (
 		<RootProviders>
-			<SetUpPreferencesMenuState
+			<SetUpPersistedState
+				savedTheme={savedTheme as THEME}
 				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
 				savedLeading={Number(savedLeading) as TLeading}
 				savedFont={savedFont as TFont}
@@ -166,7 +116,7 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				)}
 			>
 				<body
-					data-theme="sepia"
+					data-theme={savedTheme}
 					className={macrogrid({
 						gridTemplateRows: 'min-content 1fr min-content',
 						minH: '100dvh',
