@@ -3,7 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import {
 	fontAtom,
 	isPreferencesMenuSuspendedAtom,
-	showFontOptionsAtom,
+	showFontMenuAtom,
 } from '~/state'
 
 import { fontOptionList } from './FontOptionsMenu/FontOptions'
@@ -13,7 +13,7 @@ import { SelectField } from './SelectField'
 
 export const FontField = () => {
 	const font = useAtomValue(fontAtom)
-	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const setShowFontMenu = useSetAtom(showFontMenuAtom)
 	const setIsPreferencesMenuSuspended = useSetAtom(
 		isPreferencesMenuSuspendedAtom,
 	)
@@ -29,7 +29,7 @@ export const FontField = () => {
 				onClick={(e) => {
 					e.stopPropagation()
 					setIsPreferencesMenuSuspended(true)
-					setTimeout(() => setShowFontOptions(true), 150)
+					setTimeout(() => setShowFontMenu(true), 150)
 				}}
 			>
 				<FontPreview font={font}>{currFontLabel}</FontPreview>

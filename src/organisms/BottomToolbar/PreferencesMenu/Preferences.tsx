@@ -22,6 +22,7 @@ import { FontField } from './FontField'
 import { IncrementField } from './IncrementField'
 import { SwitchField } from './SwitchField'
 import { SwitchFieldList } from './SwitchFieldList'
+import { ThemeField } from './ThemeField'
 
 const fontSizeOffsetRange = range(-3)(8) as TFontSizeOffset[]
 
@@ -78,6 +79,9 @@ export const Preferences = () => {
 				</AdjustmentListItem>
 				<AdjustmentListItem w="full">
 					<FontField />
+				</AdjustmentListItem>
+				<AdjustmentListItem w="full">
+					<ThemeField />
 				</AdjustmentListItem>
 			</AdjustmentList>
 			<SwitchFieldList>

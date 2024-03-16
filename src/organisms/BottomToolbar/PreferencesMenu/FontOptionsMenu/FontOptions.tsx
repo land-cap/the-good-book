@@ -4,7 +4,7 @@ import { BleedList, SafeAreaBottom } from '~/components'
 import {
 	fontAtom,
 	isPreferencesMenuSuspendedAtom,
-	showFontOptionsAtom,
+	showFontMenuAtom,
 	type TFont,
 } from '~/state'
 
@@ -20,7 +20,7 @@ export const fontOptionList = [
 ] satisfies { value: TFont; label: string }[]
 
 export const FontOptions = () => {
-	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const setShowFontMenu = useSetAtom(showFontMenuAtom)
 	const setIsPreferencesMenuSuspended = useSetAtom(
 		isPreferencesMenuSuspendedAtom,
 	)
@@ -34,7 +34,7 @@ export const FontOptions = () => {
 					onClick={(e) => {
 						e.stopPropagation()
 						setFont(value)
-						setShowFontOptions(false)
+						setShowFontMenu(false)
 						setTimeout(() => setIsPreferencesMenuSuspended(false), 150)
 					}}
 					selected={font === value}

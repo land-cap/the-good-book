@@ -58,7 +58,9 @@ export const showPreferencesMenuAtom = atom(false)
 
 export const isPreferencesMenuSuspendedAtom = atom(false)
 
-export const showFontOptionsAtom = atom(false)
+export const showFontMenuAtom = atom(false)
+
+export const showThemeMenuAtom = atom(false)
 
 /**
  * PREFERENCES STATE

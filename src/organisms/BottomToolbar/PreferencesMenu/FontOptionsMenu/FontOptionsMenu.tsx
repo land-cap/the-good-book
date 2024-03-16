@@ -8,14 +8,14 @@ import { button } from 'styled-system/recipes'
 import { Header, Icon, Menu } from '~/components'
 import {
 	isPreferencesMenuSuspendedAtom,
-	showFontOptionsAtom,
+	showFontMenuAtom,
 	showPreferencesMenuAtom,
 } from '~/state'
 
 import { FontOptions } from './FontOptions'
 
 export const FontOptionsMenu = () => {
-	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const setShowFontMenu = useSetAtom(showFontMenuAtom)
 	const setIsPreferencesMenuSuspended = useSetAtom(
 		isPreferencesMenuSuspendedAtom,
 	)
@@ -46,7 +46,7 @@ export const FontOptionsMenu = () => {
 									className={button({ icon: true })}
 									onClick={(e) => {
 										e.stopPropagation()
-										setShowFontOptions(false)
+										setShowFontMenu(false)
 										setTimeout(() => setIsPreferencesMenuSuspended(false), 150)
 									}}
 								>

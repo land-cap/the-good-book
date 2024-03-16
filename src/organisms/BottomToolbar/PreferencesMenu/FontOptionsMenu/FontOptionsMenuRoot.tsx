@@ -9,14 +9,14 @@ import { useEffect } from 'react'
 import {
 	isPreferencesMenuSuspendedAtom,
 	isScrollLockedAtom,
-	showFontOptionsAtom,
+	showFontMenuAtom,
 	showPreferencesMenuAtom,
 } from '~/state'
 
 import { FontOptionsMenu } from './FontOptionsMenu'
 
 export const FontOptionsMenuRoot = () => {
-	const [isMenuOpen, setIsMenuOpen] = useAtom(showFontOptionsAtom)
+	const [isMenuOpen, setIsMenuOpen] = useAtom(showFontMenuAtom)
 	const [isPreferencesMenuSuspended, setIsPreferencesMenuSuspended] = useAtom(
 		isPreferencesMenuSuspendedAtom,
 	)
