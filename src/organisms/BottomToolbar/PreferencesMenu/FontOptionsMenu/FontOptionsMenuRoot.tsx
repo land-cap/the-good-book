@@ -28,10 +28,12 @@ export const FontOptionsMenuRoot = () => {
 		[isMenuOpen, setIsBodyScrollLocked],
 	)
 
-	useEscapeKeydown(() => {
+	const hideBackdrop = () => {
 		setIsPreferencesMenuSuspended(false)
 		setShowPreferencesMenu(false)
-	})
+	}
+
+	useEscapeKeydown(hideBackdrop)
 
 	return (
 		<Dialog.Root
@@ -46,6 +48,7 @@ export const FontOptionsMenuRoot = () => {
 					!isPreferencesMenuSuspended &&
 					setIsPreferencesMenuSuspended(false)
 			}}
+			onPointerDownOutside={hideBackdrop}
 		>
 			<FontOptionsMenu />
 		</Dialog.Root>
