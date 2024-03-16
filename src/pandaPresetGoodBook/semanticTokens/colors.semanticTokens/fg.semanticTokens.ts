@@ -6,7 +6,7 @@ export const fg = defineSemanticTokens.colors({
 			base: '{colors.neutral.900}',
 			_osDark: '{colors.neutral.300}',
 			_themeSepia: {
-				base: '{colors.sepia.800}',
+				base: '{colors.sepia.900}',
 				_osDark: '{colors.sepia.300}',
 			},
 		},
@@ -16,7 +16,7 @@ export const fg = defineSemanticTokens.colors({
 			base: '{colors.neutral.600}',
 			_osDark: '{colors.neutral.300}',
 			_themeSepia: {
-				base: '{colors.sepia.700}',
+				base: '{colors.sepia.800}',
 				_osDark: '{colors.sepia.300}',
 			},
 		},
@@ -46,8 +46,8 @@ export const fg = defineSemanticTokens.colors({
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.600}',
 			_themeSepia: {
-				base: '{colors.sepia.300}',
-				_osDark: '{colors.sepia.600}',
+				base: '{colors.sepia.400}',
+				_osDark: '{colors.sepia.900}',
 			},
 		},
 	},
@@ -61,10 +61,14 @@ export const fg = defineSemanticTokens.colors({
 			},
 		},
 	},
-	jesus_words: {
+	jesusWords: {
 		value: {
-			base: '{colors.red.700}',
-			_osDark: '{colors.red.400}',
+			base: '{colors.red}',
+			_osDark: '{colors.red.light}',
+			_themeSepia: {
+				base: '{colors.red.sepia}',
+				_osDark: '{colors.red.sepia.light}',
+			},
 		},
 	},
 })

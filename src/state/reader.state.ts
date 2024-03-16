@@ -54,7 +54,11 @@ export const selectedReferenceAtom = atom<TCrossReference | undefined>(
 	undefined,
 )
 
-export const showPreferencesMenu = atom(false)
+export const showPreferencesMenuAtom = atom(false)
+
+export const isPreferencesMenuSuspendedAtom = atom(false)
+
+export const showFontOptionsAtom = atom(false)
 
 /**
  * PREFERENCES STATE

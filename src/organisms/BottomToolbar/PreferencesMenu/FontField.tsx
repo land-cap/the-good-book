@@ -5,17 +5,22 @@ import { square } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
-import { FontOptionsMenuRoot } from '~/organisms/BottomToolbar/PreferencesMenu/FontOptionsMenu/FontOptionsMenuRoot'
-import { fontAtom, showPreferencesMenu } from '~/state'
+import {
+	fontAtom,
+	isPreferencesMenuSuspendedAtom,
+	showFontOptionsAtom,
+} from '~/state'
 
 import { fontOptionList } from './FontOptionsMenu/FontOptions'
+import { FontOptionsMenuRoot } from './FontOptionsMenu/FontOptionsMenuRoot'
 import { FontPreview } from './FontPreview'
-import { showFontOptionsAtom } from './preferencesMenu.state'
 
 export const FontField = () => {
 	const font = useAtomValue(fontAtom)
-	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
+	const setIsPreferencesMenuSuspended = useSetAtom(
+		isPreferencesMenuSuspendedAtom,
+	)
 
 	const currFontLabel = fontOptionList.find((option) => option.value === font)
 		?.label
@@ -40,7 +45,7 @@ export const FontField = () => {
 				)}
 				onClick={(e) => {
 					e.stopPropagation()
-					setShowPreferencesMenu(false)
+					setIsPreferencesMenuSuspended(true)
 					setTimeout(() => setShowFontOptions(true), 150)
 				}}
 			>

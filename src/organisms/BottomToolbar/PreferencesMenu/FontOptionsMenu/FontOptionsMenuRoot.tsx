@@ -1,24 +1,37 @@
 'use client'
 
 import { Dialog } from '@ark-ui/react'
+import { useEscapeKeydown } from '@radix-ui/react-use-escape-keydown'
 import { useAtom } from 'jotai'
 import { useSetAtom } from 'jotai/index'
 import { useEffect } from 'react'
 
-import { isScrollLockedAtom, showBackdropAtom } from '~/state'
+import {
+	isPreferencesMenuSuspendedAtom,
+	isScrollLockedAtom,
+	showFontOptionsAtom,
+	showPreferencesMenuAtom,
+} from '~/state'
 
-import { showFontOptionsAtom } from '../preferencesMenu.state'
 import { FontOptionsMenu } from './FontOptionsMenu'
 
 export const FontOptionsMenuRoot = () => {
 	const [isMenuOpen, setIsMenuOpen] = useAtom(showFontOptionsAtom)
-	const setShowBackdrop = useSetAtom(showBackdropAtom)
+	const [isPreferencesMenuSuspended, setIsPreferencesMenuSuspended] = useAtom(
+		isPreferencesMenuSuspendedAtom,
+	)
+	const setShowPreferencesMenu = useSetAtom(showPreferencesMenuAtom)
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 
 	useEffect(
 		() => setIsBodyScrollLocked(isMenuOpen),
 		[isMenuOpen, setIsBodyScrollLocked],
 	)
+
+	useEscapeKeydown(() => {
+		setIsPreferencesMenuSuspended(false)
+		setShowPreferencesMenu(false)
+	})
 
 	return (
 		<Dialog.Root
@@ -27,9 +40,12 @@ export const FontOptionsMenuRoot = () => {
 			trapFocus
 			preventScroll={false}
 			open={isMenuOpen}
-			onOpenChange={({ open }) => setIsMenuOpen(open)}
-			onExitComplete={() => setIsMenuOpen(false)}
-			onPointerDownOutside={() => setShowBackdrop(false)}
+			onOpenChange={({ open }) => {
+				setIsMenuOpen(open)
+				!open &&
+					!isPreferencesMenuSuspended &&
+					setIsPreferencesMenuSuspended(false)
+			}}
 		>
 			<FontOptionsMenu />
 		</Dialog.Root>

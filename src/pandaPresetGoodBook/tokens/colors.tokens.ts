@@ -15,5 +15,21 @@ export const colors = defineTokens.colors({
 		900: { value: '#5a5041' },
 		950: { value: '#3c3631' },
 	},
+	red: {
+		DEFAULT: {
+			value: '#D53737',
+		},
+		light: {
+			value: '#f37c7c',
+		},
+		sepia: {
+			DEFAULT: {
+				value: '#bb523e',
+			},
+			light: {
+				value: '#e88575',
+			},
+		},
+	},
 	white: { value: 'white' },
 })

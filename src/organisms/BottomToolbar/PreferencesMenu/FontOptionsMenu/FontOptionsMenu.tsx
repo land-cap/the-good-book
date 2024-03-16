@@ -6,15 +6,20 @@ import { Flex, Macrogrid } from 'styled-system/jsx'
 import { button } from 'styled-system/recipes'
 
 import { Header, Icon, Menu } from '~/components'
-import { showBackdropAtom, showPreferencesMenu } from '~/state'
+import {
+	isPreferencesMenuSuspendedAtom,
+	showFontOptionsAtom,
+	showPreferencesMenuAtom,
+} from '~/state'
 
-import { showFontOptionsAtom } from '../preferencesMenu.state'
 import { FontOptions } from './FontOptions'
 
 export const FontOptionsMenu = () => {
-	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
 	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
-	const setShowBackdrop = useSetAtom(showBackdropAtom)
+	const setIsPreferencesMenuSuspended = useSetAtom(
+		isPreferencesMenuSuspendedAtom,
+	)
+	const setShowPreferencesMenuOpen = useSetAtom(showPreferencesMenuAtom)
 
 	return (
 		<Portal>
@@ -26,7 +31,12 @@ export const FontOptionsMenu = () => {
 							rightButton={
 								<Dialog.CloseTrigger
 									className={button({ icon: true })}
-									onClick={() => setShowBackdrop(false)}
+									onClick={() => {
+										setTimeout(() => {
+											setIsPreferencesMenuSuspended(false)
+											setShowPreferencesMenuOpen(false)
+										}, 150)
+									}}
 								>
 									<Icon size={6} code="&#xe5cd;" />
 								</Dialog.CloseTrigger>
@@ -37,7 +47,7 @@ export const FontOptionsMenu = () => {
 									onClick={(e) => {
 										e.stopPropagation()
 										setShowFontOptions(false)
-										setTimeout(() => setShowPreferencesMenu(true), 150)
+										setTimeout(() => setIsPreferencesMenuSuspended(false), 150)
 									}}
 								>
 									<Icon size={6} code="&#xe5c4;" />
