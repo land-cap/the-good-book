@@ -1,13 +1,13 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { useAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { css } from 'styled-system/css'
 
 import { showBackdropAtom } from '~/state'
 
 export const GlobalBackdrop = () => {
-	const [show, setShow] = useAtom(showBackdropAtom)
+	const show = useAtomValue(showBackdropAtom)
 
 	return (
 		<AnimatePresence>
@@ -23,7 +23,6 @@ export const GlobalBackdrop = () => {
 						inset: 0,
 						bg: 'bg.canvas',
 					})}
-					onClick={() => setShow(false)}
 				/>
 			)}
 		</AnimatePresence>

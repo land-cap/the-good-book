@@ -3,44 +3,72 @@ import { defineSemanticTokens } from '@pandacss/dev'
 export const fg = defineSemanticTokens.colors({
 	DEFAULT: {
 		value: {
-			_osDark: '{colors.neutral.300}',
 			base: '{colors.neutral.900}',
-		},
-	},
-	faded: {
-		value: {
-			_osDark: '{colors.neutral.500}',
-			base: '{colors.neutral.400}',
-		},
-	},
-	inverted: {
-		value: {
-			_osDark: '{colors.neutral.950}',
-			base: '{colors.white}',
-		},
-	},
-	moreFaded: {
-		value: {
-			_osDark: '{colors.neutral.600}',
-			base: '{colors.neutral.300}',
+			_osDark: '{colors.neutral.300}',
+			_themeSepia: {
+				base: '{colors.sepia.900}',
+				_osDark: '{colors.sepia.300}',
+			},
 		},
 	},
 	muted: {
 		value: {
-			_osDark: '{colors.neutral.300}',
 			base: '{colors.neutral.600}',
+			_osDark: '{colors.neutral.300}',
+			_themeSepia: {
+				base: '{colors.sepia.800}',
+				_osDark: '{colors.sepia.300}',
+			},
 		},
 	},
 	subtle: {
 		value: {
-			_osDark: '{colors.neutral.400}',
 			base: '{colors.neutral.500}',
+			_osDark: '{colors.neutral.400}',
+			_themeSepia: {
+				base: '{colors.sepia.600}',
+				_osDark: '{colors.sepia.500}',
+			},
 		},
 	},
-	jesus_words: {
+	faded: {
 		value: {
-			_osDark: '{colors.red.400}',
-			base: '{colors.red.700}',
+			base: '{colors.neutral.400}',
+			_osDark: '{colors.neutral.500}',
+			_themeSepia: {
+				base: '{colors.sepia.500}',
+				_osDark: '{colors.sepia.600}',
+			},
+		},
+	},
+	moreFaded: {
+		value: {
+			base: '{colors.neutral.300}',
+			_osDark: '{colors.neutral.600}',
+			_themeSepia: {
+				base: '{colors.sepia.400}',
+				_osDark: '{colors.sepia.900}',
+			},
+		},
+	},
+	inverted: {
+		value: {
+			base: '{colors.white}',
+			_osDark: '{colors.neutral.900}',
+			_themeSepia: {
+				base: '{colors.sepia.50}',
+				_osDark: '{colors.sepia.900}',
+			},
+		},
+	},
+	jesusWords: {
+		value: {
+			base: '{colors.red}',
+			_osDark: '{colors.red.light}',
+			_themeSepia: {
+				base: '{colors.red.sepia}',
+				_osDark: '{colors.red.sepia.light}',
+			},
 		},
 	},
 })
