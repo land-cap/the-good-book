@@ -6,8 +6,7 @@ import {
 	showFontMenuAtom,
 } from '~/state'
 
-import { fontOptionList } from './FontOptionsMenu/FontOptions'
-import { FontOptionsMenuRoot } from './FontOptionsMenu/FontOptionsMenuRoot'
+import { FontMenuRoot, fontOptionList } from './FontMenu'
 import { FontPreview } from './FontPreview'
 import { SelectField } from './SelectField'
 
@@ -24,7 +23,7 @@ export const FontField = () => {
 	return (
 		<SelectField.Container>
 			<SelectField.Label>Font</SelectField.Label>
-			<FontOptionsMenuRoot />
+			<FontMenuRoot />
 			<SelectField.Button
 				onClick={(e) => {
 					e.stopPropagation()

@@ -3,16 +3,11 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import {
 	isPreferencesMenuSuspendedAtom,
 	showThemeMenuAtom,
-	THEME,
 	themeAtom,
 } from '~/state'
 
 import { SelectField } from './SelectField'
-
-export const themeOptionList = [
-	{ value: THEME.Default, label: 'Default' },
-	{ value: THEME.Sepia, label: 'Sepia' },
-] satisfies { value: THEME; label: string }[]
+import { ThemeMenuRoot, themeOptionList } from './ThemeMenu'
 
 export const ThemeField = () => {
 	const theme = useAtomValue(themeAtom)
@@ -28,6 +23,7 @@ export const ThemeField = () => {
 	return (
 		<SelectField.Container>
 			<SelectField.Label>Theme</SelectField.Label>
+			<ThemeMenuRoot />
 			<SelectField.Button
 				onClick={(e) => {
 					e.stopPropagation()

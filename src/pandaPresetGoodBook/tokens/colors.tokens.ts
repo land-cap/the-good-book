@@ -17,7 +17,7 @@ export const colors = defineTokens.colors({
 	},
 	red: {
 		DEFAULT: {
-			value: '#D53737',
+			value: '{colors.red.700}',
 		},
 		light: {
 			value: '#f37c7c',

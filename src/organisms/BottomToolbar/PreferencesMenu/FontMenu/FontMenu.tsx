@@ -14,7 +14,7 @@ import {
 
 import { FontOptions } from './FontOptions'
 
-export const FontOptionsMenu = () => {
+export const FontMenu = () => {
 	const setShowFontMenu = useSetAtom(showFontMenuAtom)
 	const setIsPreferencesMenuSuspended = useSetAtom(
 		isPreferencesMenuSuspendedAtom,

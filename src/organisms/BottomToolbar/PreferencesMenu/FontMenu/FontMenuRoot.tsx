@@ -13,9 +13,9 @@ import {
 	showPreferencesMenuAtom,
 } from '~/state'
 
-import { FontOptionsMenu } from './FontOptionsMenu'
+import { FontMenu } from './FontMenu'
 
-export const FontOptionsMenuRoot = () => {
+export const FontMenuRoot = () => {
 	const [isMenuOpen, setIsMenuOpen] = useAtom(showFontMenuAtom)
 	const [isPreferencesMenuSuspended, setIsPreferencesMenuSuspended] = useAtom(
 		isPreferencesMenuSuspendedAtom,
@@ -37,7 +37,7 @@ export const FontOptionsMenuRoot = () => {
 
 	return (
 		<Dialog.Root
-			id="font-options-menu"
+			id="font-menu"
 			modal
 			trapFocus
 			preventScroll={false}
@@ -50,7 +50,7 @@ export const FontOptionsMenuRoot = () => {
 			}}
 			onPointerDownOutside={hideBackdrop}
 		>
-			<FontOptionsMenu />
+			<FontMenu />
 		</Dialog.Root>
 	)
 }
