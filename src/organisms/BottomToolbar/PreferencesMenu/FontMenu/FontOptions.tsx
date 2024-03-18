@@ -1,10 +1,14 @@
 import { useAtom, useSetAtom } from 'jotai'
 
 import { BleedList, SafeAreaBottom } from '~/components'
-import { fontAtom, showPreferencesMenu, type TFont } from '~/state'
+import {
+	fontAtom,
+	isPreferencesMenuSuspendedAtom,
+	showFontMenuAtom,
+	type TFont,
+} from '~/state'
 
 import { FontPreview } from '../FontPreview'
-import { showFontOptionsAtom } from '../preferencesMenu.state'
 
 export const fontOptionList = [
 	{ value: 'sans', label: 'Sans-serif' },
@@ -16,8 +20,10 @@ export const fontOptionList = [
 ] satisfies { value: TFont; label: string }[]
 
 export const FontOptions = () => {
-	const setShowFontOptions = useSetAtom(showFontOptionsAtom)
-	const setShowPreferencesMenu = useSetAtom(showPreferencesMenu)
+	const setShowFontMenu = useSetAtom(showFontMenuAtom)
+	const setIsPreferencesMenuSuspended = useSetAtom(
+		isPreferencesMenuSuspendedAtom,
+	)
 	const [font, setFont] = useAtom(fontAtom)
 
 	return (
@@ -27,9 +33,9 @@ export const FontOptions = () => {
 					key={value}
 					onClick={(e) => {
 						e.stopPropagation()
-						setShowFontOptions(false)
-						setTimeout(() => setShowPreferencesMenu(true), 150)
 						setFont(value)
+						setShowFontMenu(false)
+						setTimeout(() => setIsPreferencesMenuSuspended(false), 150)
 					}}
 					selected={font === value}
 					fontWeight="regular"

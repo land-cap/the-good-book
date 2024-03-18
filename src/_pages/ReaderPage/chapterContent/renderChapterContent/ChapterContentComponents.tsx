@@ -31,7 +31,7 @@ export const JesusWords = ({ children }: { children: ReactNode }) => {
 	return (
 		<span
 			data-component="JesusWords"
-			className={cx(showRedLetters && css({ color: 'fg.jesus_words' }))}
+			className={cx(showRedLetters && css({ color: 'fg.jesusWords' }))}
 		>
 			{children}
 		</span>

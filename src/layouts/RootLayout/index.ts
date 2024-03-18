@@ -1,1 +1,7 @@
 export * from './Root.layout'
+export { fontOldStyle } from '~/layouts/RootLayout/fonts'
+export { fontCondensed } from '~/layouts/RootLayout/fonts'
+export { fontDyslexic } from '~/layouts/RootLayout/fonts'
+export { fontClean } from '~/layouts/RootLayout/fonts'
+export { fontMono } from '~/layouts/RootLayout/fonts'
+export { fontSans } from '~/layouts/RootLayout/fonts'
