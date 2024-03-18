@@ -6,7 +6,7 @@ export const bg = defineSemanticTokens.colors({
 			base: '{colors.white}',
 			_osDark: '{colors.neutral.800}',
 			_themeSepia: {
-				base: '{colors.sepia.100}',
+				base: '{colors.sepia.50}',
 				_osDark: '{colors.sepia.950}',
 			},
 		},
@@ -16,7 +16,7 @@ export const bg = defineSemanticTokens.colors({
 			base: '{colors.neutral.100}',
 			_osDark: '{colors.neutral.700}',
 			_themeSepia: {
-				base: '{colors.sepia.200}',
+				base: '{colors.sepia.100}',
 				_osDark: '{colors.sepia.900}',
 			},
 		},
@@ -26,7 +26,7 @@ export const bg = defineSemanticTokens.colors({
 			base: '{colors.neutral.200}',
 			_osDark: '{colors.neutral.600}',
 			_themeSepia: {
-				base: '{colors.sepia.300}',
+				base: '{colors.sepia.200}',
 				_osDark: '{colors.sepia.800}',
 			},
 		},
@@ -36,7 +36,7 @@ export const bg = defineSemanticTokens.colors({
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.500}',
 			_themeSepia: {
-				base: '{colors.sepia.400}',
+				base: '{colors.sepia.300}',
 				_osDark: '{colors.sepia.700}',
 			},
 		},
@@ -47,7 +47,7 @@ export const bg = defineSemanticTokens.colors({
 			_osDark: '{colors.white}',
 			_themeSepia: {
 				base: '{colors.sepia.900}',
-				_osDark: '{colors.sepia.100}',
+				_osDark: '{colors.sepia.50}',
 			},
 		},
 	},

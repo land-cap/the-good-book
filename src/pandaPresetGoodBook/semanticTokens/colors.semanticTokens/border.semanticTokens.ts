@@ -6,7 +6,7 @@ export const border = defineSemanticTokens.colors({
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.700}',
 			_themeSepia: {
-				base: '{colors.sepia.400}',
+				base: '{colors.sepia.300}',
 				_osDark: '{colors.sepia.800}',
 			},
 		},
@@ -21,7 +21,7 @@ export const border = defineSemanticTokens.colors({
 			base: '{colors.neutral.300}',
 			_osDark: '{colors.neutral.500}',
 			_themeSepia: {
-				base: '{colors.sepia.400}',
+				base: '{colors.sepia.300}',
 				_osDark: '{colors.sepia.700}',
 			},
 		},
