@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, DialogTrigger } from '@ark-ui/react'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
 import { useEffect } from 'react'
 import { cx } from 'styled-system/css'
@@ -9,25 +9,33 @@ import { button } from 'styled-system/recipes'
 
 import { Icon } from '~/components'
 import {
+	isPreferencesMenuSuspendedAtom,
 	isScrollLockedAtom,
 	showBackdropAtom,
-	showPreferencesMenu,
+	showPreferencesMenuAtom,
 } from '~/state'
 
 import { PreferencesMenu } from './PreferencesMenu'
 
 export const PreferencesMenuRoot = () => {
-	const [isMenuOpen, setIsMenuOpen] = useAtom(showPreferencesMenu)
+	const [showPreferencesMenu, setShowPreferencesMenu] = useAtom(
+		showPreferencesMenuAtom,
+	)
+	const isPreferencesMenuSuspended = useAtomValue(
+		isPreferencesMenuSuspendedAtom,
+	)
 	const setShowBackdrop = useSetAtom(showBackdropAtom)
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 
+	const isOpen = showPreferencesMenu && !isPreferencesMenuSuspended
+
 	useEffect(() => {
-		isMenuOpen && setShowBackdrop(true)
-	}, [isMenuOpen, setShowBackdrop])
+		setShowBackdrop(showPreferencesMenu)
+	}, [showPreferencesMenu, setShowBackdrop])
 
 	useEffect(
-		() => setIsBodyScrollLocked(isMenuOpen),
-		[isMenuOpen, setIsBodyScrollLocked],
+		() => setIsBodyScrollLocked(showPreferencesMenu),
+		[showPreferencesMenu, setIsBodyScrollLocked],
 	)
 
 	return (
@@ -36,14 +44,12 @@ export const PreferencesMenuRoot = () => {
 			modal
 			trapFocus
 			preventScroll={false}
-			open={isMenuOpen}
-			onOpenChange={({ open }) => setIsMenuOpen(open)}
-			onPointerDownOutside={() => setShowBackdrop(false)}
+			open={isOpen}
+			onOpenChange={({ open }) =>
+				(open || !isPreferencesMenuSuspended) && setShowPreferencesMenu(open)
+			}
 		>
-			<DialogTrigger
-				className={cx(button({ icon: true }))}
-				onClick={() => setIsMenuOpen(true)}
-			>
+			<DialogTrigger className={cx(button({ icon: true }))}>
 				<Icon size={6} code="&#xe732;" />
 			</DialogTrigger>
 			<PreferencesMenu />

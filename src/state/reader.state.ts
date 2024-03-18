@@ -54,11 +54,25 @@ export const selectedReferenceAtom = atom<TCrossReference | undefined>(
 	undefined,
 )
 
-export const showPreferencesMenu = atom(false)
+export const showPreferencesMenuAtom = atom(false)
+
+export const isPreferencesMenuSuspendedAtom = atom(false)
+
+export const showFontMenuAtom = atom(false)
+
+export const showThemeMenuAtom = atom(false)
 
 /**
  * PREFERENCES STATE
  */
+export enum THEME {
+	Default = 'default',
+	Sepia = 'sepia',
+}
+
+export const THEME_COOKIE = 'theme'
+export const themeDefaultValue = THEME.Default
+export const themeAtom = atom(THEME.Default)
 
 export type TFontSizeOffset = -3 | -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 export const FONT_SIZE_OFFSET_COOKIE = 'font-size-offset'

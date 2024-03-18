@@ -12,6 +12,7 @@ export const pandaPresetGoodBook = definePreset({
 	conditions: {
 		extend: {
 			canHover: '@media (hover: hover)',
+			themeSepia: '[data-theme=sepia] &',
 		},
 	},
 	globalCss,

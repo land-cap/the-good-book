@@ -2,18 +2,34 @@ import { defineTokens } from '@pandacss/dev'
 
 export const colors = defineTokens.colors({
 	black: { value: '{colors.neutral.900}' },
-	primary: {
-		100: { value: '{colors.green.100}' },
-		200: { value: '{colors.green.200}' },
-		300: { value: '{colors.green.300}' },
-		400: { value: '{colors.green.400}' },
-		50: { value: '{colors.green.50}' },
-		500: { value: '{colors.green.500}' },
-		600: { value: '{colors.green.600}' },
-		700: { value: '{colors.green.700}' },
-		800: { value: '{colors.green.800}' },
-		900: { value: '{colors.green.900}' },
-		950: { value: '{colors.green.950}' },
+	sepia: {
+		50: { value: '#f4f1ea' },
+		100: { value: '#eee8dd' },
+		200: { value: '#e7dfd0' },
+		300: { value: '#dfd5bf' },
+		400: { value: '#d3c6aa' },
+		500: { value: '#bbab89' },
+		600: { value: '#a39069' },
+		700: { value: '#978362' },
+		800: { value: '#7a6950' },
+		900: { value: '#5a5041' },
+		950: { value: '#3c3631' },
+	},
+	red: {
+		DEFAULT: {
+			value: '{colors.red.700}',
+		},
+		light: {
+			value: '#f37c7c',
+		},
+		sepia: {
+			DEFAULT: {
+				value: '#bb523e',
+			},
+			light: {
+				value: '#e88575',
+			},
+		},
 	},
 	white: { value: 'white' },
 })
