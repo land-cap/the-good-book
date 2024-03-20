@@ -1,11 +1,17 @@
-import { UseReaderHotKeys } from '~/_pages/ReaderPage/UseReaderHotKeys'
 import { getChapterWithCache, getSingleChapterBookList } from '~/db'
-import { getBookAbbrToName } from '~/organisms/VerseDetailsMenu/getBookAbbrToName'
-import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
-import { getBookNameToCode } from '~/organisms/VerseDetailsMenu/getBookNameToCode'
+import {
+	getBookAbbrToName,
+	getBookNameByCode,
+	getBookNameToCode,
+} from '~/organisms'
 
 import { ChapterContentContainer, renderChapterContent } from './chapterContent'
-import { type TReaderPageParams } from './ReaderPage.types'
+import { UseReaderHotKeys } from './UseReaderHotKeys'
+
+export type TReaderPageParams = {
+	bookCode: string
+	chapter: string
+}
 
 export const ReaderPage = async ({ params }: { params: TReaderPageParams }) => {
 	const { bookCode, chapter } = params

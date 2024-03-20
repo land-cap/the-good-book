@@ -5,9 +5,9 @@ import { useParams } from 'next/navigation'
 import { useContext, useEffect, useId } from 'react'
 import { css } from 'styled-system/css'
 
+import type { TReaderPageParams } from '~/_pages'
 import type { ChapterOMNode } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML'
 import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapterContent/Verse'
-import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
 import { Icon } from '~/components'
 import { type TBook } from '~/db'
 import {

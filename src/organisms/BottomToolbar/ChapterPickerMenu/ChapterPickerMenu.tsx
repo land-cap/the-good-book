@@ -9,7 +9,7 @@ import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
-import type { TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import type { TReaderPageParams } from '~/_pages'
 import { BleedList, FullscreenMenu } from '~/components'
 import type { TBook } from '~/db'
 import { isScrollLockedAtom } from '~/state'

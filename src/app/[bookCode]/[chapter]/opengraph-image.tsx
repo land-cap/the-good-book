@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 
-import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { type TReaderPageParams } from '~/_pages'
 import { getBookNameByCode } from '~/organisms/VerseDetailsMenu/getBookNameByCode'
 
 export const size = {

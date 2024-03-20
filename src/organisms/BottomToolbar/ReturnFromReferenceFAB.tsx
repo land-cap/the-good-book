@@ -7,7 +7,7 @@ import { css, cx } from 'styled-system/css'
 import { hstack } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
-import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { type TReaderPageParams } from '~/_pages'
 import { Icon } from '~/components'
 import { referenceOriginAtom, selectedReferenceAtom } from '~/state'
 
