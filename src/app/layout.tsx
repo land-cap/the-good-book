@@ -33,7 +33,7 @@ export const viewport = (): Viewport => {
 		themeColor: [
 			{
 				media: '(prefers-color-scheme: light)',
-				color: isSepiaTheme ? token('colors.sepia.100') : token('colors.white'),
+				color: isSepiaTheme ? token('colors.sepia.50') : token('colors.white'),
 			},
 			{
 				media: '(prefers-color-scheme: dark)',
