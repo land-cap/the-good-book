@@ -10,7 +10,7 @@ import { Flex, styled } from 'styled-system/jsx'
 import { macrogrid, underlined } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
-import { type TReaderPageParams } from '~/_pages/ReaderPage/ReaderPage.types'
+import { type TReaderPageParams } from '~/_pages'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
 import {
