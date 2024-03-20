@@ -149,14 +149,12 @@ export const VerseLabel = ({ verseNumber }: { verseNumber: ReactNode }) => {
 export const Quote = ({ children }: { children: ReactNode }) => {
 	const font = useAtomValue(fontAtom)
 
-	const fontFamily = font !== 'sans' ? font : 'mono'
-
 	return (
 		<span
 			data-component="Quote"
 			className={css({
 				display: 'block',
-				fontFamily,
+				fontFamily: font,
 				textAlign: 'left',
 			})}
 		>
@@ -177,7 +175,7 @@ export const FancyAside = ({ children }: { children: ReactNode }) => {
 			data-component="FancyAside"
 			className={css({
 				color: 'fg.subtle',
-				fontFamily: font === 'sans' ? 'mono' : undefined,
+				fontFamily: font,
 			})}
 		>
 			{children}
