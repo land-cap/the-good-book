@@ -21,14 +21,18 @@ export const FontField = () => {
 		<SelectField.Container>
 			<FontMenuRoot />
 			<SelectField.Button
+				label={
+					<FontPreview font={font} lineHeight="1">
+						Font
+					</FontPreview>
+				}
+				placeholder="Font"
 				onClick={(e) => {
 					e.stopPropagation()
 					setIsPreferencesMenuSuspended(true)
 					setTimeout(() => setShowFontMenu(true), 150)
 				}}
-			>
-				<FontPreview font={font}>Font</FontPreview>
-			</SelectField.Button>
+			/>
 		</SelectField.Container>
 	)
 }
