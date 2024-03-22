@@ -38,7 +38,7 @@ const Button = ({
 				alignItems: 'center',
 				fontWeight: 'regular',
 				pr: '0',
-				_active: { bg: 'none' },
+				_active: { bg: 'none', borderColor: 'fg.faded' },
 				_canHover: { _hover: { bg: 'none' } },
 			}),
 		)}
@@ -53,7 +53,9 @@ const Button = ({
 					transform="translateY(-50%)"
 					px="2"
 					bg="bg.canvas"
-					_groupHover={{ color: 'fg' }}
+					color="fg.subtle"
+					_groupActive={{ color: 'inherit' }}
+					_canHover={{ _groupHover: { color: 'inherit' } }}
 				>
 					{placeholder}
 				</Caption>
