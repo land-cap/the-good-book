@@ -38,6 +38,7 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 		<Dialog.Root
 			id="verse-details-menu"
 			preventScroll={false}
+			unmountOnExit
 			open={!!currVerseDetailsID}
 			onOpenChange={({ open }) => !open && setCurrVerseDetailsID(null)}
 		>
