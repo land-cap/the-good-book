@@ -5,7 +5,7 @@ import { useSetAtom } from 'jotai'
 import { Flex, Macrogrid } from 'styled-system/jsx'
 import { button } from 'styled-system/recipes'
 
-import { Header, Icon, Menu } from '~/components'
+import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { showBackdropAtom } from '~/state'
 
 import { Preferences } from './Preferences'
@@ -17,7 +17,7 @@ export const PreferencesMenu = () => {
 		<Portal>
 			<Menu.Positioner>
 				<Menu.Content>
-					<Flex direction="column">
+					<Flex direction="column" h="inherit" maxH="inherit">
 						<Header
 							title="Preferences"
 							rightButton={
@@ -34,8 +34,10 @@ export const PreferencesMenu = () => {
 							overflow="auto"
 							overscrollBehavior="contain"
 							h="fit-content"
+							pt="8"
 						>
 							<Preferences />
+							<SafeAreaBottom />
 						</Macrogrid>
 					</Flex>
 				</Menu.Content>

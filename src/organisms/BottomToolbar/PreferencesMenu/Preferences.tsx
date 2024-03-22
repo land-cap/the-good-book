@@ -1,8 +1,7 @@
 import { useAtom, useAtomValue } from 'jotai/index'
 import { range } from 'ramda'
 import { useCallback } from 'react'
-import { styled } from 'styled-system/jsx'
-import { flex } from 'styled-system/patterns'
+import { HStack, styled } from 'styled-system/jsx'
 
 import { SafeAreaBottom } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
@@ -20,26 +19,19 @@ import {
 
 import { FontField } from './FontField'
 import { IncrementField } from './IncrementField'
+import { PreferenceFieldList } from './PreferenceFieldList'
 import { SwitchField } from './SwitchField'
-import { SwitchFieldList } from './SwitchFieldList'
 import { ThemeField } from './ThemeField'
 
 const fontSizeOffsetRange = range(-3)(8) as TFontSizeOffset[]
 
 const leadingRange = steppedRange(0.25, 1.25, 3) as TLeading[]
 
-const AdjustmentList = styled('ul', {
-	base: flex.raw({
-		direction: 'row',
-		flexWrap: 'wrap',
-		columnGap: '2',
-		rowGap: '8',
-		column: 'content',
-		mt: '8',
-	}),
+const IncrementFieldContainer = styled('div', {
+	base: {
+		flexGrow: '1',
+	},
 })
-
-const AdjustmentListItem = styled('li')
 
 export const Preferences = () => {
 	const [fontSizeOffset, setFontSizeOffset] = useAtom(fontSizeOffsetAtom)
@@ -58,8 +50,8 @@ export const Preferences = () => {
 
 	return (
 		<>
-			<AdjustmentList>
-				<AdjustmentListItem flex="1 1 0">
+			<HStack column="content" w="full">
+				<IncrementFieldContainer>
 					<IncrementField
 						range={fontSizeOffsetRange}
 						value={fontSizeOffset}
@@ -67,8 +59,8 @@ export const Preferences = () => {
 						decreaseIcon="&#xeadd;"
 						increaseIcon="&#xeae2;"
 					/>
-				</AdjustmentListItem>
-				<AdjustmentListItem flex="1 1 0">
+				</IncrementFieldContainer>
+				<IncrementFieldContainer>
 					<IncrementField
 						range={leadingRange}
 						value={leading}
@@ -76,15 +68,11 @@ export const Preferences = () => {
 						decreaseIcon="&#xeba8;"
 						increaseIcon="&#xeb9e;"
 					/>
-				</AdjustmentListItem>
-				<AdjustmentListItem w="full">
-					<FontField />
-				</AdjustmentListItem>
-				<AdjustmentListItem w="full">
-					<ThemeField />
-				</AdjustmentListItem>
-			</AdjustmentList>
-			<SwitchFieldList>
+				</IncrementFieldContainer>
+			</HStack>
+			<PreferenceFieldList>
+				<FontField />
+				<ThemeField />
 				<SwitchField
 					valueAtom={verseBreaksLineAtom}
 					label="Start verse on new line"
@@ -103,7 +91,7 @@ export const Preferences = () => {
 					valueAtom={showVerseDetailsAtom}
 					label="Show references and footnotes"
 				/>
-			</SwitchFieldList>
+			</PreferenceFieldList>
 			<SafeAreaBottom column="content" />
 		</>
 	)
