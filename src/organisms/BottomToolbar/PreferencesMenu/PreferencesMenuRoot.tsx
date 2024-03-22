@@ -44,6 +44,7 @@ export const PreferencesMenuRoot = () => {
 			modal
 			trapFocus
 			preventScroll={false}
+			unmountOnExit
 			open={isOpen}
 			onOpenChange={({ open }) =>
 				(open || !isPreferencesMenuSuspended) && setShowPreferencesMenu(open)
