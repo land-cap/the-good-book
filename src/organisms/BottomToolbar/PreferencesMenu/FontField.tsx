@@ -28,7 +28,7 @@ export const FontField = () => {
 				}
 				placeholder="Font"
 				onClick={(e) => {
-					e.stopPropagation()
+					e.preventDefault()
 					setIsPreferencesMenuSuspended(true)
 					setTimeout(() => setShowFontMenu(true), 150)
 				}}

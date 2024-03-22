@@ -23,7 +23,7 @@ export const ThemeField = () => {
 				label={theme}
 				placeholder="Theme"
 				onClick={(e) => {
-					e.stopPropagation()
+					e.preventDefault()
 					setIsPreferencesMenuSuspended(true)
 					setTimeout(() => setShowThemeMenu(true), 150)
 				}}
