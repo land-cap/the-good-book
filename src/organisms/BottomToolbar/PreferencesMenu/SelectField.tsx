@@ -29,7 +29,7 @@ const Button = ({
 	<button
 		className={cx(
 			'group',
-			button({ size: 'md', border: true }),
+			button({ border: true, size: 'lg' }),
 			css({
 				pos: 'relative',
 				w: 'full',

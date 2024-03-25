@@ -65,6 +65,10 @@ export const buttonRecipe = defineRecipe({
 				px: '4',
 			},
 			lg: {
+				h: '12',
+				px: '4',
+			},
+			xl: {
 				h: '14',
 				px: '4',
 			},

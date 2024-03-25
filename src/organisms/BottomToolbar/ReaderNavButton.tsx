@@ -16,7 +16,7 @@ export const ReaderNavButton = ({
 		prefetch
 		href={url}
 		aria-disabled={isDisabled}
-		className={button({ icon: true })}
+		className={button({ icon: true, size: 'xl' })}
 	>
 		<Icon size={6} code={direction === 'left' ? '&#xe5c4;' : '&#xe5c8;'} />
 	</Link>

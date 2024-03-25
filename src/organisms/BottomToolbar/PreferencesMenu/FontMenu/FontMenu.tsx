@@ -30,7 +30,7 @@ export const FontMenu = () => {
 							title="Fonts"
 							rightButton={
 								<Dialog.CloseTrigger
-									className={button({ icon: true })}
+									className={button({ icon: true, size: 'xl' })}
 									onClick={() => {
 										setTimeout(() => {
 											setIsPreferencesMenuSuspended(false)
@@ -43,7 +43,7 @@ export const FontMenu = () => {
 							}
 							leftButton={
 								<button
-									className={button({ icon: true })}
+									className={button({ icon: true, size: 'xl' })}
 									onClick={(e) => {
 										e.stopPropagation()
 										setShowFontMenu(false)

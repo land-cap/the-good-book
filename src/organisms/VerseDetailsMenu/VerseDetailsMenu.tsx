@@ -87,7 +87,9 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						<Header
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 							rightButton={
-								<Dialog.CloseTrigger className={button({ icon: true })}>
+								<Dialog.CloseTrigger
+									className={button({ icon: true, size: 'xl' })}
+								>
 									<Icon size={6} code="&#xe5cd;" />
 								</Dialog.CloseTrigger>
 							}

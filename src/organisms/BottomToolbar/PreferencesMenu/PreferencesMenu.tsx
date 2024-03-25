@@ -22,7 +22,7 @@ export const PreferencesMenu = () => {
 							title="Preferences"
 							rightButton={
 								<Dialog.CloseTrigger
-									className={button({ icon: true })}
+									className={button({ icon: true, size: 'xl' })}
 									onClick={() => setShowBackdrop(false)}
 								>
 									<Icon size={6} code="&#xe5cd;" />
