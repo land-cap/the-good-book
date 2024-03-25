@@ -3,7 +3,7 @@
 import { Dialog, DialogTrigger } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
@@ -38,6 +38,12 @@ export const PreferencesMenuRoot = () => {
 		[showPreferencesMenu, setIsBodyScrollLocked],
 	)
 
+	const [scrollContainerKey, setScrollContainerKey] = useState(0)
+
+	useEffect(() => {
+		showPreferencesMenu && setScrollContainerKey((key) => key + 1)
+	}, [showPreferencesMenu])
+
 	return (
 		<Dialog.Root
 			id="preferences-menu"
@@ -45,14 +51,14 @@ export const PreferencesMenuRoot = () => {
 			trapFocus
 			preventScroll={false}
 			open={isOpen}
-			onOpenChange={({ open }) =>
-				(open || !isPreferencesMenuSuspended) && setShowPreferencesMenu(open)
-			}
+			onOpenChange={({ open }) => {
+				;(open || !isPreferencesMenuSuspended) && setShowPreferencesMenu(open)
+			}}
 		>
 			<DialogTrigger className={cx(button({ icon: true, size: 'xl' }))}>
 				<Icon size={6} code="&#xe732;" />
 			</DialogTrigger>
-			<PreferencesMenu />
+			<PreferencesMenu scrollContainerKey={scrollContainerKey} />
 		</Dialog.Root>
 	)
 }
