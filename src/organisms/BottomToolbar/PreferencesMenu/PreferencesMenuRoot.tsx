@@ -49,7 +49,7 @@ export const PreferencesMenuRoot = () => {
 				(open || !isPreferencesMenuSuspended) && setShowPreferencesMenu(open)
 			}
 		>
-			<DialogTrigger className={cx(button({ icon: true }))}>
+			<DialogTrigger className={cx(button({ icon: true, size: 'xl' }))}>
 				<Icon size={6} code="&#xe732;" />
 			</DialogTrigger>
 			<PreferencesMenu />

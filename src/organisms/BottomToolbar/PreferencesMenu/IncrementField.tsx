@@ -6,7 +6,7 @@ import { Icon } from '~/components'
 import { useRangeInput } from '~/hooks'
 
 const buttonCls = cx(
-	button({ icon: true, visual: 'solid', size: 'md' }),
+	button({ icon: true, visual: 'solid', size: 'lg' }),
 	css({
 		flexGrow: 1,
 		aspectRatio: '4/3',
@@ -39,7 +39,7 @@ export const IncrementField = <T,>({
 			</button>
 			<div
 				className={css({
-					h: '10',
+					h: '12',
 					w: '1px',
 					bg: 'border.onBgMuted',
 				})}

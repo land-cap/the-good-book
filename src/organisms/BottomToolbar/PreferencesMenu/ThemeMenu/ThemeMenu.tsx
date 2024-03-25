@@ -30,7 +30,7 @@ export const ThemeMenu = () => {
 							title="Theme"
 							rightButton={
 								<Dialog.CloseTrigger
-									className={button({ icon: true })}
+									className={button({ icon: true, size: 'xl' })}
 									onClick={() => {
 										setTimeout(() => {
 											setIsPreferencesMenuSuspended(false)
@@ -43,7 +43,7 @@ export const ThemeMenu = () => {
 							}
 							leftButton={
 								<button
-									className={button({ icon: true })}
+									className={button({ icon: true, size: 'xl' })}
 									onClick={(e) => {
 										e.stopPropagation()
 										setShowThemeMenu(false)
