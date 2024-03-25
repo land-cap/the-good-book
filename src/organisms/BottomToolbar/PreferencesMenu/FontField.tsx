@@ -6,7 +6,7 @@ import {
 	showFontMenuAtom,
 } from '~/state'
 
-import { FontMenuRoot } from './FontMenu'
+import { FontMenuRoot, fontOptionList } from './FontMenu'
 import { FontPreview } from './FontPreview'
 import { SelectField } from './SelectField'
 
@@ -17,13 +17,16 @@ export const FontField = () => {
 		isPreferencesMenuSuspendedAtom,
 	)
 
+	const fontLabel = fontOptionList.find((option) => option.value === font)
+		?.label
+
 	return (
 		<SelectField.Container>
 			<FontMenuRoot />
 			<SelectField.Button
 				label={
 					<FontPreview font={font} lineHeight="1">
-						Font
+						{fontLabel}
 					</FontPreview>
 				}
 				placeholder="Font"

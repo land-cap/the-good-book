@@ -7,7 +7,7 @@ import {
 } from '~/state'
 
 import { SelectField } from './SelectField'
-import { ThemeMenuRoot } from './ThemeMenu'
+import { ThemeMenuRoot, themeOptionList } from './ThemeMenu'
 
 export const ThemeField = () => {
 	const setShowThemeMenu = useSetAtom(showThemeMenuAtom)
@@ -16,11 +16,14 @@ export const ThemeField = () => {
 	)
 	const theme = useAtomValue(themeAtom)
 
+	const themeLabel = themeOptionList.find((option) => option.value === theme)
+		?.label
+
 	return (
 		<SelectField.Container>
 			<ThemeMenuRoot />
 			<SelectField.Button
-				label={theme}
+				label={themeLabel}
 				placeholder="Theme"
 				onClick={(e) => {
 					e.preventDefault()

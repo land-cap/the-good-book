@@ -6,7 +6,7 @@ import { button } from 'styled-system/recipes'
 import { Icon, Separator } from '~/components'
 
 const tabsTriggerClass = cx(
-	button(),
+	button({ size: 'xl' }),
 	css({
 		'&:not([data-selected])': {
 			color: 'fg.faded',
@@ -40,7 +40,7 @@ export const Header = ({
 						Chapter
 					</Tabs.Trigger>
 				</Tabs.List>
-				<Dialog.CloseTrigger className={button({ icon: true })}>
+				<Dialog.CloseTrigger className={button({ icon: true, size: 'xl' })}>
 					<Icon size={6} code="&#xe5cd;" />
 				</Dialog.CloseTrigger>
 			</div>
