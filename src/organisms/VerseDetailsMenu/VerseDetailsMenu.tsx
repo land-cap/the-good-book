@@ -37,7 +37,13 @@ const Footnote = styled('p', {
 	},
 })
 
-export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
+export const VerseDetailsMenu = ({
+	bookList,
+	scrollContainerKey,
+}: {
+	bookList: TBook[]
+	scrollContainerKey: number
+}) => {
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('')
@@ -96,6 +102,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
 							<styled.div
+								key={scrollContainerKey}
 								overflow="auto"
 								overscrollBehavior="contain"
 								h="fit-content"
