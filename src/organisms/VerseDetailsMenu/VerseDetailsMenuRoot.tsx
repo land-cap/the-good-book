@@ -3,7 +3,7 @@
 import { Dialog } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import type { TBook } from '~/db'
@@ -30,6 +30,12 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 
 	const isClient = useIsClient()
 
+	const [scrollContainerKey, setScrollContainerKey] = useState(0)
+
+	useEffect(() => {
+		currVerseDetailsID && setScrollContainerKey((key) => key + 1)
+	}, [currVerseDetailsID])
+
 	if (!showVerseDetails) {
 		return null
 	}
@@ -41,7 +47,12 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 			open={!!currVerseDetailsID}
 			onOpenChange={({ open }) => !open && setCurrVerseDetailsID(null)}
 		>
-			{isClient ? <VerseDetailsMenu bookList={bookList} /> : null}
+			{isClient ? (
+				<VerseDetailsMenu
+					bookList={bookList}
+					scrollContainerKey={scrollContainerKey}
+				/>
+			) : null}
 		</Dialog.Root>
 	)
 }
