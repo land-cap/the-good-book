@@ -10,7 +10,11 @@ import { showBackdropAtom } from '~/state'
 
 import { Preferences } from './Preferences'
 
-export const PreferencesMenu = () => {
+export const PreferencesMenu = ({
+	scrollContainerKey,
+}: {
+	scrollContainerKey: number
+}) => {
 	const setShowBackdrop = useSetAtom(showBackdropAtom)
 
 	return (
@@ -30,6 +34,7 @@ export const PreferencesMenu = () => {
 							}
 						/>
 						<Macrogrid
+							key={scrollContainerKey}
 							direction="column"
 							overflow="auto"
 							overscrollBehavior="contain"
