@@ -7,6 +7,7 @@ import { isScrollLockedAtom } from '~/state'
 
 export const UseLockBodyScroll = () => {
 	const isBodyScrollLocked = useAtomValue(isScrollLockedAtom)
+
 	useLockedBody(isBodyScrollLocked)
 
 	return null
