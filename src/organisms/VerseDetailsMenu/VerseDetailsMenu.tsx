@@ -89,7 +89,21 @@ export const VerseDetailsMenu = ({
 			<Menu.Backdrop />
 			<Menu.Positioner>
 				<Menu.Content>
-					<Flex direction="column" h="inherit" maxH="inherit">
+					<Flex
+						direction="column"
+						h="inherit"
+						maxH="inherit"
+						_before={{
+							content: '""',
+							pointerEvents: 'none',
+							zIndex: '1',
+							pos: 'absolute',
+							bottom: '0',
+							h: 'calc(token(spacing.20) + token(spacing.safe_area_bottom))',
+							w: 'full',
+							fadeGradient: 'toBottom',
+						}}
+					>
 						<Header
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 							rightButton={
@@ -102,6 +116,7 @@ export const VerseDetailsMenu = ({
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
 							<styled.div
+								pos="relative"
 								key={scrollContainerKey}
 								overflow="auto"
 								overscrollBehavior="contain"
