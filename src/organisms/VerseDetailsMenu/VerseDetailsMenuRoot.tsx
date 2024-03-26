@@ -43,6 +43,8 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 	return (
 		<Dialog.Root
 			id="verse-details-menu"
+			modal
+			trapFocus
 			preventScroll={false}
 			open={!!currVerseDetailsID}
 			onOpenChange={({ open }) => !open && setCurrVerseDetailsID(null)}
