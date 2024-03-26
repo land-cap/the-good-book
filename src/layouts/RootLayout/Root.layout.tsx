@@ -4,7 +4,8 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { SafeAreaBottom } from '~/components'
-import { getBookListWithCache } from '~/db'
+import { getBookListWithCache, getChapterListWithCache } from '~/db'
+import { BookDataProvider } from '~/layouts/RootLayout/BookDataContext'
 import {
 	fontClean,
 	fontCondensed,
@@ -55,6 +56,7 @@ const getBooleanCookieValue = (
 
 export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const bookList = await getBookListWithCache()
+	const chapterList = await getChapterListWithCache()
 
 	const cookieStore = cookies()
 
@@ -77,65 +79,67 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 
 	return (
 		<RootProviders>
-			<SetUpPersistedState
-				savedTheme={savedTheme as THEME}
-				savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
-				savedLeading={Number(savedLeading) as TLeading}
-				savedFont={savedFont as TFont}
-				savedVerseBreaksLine={getBooleanCookieValue(
-					savedVerseBreaksLine,
-					verseBreaksLineDefaultValue,
-				)}
-				savedJustifyText={getBooleanCookieValue(
-					savedJustifyText,
-					justifyTextDefaultValue,
-				)}
-				savedShowNonOriginalText={getBooleanCookieValue(
-					savedShowNonOriginalText,
-					showNonOriginalTextDefaultValue,
-				)}
-				savedShowRedLetters={getBooleanCookieValue(
-					savedShowRedLetters,
-					showRedLettersDefaultValue,
-				)}
-				savedShowVerseDetailsReferences={getBooleanCookieValue(
-					savedShowVerseDetailsReferences,
-					showVerseDetailsDefaultValue,
-				)}
-			/>
-			<UseLockBodyScroll />
-			<html
-				lang="en"
-				className={cx(
-					fontSans.variable,
-					fontMono.variable,
-					fontCondensed.variable,
-					fontDyslexic.variable,
-					fontOldStyle.variable,
-					fontClean.variable,
-				)}
-			>
-				<body
-					data-theme={savedTheme}
-					className={macrogrid({
-						gridTemplateRows: 'min-content 1fr min-content',
-						minH: '100dvh',
-						overscrollBehavior: 'contain',
-						pb: '14',
-						fontSize: 'sm',
-						color: 'fg',
-						background: 'bg.canvas',
-						sm: { fontSize: 'md' },
-					})}
+			<BookDataProvider bookList={bookList} chapterList={chapterList}>
+				<SetUpPersistedState
+					savedTheme={savedTheme as THEME}
+					savedFontSizeOffset={Number(savedFontSizeOffset) as TFontSizeOffset}
+					savedLeading={Number(savedLeading) as TLeading}
+					savedFont={savedFont as TFont}
+					savedVerseBreaksLine={getBooleanCookieValue(
+						savedVerseBreaksLine,
+						verseBreaksLineDefaultValue,
+					)}
+					savedJustifyText={getBooleanCookieValue(
+						savedJustifyText,
+						justifyTextDefaultValue,
+					)}
+					savedShowNonOriginalText={getBooleanCookieValue(
+						savedShowNonOriginalText,
+						showNonOriginalTextDefaultValue,
+					)}
+					savedShowRedLetters={getBooleanCookieValue(
+						savedShowRedLetters,
+						showRedLettersDefaultValue,
+					)}
+					savedShowVerseDetailsReferences={getBooleanCookieValue(
+						savedShowVerseDetailsReferences,
+						showVerseDetailsDefaultValue,
+					)}
+				/>
+				<UseLockBodyScroll />
+				<html
+					lang="en"
+					className={cx(
+						fontSans.variable,
+						fontMono.variable,
+						fontCondensed.variable,
+						fontDyslexic.variable,
+						fontOldStyle.variable,
+						fontClean.variable,
+					)}
 				>
-					<TopToolbar />
-					{children}
-					<SafeAreaBottom css={{ column: 'content' }} />
-					<GlobalBackdrop />
-					<BottomToolbar bookList={bookList} />
-					<VerseDetailsMenuRoot bookList={bookList} />
-				</body>
-			</html>
+					<body
+						data-theme={savedTheme}
+						className={macrogrid({
+							gridTemplateRows: 'min-content 1fr min-content',
+							minH: '100dvh',
+							overscrollBehavior: 'contain',
+							pb: '14',
+							fontSize: 'sm',
+							color: 'fg',
+							background: 'bg.canvas',
+							sm: { fontSize: 'md' },
+						})}
+					>
+						<TopToolbar />
+						{children}
+						<SafeAreaBottom css={{ column: 'content' }} />
+						<GlobalBackdrop />
+						<BottomToolbar bookList={bookList} />
+						<VerseDetailsMenuRoot bookList={bookList} />
+					</body>
+				</html>
+			</BookDataProvider>
 		</RootProviders>
 	)
 }

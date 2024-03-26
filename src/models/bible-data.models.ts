@@ -37,4 +37,9 @@ export type TQuote = {
 	content: string
 }
 
-export type TChapter = (TChapterTitle | TSectionTitle | TBody | TQuote)[]
+export type TChapterDataItem = (
+	| TChapterTitle
+	| TSectionTitle
+	| TBody
+	| TQuote
+)[]
