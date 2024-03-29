@@ -4,7 +4,8 @@ import { Dialog, Portal } from '@ark-ui/react'
 import { useAtomValue, useSetAtom } from 'jotai'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { css } from 'styled-system/css'
 import { Flex, styled } from 'styled-system/jsx'
 import { macrogrid, underlined } from 'styled-system/patterns'
@@ -84,6 +85,20 @@ export const VerseDetailsMenu = ({
 		}
 	}
 
+	const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+	const { ref: topRef, inView: isTopInView } = useInView({
+		root: scrollContainerRef.current,
+	})
+
+	useEffect(() => console.log({ isTopInView }), [isTopInView])
+
+	const { ref: bottomRef, inView: isBottomInView } = useInView({
+		root: scrollContainerRef.current,
+	})
+
+	useEffect(() => console.log({ isBottomInView }), [isBottomInView])
+
 	return (
 		<Portal>
 			<Menu.Backdrop />
@@ -116,12 +131,14 @@ export const VerseDetailsMenu = ({
 						/>
 						{!!staggeredVerseDetails?.referenceList && (
 							<styled.div
+								ref={scrollContainerRef}
 								pos="relative"
 								key={scrollContainerKey}
 								overflow="auto"
 								overscrollBehavior="contain"
 								h="fit-content"
 							>
+								<styled.div ref={topRef} css={{ w: 'full' }} />
 								<CrossReferenceList>
 									{staggeredVerseDetails?.referenceList.map((reference) => (
 										<li
@@ -138,6 +155,7 @@ export const VerseDetailsMenu = ({
 									))}
 								</CrossReferenceList>
 								<SafeAreaBottom />
+								<styled.div ref={bottomRef} css={{ w: 'full' }} />
 							</styled.div>
 						)}
 						{!!staggeredVerseDetails?.footnote && (
