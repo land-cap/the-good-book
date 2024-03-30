@@ -38,6 +38,47 @@ const Footnote = styled('p', {
 	},
 })
 
+const FadeOverlay = styled('div', {
+	base: {
+		zIndex: '1',
+		overflow: 'visible',
+		pos: 'sticky',
+		h: '0',
+		w: 'full',
+		_before: {
+			content: '""',
+			pointerEvents: 'none',
+			zIndex: '1',
+			pos: 'absolute',
+			h: 'calc(token(spacing.20) + token(spacing.safe_area_bottom))',
+			w: 'full',
+			transition: 'opacity',
+			transitionDuration: 'normal',
+			transitionTimingFunction: 'ease-out',
+		},
+	},
+	variants: {
+		position: {
+			start: {
+				top: '0',
+				_after: { fadeGradient: 'toTop' },
+			},
+			end: {
+				bottom: '0',
+				_before: { fadeGradient: 'toBottom' },
+			},
+		},
+		show: {
+			true: {
+				opacity: '1',
+			},
+			false: {
+				opacity: '0',
+			},
+		},
+	},
+})
+
 export const VerseDetailsMenu = ({
 	bookList,
 	scrollContainerKey,
@@ -91,34 +132,16 @@ export const VerseDetailsMenu = ({
 		root: scrollContainerRef.current,
 	})
 
-	useEffect(() => console.log({ isTopInView }), [isTopInView])
-
 	const { ref: bottomRef, inView: isBottomInView } = useInView({
 		root: scrollContainerRef.current,
 	})
-
-	useEffect(() => console.log({ isBottomInView }), [isBottomInView])
 
 	return (
 		<Portal>
 			<Menu.Backdrop />
 			<Menu.Positioner>
 				<Menu.Content>
-					<Flex
-						direction="column"
-						h="inherit"
-						maxH="inherit"
-						_before={{
-							content: '""',
-							pointerEvents: 'none',
-							zIndex: '1',
-							pos: 'absolute',
-							bottom: '0',
-							h: 'calc(token(spacing.20) + token(spacing.safe_area_bottom))',
-							w: 'full',
-							fadeGradient: 'toBottom',
-						}}
-					>
+					<Flex direction="column" h="inherit" maxH="inherit">
 						<Header
 							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
 							rightButton={
@@ -138,6 +161,7 @@ export const VerseDetailsMenu = ({
 								overscrollBehavior="contain"
 								h="fit-content"
 							>
+								<FadeOverlay position="start" show={!isTopInView} />
 								<styled.div ref={topRef} css={{ w: 'full' }} />
 								<CrossReferenceList>
 									{staggeredVerseDetails?.referenceList.map((reference) => (
@@ -155,6 +179,7 @@ export const VerseDetailsMenu = ({
 									))}
 								</CrossReferenceList>
 								<SafeAreaBottom />
+								<FadeOverlay position="end" show={!isBottomInView} />
 								<styled.div ref={bottomRef} css={{ w: 'full' }} />
 							</styled.div>
 						)}

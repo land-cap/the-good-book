@@ -42,3 +42,5 @@ yarn-error.log*
 *.tsbuildinfo
 /styled-system/
 /.cache/
+
+/.idea/copilot
