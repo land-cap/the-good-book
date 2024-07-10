@@ -5,14 +5,7 @@ import { macrogrid } from 'styled-system/patterns'
 
 import { SafeAreaBottom } from '~/components'
 import { getBookListWithCache } from '~/db'
-import {
-	fontClean,
-	fontCondensed,
-	fontDyslexic,
-	fontMono,
-	fontOldStyle,
-	fontSans,
-} from '~/layouts/RootLayout/fonts'
+import { fontSans } from '~/layouts/RootLayout/fonts'
 import {
 	BottomToolbar,
 	SetUpPersistedState,
@@ -104,17 +97,18 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 				)}
 			/>
 			<UseLockBodyScroll />
-			<html
-				lang="en"
-				className={cx(
-					fontSans.variable,
-					fontMono.variable,
-					fontCondensed.variable,
-					fontDyslexic.variable,
-					fontOldStyle.variable,
-					fontClean.variable,
-				)}
-			>
+			<html lang="en" className={cx(fontSans.variable)}>
+				<head>
+					<link
+						rel="preload"
+						fetchPriority="high"
+						href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&text=%EE%97%84%EE%97%88%EE%9C%B2%00%EE%97%8D%EE%AE%9E%EE%AE%A8%EE%90%89%EE%AB%9D%EE%AB%A2%EF%94%AB%EE%85%A6&display=block"
+					/>
+					<link
+						rel="stylesheet"
+						href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&text=%EE%97%84%EE%97%88%EE%9C%B2%00%EE%97%8D%EE%AE%9E%EE%AE%A8%EE%90%89%EE%AB%9D%EE%AB%A2%EF%94%AB%EE%85%A6&display=block"
+					/>
+				</head>
 				<body
 					data-theme={savedTheme}
 					className={macrogrid({
