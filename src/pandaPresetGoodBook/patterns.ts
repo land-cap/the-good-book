@@ -37,7 +37,7 @@ const subgrid = definePattern({
 const caption = definePattern({
 	transform: (props) => ({
 		color: 'fg.subtle',
-		fontFamily: 'mono',
+		fontFamily: 'sans',
 		fontSize: 'caption',
 		letterSpacing: '0.05em',
 		lineHeight: 'token(spacing.6)',
