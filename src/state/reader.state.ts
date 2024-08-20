@@ -1,5 +1,5 @@
 import { atom } from 'jotai'
-import { atomFamily } from 'jotai/utils'
+import { atomFamily, atomWithStorage } from 'jotai/utils'
 import { type ReactNode } from 'react'
 
 import { type TBook } from '~/db'
@@ -61,6 +61,8 @@ export const isPreferencesMenuSuspendedAtom = atom(false)
 export const showFontMenuAtom = atom(false)
 
 export const showThemeMenuAtom = atom(false)
+
+export const currChapterUrlAtom = atomWithStorage('chapter', '/gen/1')
 
 /**
  * PREFERENCES STATE
