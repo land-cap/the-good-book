@@ -3,20 +3,19 @@
 import { Dialog, Portal } from '@ark-ui/react'
 import { useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
-import { equals, range, splitWhen } from 'ramda'
+import { equals, range } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { css, cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages'
-import { BleedList, FullscreenMenu } from '~/components'
+import { FullscreenMenu } from '~/components'
 import type { TBook } from '~/db'
 import { useBuildChapterUrl } from '~/hooks'
 import { isScrollLockedAtom } from '~/state'
 
-import { BookList } from './BookList'
-import { BookListSectionHeader } from './BookListSectionHeader'
+import { BookTabContent } from './BookTabContent'
 import { ChapterListHeader } from './ChapterListHeader'
 import {
 	ChapterList,
@@ -54,11 +53,6 @@ export const ChapterPickerMenu = ({
 	useEffect(() => {
 		setSelectedBook(currBook)
 	}, [currBook])
-
-	const [oldTestamentBookList, newTestamentBookList] = useMemo(
-		() => splitWhen((book: TBook) => book.code === 'mat')(bookList),
-		[bookList],
-	)
 
 	const chapterList = useMemo(
 		() => range(1)(selectedBook.chapter_count + 1),
@@ -118,30 +112,12 @@ export const ChapterPickerMenu = ({
 									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
 								})}
 							>
-								<BleedList.Container>
-									<BookListSectionHeader>
-										Vechiul Testament
-									</BookListSectionHeader>
-									<BookList
-										bookList={oldTestamentBookList}
-										onListItemClick={() => {
-											setTab('chapter')
-										}}
-										setSelectedBook={setSelectedBook}
-										currBookCode={currBook.code}
-									/>
-								</BleedList.Container>
-								<BleedList.Container>
-									<BookListSectionHeader>Noul Testament</BookListSectionHeader>
-									<BookList
-										bookList={newTestamentBookList}
-										onListItemClick={() => {
-											setTab('chapter')
-										}}
-										setSelectedBook={setSelectedBook}
-										currBookCode={currBook.code}
-									/>
-								</BleedList.Container>
+								<BookTabContent
+									bookList={bookList}
+									setTab={setTab}
+									setSelectedBook={setSelectedBook}
+									currBook={currBook}
+								/>
 							</TabsContent>
 							<TabsContent value="chapter" className={macrogrid()}>
 								<ChapterList
