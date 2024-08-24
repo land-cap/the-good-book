@@ -4,9 +4,9 @@ import { type ReactNode } from 'react'
 
 import { type TBook } from '~/db'
 
-export const prevChapterURLAtom = atom<string>('')
+export const prevChapterUrlAtom = atom<string>('')
 
-export const nextChapterURLAtom = atom<string>('')
+export const nextChapterUrlAtom = atom<string>('')
 
 export const isFirstChapterAtom = atom(false)
 

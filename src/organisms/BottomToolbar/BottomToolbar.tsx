@@ -7,12 +7,13 @@ import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TReaderPageParams } from '~/_pages'
 import type { TBook } from '~/db'
-import { ReturnFromReferenceFAB } from '~/organisms/BottomToolbar/ReturnFromReferenceFAB'
+import { useBuildChapterUrl } from '~/hooks'
+import { ReturnFromReferenceFab } from '~/organisms/BottomToolbar/ReturnFromReferenceFab'
 import {
 	isFirstChapterAtom,
 	isLastChapterAtom,
-	nextChapterURLAtom,
-	prevChapterURLAtom,
+	nextChapterUrlAtom,
+	prevChapterUrlAtom,
 } from '~/state'
 
 import { BottomToolbarContainer } from './BottomToolbarContainer'
@@ -20,9 +21,9 @@ import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
-	const { bookCode, chapter: _chapter } = useParams<TReaderPageParams>()
+	const { bookCode, chapter: chapterStr } = useParams<TReaderPageParams>()
 
-	const chapter = Number(_chapter)
+	const chapter = Number(chapterStr)
 
 	const currBook = bookList.find((book) => book.code === bookCode)
 
@@ -44,28 +45,44 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const nextBookCode = bookList[currBookIndex + 1]?.code
 
-	const [prevChapterURL, setPrevChapterURL] = useAtom(prevChapterURLAtom)
+	const [prevChapterUrl, setPrevChapterUrl] = useAtom(prevChapterUrlAtom)
+
+	const buildChapterUrl = useBuildChapterUrl()
 
 	useEffect(
 		() =>
-			setPrevChapterURL(
+			setPrevChapterUrl(
 				chapter === 1
-					? `/${prevBookCode}/${prevBookChapterCount}`
-					: `/${bookCode}/${chapter - 1}`,
+					? buildChapterUrl(prevBookCode)(prevBookChapterCount)
+					: buildChapterUrl(bookCode)(chapter - 1),
 			),
-		[bookCode, chapter, prevBookChapterCount, prevBookCode, setPrevChapterURL],
+		[
+			bookCode,
+			buildChapterUrl,
+			chapter,
+			prevBookChapterCount,
+			prevBookCode,
+			setPrevChapterUrl,
+		],
 	)
 
-	const [nextChapterURL, setNextChapterURL] = useAtom(nextChapterURLAtom)
+	const [nextChapterUrl, setNextChapterUrl] = useAtom(nextChapterUrlAtom)
 
 	useEffect(
 		() =>
-			setNextChapterURL(
+			setNextChapterUrl(
 				chapter === currBookChapterCount
-					? `/${nextBookCode}/1`
-					: `/${bookCode}/${chapter + 1}`,
+					? buildChapterUrl(nextBookCode)(1)
+					: buildChapterUrl(bookCode)(chapter + 1),
 			),
-		[bookCode, chapter, currBookChapterCount, nextBookCode, setNextChapterURL],
+		[
+			bookCode,
+			buildChapterUrl,
+			chapter,
+			currBookChapterCount,
+			nextBookCode,
+			setNextChapterUrl,
+		],
 	)
 
 	const [isFirstChapterInBible, setIsFirstChapterInBible] =
@@ -103,7 +120,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					pb: 'safe_area_bottom',
 				})}
 			>
-				<ReturnFromReferenceFAB />
+				<ReturnFromReferenceFab />
 				<div
 					className={hstack({
 						gap: '0',
@@ -111,7 +128,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					})}
 				>
 					<ReaderNavButton
-						url={prevChapterURL}
+						url={prevChapterUrl}
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
@@ -122,7 +139,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					/>
 
 					<ReaderNavButton
-						url={nextChapterURL}
+						url={nextChapterUrl}
 						direction="right"
 						isDisabled={isLastChapterInBible}
 					/>

@@ -4,7 +4,6 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { SafeAreaBottom } from '~/components'
-import { getBookListWithCache } from '~/db'
 import {
 	fontClean,
 	fontCondensed,
@@ -13,12 +12,7 @@ import {
 	fontOldStyle,
 	fontSans,
 } from '~/layouts/RootLayout/fonts'
-import {
-	BottomToolbar,
-	SetUpPersistedState,
-	TopToolbar,
-	VerseDetailsMenuRoot,
-} from '~/organisms'
+import { SetUpPersistedState } from '~/organisms'
 import {
 	FONT_COOKIE,
 	FONT_SIZE_OFFSET_COOKIE,
@@ -53,9 +47,7 @@ const getBooleanCookieValue = (
 	fallback: boolean,
 ) => (cookieValue ? cookieValue === 'true' : fallback)
 
-export const RootLayout = async ({ children }: { children: ReactNode }) => {
-	const bookList = await getBookListWithCache()
-
+export const RootLayout = ({ children }: { children: ReactNode }) => {
 	const cookieStore = cookies()
 
 	const savedTheme = cookieStore.get(THEME_COOKIE)?.value ?? themeDefaultValue
@@ -128,12 +120,9 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 						sm: { fontSize: 'md' },
 					})}
 				>
-					<TopToolbar />
 					{children}
 					<SafeAreaBottom css={{ column: 'content' }} />
 					<GlobalBackdrop />
-					<BottomToolbar bookList={bookList} />
-					<VerseDetailsMenuRoot bookList={bookList} />
 				</body>
 			</html>
 		</RootProviders>

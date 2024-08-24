@@ -12,6 +12,7 @@ import { button } from 'styled-system/recipes'
 import type { TReaderPageParams } from '~/_pages'
 import { BleedList, FullscreenMenu } from '~/components'
 import type { TBook } from '~/db'
+import { useBuildChapterUrl } from '~/hooks'
 import { isScrollLockedAtom } from '~/state'
 
 import { BookList } from './BookList'
@@ -81,6 +82,8 @@ export const ChapterPickerMenu = ({
 			document.body.scrollIntoView({ behavior: 'instant' })
 		}
 	}
+
+	const buildChapterUrl = useBuildChapterUrl()
 
 	return (
 		<Dialog.Root
@@ -157,7 +160,9 @@ export const ChapterPickerMenu = ({
 										const isCurrChapter =
 											selectedBook.id === currBook.id && chapter === currChapter
 
-										const chapterUrl = `/${selectedBook.code}/${chapter}`
+										const chapterUrl = buildChapterUrl(selectedBook.code)(
+											chapter,
+										)
 
 										return (
 											<ChapterListItem

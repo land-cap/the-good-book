@@ -11,8 +11,8 @@ import {
 	isLastChapterAtom,
 	leadingAtom,
 	leadingDefaultValue,
-	nextChapterURLAtom,
-	prevChapterURLAtom,
+	nextChapterUrlAtom,
+	prevChapterUrlAtom,
 	type TFontSizeOffset,
 	type TLeading,
 } from '~/state'
@@ -53,11 +53,11 @@ export const UseReaderHotKeys = () => {
 
 	const router = useRouter()
 
-	const prevChapterURL = useAtomValue(prevChapterURLAtom)
+	const prevChapterURL = useAtomValue(prevChapterUrlAtom)
 	const isFirstChapter = useAtomValue(isFirstChapterAtom)
 	const goToPrevChapter = () => !isFirstChapter && router.push(prevChapterURL)
 
-	const nextChapterURL = useAtomValue(nextChapterURLAtom)
+	const nextChapterURL = useAtomValue(nextChapterUrlAtom)
 	const isLastChapter = useAtomValue(isLastChapterAtom)
 	const goToNextChapter = () => !isLastChapter && router.push(nextChapterURL)
 

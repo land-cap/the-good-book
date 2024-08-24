@@ -24,7 +24,7 @@ const buttonCls = cx(
 	}),
 )
 
-export const ReturnFromReferenceFAB = () => {
+export const ReturnFromReferenceFab = () => {
 	const [origin, setOrigin] = useAtom(referenceOriginAtom)
 
 	const staggeredOrigin = useRef(origin)
