@@ -11,12 +11,10 @@ import { type TChapterPickerTab } from './ChapterPickerMenu'
 export const BookTabContent = ({
 	bookList,
 	setTab,
-	setSelectedBook,
 	currBook,
 }: {
 	bookList: TBook[]
 	setTab: Dispatch<SetStateAction<TChapterPickerTab>>
-	setSelectedBook: Dispatch<SetStateAction<TBook>>
 	currBook: TBook
 }) => {
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
@@ -33,7 +31,6 @@ export const BookTabContent = ({
 					onListItemClick={() => {
 						setTab('chapter')
 					}}
-					setSelectedBook={setSelectedBook}
 					currBookCode={currBook.code}
 				/>
 			</BleedList.Container>
@@ -44,7 +41,6 @@ export const BookTabContent = ({
 					onListItemClick={() => {
 						setTab('chapter')
 					}}
-					setSelectedBook={setSelectedBook}
 					currBookCode={currBook.code}
 				/>
 			</BleedList.Container>

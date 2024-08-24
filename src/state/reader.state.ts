@@ -4,6 +4,8 @@ import { type ReactNode } from 'react'
 
 import { type TBook } from '~/db'
 
+export const bookListAtom = atom<TBook[]>([])
+
 export const prevChapterUrlAtom = atom<string>('')
 
 export const nextChapterUrlAtom = atom<string>('')

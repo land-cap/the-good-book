@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, Portal } from '@ark-ui/react'
-import { useSetAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
 import { equals, range } from 'ramda'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -17,6 +17,7 @@ import { isScrollLockedAtom } from '~/state'
 
 import { BookTabContent } from './BookTabContent'
 import { ChapterListHeader } from './ChapterListHeader'
+import { selectedBookAtom, selectedBookIdAtom } from './ChapterPickerMenu.state'
 import {
 	ChapterList,
 	ChapterListItem,
@@ -48,14 +49,19 @@ export const ChapterPickerMenu = ({
 		[isDialogOpen, setIsBodyScrollLocked],
 	)
 
-	const [selectedBook, setSelectedBook] = useState<TBook>(currBook)
+	const setSelectedBookId = useSetAtom(selectedBookIdAtom)
 
 	useEffect(() => {
-		setSelectedBook(currBook)
-	}, [currBook])
+		setSelectedBookId(currBook.id)
+	}, [currBook.id, setSelectedBookId])
+
+	const selectedBook = useAtomValue(selectedBookAtom)
 
 	const chapterList = useMemo(
-		() => range(1)(selectedBook.chapter_count + 1),
+		() =>
+			selectedBook?.chapter_count
+				? range(1)(selectedBook.chapter_count + 1)
+				: [],
 		[selectedBook],
 	)
 
@@ -105,7 +111,9 @@ export const ChapterPickerMenu = ({
 							value={tab}
 							onValueChange={({ value }) => setTab(value as 'book' | 'chapter')}
 						>
-							<Header onTabsTriggerClick={() => setSelectedBook(currBook)} />
+							<Header
+								onTabsTriggerClick={() => setSelectedBookId(currBook.id)}
+							/>
 							<TabsContent
 								value="book"
 								className={css({
@@ -115,7 +123,6 @@ export const ChapterPickerMenu = ({
 								<BookTabContent
 									bookList={bookList}
 									setTab={setTab}
-									setSelectedBook={setSelectedBook}
 									currBook={currBook}
 								/>
 							</TabsContent>
@@ -130,13 +137,14 @@ export const ChapterPickerMenu = ({
 									<ChapterListHeader
 										chapterListItemHeight={chapterListItemHeight}
 									>
-										{selectedBook.book_name?.value}
+										{selectedBook?.book_name?.value}
 									</ChapterListHeader>
 									{chapterList?.map((chapter) => {
 										const isCurrChapter =
-											selectedBook.id === currBook.id && chapter === currChapter
+											selectedBook?.id === currBook.id &&
+											chapter === currChapter
 
-										const chapterUrl = buildChapterUrl(selectedBook.code)(
+										const chapterUrl = buildChapterUrl(selectedBook?.code)(
 											chapter,
 										)
 
