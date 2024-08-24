@@ -74,15 +74,15 @@ const getVerseRange = ({
 	const verseRangeStr = referenceWithoutBookName?.trim()?.split(':')[1]
 
 	if (!verseRangeStr) {
-		return null
+		return undefined
 	}
 
 	if (isSingleChapterBook) {
 		// chapter is actually verse for single-chapter books
-		return chapter ? ([chapter] as string[]) : null
+		return chapter
 	}
 
-	return verseRangeStr.split(',')
+	return verseRangeStr
 }
 
 const addDetailsToReference = (
@@ -107,8 +107,6 @@ const addDetailsToReference = (
 		isSingleChapterBook,
 		chapter,
 	})
-
-	console.log(verseRange)
 
 	return {
 		label:

@@ -13,7 +13,7 @@ export const useBuildReaderUrl = () => {
 		}: {
 			bookCode?: string
 			chapter?: number
-			verseRange?: string | number
+			verseRange?: string
 		}) => {
 			if (!bookCode) {
 				return readerLayoutPathname

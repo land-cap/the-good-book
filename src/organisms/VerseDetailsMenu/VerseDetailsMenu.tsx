@@ -21,7 +21,6 @@ import {
 	referenceOriginAtom,
 	selectedReferenceAtom,
 	type TCrossReference,
-	type TVerseDetails,
 } from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
@@ -58,13 +57,6 @@ export const VerseDetailsMenu = ({
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
 
-	const [staggeredVerseDetails, setStaggeredVerseDetails] =
-		useState<TVerseDetails | null>(null)
-
-	useEffect(() => {
-		verseDetails && setStaggeredVerseDetails(verseDetails)
-	}, [verseDetails])
-
 	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
 	const closeMenu = () => setCurrVerseDetailsId(null)
@@ -82,7 +74,7 @@ export const VerseDetailsMenu = ({
 			setReferenceOrigin({
 				book: currBook,
 				chapter: Number(chapter),
-				verse: staggeredVerseDetails?.verse,
+				verse: verseDetails?.verse,
 			})
 		}
 	}
@@ -96,7 +88,7 @@ export const VerseDetailsMenu = ({
 				<Menu.Content>
 					<Flex direction="column" h="inherit" maxH="inherit">
 						<Header
-							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
+							title={`${currBookName} ${chapter}:${verseDetails?.verse}`}
 							rightButton={
 								<Dialog.CloseTrigger
 									className={button({ icon: true, size: 'xl' })}
@@ -105,7 +97,7 @@ export const VerseDetailsMenu = ({
 								</Dialog.CloseTrigger>
 							}
 						/>
-						{!!staggeredVerseDetails?.referenceList && (
+						{!!verseDetails?.referenceList && (
 							<styled.div
 								key={scrollContainerKey}
 								overflow="auto"
@@ -113,7 +105,7 @@ export const VerseDetailsMenu = ({
 								h="fit-content"
 							>
 								<CrossReferenceList>
-									{staggeredVerseDetails?.referenceList.map((reference) => (
+									{verseDetails?.referenceList.map((reference) => (
 										<li
 											className={css({ column: 'content' })}
 											key={reference.label}
@@ -122,6 +114,7 @@ export const VerseDetailsMenu = ({
 												href={buildReaderUrl({
 													bookCode: reference.bookCode,
 													chapter: reference.chapter,
+													verseRange: reference.verseRange,
 												})}
 												onClick={() => handleReferenceLinkClick(reference)}
 											>
@@ -133,9 +126,9 @@ export const VerseDetailsMenu = ({
 								<SafeAreaBottom />
 							</styled.div>
 						)}
-						{!!staggeredVerseDetails?.footnote && (
+						{!!verseDetails?.footnote && (
 							<div className={macrogrid()}>
-								<Footnote>{staggeredVerseDetails?.footnote}</Footnote>
+								<Footnote>{verseDetails?.footnote}</Footnote>
 								<SafeAreaBottom css={{ column: 'content' }} />
 							</div>
 						)}

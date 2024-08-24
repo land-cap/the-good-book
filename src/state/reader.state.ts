@@ -34,7 +34,7 @@ export type TCrossReference = {
 	label: string
 	bookCode: string
 	chapter: number
-	verseRange: string[] | null
+	verseRange?: string
 }
 
 export type TVerseDetails = {
