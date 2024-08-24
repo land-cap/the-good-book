@@ -28,11 +28,11 @@ const buttonCls = cx(
 export const ReturnFromReferenceFab = () => {
 	const [origin, setOrigin] = useAtom(referenceOriginAtom)
 
-	const staggeredOrigin = useRef(origin)
+	const originRef = useRef(origin)
 
 	useEffect(() => {
 		if (origin) {
-			staggeredOrigin.current = origin
+			originRef.current = origin
 		}
 	}, [origin])
 
@@ -85,12 +85,13 @@ export const ReturnFromReferenceFab = () => {
 
 	const show = hasNavigatedToReference && !hasLeftReference && !hasBeenClicked
 
+	const originBookCode = originRef.current?.book?.code
+	const originBookName = originRef.current?.book?.book_name?.value
+	const originChapter = originRef.current?.chapter
+	const originVerse = originRef.current?.verse
+
 	const buildReaderUrl = useBuildReaderUrl()
 
-	const originBookCode = staggeredOrigin.current?.book?.code
-	const originBookName = staggeredOrigin.current?.book?.book_name?.value
-	const originChapter = staggeredOrigin.current?.chapter
-	const originVerse = staggeredOrigin.current?.verse
 	const referenceOriginUrl = buildReaderUrl({
 		bookCode: originBookCode,
 		chapter: originChapter,

@@ -12,9 +12,10 @@ import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
-import { getBookWithCache, type TBook } from '~/db'
+import { type TBook } from '~/db'
 import { useBuildReaderUrl } from '~/hooks'
 import {
+	currBookAtom,
 	currVerseDetailsAtom,
 	currVerseDetailsIdAtom,
 	referenceOriginAtom,
@@ -72,9 +73,10 @@ export const VerseDetailsMenu = ({
 
 	const setSelectedReference = useSetAtom(selectedReferenceAtom)
 
-	const handleReferenceLinkClick = async (reference: TCrossReference) => {
+	const currBook = useAtomValue(currBookAtom)
+
+	const handleReferenceLinkClick = (reference: TCrossReference) => {
 		closeMenu()
-		const currBook = await getBookWithCache(bookCode)
 		setSelectedReference(reference)
 		if (currBook) {
 			setReferenceOrigin({
