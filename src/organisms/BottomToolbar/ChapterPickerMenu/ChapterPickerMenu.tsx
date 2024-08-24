@@ -11,11 +11,10 @@ import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages'
 import { FullscreenMenu } from '~/components'
-import type { TBook } from '~/db'
 import { useBuildChapterUrl } from '~/hooks'
-import { isScrollLockedAtom } from '~/state'
+import { currBookAtom, currChapterAtom, isScrollLockedAtom } from '~/state'
 
-import { BookTabContent } from './BookTabContent'
+import { BookTabView } from './BookTabView'
 import { ChapterListHeader } from './ChapterListHeader'
 import { selectedBookAtom, selectedBookIdAtom } from './chapterPickerMenu.state'
 import {
@@ -30,13 +29,7 @@ import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeig
 
 export type TChapterPickerTab = 'book' | 'chapter'
 
-export const ChapterPickerMenu = ({
-	currBook,
-	currChapter,
-}: {
-	currChapter: number
-	currBook: TBook
-}) => {
+export const ChapterPickerMenu = () => {
 	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -47,11 +40,13 @@ export const ChapterPickerMenu = ({
 		[isDialogOpen, setIsBodyScrollLocked],
 	)
 
+	const currBook = useAtomValue(currBookAtom)
+
 	const setSelectedBookId = useSetAtom(selectedBookIdAtom)
 
 	useEffect(() => {
-		setSelectedBookId(currBook.id)
-	}, [currBook.id, setSelectedBookId])
+		currBook && setSelectedBookId(currBook.id)
+	}, [currBook, setSelectedBookId])
 
 	const selectedBook = useAtomValue(selectedBookAtom)
 
@@ -70,6 +65,8 @@ export const ChapterPickerMenu = ({
 
 	const paramsValueBeforeDialogOpened = useRef(params)
 
+	const currChapter = useAtomValue(currChapterAtom)
+
 	const handleDialogExitComplete = () => {
 		const hasParamsChanged = !equals(
 			paramsValueBeforeDialogOpened.current,
@@ -82,6 +79,10 @@ export const ChapterPickerMenu = ({
 	}
 
 	const buildChapterUrl = useBuildChapterUrl()
+
+	if (!currBook) {
+		throw new Error('Missing current book data.')
+	}
 
 	return (
 		<Dialog.Root
@@ -118,7 +119,7 @@ export const ChapterPickerMenu = ({
 									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
 								})}
 							>
-								<BookTabContent setTab={setTab} currBook={currBook} />
+								<BookTabView setTab={setTab} />
 							</TabsContent>
 							<TabsContent value="chapter" className={macrogrid()}>
 								<ChapterList

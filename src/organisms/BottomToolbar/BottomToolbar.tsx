@@ -133,7 +133,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
-					<ChapterPickerMenu currChapter={chapter} currBook={currBook} />
+					<ChapterPickerMenu />
 
 					<ReaderNavButton
 						url={nextChapterUrl}

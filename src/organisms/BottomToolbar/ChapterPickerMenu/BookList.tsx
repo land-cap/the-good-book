@@ -1,19 +1,17 @@
-import { useSetAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 
 import { BleedList } from '~/components'
-import { type TBook } from '~/db'
+import { bookListAtom, currBookCodeAtom } from '~/state'
 
 import { selectedBookIdAtom } from './chapterPickerMenu.state'
 
 export const BookList = ({
-	bookList,
 	onListItemClick,
-	currBookCode,
 }: {
-	bookList: TBook[]
 	onListItemClick: () => void
-	currBookCode: string
 }) => {
+	const bookList = useAtomValue(bookListAtom)
+	const currBookCode = useAtomValue(currBookCodeAtom)
 	const setSelectedBookId = useSetAtom(selectedBookIdAtom)
 
 	return bookList.map((book, index) => (

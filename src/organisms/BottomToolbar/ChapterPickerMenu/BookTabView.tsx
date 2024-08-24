@@ -4,18 +4,16 @@ import { type Dispatch, type SetStateAction, useMemo } from 'react'
 
 import { BleedList } from '~/components'
 import type { TBook } from '~/db'
-import { bookListAtom } from '~/state'
+import { bookListAtom, currBookAtom } from '~/state'
 
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
 import { type TChapterPickerTab } from './ChapterPickerMenu'
 
-export const BookTabContent = ({
+export const BookTabView = ({
 	setTab,
-	currBook,
 }: {
 	setTab: Dispatch<SetStateAction<TChapterPickerTab>>
-	currBook: TBook
 }) => {
 	const bookList = useAtomValue(bookListAtom)
 
@@ -23,6 +21,12 @@ export const BookTabContent = ({
 		() => splitWhen((book: TBook) => book.code === 'mat')(bookList),
 		[bookList],
 	)
+
+	const currBook = useAtomValue(currBookAtom)
+
+	if (!currBook) {
+		throw new Error('Missing current book data.')
+	}
 
 	return (
 		<>
