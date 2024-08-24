@@ -13,7 +13,7 @@ import { button } from 'styled-system/recipes'
 import { type TReaderPageParams } from '~/_pages'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
-import { useBuildChapterUrl } from '~/hooks'
+import { useBuildReaderUrl } from '~/hooks'
 import {
 	currVerseDetailsAtom,
 	currVerseDetailsIdAtom,
@@ -85,7 +85,7 @@ export const VerseDetailsMenu = ({
 		}
 	}
 
-	const buildChapterPath = useBuildChapterUrl()
+	const buildReaderUrl = useBuildReaderUrl()
 
 	return (
 		<Portal>
@@ -117,9 +117,10 @@ export const VerseDetailsMenu = ({
 											key={reference.label}
 										>
 											<ReferenceLink
-												href={buildChapterPath(reference.bookCode)(
-													reference.chapter,
-												)}
+												href={buildReaderUrl({
+													bookCode: reference.bookCode,
+													chapter: reference.chapter,
+												})}
 												onClick={() => handleReferenceLinkClick(reference)}
 											>
 												{reference.label}

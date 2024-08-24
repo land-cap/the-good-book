@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TBook } from '~/db'
-import { useBuildChapterUrl } from '~/hooks'
+import { useBuildReaderUrl } from '~/hooks'
 import {
 	currBookAtom,
 	currBookCodeAtom,
@@ -48,18 +48,21 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const [prevChapterUrl, setPrevChapterUrl] = useAtom(prevChapterUrlAtom)
 
-	const buildChapterPath = useBuildChapterUrl()
+	const buildReaderUrl = useBuildReaderUrl()
 
 	useEffect(
 		() =>
 			setPrevChapterUrl(
 				chapter === 1
-					? buildChapterPath(prevBookCode)(prevBookChapterCount)
-					: buildChapterPath(bookCode)(chapter - 1),
+					? buildReaderUrl({
+							bookCode: prevBookCode,
+							chapter: prevBookChapterCount,
+					  })
+					: buildReaderUrl({ bookCode, chapter: chapter - 1 }),
 			),
 		[
 			bookCode,
-			buildChapterPath,
+			buildReaderUrl,
 			chapter,
 			prevBookChapterCount,
 			prevBookCode,
@@ -73,12 +76,12 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 		() =>
 			setNextChapterUrl(
 				chapter === currBookChapterCount
-					? buildChapterPath(nextBookCode)(1)
-					: buildChapterPath(bookCode)(chapter + 1),
+					? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
+					: buildReaderUrl({ bookCode, chapter: chapter + 1 }),
 			),
 		[
 			bookCode,
-			buildChapterPath,
+			buildReaderUrl,
 			chapter,
 			currBookChapterCount,
 			nextBookCode,

@@ -11,7 +11,7 @@ import { button } from 'styled-system/recipes'
 
 import type { TReaderPageParams } from '~/_pages'
 import { FullscreenMenu } from '~/components'
-import { useBuildChapterUrl } from '~/hooks'
+import { useBuildReaderUrl } from '~/hooks'
 import { currBookAtom, currChapterAtom, isScrollLockedAtom } from '~/state'
 
 import { BookTabView } from './BookTabView'
@@ -78,7 +78,7 @@ export const ChapterPickerMenu = () => {
 		}
 	}
 
-	const buildChapterPath = useBuildChapterUrl()
+	const buildReaderUrl = useBuildReaderUrl()
 
 	if (!currBook) {
 		throw new Error('Missing current book data.')
@@ -139,9 +139,10 @@ export const ChapterPickerMenu = () => {
 											selectedBook?.id === currBook.id &&
 											chapter === currChapter
 
-										const chapterUrl = buildChapterPath(selectedBook?.code)(
+										const chapterUrl = buildReaderUrl({
+											bookCode: selectedBook?.code,
 											chapter,
-										)
+										})
 
 										return (
 											<ChapterListItem

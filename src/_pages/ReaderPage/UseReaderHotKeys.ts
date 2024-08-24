@@ -53,13 +53,13 @@ export const UseReaderHotKeys = () => {
 
 	const router = useRouter()
 
-	const prevChapterURL = useAtomValue(prevChapterUrlAtom)
+	const prevChapterUrl = useAtomValue(prevChapterUrlAtom)
 	const isFirstChapter = useAtomValue(isFirstChapterAtom)
-	const goToPrevChapter = () => !isFirstChapter && router.push(prevChapterURL)
+	const goToPrevChapter = () => !isFirstChapter && router.push(prevChapterUrl)
 
-	const nextChapterURL = useAtomValue(nextChapterUrlAtom)
+	const nextChapterUrl = useAtomValue(nextChapterUrlAtom)
 	const isLastChapter = useAtomValue(isLastChapterAtom)
-	const goToNextChapter = () => !isLastChapter && router.push(nextChapterURL)
+	const goToNextChapter = () => !isLastChapter && router.push(nextChapterUrl)
 
 	useHotkeys([
 		['mod+-', decreaseFontSize],
