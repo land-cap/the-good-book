@@ -6,6 +6,16 @@ import { type TBook } from '~/db'
 
 export const bookListAtom = atom<TBook[]>([])
 
+export const currBookCodeAtom = atom('')
+
+export const currBookAtom = atom((get) => {
+	const bookList = get(bookListAtom)
+	const currBookCode = get(currBookCodeAtom)
+	return bookList.find(({ code }) => code === currBookCode)
+})
+
+export const currChapterAtom = atom(undefined as unknown as number)
+
 export const prevChapterUrlAtom = atom<string>('')
 
 export const nextChapterUrlAtom = atom<string>('')

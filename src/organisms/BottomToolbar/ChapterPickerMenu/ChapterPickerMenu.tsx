@@ -17,7 +17,7 @@ import { isScrollLockedAtom } from '~/state'
 
 import { BookTabContent } from './BookTabContent'
 import { ChapterListHeader } from './ChapterListHeader'
-import { selectedBookAtom, selectedBookIdAtom } from './ChapterPickerMenu.state'
+import { selectedBookAtom, selectedBookIdAtom } from './chapterPickerMenu.state'
 import {
 	ChapterList,
 	ChapterListItem,
@@ -33,11 +33,9 @@ export type TChapterPickerTab = 'book' | 'chapter'
 export const ChapterPickerMenu = ({
 	currBook,
 	currChapter,
-	bookList,
 }: {
 	currChapter: number
 	currBook: TBook
-	bookList: TBook[]
 }) => {
 	const [tab, setTab] = useState<TChapterPickerTab>('book')
 
@@ -120,11 +118,7 @@ export const ChapterPickerMenu = ({
 									pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
 								})}
 							>
-								<BookTabContent
-									bookList={bookList}
-									setTab={setTab}
-									currBook={currBook}
-								/>
+								<BookTabContent setTab={setTab} currBook={currBook} />
 							</TabsContent>
 							<TabsContent value="chapter" className={macrogrid()}>
 								<ChapterList

@@ -1,9 +1,9 @@
 import { useSetAtom } from 'jotai'
 
-import { BleedList } from '~/components/BleedList/BleedList'
+import { BleedList } from '~/components'
 import { type TBook } from '~/db'
 
-import { selectedBookIdAtom } from './ChapterPickerMenu.state'
+import { selectedBookIdAtom } from './chapterPickerMenu.state'
 
 export const BookList = ({
 	bookList,

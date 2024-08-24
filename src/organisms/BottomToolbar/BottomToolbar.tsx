@@ -1,15 +1,15 @@
 'use client'
 
-import { useAtom } from 'jotai'
-import { useParams } from 'next/navigation'
+import { useAtom, useAtomValue } from 'jotai'
 import { useEffect } from 'react'
 import { hstack, subgrid } from 'styled-system/patterns'
 
-import type { TReaderPageParams } from '~/_pages'
 import type { TBook } from '~/db'
 import { useBuildChapterUrl } from '~/hooks'
-import { ReturnFromReferenceFab } from '~/organisms/BottomToolbar/ReturnFromReferenceFab'
 import {
+	currBookAtom,
+	currBookCodeAtom,
+	currChapterAtom,
 	isFirstChapterAtom,
 	isLastChapterAtom,
 	nextChapterUrlAtom,
@@ -19,13 +19,14 @@ import {
 import { BottomToolbarContainer } from './BottomToolbarContainer'
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
+import { ReturnFromReferenceFab } from './ReturnFromReferenceFab'
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
-	const { bookCode, chapter: chapterStr } = useParams<TReaderPageParams>()
+	const bookCode = useAtomValue(currBookCodeAtom)
 
-	const chapter = Number(chapterStr)
+	const chapter = useAtomValue(currChapterAtom)
 
-	const currBook = bookList.find((book) => book.code === bookCode)
+	const currBook = useAtomValue(currBookAtom)
 
 	if (!currBook) {
 		throw new Error('No book data')
@@ -132,11 +133,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
-					<ChapterPickerMenu
-						currChapter={chapter}
-						currBook={currBook}
-						bookList={bookList}
-					/>
+					<ChapterPickerMenu currChapter={chapter} currBook={currBook} />
 
 					<ReaderNavButton
 						url={nextChapterUrl}

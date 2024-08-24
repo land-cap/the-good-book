@@ -12,7 +12,7 @@ export const metadata = {
 	description: 'Read the Bible without distractions.',
 	icons: [{ rel: 'icon', url: '/favicon.png' }],
 	other: {
-		'apple-mobile-web-app-capable': 'yes',
+		'mobile-web-app-capable': 'yes',
 	},
 	title: 'The Good Book',
 }

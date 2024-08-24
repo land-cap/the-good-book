@@ -1,17 +1,36 @@
 'use client'
 
-import { useSetAtom } from 'jotai'
-import { useEffect } from 'react'
+import { useAtom, useSetAtom } from 'jotai'
+import { useParams } from 'next/navigation'
+import { useState } from 'react'
 
+import type { TReaderPageParams } from '~/_pages'
 import { type TBook } from '~/db'
-import { bookListAtom } from '~/state'
+import { bookListAtom, currBookCodeAtom, currChapterAtom } from '~/state'
 
 export const UseSetUpReaderState = ({ bookList }: { bookList: TBook[] }) => {
 	const setBookList = useSetAtom(bookListAtom)
 
-	useEffect(() => {
+	const [shouldSetUpBookListState, setShouldSetUpBookListState] = useState(true)
+
+	if (shouldSetUpBookListState) {
 		setBookList(bookList)
-	}, [bookList, setBookList])
+		setShouldSetUpBookListState(false)
+	}
+
+	const { bookCode: bookCodeParam, chapter: chapterParam } =
+		useParams<TReaderPageParams>()
+
+	const [currBookCode, setCurrBookCode] = useAtom(currBookCodeAtom)
+
+	if (bookCodeParam && currBookCode !== bookCodeParam) {
+		setCurrBookCode(bookCodeParam)
+	}
+	const [currChapter, setCurrChapter] = useAtom(currChapterAtom)
+
+	if (chapterParam && currChapter !== Number(chapterParam)) {
+		setCurrChapter(Number(chapterParam))
+	}
 
 	return null
 }

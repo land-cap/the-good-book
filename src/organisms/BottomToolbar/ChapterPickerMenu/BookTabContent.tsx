@@ -1,22 +1,24 @@
+import { useAtomValue } from 'jotai'
 import { splitWhen } from 'ramda'
 import { type Dispatch, type SetStateAction, useMemo } from 'react'
 
 import { BleedList } from '~/components'
 import type { TBook } from '~/db'
+import { bookListAtom } from '~/state'
 
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
 import { type TChapterPickerTab } from './ChapterPickerMenu'
 
 export const BookTabContent = ({
-	bookList,
 	setTab,
 	currBook,
 }: {
-	bookList: TBook[]
 	setTab: Dispatch<SetStateAction<TChapterPickerTab>>
 	currBook: TBook
 }) => {
+	const bookList = useAtomValue(bookListAtom)
+
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
 		() => splitWhen((book: TBook) => book.code === 'mat')(bookList),
 		[bookList],
