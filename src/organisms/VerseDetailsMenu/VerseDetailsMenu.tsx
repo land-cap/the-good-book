@@ -13,9 +13,10 @@ import { button } from 'styled-system/recipes'
 import { type TReaderPageParams } from '~/_pages'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { getBookWithCache, type TBook } from '~/db'
+import { useBuildChapterUrl } from '~/hooks'
 import {
 	currVerseDetailsAtom,
-	currVerseDetailsIDAtom,
+	currVerseDetailsIdAtom,
 	referenceOriginAtom,
 	selectedReferenceAtom,
 	type TCrossReference,
@@ -63,9 +64,9 @@ export const VerseDetailsMenu = ({
 		verseDetails && setStaggeredVerseDetails(verseDetails)
 	}, [verseDetails])
 
-	const setCurrVerseDetailsID = useSetAtom(currVerseDetailsIDAtom)
+	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
-	const closeMenu = () => setCurrVerseDetailsID(null)
+	const closeMenu = () => setCurrVerseDetailsId(null)
 
 	const setReferenceOrigin = useSetAtom(referenceOriginAtom)
 
@@ -83,6 +84,8 @@ export const VerseDetailsMenu = ({
 			})
 		}
 	}
+
+	const buildChapterPath = useBuildChapterUrl()
 
 	return (
 		<Portal>
@@ -114,7 +117,9 @@ export const VerseDetailsMenu = ({
 											key={reference.label}
 										>
 											<ReferenceLink
-												href={reference.url}
+												href={buildChapterPath(reference.bookCode)(
+													reference.chapter,
+												)}
 												onClick={() => handleReferenceLinkClick(reference)}
 											>
 												{reference.label}

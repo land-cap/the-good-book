@@ -9,6 +9,7 @@ import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages'
 import { Icon } from '~/components'
+import { useBuildChapterUrl } from '~/hooks'
 import { referenceOriginAtom, selectedReferenceAtom } from '~/state'
 
 const iconCls = css({
@@ -84,13 +85,15 @@ export const ReturnFromReferenceFab = () => {
 
 	const show = hasNavigatedToReference && !hasLeftReference && !hasBeenClicked
 
+	const buildChapterUrl = useBuildChapterUrl()
+
 	const originBookCode = staggeredOrigin.current?.book?.code
 	const originBookName = staggeredOrigin.current?.book?.book_name?.value
 	const originChapter = staggeredOrigin.current?.chapter
 	const originVerse = staggeredOrigin.current?.verse
-	const referenceOriginUrl = `/${originBookCode}/${originChapter}${
-		originVerse ? `?verse-range=${originVerse}` : ''
-	}`
+	const referenceOriginUrl = `${buildChapterUrl(originBookCode)(
+		originChapter,
+	)}${originVerse ? `?verse-range=${originVerse}` : ''}`
 
 	const handleClick = () => {
 		setHasBeenClicked(true)

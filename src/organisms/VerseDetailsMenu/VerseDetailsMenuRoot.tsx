@@ -8,7 +8,7 @@ import { useIsClient } from 'usehooks-ts'
 
 import type { TBook } from '~/db'
 import {
-	currVerseDetailsIDAtom,
+	currVerseDetailsIdAtom,
 	isScrollLockedAtom,
 	showVerseDetailsAtom,
 } from '~/state'
@@ -19,7 +19,7 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
 	const [currVerseDetailsID, setCurrVerseDetailsID] = useAtom(
-		currVerseDetailsIDAtom,
+		currVerseDetailsIdAtom,
 	)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)

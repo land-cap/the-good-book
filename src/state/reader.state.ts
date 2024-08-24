@@ -28,11 +28,10 @@ export const isLastChapterAtom = atom(false)
  * VERSE DETAILS STATE
  */
 
-export const currVerseDetailsIDAtom = atom<string | null>(null)
+export const currVerseDetailsIdAtom = atom<string | null>(null)
 
 export type TCrossReference = {
 	label: string
-	url: string
 	bookCode: string
 	chapter: number
 }
@@ -50,7 +49,7 @@ export const verseDetailsAtomFamily = atomFamily(
 )
 
 export const currVerseDetailsAtom = atom((get) => {
-	const id = get(currVerseDetailsIDAtom)
+	const id = get(currVerseDetailsIdAtom)
 	return id ? get(verseDetailsAtomFamily(id)) : null
 })
 

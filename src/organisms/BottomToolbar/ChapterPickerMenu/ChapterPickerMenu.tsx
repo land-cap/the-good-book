@@ -78,7 +78,7 @@ export const ChapterPickerMenu = () => {
 		}
 	}
 
-	const buildChapterUrl = useBuildChapterUrl()
+	const buildChapterPath = useBuildChapterUrl()
 
 	if (!currBook) {
 		throw new Error('Missing current book data.')
@@ -139,7 +139,7 @@ export const ChapterPickerMenu = () => {
 											selectedBook?.id === currBook.id &&
 											chapter === currChapter
 
-										const chapterUrl = buildChapterUrl(selectedBook?.code)(
+										const chapterUrl = buildChapterPath(selectedBook?.code)(
 											chapter,
 										)
 

@@ -11,7 +11,7 @@ import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapt
 import { Icon } from '~/components'
 import { type TBook } from '~/db'
 import {
-	currVerseDetailsIDAtom,
+	currVerseDetailsIdAtom,
 	showVerseDetailsAtom,
 	verseDetailsAtomFamily,
 } from '~/state'
@@ -54,7 +54,7 @@ export const VerseDetailsButton = ({
 
 	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
 
-	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIDAtom)
+	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
 	const currVerse = useContext(CurrVerseContext)
 

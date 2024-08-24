@@ -48,18 +48,18 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const [prevChapterUrl, setPrevChapterUrl] = useAtom(prevChapterUrlAtom)
 
-	const buildChapterUrl = useBuildChapterUrl()
+	const buildChapterPath = useBuildChapterUrl()
 
 	useEffect(
 		() =>
 			setPrevChapterUrl(
 				chapter === 1
-					? buildChapterUrl(prevBookCode)(prevBookChapterCount)
-					: buildChapterUrl(bookCode)(chapter - 1),
+					? buildChapterPath(prevBookCode)(prevBookChapterCount)
+					: buildChapterPath(bookCode)(chapter - 1),
 			),
 		[
 			bookCode,
-			buildChapterUrl,
+			buildChapterPath,
 			chapter,
 			prevBookChapterCount,
 			prevBookCode,
@@ -73,12 +73,12 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 		() =>
 			setNextChapterUrl(
 				chapter === currBookChapterCount
-					? buildChapterUrl(nextBookCode)(1)
-					: buildChapterUrl(bookCode)(chapter + 1),
+					? buildChapterPath(nextBookCode)(1)
+					: buildChapterPath(bookCode)(chapter + 1),
 			),
 		[
 			bookCode,
-			buildChapterUrl,
+			buildChapterPath,
 			chapter,
 			currBookChapterCount,
 			nextBookCode,
