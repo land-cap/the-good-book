@@ -39,11 +39,13 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 			id="verse-details-menu"
 			modal
 			trapFocus
+			lazyMount
+			unmountOnExit
 			preventScroll={false}
 			open={showVerseDetailsMenu}
-			onOpenChange={({ open }) => !open && setShowVerseDetailsMenu(open)}
+			onOpenChange={({ open }) => setShowVerseDetailsMenu(open)}
 		>
-			{isClient ? <VerseDetailsMenu bookList={bookList} /> : null}
+			{isClient && <VerseDetailsMenu bookList={bookList} />}
 		</Dialog.Root>
 	)
 }

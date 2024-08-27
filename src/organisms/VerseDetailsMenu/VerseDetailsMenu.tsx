@@ -75,12 +75,6 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const buildReaderUrl = useBuildReaderUrl()
 
-	const currVerseDetailsId = useAtomValue(currVerseDetailsIdAtom)
-	const [scrollContainerKey, setScrollContainerKey] = useState(0)
-	useEffect(() => {
-		currVerseDetailsId && setScrollContainerKey((key) => key + 1)
-	}, [currVerseDetailsId])
-
 	return (
 		<Portal>
 			<Menu.Backdrop />
@@ -99,7 +93,7 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						/>
 						{!!verseDetails?.referenceList && (
 							<styled.div
-								key={scrollContainerKey}
+								//key={scrollContainerKey}
 								overflow="auto"
 								overscrollBehavior="contain"
 								h="fit-content"
