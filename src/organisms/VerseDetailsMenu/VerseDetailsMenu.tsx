@@ -17,9 +17,9 @@ import { useBuildReaderUrl } from '~/hooks'
 import {
 	currBookAtom,
 	currVerseDetailsAtom,
-	currVerseDetailsIdAtom,
 	referenceOriginAtom,
 	selectedReferenceAtom,
+	showVerseDetailsMenuAtom,
 	type TCrossReference,
 } from '~/state'
 
@@ -51,9 +51,9 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
 
-	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
+	const setShowVerseDetailsMenu = useSetAtom(showVerseDetailsMenuAtom)
 
-	const closeMenu = () => setCurrVerseDetailsId(null)
+	const closeMenu = () => setShowVerseDetailsMenu(false)
 
 	const setReferenceOrigin = useSetAtom(referenceOriginAtom)
 
@@ -93,7 +93,6 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 						/>
 						{!!verseDetails?.referenceList && (
 							<styled.div
-								//key={scrollContainerKey}
 								overflow="auto"
 								overscrollBehavior="contain"
 								h="fit-content"

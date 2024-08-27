@@ -8,6 +8,7 @@ import { useIsClient } from 'usehooks-ts'
 
 import type { TBook } from '~/db'
 import {
+	currVerseDetailsIdAtom,
 	isScrollLockedAtom,
 	showVerseDetailsAtom,
 	showVerseDetailsMenuAtom,
@@ -21,6 +22,8 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 	const [showVerseDetailsMenu, setShowVerseDetailsMenu] = useAtom(
 		showVerseDetailsMenuAtom,
 	)
+
+	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	useEffect(
@@ -44,6 +47,7 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 			preventScroll={false}
 			open={showVerseDetailsMenu}
 			onOpenChange={({ open }) => setShowVerseDetailsMenu(open)}
+			onExitComplete={() => setCurrVerseDetailsId(null)}
 		>
 			{isClient && <VerseDetailsMenu bookList={bookList} />}
 		</Dialog.Root>
