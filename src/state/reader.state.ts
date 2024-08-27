@@ -118,17 +118,14 @@ export const JUSTIFY_TEXT_COOKIE = 'justify-text'
 export const justifyTextDefaultValue = true
 export const justifyTextAtom = atom(justifyTextDefaultValue)
 
-// TODO: replace "show" with "enable" in name
-export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'show-non-original-text'
-export const showNonOriginalTextDefaultValue = true
-export const showNonOriginalTextAtom = atom(showNonOriginalTextDefaultValue)
+export const ENABLE_NON_ORIGINAL_TEXT_COOKIE = 'enable-non-original-text'
+export const enableNonOriginalTextDefaultValue = true
+export const enableNonOriginalTextAtom = atom(enableNonOriginalTextDefaultValue)
 
-// TODO: replace "show" with "enable" in name
-export const SHOW_RED_LETTERS_COOKIE = 'show-red-letters'
-export const showRedLettersDefaultValue = true
-export const showRedLettersAtom = atom(showRedLettersDefaultValue)
+export const ENABLE_RED_LETTERS_COOKIE = 'enable-red-letters'
+export const enableRedLettersDefaultValue = true
+export const enableRedLettersAtom = atom(enableRedLettersDefaultValue)
 
-// TODO: replace "show" with "enable" in name
-export const SHOW_VERSE_DETAILS_COOKIE = 'show-verse-details'
-export const showVerseDetailsDefaultValue = true
-export const showVerseDetailsAtom = atom(showVerseDetailsDefaultValue)
+export const ENABLE_VERSE_DETAILS_COOKIE = 'enable-verse-details'
+export const enableVerseDetailsDefaultValue = true
+export const enableVerseDetailsAtom = atom(enableVerseDetailsDefaultValue)

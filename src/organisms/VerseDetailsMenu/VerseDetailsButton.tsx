@@ -12,7 +12,7 @@ import { Icon } from '~/components'
 import { type TBook } from '~/db'
 import {
 	currVerseDetailsIdAtom,
-	showVerseDetailsAtom,
+	enableVerseDetailsAtom,
 	showVerseDetailsMenuAtom,
 	verseDetailsAtomFamily,
 } from '~/state'
@@ -53,7 +53,7 @@ export const VerseDetailsButton = ({
 
 	const setVerseDetails = useSetAtom(verseDetailsAtomFamily(id))
 
-	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
+	const enableVerseDetails = useAtomValue(enableVerseDetailsAtom)
 
 	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
@@ -105,7 +105,7 @@ export const VerseDetailsButton = ({
 		setShowVerseDetailsMenu(true)
 	}
 
-	if (!showVerseDetails) {
+	if (!enableVerseDetails) {
 		return null
 	}
 
