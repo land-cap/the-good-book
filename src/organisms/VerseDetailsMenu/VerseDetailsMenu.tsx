@@ -38,13 +38,7 @@ const Footnote = styled('p', {
 	},
 })
 
-export const VerseDetailsMenu = ({
-	bookList,
-	scrollContainerKey,
-}: {
-	bookList: TBook[]
-	scrollContainerKey: number
-}) => {
+export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('')
@@ -80,6 +74,12 @@ export const VerseDetailsMenu = ({
 	}
 
 	const buildReaderUrl = useBuildReaderUrl()
+
+	const currVerseDetailsId = useAtomValue(currVerseDetailsIdAtom)
+	const [scrollContainerKey, setScrollContainerKey] = useState(0)
+	useEffect(() => {
+		currVerseDetailsId && setScrollContainerKey((key) => key + 1)
+	}, [currVerseDetailsId])
 
 	return (
 		<Portal>

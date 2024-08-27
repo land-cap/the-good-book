@@ -13,6 +13,7 @@ import { type TBook } from '~/db'
 import {
 	currVerseDetailsIdAtom,
 	showVerseDetailsAtom,
+	showVerseDetailsMenuAtom,
 	verseDetailsAtomFamily,
 } from '~/state'
 
@@ -91,10 +92,18 @@ export const VerseDetailsButton = ({
 		singleChapterBookList,
 	])
 
+	// TODO: move this logic in module for processing reference text
 	useEffect(() => {
 		const footnote = extractFootnote(childrenOM)
 		footnote && setVerseDetails((prev) => ({ ...prev, footnote }))
 	}, [childrenOM, setVerseDetails])
+
+	const setShowVerseDetailsMenu = useSetAtom(showVerseDetailsMenuAtom)
+
+	const handleClick = () => {
+		setCurrVerseDetailsId(id)
+		setShowVerseDetailsMenu(true)
+	}
 
 	if (!showVerseDetails) {
 		return null
@@ -103,7 +112,7 @@ export const VerseDetailsButton = ({
 	return (
 		<>
 			<button
-				onClick={() => setCurrVerseDetailsId(id)}
+				onClick={handleClick}
 				className={css({ display: 'inline-block' })}
 			>
 				<Icon code="&#xf52b;" className={iconCls} />

@@ -27,6 +27,7 @@ export const isLastChapterAtom = atom(false)
 /**
  * VERSE DETAILS STATE
  */
+export const showVerseDetailsMenuAtom = atom(false)
 
 export const currVerseDetailsIdAtom = atom<string | null>(null)
 
@@ -117,14 +118,17 @@ export const JUSTIFY_TEXT_COOKIE = 'justify-text'
 export const justifyTextDefaultValue = true
 export const justifyTextAtom = atom(justifyTextDefaultValue)
 
+// TODO: replace "show" with "enable" in name
 export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'show-non-original-text'
 export const showNonOriginalTextDefaultValue = true
 export const showNonOriginalTextAtom = atom(showNonOriginalTextDefaultValue)
 
+// TODO: replace "show" with "enable" in name
 export const SHOW_RED_LETTERS_COOKIE = 'show-red-letters'
 export const showRedLettersDefaultValue = true
 export const showRedLettersAtom = atom(showRedLettersDefaultValue)
 
+// TODO: replace "show" with "enable" in name
 export const SHOW_VERSE_DETAILS_COOKIE = 'show-verse-details'
 export const showVerseDetailsDefaultValue = true
 export const showVerseDetailsAtom = atom(showVerseDetailsDefaultValue)

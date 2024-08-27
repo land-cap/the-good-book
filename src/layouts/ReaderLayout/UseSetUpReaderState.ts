@@ -28,6 +28,7 @@ export const UseSetUpReaderState = ({ bookList }: { bookList: TBook[] }) => {
 	}
 	const [currChapter, setCurrChapter] = useAtom(currChapterAtom)
 
+	// TODO: find out why this causes an error and find a way to update with causing another render pass
 	if (chapterParam && currChapter !== Number(chapterParam)) {
 		setCurrChapter(Number(chapterParam))
 	}
