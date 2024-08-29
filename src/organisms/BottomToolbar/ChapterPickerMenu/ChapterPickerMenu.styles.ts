@@ -1,11 +1,9 @@
 import { Tabs } from '@ark-ui/react'
 import Link from 'next/link'
-import { css } from 'styled-system/css'
 import { styled } from 'styled-system/jsx'
 import {
 	center,
 	flex,
-	macrogrid,
 	pressable,
 	subgrid,
 	underlined,
@@ -26,32 +24,6 @@ export const TabsContent = styled(Tabs.Content, {
 		overscrollBehavior: 'contain',
 		_closed: { display: 'none' },
 	},
-})
-
-export const BookListContainer = styled('ul', {
-	base: css.raw({
-		h: 'fit-content',
-	}),
-})
-
-export const BookListItemContainer = styled('li', {
-	base: { ...macrogrid.raw(), ...pressable.raw() },
-	variants: {
-		isCurrBook: {
-			true: underlined.raw({
-				fontWeight: 'bold',
-			}),
-		},
-		isFirstEl: {
-			true: {
-				mt: '4',
-			},
-		},
-	},
-})
-
-export const BookListItem = styled('div', {
-	base: { column: 'content', cursor: 'pointer', py: '4' },
 })
 
 export const ChapterList = styled('ul', {
