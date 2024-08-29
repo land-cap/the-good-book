@@ -2,17 +2,11 @@
 
 import { Dialog, type DialogProps } from '@ark-ui/react'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
-import { equals } from 'ramda'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
-import {
-	currBookAtom,
-	currBookCodeAtom,
-	currChapterAtom,
-	isScrollLockedAtom,
-} from '~/state'
+import { currBookAtom, currChapterAtom, isScrollLockedAtom } from '~/state'
 
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import {
@@ -27,7 +21,6 @@ export const ChapterPickerMenuRoot = () => {
 	const [showMenu, setShowMenu] = useAtom(showChapterPickerMenu)
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	const setTab = useSetAtom(activeTabAtom)
-	const currBookCode = useAtomValue(currBookCodeAtom)
 	const currChapter = useAtomValue(currChapterAtom)
 	const currBook = useAtomValue(currBookAtom)
 	const setSelectedBookId = useSetAtom(selectedBookIdAtom)
@@ -37,25 +30,14 @@ export const ChapterPickerMenuRoot = () => {
 		[showMenu, setIsBodyScrollLocked],
 	)
 
-	const bookCodeWhenChapterOpened = useRef(currBookCode)
-	const chapterWhenMenuOpened = useRef(currChapter)
-
 	const handleDialogExitComplete = () => {
 		setTab('book')
-		const hasReaderNavigated =
-			!equals(bookCodeWhenChapterOpened.current, currBookCode) ||
-			!equals(chapterWhenMenuOpened.current, currChapter)
-		if (hasReaderNavigated) {
-			document.body.scrollIntoView({ behavior: 'instant' })
-		}
 	}
 
 	const handleOpenChange: DialogProps['onOpenChange'] = ({ open }) => {
 		setShowMenu(open)
 		if (open) {
 			setSelectedBookId(currBook.id)
-			bookCodeWhenChapterOpened.current = currBookCode
-			chapterWhenMenuOpened.current = currChapter
 		}
 	}
 
