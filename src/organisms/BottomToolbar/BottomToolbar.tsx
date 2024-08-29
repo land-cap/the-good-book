@@ -17,7 +17,7 @@ import {
 } from '~/state'
 
 import { BottomToolbarContainer } from './BottomToolbarContainer'
-import { ChapterPickerMenu } from './ChapterPickerMenu'
+import { ChapterPickerMenuRoot } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
 import { ReturnFromReferenceFab } from './ReturnFromReferenceFab'
 
@@ -27,10 +27,6 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 	const chapter = useAtomValue(currChapterAtom)
 
 	const currBook = useAtomValue(currBookAtom)
-
-	if (!currBook) {
-		throw new Error('No book data')
-	}
 
 	const currBookIndex = bookList.findIndex(
 		(book) => book.book_name?.value === currBook.book_name?.value,
@@ -136,7 +132,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
-					<ChapterPickerMenu />
+					<ChapterPickerMenuRoot />
 
 					<ReaderNavButton
 						url={nextChapterUrl}

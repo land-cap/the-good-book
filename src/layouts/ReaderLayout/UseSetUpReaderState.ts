@@ -2,20 +2,20 @@
 
 import { useAtom, useSetAtom } from 'jotai'
 import { useParams } from 'next/navigation'
-import { useState } from 'react'
+import { useCallback, useEffect } from 'react'
+import { useIsFirstRender } from 'usehooks-ts'
 
 import type { TReaderPageParams } from '~/_pages'
 import { type TBook } from '~/db'
 import { bookListAtom, currBookCodeAtom, currChapterAtom } from '~/state'
 
 export const UseSetUpReaderState = ({ bookList }: { bookList: TBook[] }) => {
+	const isFirstRender = useIsFirstRender()
+
 	const setBookList = useSetAtom(bookListAtom)
 
-	const [shouldSetUpBookListState, setShouldSetUpBookListState] = useState(true)
-
-	if (shouldSetUpBookListState) {
+	if (isFirstRender) {
 		setBookList(bookList)
-		setShouldSetUpBookListState(false)
 	}
 
 	const { bookCode: bookCodeParam, chapter: chapterParam } =
@@ -23,15 +23,33 @@ export const UseSetUpReaderState = ({ bookList }: { bookList: TBook[] }) => {
 
 	const [currBookCode, setCurrBookCode] = useAtom(currBookCodeAtom)
 
-	if (bookCodeParam && currBookCode !== bookCodeParam) {
-		setCurrBookCode(bookCodeParam)
+	const updateCurrBookCode = useCallback(
+		() => setCurrBookCode(bookCodeParam),
+		[bookCodeParam, setCurrBookCode],
+	)
+
+	if (isFirstRender && currBookCode !== bookCodeParam) {
+		updateCurrBookCode()
 	}
+
+	useEffect(() => {
+		!isFirstRender && updateCurrBookCode()
+	}, [isFirstRender, updateCurrBookCode])
+
 	const [currChapter, setCurrChapter] = useAtom(currChapterAtom)
 
-	// TODO: find out why this causes an error and find a way to update with causing another render pass
-	if (chapterParam && currChapter !== Number(chapterParam)) {
-		setCurrChapter(Number(chapterParam))
+	const updateCurrChapter = useCallback(
+		() => setCurrChapter(Number(chapterParam)),
+		[chapterParam, setCurrChapter],
+	)
+
+	if (isFirstRender && currChapter !== Number(chapterParam)) {
+		updateCurrChapter()
 	}
+
+	useEffect(() => {
+		!isFirstRender && updateCurrChapter()
+	}, [chapterParam, isFirstRender, updateCurrChapter])
 
 	return null
 }

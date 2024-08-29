@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai'
 import { splitWhen } from 'ramda'
-import { type Dispatch, type SetStateAction, useMemo } from 'react'
+import { useMemo } from 'react'
 
 import { BleedList } from '~/components'
 import type { TBook } from '~/db'
@@ -8,13 +8,8 @@ import { bookListAtom, currBookAtom } from '~/state'
 
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
-import { type TChapterPickerTab } from './ChapterPickerMenu'
 
-export const BookTabView = ({
-	setTab,
-}: {
-	setTab: Dispatch<SetStateAction<TChapterPickerTab>>
-}) => {
+export const BookTabView = () => {
 	const bookList = useAtomValue(bookListAtom)
 
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
@@ -24,19 +19,12 @@ export const BookTabView = ({
 
 	const currBook = useAtomValue(currBookAtom)
 
-	if (!currBook) {
-		throw new Error('Missing current book data.')
-	}
-
 	return (
 		<>
 			<BleedList.Container>
 				<BookListSectionHeader>Vechiul Testament</BookListSectionHeader>
 				<BookList
 					bookList={oldTestamentBookList}
-					onListItemClick={() => {
-						setTab('chapter')
-					}}
 					currBookCode={currBook.code}
 				/>
 			</BleedList.Container>
@@ -44,9 +32,6 @@ export const BookTabView = ({
 				<BookListSectionHeader>Noul Testament</BookListSectionHeader>
 				<BookList
 					bookList={newTestamentBookList}
-					onListItemClick={() => {
-						setTab('chapter')
-					}}
 					currBookCode={currBook.code}
 				/>
 			</BleedList.Container>

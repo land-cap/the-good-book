@@ -1,8 +1,11 @@
 import { atom } from 'jotai'
-import { atomFamily } from 'jotai/utils'
+import { atomFamily, atomWithStorage } from 'jotai/utils'
 import { type ReactNode } from 'react'
 
 import { type TBook } from '~/db'
+
+const READER_PATHNAME_LS_KEY = 'reader-pathname'
+export const readerRoute = atomWithStorage(READER_PATHNAME_LS_KEY, '')
 
 export const bookListAtom = atom<TBook[]>([])
 
@@ -11,7 +14,7 @@ export const currBookCodeAtom = atom('')
 export const currBookAtom = atom((get) => {
 	const bookList = get(bookListAtom)
 	const currBookCode = get(currBookCodeAtom)
-	return bookList.find(({ code }) => code === currBookCode)
+	return bookList.find(({ code }) => code === currBookCode)!
 })
 
 export const currChapterAtom = atom(undefined as unknown as number)

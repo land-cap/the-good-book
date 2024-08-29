@@ -64,13 +64,11 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 	const handleReferenceLinkClick = (reference: TCrossReference) => {
 		closeMenu()
 		setSelectedReference(reference)
-		if (currBook) {
-			setReferenceOrigin({
-				book: currBook,
-				chapter: Number(chapter),
-				verse: verseDetails?.verse,
-			})
-		}
+		setReferenceOrigin({
+			book: currBook,
+			chapter: Number(chapter),
+			verse: verseDetails?.verse,
+		})
 	}
 
 	const buildReaderUrl = useBuildReaderUrl()

@@ -1,22 +1,24 @@
 'use client'
 
-import { useLocalStorage } from '@mantine/hooks'
+import { useAtom } from 'jotai'
 import { useSelectedLayoutSegments } from 'next/navigation'
+import { useIsFirstRender } from 'usehooks-ts'
 
 import { isInBrowser } from '~/helpers.client'
-
-const READER_PATHNAME_LS_KEY = 'reader-pathname'
+import { readerRoute } from '~/state'
 
 export const UseRestorePrevSessionChapter = () => {
-	const [readerPathname, setReaderPathname] = useLocalStorage({
-		key: READER_PATHNAME_LS_KEY,
-	})
+	const [readerPathname, setReaderPathname] = useAtom(readerRoute)
+
+	const isFirstRender = useIsFirstRender()
 
 	const readerPathSegments = useSelectedLayoutSegments()
 
-	if (isInBrowser && readerPathname !== readerPathSegments.join('/')) {
+	if (isInBrowser && isFirstRender) {
 		setReaderPathname(readerPathSegments.join('/'))
 	}
+
+	// TODO: if current path is reader root route (without book and chapter) -> navigate to reader path from storage
 
 	return null
 }
