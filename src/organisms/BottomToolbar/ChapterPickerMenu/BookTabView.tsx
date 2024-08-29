@@ -23,17 +23,11 @@ export const BookTabView = () => {
 		<>
 			<BleedList.Container>
 				<BookListSectionHeader>Vechiul Testament</BookListSectionHeader>
-				<BookList
-					bookList={oldTestamentBookList}
-					currBookCode={currBook.code}
-				/>
+				<BookList bookList={oldTestamentBookList} />
 			</BleedList.Container>
 			<BleedList.Container>
 				<BookListSectionHeader>Noul Testament</BookListSectionHeader>
-				<BookList
-					bookList={newTestamentBookList}
-					currBookCode={currBook.code}
-				/>
+				<BookList bookList={newTestamentBookList} />
 			</BleedList.Container>
 		</>
 	)

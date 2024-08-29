@@ -1,12 +1,12 @@
 import { useAtomValue, useSetAtom } from 'jotai'
 
 import { BleedList } from '~/components'
-import { bookListAtom, currBookCodeAtom } from '~/state'
+import { type TBook } from '~/db'
+import { currBookCodeAtom } from '~/state'
 
 import { activeTabAtom, selectedBookIdAtom } from './chapterPickerMenu.state'
 
-export const BookList = () => {
-	const bookList = useAtomValue(bookListAtom)
+export const BookList = ({ bookList }: { bookList: TBook[] }) => {
 	const currBookCode = useAtomValue(currBookCodeAtom)
 	const setSelectedBookId = useSetAtom(selectedBookIdAtom)
 	const setActiveTab = useSetAtom(activeTabAtom)
