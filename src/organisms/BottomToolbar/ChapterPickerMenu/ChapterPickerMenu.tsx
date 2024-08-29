@@ -34,7 +34,7 @@ export const ChapterPickerMenu = () => {
 								pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
 							})}
 						>
-							<BookTabView setTab={setActiveTab} />
+							<BookTabView />
 						</TabsContent>
 						<TabsContent value="chapter" className={macrogrid()}>
 							<ChapterTabView />

@@ -4,20 +4,23 @@ import { useMemo } from 'react'
 
 import { BleedList } from '~/components'
 import type { TBook } from '~/db'
-import { bookListAtom, currBookAtom } from '~/state'
+import { bookListAtom } from '~/state'
 
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
+
+const FIRST_NEW_TESTAMENT_BOOK_CODE = 'mat'
 
 export const BookTabView = () => {
 	const bookList = useAtomValue(bookListAtom)
 
 	const [oldTestamentBookList, newTestamentBookList] = useMemo(
-		() => splitWhen((book: TBook) => book.code === 'mat')(bookList),
+		() =>
+			splitWhen((book: TBook) => book.code === FIRST_NEW_TESTAMENT_BOOK_CODE)(
+				bookList,
+			),
 		[bookList],
 	)
-
-	const currBook = useAtomValue(currBookAtom)
 
 	return (
 		<>

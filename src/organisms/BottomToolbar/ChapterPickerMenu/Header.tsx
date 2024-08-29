@@ -5,12 +5,13 @@ import { hstack, macrogrid } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { Icon, Separator } from '~/components'
+
 import {
 	activeTabAtom,
 	type TChapterPickerTab,
-} from '~/organisms/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state'
+} from './chapterPickerMenu.state'
 
-const tabsTriggerClass = cx(
+const tabsTriggerCls = cx(
 	button({ size: 'xl' }),
 	css({
 		'&:not([data-selected])': {
@@ -34,14 +35,14 @@ export const Header = () => {
 				<div className={hstack({ h: '14', justify: 'space-between' })}>
 					<Tabs.List className={hstack({ h: 'full', gap: '0' })}>
 						<Tabs.Trigger
-							className={tabsTriggerClass}
+							className={tabsTriggerCls}
 							value="book"
 							onClick={() => handleClickTabTrigger('book')}
 						>
 							Book
 						</Tabs.Trigger>
 						<Tabs.Trigger
-							className={tabsTriggerClass}
+							className={tabsTriggerCls}
 							value="chapter"
 							onClick={() => handleClickTabTrigger('chapter')}
 						>
