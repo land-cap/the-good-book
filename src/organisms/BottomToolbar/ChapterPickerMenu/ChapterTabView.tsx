@@ -41,9 +41,8 @@ export const ChapterTabView = () => {
 	return (
 		<ChapterList
 			style={{
-				paddingBottom: `calc(${
-					(chapterListItemHeight - 16) / 2
-				}px + env(safe-area-inset-bottom,0))`,
+				//@ts-ignore
+				'--list-item-height': `${chapterListItemHeight}px`,
 			}}
 		>
 			<ChapterListHeader chapterListItemHeight={chapterListItemHeight}>

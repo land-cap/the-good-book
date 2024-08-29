@@ -32,7 +32,8 @@ export const ChapterList = styled('ul', {
 		display: 'grid',
 		gridTemplateColumns: 'repeat(5, 1fr)',
 		h: 'fit-content',
-
+		paddingBottom:
+			'calc((var(--list-item-height) - 16px) / 2 + token(spacing.safe_area_bottom))',
 		md: {
 			gridTemplateColumns: 'repeat(10, 1fr)',
 		},
