@@ -13,7 +13,7 @@ import { button } from 'styled-system/recipes'
 import { type TReaderPageParams } from '~/_pages'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { type TBook } from '~/db'
-import { useBuildReaderUrl } from '~/hooks'
+import { buildReaderUrl } from '~/hooks'
 import {
 	currBookAtom,
 	currVerseDetailsAtom,
@@ -70,8 +70,6 @@ export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 			verse: verseDetails?.verse,
 		})
 	}
-
-	const buildReaderUrl = useBuildReaderUrl()
 
 	return (
 		<Portal>

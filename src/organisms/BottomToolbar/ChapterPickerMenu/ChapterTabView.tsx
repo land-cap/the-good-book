@@ -2,7 +2,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { range } from 'ramda'
 import { useMemo } from 'react'
 
-import { useBuildReaderUrl } from '~/hooks'
+import { buildReaderUrl } from '~/hooks'
 import { currBookAtom, currChapterAtom } from '~/state'
 
 import { ChapterListHeader } from './ChapterListHeader'
@@ -32,8 +32,6 @@ export const ChapterTabView = () => {
 		useComputeChapterListItemHeight()
 
 	const setShowChapterPickerMenu = useSetAtom(showChapterPickerMenu)
-
-	const buildReaderUrl = useBuildReaderUrl()
 
 	const currBook = useAtomValue(currBookAtom)
 	const currChapter = useAtomValue(currChapterAtom)

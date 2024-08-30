@@ -9,7 +9,7 @@ import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages'
 import { Icon } from '~/components'
-import { useBuildReaderUrl } from '~/hooks'
+import { buildReaderUrl } from '~/hooks'
 import { referenceOriginAtom, selectedReferenceAtom } from '~/state'
 
 const iconCls = css({
@@ -89,8 +89,6 @@ export const ReturnFromReferenceFab = () => {
 	const originBookName = originRef.current?.book?.book_name?.value
 	const originChapter = originRef.current?.chapter
 	const originVerse = originRef.current?.verse
-
-	const buildReaderUrl = useBuildReaderUrl()
 
 	const referenceOriginUrl = buildReaderUrl({
 		bookCode: originBookCode,

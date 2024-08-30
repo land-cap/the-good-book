@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { hstack, subgrid } from 'styled-system/patterns'
 
 import type { TBook } from '~/db'
-import { useBuildReaderUrl } from '~/hooks'
+import { buildReaderUrl } from '~/hooks'
 import {
 	currBookAtom,
 	currBookCodeAtom,
@@ -44,8 +44,6 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const [prevChapterUrl, setPrevChapterUrl] = useAtom(prevChapterUrlAtom)
 
-	const buildReaderUrl = useBuildReaderUrl()
-
 	useEffect(
 		() =>
 			setPrevChapterUrl(
@@ -56,14 +54,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					  })
 					: buildReaderUrl({ bookCode, chapter: chapter - 1 }),
 			),
-		[
-			bookCode,
-			buildReaderUrl,
-			chapter,
-			prevBookChapterCount,
-			prevBookCode,
-			setPrevChapterUrl,
-		],
+		[bookCode, chapter, prevBookChapterCount, prevBookCode, setPrevChapterUrl],
 	)
 
 	const [nextChapterUrl, setNextChapterUrl] = useAtom(nextChapterUrlAtom)
@@ -75,14 +66,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
 					: buildReaderUrl({ bookCode, chapter: chapter + 1 }),
 			),
-		[
-			bookCode,
-			buildReaderUrl,
-			chapter,
-			currBookChapterCount,
-			nextBookCode,
-			setNextChapterUrl,
-		],
+		[bookCode, chapter, currBookChapterCount, nextBookCode, setNextChapterUrl],
 	)
 
 	const [isFirstChapterInBible, setIsFirstChapterInBible] =
