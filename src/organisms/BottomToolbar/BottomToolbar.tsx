@@ -1,8 +1,9 @@
 'use client'
 
 import { useAtom, useAtomValue } from 'jotai'
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { hstack, subgrid } from 'styled-system/patterns'
+import { useIsFirstRender } from 'usehooks-ts'
 
 import type { TBook } from '~/db'
 import { buildReaderUrl } from '~/hooks'
@@ -12,8 +13,6 @@ import {
 	currChapterAtom,
 	isFirstChapterAtom,
 	isLastChapterAtom,
-	nextChapterUrlAtom,
-	prevChapterUrlAtom,
 } from '~/state'
 
 import { BottomToolbarContainer } from './BottomToolbarContainer'
@@ -42,57 +41,41 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const nextBookCode = bookList[currBookIndex + 1]?.code
 
-	const [prevChapterUrl, setPrevChapterUrl] = useAtom(prevChapterUrlAtom)
+	const [prevChapterUrl, setPrevChapterUrl] = useState('')
 
-	useEffect(
-		() =>
-			setPrevChapterUrl(
-				chapter === 1
-					? buildReaderUrl({
-							bookCode: prevBookCode,
-							chapter: prevBookChapterCount,
-					  })
-					: buildReaderUrl({ bookCode, chapter: chapter - 1 }),
-			),
-		[bookCode, chapter, prevBookChapterCount, prevBookCode, setPrevChapterUrl],
-	)
+	const isFirstRender = useIsFirstRender()
 
-	const [nextChapterUrl, setNextChapterUrl] = useAtom(nextChapterUrlAtom)
+	if (isFirstRender) {
+		setPrevChapterUrl(
+			chapter === 1
+				? buildReaderUrl({
+						bookCode: prevBookCode,
+						chapter: prevBookChapterCount,
+				  })
+				: buildReaderUrl({ bookCode, chapter: chapter - 1 }),
+		)
+	}
 
-	useEffect(
-		() =>
-			setNextChapterUrl(
-				chapter === currBookChapterCount
-					? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
-					: buildReaderUrl({ bookCode, chapter: chapter + 1 }),
-			),
-		[bookCode, chapter, currBookChapterCount, nextBookCode, setNextChapterUrl],
-	)
+	const [nextChapterUrl, setNextChapterUrl] = useState('')
+
+	if (isFirstRender) {
+		setNextChapterUrl(
+			chapter === currBookChapterCount
+				? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
+				: buildReaderUrl({ bookCode, chapter: chapter + 1 }),
+		)
+	}
 
 	const [isFirstChapterInBible, setIsFirstChapterInBible] =
 		useAtom(isFirstChapterAtom)
 
-	useEffect(
-		() => setIsFirstChapterInBible(currBookIndex === 0 && chapter === 1),
-		[chapter, currBookIndex, setIsFirstChapterInBible],
-	)
+	setIsFirstChapterInBible(currBookIndex === 0 && chapter === 1)
 
 	const [isLastChapterInBible, setIsLastChapterInBible] =
 		useAtom(isLastChapterAtom)
 
-	useEffect(
-		() =>
-			setIsLastChapterInBible(
-				currBookIndex === bookList.length - 1 &&
-					chapter === currBookChapterCount,
-			),
-		[
-			bookList.length,
-			chapter,
-			currBookChapterCount,
-			currBookIndex,
-			setIsLastChapterInBible,
-		],
+	setIsLastChapterInBible(
+		currBookIndex === bookList.length - 1 && chapter === currBookChapterCount,
 	)
 
 	return (
@@ -104,6 +87,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					pb: 'safe_area_bottom',
 				})}
 			>
+				{prevChapterUrl} | {nextChapterUrl}
 				<ReturnFromReferenceFab />
 				<div
 					className={hstack({
