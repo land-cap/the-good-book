@@ -62,24 +62,34 @@ const splitSameBookReferences = (reference: string) => {
 	return referenceList.map((reference) => `${bookNameMatch?.[0]}${reference}`)
 }
 
+const getVerseRange = ({
+	referenceWithoutBookName,
+	isSingleChapterBook,
+	chapter,
+}: {
+	referenceWithoutBookName?: string
+	isSingleChapterBook: boolean
+	chapter?: string
+}) => {
+	const verseRangeStr = referenceWithoutBookName?.trim()?.split(':')[1]
+
+	if (!verseRangeStr) {
+		return undefined
+	}
+
+	if (isSingleChapterBook) {
+		// chapter is actually verse for single-chapter books
+		return chapter
+	}
+
+	return verseRangeStr
+}
+
 const addDetailsToReference = (
 	reference: string,
 	bookNameToCode: Record<string, string>,
 	singleChapterBookList: TBook[],
 ): TCrossReference => {
-	const getUrl = (
-		bookCode: string,
-		chapter: string,
-		verseRangeStr: string,
-		isSingleChapterBook: boolean,
-	) => {
-		if (isSingleChapterBook) {
-			// chapter is actually verse in this case
-			return `/${bookCode}/1/?verse-range=${chapter}`
-		}
-		return `/${bookCode}/${chapter}?verse-range=${verseRangeStr}`
-	}
-
 	const bookNameMatch = reference.match(/^(\d )?(\D+ ){1,2}/g)
 	const bookName = bookNameMatch?.[0]?.trim()
 	const bookCode = bookName && bookNameToCode[bookName]
@@ -87,19 +97,25 @@ const addDetailsToReference = (
 	const chapterStr = referenceWithoutBookName?.trim()?.split(':')[0]
 	const isChapterRange = chapterStr?.includes('—')
 	const chapter = isChapterRange ? chapterStr?.split('—')[0] : chapterStr
-	const verseRangeStr = referenceWithoutBookName?.trim()?.split(':')[1]
 
 	const isSingleChapterBook = singleChapterBookList?.some(
 		({ code }) => code === bookCode,
 	)
 
+	const verseRange = getVerseRange({
+		referenceWithoutBookName,
+		isSingleChapterBook,
+		chapter,
+	})
+
 	return {
-		label: isSingleChapterBook
-			? reference.replace(chapter!, `1:${chapter}`)
-			: reference,
-		url: getUrl(bookCode!, chapter!, verseRangeStr!, isSingleChapterBook),
+		label:
+			isSingleChapterBook && chapter
+				? reference.replace(chapter, `1:${chapter}`)
+				: reference,
 		bookCode: bookCode!,
 		chapter: isSingleChapterBook ? 1 : Number(chapter),
+		verseRange,
 	}
 }
 

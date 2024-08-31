@@ -11,8 +11,9 @@ import { CurrVerseContext } from '~/_pages/ReaderPage/chapterContent/renderChapt
 import { Icon } from '~/components'
 import { type TBook } from '~/db'
 import {
-	currVerseDetailsIDAtom,
-	showVerseDetailsAtom,
+	currVerseDetailsIdAtom,
+	enableVerseDetailsAtom,
+	showVerseDetailsMenuAtom,
 	verseDetailsAtomFamily,
 } from '~/state'
 
@@ -52,9 +53,9 @@ export const VerseDetailsButton = ({
 
 	const setVerseDetails = useSetAtom(verseDetailsAtomFamily(id))
 
-	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
+	const enableVerseDetails = useAtomValue(enableVerseDetailsAtom)
 
-	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIDAtom)
+	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
 	const currVerse = useContext(CurrVerseContext)
 
@@ -91,19 +92,27 @@ export const VerseDetailsButton = ({
 		singleChapterBookList,
 	])
 
+	// TODO: move this logic in module for processing reference text
 	useEffect(() => {
 		const footnote = extractFootnote(childrenOM)
 		footnote && setVerseDetails((prev) => ({ ...prev, footnote }))
 	}, [childrenOM, setVerseDetails])
 
-	if (!showVerseDetails) {
+	const setShowVerseDetailsMenu = useSetAtom(showVerseDetailsMenuAtom)
+
+	const handleClick = () => {
+		setCurrVerseDetailsId(id)
+		setShowVerseDetailsMenu(true)
+	}
+
+	if (!enableVerseDetails) {
 		return null
 	}
 
 	return (
 		<>
 			<button
-				onClick={() => setCurrVerseDetailsId(id)}
+				onClick={handleClick}
 				className={css({ display: 'inline-block' })}
 			>
 				<Icon code="&#xf52b;" className={iconCls} />

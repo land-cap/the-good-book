@@ -6,9 +6,9 @@ import { css, cx } from 'styled-system/css'
 import { caption } from 'styled-system/patterns'
 
 import {
+	enableNonOriginalTextAtom,
+	enableRedLettersAtom,
 	fontAtom,
-	showNonOriginalTextAtom,
-	showRedLettersAtom,
 	verseBreaksLineAtom,
 } from '~/state'
 
@@ -16,9 +16,9 @@ const makeNonOriginalTextHideable =
 	<P extends NonNullable<unknown>>(Component: (props: P) => ReactNode) =>
 	//eslint-disable-next-line react/display-name
 	(props: P) => {
-		const showNonOriginalText = useAtomValue(showNonOriginalTextAtom)
+		const enableNonOriginalText = useAtomValue(enableNonOriginalTextAtom)
 
-		if (!showNonOriginalText) {
+		if (!enableNonOriginalText) {
 			return null
 		}
 
@@ -26,12 +26,12 @@ const makeNonOriginalTextHideable =
 	}
 
 export const JesusWords = ({ children }: { children: ReactNode }) => {
-	const showRedLetters = useAtomValue(showRedLettersAtom)
+	const enableRedLetters = useAtomValue(enableRedLettersAtom)
 
 	return (
 		<span
 			data-component="JesusWords"
-			className={cx(showRedLetters && css({ color: 'fg.jesusWords' }))}
+			className={cx(enableRedLetters && css({ color: 'fg.jesusWords' }))}
 		>
 			{children}
 		</span>
