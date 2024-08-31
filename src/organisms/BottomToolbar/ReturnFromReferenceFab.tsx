@@ -9,6 +9,7 @@ import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages'
 import { Icon } from '~/components'
+import { buildReaderUrl } from '~/hooks'
 import { referenceOriginAtom, selectedReferenceAtom } from '~/state'
 
 const iconCls = css({
@@ -24,14 +25,14 @@ const buttonCls = cx(
 	}),
 )
 
-export const ReturnFromReferenceFAB = () => {
+export const ReturnFromReferenceFab = () => {
 	const [origin, setOrigin] = useAtom(referenceOriginAtom)
 
-	const staggeredOrigin = useRef(origin)
+	const originRef = useRef(origin)
 
 	useEffect(() => {
 		if (origin) {
-			staggeredOrigin.current = origin
+			originRef.current = origin
 		}
 	}, [origin])
 
@@ -84,13 +85,16 @@ export const ReturnFromReferenceFAB = () => {
 
 	const show = hasNavigatedToReference && !hasLeftReference && !hasBeenClicked
 
-	const originBookCode = staggeredOrigin.current?.book?.code
-	const originBookName = staggeredOrigin.current?.book?.book_name?.value
-	const originChapter = staggeredOrigin.current?.chapter
-	const originVerse = staggeredOrigin.current?.verse
-	const referenceOriginUrl = `/${originBookCode}/${originChapter}${
-		originVerse ? `?verse-range=${originVerse}` : ''
-	}`
+	const originBookCode = originRef.current?.book?.code
+	const originBookName = originRef.current?.book?.book_name?.value
+	const originChapter = originRef.current?.chapter
+	const originVerse = originRef.current?.verse
+
+	const referenceOriginUrl = buildReaderUrl({
+		bookCode: originBookCode,
+		chapter: originChapter,
+		verseRange: originVerse,
+	})
 
 	const handleClick = () => {
 		setHasBeenClicked(true)

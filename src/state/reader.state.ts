@@ -1,12 +1,55 @@
 import { atom } from 'jotai'
-import { atomFamily } from 'jotai/utils'
+import { atomFamily, atomWithStorage } from 'jotai/utils'
 import { type ReactNode } from 'react'
 
 import { type TBook } from '~/db'
+import { buildReaderUrl } from '~/hooks'
 
-export const prevChapterURLAtom = atom<string>('')
+const READER_PATHNAME_LS_KEY = 'reader-pathname'
+export const readerRoute = atomWithStorage(READER_PATHNAME_LS_KEY, '')
 
-export const nextChapterURLAtom = atom<string>('')
+export const bookListAtom = atom<TBook[]>([])
+
+export const currBookCodeAtom = atom('')
+
+export const currBookAtom = atom((get) => {
+	const bookList = get(bookListAtom)
+	const currBookCode = get(currBookCodeAtom)
+	return bookList.find(({ code }) => code === currBookCode)!
+})
+
+export const currChapterAtom = atom(undefined as unknown as number)
+
+export const prevChapterUrlAtom = atom((get) => {
+	const currChapter = get(currChapterAtom)
+	const currBookCode = get(currBookCodeAtom)
+
+	const bookList = get(bookListAtom)
+	const currBookIndex = get(currBookAtom).order - 1
+
+	const prevBook = bookList[currBookIndex - 1]
+	const prevBookCode = prevBook?.code
+	const prevBookChapterCount = prevBook?.chapter_count
+
+	return currChapter === 1
+		? buildReaderUrl({
+				bookCode: prevBookCode,
+				chapter: prevBookChapterCount,
+		  })
+		: buildReaderUrl({ bookCode: currBookCode, chapter: currChapter - 1 })
+})
+
+export const nextChapterUrlAtom = atom((get) => {
+	const currChapter = get(currChapterAtom)
+	const currBook = get(currBookAtom)
+	const currBookChapterCount = currBook.chapter_count
+	const currBookIndex = currBook.order - 1
+	const bookList = get(bookListAtom)
+	const nextBookCode = bookList[currBookIndex - 1]!.code
+	return currChapter === currBookChapterCount
+		? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
+		: buildReaderUrl({ bookCode: currBook.code, chapter: currChapter + 1 })
+})
 
 export const isFirstChapterAtom = atom(false)
 
@@ -15,14 +58,15 @@ export const isLastChapterAtom = atom(false)
 /**
  * VERSE DETAILS STATE
  */
+export const showVerseDetailsMenuAtom = atom(false)
 
-export const currVerseDetailsIDAtom = atom<string | null>(null)
+export const currVerseDetailsIdAtom = atom<string | null>(null)
 
 export type TCrossReference = {
 	label: string
-	url: string
 	bookCode: string
 	chapter: number
+	verseRange?: string
 }
 
 export type TVerseDetails = {
@@ -38,7 +82,7 @@ export const verseDetailsAtomFamily = atomFamily(
 )
 
 export const currVerseDetailsAtom = atom((get) => {
-	const id = get(currVerseDetailsIDAtom)
+	const id = get(currVerseDetailsIdAtom)
 	return id ? get(verseDetailsAtomFamily(id)) : null
 })
 
@@ -105,14 +149,14 @@ export const JUSTIFY_TEXT_COOKIE = 'justify-text'
 export const justifyTextDefaultValue = true
 export const justifyTextAtom = atom(justifyTextDefaultValue)
 
-export const SHOW_NON_ORIGINAL_TEXT_COOKIE = 'show-non-original-text'
-export const showNonOriginalTextDefaultValue = true
-export const showNonOriginalTextAtom = atom(showNonOriginalTextDefaultValue)
+export const ENABLE_NON_ORIGINAL_TEXT_COOKIE = 'enable-non-original-text'
+export const enableNonOriginalTextDefaultValue = true
+export const enableNonOriginalTextAtom = atom(enableNonOriginalTextDefaultValue)
 
-export const SHOW_RED_LETTERS_COOKIE = 'show-red-letters'
-export const showRedLettersDefaultValue = true
-export const showRedLettersAtom = atom(showRedLettersDefaultValue)
+export const ENABLE_RED_LETTERS_COOKIE = 'enable-red-letters'
+export const enableRedLettersDefaultValue = true
+export const enableRedLettersAtom = atom(enableRedLettersDefaultValue)
 
-export const SHOW_VERSE_DETAILS_COOKIE = 'show-verse-details'
-export const showVerseDetailsDefaultValue = true
-export const showVerseDetailsAtom = atom(showVerseDetailsDefaultValue)
+export const ENABLE_VERSE_DETAILS_COOKIE = 'enable-verse-details'
+export const enableVerseDetailsDefaultValue = true
+export const enableVerseDetailsAtom = atom(enableVerseDetailsDefaultValue)
