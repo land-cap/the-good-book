@@ -28,7 +28,7 @@ export const config = {
 	],
 }
 
-export const middleware = (request: NextRequest) => {
+const handleReaderRootPath = (request: NextRequest) => {
 	const prevSessionChapterUrl = cookies().get(PREV_SESSION_READER_URL_COOKIE)
 		?.value
 
@@ -36,9 +36,18 @@ export const middleware = (request: NextRequest) => {
 
 	const isReaderLayoutPath = reqPathname === '/read'
 
-	if (isReaderLayoutPath) {
-		const redirectUrl = prevSessionChapterUrl ?? '/read/jhn/1'
+	if (!isReaderLayoutPath) {
+		return
+	}
 
-		return NextResponse.redirect(new URL(redirectUrl, request.url))
+	const redirectUrl = prevSessionChapterUrl ?? '/read/jhn/1'
+
+	return NextResponse.redirect(new URL(redirectUrl, request.url))
+}
+
+export const middleware = (request: NextRequest) => {
+	const response = handleReaderRootPath(request)
+	if (response) {
+		return response
 	}
 }
