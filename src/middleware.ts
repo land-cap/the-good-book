@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers'
 import { type NextRequest, NextResponse } from 'next/server'
 
+import { buildReaderUrl } from '~/hooks'
 import { PREV_SESSION_READER_URL_COOKIE } from '~/layouts/ReaderLayout/readerLayout.constants'
 
 export const config = {
@@ -28,7 +29,7 @@ export const config = {
 	],
 }
 
-export const middleware = (request: NextRequest) => {
+const handleReaderRootPath = (request: NextRequest) => {
 	const prevSessionChapterUrl = cookies().get(PREV_SESSION_READER_URL_COOKIE)
 		?.value
 
@@ -36,9 +37,36 @@ export const middleware = (request: NextRequest) => {
 
 	const isReaderLayoutPath = reqPathname === '/read'
 
-	if (isReaderLayoutPath) {
-		const redirectUrl = prevSessionChapterUrl ?? '/read/jhn/1'
+	if (!isReaderLayoutPath) {
+		return
+	}
 
-		return NextResponse.redirect(new URL(redirectUrl, request.url))
+	const redirectUrl =
+		prevSessionChapterUrl ?? buildReaderUrl({ bookCode: 'jhn', chapter: 1 })
+
+	return NextResponse.redirect(new URL(redirectUrl, request.url))
+}
+
+const handleRootPath = (request: NextRequest) => {
+	const reqPathname = request.nextUrl.pathname
+
+	const isReaderLayoutPath = reqPathname === '/'
+
+	if (!isReaderLayoutPath) {
+		return
+	}
+
+	return NextResponse.redirect(new URL(buildReaderUrl(), request.url))
+}
+
+export const middleware = (request: NextRequest) => {
+	const handleRootPathResponse = handleRootPath(request)
+	if (handleRootPathResponse) {
+		return handleRootPathResponse
+	}
+
+	const handleReaderRootPathResponse = handleReaderRootPath(request)
+	if (handleReaderRootPathResponse) {
+		return handleReaderRootPathResponse
 	}
 }
