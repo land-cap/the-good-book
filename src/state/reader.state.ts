@@ -3,6 +3,7 @@ import { atomFamily, atomWithStorage } from 'jotai/utils'
 import { type ReactNode } from 'react'
 
 import { type TBook } from '~/db'
+import { buildReaderUrl } from '~/hooks'
 
 const READER_PATHNAME_LS_KEY = 'reader-pathname'
 export const readerRoute = atomWithStorage(READER_PATHNAME_LS_KEY, '')
@@ -19,9 +20,36 @@ export const currBookAtom = atom((get) => {
 
 export const currChapterAtom = atom(undefined as unknown as number)
 
-export const prevChapterUrlAtom = atom<string>('')
+export const prevChapterUrlAtom = atom((get) => {
+	const currChapter = get(currChapterAtom)
+	const currBookCode = get(currBookCodeAtom)
 
-export const nextChapterUrlAtom = atom<string>('')
+	const bookList = get(bookListAtom)
+	const currBookIndex = get(currBookAtom).order - 1
+
+	const prevBook = bookList[currBookIndex - 1]
+	const prevBookCode = prevBook?.code
+	const prevBookChapterCount = prevBook?.chapter_count
+
+	return currChapter === 1
+		? buildReaderUrl({
+				bookCode: prevBookCode,
+				chapter: prevBookChapterCount,
+		  })
+		: buildReaderUrl({ bookCode: currBookCode, chapter: currChapter - 1 })
+})
+
+export const nextChapterUrlAtom = atom((get) => {
+	const currChapter = get(currChapterAtom)
+	const currBook = get(currBookAtom)
+	const currBookChapterCount = currBook.chapter_count
+	const currBookIndex = currBook.order - 1
+	const bookList = get(bookListAtom)
+	const nextBookCode = bookList[currBookIndex - 1]!.code
+	return currChapter === currBookChapterCount
+		? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
+		: buildReaderUrl({ bookCode: currBook.code, chapter: currChapter + 1 })
+})
 
 export const isFirstChapterAtom = atom(false)
 

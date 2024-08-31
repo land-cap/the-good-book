@@ -1,3 +1,5 @@
+'use client'
+
 import { usePrevious } from '@mantine/hooks'
 import { type PrimitiveAtom, useAtom } from 'jotai/index'
 import { useHydrateAtoms } from 'jotai/utils'
