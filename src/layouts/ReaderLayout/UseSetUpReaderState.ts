@@ -1,13 +1,16 @@
 'use client'
 
 import { useAtom, useSetAtom } from 'jotai'
-import { useParams } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
 import { useIsFirstRender } from 'usehooks-ts'
 
 import type { TReaderPageParams } from '~/_pages'
+import { setCookie } from '~/app/action'
 import { type TBook } from '~/db'
 import { bookListAtom, currBookCodeAtom, currChapterAtom } from '~/state'
+
+import { PREV_SESSION_READER_URL_COOKIE } from './readerLayout.constants'
 
 export const UseSetUpReaderState = ({ bookList }: { bookList: TBook[] }) => {
 	const isFirstRender = useIsFirstRender()
@@ -20,6 +23,13 @@ export const UseSetUpReaderState = ({ bookList }: { bookList: TBook[] }) => {
 
 	const { bookCode: bookCodeParam, chapter: chapterParam } =
 		useParams<TReaderPageParams>()
+
+	const pathname = usePathname()
+
+	// Store current pathname in PREV_SESSION_READER_URL_COOKIE cookie.
+	useEffect(() => {
+		setCookie(PREV_SESSION_READER_URL_COOKIE, pathname)
+	}, [pathname])
 
 	const [currBookCode, setCurrBookCode] = useAtom(currBookCodeAtom)
 
