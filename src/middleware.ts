@@ -11,6 +11,7 @@ export const config = {
 		 * - _next/static (static files)
 		 * - _next/image (image optimization files)
 		 * - favicon.ico, sitemap.xml, robots.txt (metadata files)
+		 * - manifest file
 		 */
 		{
 			source:
@@ -33,10 +34,11 @@ export const middleware = (request: NextRequest) => {
 
 	const reqPathname = request.nextUrl.pathname
 
-	const shouldRedirect =
-		typeof prevSessionChapterUrl === 'string' && reqPathname === '/read'
+	const isReaderLayoutPath = reqPathname === '/read'
 
-	if (shouldRedirect) {
-		return NextResponse.redirect(new URL(prevSessionChapterUrl, request.url))
+	if (isReaderLayoutPath) {
+		const redirectUrl = prevSessionChapterUrl ?? '/read/jhn/1'
+
+		return NextResponse.redirect(new URL(redirectUrl, request.url))
 	}
 }
