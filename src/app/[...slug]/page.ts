@@ -2,8 +2,9 @@ import { redirect } from 'next/navigation'
 
 import { getBookListWithCache } from '~/db'
 import { buildReaderUrl } from '~/hooks'
+import { VERSE_RANGE_SEARCH_PARAM } from '~/layouts/ReaderLayout/readerLayout.constants'
 
-const getIsReaderSubpath = async (slug: string[]) => {
+const getIsReaderSubPath = async (slug: string[]) => {
 	if (slug.length !== 2) {
 		return false
 	}
@@ -28,13 +29,26 @@ const getIsReaderSubpath = async (slug: string[]) => {
 
 const RootCatchAllPage = async ({
 	params: { slug },
+	searchParams,
 }: {
 	params: { slug: string[] }
+	searchParams: Record<string, string | string[] | undefined>
 }) => {
-	const isReaderSubpath = await getIsReaderSubpath(slug)
+	const isReaderSubPath = await getIsReaderSubPath(slug)
 
-	if (isReaderSubpath) {
-		redirect(buildReaderUrl({ bookCode: slug[0], chapter: Number(slug[1]) }))
+	if (isReaderSubPath) {
+		const verseRangeParamValue = searchParams[VERSE_RANGE_SEARCH_PARAM]
+
+		redirect(
+			buildReaderUrl({
+				bookCode: slug[0],
+				chapter: Number(slug[1]),
+				verseRange:
+					typeof verseRangeParamValue === 'string'
+						? verseRangeParamValue
+						: undefined,
+			}),
+		)
 	}
 }
 

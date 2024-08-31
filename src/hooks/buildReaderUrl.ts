@@ -1,3 +1,5 @@
+import { VERSE_RANGE_SEARCH_PARAM } from '~/layouts/ReaderLayout/readerLayout.constants'
+
 const readerLayoutPathname = '/read/'
 
 export const buildReaderUrl = ({
@@ -16,6 +18,6 @@ export const buildReaderUrl = ({
 		return `${readerLayoutPathname}${bookCode}`
 	}
 	return `${readerLayoutPathname}${bookCode}/${chapter}${
-		verseRange ? `?verse-range=${verseRange}` : ''
+		verseRange ? `?${VERSE_RANGE_SEARCH_PARAM}=${verseRange}` : ''
 	}`
 }
