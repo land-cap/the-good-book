@@ -6,12 +6,12 @@ import { HStack, styled } from 'styled-system/jsx'
 import { SafeAreaBottom } from '~/components'
 import { steppedRange } from '~/helpers/steppedRange'
 import {
+	enableNonOriginalTextAtom,
+	enableRedLettersAtom,
+	enableVerseDetailsAtom,
 	fontSizeOffsetAtom,
 	justifyTextAtom,
 	leadingAtom,
-	showNonOriginalTextAtom,
-	showRedLettersAtom,
-	showVerseDetailsAtom,
 	type TFontSizeOffset,
 	type TLeading,
 	verseBreaksLineAtom,
@@ -83,12 +83,15 @@ export const Preferences = () => {
 					disabled={verseBreaksLine}
 				/>
 				<SwitchField
-					valueAtom={showNonOriginalTextAtom}
+					valueAtom={enableNonOriginalTextAtom}
 					label="Show non-original text"
 				/>
-				<SwitchField valueAtom={showRedLettersAtom} label="Show red letters" />
 				<SwitchField
-					valueAtom={showVerseDetailsAtom}
+					valueAtom={enableRedLettersAtom}
+					label="Show red letters"
+				/>
+				<SwitchField
+					valueAtom={enableVerseDetailsAtom}
 					label="Show references and footnotes"
 				/>
 			</PreferenceFieldList>

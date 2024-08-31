@@ -3,7 +3,7 @@ import { styled } from 'styled-system/jsx'
 
 import { backdropRecipe, contentRecipe, positionerRecipe } from './Menu.styles'
 
-const getMenu = ({ fullscreen }: { fullscreen: boolean }) => ({
+const createMenu = ({ fullscreen }: { fullscreen: boolean }) => ({
 	Backdrop: styled(Dialog.Backdrop, backdropRecipe, {
 		defaultProps: { fullscreen },
 	}),
@@ -15,6 +15,6 @@ const getMenu = ({ fullscreen }: { fullscreen: boolean }) => ({
 	}),
 })
 
-export const Menu = getMenu({ fullscreen: false })
+export const Menu = createMenu({ fullscreen: false })
 
-export const FullscreenMenu = getMenu({ fullscreen: true })
+export const FullscreenMenu = createMenu({ fullscreen: true })

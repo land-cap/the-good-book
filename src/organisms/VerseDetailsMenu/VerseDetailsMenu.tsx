@@ -12,14 +12,15 @@ import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
-import { getBookWithCache, type TBook } from '~/db'
+import { type TBook } from '~/db'
+import { buildReaderUrl } from '~/hooks'
 import {
+	currBookAtom,
 	currVerseDetailsAtom,
-	currVerseDetailsIDAtom,
 	referenceOriginAtom,
 	selectedReferenceAtom,
+	showVerseDetailsMenuAtom,
 	type TCrossReference,
-	type TVerseDetails,
 } from '~/state'
 
 import { CrossReferenceList } from './CrossReferenceList'
@@ -37,13 +38,7 @@ const Footnote = styled('p', {
 	},
 })
 
-export const VerseDetailsMenu = ({
-	bookList,
-	scrollContainerKey,
-}: {
-	bookList: TBook[]
-	scrollContainerKey: number
-}) => {
+export const VerseDetailsMenu = ({ bookList }: { bookList: TBook[] }) => {
 	const { bookCode, chapter } = useParams<TReaderPageParams>()
 
 	const [currBookName, setCurrBookName] = useState('')
@@ -56,32 +51,24 @@ export const VerseDetailsMenu = ({
 
 	const verseDetails = useAtomValue(currVerseDetailsAtom)
 
-	const [staggeredVerseDetails, setStaggeredVerseDetails] =
-		useState<TVerseDetails | null>(null)
+	const setShowVerseDetailsMenu = useSetAtom(showVerseDetailsMenuAtom)
 
-	useEffect(() => {
-		verseDetails && setStaggeredVerseDetails(verseDetails)
-	}, [verseDetails])
-
-	const setCurrVerseDetailsID = useSetAtom(currVerseDetailsIDAtom)
-
-	const closeMenu = () => setCurrVerseDetailsID(null)
+	const closeMenu = () => setShowVerseDetailsMenu(false)
 
 	const setReferenceOrigin = useSetAtom(referenceOriginAtom)
 
 	const setSelectedReference = useSetAtom(selectedReferenceAtom)
 
-	const handleReferenceLinkClick = async (reference: TCrossReference) => {
+	const currBook = useAtomValue(currBookAtom)
+
+	const handleReferenceLinkClick = (reference: TCrossReference) => {
 		closeMenu()
-		const currBook = await getBookWithCache(bookCode)
 		setSelectedReference(reference)
-		if (currBook) {
-			setReferenceOrigin({
-				book: currBook,
-				chapter: Number(chapter),
-				verse: staggeredVerseDetails?.verse,
-			})
-		}
+		setReferenceOrigin({
+			book: currBook,
+			chapter: Number(chapter),
+			verse: verseDetails?.verse,
+		})
 	}
 
 	return (
@@ -91,7 +78,7 @@ export const VerseDetailsMenu = ({
 				<Menu.Content>
 					<Flex direction="column" h="inherit" maxH="inherit">
 						<Header
-							title={`${currBookName} ${chapter}:${staggeredVerseDetails?.verse}`}
+							title={`${currBookName} ${chapter}:${verseDetails?.verse}`}
 							rightButton={
 								<Dialog.CloseTrigger
 									className={button({ icon: true, size: 'xl' })}
@@ -100,21 +87,24 @@ export const VerseDetailsMenu = ({
 								</Dialog.CloseTrigger>
 							}
 						/>
-						{!!staggeredVerseDetails?.referenceList && (
+						{!!verseDetails?.referenceList && (
 							<styled.div
-								key={scrollContainerKey}
 								overflow="auto"
 								overscrollBehavior="contain"
 								h="fit-content"
 							>
 								<CrossReferenceList>
-									{staggeredVerseDetails?.referenceList.map((reference) => (
+									{verseDetails?.referenceList.map((reference) => (
 										<li
 											className={css({ column: 'content' })}
 											key={reference.label}
 										>
 											<ReferenceLink
-												href={reference.url}
+												href={buildReaderUrl({
+													bookCode: reference.bookCode,
+													chapter: reference.chapter,
+													verseRange: reference.verseRange,
+												})}
 												onClick={() => handleReferenceLinkClick(reference)}
 											>
 												{reference.label}
@@ -125,9 +115,9 @@ export const VerseDetailsMenu = ({
 								<SafeAreaBottom />
 							</styled.div>
 						)}
-						{!!staggeredVerseDetails?.footnote && (
+						{!!verseDetails?.footnote && (
 							<div className={macrogrid()}>
-								<Footnote>{staggeredVerseDetails?.footnote}</Footnote>
+								<Footnote>{verseDetails?.footnote}</Footnote>
 								<SafeAreaBottom css={{ column: 'content' }} />
 							</div>
 						)}

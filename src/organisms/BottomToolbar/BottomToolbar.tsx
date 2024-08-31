@@ -1,34 +1,27 @@
 'use client'
 
-import { useAtom } from 'jotai'
-import { useParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useAtom, useAtomValue } from 'jotai'
 import { hstack, subgrid } from 'styled-system/patterns'
 
-import type { TReaderPageParams } from '~/_pages'
 import type { TBook } from '~/db'
-import { ReturnFromReferenceFAB } from '~/organisms/BottomToolbar/ReturnFromReferenceFAB'
 import {
+	currBookAtom,
+	currChapterAtom,
 	isFirstChapterAtom,
 	isLastChapterAtom,
-	nextChapterURLAtom,
-	prevChapterURLAtom,
+	nextChapterUrlAtom,
+	prevChapterUrlAtom,
 } from '~/state'
 
 import { BottomToolbarContainer } from './BottomToolbarContainer'
-import { ChapterPickerMenu } from './ChapterPickerMenu'
+import { ChapterPickerMenuRoot } from './ChapterPickerMenu'
 import { ReaderNavButton } from './ReaderNavButton'
+import { ReturnFromReferenceFab } from './ReturnFromReferenceFab'
 
 export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
-	const { bookCode, chapter: _chapter } = useParams<TReaderPageParams>()
+	const chapter = useAtomValue(currChapterAtom)
 
-	const chapter = Number(_chapter)
-
-	const currBook = bookList.find((book) => book.code === bookCode)
-
-	if (!currBook) {
-		throw new Error('No book data')
-	}
+	const currBook = useAtomValue(currBookAtom)
 
 	const currBookIndex = bookList.findIndex(
 		(book) => book.book_name?.value === currBook.book_name?.value,
@@ -36,62 +29,20 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 
 	const currBookChapterCount = bookList[currBookIndex]?.chapter_count
 
-	const prevBook = bookList[currBookIndex - 1]
+	const prevChapterUrl = useAtomValue(prevChapterUrlAtom)
 
-	const prevBookCode = prevBook?.code
-
-	const prevBookChapterCount = prevBook?.chapter_count
-
-	const nextBookCode = bookList[currBookIndex + 1]?.code
-
-	const [prevChapterURL, setPrevChapterURL] = useAtom(prevChapterURLAtom)
-
-	useEffect(
-		() =>
-			setPrevChapterURL(
-				chapter === 1
-					? `/${prevBookCode}/${prevBookChapterCount}`
-					: `/${bookCode}/${chapter - 1}`,
-			),
-		[bookCode, chapter, prevBookChapterCount, prevBookCode, setPrevChapterURL],
-	)
-
-	const [nextChapterURL, setNextChapterURL] = useAtom(nextChapterURLAtom)
-
-	useEffect(
-		() =>
-			setNextChapterURL(
-				chapter === currBookChapterCount
-					? `/${nextBookCode}/1`
-					: `/${bookCode}/${chapter + 1}`,
-			),
-		[bookCode, chapter, currBookChapterCount, nextBookCode, setNextChapterURL],
-	)
+	const nextChapterUrl = useAtomValue(nextChapterUrlAtom)
 
 	const [isFirstChapterInBible, setIsFirstChapterInBible] =
 		useAtom(isFirstChapterAtom)
 
-	useEffect(
-		() => setIsFirstChapterInBible(currBookIndex === 0 && chapter === 1),
-		[chapter, currBookIndex, setIsFirstChapterInBible],
-	)
+	setIsFirstChapterInBible(currBookIndex === 0 && chapter === 1)
 
 	const [isLastChapterInBible, setIsLastChapterInBible] =
 		useAtom(isLastChapterAtom)
 
-	useEffect(
-		() =>
-			setIsLastChapterInBible(
-				currBookIndex === bookList.length - 1 &&
-					chapter === currBookChapterCount,
-			),
-		[
-			bookList.length,
-			chapter,
-			currBookChapterCount,
-			currBookIndex,
-			setIsLastChapterInBible,
-		],
+	setIsLastChapterInBible(
+		currBookIndex === bookList.length - 1 && chapter === currBookChapterCount,
 	)
 
 	return (
@@ -103,7 +54,7 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					pb: 'safe_area_bottom',
 				})}
 			>
-				<ReturnFromReferenceFAB />
+				<ReturnFromReferenceFab />
 				<div
 					className={hstack({
 						gap: '0',
@@ -111,18 +62,14 @@ export const BottomToolbar = ({ bookList }: { bookList: TBook[] }) => {
 					})}
 				>
 					<ReaderNavButton
-						url={prevChapterURL}
+						url={prevChapterUrl}
 						direction="left"
 						isDisabled={isFirstChapterInBible}
 					/>
-					<ChapterPickerMenu
-						currChapter={chapter}
-						currBook={currBook}
-						bookList={bookList}
-					/>
+					<ChapterPickerMenuRoot />
 
 					<ReaderNavButton
-						url={nextChapterURL}
+						url={nextChapterUrl}
 						direction="right"
 						isDisabled={isLastChapterInBible}
 					/>

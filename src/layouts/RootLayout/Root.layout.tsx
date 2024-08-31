@@ -4,7 +4,6 @@ import { cx } from 'styled-system/css'
 import { macrogrid } from 'styled-system/patterns'
 
 import { SafeAreaBottom } from '~/components'
-import { getBookListWithCache } from '~/db'
 import {
 	fontClean,
 	fontCondensed,
@@ -13,13 +12,14 @@ import {
 	fontOldStyle,
 	fontSans,
 } from '~/layouts/RootLayout/fonts'
+import { SetUpPersistedState } from '~/organisms'
 import {
-	BottomToolbar,
-	SetUpPersistedState,
-	TopToolbar,
-	VerseDetailsMenuRoot,
-} from '~/organisms'
-import {
+	ENABLE_NON_ORIGINAL_TEXT_COOKIE,
+	ENABLE_RED_LETTERS_COOKIE,
+	ENABLE_VERSE_DETAILS_COOKIE,
+	enableNonOriginalTextDefaultValue,
+	enableRedLettersDefaultValue,
+	enableVerseDetailsDefaultValue,
 	FONT_COOKIE,
 	FONT_SIZE_OFFSET_COOKIE,
 	fontDefaultValue,
@@ -28,12 +28,6 @@ import {
 	justifyTextDefaultValue,
 	LEADING_COOKIE,
 	leadingDefaultValue,
-	SHOW_NON_ORIGINAL_TEXT_COOKIE,
-	SHOW_RED_LETTERS_COOKIE,
-	SHOW_VERSE_DETAILS_COOKIE,
-	showNonOriginalTextDefaultValue,
-	showRedLettersDefaultValue,
-	showVerseDetailsDefaultValue,
 	type TFont,
 	type TFontSizeOffset,
 	type THEME,
@@ -53,9 +47,7 @@ const getBooleanCookieValue = (
 	fallback: boolean,
 ) => (cookieValue ? cookieValue === 'true' : fallback)
 
-export const RootLayout = async ({ children }: { children: ReactNode }) => {
-	const bookList = await getBookListWithCache()
-
+export const RootLayout = ({ children }: { children: ReactNode }) => {
 	const cookieStore = cookies()
 
 	const savedTheme = cookieStore.get(THEME_COOKIE)?.value ?? themeDefaultValue
@@ -67,12 +59,13 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 	const savedFont = cookieStore.get(FONT_COOKIE)?.value ?? fontDefaultValue
 	const savedVerseBreaksLine = cookieStore.get(VERSE_BREAKS_LINE_COOKIE)?.value
 	const savedJustifyText = cookieStore.get(JUSTIFY_TEXT_COOKIE)?.value
-	const savedShowNonOriginalText = cookieStore.get(
-		SHOW_NON_ORIGINAL_TEXT_COOKIE,
+	const savedEnableNonOriginalText = cookieStore.get(
+		ENABLE_NON_ORIGINAL_TEXT_COOKIE,
 	)?.value
-	const savedShowRedLetters = cookieStore.get(SHOW_RED_LETTERS_COOKIE)?.value
-	const savedShowVerseDetailsReferences = cookieStore.get(
-		SHOW_VERSE_DETAILS_COOKIE,
+	const savedEnableRedLetters = cookieStore.get(ENABLE_RED_LETTERS_COOKIE)
+		?.value
+	const savedEnableVerseDetailsReferences = cookieStore.get(
+		ENABLE_VERSE_DETAILS_COOKIE,
 	)?.value
 
 	return (
@@ -90,17 +83,17 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 					savedJustifyText,
 					justifyTextDefaultValue,
 				)}
-				savedShowNonOriginalText={getBooleanCookieValue(
-					savedShowNonOriginalText,
-					showNonOriginalTextDefaultValue,
+				savedEnableNonOriginalText={getBooleanCookieValue(
+					savedEnableNonOriginalText,
+					enableNonOriginalTextDefaultValue,
 				)}
-				savedShowRedLetters={getBooleanCookieValue(
-					savedShowRedLetters,
-					showRedLettersDefaultValue,
+				savedEnableRedLetters={getBooleanCookieValue(
+					savedEnableRedLetters,
+					enableRedLettersDefaultValue,
 				)}
-				savedShowVerseDetailsReferences={getBooleanCookieValue(
-					savedShowVerseDetailsReferences,
-					showVerseDetailsDefaultValue,
+				savedEnableVerseDetailsReferences={getBooleanCookieValue(
+					savedEnableVerseDetailsReferences,
+					enableVerseDetailsDefaultValue,
 				)}
 			/>
 			<UseLockBodyScroll />
@@ -128,12 +121,9 @@ export const RootLayout = async ({ children }: { children: ReactNode }) => {
 						sm: { fontSize: 'md' },
 					})}
 				>
-					<TopToolbar />
 					{children}
 					<SafeAreaBottom css={{ column: 'content' }} />
 					<GlobalBackdrop />
-					<BottomToolbar bookList={bookList} />
-					<VerseDetailsMenuRoot bookList={bookList} />
 				</body>
 			</html>
 		</RootProviders>

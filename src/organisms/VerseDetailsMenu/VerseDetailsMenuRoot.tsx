@@ -3,38 +3,35 @@
 import { Dialog } from '@ark-ui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { useSetAtom } from 'jotai/index'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useIsClient } from 'usehooks-ts'
 
 import type { TBook } from '~/db'
 import {
-	currVerseDetailsIDAtom,
+	currVerseDetailsIdAtom,
+	enableVerseDetailsAtom,
 	isScrollLockedAtom,
-	showVerseDetailsAtom,
+	showVerseDetailsMenuAtom,
 } from '~/state'
 
 import { VerseDetailsMenu } from './VerseDetailsMenu'
 
 export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
-	const showVerseDetails = useAtomValue(showVerseDetailsAtom)
+	const showVerseDetails = useAtomValue(enableVerseDetailsAtom)
 
-	const [currVerseDetailsID, setCurrVerseDetailsID] = useAtom(
-		currVerseDetailsIDAtom,
+	const [showVerseDetailsMenu, setShowVerseDetailsMenu] = useAtom(
+		showVerseDetailsMenuAtom,
 	)
+
+	const setCurrVerseDetailsId = useSetAtom(currVerseDetailsIdAtom)
 
 	const setIsBodyScrollLocked = useSetAtom(isScrollLockedAtom)
 	useEffect(
-		() => setIsBodyScrollLocked(!!currVerseDetailsID),
-		[currVerseDetailsID, setIsBodyScrollLocked],
+		() => setIsBodyScrollLocked(showVerseDetailsMenu),
+		[setIsBodyScrollLocked, showVerseDetailsMenu],
 	)
 
 	const isClient = useIsClient()
-
-	const [scrollContainerKey, setScrollContainerKey] = useState(0)
-
-	useEffect(() => {
-		currVerseDetailsID && setScrollContainerKey((key) => key + 1)
-	}, [currVerseDetailsID])
 
 	if (!showVerseDetails) {
 		return null
@@ -45,16 +42,14 @@ export const VerseDetailsMenuRoot = ({ bookList }: { bookList: TBook[] }) => {
 			id="verse-details-menu"
 			modal
 			trapFocus
+			lazyMount
+			unmountOnExit
 			preventScroll={false}
-			open={!!currVerseDetailsID}
-			onOpenChange={({ open }) => !open && setCurrVerseDetailsID(null)}
+			open={showVerseDetailsMenu}
+			onOpenChange={({ open }) => setShowVerseDetailsMenu(open)}
+			onExitComplete={() => setCurrVerseDetailsId(null)}
 		>
-			{isClient ? (
-				<VerseDetailsMenu
-					bookList={bookList}
-					scrollContainerKey={scrollContainerKey}
-				/>
-			) : null}
+			{isClient && <VerseDetailsMenu bookList={bookList} />}
 		</Dialog.Root>
 	)
 }
