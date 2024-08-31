@@ -50,6 +50,8 @@ const RootCatchAllPage = async ({
 			}),
 		)
 	}
+
+	redirect(buildReaderUrl())
 }
 
 export default RootCatchAllPage
