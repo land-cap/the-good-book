@@ -12,17 +12,14 @@ export const ReaderNavButton = ({
 }) => {
 	const buttonCls = button({ icon: true, size: 'xl' })
 
-	const icon = (
-		<Icon size={6} code={direction === 'left' ? '&#xe5c4;' : '&#xe5c8;'} />
-	)
-
-	return url ? (
-		<Link prefetch href={url} className={buttonCls}>
-			{icon}
+	return (
+		<Link
+			prefetch
+			href={url ?? ''}
+			aria-disabled={url ? undefined : true}
+			className={buttonCls}
+		>
+			<Icon size={6} code={direction === 'left' ? '&#xe5c4;' : '&#xe5c8;'} />
 		</Link>
-	) : (
-		<button aria-disabled className={buttonCls}>
-			{icon}
-		</button>
 	)
 }
