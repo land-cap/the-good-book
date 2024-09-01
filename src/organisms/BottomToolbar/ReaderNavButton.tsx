@@ -6,18 +6,20 @@ import { Icon } from '~/components'
 export const ReaderNavButton = ({
 	url,
 	direction,
-	isDisabled,
 }: {
-	url: string
+	url: string | null
 	direction: 'left' | 'right'
-	isDisabled?: boolean
-}) => (
-	<Link
-		prefetch
-		href={url}
-		aria-disabled={isDisabled}
-		className={button({ icon: true, size: 'xl' })}
-	>
-		<Icon size={6} code={direction === 'left' ? '&#xe5c4;' : '&#xe5c8;'} />
-	</Link>
-)
+}) => {
+	const buttonCls = button({ icon: true, size: 'xl' })
+
+	return (
+		<Link
+			prefetch
+			href={url ?? ''}
+			aria-disabled={url ? undefined : true}
+			className={buttonCls}
+		>
+			<Icon size={6} code={direction === 'left' ? '&#xe5c4;' : '&#xe5c8;'} />
+		</Link>
+	)
+}
