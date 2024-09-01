@@ -22,38 +22,43 @@ export const currChapterAtom = atom(undefined as unknown as number)
 
 export const prevChapterUrlAtom = atom((get) => {
 	const currChapter = get(currChapterAtom)
-	const currBookCode = get(currBookCodeAtom)
+	const currBook = get(currBookAtom)
+
+	if (currChapter > 1) {
+		return buildReaderUrl({ bookCode: currBook.code, chapter: currChapter - 1 })
+	}
 
 	const bookList = get(bookListAtom)
-	const currBookIndex = get(currBookAtom).order - 1
+	const prevBook = bookList.find(({ order }) => order === currBook.order - 1)
 
-	const prevBook = bookList[currBookIndex - 1]
-	const prevBookCode = prevBook?.code
-	const prevBookChapterCount = prevBook?.chapter_count
+	if (!prevBook) {
+		return null
+	}
 
-	return currChapter === 1
-		? buildReaderUrl({
-				bookCode: prevBookCode,
-				chapter: prevBookChapterCount,
-		  })
-		: buildReaderUrl({ bookCode: currBookCode, chapter: currChapter - 1 })
+	return buildReaderUrl({
+		bookCode: prevBook.code,
+		chapter: prevBook.chapter_count,
+	})
 })
 
 export const nextChapterUrlAtom = atom((get) => {
 	const currChapter = get(currChapterAtom)
 	const currBook = get(currBookAtom)
 	const currBookChapterCount = currBook.chapter_count
-	const currBookIndex = currBook.order - 1
+
+	if (currChapter < currBookChapterCount) {
+		return buildReaderUrl({ bookCode: currBook.code, chapter: currChapter + 1 })
+	}
+
 	const bookList = get(bookListAtom)
-	const nextBookCode = bookList[currBookIndex - 1]!.code
-	return currChapter === currBookChapterCount
-		? buildReaderUrl({ bookCode: nextBookCode, chapter: 1 })
-		: buildReaderUrl({ bookCode: currBook.code, chapter: currChapter + 1 })
+	const nextBook = bookList.find(({ order }) => order === currBook.order + 1)
+
+	if (!nextBook) {
+		return null
+	}
+
+	return buildReaderUrl({ bookCode: nextBook.code, chapter: 1 })
 })
-
-export const isFirstChapterAtom = atom(false)
-
-export const isLastChapterAtom = atom(false)
 
 /**
  * VERSE DETAILS STATE
