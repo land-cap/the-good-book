@@ -16,7 +16,7 @@ export const ReaderLayout = async ({ children }: { children: ReactNode }) => {
 			<UseSetUpReaderState bookList={bookList} />
 			<TopToolbar />
 			{children}
-			<BottomToolbar bookList={bookList} />
+			<BottomToolbar />
 			<VerseDetailsMenuRoot bookList={bookList} />
 			<Footer />
 		</>
