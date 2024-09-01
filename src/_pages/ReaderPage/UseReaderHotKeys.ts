@@ -7,8 +7,6 @@ import { useRouter } from 'next/navigation'
 import {
 	fontSizeOffsetAtom,
 	fontSizeOffsetDefaultValue,
-	isFirstChapterAtom,
-	isLastChapterAtom,
 	leadingAtom,
 	leadingDefaultValue,
 	nextChapterUrlAtom,
@@ -54,12 +52,10 @@ export const UseReaderHotKeys = () => {
 	const router = useRouter()
 
 	const prevChapterUrl = useAtomValue(prevChapterUrlAtom)
-	const isFirstChapter = useAtomValue(isFirstChapterAtom)
-	const goToPrevChapter = () => !isFirstChapter && router.push(prevChapterUrl)
+	const goToPrevChapter = () => prevChapterUrl && router.push(prevChapterUrl)
 
 	const nextChapterUrl = useAtomValue(nextChapterUrlAtom)
-	const isLastChapter = useAtomValue(isLastChapterAtom)
-	const goToNextChapter = () => !isLastChapter && router.push(nextChapterUrl)
+	const goToNextChapter = () => nextChapterUrl && router.push(nextChapterUrl)
 
 	useHotkeys([
 		['mod+-', decreaseFontSize],
