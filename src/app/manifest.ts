@@ -23,6 +23,7 @@ const manifest = (): MetadataRoute.Manifest => ({
 	name: 'The Good Book',
 	scope: '/',
 	short_name: 'Good Book',
+	start_url: '/',
 })
 
 export default manifest
