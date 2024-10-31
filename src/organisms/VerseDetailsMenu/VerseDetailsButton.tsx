@@ -115,7 +115,7 @@ export const VerseDetailsButton = ({
 				onClick={handleClick}
 				className={css({ display: 'inline-block' })}
 			>
-				<Icon code="&#xf52b;" className={iconCls} />
+				<Icon code="info" className={iconCls} />
 			</button>
 		</>
 	)

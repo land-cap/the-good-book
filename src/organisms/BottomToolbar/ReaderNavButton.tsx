@@ -19,7 +19,10 @@ export const ReaderNavButton = ({
 			aria-disabled={url ? undefined : true}
 			className={buttonCls}
 		>
-			<Icon size={6} code={direction === 'left' ? '&#xe5c4;' : '&#xe5c8;'} />
+			<Icon
+				size={6}
+				code={direction === 'left' ? 'arrow_back' : 'arrow_forward'}
+			/>
 		</Link>
 	)
 }
