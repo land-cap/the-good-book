@@ -2,7 +2,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { range } from 'ramda'
 import { useMemo } from 'react'
 
-import { buildReaderUrl } from '~/hooks'
+import { buildReaderUrl } from '~/app/read/lib'
 import { currBookAtom, currChapterAtom } from '~/state'
 
 import { ChapterListHeader } from './ChapterListHeader'

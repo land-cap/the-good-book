@@ -1,4 +1,4 @@
-import { VERSE_RANGE_SEARCH_PARAM } from '~/layouts/ReaderLayout/readerLayout.constants'
+import { VERSE_RANGE_SEARCH_PARAM } from '../readerLayout.constants'
 
 const readerLayoutPathname = '/read'
 

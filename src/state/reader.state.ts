@@ -2,8 +2,8 @@ import { atom } from 'jotai'
 import { atomFamily, atomWithStorage } from 'jotai/utils'
 import { type ReactNode } from 'react'
 
+import { buildReaderUrl } from '~/app/read/lib'
 import { type TBook } from '~/db'
-import { buildReaderUrl } from '~/hooks'
 
 const READER_PATHNAME_LS_KEY = 'reader-pathname'
 export const readerRoute = atomWithStorage(READER_PATHNAME_LS_KEY, '')

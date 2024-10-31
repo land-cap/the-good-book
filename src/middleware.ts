@@ -1,8 +1,7 @@
 import { cookies } from 'next/headers'
 import { type NextRequest, NextResponse } from 'next/server'
 
-import { buildReaderUrl } from '~/hooks'
-import { PREV_SESSION_READER_URL_COOKIE } from '~/layouts/ReaderLayout/readerLayout.constants'
+import { buildReaderUrl, PREV_SESSION_READER_URL_COOKIE } from '~/app/read/lib'
 
 export const config = {
 	matcher: [

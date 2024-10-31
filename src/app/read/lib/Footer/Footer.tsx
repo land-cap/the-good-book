@@ -1,7 +1,7 @@
 import { css } from 'styled-system/css'
 import { flex } from 'styled-system/patterns'
 
-import { FooterContainer } from '~/layouts/ReaderLayout/Footer/FooterContainer'
+import { FooterContainer } from '~/app/read/lib/Footer/FooterContainer'
 
 export const Footer = () => (
 	<FooterContainer>
