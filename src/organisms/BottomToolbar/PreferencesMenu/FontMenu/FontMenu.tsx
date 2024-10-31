@@ -38,7 +38,7 @@ export const FontMenu = () => {
 										}, 150)
 									}}
 								>
-									<Icon size={6} code="&#xe5cd;" />
+									<Icon size={6} name="&#xe5cd;" />
 								</Dialog.CloseTrigger>
 							}
 							leftButton={
@@ -50,7 +50,7 @@ export const FontMenu = () => {
 										setTimeout(() => setIsPreferencesMenuSuspended(false), 150)
 									}}
 								>
-									<Icon size={6} code="&#xe5c4;" />
+									<Icon size={6} name="&#xe5c4;" />
 								</button>
 							}
 						/>

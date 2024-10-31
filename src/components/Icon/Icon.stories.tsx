@@ -16,7 +16,7 @@ export default meta
 const iconSizeRange = (
 	<div className={flex({ align: 'center', gap: '8', justify: 'center' })}>
 		{iconRecipe.variantMap.size.map((size) => (
-			<Icon key={size} code="square" size={size} />
+			<Icon key={size} name="square" size={size} />
 		))}
 	</div>
 )
