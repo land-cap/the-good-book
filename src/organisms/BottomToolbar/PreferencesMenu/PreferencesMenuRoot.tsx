@@ -56,7 +56,7 @@ export const PreferencesMenuRoot = () => {
 			}}
 		>
 			<DialogTrigger className={cx(button({ icon: true, size: 'xl' }))}>
-				<Icon size={6} code="&#xe732;" />
+				<Icon size={6} code="custom_typography" />
 			</DialogTrigger>
 			<PreferencesMenu scrollContainerKey={scrollContainerKey} />
 		</Dialog.Root>
