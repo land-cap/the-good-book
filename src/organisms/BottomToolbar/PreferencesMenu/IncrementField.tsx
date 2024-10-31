@@ -35,7 +35,7 @@ export const IncrementField = <T,>({
 				onClick={decrement}
 				disabled={value === range[0]}
 			>
-				<Icon size={5} weight={500} code={decreaseIcon} />
+				<Icon size={5} weight={500} name={decreaseIcon} />
 			</button>
 			<div
 				className={css({
@@ -49,7 +49,7 @@ export const IncrementField = <T,>({
 				onClick={increment}
 				disabled={value === range[range.length - 1]}
 			>
-				<Icon size={5} weight={500} code={increaseIcon} />
+				<Icon size={5} weight={500} name={increaseIcon} />
 			</button>
 		</div>
 	)

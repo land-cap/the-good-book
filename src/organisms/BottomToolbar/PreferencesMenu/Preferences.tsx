@@ -56,8 +56,8 @@ export const Preferences = () => {
 						range={fontSizeOffsetRange}
 						value={fontSizeOffset}
 						onChange={handleFontSizeOffsetChange}
-						decreaseIcon="&#xeadd;"
-						increaseIcon="&#xeae2;"
+						decreaseIcon="text_decrease"
+						increaseIcon="text_increase"
 					/>
 				</IncrementFieldContainer>
 				<IncrementFieldContainer>
@@ -65,8 +65,8 @@ export const Preferences = () => {
 						range={leadingRange}
 						value={leading}
 						onChange={handleLeadingChange}
-						decreaseIcon="&#xeba8;"
-						increaseIcon="&#xeb9e;"
+						decreaseIcon="density_small"
+						increaseIcon="density_medium"
 					/>
 				</IncrementFieldContainer>
 			</HStack>
