@@ -130,7 +130,7 @@ export const ReturnFromReferenceFab = () => {
 						href={referenceOriginUrl}
 						onClick={handleClick}
 					>
-						<Icon code="&#xe166;" size={4} className={iconCls} />
+						<Icon name="&#xe166;" size={4} className={iconCls} />
 						{originBookName} {originChapter}
 						{originVerse ? `:${originVerse}` : ''}
 					</Link>
@@ -155,7 +155,7 @@ export const ReturnFromReferenceFab = () => {
 						}}
 					>
 						<Icon
-							code="&#xe5cd;"
+							name="&#xe5cd;"
 							size={4}
 							className={css({ '--wght': '325' })}
 						/>

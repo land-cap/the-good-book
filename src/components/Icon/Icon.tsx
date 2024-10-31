@@ -58,10 +58,10 @@ export const iconRecipe = cva({
 export type IconVariants = RecipeVariantProps<typeof iconRecipe>
 
 export type IconProps = {
-	code: string
+	name: string
 	className?: string
 } & IconVariants
 
-export const Icon = ({ code, className, ...variants }: IconProps) => (
-	<span className={cx(iconRecipe(variants), className)}>{code}</span>
+export const Icon = ({ name, className, ...variants }: IconProps) => (
+	<span className={cx(iconRecipe(variants), className)}>{name}</span>
 )

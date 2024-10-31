@@ -63,7 +63,7 @@ const Button = ({
 			{label}
 		</Flex>
 		<styled.center className={square({ size: '10' })}>
-			<Icon code="&#xe409;" size={6} />
+			<Icon name="arrow_drop_down" size={6} />
 		</styled.center>
 	</button>
 )

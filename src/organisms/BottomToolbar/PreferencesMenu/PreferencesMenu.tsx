@@ -29,7 +29,7 @@ export const PreferencesMenu = ({
 									className={button({ icon: true, size: 'xl' })}
 									onClick={() => setShowBackdrop(false)}
 								>
-									<Icon size={6} code="&#xe5cd;" />
+									<Icon size={6} name="&#xe5cd;" />
 								</Dialog.CloseTrigger>
 							}
 						/>

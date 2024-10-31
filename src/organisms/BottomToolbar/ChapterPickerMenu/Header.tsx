@@ -50,7 +50,7 @@ export const Header = () => {
 						</Tabs.Trigger>
 					</Tabs.List>
 					<Dialog.CloseTrigger className={button({ icon: true, size: 'xl' })}>
-						<Icon size={6} code="close" />
+						<Icon size={6} name="close" />
 					</Dialog.CloseTrigger>
 				</div>
 			</div>

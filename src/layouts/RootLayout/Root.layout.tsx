@@ -111,7 +111,7 @@ export const RootLayout = ({ children }: { children: ReactNode }) => {
 				<head>
 					<link
 						rel="stylesheet"
-						href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward,close,custom_typography,info,page_info"
+						href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_drop_down,arrow_forward,close,custom_typography,density_medium,density_small,info,page_info,text_decrease,text_increase"
 					/>
 				</head>
 				<body

@@ -21,7 +21,7 @@ export const ReaderNavButton = ({
 		>
 			<Icon
 				size={6}
-				code={direction === 'left' ? 'arrow_back' : 'arrow_forward'}
+				name={direction === 'left' ? 'arrow_back' : 'arrow_forward'}
 			/>
 		</Link>
 	)
