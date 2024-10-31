@@ -63,8 +63,5 @@ export type IconProps = {
 } & IconVariants
 
 export const Icon = ({ code, className, ...variants }: IconProps) => (
-	<span
-		className={cx(iconRecipe(variants), className)}
-		dangerouslySetInnerHTML={{ __html: code }}
-	/>
+	<span className={cx(iconRecipe(variants), className)}>{code}</span>
 )
