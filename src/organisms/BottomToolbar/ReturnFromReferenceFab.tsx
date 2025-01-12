@@ -154,11 +154,7 @@ export const ReturnFromReferenceFab = () => {
 							setOrigin(undefined)
 						}}
 					>
-						<Icon
-							name="&#xe5cd;"
-							size={4}
-							className={css({ '--wght': '325' })}
-						/>
+						<Icon name="undo" size={4} className={css({ '--wght': '325' })} />
 					</button>
 				</motion.div>
 			)}
