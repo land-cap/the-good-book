@@ -48,7 +48,6 @@ export const ChapterPickerMenuRoot = () => {
 			id="chapter-picker-menu"
 			trapFocus
 			lazyMount
-			unmountOnExit
 			preventScroll={false}
 			open={showMenu}
 			onOpenChange={handleOpenChange}
