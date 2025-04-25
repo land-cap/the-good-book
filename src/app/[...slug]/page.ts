@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation'
 
 import { getBookListWithCache } from '~/db'
-import { buildReaderUrl } from '~/hooks'
-import { VERSE_RANGE_SEARCH_PARAM } from '~/layouts/ReaderLayout/readerLayout.constants'
+
+import { buildReaderUrl, VERSE_RANGE_SEARCH_PARAM } from '../read/lib'
 
 const getIsReaderSubPath = async (slug: string[]) => {
 	if (slug.length !== 2) {

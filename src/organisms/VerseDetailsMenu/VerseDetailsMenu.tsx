@@ -11,9 +11,9 @@ import { macrogrid, underlined } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
 
 import { type TReaderPageParams } from '~/_pages'
+import { buildReaderUrl } from '~/app/read/lib'
 import { Header, Icon, Menu, SafeAreaBottom } from '~/components'
 import { type TBook } from '~/db'
-import { buildReaderUrl } from '~/hooks'
 import {
 	currBookAtom,
 	currVerseDetailsAtom,

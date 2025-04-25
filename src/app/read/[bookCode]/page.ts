@@ -1,7 +1,8 @@
 import { redirect } from 'next/navigation'
 
 import { type TReaderPageParams } from '~/_pages'
-import { buildReaderUrl } from '~/hooks'
+
+import { buildReaderUrl } from '../lib'
 
 const BookCodePage = ({
 	params: { bookCode },
