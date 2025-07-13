@@ -8,7 +8,9 @@ function Home() {
   return (
     <div >
       I am home page.
-      <Link to="/read/gen/1">Read Genesis 1</Link>
+            <Link to="/read/$book/$chapter" params={{ book: 'gen', chapter: '1' }}>
+        Read Genesis 1
+      </Link>
     </div>
   )
 }
