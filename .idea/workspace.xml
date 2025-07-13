@@ -5,8 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1184450e-c685-44a2-bee9-e7e973ce178a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DefaultCatchBoundary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DefaultCatchBoundary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostError.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserError.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_pathlessLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_pathlessLayout/_nested-layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_pathlessLayout/_nested-layout/route-a.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_pathlessLayout/_nested-layout/route-b.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api/users.$userId.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api/users.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/customScript[.]js.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/deferred.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/posts.$postId.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/posts.index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/posts.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/posts_.$postId.deep.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/redirect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.$userId.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/posts.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/seo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/users.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +123,7 @@
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/legacy/package.json" />
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -141,7 +169,7 @@
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/prettier&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/land_cap/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib&quot;,
     &quot;typescript.add.unambiguous.imports.on.the.fly&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -638,7 +666,7 @@
       <workItem from="1749327072921" duration="598000" />
       <workItem from="1749450595640" duration="598000" />
       <workItem from="1749674059901" duration="600000" />
-      <workItem from="1752406365455" duration="6196000" />
+      <workItem from="1752406365455" duration="7057000" />
     </task>
     <task id="LOCAL-00001" summary="adds mock chapter data for Job 1">
       <option name="closed" value="true" />
