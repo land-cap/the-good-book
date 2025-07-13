@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, notFound } from '@tanstack/react-router'
 import { dbClient } from '~/db/dbClient'
 
 export const Route = createFileRoute('/read/$book/$chapter')({
@@ -12,8 +12,7 @@ export const Route = createFileRoute('/read/$book/$chapter')({
     })
 
     if (!bookRecord) {
-      // Handle book not found
-      return { content: 'Book not found' }
+      throw notFound()
     }
 
     const chapterRecord = await dbClient.chapter.findFirst({
@@ -23,16 +22,16 @@ export const Route = createFileRoute('/read/$book/$chapter')({
       },
     })
 
+    if (!chapterRecord) {
+      throw notFound()
+    }
+
     return chapterRecord
   },
 })
 
 function ReadChapter() {
   const chapterData = Route.useLoaderData()
-
-  if (!chapterData) {
-    return <div>Chapter not found</div>
-  }
 
   return (
     <div>
