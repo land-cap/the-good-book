@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1184450e-c685-44a2-bee9-e7e973ce178a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +116,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;/Users/land_cap/Library/Application Support/JetBrains/WebStorm2025.1/plugins/Shell Script/shellcheck&quot;,
     &quot;Shell Script.pnpm prisma studio.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.prisma studio.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -138,7 +140,7 @@
     &quot;npm.storybook.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/prettier&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/land_cap/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;typescript.add.unambiguous.imports.on.the.fly&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -153,11 +155,11 @@
       <recent name="$PROJECT_DIR$/src/layouts/RootLayout/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/legacy" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/src/app/read/lib/hooks" />
-      <recent name="$PROJECT_DIR$/src/app/read/_" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state.ts" />
@@ -636,7 +638,7 @@
       <workItem from="1749327072921" duration="598000" />
       <workItem from="1749450595640" duration="598000" />
       <workItem from="1749674059901" duration="600000" />
-      <workItem from="1752406365455" duration="2316000" />
+      <workItem from="1752406365455" duration="6196000" />
     </task>
     <task id="LOCAL-00001" summary="adds mock chapter data for Job 1">
       <option name="closed" value="true" />
