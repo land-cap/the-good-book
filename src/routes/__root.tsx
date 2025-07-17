@@ -2,7 +2,8 @@
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import * as React from 'react'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
+import { registerSW } from 'virtual:pwa-register'
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/global.css?url'
@@ -48,16 +49,26 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: ReactNode }) {
-	return (
-		<html>
-		<head>
-			<HeadContent />
-		</head>
-		<body>
-		{children}
-		<TanStackRouterDevtools position='bottom-right' />
-		<Scripts />
-		</body>
-		</html>
-	)
+        return (
+                <html>
+                <head>
+                        <HeadContent />
+                </head>
+                <body>
+                {children}
+                <ServiceWorkerRegister />
+                <TanStackRouterDevtools position='bottom-right' />
+                <Scripts />
+                </body>
+                </html>
+        )
+}
+
+function ServiceWorkerRegister() {
+        useEffect(() => {
+                if ('serviceWorker' in navigator) {
+                        registerSW({ immediate: true })
+                }
+        }, [])
+        return null
 }
