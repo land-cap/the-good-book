@@ -2,7 +2,7 @@
 export default {
 	publicAssets: [
 		{
-			dir: './.output/public',
+			dir: './public',
 			maxAge: 60 * 60 * 24 * 7 // 1 week
 		}
 	]
