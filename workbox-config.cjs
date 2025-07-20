@@ -5,8 +5,9 @@ module.exports = {
 	],
 	swDest: "public/sw.js",
 	clientsClaim: true,
-	skipWaiting: true,
-	runtimeCaching: [
+        skipWaiting: true,
+        importScripts: ['sw-shell.js'],
+        runtimeCaching: [
 		{
 			urlPattern: /bible-data\.json$/,
 			handler: 'NetworkFirst',
