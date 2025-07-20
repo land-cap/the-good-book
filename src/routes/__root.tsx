@@ -8,7 +8,6 @@ import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/global.css?url'
 
-
 export const Route = createRootRoute({
 	head: () => ({
 		meta: [
@@ -49,26 +48,29 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: ReactNode }) {
-        return (
-                <html>
-                <head>
-                        <HeadContent />
-                </head>
-                <body>
-                {children}
-                <ServiceWorkerRegister />
-                <TanStackRouterDevtools position='bottom-right' />
-                <Scripts />
-                </body>
-                </html>
-        )
+	return (
+		<html>
+			<head>
+				<HeadContent />
+			</head>
+			<body>
+				{children}
+				<ServiceWorkerRegister />
+				<TanStackRouterDevtools position="bottom-right" />
+				<Scripts />
+			</body>
+		</html>
+	)
 }
 
 function ServiceWorkerRegister() {
-        useEffect(() => {
-                if ('serviceWorker' in navigator) {
-                        registerSW({ immediate: true })
-                }
-        }, [])
-        return null
+	useEffect(() => {
+		if ('serviceWorker' in navigator) {
+			registerSW({ immediate: true })
+			navigator.serviceWorker.ready.then(() => {
+				fetch('/bible-data.json').catch(() => {})
+			})
+		}
+	}, [])
+	return null
 }

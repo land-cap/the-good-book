@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1184450e-c685-44a2-bee9-e7e973ce178a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/generateBibleData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/bibleData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/bible-data.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sw.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sw.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/workbox-df1b40ba.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/workbox-df1b40ba.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workbox-config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/workbox-config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/read.$book.$chapter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/read.$book.$chapter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +53,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="0e58f89cbd05574ab177ab2b4fe66ab7f2dc4a3f" />
+        <entry key="$PROJECT_DIR$" value="codex/add-offline-support-for-bible-chapters" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,45 +118,48 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.debug server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;/Users/land_cap/Library/Application Support/JetBrains/WebStorm2025.1/plugins/Shell Script/shellcheck&quot;,
-    &quot;Shell Script.pnpm prisma studio.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.prisma studio.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#169 on codex/add-offline-support-for-bible-chapters&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/.tanstack/start/build/client-dist&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/eslint&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;npm.build.executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev:inspect.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;npm.storybook.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib&quot;,
-    &quot;typescript.add.unambiguous.imports.on.the.fly&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.debug server.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "/Users/land_cap/Library/Application Support/JetBrains/WebStorm2025.1/plugins/Shell Script/shellcheck",
+    "Shell Script.pnpm prisma studio.executor": "Run",
+    "Shell Script.prisma studio.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "feat/cache-all-chapter-data-for-offline",
+    "ignore_missing_gitignore": "true",
+    "js.linters.configure.manually.selectedeslint": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/land_cap/projects/personal/the-good-book/.tanstack/start/build/client-dist",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "/Users/land_cap/projects/personal/the-good-book/node_modules/eslint",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.build.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.dev:inspect.executor": "Run",
+    "npm.generate:bible-data.executor": "Run",
+    "npm.generate:db.executor": "Run",
+    "npm.generate:sw.executor": "Run",
+    "npm.start.executor": "Run",
+    "npm.storybook.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/land_cap/projects/personal/the-good-book/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib",
+    "typescript.add.unambiguous.imports.on.the.fly": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.tanstack/start/build/client-dist" />
@@ -177,7 +183,7 @@
       <recent name="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/ThemeMenu/ThemeOptions.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.generate:sw">
     <configuration name="debug server" type="JavascriptDebugType" uri="http://localhost:4000">
       <method v="2" />
     </configuration>
@@ -231,11 +237,31 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="dev:inspect" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="generate:bible-data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="dev:inspect" />
+        <script value="generate:bible-data" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate:db" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="generate:db" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate:sw" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="generate:sw" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -265,17 +291,21 @@
       <item itemvalue="JavaScript Debug.debug server" />
       <item itemvalue="npm.dev" />
       <item itemvalue="npm.storybook" />
+      <item itemvalue="npm.generate:bible-data" />
+      <item itemvalue="npm.generate:db" />
+      <item itemvalue="npm.generate:sw" />
       <item itemvalue="npm.build" />
-      <item itemvalue="npm.dev:inspect" />
       <item itemvalue="npm.start" />
       <item itemvalue="Shell Script.panda:watch" />
       <item itemvalue="Shell Script.prisma studio" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.dev:inspect" />
+        <item itemvalue="npm.generate:sw" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.generate:bible-data" />
+        <item itemvalue="npm.generate:db" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>

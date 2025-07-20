@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 4000",
-    "build": "vite build && tsc --noEmit && npx workbox generateSW ./workbox-config.cjs",
+    "generate:db": "prisma generate",
+    "generate:bible-data": "node ./scripts/generateBibleData.js",
+    "build": "npm run generate:db && npm run generate:bible-data && vite build && tsc --noEmit",
+    "generate:sw": "npx workbox generateSW ./workbox-config.cjs",
     "start": "PORT=4000 node .output/server/index.mjs"
   },
   "dependencies": {
