@@ -7,8 +7,9 @@
     "dev": "vite dev --port 4000",
     "generate:db": "prisma generate",
     "generate:bible-data": "node ./scripts/generateBibleData.js",
-    "build": "npm run generate:db && npm run generate:bible-data && vite build && tsc --noEmit",
     "generate:sw": "npx workbox generateSW ./workbox-config.cjs",
+    "build:app": "vite build",
+    "build": "npm run generate:db && npm run generate:bible-data && pnpm run build:app && pnpm run generate:sw",
     "start": "PORT=4000 node .output/server/index.mjs"
   },
   "dependencies": {

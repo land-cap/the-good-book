@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 
 // Helper to load chapter data
 async function loadChapter({
@@ -34,10 +34,15 @@ export const Route = createFileRoute('/read/$book/$chapter')({
 })
 
 function ReadChapter() {
+	const params = Route.useParams()
+
 	const chapterData = Route.useLoaderData()
 
 	return (
 		<div>
+			<Link to={'/read/$book/$chapter'} params={{ book: params.book, chapter: `${parseInt(params.chapter) -1}` }}>Previous chapter</Link>
+			<Link to={'/read/$book/$chapter'} params={{ book: params.book, chapter: `${parseInt(params.chapter) +1}` }}>Next chapter</Link>
+			<br/>
 			<div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
 		</div>
 	)
