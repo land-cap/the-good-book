@@ -18,7 +18,7 @@ export default defineConfig({
 			injectRegister: false,
 			manifest: {
 				name: 'The Good Book',
-				short_name: 'GoodBook',
+				short_name: 'Good Book',
 				description: 'An offline-first Bible reading app.',
 				theme_color: '#ffffff',
 				icons: [

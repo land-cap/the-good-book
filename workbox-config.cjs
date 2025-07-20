@@ -3,7 +3,7 @@ module.exports = {
 	globPatterns: [
 		"**/*.{js,css,html,png,svg,json,webmanifest}"
 	],
-	swDest: ".output/public/sw.js",
+	swDest: "public/sw.js",
 	clientsClaim: true,
 	skipWaiting: true,
 	runtimeCaching: [

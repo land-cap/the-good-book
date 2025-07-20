@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 4000",
-    "build": "vite build && tsc --noEmit",
-    "build:sw": "npx workbox generateSW ./workbox-config.cjs && cp .output/public/sw.js public/sw.js && cp .output/public/sw.js.map public/sw.js.map || true && cp .output/public/workbox-*.js public/ || true && cp .output/public/workbox-*.js.map public/ || true && cp .output/public/sw.js .tanstack/start/build/client-dist/sw.js && cp .output/public/sw.js.map .tanstack/start/build/client-dist/sw.js.map || true && cp .output/public/workbox-*.js .tanstack/start/build/client-dist/ || true && cp .output/public/workbox-*.js.map .tanstack/start/build/client-dist/ || true",
+    "build": "vite build && tsc --noEmit && npx workbox generateSW ./workbox-config.cjs",
     "start": "PORT=4000 node .output/server/index.mjs"
   },
   "dependencies": {
