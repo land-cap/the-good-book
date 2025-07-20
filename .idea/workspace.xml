@@ -8,8 +8,9 @@
       <change afterPath="$PROJECT_DIR$/public/sw-shell.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sw.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/sw.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sw.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/workbox-df1b40ba.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/workbox-df1b40ba.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/workbox-config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/workbox-config.cjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
