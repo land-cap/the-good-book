@@ -1,16 +1,13 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
-  component: Home,
+	loader: () => {
+		throw redirect({
+			to: '/read/$book/$chapter',
+			params: {
+				book: 'gen',
+				chapter: '1',
+			},
+		})
+	},
 })
-
-function Home() {
-  return (
-    <div >
-      I am home page.
-            <Link to="/read/$book/$chapter" params={{ book: 'gen', chapter: '1' }}>
-        Read Genesis 1
-      </Link>
-    </div>
-  )
-}
