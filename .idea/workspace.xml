@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/the-good-book.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/capdUiStorybookTheme.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/manager.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Geist-Black.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Geist-Bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Geist-Light.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Geist-Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Geist-UltraBlack.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Geist-UltraLight.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-storybook.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chromatic.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pull_request_template.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/app-icon-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/app-icon-staging-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/Reader.page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/UseReaderHotKeys.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/ChapterContentContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/ChapterContentComponents.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/Verse.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/normalizeOriginalChapterHTML.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/parseChapterHTML.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/renderChapterContent.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/renderChapterContentFromOM.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/chapterContent/renderChapterContent/useVerseRangeList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/ReaderPage/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_pages/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[...slug]/page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/manifest.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/og/route.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/read/[bookCode]/[chapter]/opengraph-image.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/read/[bookCode]/[chapter]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/read/[bookCode]/page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/read/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component-helpers/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component-helpers/wChildren.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component-helpers/wClassName.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component-helpers/wName.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BleedList/BleedList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BleedList/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icon/Icon.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icon/Icon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icon/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SafeAreaBottom.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Separator.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/dbClient.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/dbQueries.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers.client/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers.client/isInBrowser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/steppedRange.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/withCache.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/withCopyToClipboard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/withPerformanceLog.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/buildReaderUrl.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useRangeInput.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useSelectedLayoutPathname.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useSetupClientState.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/Footer/Footer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/Footer/FooterContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/Footer/footer.state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/Footer/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/Reader.layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/UseRestorePrevSessionChapter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/UseSetUpReaderState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/ReaderLayout/readerLayout.constants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/GlobalBackdrop.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/Root.layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/RootProviders.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/UseLockBodyScroll.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/Geist-Bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/Geist-Bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/Geist-Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/Geist-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/GeistMono-Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/GeistMono-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/GeistMono-UltraBlack.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/fonts/GeistMono-UltraBlack.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/RootLayout/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/bible-data.models.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/BottomToolbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/BottomToolbarContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/BookList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/BookListSectionHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/BookTabView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/ChapterListHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/ChapterTabView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ChapterPickerMenu/useComputeChapterListItemHeight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/FontField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/FontMenu/FontMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/FontMenu/FontMenuRoot.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/FontMenu/FontOptions.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/FontMenu/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/FontPreview.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/IncrementField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/PreferenceFieldList.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/Preferences.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/PreferencesMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/PreferencesMenuRoot.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/SelectField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/SetUpPersistedState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/SliderField.styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/SliderField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/SwitchField.styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/SwitchField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/ThemeField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/ThemeMenu/ThemeMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/ThemeMenu/ThemeMenuRoot.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/ThemeMenu/ThemeOptions.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/ThemeMenu/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/PreferencesMenu/preferencesMenu.state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/ReturnFromReferenceFab.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/BottomToolbar/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/TopToolbar/TopToolbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/TopToolbar/TopToolbarContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/TopToolbar/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/CrossReferenceList.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/VerseDetailsButton.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/VerseDetailsMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/VerseDetailsMenuRoot.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/getBookAbbrToName.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/getBookNameByCode.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/getBookNameToCode.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/processReferencesText.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/VerseDetailsMenu/verseDetails.helpers.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/globalCss.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/pandaPresetGoodBook.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/patterns.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/recipes/buttonRecipe.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/colors.semanticTokens/bg.semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/colors.semanticTokens/border.semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/colors.semanticTokens/colors.semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/colors.semanticTokens/fg.semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/colors.semanticTokens/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/shadows.semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/semanticTokens/spacing.semanticTokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/tokens/colors.tokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/tokens/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/tokens/spacing.tokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/tokens/tokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/tokens/typography.tokens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pandaPresetGoodBook/utilities.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/global.state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/reader.state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "land-cap"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:land-cap/the-good-book.git",
+    "accountId": "276a5ec5-a517-45b5-8b45-f5158ef6552e"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="30ESyamHB2XtahxfcRAxuUtTX6k" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "release/offline-support",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "nodejs_package_manager_path": "pnpm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:4000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="" />
+      <created>1753191494087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753191494087</updated>
+      <workItem from="1753191495257" duration="103000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

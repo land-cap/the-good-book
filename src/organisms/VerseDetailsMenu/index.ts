@@ -1,7 +1,0 @@
-export * from './getBookAbbrToName'
-export * from './getBookNameByCode'
-export * from './getBookNameToCode'
-export * from './verseDetails.helpers'
-export * from './verseDetails.helpers'
-export * from './VerseDetailsButton'
-export * from './VerseDetailsMenuRoot'
