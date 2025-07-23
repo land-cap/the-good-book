@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/_/bibleData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/_/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/shared.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/_/loadChapterFromDb.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/read.$book.$chapter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/read.$book.$chapter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/bibleData.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/loggingMiddleware.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/loggingMiddleware.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/shared.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +79,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/src/utils/_" />
     </key>
   </component>
@@ -115,7 +114,7 @@
       <updated>1753191494087</updated>
       <workItem from="1753191495257" duration="103000" />
       <workItem from="1753191601704" duration="7626000" />
-      <workItem from="1753295477035" duration="634000" />
+      <workItem from="1753295477035" duration="903000" />
     </task>
     <servers />
   </component>

@@ -68,7 +68,7 @@ function ServiceWorkerRegister() {
 		if ('serviceWorker' in navigator) {
 			registerSW({ immediate: true })
                         navigator.serviceWorker.ready.then(() => {
-                                import('~/utils/bibleData')
+                                import('~/utils/shared')
                                         .then((m) => m.getBibleData())
                                         .catch(() => {})
                         })
