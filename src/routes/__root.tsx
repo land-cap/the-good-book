@@ -4,9 +4,9 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import * as React from 'react'
 import { ReactNode, useEffect } from 'react'
 import { registerSW } from 'virtual:pwa-register'
-import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
-import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/global.css?url'
+import { DefaultCatchBoundary } from '../errorScreens/DefaultCatchBoundary'
+import { NotFound } from '../errorScreens/NotFound'
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -50,15 +50,15 @@ export const Route = createRootRoute({
 function RootDocument({ children }: { children: ReactNode }) {
 	return (
 		<html>
-			<head>
-				<HeadContent />
-			</head>
-			<body>
-				{children}
-				<ServiceWorkerRegister />
-				<TanStackRouterDevtools position="bottom-right" />
-				<Scripts />
-			</body>
+		<head>
+			<HeadContent />
+		</head>
+		<body>
+		{children}
+		<ServiceWorkerRegister />
+		<TanStackRouterDevtools position="bottom-right" />
+		<Scripts />
+		</body>
 		</html>
 	)
 }
@@ -67,12 +67,13 @@ function ServiceWorkerRegister() {
 	useEffect(() => {
 		if ('serviceWorker' in navigator) {
 			registerSW({ immediate: true })
-                        navigator.serviceWorker.ready.then(() => {
-                                import('~/utils/shared')
-                                        .then((m) => m.getBibleData())
-                                        .catch(() => {})
-                        })
-                }
-        }, [])
-        return null
+			navigator.serviceWorker.ready.then(() => {
+				import('~/utils/shared')
+					.then((m) => m.getBibleData())
+					.catch(() => {
+					})
+			})
+		}
+	}, [])
+	return null
 }
