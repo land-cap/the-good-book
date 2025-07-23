@@ -67,10 +67,12 @@ function ServiceWorkerRegister() {
 	useEffect(() => {
 		if ('serviceWorker' in navigator) {
 			registerSW({ immediate: true })
-			navigator.serviceWorker.ready.then(() => {
-				fetch('/bible-data.json').catch(() => {})
-			})
-		}
-	}, [])
-	return null
+                        navigator.serviceWorker.ready.then(() => {
+                                import('~/utils/bibleData')
+                                        .then((m) => m.getBibleData())
+                                        .catch(() => {})
+                        })
+                }
+        }, [])
+        return null
 }

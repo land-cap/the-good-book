@@ -8,22 +8,11 @@ module.exports = {
 	clientsClaim: true,
 	skipWaiting: true,
 	importScripts: ['sw-shell.js'],
-	runtimeCaching: [
-		{
-			urlPattern: /bible-data\.json$/,
-			handler: 'NetworkFirst',
-			options: {
-				cacheName: 'bible-data-cache',
-				expiration: {
-					maxEntries: 1,
-					maxAgeSeconds: 24 * 60 * 60,
-				},
-			},
-		},
-		{
-			// Cache app shell: HTML, JS, CSS, and static assets
-			urlPattern: ({ request }) =>
-				request.destination === 'document' ||
+        runtimeCaching: [
+                {
+                        // Cache app shell: HTML, JS, CSS, and static assets
+                        urlPattern: ({ request }) =>
+                                request.destination === 'document' ||
 				request.destination === 'script' ||
 				request.destination === 'style' ||
 				request.destination === 'image' ||
