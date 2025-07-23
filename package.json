@@ -4,6 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "vite dev --port 4000",
     "generate:db": "prisma generate",
     "generate:bible-data": "node ./scripts/generateBibleData.js",
@@ -24,6 +25,8 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.54.0",
+    "@pandacss/preset-panda": "^0.54.0",
     "@types/node": "^22.5.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
