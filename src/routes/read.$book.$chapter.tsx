@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { isOnServer } from '~/utils/shared'
 
 // Helper to load chapter data
 async function loadChapter({
@@ -9,7 +10,7 @@ async function loadChapter({
 	chapter: string
 }) {
 	// Only use Prisma on the server
-	if (typeof window === 'undefined') {
+	if (isOnServer()) {
 		// Import here to avoid bundling Prisma in client
 		const { dbClient } = await import('~/db/dbClient')
 		const chapterInt = parseInt(chapter, 10)
@@ -19,7 +20,7 @@ async function loadChapter({
 			where: { book_id: bookRecord.book_id, chapter: chapterInt },
 		})
 	} else {
-		const { getChapterFromCache } = await import('~/utils/bibleData')
+		const { getChapterFromCache } = await import('~/utils/shared')
 		return getChapterFromCache(book, chapter)
 	}
 }
