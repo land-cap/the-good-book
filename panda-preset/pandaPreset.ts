@@ -1,14 +1,14 @@
 import { definePreset } from '@pandacss/dev'
 
-import { buttonRecipe } from '~/pandaPresetGoodBook/recipes/buttonRecipe'
 
 import { globalCss } from './globalCss'
 import { patterns } from './patterns'
 import { semanticTokens } from './semanticTokens'
 import { tokens } from './tokens'
 import { utilities } from './utilities'
+import { buttonRecipe } from './recipes/buttonRecipe'
 
-export const pandaPresetGoodBook = definePreset({
+export const pandaPreset = definePreset({
 	name: 'The Good Book UI',
 	conditions: {
 		extend: {

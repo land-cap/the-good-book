@@ -1,13 +1,22 @@
 {
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "__legacy"],
+  "include": [
+    "src",
+    "styled-system"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022"
+    ],
     "isolatedModules": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -16,9 +25,17 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": [
+        "./src/*"
+      ],
+
+      "styled-system/*": [
+        "./styled-system/*"
+      ]
     },
-    "types": ["vite-plugin-pwa/client"],
+    "types": [
+      "vite-plugin-pwa/client"
+    ],
     "noEmit": true
   }
 }

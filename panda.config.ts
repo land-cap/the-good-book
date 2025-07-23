@@ -1,7 +1,7 @@
 import { defineConfig } from '@pandacss/dev'
-import pandaPreset from '@pandacss/preset-panda'
+import pandaPresetCustom from '@pandacss/preset-panda'
 
-import { pandaPresetGoodBook } from '~/pandaPresetGoodBook'
+import { pandaPreset } from './panda-preset'
 
 export default defineConfig({
 	exclude: [],
@@ -9,5 +9,5 @@ export default defineConfig({
 	jsxFramework: 'react',
 	outdir: 'styled-system',
 	preflight: true,
-	presets: ['@pandacss/dev/presets', pandaPreset, pandaPresetGoodBook],
+	presets: ['@pandacss/dev/presets', pandaPreset, pandaPresetCustom],
 })

@@ -1,8 +1,8 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { isOnServer } from '~/utils/shared'
-import { button } from '../../styled-system/recipes'
-import { css, cx } from '../../styled-system/css'
-import { hstack } from '../../styled-system/patterns'
+import { button } from 'styled-system/recipes'
+import { css, cx } from 'styled-system/css'
+import { hstack } from 'styled-system/patterns'
 
 async function loadChapter({
 														 book,
