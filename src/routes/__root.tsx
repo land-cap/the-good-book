@@ -5,8 +5,8 @@ import * as React from 'react'
 import { ReactNode, useEffect } from 'react'
 import { registerSW } from 'virtual:pwa-register'
 import appCss from '~/styles/global.css?url'
-import { DefaultCatchBoundary } from '../errorScreens/DefaultCatchBoundary'
-import { NotFound } from '../errorScreens/NotFound'
+import { DefaultCatchBoundary, NotFound } from 'features/error-ui/shared'
+
 
 export const Route = createRootRoute({
 	head: () => ({

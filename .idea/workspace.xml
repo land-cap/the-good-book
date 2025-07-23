@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/features/error-ui/shared.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/ui/_/BleedList.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/ui/_/Header.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/ui/_/Icon.tsx" afterDir="false" />
@@ -14,11 +15,12 @@
       <change afterPath="$PROJECT_DIR$/src/ui/_/Separator.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/ui/shared.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DefaultCatchBoundary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/errorScreens/DefaultCatchBoundary.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/errorScreens/NotFound.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/dbClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/dbClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errorScreens/DefaultCatchBoundary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/DefaultCatchBoundary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errorScreens/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/NotFound.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,11 +100,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features" />
       <recent name="$PROJECT_DIR$/src/components/_" />
       <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/errorScreens" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -137,7 +139,7 @@
       <workItem from="1753191495257" duration="103000" />
       <workItem from="1753191601704" duration="7626000" />
       <workItem from="1753295477035" duration="634000" />
-      <workItem from="1753300120174" duration="883000" />
+      <workItem from="1753300120174" duration="1108000" />
     </task>
     <servers />
   </component>
