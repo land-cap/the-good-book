@@ -3,6 +3,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Provider } from 'jotai'
 import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
+import { token } from 'styled-system/tokens'
 import { registerSW } from 'virtual:pwa-register'
 
 import { SafeAreaBottom } from '~/ui/shared'
@@ -35,6 +36,16 @@ export const RootLayout = ({ children }: { children: ReactNode }) => {
          <html>
             <head>
                <HeadContent />
+               <meta
+                  name="theme-color"
+                  media="(prefers-color-scheme: light)"
+                  content={token('colors.white')}
+               />
+               <meta
+                  name="theme-color"
+                  media="(prefers-color-scheme: dark)"
+                  content={token('colors.neutral.800')}
+               />
             </head>
             <body
                // TODO: set current theme

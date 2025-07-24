@@ -15,28 +15,20 @@ export const Route = createRootRoute({
          },
          {
             name: 'viewport',
-            content: 'width=device-width, initial-scale=1',
+            content:
+               'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no',
+         },
+         {
+            name: 'description',
+            content: 'Read your Bible without distractions.',
+         },
+         {
+            title: 'The Good Book',
          },
       ],
+      title: 'The Good Book',
       links: [
          { rel: 'stylesheet', href: globalCss },
-         {
-            rel: 'apple-touch-icon',
-            sizes: '180x180',
-            href: '/apple-touch-icon.png',
-         },
-         {
-            rel: 'icon',
-            type: 'image/png',
-            sizes: '32x32',
-            href: '/favicon-32x32.png',
-         },
-         {
-            rel: 'icon',
-            type: 'image/png',
-            sizes: '16x16',
-            href: '/favicon-16x16.png',
-         },
          { rel: 'manifest', href: '/site.webmanifest', color: '#fffff' },
          { rel: 'icon', href: '/favicon.ico' },
       ],
