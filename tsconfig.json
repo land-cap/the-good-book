@@ -27,6 +27,9 @@
       "~/db/*": [
         "./src/db/*"
       ],
+      "~/global-state": [
+        "./src/globalState.ts"
+      ],
       "~/ui/*": [
         "./src/ui/*"
       ],
