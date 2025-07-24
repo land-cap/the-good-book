@@ -28,7 +28,7 @@
       "~/*": [
         "./src/*"
       ],
-      "features/*": [
+      "@/*": [
         "./src/features/*"
       ],
       "styled-system/*": [
