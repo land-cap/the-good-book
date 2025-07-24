@@ -3,13 +3,13 @@ import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
 export const iconRecipe = cva({
 	base: {
 		'--grad': 0,
-		// @ts-ignore
-		'-webkit-font-feature-settings': "'liga'",
+		// @ts-expect-error non-standard CSS property
+		'-webkit-font-feature-settings': '\'liga\'',
 		'-webkit-font-smoothing': 'antialiased',
 		direction: 'ltr',
 		display: 'inline-flex',
 		'font-variation-settings':
-			"'FILL' var(--fill,0), 'wght' var(--wght,400), 'GRAD' var(--grad,0)",
+			'\'FILL\' var(--fill,0), \'wght\' var(--wght,400), \'GRAD\' var(--grad,0)',
 		fontFamily: 'Material Symbols Sharp',
 		fontStyle: 'normal',
 		fontWeight: 'var(--wght, 400)',

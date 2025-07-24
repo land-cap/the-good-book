@@ -1,7 +1,7 @@
-import type { ErrorComponentProps } from '@tanstack/react-router'
+import type { ErrorRouteComponent } from '@tanstack/react-router'
 import { ErrorComponent, Link, rootRouteId, useMatch, useRouter } from '@tanstack/react-router'
 
-export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
+export const DefaultCatchBoundary: ErrorRouteComponent = ({ error }) => {
 	const router = useRouter()
 	const isRoot = useMatch({
 		strict: false,
@@ -16,20 +16,21 @@ export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
 			<div>
 				<button
 					onClick={() => {
-						router.invalidate()
-					}}
+						void router.invalidate()
+					}
+					}
 				>
 					Try Again
 				</button>
 				{isRoot ? (
 					<Link
-						to='/'
+						to="/"
 					>
 						Home
 					</Link>
 				) : (
 					<Link
-						to='/'
+						to="/"
 						onClick={(e) => {
 							e.preventDefault()
 							window.history.back()

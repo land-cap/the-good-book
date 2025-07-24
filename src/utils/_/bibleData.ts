@@ -1,4 +1,4 @@
-import { get, set } from 'idb-keyval'
+import { get } from 'idb-keyval'
 
 const DB_KEY = 'bible-data'
 
@@ -16,7 +16,7 @@ const loadFromCache = async (): Promise<BibleData | null> => {
 
 const loadFromNetwork = async (): Promise<BibleData> => {
 	const res = await fetch('/bible-data.json')
-	return await res.json()
+	return await res.json() as BibleData
 }
 
 export const getBibleData = async (): Promise<BibleData> => {

@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { isOnServer } from '~/utils/shared'
-import { ReaderView } from 'features/read/shared'
+import { ReaderView } from '@/read/shared'
 
 const loadChapter = async ({
 														 book,
@@ -30,7 +30,8 @@ export const Route = createFileRoute('/read/$book/$chapter')({
 	loader: async ({ params }) => {
 		const data = await loadChapter(params)
 		if (!data) {
-			throw notFound()
+			// eslint-disable-next-line @typescript-eslint/only-throw-error
+			 throw notFound()
 		}
 		return data
 	},
