@@ -1,8 +1,7 @@
-import * as React from 'react'
-import { ReactNode } from 'react'
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-
+import * as React from 'react'
+import { ReactNode } from 'react'
 import { useEffect } from 'react'
 import { registerSW } from 'virtual:pwa-register'
 
