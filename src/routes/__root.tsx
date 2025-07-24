@@ -4,7 +4,8 @@ import * as React from 'react'
 
 import { DefaultCatchBoundary, NotFound } from '@/error-ui/shared'
 import { RootLayout } from '@/root-layout/shared'
-import appCss from '~/styles/global.css?url'
+
+import globalCss from '../global.css?url'
 
 export const Route = createRootRoute({
    head: () => ({
@@ -18,7 +19,7 @@ export const Route = createRootRoute({
          },
       ],
       links: [
-         { rel: 'stylesheet', href: appCss },
+         { rel: 'stylesheet', href: globalCss },
          {
             rel: 'apple-touch-icon',
             sizes: '180x180',
