@@ -1,10 +1,31 @@
+import { HeadContent, Scripts } from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Provider } from 'jotai'
-import { type ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
+import { registerSW } from 'virtual:pwa-register'
 
 import { SafeAreaBottom } from '~/ui/shared'
 
 import { GlobalBackdrop } from './GlobalBackdrop'
+
+const UseServiceWorkerRegister = () => {
+   useEffect(() => {
+      void (async () => {
+         if ('serviceWorker' in navigator) {
+            registerSW({ immediate: true })
+            await navigator.serviceWorker.ready
+            import('~/utils/shared')
+               .then((mod) => mod.getBibleData())
+               .catch((error) => {
+                  console.error('Service worker registration failed:', error)
+               })
+         }
+      })()
+   }, [])
+
+   return null
+}
 
 export const RootLayout = ({ children }: { children: ReactNode }) => {
    return (
@@ -13,10 +34,7 @@ export const RootLayout = ({ children }: { children: ReactNode }) => {
          {/* eslint-disable-next-line jsx-a11y/html-has-lang */}
          <html>
             <head>
-               <link
-                  rel="stylesheet"
-                  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_drop_down,arrow_forward,close,custom_typography,density_medium,density_small,info,page_info,text_decrease,text_increase,undo"
-               />
+               <HeadContent />
             </head>
             <body
                // TODO: set current theme
@@ -35,6 +53,9 @@ export const RootLayout = ({ children }: { children: ReactNode }) => {
                {children}
                <SafeAreaBottom css={{ column: 'content' }} />
                <GlobalBackdrop />
+               <UseServiceWorkerRegister />
+               <TanStackRouterDevtools position="bottom-right" />
+               <Scripts />
             </body>
          </html>
       </Provider>
