@@ -1,16 +1,14 @@
-import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { createFileRoute, notFound } from '@tanstack/react-router'
 import { isOnServer } from '~/utils/shared'
-import { button } from 'styled-system/recipes'
-import { css, cx } from 'styled-system/css'
-import { hstack } from 'styled-system/patterns'
+import { ReaderView } from 'features/read/shared'
 
-async function loadChapter({
+const loadChapter = async ({
 														 book,
 														 chapter,
 													 }: {
 	book: string
 	chapter: string
-}) {
+}) => {
 	if (isOnServer()) {
 		const { dbClient } = await import('~/db/dbClient')
 		const chapterInt = parseInt(chapter, 10)
@@ -28,7 +26,7 @@ async function loadChapter({
 }
 
 export const Route = createFileRoute('/read/$book/$chapter')({
-	component: ReadChapter,
+	component: ReaderView,
 	loader: async ({ params }) => {
 		const data = await loadChapter(params)
 		if (!data) {
@@ -38,43 +36,3 @@ export const Route = createFileRoute('/read/$book/$chapter')({
 	},
 })
 
-function ReadChapter() {
-	const params = Route.useParams()
-
-	const chapterData = Route.useLoaderData()
-
-	return (
-		<div>
-			<div className={cx(hstack({ gap: 4, p: 4 }))}>
-				<div className={css({
-					fontFamily: 'mono',
-				})}>mono font
-				</div>
-				<div className={css({
-					fontFamily: 'soft',
-				})}>soft font
-				</div>
-				<div className={css({
-					fontFamily: 'dyslexic',
-				})}>dyslexic font
-				</div>
-				<div className={css({
-					fontFamily: 'condensed',
-				})}>condensed font
-				</div>
-				<div className={css({
-					fontFamily: 'old_style',
-				})}>old_style font
-				</div>
-			</div>
-			<Link to={'/read/$book/$chapter'} params={{ book: params.book, chapter: `${parseInt(params.chapter) - 1}` }}
-						className={button({ visual: 'solid', size: 'lg' })}>Previous
-				chapter</Link>
-			<Link to={'/read/$book/$chapter'} params={{ book: params.book, chapter: `${parseInt(params.chapter) + 1}` }}
-						className={button({ visual: 'solid', size: 'lg' })}>Next
-				chapter</Link>
-			<br />
-			<div dangerouslySetInnerHTML={{ __html: chapterData.content }} />
-		</div>
-	)
-}
