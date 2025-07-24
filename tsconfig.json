@@ -1,7 +1,6 @@
 {
   "include": [
     "src",
-    "styled-system"
   ],
   "exclude": [
     "node_modules"

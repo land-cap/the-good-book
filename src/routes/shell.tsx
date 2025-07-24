@@ -1,4 +1,5 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
+
 import { isOnServer } from '~/utils/shared'
 
 export const Route = createFileRoute('/shell')({

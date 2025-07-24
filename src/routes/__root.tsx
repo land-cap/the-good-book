@@ -1,9 +1,10 @@
 /// <reference types="vite/client" />
 import { createRootRoute } from '@tanstack/react-router'
 import * as React from 'react'
-import appCss from '~/styles/global.css?url'
+
 import { DefaultCatchBoundary, NotFound } from '@/error-ui/shared'
 import { RootLayout } from '@/root-layout/shared'
+import appCss from '~/styles/global.css?url'
 
 
 export const Route = createRootRoute({
