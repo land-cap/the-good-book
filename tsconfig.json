@@ -1,6 +1,6 @@
 {
   "include": [
-    "src",
+    "src"
   ],
   "exclude": [
     "node_modules"
@@ -24,8 +24,14 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./src/*"
+      "~/db/*": [
+        "./src/db/*"
+      ],
+      "~/ui/*": [
+        "./src/ui/*"
+      ],
+      "~/utils/*": [
+        "./src/utils/*"
       ],
       "@/*": [
         "./src/features/*"
