@@ -12,7 +12,8 @@
     "build:app": "vite build",
     "build": "npm run generate:db && npm run generate:bible-data && pnpm run build:app && pnpm run generate:sw",
     "start": "PORT=4000 node .output/server/index.mjs",
-    "lint": "npx eslint src --ext .ts,.tsx --fix"
+    "lint": "npx eslint src --fix",
+    "lint:panda-preset": "npx eslint panda-preset --fix"
   },
   "dependencies": {
     "@ark-ui/react": "^5.18.0",
