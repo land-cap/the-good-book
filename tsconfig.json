@@ -44,6 +44,7 @@
       ]
     },
     "types": [
+      "node",
       "vite-plugin-pwa/client"
     ],
     "noEmit": true
