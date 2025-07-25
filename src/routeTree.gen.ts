@@ -10,53 +10,72 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShellRouteImport } from './routes/shell'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ReadBookChapterRouteImport } from './routes/read.$book.$chapter'
+import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
+import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125ReadBookChapterRouteImport } from './routes/{-$locale}/read.$book.$chapter'
 
 const ShellRoute = ShellRouteImport.update({
   id: '/shell',
   path: '/shell',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReadBookChapterRoute = ReadBookChapterRouteImport.update({
-  id: '/read/$book/$chapter',
-  path: '/read/$book/$chapter',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const Char123LocaleChar125RouteRoute =
+  Char123LocaleChar125RouteRouteImport.update({
+    id: '/{-$locale}',
+    path: '/{-$locale}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LocaleChar125IndexRoute =
+  Char123LocaleChar125IndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125ReadBookChapterRoute =
+  Char123LocaleChar125ReadBookChapterRouteImport.update({
+    id: '/read/$book/$chapter',
+    path: '/read/$book/$chapter',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/shell': typeof ShellRoute
-  '/read/$book/$chapter': typeof ReadBookChapterRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/read/$book/$chapter': typeof Char123LocaleChar125ReadBookChapterRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/shell': typeof ShellRoute
-  '/read/$book/$chapter': typeof ReadBookChapterRoute
+  '/{-$locale}': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/read/$book/$chapter': typeof Char123LocaleChar125ReadBookChapterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/shell': typeof ShellRoute
-  '/read/$book/$chapter': typeof ReadBookChapterRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/read/$book/$chapter': typeof Char123LocaleChar125ReadBookChapterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/shell' | '/read/$book/$chapter'
+  fullPaths:
+    | '/{-$locale}'
+    | '/shell'
+    | '/{-$locale}/'
+    | '/{-$locale}/read/$book/$chapter'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/shell' | '/read/$book/$chapter'
-  id: '__root__' | '/' | '/shell' | '/read/$book/$chapter'
+  to: '/shell' | '/{-$locale}' | '/{-$locale}/read/$book/$chapter'
+  id:
+    | '__root__'
+    | '/{-$locale}'
+    | '/shell'
+    | '/{-$locale}/'
+    | '/{-$locale}/read/$book/$chapter'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
   ShellRoute: typeof ShellRoute
-  ReadBookChapterRoute: typeof ReadBookChapterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,27 +87,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShellRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/{-$locale}': {
+      id: '/{-$locale}'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}'
+      preLoaderRoute: typeof Char123LocaleChar125RouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/read/$book/$chapter': {
-      id: '/read/$book/$chapter'
+    '/{-$locale}/': {
+      id: '/{-$locale}/'
+      path: '/'
+      fullPath: '/{-$locale}/'
+      preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/read/$book/$chapter': {
+      id: '/{-$locale}/read/$book/$chapter'
       path: '/read/$book/$chapter'
-      fullPath: '/read/$book/$chapter'
-      preLoaderRoute: typeof ReadBookChapterRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/{-$locale}/read/$book/$chapter'
+      preLoaderRoute: typeof Char123LocaleChar125ReadBookChapterRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
   }
 }
 
+interface Char123LocaleChar125RouteRouteChildren {
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125ReadBookChapterRoute: typeof Char123LocaleChar125ReadBookChapterRoute
+}
+
+const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
+  {
+    Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+    Char123LocaleChar125ReadBookChapterRoute:
+      Char123LocaleChar125ReadBookChapterRoute,
+  }
+
+const Char123LocaleChar125RouteRouteWithChildren =
+  Char123LocaleChar125RouteRoute._addFileChildren(
+    Char123LocaleChar125RouteRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  Char123LocaleChar125RouteRoute: Char123LocaleChar125RouteRouteWithChildren,
   ShellRoute: ShellRoute,
-  ReadBookChapterRoute: ReadBookChapterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

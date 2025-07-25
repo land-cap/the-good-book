@@ -26,7 +26,7 @@ const loadChapter = async ({
 	}
 }
 
-export const Route = createFileRoute('/read/$book/$chapter')({
+export const Route = createFileRoute('/{-$locale}/read/$book/$chapter')({
 	component: ReaderView,
 	loader: async ({ params }) => {
 		const data = await loadChapter(params)
