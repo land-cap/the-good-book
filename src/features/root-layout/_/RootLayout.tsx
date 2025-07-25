@@ -1,6 +1,9 @@
+import 'jotai-devtools/styles.css'
+
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Provider, useAtomValue } from 'jotai'
+import { DevTools as JotaiDevTools } from 'jotai-devtools'
 import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { token } from 'styled-system/tokens'
@@ -30,7 +33,10 @@ const UseServiceWorkerRegister = () => {
 }
 
 const WithProviders = ({ children }: { children: ReactNode }) => (
-   <Provider>{children}</Provider>
+   <Provider>
+      <JotaiDevTools />
+      {children}
+   </Provider>
 )
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
