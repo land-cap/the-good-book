@@ -16,7 +16,7 @@ export const ReaderNavButton = ({
 
    return (
       <Link
-         to={location?.href ?? ''}
+         to={location?.pathname}
          aria-disabled={location ? undefined : true}
          className={buttonCls}
       >
