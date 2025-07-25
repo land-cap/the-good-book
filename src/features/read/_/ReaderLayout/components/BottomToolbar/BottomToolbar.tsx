@@ -1,7 +1,6 @@
-'use client'
-
 import { useAtomValue } from 'jotai'
 import { hstack, subgrid } from 'styled-system/patterns'
+import { useTranslations } from 'use-intl'
 
 import {
    nextChapterLocationAtom,
@@ -11,6 +10,8 @@ import { BottomToolbarContainer } from './BottomToolbarContainer'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const BottomToolbar = () => {
+   const t = useTranslations('reader.bottom_toolbar')
+
    const prevChapterLocation = useAtomValue(prevChapterLocationAtom)
    const nextChapterLocation = useAtomValue(nextChapterLocationAtom)
 
@@ -33,11 +34,13 @@ export const BottomToolbar = () => {
                <ReaderNavButton
                   location={prevChapterLocation}
                   direction="left"
+                  label={t('previous_btn')}
                />
                {/*<ChapterPickerMenuRoot />*/}
                <ReaderNavButton
                   location={nextChapterLocation}
                   direction="right"
+                  label={t('next_btn')}
                />
             </div>
          </div>

@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ui/_/Tooltip.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/getChapterOnClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/getChapterOnClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ro.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/pandaPreset.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/pandaPreset.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/slotRecipes/tooltipSlotRecipe.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/shared.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,11 +105,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/panda-preset/slotRecipes" />
       <recent name="$PROJECT_DIR$/src/features/read/_" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components" />
       <recent name="$PROJECT_DIR$/src/routes/{-$locale}" />
-      <recent name="$PROJECT_DIR$/src/" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/src/db/dbQueries.ts" />

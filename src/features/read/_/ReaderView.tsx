@@ -11,8 +11,6 @@ export const ReaderView = () => {
 
    const t = useTranslations('reader.bottom_toolbar')
 
-   console.log('ReaderView rendered')
-
    return (
       <div>
          <Link
