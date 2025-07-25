@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/UseSetUpReaderState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

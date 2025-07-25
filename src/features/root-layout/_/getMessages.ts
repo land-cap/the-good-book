@@ -14,7 +14,6 @@ export const getMessages = createServerFn({
       if (locale === undefined) {
          return DEFAULT_LOCALE
       }
-      // @ts-expect-error safe
       if (!LOCALE_LIST.includes(locale)) {
          throw new Error('Invalid locale param')
       }

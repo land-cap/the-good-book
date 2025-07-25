@@ -1,10 +1,18 @@
+import { getRouteApi } from '@tanstack/react-router'
+import { useHydrateAtoms } from 'jotai/react/utils'
 import type { ReactNode } from 'react'
 
 import { TBookWithDetails } from '~/db/dbQueries'
 
 import { BottomToolbar } from './components/BottomToolbar/BottomToolbar'
+import {
+   bookListAtom,
+   currBookCodeAtom,
+   currChapterAtom,
+} from './components/BottomToolbar/bottomToolbar.state'
 import { Footer } from './components/Footer/Footer'
-import { useSetUpReaderState } from './UseSetUpReaderState'
+
+const chapterRouteApi = getRouteApi('/{-$locale}/read/$book/$chapter')
 
 export const ReaderLayout = ({
    children,
@@ -13,7 +21,14 @@ export const ReaderLayout = ({
    children: ReactNode
    bookList: TBookWithDetails[]
 }) => {
-   useSetUpReaderState(bookList)
+   const { book: bookCodeParam, chapter: chapterParam } =
+      chapterRouteApi.useParams()
+
+   useHydrateAtoms([
+      [bookListAtom, bookList],
+      [currBookCodeAtom, bookCodeParam],
+      [currChapterAtom, parseInt(chapterParam)],
+   ])
 
    return (
       <>
