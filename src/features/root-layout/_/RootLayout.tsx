@@ -39,7 +39,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
    const isSepiaTheme = theme === THEME.Sepia
 
    return (
-      <html lang={'en'}>
+      // TODO: pass current locale as lang attribute
+      // eslint-disable-next-line jsx-a11y/html-has-lang
+      <html>
          <head>
             <HeadContent />
             <meta

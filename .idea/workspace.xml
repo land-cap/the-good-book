@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/shared.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +70,11 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;release/offline-support&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/set-up-i18n&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/src/features/root-layout&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/messages&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -89,15 +91,16 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/messages" />
       <recent name="$PROJECT_DIR$/src/features/root-layout" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/routes/{-$locale}" />
       <recent name="$PROJECT_DIR$/src/" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/features/root-layout/_" />
       <recent name="$PROJECT_DIR$/src/features/root-layout/state.ts" />
-      <recent name="$PROJECT_DIR$/src/features" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/src/feat/root-layout/_/RootLayout.tsx" />
@@ -136,7 +139,8 @@
       <workItem from="1753300120174" duration="5906000" />
       <workItem from="1753366953614" duration="2665000" />
       <workItem from="1753380829951" duration="1241000" />
-      <workItem from="1753382084227" duration="5884000" />
+      <workItem from="1753382084227" duration="12733000" />
+      <workItem from="1753443422007" duration="1711000" />
     </task>
     <servers />
   </component>
