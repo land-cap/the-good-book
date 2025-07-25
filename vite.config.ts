@@ -5,6 +5,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
+   build: {
+      sourcemap: true,
+   },
    server: {
       port: 4000,
    },
