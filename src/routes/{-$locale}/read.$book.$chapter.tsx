@@ -4,38 +4,39 @@ import { ReaderView } from '@/read/shared'
 import { isOnServer } from '~/utils/shared'
 
 const loadChapter = async ({
-   book,
-   chapter,
+   book: bookParam,
+   chapter: chapterParam,
 }: {
    book: string
    chapter: string
 }) => {
    if (isOnServer()) {
       const { dbClient } = await import('~/db/dbClient')
-      const chapterInt = parseInt(chapter, 10)
-      const bookRecord = await dbClient.book.findUnique({
-         where: { code: book },
+      const chapter = parseInt(chapterParam)
+      const book = await dbClient.book.findUnique({
+         where: { code: bookParam },
       })
-      if (!bookRecord) {
-         return null
+      if (!book) {
+         throw notFound()
       }
-      return dbClient.chapter.findFirst({
-         where: { book_id: bookRecord.book_id, chapter: chapterInt },
+      const chapterRecord = await dbClient.chapter.findFirst({
+         where: { book_id: book.book_id, chapter: chapter },
       })
+      if (!chapterRecord) {
+         throw notFound()
+      }
+      return { content: chapterRecord.content }
    } else {
       const { getChapterFromCache } = await import('~/utils/shared')
-      return getChapterFromCache(book, chapter)
+      const chapterData = await getChapterFromCache(bookParam, chapterParam)
+      if (!chapterData) {
+         throw notFound()
+      }
+      return chapterData
    }
 }
 
 export const Route = createFileRoute('/{-$locale}/read/$book/$chapter')({
    component: ReaderView,
-   loader: async ({ params }) => {
-      const data = await loadChapter(params)
-      if (!data) {
-         // eslint-disable-next-line @typescript-eslint/only-throw-error
-         throw notFound()
-      }
-      return data
-   },
+   loader: async ({ params }) => loadChapter(params),
 })
