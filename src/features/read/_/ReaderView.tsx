@@ -11,11 +11,10 @@ export const ReaderView = () => {
 
    const chapterData = getRouteApi('/read/$book/$chapter').useLoaderData()
 
-   const t = useTranslations('App')
+   const t = useTranslations('reader.bottom_toolbar')
 
    return (
       <div>
-         <h1>{t('hello', { firstName: 'Daniel' })}</h1>
          <div className={cx(hstack({ gap: 4, p: 4 }))}>
             <div
                className={css({
@@ -62,7 +61,7 @@ export const ReaderView = () => {
             }}
             className={button({ visual: 'solid', size: 'lg' })}
          >
-            Previous chapter
+            {t('previous_btn')}
          </Link>
          <Link
             to={'/read/$book/$chapter'}
@@ -72,7 +71,7 @@ export const ReaderView = () => {
             }}
             className={button({ visual: 'solid', size: 'lg' })}
          >
-            Next chapter
+            {t('next_btn')}
          </Link>
          <br />
          <div dangerouslySetInnerHTML={{ __html: chapterData.content }} />

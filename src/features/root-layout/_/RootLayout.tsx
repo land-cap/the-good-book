@@ -1,6 +1,7 @@
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Provider, useAtomValue } from 'jotai'
+import messages from 'messages/ru.json'
 import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { token } from 'styled-system/tokens'
@@ -11,15 +12,6 @@ import { SafeAreaBottom } from '~/ui/shared'
 
 import { GlobalBackdrop } from './GlobalBackdrop'
 import { THEME, themeAtom } from './state'
-
-// You can get the messages from anywhere you like. You can also
-// fetch them from within a component and then render the provider
-// along with your app once you have the messages.
-const messages = {
-   App: {
-      hello: 'Hello {firstName}!',
-   },
-}
 
 const UseServiceWorkerRegister = () => {
    useEffect(() => {
