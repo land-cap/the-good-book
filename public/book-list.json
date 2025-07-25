@@ -1,0 +1,1190 @@
+[
+  {
+    "id": "65abd3ebeabb85dba1348253",
+    "book_id": 1,
+    "chapter_count": 50,
+    "code": "gen",
+    "order": 1,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d1",
+      "book_id": 1,
+      "book_name_id": 60,
+      "value": "Geneza"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e79",
+      "book_id": 1,
+      "value": "Gen"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348254",
+    "book_id": 2,
+    "chapter_count": 40,
+    "code": "exo",
+    "order": 2,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d7",
+      "book_id": 2,
+      "book_name_id": 66,
+      "value": "Exodul"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e6e",
+      "book_id": 2,
+      "value": "Exod"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348255",
+    "book_id": 3,
+    "chapter_count": 27,
+    "code": "lev",
+    "order": 3,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d6",
+      "book_id": 3,
+      "book_name_id": 65,
+      "value": "Leviticul"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e78",
+      "book_id": 3,
+      "value": "Lev"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348256",
+    "book_id": 4,
+    "chapter_count": 36,
+    "code": "num",
+    "order": 4,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d5",
+      "book_id": 4,
+      "book_name_id": 64,
+      "value": "Numeri"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e74",
+      "book_id": 4,
+      "value": "Num"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348257",
+    "book_id": 5,
+    "chapter_count": 34,
+    "code": "deu",
+    "order": 5,
+    "book_name": {
+      "id": "65abd457eabb85dba134829a",
+      "book_id": 5,
+      "book_name_id": 5,
+      "value": "Deuteronomul"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e50",
+      "book_id": 5,
+      "value": "Deut"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348258",
+    "book_id": 6,
+    "chapter_count": 24,
+    "code": "jos",
+    "order": 6,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b9",
+      "book_id": 6,
+      "book_name_id": 36,
+      "value": "Iosua"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e5f",
+      "book_id": 6,
+      "value": "Ios"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348259",
+    "book_id": 7,
+    "chapter_count": 21,
+    "code": "jdg",
+    "order": 7,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d3",
+      "book_id": 7,
+      "book_name_id": 62,
+      "value": "Judecătorii"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e7d",
+      "book_id": 7,
+      "value": "Jud"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134825a",
+    "book_id": 8,
+    "chapter_count": 4,
+    "code": "rut",
+    "order": 8,
+    "book_name": {
+      "id": "65abd457eabb85dba1348296",
+      "book_id": 8,
+      "book_name_id": 1,
+      "value": "Rut"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e6a",
+      "book_id": 8,
+      "value": "Rut"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134825b",
+    "book_id": 9,
+    "chapter_count": 31,
+    "code": "1sa",
+    "order": 9,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d2",
+      "book_id": 9,
+      "book_name_id": 61,
+      "value": "1 Samuel"
+    },
+    "book_abbreviation": {
+      "id": "65abd457eabb85dba13482d2",
+      "book_id": 9,
+      "value": "1 Sam"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134825c",
+    "book_id": 10,
+    "chapter_count": 24,
+    "code": "2sa",
+    "order": 10,
+    "book_name": {
+      "id": "65abd457eabb85dba13482cd",
+      "book_id": 10,
+      "book_name_id": 56,
+      "value": "2 Samuel"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e57",
+      "book_id": 10,
+      "value": "2 Sam"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134825d",
+    "book_id": 11,
+    "chapter_count": 22,
+    "code": "1ki",
+    "order": 11,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d4",
+      "book_id": 11,
+      "book_name_id": 63,
+      "value": "1 Împăraţilor"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e54",
+      "book_id": 11,
+      "value": "1 Împ"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134825e",
+    "book_id": 12,
+    "chapter_count": 25,
+    "code": "2ki",
+    "order": 12,
+    "book_name": {
+      "id": "65abd457eabb85dba13482cc",
+      "book_id": 12,
+      "book_name_id": 55,
+      "value": "2 Împăraţilor"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e68",
+      "book_id": 12,
+      "value": "2 Împ"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134825f",
+    "book_id": 13,
+    "chapter_count": 29,
+    "code": "1ch",
+    "order": 13,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ce",
+      "book_id": 13,
+      "book_name_id": 57,
+      "value": "1 Cronici"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e69",
+      "book_id": 13,
+      "value": "1 Cron"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348260",
+    "book_id": 14,
+    "chapter_count": 36,
+    "code": "2ch",
+    "order": 14,
+    "book_name": {
+      "id": "65abd457eabb85dba1348297",
+      "book_id": 14,
+      "book_name_id": 2,
+      "value": "2 Cronici"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e44",
+      "book_id": 14,
+      "value": "2 Cron"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348261",
+    "book_id": 15,
+    "chapter_count": 10,
+    "code": "ezr",
+    "order": 15,
+    "book_name": {
+      "id": "65abd457eabb85dba1348298",
+      "book_id": 15,
+      "book_name_id": 3,
+      "value": "Ezra"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e5d",
+      "book_id": 15,
+      "value": "Ezra"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348262",
+    "book_id": 16,
+    "chapter_count": 13,
+    "code": "neh",
+    "order": 16,
+    "book_name": {
+      "id": "65abd457eabb85dba1348299",
+      "book_id": 16,
+      "book_name_id": 4,
+      "value": "Neemia"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e80",
+      "book_id": 16,
+      "value": "Neem"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348263",
+    "book_id": 17,
+    "chapter_count": 10,
+    "code": "est",
+    "order": 17,
+    "book_name": {
+      "id": "65abd457eabb85dba134829c",
+      "book_id": 17,
+      "book_name_id": 7,
+      "value": "Estera"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e61",
+      "book_id": 17,
+      "value": "Est"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348264",
+    "book_id": 18,
+    "chapter_count": 42,
+    "code": "job",
+    "order": 18,
+    "book_name": {
+      "id": "65abd457eabb85dba134829d",
+      "book_id": 18,
+      "book_name_id": 8,
+      "value": "Iov"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e47",
+      "book_id": 18,
+      "value": "Iov"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348265",
+    "book_id": 19,
+    "chapter_count": 150,
+    "code": "psa",
+    "order": 19,
+    "book_name": {
+      "id": "65abd457eabb85dba13482cf",
+      "book_id": 19,
+      "book_name_id": 58,
+      "value": "Psalmul"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e77",
+      "book_id": 19,
+      "value": "Ps"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348266",
+    "book_id": 20,
+    "chapter_count": 31,
+    "code": "pro",
+    "order": 20,
+    "book_name": {
+      "id": "65abd457eabb85dba134829b",
+      "book_id": 20,
+      "book_name_id": 6,
+      "value": "Proverbele"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e42",
+      "book_id": 20,
+      "value": "Prov"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348267",
+    "book_id": 21,
+    "chapter_count": 12,
+    "code": "ecc",
+    "order": 21,
+    "book_name": {
+      "id": "65abd457eabb85dba134829e",
+      "book_id": 21,
+      "book_name_id": 9,
+      "value": "Eclesiastul"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e46",
+      "book_id": 21,
+      "value": "Ecl"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348268",
+    "book_id": 22,
+    "chapter_count": 8,
+    "code": "sng",
+    "order": 22,
+    "book_name": {
+      "id": "65abd457eabb85dba134829f",
+      "book_id": 22,
+      "book_name_id": 10,
+      "value": "Cântarea Cântărilor"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e5e",
+      "book_id": 22,
+      "value": "Cânt"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348269",
+    "book_id": 23,
+    "chapter_count": 66,
+    "code": "isa",
+    "order": 23,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a0",
+      "book_id": 23,
+      "book_name_id": 11,
+      "value": "Isaia"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e4e",
+      "book_id": 23,
+      "value": "Is"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134826a",
+    "book_id": 24,
+    "chapter_count": 52,
+    "code": "jer",
+    "order": 24,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a1",
+      "book_id": 24,
+      "book_name_id": 12,
+      "value": "Ieremia"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e66",
+      "book_id": 24,
+      "value": "Ier"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134826b",
+    "book_id": 25,
+    "chapter_count": 5,
+    "code": "lam",
+    "order": 25,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a2",
+      "book_id": 25,
+      "book_name_id": 13,
+      "value": "Plângerile"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e65",
+      "book_id": 25,
+      "value": "Plâng"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134826c",
+    "book_id": 26,
+    "chapter_count": 48,
+    "code": "ezk",
+    "order": 26,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a3",
+      "book_id": 26,
+      "book_name_id": 14,
+      "value": "Ezechiel"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e75",
+      "book_id": 26,
+      "value": "Ezec"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134826d",
+    "book_id": 27,
+    "chapter_count": 12,
+    "code": "dan",
+    "order": 27,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a4",
+      "book_id": 27,
+      "book_name_id": 15,
+      "value": "Daniel"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e6f",
+      "book_id": 27,
+      "value": "Dan"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134826e",
+    "book_id": 28,
+    "chapter_count": 14,
+    "code": "hos",
+    "order": 28,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a5",
+      "book_id": 28,
+      "book_name_id": 16,
+      "value": "Osea"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e43",
+      "book_id": 28,
+      "value": "Osea"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134826f",
+    "book_id": 29,
+    "chapter_count": 3,
+    "code": "jol",
+    "order": 29,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a6",
+      "book_id": 29,
+      "book_name_id": 17,
+      "value": "Ioel"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e52",
+      "book_id": 29,
+      "value": "Ioel"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348270",
+    "book_id": 30,
+    "chapter_count": 9,
+    "code": "amo",
+    "order": 30,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a7",
+      "book_id": 30,
+      "book_name_id": 18,
+      "value": "Amos"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e58",
+      "book_id": 30,
+      "value": "Amos"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348271",
+    "book_id": 31,
+    "chapter_count": 1,
+    "code": "oba",
+    "order": 31,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a8",
+      "book_id": 31,
+      "book_name_id": 19,
+      "value": "Obadia"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e55",
+      "book_id": 31,
+      "value": "Obad"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348272",
+    "book_id": 32,
+    "chapter_count": 4,
+    "code": "jon",
+    "order": 32,
+    "book_name": {
+      "id": "65abd457eabb85dba13482a9",
+      "book_id": 32,
+      "book_name_id": 20,
+      "value": "Iona"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e70",
+      "book_id": 32,
+      "value": "Iona"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348273",
+    "book_id": 33,
+    "chapter_count": 7,
+    "code": "mic",
+    "order": 33,
+    "book_name": {
+      "id": "65abd457eabb85dba13482aa",
+      "book_id": 33,
+      "book_name_id": 21,
+      "value": "Mica"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e7b",
+      "book_id": 33,
+      "value": "Mica"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348274",
+    "book_id": 34,
+    "chapter_count": 3,
+    "code": "nam",
+    "order": 34,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ab",
+      "book_id": 34,
+      "book_name_id": 22,
+      "value": "Naum"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e48",
+      "book_id": 34,
+      "value": "Naum"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348275",
+    "book_id": 35,
+    "chapter_count": 3,
+    "code": "hab",
+    "order": 35,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ac",
+      "book_id": 35,
+      "book_name_id": 23,
+      "value": "Habacuc"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e5c",
+      "book_id": 35,
+      "value": "Hab"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348276",
+    "book_id": 36,
+    "chapter_count": 3,
+    "code": "zep",
+    "order": 36,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ad",
+      "book_id": 36,
+      "book_name_id": 24,
+      "value": "Ţefania"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e7c",
+      "book_id": 36,
+      "value": "Ţef"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348277",
+    "book_id": 37,
+    "chapter_count": 2,
+    "code": "hag",
+    "order": 37,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ae",
+      "book_id": 37,
+      "book_name_id": 25,
+      "value": "Hagai"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e49",
+      "book_id": 37,
+      "value": "Hag"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348278",
+    "book_id": 38,
+    "chapter_count": 14,
+    "code": "zec",
+    "order": 38,
+    "book_name": {
+      "id": "65abd457eabb85dba13482af",
+      "book_id": 38,
+      "book_name_id": 26,
+      "value": "Zaharia"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e59",
+      "book_id": 38,
+      "value": "Zah"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348279",
+    "book_id": 39,
+    "chapter_count": 4,
+    "code": "mal",
+    "order": 39,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b0",
+      "book_id": 39,
+      "book_name_id": 27,
+      "value": "Maleahi"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e6b",
+      "book_id": 39,
+      "value": "Mal"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134827a",
+    "book_id": 40,
+    "chapter_count": 28,
+    "code": "mat",
+    "order": 40,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b1",
+      "book_id": 40,
+      "book_name_id": 28,
+      "value": "Matei"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e62",
+      "book_id": 40,
+      "value": "Mat"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134827b",
+    "book_id": 41,
+    "chapter_count": 16,
+    "code": "mrk",
+    "order": 41,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b2",
+      "book_id": 41,
+      "book_name_id": 29,
+      "value": "Marcu"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e53",
+      "book_id": 41,
+      "value": "Marcu"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134827c",
+    "book_id": 42,
+    "chapter_count": 24,
+    "code": "luk",
+    "order": 42,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b3",
+      "book_id": 42,
+      "book_name_id": 30,
+      "value": "Luca"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e4a",
+      "book_id": 42,
+      "value": "Luca"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134827d",
+    "book_id": 43,
+    "chapter_count": 21,
+    "code": "jhn",
+    "order": 43,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b4",
+      "book_id": 43,
+      "book_name_id": 31,
+      "value": "Ioan"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e4b",
+      "book_id": 43,
+      "value": "Ioan"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134827e",
+    "book_id": 44,
+    "chapter_count": 28,
+    "code": "act",
+    "order": 44,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b5",
+      "book_id": 44,
+      "book_name_id": 32,
+      "value": "Faptele Apostolilor"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e56",
+      "book_id": 44,
+      "value": "Fapte"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134827f",
+    "book_id": 45,
+    "chapter_count": 16,
+    "code": "rom",
+    "order": 45,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b6",
+      "book_id": 45,
+      "book_name_id": 33,
+      "value": "Romani"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e63",
+      "book_id": 45,
+      "value": "Rom"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348280",
+    "book_id": 46,
+    "chapter_count": 16,
+    "code": "1co",
+    "order": 46,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b7",
+      "book_id": 46,
+      "book_name_id": 34,
+      "value": "1 Corinteni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e71",
+      "book_id": 46,
+      "value": "1 Cor"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348281",
+    "book_id": 47,
+    "chapter_count": 13,
+    "code": "2co",
+    "order": 47,
+    "book_name": {
+      "id": "65abd457eabb85dba13482b8",
+      "book_id": 47,
+      "book_name_id": 35,
+      "value": "2 Corinteni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e7a",
+      "book_id": 47,
+      "value": "2 Cor"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348282",
+    "book_id": 48,
+    "chapter_count": 6,
+    "code": "gal",
+    "order": 48,
+    "book_name": {
+      "id": "65abd457eabb85dba13482bc",
+      "book_id": 48,
+      "book_name_id": 39,
+      "value": "Galateni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e72",
+      "book_id": 48,
+      "value": "Gal"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348283",
+    "book_id": 49,
+    "chapter_count": 6,
+    "code": "eph",
+    "order": 49,
+    "book_name": {
+      "id": "65abd457eabb85dba13482bd",
+      "book_id": 49,
+      "book_name_id": 40,
+      "value": "Efeseni"
+    },
+    "book_abbreviation": {
+      "id": "65abd457eabb85dba13482bd",
+      "book_id": 49,
+      "value": "Efes"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348284",
+    "book_id": 50,
+    "chapter_count": 4,
+    "code": "php",
+    "order": 50,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ba",
+      "book_id": 50,
+      "book_name_id": 37,
+      "value": "Filipeni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e4c",
+      "book_id": 50,
+      "value": "Filip"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348285",
+    "book_id": 51,
+    "chapter_count": 4,
+    "code": "col",
+    "order": 51,
+    "book_name": {
+      "id": "65abd457eabb85dba13482bb",
+      "book_id": 51,
+      "book_name_id": 38,
+      "value": "Coloseni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e7e",
+      "book_id": 51,
+      "value": "Col"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348286",
+    "book_id": 52,
+    "chapter_count": 5,
+    "code": "1th",
+    "order": 52,
+    "book_name": {
+      "id": "65abd457eabb85dba13482bf",
+      "book_id": 52,
+      "book_name_id": 42,
+      "value": "1 Tesaloniceni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e4f",
+      "book_id": 52,
+      "value": "1 Tes"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348287",
+    "book_id": 53,
+    "chapter_count": 3,
+    "code": "2th",
+    "order": 53,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c0",
+      "book_id": 53,
+      "book_name_id": 43,
+      "value": "2 Tesaloniceni"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e64",
+      "book_id": 53,
+      "value": "2 Tes"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348288",
+    "book_id": 54,
+    "chapter_count": 6,
+    "code": "1ti",
+    "order": 54,
+    "book_name": {
+      "id": "65abd457eabb85dba13482be",
+      "book_id": 54,
+      "book_name_id": 41,
+      "value": "1 Timotei"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e45",
+      "book_id": 54,
+      "value": "1 Tim"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348289",
+    "book_id": 55,
+    "chapter_count": 4,
+    "code": "2ti",
+    "order": 55,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c9",
+      "book_id": 55,
+      "book_name_id": 52,
+      "value": "2 Timotei"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e51",
+      "book_id": 55,
+      "value": "2 Tim"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134828a",
+    "book_id": 56,
+    "chapter_count": 3,
+    "code": "tit",
+    "order": 56,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c1",
+      "book_id": 56,
+      "book_name_id": 44,
+      "value": "Tit"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e81",
+      "book_id": 56,
+      "value": "Tit"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134828b",
+    "book_id": 57,
+    "chapter_count": 1,
+    "code": "phm",
+    "order": 57,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c2",
+      "book_id": 57,
+      "book_name_id": 45,
+      "value": "Filimon"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e4d",
+      "book_id": 57,
+      "value": "Filim"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134828c",
+    "book_id": 58,
+    "chapter_count": 13,
+    "code": "heb",
+    "order": 58,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c3",
+      "book_id": 58,
+      "book_name_id": 46,
+      "value": "Evrei"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e5a",
+      "book_id": 58,
+      "value": "Evr"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134828d",
+    "book_id": 59,
+    "chapter_count": 5,
+    "code": "jas",
+    "order": 59,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c4",
+      "book_id": 59,
+      "book_name_id": 47,
+      "value": "Iacov"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e76",
+      "book_id": 59,
+      "value": "Iac"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134828e",
+    "book_id": 60,
+    "chapter_count": 5,
+    "code": "1pe",
+    "order": 60,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c5",
+      "book_id": 60,
+      "book_name_id": 48,
+      "value": "1 Petru"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e60",
+      "book_id": 60,
+      "value": "1 Pet"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba134828f",
+    "book_id": 61,
+    "chapter_count": 3,
+    "code": "2pe",
+    "order": 61,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c6",
+      "book_id": 61,
+      "book_name_id": 49,
+      "value": "2 Petru"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e5b",
+      "book_id": 61,
+      "value": "2 Pet"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348290",
+    "book_id": 62,
+    "chapter_count": 5,
+    "code": "1jn",
+    "order": 62,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c7",
+      "book_id": 62,
+      "book_name_id": 50,
+      "value": "1 Ioan"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e6c",
+      "book_id": 62,
+      "value": "1 Ioan"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348291",
+    "book_id": 63,
+    "chapter_count": 1,
+    "code": "2jn",
+    "order": 63,
+    "book_name": {
+      "id": "65abd457eabb85dba13482c8",
+      "book_id": 63,
+      "book_name_id": 51,
+      "value": "2 Ioan"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e67",
+      "book_id": 63,
+      "value": "2 Ioan"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348292",
+    "book_id": 64,
+    "chapter_count": 1,
+    "code": "3jn",
+    "order": 64,
+    "book_name": {
+      "id": "65abd457eabb85dba13482d0",
+      "book_id": 64,
+      "book_name_id": 59,
+      "value": "3 Ioan"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e7f",
+      "book_id": 64,
+      "value": "3 Ioan"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348293",
+    "book_id": 65,
+    "chapter_count": 1,
+    "code": "jud",
+    "order": 65,
+    "book_name": {
+      "id": "65abd457eabb85dba13482ca",
+      "book_id": 65,
+      "book_name_id": 53,
+      "value": "Iuda"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e73",
+      "book_id": 65,
+      "value": "Iuda"
+    }
+  },
+  {
+    "id": "65abd3ebeabb85dba1348294",
+    "book_id": 66,
+    "chapter_count": 22,
+    "code": "rev",
+    "order": 66,
+    "book_name": {
+      "id": "65abd457eabb85dba13482cb",
+      "book_id": 66,
+      "book_name_id": 54,
+      "value": "Apocalipsa"
+    },
+    "book_abbreviation": {
+      "id": "65cf652de04553ce4e522e6d",
+      "book_id": 66,
+      "value": "Apoc"
+    }
+  }
+]

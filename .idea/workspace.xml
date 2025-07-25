@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/generateBookList.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/generateBibleData.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBibleData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/shell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/shell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.$book.$chapter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.$book.$chapter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +78,7 @@
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/land_cap/projects/personal/the-good-book/messages",
+    "last_opened_file_path": "/Users/land_cap/projects/personal/the-good-book/scripts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -84,6 +87,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "npm.Next.js: server-side.executor": "Run",
+    "npm.generate:bible-data.executor": "Run",
+    "npm.generate:book-list.executor": "Run",
     "settings.editor.selected.configurable": "editor.preferences.import",
     "ts.external.directory.path": "/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -91,6 +96,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scripts" />
       <recent name="$PROJECT_DIR$/messages" />
       <recent name="$PROJECT_DIR$/src/features/root-layout" />
       <recent name="$PROJECT_DIR$/src" />
@@ -108,7 +114,7 @@
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.generate:book-list">
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -119,6 +125,32 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="generate:bible-data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="generate:bible-data" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate:book-list" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="generate:book-list" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.generate:book-list" />
+        <item itemvalue="npm.generate:bible-data" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
