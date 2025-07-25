@@ -2,7 +2,8 @@
   "include": [
     "src",
     "global.ts",
-    "messages"
+    "messages",
+    "prisma-generated"
   ],
   "exclude": [
     "node_modules"
