@@ -22,3 +22,5 @@ yarn.lock
 /playwright/.cache/
 .tanstack
 /styled-system/
+
+.idea/
