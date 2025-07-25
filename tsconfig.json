@@ -1,6 +1,8 @@
 {
   "include": [
-    "src"
+    "src",
+    "global.ts",
+    "messages"
   ],
   "exclude": [
     "node_modules"
