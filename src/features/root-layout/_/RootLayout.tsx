@@ -18,7 +18,7 @@ const UseServiceWorkerRegister = () => {
             registerSW({ immediate: true })
             await navigator.serviceWorker.ready
             void fetch('/book-list.json')
-            void fetch('/bible-data.json')
+            void fetch('/chapter-content-data.json')
          }
       })()
    }, [])

@@ -19,8 +19,15 @@ const main = async () => {
       ]),
    )
 
-   await writeFile('public/bible-data.json', JSON.stringify(data, null, 2))
-   console.log('bible-data.json generated with', books.length, 'books')
+   await writeFile(
+      'public/chapter-content-data.json',
+      JSON.stringify(data, null, 2),
+   )
+   console.log(
+      'chapter-content-data.json generated with',
+      books.length,
+      'books',
+   )
 }
 
 main()
