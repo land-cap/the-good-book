@@ -2,6 +2,7 @@ import { getRouteApi, Link } from '@tanstack/react-router'
 import { css, cx } from 'styled-system/css'
 import { hstack } from 'styled-system/patterns'
 import { button } from 'styled-system/recipes'
+import { useTranslations } from 'use-intl'
 
 import { Icon } from '~/ui/shared'
 
@@ -10,8 +11,11 @@ export const ReaderView = () => {
 
    const chapterData = getRouteApi('/read/$book/$chapter').useLoaderData()
 
+   const t = useTranslations('App')
+
    return (
       <div>
+         <h1>{t('hello', { firstName: 'Daniel' })}</h1>
          <div className={cx(hstack({ gap: 4, p: 4 }))}>
             <div
                className={css({

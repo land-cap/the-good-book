@@ -4,12 +4,22 @@ import { Provider, useAtomValue } from 'jotai'
 import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { token } from 'styled-system/tokens'
+import { IntlProvider } from 'use-intl'
 import { registerSW } from 'virtual:pwa-register'
 
 import { SafeAreaBottom } from '~/ui/shared'
 
 import { GlobalBackdrop } from './GlobalBackdrop'
 import { THEME, themeAtom } from './state'
+
+// You can get the messages from anywhere you like. You can also
+// fetch them from within a component and then render the provider
+// along with your app once you have the messages.
+const messages = {
+   App: {
+      hello: 'Hello {firstName}!',
+   },
+}
 
 const UseServiceWorkerRegister = () => {
    useEffect(() => {
@@ -30,7 +40,11 @@ const UseServiceWorkerRegister = () => {
 }
 
 const WithProviders = ({ children }: { children: ReactNode }) => (
-   <Provider>{children}</Provider>
+   <Provider>
+      <IntlProvider messages={messages} locale="en">
+         {children}
+      </IntlProvider>
+   </Provider>
 )
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
