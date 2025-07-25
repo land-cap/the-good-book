@@ -16,6 +16,7 @@
     "lint:panda-preset": "npx eslint panda-preset --fix"
   },
   "dependencies": {
+    "@ark-ui/anatomy": "^3.5.0",
     "@ark-ui/react": "^5.18.0",
     "@mantine/hooks": "^8.2.1",
     "@prisma/client": "^6.11.1",

@@ -1,6 +1,5 @@
 import { definePreset } from '@pandacss/dev'
 
-
 import { globalCss } from './globalCss'
 import { patterns } from './patterns'
 import { semanticTokens } from './semanticTokens'
@@ -9,53 +8,59 @@ import { utilities } from './utilities'
 import { buttonRecipe } from './recipes/buttonRecipe'
 
 export const pandaPreset = definePreset({
-	name: 'The Good Book UI',
-	conditions: {
-		extend: {
-			canHover: '@media (hover: hover)',
-			themeSepia: '[data-theme=sepia] &',
-		},
-	},
-	globalCss,
-	patterns,
-	theme: {
-		extend: {
-			keyframes: {
-				fadeIn: {
-					'0%': { opacity: '0' },
-					'100%': { opacity: 'var(--opacity,1)' },
-				},
-				fadeOut: {
-					'0%': { opacity: 'var(--opacity,1)' },
-					'100%': { opacity: '0' },
-				},
-				fadeInBottom: {
-					'0%': { opacity: '0', transform: 'translateY(token(spacing.4))' },
-					'100%': { opacity: '1', transform: 'translateY(0)' },
-				},
-				fadeOutBottom: {
-					'0%': { opacity: '1', transform: 'translateY(0)' },
-					'100%': { opacity: '0', transform: 'translateY(token(spacing.4))' },
-				},
-				scaleIn: {
-					'0%': { scale: '0.75' },
-					'100%': { scale: '1' },
-				},
-				scaleOut: {
-					'0%': { scale: '1' },
-					'100%': { scale: '0.75' },
-				},
-				flashBackground: {
-					'0%': { backgroundColor: 'token(colors.bg.highlight)' },
-					'100%': { backgroundColor: 'transparent' },
-				},
-			},
-			semanticTokens,
-			tokens,
-			recipes: {
-				button: buttonRecipe,
-			},
-		},
-	},
-	utilities,
+   name: 'The Good Book UI',
+   conditions: {
+      extend: {
+         canHover: '@media (hover: hover)',
+         themeSepia: '[data-theme=sepia] &',
+      },
+   },
+   globalCss,
+   patterns,
+   theme: {
+      extend: {
+         keyframes: {
+            fadeIn: {
+               '0%': { opacity: '0' },
+               '100%': { opacity: 'var(--opacity,1)' },
+            },
+            fadeOut: {
+               '0%': { opacity: 'var(--opacity,1)' },
+               '100%': { opacity: '0' },
+            },
+            fadeInBottom: {
+               '0%': {
+                  opacity: '0',
+                  transform: 'translateY(token(spacing.4))',
+               },
+               '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeOutBottom: {
+               '0%': { opacity: '1', transform: 'translateY(0)' },
+               '100%': {
+                  opacity: '0',
+                  transform: 'translateY(token(spacing.4))',
+               },
+            },
+            scaleIn: {
+               '0%': { scale: '0.75' },
+               '100%': { scale: '1' },
+            },
+            scaleOut: {
+               '0%': { scale: '1' },
+               '100%': { scale: '0.75' },
+            },
+            flashBackground: {
+               '0%': { backgroundColor: 'token(colors.bg.highlight)' },
+               '100%': { backgroundColor: 'transparent' },
+            },
+         },
+         semanticTokens,
+         tokens,
+         recipes: {
+            button: buttonRecipe,
+         },
+      },
+   },
+   utilities,
 })
