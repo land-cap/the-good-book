@@ -1,6 +1,6 @@
 import { atom } from 'jotai'
 
-import { TBookWithDetails } from '~/db/dbQueries'
+import type { TBookWithDetails } from '~/db/dbQueries'
 
 import { router } from '../../../../../../router'
 

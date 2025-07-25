@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/generateBookList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/_/bookList.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/generateBibleData.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBibleData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/shell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/shell.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.$book.$chapter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.$book.$chapter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/_/bibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/bibleData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/shared.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workbox-config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/workbox-config.cjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +83,7 @@
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/land_cap/projects/personal/the-good-book/scripts",
+    "last_opened_file_path": "/Users/land_cap/projects/personal/the-good-book/src/utils/_",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,6 +101,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/utils/_" />
       <recent name="$PROJECT_DIR$/scripts" />
       <recent name="$PROJECT_DIR$/messages" />
       <recent name="$PROJECT_DIR$/src/features/root-layout" />

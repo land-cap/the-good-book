@@ -1,9 +1,6 @@
-import 'jotai-devtools/styles.css'
-
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Provider, useAtomValue } from 'jotai'
-import { DevTools as JotaiDevTools } from 'jotai-devtools'
 import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { token } from 'styled-system/tokens'
@@ -20,11 +17,8 @@ const UseServiceWorkerRegister = () => {
          if ('serviceWorker' in navigator) {
             registerSW({ immediate: true })
             await navigator.serviceWorker.ready
-            import('~/utils/shared')
-               .then((mod) => mod.getBibleData())
-               .catch((error) => {
-                  console.error('Service worker registration failed:', error)
-               })
+            void fetch('/book-list.json')
+            void fetch('/bible-data.json')
          }
       })()
    }, [])
@@ -33,10 +27,7 @@ const UseServiceWorkerRegister = () => {
 }
 
 const WithProviders = ({ children }: { children: ReactNode }) => (
-   <Provider>
-      <JotaiDevTools />
-      {children}
-   </Provider>
+   <Provider>{children}</Provider>
 )
 
 const RootLayout = ({ children }: { children: ReactNode }) => {

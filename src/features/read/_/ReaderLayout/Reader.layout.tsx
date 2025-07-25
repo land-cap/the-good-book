@@ -4,7 +4,7 @@ import { useSetAtom } from 'jotai'
 import { useHydrateAtoms } from 'jotai/react/utils'
 import { ReactNode, useEffect } from 'react'
 
-import { TBookWithDetails } from '~/db/dbQueries'
+import type { TBookWithDetails } from '~/db/dbQueries'
 
 import { BottomToolbar } from './components/BottomToolbar/BottomToolbar'
 import {

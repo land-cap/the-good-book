@@ -3,7 +3,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router'
 import { ReaderView } from '@/read/shared'
 import { isOnServer } from '~/utils/shared'
 
-const loadChapter = async ({
+const loadChapterContent = async ({
    book: bookParam,
    chapter: chapterParam,
 }: {
@@ -27,16 +27,16 @@ const loadChapter = async ({
       }
       return { content: chapterRecord.content }
    } else {
-      const { getChapterFromCache } = await import('~/utils/shared')
-      const chapterData = await getChapterFromCache(bookParam, chapterParam)
-      if (!chapterData) {
+      try {
+         const { getChapterFromCache } = await import('~/utils/shared')
+         return getChapterFromCache(bookParam, chapterParam)
+      } catch {
          throw notFound()
       }
-      return chapterData
    }
 }
 
 export const Route = createFileRoute('/{-$locale}/read/$book/$chapter')({
    component: ReaderView,
-   loader: async ({ params }) => loadChapter(params),
+   loader: async ({ params }) => loadChapterContent(params),
 })

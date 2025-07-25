@@ -10,7 +10,7 @@
     "generate:book-list": "pnpm tsx scripts/generateBookList.ts",
     "generate:sw": "npx workbox generateSW ./workbox-config.cjs",
     "build:app": "vite build",
-    "build": "npm run generate:db && npm run generate:bible-data && pnpm run build:app && pnpm run generate:sw",
+    "build": "npm run generate:db && npm run generate:bible-data && pnpm generate:book-list && pnpm run build:app && pnpm run generate:sw",
     "start": "PORT=4000 node .output/server/index.mjs",
     "lint": "npx eslint src --fix",
     "lint:panda-preset": "npx eslint panda-preset --fix"
