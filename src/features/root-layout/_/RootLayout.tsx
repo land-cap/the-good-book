@@ -1,11 +1,9 @@
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Provider, useAtomValue } from 'jotai'
-import messages from 'messages/ru.json'
 import { type ReactNode, useEffect } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { token } from 'styled-system/tokens'
-import { IntlProvider } from 'use-intl'
 import { registerSW } from 'virtual:pwa-register'
 
 import { SafeAreaBottom } from '~/ui/shared'
@@ -32,11 +30,7 @@ const UseServiceWorkerRegister = () => {
 }
 
 const WithProviders = ({ children }: { children: ReactNode }) => (
-   <Provider>
-      <IntlProvider messages={messages} locale="en">
-         {children}
-      </IntlProvider>
-   </Provider>
+   <Provider>{children}</Provider>
 )
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
@@ -45,7 +39,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
    const isSepiaTheme = theme === THEME.Sepia
 
    return (
-      <html lang={'en'}>
+      // TODO: pass current locale as lang attribute
+      // eslint-disable-next-line jsx-a11y/html-has-lang
+      <html>
          <head>
             <HeadContent />
             <meta

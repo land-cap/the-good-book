@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/i18n.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/i18n.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/getMessages.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/root-layout/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/shared.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routeTree.gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routeTree.gen.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/__root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/__root.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +141,7 @@
       <workItem from="1753366953614" duration="2665000" />
       <workItem from="1753380829951" duration="1241000" />
       <workItem from="1753382084227" duration="12733000" />
-      <workItem from="1753443422007" duration="296000" />
+      <workItem from="1753443422007" duration="1711000" />
     </task>
     <servers />
   </component>

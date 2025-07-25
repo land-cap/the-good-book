@@ -5,6 +5,8 @@ import * as fs from 'fs/promises'
 
 import { DEFAULT_LOCALE, LOCALE_LIST } from '../../../config/i18n'
 
+export type TMessages = Record<string, string | Record<string, string>>
+
 export const getMessages = createServerFn({
    method: 'GET',
    response: 'data',
@@ -22,9 +24,5 @@ export const getMessages = createServerFn({
    .handler(async ({ data: locale }) => {
       const filePath = path.join(process.cwd(), 'messages', `${locale}.json`)
       const messagesStr = await fs.readFile(filePath, 'utf-8')
-      console.log(messagesStr)
-      return JSON.parse(messagesStr) as Record<
-         string,
-         string | Record<string, string>
-      >
+      return JSON.parse(messagesStr) as TMessages
    })

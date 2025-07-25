@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import { createRootRouteWithContext } from '@tanstack/react-router'
+import { createRootRoute } from '@tanstack/react-router'
 import * as React from 'react'
 
 import { DefaultCatchBoundary, NotFound } from '@/error-ui/shared'
@@ -7,11 +7,7 @@ import { RootLayout } from '@/root-layout/shared'
 
 import globalCss from '../global.css?url'
 
-type TRootContext = {
-   locale: string
-}
-
-export const Route = createRootRouteWithContext<TRootContext>()({
+export const Route = createRootRoute({
    head: () => ({
       meta: [
          {
