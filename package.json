@@ -25,8 +25,10 @@
     "motion": "^12.23.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.16.0",
     "tailwind-merge": "^2.6.0",
     "use-intl": "^4.3.4",
+    "usehooks-ts": "^3.1.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {
