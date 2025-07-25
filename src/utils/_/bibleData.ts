@@ -1,38 +1,17 @@
-import { get } from 'idb-keyval'
+type TBibleData = Record<string, Record<string, { content: string }>>
 
-const DB_KEY = 'bible-data'
+let bibleData: TBibleData | null = null
 
-type BibleData = Record<string, Record<string, { content: string }>>
-
-let cache: BibleData | null = null
-
-const loadFromCache = async (): Promise<BibleData | null> => {
-	try {
-		return (await get(DB_KEY)) ?? null
-	} catch {
-		return null
-	}
+const getBibleData = async () => {
+   if (bibleData) {
+      return bibleData
+   }
+   const res = await fetch('/bible-data.json')
+   bibleData = (await res.json()) as TBibleData
+   return bibleData
 }
 
-const loadFromNetwork = async (): Promise<BibleData> => {
-	const res = await fetch('/bible-data.json')
-	return await res.json() as BibleData
-}
-
-export const getBibleData = async (): Promise<BibleData> => {
-	if (cache) {
-		return cache
-	}
-
-	const data = (await loadFromCache()) ?? (await loadFromNetwork())
-	cache = data
-	return data
-}
-
-export const getChapterFromCache = async (
-	book: string,
-	chapter: string,
-): Promise<{ content: string } | null> => {
-	const data = await getBibleData()
-	return data?.[book]?.[chapter] ?? null
+export const getChapterFromCache = async (book: string, chapter: string) => {
+   const data = await getBibleData()
+   return data?.[book]?.[chapter]
 }

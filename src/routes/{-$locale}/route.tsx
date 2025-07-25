@@ -1,7 +1,6 @@
 import { createFileRoute, getRouteApi, Outlet } from '@tanstack/react-router'
+import messages from 'messages/ro.json'
 import { IntlProvider, Locale } from 'use-intl'
-
-import { getMessages } from '@/root-layout/shared'
 
 import { DEFAULT_LOCALE, LOCALE_LIST } from '../../config/i18n'
 
@@ -18,7 +17,7 @@ const LocaleLayout = () => {
 }
 
 export const Route = createFileRoute('/{-$locale}')({
-   loader: async ({ params }) => {
+   loader: ({ params }) => {
       // @ts-expect-error safe
       if (!LOCALE_LIST.includes(params.locale) && params.locale !== undefined) {
          throw new Error(
@@ -29,7 +28,6 @@ export const Route = createFileRoute('/{-$locale}')({
          )
       }
       const locale = (params.locale as Locale) || DEFAULT_LOCALE
-      const messages = await getMessages({ data: locale })
       return { locale, messages }
    },
    component: LocaleLayout,

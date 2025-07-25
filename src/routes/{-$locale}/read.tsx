@@ -1,10 +1,17 @@
 import { createFileRoute, getRouteApi, Outlet } from '@tanstack/react-router'
-import { createServerFn } from '@tanstack/react-start'
 
 import { ReaderLayout } from '@/read/shared'
-import { getBookList } from '~/db/dbQueries'
+import { isOnServer } from '~/utils/shared'
 
-const getBookListRpc = createServerFn().handler(async () => getBookList())
+const loadBookList = async () => {
+   if (isOnServer()) {
+      const { getBookList } = await import('~/db/dbQueries')
+      return getBookList()
+   } else {
+      const { getBookListFromCache } = await import('~/utils/shared')
+      return getBookListFromCache()
+   }
+}
 
 const ReaderLayoutWithLoaderData = () => {
    const bookList = getRouteApi('/{-$locale}/read').useLoaderData()
@@ -17,6 +24,6 @@ const ReaderLayoutWithLoaderData = () => {
 }
 
 export const Route = createFileRoute('/{-$locale}/read')({
-   loader: () => getBookListRpc(),
+   loader: () => loadBookList(),
    component: ReaderLayoutWithLoaderData,
 })

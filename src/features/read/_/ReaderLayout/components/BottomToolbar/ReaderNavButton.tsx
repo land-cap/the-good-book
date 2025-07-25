@@ -12,8 +12,6 @@ export const ReaderNavButton = ({
 }) => {
    const buttonCls = button({ icon: true, size: 'xl' })
 
-   // console.log(location)
-
    return (
       <Link
          to={location?.pathname}
