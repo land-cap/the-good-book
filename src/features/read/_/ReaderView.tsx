@@ -6,10 +6,12 @@ import { useTranslations } from 'use-intl'
 
 import { Icon } from '~/ui/shared'
 
-export const ReaderView = () => {
-   const params = getRouteApi('/read/$book/$chapter').useParams()
+const routeApi = getRouteApi('/{-$locale}/read/$book/$chapter')
 
-   const chapterData = getRouteApi('/read/$book/$chapter').useLoaderData()
+export const ReaderView = () => {
+   const params = routeApi.useParams()
+
+   const chapterData = routeApi.useLoaderData()
 
    const t = useTranslations('reader.bottom_toolbar')
 
@@ -54,9 +56,9 @@ export const ReaderView = () => {
             <Icon name="arrow_drop_down" size={6} />
          </div>
          <Link
-            to={'/read/$book/$chapter'}
+            to={'/{-$locale}/read/$book/$chapter'}
             params={{
-               book: params.book,
+               ...params,
                chapter: `${parseInt(params.chapter) - 1}`,
             }}
             className={button({ visual: 'solid', size: 'lg' })}
@@ -64,9 +66,9 @@ export const ReaderView = () => {
             {t('previous_btn')}
          </Link>
          <Link
-            to={'/read/$book/$chapter'}
+            to={'/{-$locale}/read/$book/$chapter'}
             params={{
-               book: params.book,
+               ...params,
                chapter: `${parseInt(params.chapter) + 1}`,
             }}
             className={button({ visual: 'solid', size: 'lg' })}
