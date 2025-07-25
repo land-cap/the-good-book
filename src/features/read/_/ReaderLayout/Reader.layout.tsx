@@ -1,13 +1,15 @@
+import { usePrevious } from '@mantine/hooks'
 import { getRouteApi } from '@tanstack/react-router'
+import { useSetAtom } from 'jotai'
 import { useHydrateAtoms } from 'jotai/react/utils'
-import type { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 
 import { TBookWithDetails } from '~/db/dbQueries'
 
 import { BottomToolbar } from './components/BottomToolbar/BottomToolbar'
 import {
+   bookCodeAtom,
    bookListAtom,
-   currBookCodeAtom,
    currChapterAtom,
 } from './components/BottomToolbar/bottomToolbar.state'
 import { Footer } from './components/Footer/Footer'
@@ -26,9 +28,27 @@ export const ReaderLayout = ({
 
    useHydrateAtoms([
       [bookListAtom, bookList],
-      [currBookCodeAtom, bookCodeParam],
+      [bookCodeAtom, bookCodeParam],
       [currChapterAtom, parseInt(chapterParam)],
    ])
+
+   const prevBookCodeParam = usePrevious(bookCodeParam)
+   const prevChapterParam = usePrevious(chapterParam)
+
+   const setBookCode = useSetAtom(bookCodeAtom)
+   const setChapter = useSetAtom(currChapterAtom)
+
+   useEffect(() => {
+      if (prevBookCodeParam && bookCodeParam !== prevBookCodeParam) {
+         setBookCode(bookCodeParam)
+      }
+   }, [bookCodeParam, prevBookCodeParam, setBookCode])
+
+   useEffect(() => {
+      if (prevChapterParam && chapterParam !== prevChapterParam) {
+         setChapter(parseInt(chapterParam))
+      }
+   }, [chapterParam, prevChapterParam, setChapter])
 
    return (
       <>
