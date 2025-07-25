@@ -6,12 +6,12 @@ const getBibleData = async () => {
    if (bibleData) {
       return bibleData
    }
-   const res = await fetch('/bible-data.json')
+   const res = await fetch('/chapter-content-data.json')
    bibleData = (await res.json()) as TBibleData
    return bibleData
 }
 
-export const getChapterFromCache = async (book: string, chapter: string) => {
+export const getChapterOnClient = async (book: string, chapter: string) => {
    const data = await getBibleData()
    return data?.[book]?.[chapter]
 }

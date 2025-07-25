@@ -10,7 +10,7 @@ module.exports = {
          urlPattern: /book-list\.json$/,
          handler: 'NetworkFirst',
          options: {
-            cacheName: 'bible-data-cache',
+            cacheName: 'chapter-content-data-cache',
             expiration: {
                maxEntries: 1,
                maxAgeSeconds: 24 * 60 * 60,
@@ -18,10 +18,10 @@ module.exports = {
          },
       },
       {
-         urlPattern: /bible-data\.json$/,
+         urlPattern: /chapter-content-data\.json$/,
          handler: 'NetworkFirst',
          options: {
-            cacheName: 'bible-data-cache',
+            cacheName: 'chapter-content-data-cache',
             expiration: {
                maxEntries: 1,
                maxAgeSeconds: 24 * 60 * 60,

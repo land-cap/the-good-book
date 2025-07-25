@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/_/bookList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/read/_/getChapterOnServer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/bible-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/generateBibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBibleData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/shared.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.$book.$chapter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.$book.$chapter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/_/bibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/bibleData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/_/bibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/getChapterOnClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/shared.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/workbox-config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/workbox-config.cjs" afterDir="false" />
     </list>
@@ -108,9 +106,9 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/read/_" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components" />
-      <recent name="$PROJECT_DIR$/src/features/read/_" />
       <recent name="$PROJECT_DIR$/src/routes/{-$locale}" />
       <recent name="$PROJECT_DIR$/src/" />
     </key>
