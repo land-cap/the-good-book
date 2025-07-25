@@ -6,11 +6,11 @@ import { router } from '../../../../../../router'
 
 export const bookListAtom = atom<TBookWithDetails[]>([])
 
-export const currBookCodeAtom = atom('')
+export const bookCodeAtom = atom('')
 
-export const currBookAtom = atom((get) => {
+export const bookAtom = atom((get) => {
    const bookList = get(bookListAtom)
-   const currBookCode = get(currBookCodeAtom)
+   const currBookCode = get(bookCodeAtom)
    return bookList.find(({ code }) => code === currBookCode)!
 })
 
@@ -18,7 +18,7 @@ export const currChapterAtom = atom(undefined as unknown as number)
 
 export const prevChapterLocationAtom = atom((get) => {
    const currChapter = get(currChapterAtom)
-   const currBook = get(currBookAtom)
+   const currBook = get(bookAtom)
 
    if (currChapter > 1) {
       return router.buildLocation({
@@ -48,7 +48,7 @@ export const prevChapterLocationAtom = atom((get) => {
 
 export const nextChapterLocationAtom = atom((get) => {
    const currChapter = get(currChapterAtom)
-   const currBook = get(currBookAtom)
+   const currBook = get(bookAtom)
    const currBookChapterCount = currBook.chapter_count
 
    if (currChapter < currBookChapterCount) {
