@@ -2,22 +2,22 @@ import { cva, cx, type RecipeVariantProps } from 'styled-system/css'
 
 export const iconRecipe = cva({
    base: {
-      display: 'inline-flex',
-      fontFamily: 'Material Symbols Sharp',
-      fontWeight: 'var(--wght, 400)',
-      letterSpacing: 'normal',
-      lineHeight: '1',
-      textTransform: 'none',
-      direction: 'ltr',
-      fontStyle: 'normal',
-      whiteSpace: 'nowrap',
-      wordWrap: 'normal',
       '--grad': 0,
       // @ts-expect-error non-standard CSS property
       '-webkit-font-feature-settings': "'liga'",
       '-webkit-font-smoothing': 'antialiased',
+      direction: 'ltr',
+      display: 'inline-flex',
       'font-variation-settings':
          "'FILL' var(--fill,0), 'wght' var(--wght,400), 'GRAD' var(--grad,0)",
+      fontFamily: 'Material Symbols Sharp',
+      fontStyle: 'normal',
+      fontWeight: 'var(--wght, 400)',
+      letterSpacing: 'normal',
+      lineHeight: '1',
+      textTransform: 'none',
+      whiteSpace: 'nowrap',
+      wordWrap: 'normal',
    },
    variants: {
       fill: {

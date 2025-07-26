@@ -16,9 +16,9 @@ export const ReaderNavButton = ({
 
    const link = (
       <Link
-         className={buttonCls}
          to={location?.pathname}
          aria-disabled={location ? undefined : true}
+         className={buttonCls}
       >
          <Icon
             size={6}

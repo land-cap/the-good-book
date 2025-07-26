@@ -56,8 +56,8 @@ export const ChapterTabView = () => {
 
             return (
                <ChapterListItem
-                  ref={chapter === 1 ? chapterListItemRef : null}
                   key={chapter}
+                  ref={chapter === 1 ? chapterListItemRef : null}
                   isCurrChapter={isCurrChapter}
                   onClick={() => setShowChapterPickerMenu(false)}
                >

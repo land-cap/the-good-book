@@ -1,11 +1,10 @@
 {
-   "trailingComma": "all",
-   "useTabs": false,
-   "tabWidth": 3,
-   "semi": false,
-   "singleQuote": true,
-   "bracketSpacing": true,
-   "arrowParens": "always",
-   "printWidth": 80,
-   "plugins": ["@pandabox/prettier-plugin"]
+  "trailingComma": "all",
+  "useTabs": false,
+  "tabWidth": 3,
+  "semi": false,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "printWidth": 80
 }

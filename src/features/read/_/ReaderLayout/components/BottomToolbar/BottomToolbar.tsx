@@ -20,9 +20,9 @@ export const BottomToolbar = () => {
       <BottomToolbarContainer>
          <div
             className={subgrid({
+               column: 'content',
                pos: 'relative',
                pb: 'safe_area_bottom',
-               column: 'content',
             })}
          >
             {/* TODO: implement ReturnFromReferenceFab */}
@@ -35,14 +35,14 @@ export const BottomToolbar = () => {
             >
                <ReaderNavButton
                   location={prevChapterLocation}
-                  label={t('previous_btn')}
                   direction="left"
+                  label={t('previous_btn')}
                />
                <ChapterPickerMenuRoot />
                <ReaderNavButton
                   location={nextChapterLocation}
-                  label={t('next_btn')}
                   direction="right"
+                  label={t('next_btn')}
                />
             </div>
          </div>

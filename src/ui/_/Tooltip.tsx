@@ -8,14 +8,14 @@ const tooltipSva = sva({
    slots: tooltipAnatomy.keys(),
    base: {
       content: {
-         textStyle: 'xs',
-         zIndex: 'tooltip',
-         maxWidth: '2xs',
-         py: '2',
-         px: '3',
-         color: 'fg',
-         fontWeight: 'bold',
          background: 'bg.muted',
+         color: 'fg',
+         px: '3',
+         py: '2',
+         textStyle: 'xs',
+         fontWeight: 'bold',
+         maxWidth: '2xs',
+         zIndex: 'tooltip',
          shadow: 'none',
          _open: {
             animation: 'fadeIn 0.25s ease-out',

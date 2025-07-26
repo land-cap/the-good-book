@@ -11,7 +11,7 @@ import {
    showChapterPickerMenu,
 } from './chapterPickerMenu.state'
 
-const triggerCls = cx(button(), css({ flexGrow: 1, h: 'full' }))
+const triggerCls = cx(button(), css({ h: 'full', flexGrow: 1 }))
 
 export const ChapterPickerMenuRoot = () => {
    const [showMenu, setShowMenu] = useAtom(showChapterPickerMenu)

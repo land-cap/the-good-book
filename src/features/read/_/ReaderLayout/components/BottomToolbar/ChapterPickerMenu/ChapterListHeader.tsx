@@ -15,11 +15,11 @@ export const ChapterListHeader = ({
    return (
       <div
          className={caption({
+            column: '1 / -1',
             zIndex: '1',
             pos: 'sticky',
             top: '0',
             bg: 'bg.canvas',
-            column: '1 / -1',
          })}
          style={{ marginBottom }}
       >
