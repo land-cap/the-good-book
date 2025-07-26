@@ -5,9 +5,9 @@ import { spacing } from './spacing.tokens'
 import { fonts, fontSizes, fontWeights } from './typography.tokens'
 
 export const tokens = defineTokens({
-	colors,
-	fontWeights,
-	fonts,
-	fontSizes,
-	spacing,
+   colors,
+   fontWeights,
+   fonts,
+   fontSizes,
+   spacing,
 })

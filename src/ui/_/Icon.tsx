@@ -25,20 +25,20 @@ export const iconRecipe = cva({
          true: { '--fill': 1 },
       },
       size: {
-         10: { fontSize: '10', h: '10', w: '10' },
-         12: { fontSize: '12', h: '12', w: '12' },
+         10: { fontSize: 'token(sizes.10)', h: '10', w: '10' },
+         12: { fontSize: 'token(sizes.12)', h: '12', w: '12' },
          3: {
-            fontSize: '3',
+            fontSize: 'token(sizes.3)',
             h: '3',
             w: '3',
          },
          4: {
-            fontSize: '4',
+            fontSize: 'token(sizes.4)',
             h: '4',
             w: '4',
          },
-         5: { fontSize: '5', h: '5', w: '5' },
-         6: { fontSize: '6', h: '6', w: '6' },
+         5: { fontSize: 'token(sizes.5)', h: '5', w: '5' },
+         6: { fontSize: 'token(sizes.6)', h: '6', w: '6' },
       },
       weight: {
          300: { '--wght': 300 },
@@ -49,7 +49,6 @@ export const iconRecipe = cva({
       },
    },
    defaultVariants: {
-      // eslint-disable-next-line @pandacss/no-hardcoded-color
       fill: false,
       size: 6,
       weight: 400,

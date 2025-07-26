@@ -10,10 +10,10 @@
 @layer reset, base, tokens, recipes, utilities;
 
 :root {
-    --font-sans: "Geist", sans-serif;
-    --font-mono: "Geist Mono", monospace;
-    --font-soft: "Noto sans", monospace;
-    --font-dyslexic: "Lexend", sans-serif;
-    --font-condensed: "Roboto Condensed", sans-serif;
-    --font-old-style: "Source Serif 4", serif;
+   --font-sans: 'Geist', sans-serif;
+   --font-mono: 'Geist Mono', monospace;
+   --font-soft: 'Noto sans', monospace;
+   --font-dyslexic: 'Lexend', sans-serif;
+   --font-condensed: 'Roboto Condensed', sans-serif;
+   --font-old-style: 'Source Serif 4', serif;
 }
