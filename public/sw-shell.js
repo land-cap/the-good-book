@@ -1,5 +1,5 @@
 self.addEventListener('install', event => {
-	event.waitUntil(caches.open('app-shell-cache').then(cache => cache.add('/_shell.html')))
+	event.waitUntil(caches.open('app-shell').then(cache => cache.add('/_shell.html')))
 })
 
 self.addEventListener('fetch', event => {
@@ -11,7 +11,7 @@ self.addEventListener('fetch', event => {
 			}
 
 			// If offline, serve the cached shell
-			const cache = await caches.open('app-shell-cache')
+			const cache = await caches.open('app-shell')
 			const cachedShell = await cache.match('/_shell.html')
 			if (cachedShell) {
 				return cachedShell
