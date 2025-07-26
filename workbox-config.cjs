@@ -7,17 +7,6 @@ module.exports = {
    importScripts: ['sw-shell.js'],
    runtimeCaching: [
       {
-         urlPattern: /\/api\/messages\/[^/]+$/,
-         handler: 'NetworkFirst',
-         options: {
-            cacheName: 'messages',
-            expiration: {
-               maxEntries: 1000,
-               maxAgeSeconds: 24 * 60 * 60,
-            },
-         },
-      },
-      {
          urlPattern: /book-list\.json$/,
          handler: 'NetworkFirst',
          options: {

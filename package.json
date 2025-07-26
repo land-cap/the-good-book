@@ -12,6 +12,7 @@
     "build:app": "vite build",
     "build": "pnpm run generate:db && pnpm run build:app && pnpm run generate:sw",
     "build:x2": "pnpm run build && pnpm run build",
+    "build-and-run": "pnpm run build:x2 && pnpm run start",
     "start": "PORT=4000 node .output/server/index.mjs",
     "type-check": "tsc --noEmit",
     "lint": "npx eslint src --fix",

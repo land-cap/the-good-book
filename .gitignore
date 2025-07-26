@@ -24,3 +24,5 @@ yarn.lock
 /styled-system/
 
 .idea/
+/dist/
+/.netlify/

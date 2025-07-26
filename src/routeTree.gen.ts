@@ -8,17 +8,12 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createServerRootRoute } from '@tanstack/react-start/server'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShellRouteImport } from './routes/shell'
 import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125ReadRouteImport } from './routes/{-$locale}/read'
 import { Route as Char123LocaleChar125ReadBookChapterRouteImport } from './routes/{-$locale}/read.$book.$chapter'
-import { ServerRoute as ApiMessagesLocaleServerRouteImport } from './routes/api/messages.$locale'
-
-const rootServerRouteImport = createServerRootRoute()
 
 const ShellRoute = ShellRouteImport.update({
   id: '/shell',
@@ -49,11 +44,6 @@ const Char123LocaleChar125ReadBookChapterRoute =
     path: '/$book/$chapter',
     getParentRoute: () => Char123LocaleChar125ReadRoute,
   } as any)
-const ApiMessagesLocaleServerRoute = ApiMessagesLocaleServerRouteImport.update({
-  id: '/api/messages/$locale',
-  path: '/api/messages/$locale',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
@@ -103,27 +93,6 @@ export interface RootRouteChildren {
   Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
   ShellRoute: typeof ShellRoute
 }
-export interface FileServerRoutesByFullPath {
-  '/api/messages/$locale': typeof ApiMessagesLocaleServerRoute
-}
-export interface FileServerRoutesByTo {
-  '/api/messages/$locale': typeof ApiMessagesLocaleServerRoute
-}
-export interface FileServerRoutesById {
-  __root__: typeof rootServerRouteImport
-  '/api/messages/$locale': typeof ApiMessagesLocaleServerRoute
-}
-export interface FileServerRouteTypes {
-  fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/messages/$locale'
-  fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/messages/$locale'
-  id: '__root__' | '/api/messages/$locale'
-  fileServerRoutesById: FileServerRoutesById
-}
-export interface RootServerRouteChildren {
-  ApiMessagesLocaleServerRoute: typeof ApiMessagesLocaleServerRoute
-}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
@@ -161,17 +130,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/{-$locale}/read/$book/$chapter'
       preLoaderRoute: typeof Char123LocaleChar125ReadBookChapterRouteImport
       parentRoute: typeof Char123LocaleChar125ReadRoute
-    }
-  }
-}
-declare module '@tanstack/react-start/server' {
-  interface ServerFileRoutesByPath {
-    '/api/messages/$locale': {
-      id: '/api/messages/$locale'
-      path: '/api/messages/$locale'
-      fullPath: '/api/messages/$locale'
-      preLoaderRoute: typeof ApiMessagesLocaleServerRouteImport
-      parentRoute: typeof rootServerRouteImport
     }
   }
 }
@@ -214,9 +172,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiMessagesLocaleServerRoute: ApiMessagesLocaleServerRoute,
-}
-export const serverRouteTree = rootServerRouteImport
-  ._addFileChildren(rootServerRouteChildren)
-  ._addFileTypes<FileServerRouteTypes>()

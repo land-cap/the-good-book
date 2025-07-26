@@ -21,7 +21,7 @@ export default defineConfig({
          prerender: {
             enabled: true,
             onSuccess: ({ page }) => {
-               console.log(`Prerendered: ${page.path}.`)
+               console.log(`Prerendered: ${page.path}`)
             },
          },
          pages: [

@@ -27,6 +27,9 @@
       "forceConsistentCasingInFileNames": true,
       "baseUrl": ".",
       "paths": {
+         "~/config/*": [
+            "./src/config/*"
+         ],
          "~/db/*": [
             "./src/db/*"
          ],
