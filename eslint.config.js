@@ -6,6 +6,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import { defineConfig, globalIgnores } from 'eslint/config'
 import globals from 'globals'
+import panda from '@pandacss/eslint-plugin'
 
 export default defineConfig([
    globalIgnores([
@@ -39,6 +40,7 @@ export default defineConfig([
          'react-hooks': reactHooks,
          'jsx-a11y': jsxA11y,
          'simple-import-sort': simpleImportSort,
+         '@pandacss': panda,
       },
       rules: {
          ...react.configs.recommended.rules,
@@ -63,6 +65,7 @@ export default defineConfig([
          'react/prop-types': 'off',
          'react/react-in-jsx-scope': 'off',
          'react/jsx-uses-react': 'off',
+         ...panda.configs.recommended.rules,
       },
       settings: {
          react: {
