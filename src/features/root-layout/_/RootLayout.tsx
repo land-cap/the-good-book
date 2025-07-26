@@ -2,45 +2,17 @@ import 'jotai-devtools/styles.css'
 
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import { Provider, useAtomValue } from 'jotai'
-import { DevTools as JotaiDevTools } from 'jotai-devtools'
-import { type ReactNode, useEffect } from 'react'
+import { useAtomValue } from 'jotai'
+import { type ReactNode } from 'react'
 import { macrogrid } from 'styled-system/patterns'
 import { token } from 'styled-system/tokens'
-import { registerSW } from 'virtual:pwa-register'
 
 import { SafeAreaBottom } from '~/ui/shared'
 
-import { LOCALE_LIST } from '../../../config/i18n'
 import { GlobalBackdrop } from './GlobalBackdrop'
 import { THEME, themeAtom } from './state'
-
-const UseServiceWorkerRegister = () => {
-   useEffect(() => {
-      void (async () => {
-         if ('serviceWorker' in navigator) {
-            registerSW({ immediate: true })
-            await navigator.serviceWorker.ready
-            requestIdleCallback(() => {
-               LOCALE_LIST.forEach(
-                  (locale) => void fetch(`/api/messages/${locale}`),
-               )
-               void fetch('/book-list.json')
-               void fetch('/chapter-content-data.json')
-            })
-         }
-      })()
-   }, [])
-
-   return null
-}
-
-const WithProviders = ({ children }: { children: ReactNode }) => (
-   <Provider>
-      <JotaiDevTools />
-      {children}
-   </Provider>
-)
+import { UseRegisterServiceWorker } from './UseRegisterServiceWorker'
+import { WithProviders } from './WithProviders'
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
    const theme = useAtomValue(themeAtom)
@@ -88,7 +60,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
             {children}
             <SafeAreaBottom css={{ column: 'content' }} />
             <GlobalBackdrop />
-            <UseServiceWorkerRegister />
+            <UseRegisterServiceWorker />
             <TanStackRouterDevtools position="bottom-right" />
             <Scripts />
          </body>
