@@ -1,11 +1,8 @@
-import { PrismaClient } from '@prisma/client'
-
 import { writeFile } from 'fs/promises'
-
-const prisma = new PrismaClient()
+import { dbClient } from '../src/db/dbClient'
 
 const main = async () => {
-   const books = await prisma.book.findMany({
+   const books = await dbClient.book.findMany({
       orderBy: { order: 'asc' },
       include: { chapter: { orderBy: { chapter: 'asc' } } },
    })
@@ -35,4 +32,4 @@ main()
       console.error(err)
       process.exit(1)
    })
-   .finally(() => prisma.$disconnect())
+   .finally(() => dbClient.$disconnect())
