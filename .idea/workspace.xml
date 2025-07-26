@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/root-layout/_/UseRegisterServiceWorker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/read/_/getChapterServer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/getChapterOnServer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/_/Tooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Tooltip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,9 +92,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "npm.Next.js: server-side.executor": "Run",
+    "npm.build:x2.executor": "Run",
     "npm.format.executor": "Run",
     "npm.generate:bible-data.executor": "Run",
     "npm.generate:book-list.executor": "Run",
+    "npm.start.executor": "Run",
     "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -113,12 +125,22 @@
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.format">
+  <component name="RunManager" selected="npm.start">
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build:x2" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build:x2" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -154,8 +176,20 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.build:x2" />
         <item itemvalue="npm.format" />
         <item itemvalue="npm.generate:book-list" />
         <item itemvalue="npm.generate:bible-data" />

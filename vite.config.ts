@@ -30,11 +30,7 @@ export default defineConfig({
             },
          ],
       }),
-      viteReact({
-         babel: {
-            presets: ['jotai/babel/preset'],
-         },
-      }),
+      viteReact(),
       VitePWA({
          injectRegister: false,
          manifest: {

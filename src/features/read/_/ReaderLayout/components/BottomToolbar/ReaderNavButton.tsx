@@ -1,29 +1,35 @@
-import { Link, ParsedLocation } from '@tanstack/react-router'
+import { Link, LinkOptions, useLocation } from '@tanstack/react-router'
 import { button } from 'styled-system/recipes'
 
 import { Icon, Tooltip } from '~/ui/shared'
 
+const buttonCls = button({ icon: true, size: 'xl' })
+
 export const ReaderNavButton = ({
-   location,
+   linkOptions,
    direction,
    label,
 }: {
-   location: ParsedLocation | null
+   linkOptions: LinkOptions | null
    direction: 'left' | 'right'
    label: string
 }) => {
-   const buttonCls = button({ icon: true, size: 'xl' })
+   const location = useLocation()
+
+   const icon = (
+      <Icon
+         size={6}
+         name={direction === 'left' ? 'arrow_back' : 'arrow_forward'}
+      />
+   )
 
    const link = (
       <Link
-         to={location?.pathname}
-         aria-disabled={location ? undefined : true}
+         {...(linkOptions || { href: location.href })}
+         aria-disabled={linkOptions ? undefined : true}
          className={buttonCls}
       >
-         <Icon
-            size={6}
-            name={direction === 'left' ? 'arrow_back' : 'arrow_forward'}
-         />
+         {icon}
       </Link>
    )
 

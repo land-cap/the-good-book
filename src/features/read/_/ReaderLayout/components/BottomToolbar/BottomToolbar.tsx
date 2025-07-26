@@ -34,13 +34,13 @@ export const BottomToolbar = () => {
                })}
             >
                <ReaderNavButton
-                  location={prevChapterLocation}
+                  linkOptions={prevChapterLocation}
                   direction="left"
                   label={t('previous_btn')}
                />
                <ChapterPickerMenuRoot />
                <ReaderNavButton
-                  location={nextChapterLocation}
+                  linkOptions={nextChapterLocation}
                   direction="right"
                   label={t('next_btn')}
                />

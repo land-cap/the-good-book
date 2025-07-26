@@ -1,8 +1,7 @@
+import { linkOptions } from '@tanstack/react-router'
 import { atom } from 'jotai'
 
 import type { TBookWithDetails } from '~/db/dbQueries'
-
-import { router } from '../../../../../../router'
 
 export const bookListAtom = atom<TBookWithDetails[]>([])
 
@@ -21,7 +20,7 @@ export const prevChapterLocationAtom = atom((get) => {
    const currBook = get(bookAtom)
 
    if (currChapter > 1) {
-      return router.buildLocation({
+      return linkOptions({
          to: '/{-$locale}/read/$book/$chapter',
          params: {
             book: currBook.code,
@@ -37,7 +36,7 @@ export const prevChapterLocationAtom = atom((get) => {
       return null
    }
 
-   return router.buildLocation({
+   return linkOptions({
       to: '/{-$locale}/read/$book/$chapter',
       params: {
          book: prevBook.code,
@@ -52,7 +51,7 @@ export const nextChapterLocationAtom = atom((get) => {
    const currBookChapterCount = currBook.chapter_count
 
    if (currChapter < currBookChapterCount) {
-      return router.buildLocation({
+      return linkOptions({
          to: '/{-$locale}/read/$book/$chapter',
          params: {
             book: currBook.code,
@@ -68,7 +67,7 @@ export const nextChapterLocationAtom = atom((get) => {
       return null
    }
 
-   return router.buildLocation({
+   return linkOptions({
       to: '/{-$locale}/read/$book/$chapter',
       params: {
          book: nextBook.code,
