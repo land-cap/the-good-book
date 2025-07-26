@@ -12,7 +12,7 @@ import {
    bookListAtom,
    chapterAtom,
 } from './components/BottomToolbar/bottomToolbar.state'
-import { selectedBookIdAtom } from './components/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state'
+import { selectedBookIdAtom } from './components/BottomToolbar/chapter-picker-menu/shared'
 import { Footer } from './components/Footer/Footer'
 
 const chapterRouteApi = getRouteApi('/{-$locale}/read/$book/$chapter')

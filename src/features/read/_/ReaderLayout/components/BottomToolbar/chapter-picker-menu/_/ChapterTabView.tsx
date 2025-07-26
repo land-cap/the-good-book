@@ -3,7 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { range } from 'ramda'
 import { useMemo } from 'react'
 
-import { bookAtom, chapterAtom } from '../bottomToolbar.state'
+import { bookAtom, chapterAtom } from '../../bottomToolbar.state'
 import { ChapterListHeader } from './ChapterListHeader'
 import {
    selectedBookAtom,

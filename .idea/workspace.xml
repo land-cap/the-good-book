@@ -5,20 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/getChapterServer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/shared.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/ReaderLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ReaderNavButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/getChapterOnServer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/loaderChapterContent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/{-$locale}/read.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Tooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Tooltip.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/BookList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/BookList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/BookListSectionHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/BookListSectionHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/BookTabView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/BookTabView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterListHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/ChapterListHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/ChapterPickerMenu.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/ChapterPickerMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/ChapterPickerMenuRoot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterTabView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/ChapterTabView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/chapterPickerMenu.state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/useComputeChapterListItemHeight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_/useComputeChapterListItemHeight.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/shared.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,11 +113,11 @@
       <recent name="$PROJECT_DIR$/src/features/root-layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/chapter-picker-menu/_" />
       <recent name="$PROJECT_DIR$/panda-preset/slotRecipes" />
       <recent name="$PROJECT_DIR$/src/features/read/_" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components" />
-      <recent name="$PROJECT_DIR$/src/routes/{-$locale}" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" />

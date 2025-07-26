@@ -1,6 +1,6 @@
 import { atom } from 'jotai'
 
-import { bookListAtom } from '../bottomToolbar.state'
+import { bookListAtom } from '../../bottomToolbar.state'
 
 export type TChapterPickerTab = 'book' | 'chapter'
 
