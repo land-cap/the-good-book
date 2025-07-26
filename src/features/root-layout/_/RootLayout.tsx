@@ -77,11 +77,11 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
             className={macrogrid({
                gridTemplateRows: 'min-content 1fr min-content',
                minH: '100dvh',
-               overscrollBehavior: 'contain',
                pb: '14',
-               fontSize: 'sm',
                color: 'fg',
+               fontSize: 'sm',
                background: 'bg.canvas',
+               overscrollBehavior: 'contain',
                sm: { fontSize: 'md' },
             })}
          >

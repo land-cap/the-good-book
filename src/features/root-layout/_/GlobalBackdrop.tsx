@@ -20,8 +20,8 @@ export const GlobalBackdrop = () => {
                transition={{ duration: 0.3, ease: 'easeOut' }}
                className={css({
                   zIndex: 1,
-                  pos: 'fixed',
                   inset: 0,
+                  pos: 'fixed',
                   bg: 'bg.canvas',
                })}
             />

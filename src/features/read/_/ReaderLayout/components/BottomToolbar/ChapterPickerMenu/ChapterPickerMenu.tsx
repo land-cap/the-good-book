@@ -29,14 +29,14 @@ export const ChapterPickerMenu = () => {
                >
                   <Header />
                   <TabsContent
-                     value="book"
                      className={css({
                         pb: 'calc(token(spacing.4) + token(spacing.safe_area_bottom))',
                      })}
+                     value="book"
                   >
                      <BookTabView />
                   </TabsContent>
-                  <TabsContent value="chapter" className={macrogrid()}>
+                  <TabsContent className={macrogrid()} value="chapter">
                      <ChapterTabView />
                   </TabsContent>
                </TabsRoot>

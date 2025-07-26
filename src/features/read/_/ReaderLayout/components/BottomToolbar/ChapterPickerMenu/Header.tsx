@@ -14,11 +14,11 @@ import {
 const tabsTriggerCls = cx(
    button({ size: 'xl' }),
    css({
+      h: 'full',
+      fontWeight: 'bold',
       '&:not([data-selected])': {
          color: 'fg.faded',
       },
-      fontWeight: 'bold',
-      h: 'full',
    }),
 )
 
@@ -32,8 +32,8 @@ export const Header = () => {
    return (
       <div className={macrogrid()}>
          <div className={css({ column: 'content' })}>
-            <div className={hstack({ h: '14', justify: 'space-between' })}>
-               <Tabs.List className={hstack({ h: 'full', gap: '0' })}>
+            <div className={hstack({ justify: 'space-between', h: '14' })}>
+               <Tabs.List className={hstack({ gap: '0', h: 'full' })}>
                   <Tabs.Trigger
                      className={tabsTriggerCls}
                      value="book"
