@@ -1,3 +1,4 @@
+import { Link, linkOptions } from '@tanstack/react-router'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { range } from 'ramda'
 import { useMemo } from 'react'
@@ -11,7 +12,7 @@ import {
 import {
    ChapterList,
    ChapterListItem,
-   ChapterListItemLink,
+   chapterListItemLinkCls,
 } from './ChapterPickerMenu.styles'
 import { useComputeChapterListItemHeight } from './useComputeChapterListItemHeight'
 
@@ -48,6 +49,11 @@ export const ChapterTabView = () => {
             const isCurrChapter =
                selectedBook.id === currBook.id && chapter === currChapter
 
+            const chapterLinkOptions = linkOptions({
+               to: '/{-$locale}/read/$book/$chapter',
+               params: { book: selectedBook.code, chapter: `${chapter}` },
+            })
+
             return (
                <ChapterListItem
                   key={chapter}
@@ -55,13 +61,12 @@ export const ChapterTabView = () => {
                   isCurrChapter={isCurrChapter}
                   onClick={() => setShowChapterPickerMenu(false)}
                >
-                  <ChapterListItemLink
-                     to={'/{-$locale}/read/$book/$chapter'}
-                     // @ts-expect-error TODO: fix later
-                     params={{ book: selectedBook.code, chapter: `${chapter}` }}
+                  <Link
+                     {...chapterLinkOptions}
+                     className={chapterListItemLinkCls}
                   >
                      {chapter}
-                  </ChapterListItemLink>
+                  </Link>
                </ChapterListItem>
             )
          })}

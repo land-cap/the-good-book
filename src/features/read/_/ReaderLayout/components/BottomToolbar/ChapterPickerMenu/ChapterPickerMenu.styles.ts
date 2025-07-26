@@ -57,6 +57,4 @@ export const ChapterListItem = styled('li', {
    },
 })
 
-export const ChapterListItemLink = styled(Link, {
-   base: center.raw({ inset: 0, pos: 'absolute' }),
-})
+export const chapterListItemLinkCls = center({ inset: 0, pos: 'absolute' })
