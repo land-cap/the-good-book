@@ -3,7 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { TBookWithDetails } from '~/db/dbQueries'
 import { BleedList } from '~/ui/shared'
 
-import { bookCodeAtom } from '../bottomToolbar.state'
+import { bookCodeAtom } from '../../bottomToolbar.state'
 import { activeTabAtom, selectedBookIdAtom } from './chapterPickerMenu.state'
 
 export const BookList = ({ bookList }: { bookList: TBookWithDetails[] }) => {

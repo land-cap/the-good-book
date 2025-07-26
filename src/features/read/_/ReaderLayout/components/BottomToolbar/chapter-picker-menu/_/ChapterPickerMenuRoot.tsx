@@ -3,7 +3,7 @@ import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
-import { bookAtom, chapterAtom } from '../bottomToolbar.state'
+import { bookAtom, chapterAtom } from '../../bottomToolbar.state'
 import { ChapterPickerMenu } from './ChapterPickerMenu'
 import {
    activeTabAtom,

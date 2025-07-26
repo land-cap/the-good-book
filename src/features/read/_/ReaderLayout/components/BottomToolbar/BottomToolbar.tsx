@@ -7,7 +7,7 @@ import {
    prevChapterLocationAtom,
 } from './bottomToolbar.state'
 import { BottomToolbarContainer } from './BottomToolbarContainer'
-import { ChapterPickerMenuRoot } from './ChapterPickerMenu/ChapterPickerMenuRoot'
+import { ChapterPickerMenuRoot } from './chapter-picker-menu/shared'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const BottomToolbar = () => {

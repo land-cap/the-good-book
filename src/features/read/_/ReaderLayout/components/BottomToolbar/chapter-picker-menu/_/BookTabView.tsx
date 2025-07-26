@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import { TBookWithDetails } from '~/db/dbQueries'
 import { BleedList } from '~/ui/shared'
 
-import { bookListAtom } from '../bottomToolbar.state'
+import { bookListAtom } from '../../bottomToolbar.state'
 import { BookList } from './BookList'
 import { BookListSectionHeader } from './BookListSectionHeader'
 
