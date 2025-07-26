@@ -1,5 +1,3 @@
-'use client'
-
 import { Dialog, DialogRootProps } from '@ark-ui/react'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { css, cx } from 'styled-system/css'

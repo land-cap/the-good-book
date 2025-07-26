@@ -9,7 +9,9 @@
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book-list.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/chapter-content-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterTabView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterTabView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +173,7 @@
       <workItem from="1753380829951" duration="1241000" />
       <workItem from="1753382084227" duration="12733000" />
       <workItem from="1753443422007" duration="1711000" />
-      <workItem from="1753518320394" duration="2405000" />
+      <workItem from="1753518320394" duration="2707000" />
     </task>
     <servers />
   </component>
