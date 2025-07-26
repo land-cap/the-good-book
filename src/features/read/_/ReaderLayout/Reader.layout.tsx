@@ -10,8 +10,9 @@ import { BottomToolbar } from './components/BottomToolbar/BottomToolbar'
 import {
    bookCodeAtom,
    bookListAtom,
-   currChapterAtom,
+   chapterAtom,
 } from './components/BottomToolbar/bottomToolbar.state'
+import { selectedBookIdAtom } from './components/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state'
 import { Footer } from './components/Footer/Footer'
 
 const chapterRouteApi = getRouteApi('/{-$locale}/read/$book/$chapter')
@@ -26,17 +27,20 @@ export const ReaderLayout = ({
    const { book: bookCodeParam, chapter: chapterParam } =
       chapterRouteApi.useParams()
 
+   const bookId = bookList.find((book) => book.code === bookCodeParam)!.id
+
    useHydrateAtoms([
       [bookListAtom, bookList],
       [bookCodeAtom, bookCodeParam],
-      [currChapterAtom, parseInt(chapterParam)],
+      [chapterAtom, parseInt(chapterParam)],
+      [selectedBookIdAtom, bookId],
    ])
 
    const prevBookCodeParam = usePrevious(bookCodeParam)
    const prevChapterParam = usePrevious(chapterParam)
 
    const setBookCode = useSetAtom(bookCodeAtom)
-   const setChapter = useSetAtom(currChapterAtom)
+   const setChapter = useSetAtom(chapterAtom)
 
    useEffect(() => {
       if (prevBookCodeParam && bookCodeParam !== prevBookCodeParam) {
