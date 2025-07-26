@@ -10,7 +10,7 @@
     "generate:book-list": "node scripts/generateBookList.js",
     "generate:sw": "npx workbox generateSW ./workbox-config.cjs",
     "build:app": "vite build",
-    "build": "pnpm run generate:db && pnpm run generate:chapter-content-data && pnpm generate:book-list && pnpm run build:app && pnpm run generate:sw",
+    "build": "pnpm run generate:db && pnpm run build:app && pnpm run generate:sw",
     "build:x2": "pnpm run build && pnpm run build",
     "start": "PORT=4000 node .output/server/index.mjs",
     "type-check": "tsc --noEmit",

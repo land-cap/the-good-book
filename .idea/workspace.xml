@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.netlify/functions-internal/nitro.json" beforeDir="false" afterPath="$PROJECT_DIR$/.netlify/functions-internal/nitro.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/_shell.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/_shell.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/sw.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/sw.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/generateBibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBibleData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/generateBookList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBookList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +48,9 @@
     &quot;accountId&quot;: &quot;276a5ec5-a517-45b5-8b45-f5158ef6552e&quot;
   }
 }</component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/.netlify/functions-internal/server/package.json" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
