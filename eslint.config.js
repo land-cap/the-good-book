@@ -14,7 +14,6 @@ export default defineConfig([
       '.nitro/**',
       '.output/**',
       '.tanstack/**',
-      'prisma-generated/**',
       'public/**',
       'styled-system/**',
    ]),

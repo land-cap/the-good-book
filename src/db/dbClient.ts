@@ -1,4 +1,4 @@
-import prismaMod from '../../prisma-generated/index.js'
+import prismaMod from '@prisma/client'
 const { PrismaClient } = prismaMod
 
 export const dbClient = new PrismaClient()

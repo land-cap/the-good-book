@@ -6,4 +6,3 @@ public
 pnpm-lock.yaml
 routeTree.gen.ts
 styled-system
-prisma-generated
