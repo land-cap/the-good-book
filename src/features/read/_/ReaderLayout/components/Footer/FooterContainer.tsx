@@ -17,15 +17,15 @@ export const FooterContainer = ({ children }: { children: ReactNode }) => {
          ref={ref}
          className={flex({
             align: 'center',
-            w: 'full',
-            my: '20',
-            mx: 'auto',
             color: 'fg.subtle',
+            column: 'content',
             fontSize: 'xs',
             lineHeight: 'relaxed',
-            textAlign: 'center',
+            mx: 'auto',
+            my: '20',
             placeContent: 'center',
-            column: 'content',
+            textAlign: 'center',
+            w: 'full',
          })}
       >
          {children}

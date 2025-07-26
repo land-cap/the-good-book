@@ -11,16 +11,16 @@ export const BottomToolbarContainer = ({
 }) => (
    <nav
       className={macrogrid({
+         column: 'fullbleed',
+         forceGpu: true,
          pos: 'fixed',
          bottom: '0',
          w: 'full',
          bg: 'bg.canvas',
-         transition: 'all',
-         transitionTimingFunction: 'ease-in-out',
-         transitionDuration: 'normal',
          willChange: 'bottom, opacity',
-         column: 'fullbleed',
-         forceGpu: true,
+         transition: 'all',
+         transitionDuration: 'normal',
+         transitionTimingFunction: 'ease-in-out',
       })}
    >
       <Separator className={css({ column: 'content' })} />
