@@ -1,5 +1,5 @@
-// nitro.config.ts
 export default {
+   serverAssets: [{ baseName: 'messages', dir: './messages' }],
    publicAssets: [
       {
          dir: './public',

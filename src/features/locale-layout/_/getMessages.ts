@@ -1,10 +1,13 @@
-import path from 'node:path'
-
 import { createServerFn } from '@tanstack/react-start'
-import fs from 'fs/promises'
 import { Locale, Messages } from 'use-intl'
 
 import { DEFAULT_LOCALE, LOCALE_LIST } from '~/config/i18n'
+
+const LOCALE_TO_MESSAGES: Record<Locale, () => Promise<Messages>> = {
+   en: () => import('messages/en.json'),
+   ro: () => import('messages/ro.json'),
+   ru: () => import('messages/ru.json'),
+}
 
 export const getMessagesServer = createServerFn()
    .validator((locale) => {
@@ -16,8 +19,4 @@ export const getMessagesServer = createServerFn()
       }
       return locale as Locale
    })
-   .handler(async ({ data: locale }) => {
-      const filePath = path.join(process.cwd(), 'messages', `${locale}.json`)
-      const messagesStr = await fs.readFile(filePath, 'utf-8')
-      return JSON.parse(messagesStr) as Messages
-   })
+   .handler(async ({ data: locale }) => await LOCALE_TO_MESSAGES[locale]())
