@@ -7,10 +7,21 @@ module.exports = {
    importScripts: ['sw-shell.js'],
    runtimeCaching: [
       {
+         urlPattern: /\/api\/messages\/[^/]+$/,
+         handler: 'NetworkFirst',
+         options: {
+            cacheName: 'messages',
+            expiration: {
+               maxEntries: 1000,
+               maxAgeSeconds: 24 * 60 * 60,
+            },
+         },
+      },
+      {
          urlPattern: /book-list\.json$/,
          handler: 'NetworkFirst',
          options: {
-            cacheName: 'chapter-content-data-cache',
+            cacheName: 'book-list',
             expiration: {
                maxEntries: 1,
                maxAgeSeconds: 24 * 60 * 60,
@@ -21,7 +32,7 @@ module.exports = {
          urlPattern: /chapter-content-data\.json$/,
          handler: 'NetworkFirst',
          options: {
-            cacheName: 'chapter-content-data-cache',
+            cacheName: 'chapter-content-data',
             expiration: {
                maxEntries: 1,
                maxAgeSeconds: 24 * 60 * 60,
@@ -38,7 +49,7 @@ module.exports = {
             request.destination === 'font',
          handler: 'StaleWhileRevalidate',
          options: {
-            cacheName: 'app-shell-cache',
+            cacheName: 'app-shell',
             expiration: {
                maxEntries: 50,
                maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week

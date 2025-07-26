@@ -8,6 +8,7 @@ import { registerSW } from 'virtual:pwa-register'
 
 import { SafeAreaBottom } from '~/ui/shared'
 
+import { LOCALE_LIST } from '../../../config/i18n'
 import { GlobalBackdrop } from './GlobalBackdrop'
 import { THEME, themeAtom } from './state'
 
@@ -17,8 +18,13 @@ const UseServiceWorkerRegister = () => {
          if ('serviceWorker' in navigator) {
             registerSW({ immediate: true })
             await navigator.serviceWorker.ready
-            void fetch('/book-list.json')
-            void fetch('/chapter-content-data.json')
+            requestIdleCallback(() => {
+               LOCALE_LIST.forEach(
+                  (locale) => void fetch(`/api/messages/${locale}`),
+               )
+               void fetch('/book-list.json')
+               void fetch('/chapter-content-data.json')
+            })
          }
       })()
    }, [])
