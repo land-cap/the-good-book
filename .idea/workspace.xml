@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/BookList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/BookListSectionHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/BookTabView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterListHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterTabView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/chapterPickerMenu.state.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/useComputeChapterListItemHeight.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/Reader.layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/BottomToolbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/bottomToolbar.state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-list.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/chapter-content-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenuRoot.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,33 +63,33 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feat/reader-screen",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/land_cap/projects/personal/the-good-book/src/features/read/_/ReaderLayout/components/BottomToolbar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "npm.Next.js: server-side.executor": "Run",
-    "npm.generate:bible-data.executor": "Run",
-    "npm.generate:book-list.executor": "Run",
-    "settings.editor.selected.configurable": "editor.preferences.import",
-    "ts.external.directory.path": "/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/reader-screen&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/src/features/read/_/ReaderLayout/components/BottomToolbar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
+    &quot;npm.generate:bible-data.executor&quot;: &quot;Run&quot;,
+    &quot;npm.generate:book-list.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar" />
@@ -166,7 +152,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.2" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
       </set>
     </attachedChunks>
   </component>
@@ -185,11 +171,17 @@
       <workItem from="1753380829951" duration="1241000" />
       <workItem from="1753382084227" duration="12733000" />
       <workItem from="1753443422007" duration="1711000" />
+      <workItem from="1753518320394" duration="2405000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="additionalRoots">
+      <list>
+        <option value="$PROJECT_DIR$/styled-system" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
