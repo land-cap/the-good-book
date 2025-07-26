@@ -1,5 +1,4 @@
 import { Tabs } from '@ark-ui/react'
-import { Link } from '@tanstack/react-router'
 import { styled } from 'styled-system/jsx'
 import {
    center,

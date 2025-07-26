@@ -40,6 +40,7 @@
   "devDependencies": {
     "@eslint/js": "^9.31.0",
     "@pandacss/dev": "^0.54.0",
+    "@pandacss/eslint-plugin": "^0.2.12",
     "@pandacss/preset-panda": "^0.54.0",
     "@types/node": "^22.16.5",
     "@types/ramda": "^0.30.2",
