@@ -7,6 +7,7 @@ import {
    prevChapterLocationAtom,
 } from './bottomToolbar.state'
 import { BottomToolbarContainer } from './BottomToolbarContainer'
+import { ChapterPickerMenuRoot } from './ChapterPickerMenu/ChapterPickerMenuRoot'
 import { ReaderNavButton } from './ReaderNavButton'
 
 export const BottomToolbar = () => {
@@ -36,7 +37,7 @@ export const BottomToolbar = () => {
                   direction="left"
                   label={t('previous_btn')}
                />
-               {/*<ChapterPickerMenuRoot />*/}
+               <ChapterPickerMenuRoot />
                <ReaderNavButton
                   location={nextChapterLocation}
                   direction="right"

@@ -14,10 +14,10 @@ export const bookAtom = atom((get) => {
    return bookList.find(({ code }) => code === currBookCode)!
 })
 
-export const currChapterAtom = atom(undefined as unknown as number)
+export const chapterAtom = atom(undefined as unknown as number)
 
 export const prevChapterLocationAtom = atom((get) => {
-   const currChapter = get(currChapterAtom)
+   const currChapter = get(chapterAtom)
    const currBook = get(bookAtom)
 
    if (currChapter > 1) {
@@ -47,7 +47,7 @@ export const prevChapterLocationAtom = atom((get) => {
 })
 
 export const nextChapterLocationAtom = atom((get) => {
-   const currChapter = get(currChapterAtom)
+   const currChapter = get(chapterAtom)
    const currBook = get(bookAtom)
    const currBookChapterCount = currBook.chapter_count
 
