@@ -28,10 +28,10 @@ export const DefaultCatchBoundary: ErrorRouteComponent = ({ error }) => {
                Try Again
             </button>
             {isRoot ? (
-               <Link to="/">Home</Link>
+               <Link to="/{-$locale}">Home</Link>
             ) : (
                <Link
-                  to="/"
+                  to="/{-$locale}"
                   onClick={(e) => {
                      e.preventDefault()
                      window.history.back()

@@ -1,13 +1,24 @@
 {
-   "include": ["src", "global.ts", "messages", "prisma-generated"],
-   "exclude": ["node_modules"],
+   "include": [
+      "src",
+      "global.ts",
+      "messages"
+   ],
+   "exclude": [
+      "node_modules",
+      "styled-system"
+   ],
    "compilerOptions": {
       "strict": true,
       "esModuleInterop": true,
       "jsx": "react-jsx",
       "module": "ESNext",
       "moduleResolution": "Bundler",
-      "lib": ["DOM", "DOM.Iterable", "ES2022"],
+      "lib": [
+         "DOM",
+         "DOM.Iterable",
+         "ES2022"
+      ],
       "isolatedModules": true,
       "resolveJsonModule": true,
       "skipLibCheck": true,
@@ -16,14 +27,29 @@
       "forceConsistentCasingInFileNames": true,
       "baseUrl": ".",
       "paths": {
-         "~/db/*": ["./src/db/*"],
-         "~/global-state": ["./src/globalState.ts"],
-         "~/ui/*": ["./src/ui/*"],
-         "~/utils/*": ["./src/utils/*"],
-         "@/*": ["./src/features/*"],
-         "styled-system/*": ["./styled-system/*"]
+         "~/db/*": [
+            "./src/db/*"
+         ],
+         "~/global-state": [
+            "./src/globalState.ts"
+         ],
+         "~/ui/*": [
+            "./src/ui/*"
+         ],
+         "~/utils/*": [
+            "./src/utils/*"
+         ],
+         "@/*": [
+            "./src/features/*"
+         ],
+         "styled-system/*": [
+            "./styled-system/*"
+         ]
       },
-      "types": ["node", "vite-plugin-pwa/client"],
+      "types": [
+         "node",
+         "vite-plugin-pwa/client"
+      ],
       "noEmit": true
    }
 }
