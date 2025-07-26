@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.netlify/functions-internal/nitro.json" beforeDir="false" afterPath="$PROJECT_DIR$/.netlify/functions-internal/nitro.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/_shell.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/_shell.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/sw.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/sw.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/generateBibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBibleData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/generateBookList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBookList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/generateBibleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBibleData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/generateBookList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/generateBookList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +89,7 @@
     "npm.format.executor": "Run",
     "npm.generate:bible-data.executor": "Run",
     "npm.generate:book-list.executor": "Run",
+    "npm.generate:chapter-content-data.executor": "Run",
     "npm.start.executor": "Run",
     "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/land_cap/projects/personal/the-good-book/node_modules/typescript/lib",
@@ -116,7 +119,7 @@
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.generate:chapter-content-data">
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -147,21 +150,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="generate:bible-data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="generate:bible-data" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="generate:book-list" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="generate:book-list" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate:chapter-content-data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="generate:chapter-content-data" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -179,11 +182,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.generate:chapter-content-data" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build:x2" />
         <item itemvalue="npm.format" />
         <item itemvalue="npm.generate:book-list" />
-        <item itemvalue="npm.generate:bible-data" />
       </list>
     </recent_temporary>
   </component>
