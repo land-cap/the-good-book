@@ -4,7 +4,6 @@ import { Dialog, DialogRootProps } from '@ark-ui/react'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
-import { useScrollLock } from 'usehooks-ts'
 
 import { bookAtom, chapterAtom } from '../bottomToolbar.state'
 import { ChapterPickerMenu } from './ChapterPickerMenu'
@@ -23,8 +22,6 @@ export const ChapterPickerMenuRoot = () => {
    const currBook = useAtomValue(bookAtom)
    const setSelectedBookId = useSetAtom(selectedBookIdAtom)
 
-   useScrollLock()
-
    const handleDialogExitComplete = () => {
       setTab('book')
    }
@@ -42,8 +39,7 @@ export const ChapterPickerMenuRoot = () => {
       <Dialog.Root
          id="chapter-picker-menu"
          trapFocus
-         unmountOnExit
-         preventScroll={false}
+         lazyMount
          open={showMenu}
          onOpenChange={handleOpenChange}
          onExitComplete={handleDialogExitComplete}
