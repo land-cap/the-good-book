@@ -1,4 +1,9 @@
-**/build
-**/public
+.idea
+.nitro
+.output
+.tanstack
+public
 pnpm-lock.yaml
 routeTree.gen.ts
+styled-system
+prisma-generated

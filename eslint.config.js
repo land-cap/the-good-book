@@ -4,22 +4,36 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import { defineConfig, globalIgnores } from 'eslint/config'
+import globals from 'globals'
 
-export default [
+export default defineConfig([
+   globalIgnores([
+      'src/routeTree.gen.ts',
+      '.nitro/**',
+      '.output/**',
+      '.tanstack/**',
+      'prisma-generated/**',
+      'public/**',
+      'styled-system/**',
+   ]),
    js.configs.recommended,
-
    ...tsEslint.configs.recommended,
    ...tsEslint.configs.recommendedTypeChecked,
+
    {
       languageOptions: {
+         // parser: tsEslint.parser, // usually set by the ts configs already; uncomment if needed
          parserOptions: {
-            project: './tsconfig.json',
+            projectService: true,
+            tsconfigRootDir: import.meta.dirname,
          },
+         globals: { ...globals.browser, ...globals.node },
       },
    },
 
    {
-      files: ['**/*.{ts,tsx,js,jsx,json}'],
+      files: ['src/**/*.{ts,tsx,js,jsx}'],
       plugins: {
          react,
          'react-hooks': reactHooks,
@@ -29,11 +43,9 @@ export default [
       rules: {
          ...react.configs.recommended.rules,
          ...reactHooks.configs.recommended.rules,
-         ...jsxA11y.configs.recommended.rules,
-         // typescript
+         ...jsxA11y.configs.recommended.rules, // typescript
          '@typescript-eslint/no-floating-promises': 'warn',
-         '@typescript-eslint/only-throw-error': 'off',
-         // imports
+         '@typescript-eslint/only-throw-error': 'off', // imports
          'no-restricted-imports': [
             'error',
             {
@@ -41,14 +53,13 @@ export default [
                   {
                      regex: '/_/',
                      message:
-                        'Import from the private _ folder is only allowed in client.ts, server.ts or shared.ts at the same directory level.',
+                        'Import from the private (_) folder is only allowed in client.ts, server.ts or shared.ts at the same directory level.',
                   },
                ],
             },
          ],
          'simple-import-sort/imports': 'error',
-         'simple-import-sort/exports': 'error',
-         // react
+         'simple-import-sort/exports': 'error', // react
          'react/prop-types': 'off',
          'react/react-in-jsx-scope': 'off',
          'react/jsx-uses-react': 'off',
@@ -66,4 +77,4 @@ export default [
          'no-restricted-imports': 'off',
       },
    },
-]
+])
