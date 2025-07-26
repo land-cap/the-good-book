@@ -1,2 +1,3 @@
 [functions]
-  included_files = ["messages/**"]
+node_bundler = "esbuild"
+included_files = ["messages/**"]
