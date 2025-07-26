@@ -25,6 +25,7 @@ export const BottomToolbar = () => {
                pb: 'safe_area_bottom',
             })}
          >
+            {/* TODO: implement ReturnFromReferenceFab */}
             {/*<ReturnFromReferenceFab />*/}
             <div
                className={hstack({

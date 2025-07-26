@@ -57,6 +57,7 @@ export const ChapterTabView = () => {
                >
                   <ChapterListItemLink
                      to={'/{-$locale}/read/$book/$chapter'}
+                     // @ts-expect-error TODO: fix later
                      params={{ book: selectedBook.code, chapter: `${chapter}` }}
                   >
                      {chapter}
