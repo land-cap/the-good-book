@@ -5,44 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/features/root-layout/_/UseRegisterServiceWorker.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/ro.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ro.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nitro.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nitro.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/globalCss.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/globalCss.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/patterns.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/patterns.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/bg.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/bg.semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/border.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/border.semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/colors.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/colors.semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/fg.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/fg.semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/shadows.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/shadows.semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/spacing.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/spacing.semanticTokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/colors.tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/colors.tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/spacing.tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/spacing.tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/typography.tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/typography.tokens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda-preset/utilities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/utilities.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panda.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/error-ui/DefaultCatchBoundary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/DefaultCatchBoundary.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/error-ui/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/NotFound.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/error-ui/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/shared.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/BleedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/BleedList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Icon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Menu.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Menu.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Separator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Separator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/_/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/_/loggingMiddleware.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/loggingMiddleware.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/root-layout/_/RootLayout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +106,8 @@
       <recent name="$PROJECT_DIR$/src/routes/{-$locale}" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/features/root-layout/_/WithProviders.tsx" />
+      <recent name="$PROJECT_DIR$/src/features/root-layout/_/UseServiceWorkerRegister.tsx" />
       <recent name="$PROJECT_DIR$/src/db/dbQueries.ts" />
       <recent name="$PROJECT_DIR$/src/feat/root-layout/_/RootLayout.tsx" />
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" />
