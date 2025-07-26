@@ -1,8 +1,8 @@
 {
-  "reader": {
-    "bottom_toolbar": {
-      "previous_btn": "Capitol precedent",
-      "next_btn": "Următorul capitol"
-    }
-  }
+   "reader": {
+      "bottom_toolbar": {
+         "previous_btn": "Capitol precedent",
+         "next_btn": "Următorul capitol"
+      }
+   }
 }

@@ -6,12 +6,43 @@
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ro.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nitro.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nitro.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/globalCss.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/globalCss.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/patterns.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/patterns.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/recipes/buttonRecipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/bg.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/bg.semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/border.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/border.semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/colors.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/colors.semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/fg.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/colors.semanticTokens/fg.semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/shadows.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/shadows.semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/semanticTokens/spacing.semanticTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/semanticTokens/spacing.semanticTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/colors.tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/colors.tokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/spacing.tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/spacing.tokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/tokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/tokens/typography.tokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/tokens/typography.tokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda-preset/utilities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda-preset/utilities.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/error-ui/DefaultCatchBoundary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/DefaultCatchBoundary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/error-ui/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/NotFound.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/error-ui/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/error-ui/shared.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/_/BleedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/BleedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/_/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/_/Icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Icon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/SafeAreaBottom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/SafeAreaBottom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/_/Menu.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Menu.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/_/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/_/Separator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Separator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/_/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/_/loggingMiddleware.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/_/loggingMiddleware.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +116,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "npm.Next.js: server-side.executor": "Run",
+    "npm.format.executor": "Run",
     "npm.generate:bible-data.executor": "Run",
     "npm.generate:book-list.executor": "Run",
     "settings.editor.selected.configurable": "actions.on.save",
@@ -113,12 +145,22 @@
       <recent name="$PROJECT_DIR$/src/features/read/_/ReaderView.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.generate:book-list">
+  <component name="RunManager" selected="npm.format">
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="format" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="format" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -146,6 +188,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.format" />
         <item itemvalue="npm.generate:book-list" />
         <item itemvalue="npm.generate:bible-data" />
       </list>

@@ -65,12 +65,16 @@ export default defineConfig([
          'react/prop-types': 'off',
          'react/react-in-jsx-scope': 'off',
          'react/jsx-uses-react': 'off',
+
          ...panda.configs.recommended.rules,
+         '@pandacss/no-unsafe-token-fn-usage': 'off',
+         '@pandacss/no-hardcoded-color': 'off',
       },
       settings: {
          react: {
             version: 'detect',
          },
+         '@pandacss/configPath': 'panda.config.ts',
       },
    },
 
