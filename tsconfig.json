@@ -1,55 +1,29 @@
 {
-  "include": [
-    "src",
-    "global.ts",
-    "messages",
-    "prisma-generated"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "compilerOptions": {
-    "strict": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2022"
-    ],
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "target": "ES2022",
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/db/*": [
-        "./src/db/*"
-      ],
-      "~/global-state": [
-        "./src/globalState.ts"
-      ],
-      "~/ui/*": [
-        "./src/ui/*"
-      ],
-      "~/utils/*": [
-        "./src/utils/*"
-      ],
-      "@/*": [
-        "./src/features/*"
-      ],
-      "styled-system/*": [
-        "./styled-system/*"
-      ]
-    },
-    "types": [
-      "node",
-      "vite-plugin-pwa/client"
-    ],
-    "noEmit": true
-  }
+   "include": ["src", "global.ts", "messages", "prisma-generated"],
+   "exclude": ["node_modules"],
+   "compilerOptions": {
+      "strict": true,
+      "esModuleInterop": true,
+      "jsx": "react-jsx",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      "lib": ["DOM", "DOM.Iterable", "ES2022"],
+      "isolatedModules": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "target": "ES2022",
+      "allowJs": true,
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": ".",
+      "paths": {
+         "~/db/*": ["./src/db/*"],
+         "~/global-state": ["./src/globalState.ts"],
+         "~/ui/*": ["./src/ui/*"],
+         "~/utils/*": ["./src/utils/*"],
+         "@/*": ["./src/features/*"],
+         "styled-system/*": ["./styled-system/*"]
+      },
+      "types": ["node", "vite-plugin-pwa/client"],
+      "noEmit": true
+   }
 }

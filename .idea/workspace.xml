@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ab8d2795-ab22-42ad-ac78-1bac8d256c5d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/read/_/ReaderLayout/components/BottomToolbar/ChapterPickerMenu/ChapterPickerMenu.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/Icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/Icon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/_/SafeAreaBottom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/_/SafeAreaBottom.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,7 @@
       <workItem from="1753380829951" duration="1241000" />
       <workItem from="1753382084227" duration="12733000" />
       <workItem from="1753443422007" duration="1711000" />
-      <workItem from="1753518320394" duration="4155000" />
+      <workItem from="1753518320394" duration="4308000" />
     </task>
     <servers />
   </component>

@@ -19,20 +19,20 @@ export const TabsRoot = styled(Tabs.Root, {
 export const TabsContent = styled(Tabs.Content, {
    base: {
       h: 'full',
-      overflowY: 'scroll',
       overscrollBehavior: 'contain',
+      overflowY: 'scroll',
       _closed: { display: 'none' },
    },
 })
 
 export const ChapterList = styled('ul', {
    base: subgrid.raw({
-      column: 'content',
       display: 'grid',
-      gridTemplateColumns: 'repeat(5, 1fr)',
       h: 'fit-content',
       paddingBottom:
          'calc((var(--list-item-height) - 16px) / 2 + token(spacing.safe_area_bottom))',
+      column: 'content',
+      gridTemplateColumns: 'repeat(5, 1fr)',
       md: {
          gridTemplateColumns: 'repeat(10, 1fr)',
       },
@@ -40,13 +40,6 @@ export const ChapterList = styled('ul', {
 })
 
 export const ChapterListItem = styled('li', {
-   base: pressable.raw({
-      aspectRatio: '1/1',
-      placeContent: 'center',
-      placeItems: 'center',
-      pos: 'relative',
-      w: 'full',
-   }),
    variants: {
       isCurrChapter: {
          true: underlined.raw({
@@ -54,6 +47,13 @@ export const ChapterListItem = styled('li', {
          }),
       },
    },
+   base: pressable.raw({
+      pos: 'relative',
+      aspectRatio: '1/1',
+      w: 'full',
+      placeContent: 'center',
+      placeItems: 'center',
+   }),
 })
 
 export const chapterListItemLinkCls = center({ inset: 0, pos: 'absolute' })
