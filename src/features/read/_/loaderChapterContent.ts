@@ -10,8 +10,8 @@ export const loadChapterContent = async ({
    chapter: string
 }) => {
    if (isOnServer()) {
-      const { getChapterOnServer } = await import('./getChapterOnServer')
-      return getChapterOnServer({ bookParam, chapterParam })
+      const { getChapterServer } = await import('./getChapterServer')
+      return getChapterServer({ data: { bookParam, chapterParam } })
    } else {
       try {
          const { getChapterOnClient } = await import('./getChapterOnClient')

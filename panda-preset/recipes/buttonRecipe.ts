@@ -18,6 +18,7 @@ export const buttonRecipe = defineRecipe({
       },
       '&[aria-disabled=true]': {
          pointerEvents: 'none',
+         cursor: 'not-allowed!',
       },
    },
 

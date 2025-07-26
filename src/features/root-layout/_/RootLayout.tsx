@@ -1,5 +1,3 @@
-import 'jotai-devtools/styles.css'
-
 import { HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { useAtomValue } from 'jotai'

@@ -38,7 +38,7 @@ export const Tooltip = ({
 
    return (
       <ArkTooltip.Root>
-         <ArkTooltip.Trigger className={classes.trigger}>
+         <ArkTooltip.Trigger className={classes.trigger} asChild>
             {children}
          </ArkTooltip.Trigger>
          <ArkTooltip.Positioner className={classes.positioner}>
